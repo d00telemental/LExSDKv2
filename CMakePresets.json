@@ -1,0 +1,63 @@
+{
+    "version": 5,
+    "cmakeMinimumRequired": {
+        "major": 3,
+        "minor": 27,
+        "patch": 0
+    },
+    "configurePresets": [
+        {
+            "hidden": true,
+            "name": "Config-base",
+            "binaryDir": "${sourceDir}/Build/${presetName}"
+        },
+        {
+            "name": "VisualStudio-lean",
+            "inherits": "Config-base",
+            "displayName": "Visual Studio (lean)",
+            "description": "Visual Studio generator / Required minimum",
+            "generator": "Visual Studio 17 2022",
+            "architecture": {
+                "value": "x64",
+                "strategy": "external"
+            },
+            "cacheVariables": {
+                "CMAKE_EXPORT_COMPILE_COMMANDS": "1",
+                "CMAKE_CONFIGURATION_TYPES": "ASI-DEBUG;ASI-RELEASE"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        },
+        {
+            "name": "VisualStudio-full",
+            "inherits": "VisualStudio-lean",
+            "displayName": "Visual Studio (full)",
+            "description": "Visual Studio generator / All projects",
+            "cacheVariables": {
+                "LESDK_WITH_SAMPLES": "On",
+                "LESDK_WITH_TESTS": "On"
+            },
+            "condition": {
+                "type": "equals",
+                "lhs": "${hostSystemName}",
+                "rhs": "Windows"
+            }
+        }
+    ],
+    "buildPresets": [
+        {
+            "name": "VisualStudio-lean",
+            "configurePreset": "VisualStudio-lean",
+            "displayName": "Visual Studio (lean)"
+        },
+        {
+            "name": "VisualStudio-full",
+            "configurePreset": "VisualStudio-full",
+            "displayName": "Visual Studio (full)"
+        }
+    ],
+    "testPresets": []
+}
