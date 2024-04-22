@@ -1,0 +1,41 @@
+name: Build
+on:
+  push:
+    branches:
+      - main
+jobs:
+  build:
+    name: Build and test '${{ matrix.build_type }}'
+    runs-on: windows-latest
+    strategy:
+      fail-fast: false
+      matrix:
+        build_type:
+          - ASI-DEBUG
+          - ASI-RELEASE
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+      - name: Setup environment for C++
+        shell: pwsh
+        run: |
+          & 'C:\Program Files\Microsoft Visual Studio\2022\Enterprise\VC\Auxiliary\Build\vcvars64.bat'
+      - name: Setup environment for MSBuild
+        uses: microsoft/setup-msbuild@v2
+      - name: Generate solution
+        shell: pwsh
+        run: |
+          cmake --preset VisualStudio-full
+      - name: Build all projects
+        shell: pwsh
+        run: |
+          msbuild .\Build\VisualStudio-full\LESDK.sln /nologo /t:Build "/p:Configuration=${{ matrix.build_type }}"
+      - name: Upload built binaries
+        uses: actions/upload-artifact@v4
+        with:
+          name: LExSDKv2-${{ matrix.build_type }}
+          path: Build/${{ matrix.build_type }}/*.*
+      - name: Run container tests
+        shell: pwsh
+        run: |
+          .\Build\${{ matrix.build_type }}\LESDK-TESTS.exe -s
