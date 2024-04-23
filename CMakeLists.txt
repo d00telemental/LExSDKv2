@@ -248,10 +248,14 @@ endif ()
 # ! Fake project for repository files.
 # ========================================
 
-add_custom_target (Repository SOURCES
-  .editorconfig
-  .gitattributes
-  .gitignore
-  CMakeLists.txt
-  CMakePresets.json
-)
+if (PROJECT_IS_TOP_LEVEL)
+
+  add_custom_target (Repository SOURCES
+    .editorconfig
+    .gitattributes
+    .gitignore
+    CMakeLists.txt
+    CMakePresets.json
+  )
+
+endif ()
