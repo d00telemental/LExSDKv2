@@ -23,7 +23,7 @@
             },
             "cacheVariables": {
                 "CMAKE_EXPORT_COMPILE_COMMANDS": "1",
-                "CMAKE_CONFIGURATION_TYPES": "ASI-DEBUG;ASI-RELEASE"
+                "CMAKE_CONFIGURATION_TYPES": "DEBUG;RELEASE"
             },
             "condition": {
                 "type": "equals",

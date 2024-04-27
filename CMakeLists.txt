@@ -48,13 +48,13 @@ if (CMAKE_CXX_COMPILER_ID STREQUAL "MSVC")
 
   if (PROJECT_IS_TOP_LEVEL)
     add_compile_options (
-      "$<$<IN_LIST:$<CONFIG>,ASI-DEBUG>:/MDd;/Od>"
-      "$<$<IN_LIST:$<CONFIG>,ASI-RELEASE>:/MD;/O2>"
+      "$<$<IN_LIST:$<CONFIG>,DEBUG>:/MDd;/Od>"
+      "$<$<IN_LIST:$<CONFIG>,RELEASE>:/MD;/O2>"
     )
     add_link_options (
       "/DEBUG"
-      "$<$<IN_LIST:$<CONFIG>,ASI-DEBUG>:/OPT:NOREF;/OPT:NOICF>"
-      "$<$<IN_LIST:$<CONFIG>,ASI-RELEASE>:/OPT:ICF;/INCREMENTAL:NO>"
+      "$<$<IN_LIST:$<CONFIG>,DEBUG>:/OPT:NOREF;/OPT:NOICF>"
+      "$<$<IN_LIST:$<CONFIG>,RELEASE>:/OPT:ICF;/INCREMENTAL:NO>"
     )
   endif ()
 
@@ -136,7 +136,7 @@ if (LESDK_WITH_LE1)
   add_library (${PROJ_NAME}-LE1 STATIC ${PROJ_SRCS_SHARED} ${PROJ_SRCS_LE1})
   source_group (TREE ${SRCS_ROOT} FILES ${PROJ_SRCS_SHARED} ${PROJ_SRCS_LE1})
 
-  target_compile_definitions (${PROJ_NAME}-LE1 PRIVATE ${PROJ_DEFS_SHARED} "SDK_TARGET_LE1")
+  target_compile_definitions (${PROJ_NAME}-LE1 PRIVATE ${PROJ_DEFS_SHARED} PUBLIC "SDK_TARGET_LE1")
   target_compile_options (${PROJ_NAME}-LE1 PRIVATE ${PROJ_OPTS_SHARED})
   target_include_directories (${PROJ_NAME}-LE1 PUBLIC ${PROJ_INCL_SHARED})
   target_link_libraries (${PROJ_NAME}-LE1 PUBLIC ${PROJ_LINK_SHARED})
@@ -166,7 +166,7 @@ if (LESDK_WITH_LE2)
   add_library (${PROJ_NAME}-LE2 STATIC ${PROJ_SRCS_SHARED} ${PROJ_SRCS_LE2})
   source_group (TREE ${SRCS_ROOT} FILES ${PROJ_SRCS_SHARED} ${PROJ_SRCS_LE2})
 
-  target_compile_definitions (${PROJ_NAME}-LE2 PRIVATE ${PROJ_DEFS_SHARED} "SDK_TARGET_LE2")
+  target_compile_definitions (${PROJ_NAME}-LE2 PRIVATE ${PROJ_DEFS_SHARED} PUBLIC "SDK_TARGET_LE2")
   target_compile_options (${PROJ_NAME}-LE2 PRIVATE ${PROJ_OPTS_SHARED})
   target_include_directories (${PROJ_NAME}-LE2 PUBLIC ${PROJ_INCL_SHARED})
   target_link_libraries (${PROJ_NAME}-LE2 PUBLIC ${PROJ_LINK_SHARED})
@@ -194,7 +194,7 @@ if (LESDK_WITH_LE3)
   add_library (${PROJ_NAME}-LE3 STATIC ${PROJ_SRCS_SHARED} ${PROJ_SRCS_LE3})
   source_group (TREE ${SRCS_ROOT} FILES ${PROJ_SRCS_SHARED} ${PROJ_SRCS_LE3})
 
-  target_compile_definitions (${PROJ_NAME}-LE3 PRIVATE ${PROJ_DEFS_SHARED} "SDK_TARGET_LE3")
+  target_compile_definitions (${PROJ_NAME}-LE3 PRIVATE ${PROJ_DEFS_SHARED} PUBLIC "SDK_TARGET_LE3")
   target_compile_options (${PROJ_NAME}-LE3 PRIVATE ${PROJ_OPTS_SHARED})
   target_include_directories (${PROJ_NAME}-LE3 PUBLIC ${PROJ_INCL_SHARED})
   target_link_libraries (${PROJ_NAME}-LE3 PUBLIC ${PROJ_LINK_SHARED})

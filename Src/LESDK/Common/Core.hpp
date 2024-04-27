@@ -11,8 +11,12 @@
 
 #if !defined(LESDK_CHECK_OVERRIDE) || LESDK_CHECK_OVERRIDE == 0
 
-// #include <cassert>
-#define LESDK_CHECK(cond, msg) assert((cond) && msg)
+#ifndef NDEBUG
+    // #include <cassert>
+    #define LESDK_CHECK(cond, msg) assert((cond) && msg)
+#else
+    #define LESDK_CHECK(cond, msg) (void)(cond)
+#endif
 
 #endif
 
@@ -27,29 +31,37 @@ namespace Detail { void DefaultWarn(char const* Message); }
 // ! Basic type definitions.
 // ========================================
 
+#ifndef _WINDEF_
+
 #define INT8 signed char
 #define UINT8 unsigned char
 #define INT16 signed short
 #define UINT16 unsigned short
-#define INT signed int
-#define UINT unsigned int
+#define INT32 signed int
+#define UINT32 unsigned int
 #define INT64 signed long long
 #define UINT64 unsigned long long
 
 #define FLOAT float
 #define DOUBLE double
 
+#define CHAR char
+#define WCHAR wchar_t
+
 #define BYTE UINT8
-#define SBYTE INT8
 #define WORD UINT16
+#define DWORD UINT32
+
+#define INT INT32
+#define UINT UINT32
+
+#endif
+
+#define SBYTE INT8
 #define SWORD INT16
-#define DWORD UINT
 #define SDWORD INT
 #define QWORD UINT64
 #define SQWORD INT64
-
-#define CHAR char
-#define WCHAR wchar_t
 
 #define SIZE_T size_t
 

@@ -11,12 +11,12 @@ class FMallocTest final : public FMallocLike {
 public:
 
     void* Malloc(DWORD const Count, DWORD const Alignment) override {
-        assert(Alignment % 8 == 0);
+        assert(Alignment % 8 == 0); (void)Alignment;
         return std::malloc(Count);
     }
 
     void* Realloc(void* const Orig, DWORD const Count, DWORD const Alignment) override {
-        assert(Alignment % 8 == 0);
+        assert(Alignment % 8 == 0); (void)Alignment;
         return std::realloc(Orig, Count);
     }
 
