@@ -37,31 +37,6 @@
 #endif
 
 
-// There are some common definitions which may originate in <Windows.h>
-// which conflict with reflected properties in Mass Effect SDKs. Disable them here.
-
-#if defined(lst1)
-
-#undef lst1
-#undef lst2
-#undef lst3
-#undef lst4
-#undef lst5
-#undef lst6
-#undef lst7
-#undef lst8
-#undef lst9
-#undef lst10
-#undef lst11
-#undef lst12
-#undef lst13
-#undef lst14
-#undef lst15
-#undef lst16
-
-#endif
-
-
 // Include common type implementations like array, names, etc.
 
 #include "LESDK/Common/Common.hpp"

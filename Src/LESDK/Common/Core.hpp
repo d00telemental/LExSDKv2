@@ -31,9 +31,6 @@ namespace Detail { void DefaultWarn(char const* Message); }
 // ! Basic type definitions.
 // ========================================
 
-#include "LESDK/Common/Types.hpp"
-
-
 typedef signed char             SBYTE;
 typedef signed short            SWORD;
 typedef signed int              SDWORD;
