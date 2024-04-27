@@ -33,37 +33,37 @@ namespace Detail { void DefaultWarn(char const* Message); }
 
 #ifndef _WINDEF_
 
-#define INT8 signed char
-#define UINT8 unsigned char
-#define INT16 signed short
-#define UINT16 unsigned short
-#define INT32 signed int
-#define UINT32 unsigned int
-#define INT64 signed long long
-#define UINT64 unsigned long long
+typedef signed char         INT8;
+typedef unsigned char       UINT8;
+typedef signed short        INT16;
+typedef unsigned short      UINT16;
+typedef signed int          INT32;
+typedef unsigned int        UINT32;
+typedef signed long long    INT64;
+typedef unsigned long long  UINT64;
 
-#define FLOAT float
-#define DOUBLE double
+typedef float       FLOAT;
+typedef double      DOUBLE;
 
-#define CHAR char
-#define WCHAR wchar_t
+typedef char        CHAR;
+typedef wchar_t     WCHAR;
 
-#define BYTE UINT8
-#define WORD UINT16
-#define DWORD UINT32
+typedef UINT8       BYTE;
+typedef UINT16      WORD;
+typedef UINT32      DWORD;
 
-#define INT INT32
-#define UINT UINT32
+typedef INT32       INT;
+typedef UINT32      UINT;
 
 #endif
 
-#define SBYTE INT8
-#define SWORD INT16
-#define SDWORD INT
-#define QWORD UINT64
-#define SQWORD INT64
+typedef INT8        SBYTE;
+typedef INT16       SWORD;
+typedef INT         SDWORD;
+typedef UINT64      QWORD;
+typedef INT64       SQWORD;
 
-#define SIZE_T size_t
+typedef size_t      SIZE_T;
 
 
 static_assert(sizeof(BYTE) == 1 && sizeof(SBYTE) == 1);
@@ -77,7 +77,7 @@ static_assert(sizeof(WCHAR) == 2);
 static_assert(sizeof(SIZE_T) == 8);
 
 
-using UBOOL = unsigned int;
+typedef unsigned int UBOOL;
 
 
 // ! Implementation stuff for containers.
