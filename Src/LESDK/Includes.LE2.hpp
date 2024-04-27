@@ -1,3 +1,4 @@
+#include "LESDK\Common\Types.hpp"
 #include "LESDK\Common\Common.hpp"
 
 #include "LE2\Core_structs.hpp"

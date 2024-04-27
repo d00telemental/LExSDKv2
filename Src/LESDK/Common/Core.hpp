@@ -1,6 +1,6 @@
 /**
  * @file        LESDK/Common/Core.hpp
- * @brief       This file implements core scalar typedefs, forward declarations, and utility macros.
+ * @brief       This file includes core scalar typedefs, forward declarations, and utility macros.
  */
 
 #pragma once
@@ -31,50 +31,22 @@ namespace Detail { void DefaultWarn(char const* Message); }
 // ! Basic type definitions.
 // ========================================
 
-#ifndef _WINDEF_
+#include "LESDK/Common/Types.hpp"
 
-typedef signed char         INT8;
-typedef unsigned char       UINT8;
-typedef signed short        INT16;
-typedef unsigned short      UINT16;
-typedef signed int          INT32;
-typedef unsigned int        UINT32;
-typedef signed long long    INT64;
-typedef unsigned long long  UINT64;
 
-typedef float       FLOAT;
-typedef double      DOUBLE;
+typedef signed char             SBYTE;
+typedef signed short            SWORD;
+typedef signed int              SDWORD;
+typedef unsigned long long      QWORD;
+typedef signed long long        SQWORD;
 
-typedef char        CHAR;
-typedef wchar_t     WCHAR;
-
-typedef UINT8       BYTE;
-typedef UINT16      WORD;
-typedef UINT32      DWORD;
-
-typedef INT32       INT;
-typedef UINT32      UINT;
-
-#endif
-
-typedef INT8        SBYTE;
-typedef INT16       SWORD;
-typedef INT         SDWORD;
-typedef UINT64      QWORD;
-typedef INT64       SQWORD;
-
-typedef size_t      SIZE_T;
+typedef size_t                  SIZE_T;
 
 
 static_assert(sizeof(BYTE) == 1 && sizeof(SBYTE) == 1);
 static_assert(sizeof(WORD) == 2 && sizeof(SWORD) == 2);
 static_assert(sizeof(DWORD) == 4 && sizeof(SDWORD) == 4);
 static_assert(sizeof(QWORD) == 8 && sizeof(SQWORD) == 8);
-
-static_assert(sizeof(CHAR) == 1);
-static_assert(sizeof(WCHAR) == 2);
-
-static_assert(sizeof(SIZE_T) == 8);
 
 
 typedef unsigned int UBOOL;
