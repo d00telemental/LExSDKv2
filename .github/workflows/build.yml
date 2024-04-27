@@ -14,8 +14,8 @@ jobs:
       fail-fast: false
       matrix:
         build_type:
-          - ASI-DEBUG
-          - ASI-RELEASE
+          - DEBUG
+          - RELEASE
     steps:
       - name: Checkout repository
         uses: actions/checkout@v4
