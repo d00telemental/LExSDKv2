@@ -41,7 +41,6 @@ public:
     template<bool DerivedWithRAII>
     friend class FStringBase;
     friend class FString;
-    friend class FStringRAII;
 
     TArrayBase() = default;
     TArrayBase(std::initializer_list<value_type> List);

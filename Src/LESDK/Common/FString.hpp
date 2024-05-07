@@ -15,8 +15,6 @@
 
 namespace LESDK {
 
-    // This functionality must be implemented in .cpp to avoid pulling <Windows.h> throughout the SDK files.
-
     UINT GetAnsiLengthWide(WCHAR const* InWideStr, UINT InWideLength);
     UINT GetUtf8LengthWide(WCHAR const* InWideStr, UINT InWideLength);
 
@@ -33,18 +31,18 @@ namespace LESDK {
 
 }
 
+class FStringView;
 class FString;
-class FStringRAII;
 
 
 // ! Hash functions.
 // ========================================
 
+DWORD GetTypeHash(FStringView& Value) noexcept;
+DWORD GetTypeHash(FStringView const& Value) noexcept;
+
 DWORD GetTypeHash(FString& Value) noexcept;
 DWORD GetTypeHash(FString const& Value) noexcept;
-
-DWORD GetTypeHash(FStringRAII& Value) noexcept;
-DWORD GetTypeHash(FStringRAII const& Value) noexcept;
 
 
 // ! FString implementation.
@@ -401,22 +399,78 @@ FStringBase<WithRAII>::operator*() const noexcept {
 
 
 /**
- * @brief   Dynamic string managed by Unreal Engine.
+ * @brief   Dynamic string compatible with Unreal Engine, without RAII semantics.
  */
-class FString final : public FStringBase<false> {
+class FStringView final : public FStringBase<false> {
+    CONTAINER_TYPEDEFS(WCHAR, UINT, INT)
+
+public:
+    FStringView() : FStringBase{} {}
+    ~FStringView() noexcept {}
+
+    // Copy operations make a field-wise copy, and move operations
+    // are disabled, just like with TArrayView. Same warnings apply.
+
+    FStringView(FStringView const& Other);
+    FStringView& operator=(FStringView const& Other);
+    FStringView(FStringView&& Other) = delete;
+    FStringView& operator=(FStringView&& Other) = delete;
+
+    friend inline bool operator==(FStringView const& Lhs, FStringView const& Rhs) noexcept;
+    friend inline bool operator!=(FStringView const& Lhs, FStringView const& Rhs) noexcept;
+
+    friend class FString;
+};
+
+static_assert(std::is_copy_assignable_v<FStringView>);
+static_assert(std::is_copy_constructible_v<FStringView>);
+static_assert(! std::is_move_assignable_v<FStringView>);
+static_assert(! std::is_move_constructible_v<FStringView>);
+
+inline FStringView::FStringView(FStringView const& Other) {
+    Storage = Other.Storage;
+}
+
+inline FStringView& FStringView::operator=(FStringView const& Other) {
+    if (this != &Other) {
+        Storage = Other.Storage;
+    }
+    return *this;
+}
+
+inline bool operator==(FStringView const& Lhs, FStringView const& Rhs) noexcept {
+    return Lhs.Equals(Rhs, true);
+}
+
+inline bool operator!=(FStringView const& Lhs, FStringView const& Rhs) noexcept {
+    return !(Lhs == Rhs);
+}
+
+
+/**
+ * @brief   Dynamic string compatible with Unreal Engine, with RAII semantics.
+ * @remarks Essentially it is an @ref FStringView with RAII support.
+ */
+class FString final : public FStringBase<true> {
     CONTAINER_TYPEDEFS(WCHAR, UINT, INT)
 
 public:
     FString() : FStringBase{} {}
     ~FString() noexcept {}
 
-    // Copy operations make a field-wise copy, and move operations
-    // are disabled, just like with TArray. Same warnings apply.
+    FString(const_pointer InStr);
+    FString& operator=(const_pointer InStr);
+
+
+    // Copy / move semantics for FString mirror those of TArray.
 
     FString(FString const& Other);
     FString& operator=(FString const& Other);
-    FString(FString&& Other) = delete;
-    FString& operator=(FString&& Other) = delete;
+    FString(FString&& Other) noexcept;
+    FString& operator=(FString&& Other) noexcept;
+
+    inline FString Printf(const_pointer Format, ...);
+    inline FString Printfv(const_pointer Format, std::va_list Args);
 
     friend inline bool operator==(FString const& Lhs, FString const& Rhs) noexcept;
     friend inline bool operator!=(FString const& Lhs, FString const& Rhs) noexcept;
@@ -424,18 +478,65 @@ public:
 
 static_assert(std::is_copy_assignable_v<FString>);
 static_assert(std::is_copy_constructible_v<FString>);
-static_assert(! std::is_move_assignable_v<FString>);
-static_assert(! std::is_move_constructible_v<FString>);
+static_assert(std::is_move_assignable_v<FString>);
+static_assert(std::is_move_constructible_v<FString>);
 
-inline FString::FString(FString const& Other) {
-    Storage = Other.Storage;
+inline FString::FString(const_pointer const InStr)
+    : FStringBase{}
+{
+    this->Append(InStr);
+}
+
+inline FString& FString::operator=(const_pointer const InStr) {
+    this->Reset();
+    this->Append(InStr);
+}
+
+inline FString::FString(FString const& Other)
+    : FStringBase{}
+{
+    this->Append(Other);
 }
 
 inline FString& FString::operator=(FString const& Other) {
     if (this != &Other) {
-        Storage = Other.Storage;
+        this->Reset();
+        this->Append(Other);
     }
     return *this;
+}
+
+inline FString::FString(FString&& Other) noexcept
+    : FStringBase{}
+{
+    Storage.Data = std::exchange(Other.Storage.Data, nullptr);
+    Storage.CountItems = std::exchange(Other.Storage.CountItems, 0);
+    Storage.CountMax = std::exchange(Other.Storage.CountMax, 0);
+}
+
+inline FString& FString::operator=(FString&& Other) noexcept {
+    if (this != &Other) {
+        this->Reset();
+        Storage.Data = std::exchange(Other.Storage.Data, nullptr);
+        Storage.CountItems = std::exchange(Other.Storage.CountItems, 0);
+        Storage.CountMax = std::exchange(Other.Storage.CountMax, 0);
+    }
+    return *this;
+}
+
+inline FString FString::Printf(const_pointer const Format, ...) {
+    FString Instance{};
+    std::va_list Args;
+    va_start(Args, Format);
+    Instance.AppendFormatv(Format, Args);
+    va_end(Args);
+    return Instance;
+}
+
+inline FString FString::Printfv(const_pointer const Format, std::va_list Args) {
+    FString Instance{};
+    Instance.AppendFormatv(Format, Args);
+    return Instance;
 }
 
 inline bool operator==(FString const& Lhs, FString const& Rhs) noexcept {
@@ -447,106 +548,5 @@ inline bool operator!=(FString const& Lhs, FString const& Rhs) noexcept {
 }
 
 
-/**
- * @brief   Dynamic string managed by plugin-side code.
- * @remarks Essentially it is an @ref FString with RAII support.
- */
-class FStringRAII final : public FStringBase<true> {
-    CONTAINER_TYPEDEFS(WCHAR, UINT, INT)
-
-public:
-    FStringRAII() : FStringBase{} {}
-    ~FStringRAII() noexcept {}
-
-    FStringRAII(const_pointer InStr);
-    FStringRAII& operator=(const_pointer InStr);
-
-
-    // Copy / move semantics for FStringRAII mirror those of TArrayRAII.
-
-    FStringRAII(FStringRAII const& Other);
-    FStringRAII& operator=(FStringRAII const& Other);
-    FStringRAII(FStringRAII&& Other) noexcept;
-    FStringRAII& operator=(FStringRAII&& Other) noexcept;
-
-    inline FStringRAII Printf(const_pointer Format, ...);
-    inline FStringRAII Printfv(const_pointer Format, std::va_list Args);
-
-    friend inline bool operator==(FStringRAII const& Lhs, FStringRAII const& Rhs) noexcept;
-    friend inline bool operator!=(FStringRAII const& Lhs, FStringRAII const& Rhs) noexcept;
-};
-
-static_assert(std::is_copy_assignable_v<FStringRAII>);
-static_assert(std::is_copy_constructible_v<FStringRAII>);
-static_assert(std::is_move_assignable_v<FStringRAII>);
-static_assert(std::is_move_constructible_v<FStringRAII>);
-
-inline FStringRAII::FStringRAII(const_pointer const InStr)
-    : FStringBase{}
-{
-    this->Append(InStr);
-}
-
-inline FStringRAII& FStringRAII::operator=(const_pointer const InStr) {
-    this->Reset();
-    this->Append(InStr);
-}
-
-inline FStringRAII::FStringRAII(FStringRAII const& Other)
-    : FStringBase{}
-{
-    this->Append(Other);
-}
-
-inline FStringRAII& FStringRAII::operator=(FStringRAII const& Other) {
-    if (this != &Other) {
-        this->Reset();
-        this->Append(Other);
-    }
-    return *this;
-}
-
-inline FStringRAII::FStringRAII(FStringRAII&& Other) noexcept
-    : FStringBase{}
-{
-    Storage.Data = std::exchange(Other.Storage.Data, nullptr);
-    Storage.CountItems = std::exchange(Other.Storage.CountItems, 0);
-    Storage.CountMax = std::exchange(Other.Storage.CountMax, 0);
-}
-
-inline FStringRAII& FStringRAII::operator=(FStringRAII&& Other) noexcept {
-    if (this != &Other) {
-        this->Reset();
-        Storage.Data = std::exchange(Other.Storage.Data, nullptr);
-        Storage.CountItems = std::exchange(Other.Storage.CountItems, 0);
-        Storage.CountMax = std::exchange(Other.Storage.CountMax, 0);
-    }
-    return *this;
-}
-
-inline FStringRAII FStringRAII::Printf(const_pointer const Format, ...) {
-    FStringRAII Instance{};
-    std::va_list Args;
-    va_start(Args, Format);
-    Instance.AppendFormatv(Format, Args);
-    va_end(Args);
-    return Instance;
-}
-
-inline FStringRAII FStringRAII::Printfv(const_pointer const Format, std::va_list Args) {
-    FStringRAII Instance{};
-    Instance.AppendFormatv(Format, Args);
-    return Instance;
-}
-
-inline bool operator==(FStringRAII const& Lhs, FStringRAII const& Rhs) noexcept {
-    return Lhs.Equals(Rhs, true);
-}
-
-inline bool operator!=(FStringRAII const& Lhs, FStringRAII const& Rhs) noexcept {
-    return !(Lhs == Rhs);
-}
-
-
+static_assert(sizeof(FStringView) == 0x10);
 static_assert(sizeof(FString) == 0x10);
-static_assert(sizeof(FStringRAII) == 0x10);

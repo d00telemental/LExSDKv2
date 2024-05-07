@@ -543,13 +543,13 @@ SCENARIO("FString - conversion to standard containers") {
 }
 
 
-SCENARIO("FString - copy / move semantics") {
+SCENARIO("FStringView - copy / move semantics") {
     GIVEN("a string of some characters") {
-        FString Source{};
+        FStringView Source{};
         Source.Append(L"Hello there");
 
         WHEN("the string is used to copy-construct another string") {
-            FString Destination{ Source };
+            FStringView Destination{ Source };
 
             THEN("the new string has same characters in same allocation") {
                 CHECK_EQ(Destination.Chars(), Source.Chars());
@@ -558,7 +558,7 @@ SCENARIO("FString - copy / move semantics") {
         }
 
         WHEN("the string is used to copy-construct another string") {
-            FString Destination = Source;
+            FStringView Destination = Source;
 
             THEN("the new string has same characters in same allocation") {
                 CHECK_EQ(Destination.Chars(), Source.Chars());
@@ -569,13 +569,13 @@ SCENARIO("FString - copy / move semantics") {
 }
 
 
-SCENARIO("FStringRAII - copy / move semantics") {
+SCENARIO("FString - copy / move semantics") {
     GIVEN("a string of some characters") {
-        FStringRAII Source{};
+        FString Source{};
         Source.Append(L"Hello there");
 
         WHEN("the string is used to copy-construct another string") {
-            FStringRAII Destination{ Source };
+            FString Destination{ Source };
 
             THEN("the new string has same characters in a different allocation") {
                 CHECK_NE(Destination.Chars(), Source.Chars());
@@ -584,7 +584,7 @@ SCENARIO("FStringRAII - copy / move semantics") {
         }
 
         WHEN("the string is used to copy-construct another string") {
-            FStringRAII Destination = Source;
+            FString Destination = Source;
 
             THEN("the new string has same characters in a different allocation") {
                 CHECK_NE(Destination.Chars(), Source.Chars());
@@ -597,7 +597,7 @@ SCENARIO("FStringRAII - copy / move semantics") {
         auto const OldCapacity = Source.Capacity();
 
         WHEN("the string is used to move-construct another string") {
-            FStringRAII Destination{ std::move(Source) };
+            FString Destination{ std::move(Source) };
 
             THEN("the new string has exact same fields") {
                 CHECK_EQ(Destination.Chars(), OldChars);
@@ -608,7 +608,7 @@ SCENARIO("FStringRAII - copy / move semantics") {
 
         WHEN("the string is used to move-construct another string") {
             #pragma warning(disable: 26800)
-            FStringRAII Destination = std::move(Source);
+            FString Destination = std::move(Source);
             #pragma warning(default: 26800)
 
             THEN("the new string has exact same fields") {

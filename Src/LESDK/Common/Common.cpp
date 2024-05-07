@@ -264,7 +264,7 @@ SFXName::SFXName(char const* const Lookup, int const Instance, bool const bSplit
     // See the wchar_t accepting constructor for rationale.
     *reinterpret_cast<SIZE_T*>(this) = static_cast<SIZE_T>(-1);
 
-    FStringRAII Widestr{};
+    FString Widestr{};
     Widestr.AppendAnsi(Lookup);
 
     LESDK_CHECK(GInitMethod != nullptr, "SFXName::Init pointer must be initialized first");
@@ -358,19 +358,19 @@ DWORD GetTypeHash(WCHAR const* const Value) noexcept {
 }
 
 
+DWORD GetTypeHash(FStringView& Value) noexcept {
+    return ::LESDK::WideStringHashCI(Value.Chars());
+}
+
+DWORD GetTypeHash(FStringView const& Value) noexcept {
+    return ::LESDK::WideStringHashCI(Value.Chars());
+}
+
 DWORD GetTypeHash(FString& Value) noexcept {
     return ::LESDK::WideStringHashCI(Value.Chars());
 }
 
 DWORD GetTypeHash(FString const& Value) noexcept {
-    return ::LESDK::WideStringHashCI(Value.Chars());
-}
-
-DWORD GetTypeHash(FStringRAII& Value) noexcept {
-    return ::LESDK::WideStringHashCI(Value.Chars());
-}
-
-DWORD GetTypeHash(FStringRAII const& Value) noexcept {
     return ::LESDK::WideStringHashCI(Value.Chars());
 }
 

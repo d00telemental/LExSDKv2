@@ -88,7 +88,7 @@ struct SFXName {
 
     template<bool WithRAII>
     void AppendToString(FStringBase<WithRAII>& OutString, FormatMode Mode) const;
-    inline FStringRAII ToString(FormatMode Mode = k_formatInstanced) const;
+    inline FString ToString(FormatMode Mode = k_formatInstanced) const;
 
     /** Hash function for associative containers. */
     friend inline DWORD GetTypeHash(SFXName const Value) noexcept {
@@ -123,8 +123,8 @@ void SFXName::AppendToString(FStringBase<WithRAII>& OutString, FormatMode const 
     }
 }
 
-inline FStringRAII SFXName::ToString(FormatMode const Mode) const {
-    FStringRAII OutString{};
+inline FString SFXName::ToString(FormatMode const Mode) const {
+    FString OutString{};
     AppendToString(OutString, Mode);
     return OutString;
 }

@@ -17,9 +17,9 @@ TEST_SUITE("TMap") {
         CHECK_EQ(GetTypeHash(L"HELLO THERE"), GetTypeHash(L"hello there"));
         CHECK_NE(GetTypeHash(L"123"), GetTypeHash(L"321"));
 
-        CHECK_EQ(GetTypeHash(FStringRAII(L"abcdef")), GetTypeHash(FStringRAII(L"abcdef")));
-        CHECK_EQ(GetTypeHash(FStringRAII(L"abcdef")), GetTypeHash(FStringRAII(L"ABCDEF")));
-        CHECK_NE(GetTypeHash(FStringRAII(L"!abcdef")), GetTypeHash(FStringRAII(L"ABCDEFalsdhb")));
+        CHECK_EQ(GetTypeHash(FString(L"abcdef")), GetTypeHash(FString(L"abcdef")));
+        CHECK_EQ(GetTypeHash(FString(L"abcdef")), GetTypeHash(FString(L"ABCDEF")));
+        CHECK_NE(GetTypeHash(FString(L"!abcdef")), GetTypeHash(FString(L"ABCDEFalsdhb")));
     }
 
     TEST_CASE("integer to literal") {
