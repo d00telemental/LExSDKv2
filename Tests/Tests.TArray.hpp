@@ -610,13 +610,13 @@ SCENARIO("TArray - conversion to standard containers") {
 }
 
 
-SCENARIO("TArray - copy / move semantics") {
+SCENARIO("TArrayView - copy / move semantics") {
 
     GIVEN("an array of some trivial elements") {
-        TArray<int> Source{ { 1, 2, 3, 4 } };
+        TArrayView<int> Source{ { 1, 2, 3, 4 } };
 
         WHEN("the array is used to copy-construct another array") {
-            TArray<int> Destination{ Source };
+            TArrayView<int> Destination{ Source };
 
             THEN("the new array has exact same fields") {
                 CHECK_EQ(Destination.GetData(), Source.GetData());
@@ -626,7 +626,7 @@ SCENARIO("TArray - copy / move semantics") {
         }
 
         WHEN("the array is used to copy-construct another array") {
-            TArray<int> Destination = Source;
+            TArrayView<int> Destination = Source;
 
             THEN("the new array has exact same fields") {
                 CHECK_EQ(Destination.GetData(), Source.GetData());
@@ -639,13 +639,13 @@ SCENARIO("TArray - copy / move semantics") {
 }
 
 
-SCENARIO("TArrayRAII - copy / move semantics") {
+SCENARIO("TArray - copy / move semantics") {
 
     GIVEN("an array of some trivial elements") {
-        TArrayRAII<int> Source{ { 1, 2, 3, 4 } };
+        TArray<int> Source{ { 1, 2, 3, 4 } };
 
         WHEN("the array is used to copy-construct another array") {
-            TArrayRAII<int> Destination{ Source };
+            TArray<int> Destination{ Source };
 
             THEN("the new array has same contents") {
                 CHECK_EQ(Destination.Count(), Source.Count());
@@ -658,7 +658,7 @@ SCENARIO("TArrayRAII - copy / move semantics") {
         }
 
         WHEN("the array is used to copy-assign another array") {
-            TArrayRAII<int> Destination = Source;
+            TArray<int> Destination = Source;
 
             THEN("the new array has same contents") {
                 CHECK_EQ(Destination.Count(), Source.Count());
@@ -675,7 +675,7 @@ SCENARIO("TArrayRAII - copy / move semantics") {
             auto const OldCount = Source.Count();
             auto const OldCapacity = Source.Capacity();
 
-            TArrayRAII<int> Destination{ std::move(Source) };
+            TArray<int> Destination{ std::move(Source) };
 
             THEN("the new array has exact same fields") {
                 CHECK_EQ(Destination.GetData(), OldData);
@@ -689,7 +689,7 @@ SCENARIO("TArrayRAII - copy / move semantics") {
             auto const OldCount = Source.Count();
             auto const OldCapacity = Source.Capacity();
 
-            TArrayRAII<int> Destination = std::move(Source);
+            TArray<int> Destination = std::move(Source);
 
             THEN("the new array has exact same fields") {
                 CHECK_EQ(Destination.GetData(), OldData);
@@ -702,7 +702,7 @@ SCENARIO("TArrayRAII - copy / move semantics") {
 }
 
 
-SCENARIO("TArrayRAII - raii semantics") {
+SCENARIO("TArray - raii semantics") {
 
     GIVEN("an array of some non-trivial elements") {
         Counters counters{};
@@ -710,7 +710,7 @@ SCENARIO("TArrayRAII - raii semantics") {
         WHEN("the array leaves scope") {
 
             {
-                TArrayRAII<Movable> Array{ 4 };
+                TArray<Movable> Array{ 4 };
                 for (int i = 0; i < 4; ++i) {
                     Array.Add(Movable{ counters });
                 }
@@ -730,7 +730,7 @@ SCENARIO("TArrayRAII - raii semantics") {
         WHEN("the array leaves scope after being cleared") {
 
             {
-                TArrayRAII<Movable> Array{ 4 };
+                TArray<Movable> Array{ 4 };
                 for (int i = 0; i < 4; ++i) {
                     Array.Add(Movable{ counters });
                 }

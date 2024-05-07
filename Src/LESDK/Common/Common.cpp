@@ -97,6 +97,18 @@ void sdkFree(void* const Orig) {
 // ! String transcoding.
 // ========================================
 
+UINT LESDK::GetAnsiLengthWide(WCHAR const* const InWideStr, UINT const InWideLength) {
+    auto const Length = ::WideCharToMultiByte(CP_ACP, 0u, InWideStr, static_cast<int>(InWideLength), nullptr, 0, nullptr, nullptr);
+    LESDK_CHECK(Length != 0, "");
+    return static_cast<UINT>(Length);
+}
+
+UINT LESDK::GetUtf8LengthWide(WCHAR const* const InWideStr, UINT const InWideLength) {
+    auto const Length = ::WideCharToMultiByte(CP_UTF8, 0u, InWideStr, static_cast<int>(InWideLength), nullptr, 0, nullptr, nullptr);
+    LESDK_CHECK(Length != 0, "");
+    return static_cast<UINT>(Length);
+}
+
 UINT LESDK::GetWideLengthAnsi(char const* const InAnsiStr, UINT const InAnsiLength) {
     auto const Length = ::MultiByteToWideChar(CP_ACP, 0u, InAnsiStr, static_cast<int>(InAnsiLength), nullptr, 0);
     LESDK_CHECK(Length != 0, "");
@@ -107,6 +119,40 @@ UINT LESDK::GetWideLengthUtf8(char const* const InUtf8Str, UINT const InUtf8Leng
     auto const Length = ::MultiByteToWideChar(CP_UTF8, 0u, InUtf8Str, static_cast<int>(InUtf8Length), nullptr, 0);
     LESDK_CHECK(Length != 0, "");
     return static_cast<UINT>(Length);
+}
+
+bool LESDK::EncodeAnsiFromWide(WCHAR const* const InWideStr, UINT const InWideLength,
+    char* const OutAnsiStr, UINT const OutAnsiLength, DWORD* const pOutError)
+{
+    auto const Check = ::WideCharToMultiByte(CP_ACP, 0u,
+        InWideStr, static_cast<int>(InWideLength),
+        OutAnsiStr, static_cast<int>(OutAnsiLength),
+        nullptr, nullptr);
+
+    if (static_cast<UINT>(Check) != OutAnsiLength) {
+        if (pOutError != nullptr) {
+            *pOutError = ::GetLastError();
+        }
+        return false;
+    }
+    return true;
+}
+
+bool LESDK::EncodeUtf8FromWide(WCHAR const* const InWideStr, UINT const InWideLength,
+    char* const OutUtf8Str, UINT const OutUtf8Length, DWORD* const pOutError)
+{
+    auto const Check = ::WideCharToMultiByte(CP_UTF8, 0u,
+        InWideStr, static_cast<int>(InWideLength),
+        OutUtf8Str, static_cast<int>(OutUtf8Length),
+        nullptr, nullptr);
+
+    if (static_cast<UINT>(Check) != OutUtf8Length) {
+        if (pOutError != nullptr) {
+            *pOutError = ::GetLastError();
+        }
+        return false;
+    }
+    return true;
 }
 
 bool LESDK::EncodeWideFromAnsi(char const* const InAnsiStr, UINT const InAnsiLength,
