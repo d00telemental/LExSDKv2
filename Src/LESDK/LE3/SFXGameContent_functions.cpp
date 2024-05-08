@@ -67,9 +67,9 @@ class UClass* ASFXGameInfoSP::StaticClass()
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct SFXName                 ItemName                       ( CPF_Parm )
-// class FString                  Level                          ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        Level                          ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool ASFXGameInfoSP::AwardItem ( struct SFXName ItemName, class FString Level )
+bool ASFXGameInfoSP::AwardItem ( struct SFXName ItemName, FString const& Level )
 {
 	static UFunction* pFnAwardItem = NULL;
 
@@ -90,10 +90,10 @@ bool ASFXGameInfoSP::AwardItem ( struct SFXName ItemName, class FString Level )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            Amount                         ( CPF_Parm )
-// class FString                  Level                          ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        Level                          ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bShowNotification              ( CPF_OptionalParm | CPF_Parm )
 
-bool ASFXGameInfoSP::AwardCredits ( int Amount, class FString Level, unsigned long bShowNotification )
+bool ASFXGameInfoSP::AwardCredits ( int Amount, FString const& Level, unsigned long bShowNotification )
 {
 	static UFunction* pFnAwardCredits = NULL;
 
@@ -115,10 +115,10 @@ bool ASFXGameInfoSP::AwardCredits ( int Amount, class FString Level, unsigned lo
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // float                          fAmount                        ( CPF_Parm )
-// class FString                  Level                          ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        Level                          ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bShowNotifications             ( CPF_OptionalParm | CPF_Parm )
 
-bool ASFXGameInfoSP::AwardCreditPercent ( float fAmount, class FString Level, unsigned long bShowNotifications )
+bool ASFXGameInfoSP::AwardCreditPercent ( float fAmount, FString const& Level, unsigned long bShowNotifications )
 {
 	static UFunction* pFnAwardCreditPercent = NULL;
 
@@ -140,10 +140,10 @@ bool ASFXGameInfoSP::AwardCreditPercent ( float fAmount, class FString Level, un
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            Amount                         ( CPF_Parm )
-// class FString                  Level                          ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        Level                          ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bShowNotifications             ( CPF_OptionalParm | CPF_Parm )
 
-bool ASFXGameInfoSP::AwardXP ( int Amount, class FString Level, unsigned long bShowNotifications )
+bool ASFXGameInfoSP::AwardXP ( int Amount, FString const& Level, unsigned long bShowNotifications )
 {
 	static UFunction* pFnAwardXP = NULL;
 
@@ -166,9 +166,9 @@ bool ASFXGameInfoSP::AwardXP ( int Amount, class FString Level, unsigned long bS
 // class ANavigationPoint*        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AController*             Player                         ( CPF_Parm )
 // unsigned char                  InTeam                         ( CPF_OptionalParm | CPF_Parm )
-// class FString                  IncomingName                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        IncomingName                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-class ANavigationPoint* ASFXGameInfoSP::FindPlayerStart ( class AController* Player, unsigned char InTeam, class FString IncomingName )
+class ANavigationPoint* ASFXGameInfoSP::FindPlayerStart ( class AController* Player, unsigned char InTeam, FString const& IncomingName )
 {
 	static UFunction* pFnFindPlayerStart = NULL;
 
@@ -489,7 +489,7 @@ class UClass* ASFXWeapon_Heavy_Beam_Base::StaticClass()
 // struct FRotator                ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 StartFireLoc                   ( CPF_Parm )
 
-struct FRotator ASFXWeapon_Heavy_Beam_Base::GetAdjustedAim ( struct FVector StartFireLoc )
+struct FRotator ASFXWeapon_Heavy_Beam_Base::GetAdjustedAim ( struct FVector const& StartFireLoc )
 {
 	static UFunction* pFnGetAdjustedAim = NULL;
 
@@ -547,7 +547,7 @@ void ASFXWeapon_Heavy_Beam_Base::UpdateBeam ( float DeltaTime )
 // struct FImpactInfo             Impact                         ( CPF_Parm )
 // int                            NumHits                        ( CPF_OptionalParm | CPF_Parm )
 
-void ASFXWeapon_Heavy_Beam_Base::ProcessInstantHit ( unsigned char FiringMode, struct FImpactInfo Impact, int NumHits )
+void ASFXWeapon_Heavy_Beam_Base::ProcessInstantHit ( unsigned char FiringMode, struct FImpactInfo const& Impact, int NumHits )
 {
 	static UFunction* pFnProcessInstantHit = NULL;
 
@@ -637,7 +637,7 @@ void ASFXWeapon_Heavy_Beam_Base::Tick ( float DeltaTime )
 // Parameters infos:
 // struct FImpactInfo             Impact                         ( CPF_Parm )
 
-void ASFXWeapon_Heavy_Beam_Base::SpawnImpactEffects ( struct FImpactInfo Impact )
+void ASFXWeapon_Heavy_Beam_Base::SpawnImpactEffects ( struct FImpactInfo const& Impact )
 {
 	static UFunction* pFnSpawnImpactEffects = NULL;
 
@@ -757,7 +757,7 @@ void ASFXWeapon_Heavy_Beam_Base::PlayMuzzleFlashEffect ( )
 // Parameters infos:
 // struct FImpactInfo             Impact                         ( CPF_Parm )
 
-void ASFXWeapon_Heavy_Beam_Base::StretchDecal ( struct FImpactInfo Impact )
+void ASFXWeapon_Heavy_Beam_Base::StretchDecal ( struct FImpactInfo const& Impact )
 {
 	static UFunction* pFnStretchDecal = NULL;
 
@@ -775,7 +775,7 @@ void ASFXWeapon_Heavy_Beam_Base::StretchDecal ( struct FImpactInfo Impact )
 // Parameters infos:
 // struct FImpactInfo             Impact                         ( CPF_Parm )
 
-void ASFXWeapon_Heavy_Beam_Base::SpawnADecal ( struct FImpactInfo Impact )
+void ASFXWeapon_Heavy_Beam_Base::SpawnADecal ( struct FImpactInfo const& Impact )
 {
 	static UFunction* pFnSpawnADecal = NULL;
 
@@ -1227,9 +1227,9 @@ void USFXCustomAction_Reload::StartCustomAction ( )
 // Function SFXGameContent.SFXCustomAction_Reload.GetUsedAnimNames
 // [0x00422802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct SFXName>   UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXCustomAction_Reload::eventGetUsedAnimNames ( class TArray<struct SFXName>* UsedAnims )
+void USFXCustomAction_Reload::eventGetUsedAnimNames ( TArray<struct SFXName>* UsedAnims )
 {
 	static UFunction* pFnGetUsedAnimNames = NULL;
 
@@ -1322,9 +1322,9 @@ void USFXCustomAction_MantleLookAt::FlinchActionOverride ( )
 // Function SFXGameContent.SFXCustomAction_MantleLookAt.GetUsedAnimNames
 // [0x00422802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct SFXName>   UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXCustomAction_MantleLookAt::eventGetUsedAnimNames ( class TArray<struct SFXName>* UsedAnims )
+void USFXCustomAction_MantleLookAt::eventGetUsedAnimNames ( TArray<struct SFXName>* UsedAnims )
 {
 	static UFunction* pFnGetUsedAnimNames = NULL;
 
@@ -1430,9 +1430,9 @@ void USFXCustomAction_CoverSlipLookAt::FlinchActionOverride ( )
 // Function SFXGameContent.SFXCustomAction_CoverSlipLookAt.GetUsedAnimNames
 // [0x00422802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct SFXName>   UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXCustomAction_CoverSlipLookAt::eventGetUsedAnimNames ( class TArray<struct SFXName>* UsedAnims )
+void USFXCustomAction_CoverSlipLookAt::eventGetUsedAnimNames ( TArray<struct SFXName>* UsedAnims )
 {
 	static UFunction* pFnGetUsedAnimNames = NULL;
 
@@ -1538,9 +1538,9 @@ void USFXCustomAction_StdCoverSlipLookAt::FlinchActionOverride ( )
 // Function SFXGameContent.SFXCustomAction_StdCoverSlipLookAt.GetUsedAnimNames
 // [0x00422802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct SFXName>   UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXCustomAction_StdCoverSlipLookAt::eventGetUsedAnimNames ( class TArray<struct SFXName>* UsedAnims )
+void USFXCustomAction_StdCoverSlipLookAt::eventGetUsedAnimNames ( TArray<struct SFXName>* UsedAnims )
 {
 	static UFunction* pFnGetUsedAnimNames = NULL;
 
@@ -1646,9 +1646,9 @@ void USFXCustomAction_SwatTurnLookAt::FlinchActionOverride ( )
 // Function SFXGameContent.SFXCustomAction_SwatTurnLookAt.GetUsedAnimNames
 // [0x00422802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct SFXName>   UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXCustomAction_SwatTurnLookAt::eventGetUsedAnimNames ( class TArray<struct SFXName>* UsedAnims )
+void USFXCustomAction_SwatTurnLookAt::eventGetUsedAnimNames ( TArray<struct SFXName>* UsedAnims )
 {
 	static UFunction* pFnGetUsedAnimNames = NULL;
 
@@ -1754,9 +1754,9 @@ void USFXCustomAction_StdSwatTurnLookAt::FlinchActionOverride ( )
 // Function SFXGameContent.SFXCustomAction_StdSwatTurnLookAt.GetUsedAnimNames
 // [0x00422802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct SFXName>   UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXCustomAction_StdSwatTurnLookAt::eventGetUsedAnimNames ( class TArray<struct SFXName>* UsedAnims )
+void USFXCustomAction_StdSwatTurnLookAt::eventGetUsedAnimNames ( TArray<struct SFXName>* UsedAnims )
 {
 	static UFunction* pFnGetUsedAnimNames = NULL;
 
@@ -1850,7 +1850,7 @@ class UClass* USFXCustomAction_GapJump::StaticClass()
 // class AActor*                  Other                          ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXCustomAction_GapJump::NotifyBump ( class AActor* Other, struct FVector HitNormal )
+bool USFXCustomAction_GapJump::NotifyBump ( class AActor* Other, struct FVector const& HitNormal )
 {
 	static UFunction* pFnNotifyBump = NULL;
 
@@ -2019,9 +2019,9 @@ void USFXCustomAction_GapJump::StartCustomAction ( )
 // Function SFXGameContent.SFXCustomAction_GapJump.GetUsedAnimNames
 // [0x00422802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct SFXName>   UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXCustomAction_GapJump::eventGetUsedAnimNames ( class TArray<struct SFXName>* UsedAnims )
+void USFXCustomAction_GapJump::eventGetUsedAnimNames ( TArray<struct SFXName>* UsedAnims )
 {
 	static UFunction* pFnGetUsedAnimNames = NULL;
 
@@ -2183,9 +2183,9 @@ void USFXCustomAction_PlayerMantleOverCover::GetStartAnim ( struct FBodyStance* 
 // Function SFXGameContent.SFXCustomAction_PlayerMantleOverCover.GetUsedAnimNames
 // [0x00422802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct SFXName>   UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXCustomAction_PlayerMantleOverCover::eventGetUsedAnimNames ( class TArray<struct SFXName>* UsedAnims )
+void USFXCustomAction_PlayerMantleOverCover::eventGetUsedAnimNames ( TArray<struct SFXName>* UsedAnims )
 {
 	static UFunction* pFnGetUsedAnimNames = NULL;
 
@@ -2420,9 +2420,9 @@ bool USFXCustomAction_PlayerMantleUp::InternalCanDoCustomAction ( class ABioPawn
 // Function SFXGameContent.SFXCustomAction_PlayerMantleUp.GetUsedAnimNames
 // [0x00422802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct SFXName>   UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXCustomAction_PlayerMantleUp::eventGetUsedAnimNames ( class TArray<struct SFXName>* UsedAnims )
+void USFXCustomAction_PlayerMantleUp::eventGetUsedAnimNames ( TArray<struct SFXName>* UsedAnims )
 {
 	static UFunction* pFnGetUsedAnimNames = NULL;
 
@@ -2684,9 +2684,9 @@ void USFXCustomAction_SimpleMoveBase::eventReachedPrecisePosition ( )
 // Function SFXGameContent.SFXCustomAction_SimpleMoveBase.GetUsedAnimNames
 // [0x00422802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct SFXName>   UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXCustomAction_SimpleMoveBase::eventGetUsedAnimNames ( class TArray<struct SFXName>* UsedAnims )
+void USFXCustomAction_SimpleMoveBase::eventGetUsedAnimNames ( TArray<struct SFXName>* UsedAnims )
 {
 	static UFunction* pFnGetUsedAnimNames = NULL;
 
@@ -3053,9 +3053,9 @@ void USFXCustomAction_PlayerLadderClimbUp::TickInput ( class UBioPlayerInput* In
 // Function SFXGameContent.SFXCustomAction_PlayerLadderClimbUp.GetUsedAnimNames
 // [0x00422802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct SFXName>   UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXCustomAction_PlayerLadderClimbUp::eventGetUsedAnimNames ( class TArray<struct SFXName>* UsedAnims )
+void USFXCustomAction_PlayerLadderClimbUp::eventGetUsedAnimNames ( TArray<struct SFXName>* UsedAnims )
 {
 	static UFunction* pFnGetUsedAnimNames = NULL;
 
@@ -3261,7 +3261,7 @@ class UClass* USFXCustomAction_PlayerEvadeForward::StaticClass()
 // struct FVector                 HitNormal                      ( CPF_OptionalParm | CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXCustomAction_PlayerEvadeForward::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector HitLocation, struct FVector HitNormal, int CustomActionReactionType )
+void USFXCustomAction_PlayerEvadeForward::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector const& HitLocation, struct FVector const& HitNormal, int CustomActionReactionType )
 {
 	static UFunction* pFnClientDoCustomActionImpact = NULL;
 
@@ -3334,7 +3334,7 @@ void USFXCustomAction_PlayerEvadeForward::TurnOnHitWall ( )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 // class AActor*                  Wall                           ( CPF_Parm )
 
-bool USFXCustomAction_PlayerEvadeForward::NotifyHitWall ( struct FVector HitNormal, class AActor* Wall )
+bool USFXCustomAction_PlayerEvadeForward::NotifyHitWall ( struct FVector const& HitNormal, class AActor* Wall )
 {
 	static UFunction* pFnNotifyHitWall = NULL;
 
@@ -3372,7 +3372,7 @@ void USFXCustomAction_PlayerEvadeForward::EndThisCustomAction ( )
 // float                          Alpha                          ( CPF_Parm )
 // struct FVector                 ToEnd2D                        ( CPF_Parm )
 
-void USFXCustomAction_PlayerEvadeForward::SyncRotation ( float Alpha, struct FVector ToEnd2D )
+void USFXCustomAction_PlayerEvadeForward::SyncRotation ( float Alpha, struct FVector const& ToEnd2D )
 {
 	static UFunction* pFnSyncRotation = NULL;
 
@@ -3447,7 +3447,7 @@ class UClass* USFXCustomAction_PlayerEvadeBackwards::StaticClass()
 // struct FVector                 HitNormal                      ( CPF_OptionalParm | CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXCustomAction_PlayerEvadeBackwards::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector HitLocation, struct FVector HitNormal, int CustomActionReactionType )
+void USFXCustomAction_PlayerEvadeBackwards::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector const& HitLocation, struct FVector const& HitNormal, int CustomActionReactionType )
 {
 	static UFunction* pFnClientDoCustomActionImpact = NULL;
 
@@ -3587,7 +3587,7 @@ void USFXCustomAction_MantleMelee::Breakout ( )
 // class AActor*                  Other                          ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXCustomAction_MantleMelee::NotifyBump ( class AActor* Other, struct FVector HitNormal )
+bool USFXCustomAction_MantleMelee::NotifyBump ( class AActor* Other, struct FVector const& HitNormal )
 {
 	static UFunction* pFnNotifyBump = NULL;
 
@@ -3613,7 +3613,7 @@ bool USFXCustomAction_MantleMelee::NotifyBump ( class AActor* Other, struct FVec
 // struct FVector                 HitNormal                      ( CPF_OptionalParm | CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXCustomAction_MantleMelee::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector HitLocation, struct FVector HitNormal, int CustomActionReactionType )
+void USFXCustomAction_MantleMelee::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector const& HitLocation, struct FVector const& HitNormal, int CustomActionReactionType )
 {
 	static UFunction* pFnClientDoCustomActionImpact = NULL;
 
@@ -3830,7 +3830,7 @@ bool USFXCustomAction_SyncCoverGrab::ShouldPlayMirrorAnim ( )
 // class ABioPawn*                VictimPawn                     ( CPF_Parm )
 // struct FVector                 DestinationPos                 ( CPF_Parm )
 
-bool USFXCustomAction_SyncCoverGrab::VerifyVictimDestIsClear ( class ABioPawn* VictimPawn, struct FVector DestinationPos )
+bool USFXCustomAction_SyncCoverGrab::VerifyVictimDestIsClear ( class ABioPawn* VictimPawn, struct FVector const& DestinationPos )
 {
 	static UFunction* pFnVerifyVictimDestIsClear = NULL;
 
@@ -3964,9 +3964,9 @@ void USFXCustomAction_SyncCoverMelee::StartCustomAction ( )
 // Function SFXGameContent.SFXCustomAction_SyncCoverMelee.GetUsedAnimNames
 // [0x00422802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct SFXName>   UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXCustomAction_SyncCoverMelee::eventGetUsedAnimNames ( class TArray<struct SFXName>* UsedAnims )
+void USFXCustomAction_SyncCoverMelee::eventGetUsedAnimNames ( TArray<struct SFXName>* UsedAnims )
 {
 	static UFunction* pFnGetUsedAnimNames = NULL;
 
@@ -4266,7 +4266,7 @@ void USFXCustomAction_RifleMeleeOne::StopMove ( )
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXCustomAction_RifleMeleeOne::OnActorImpacted ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXCustomAction_RifleMeleeOne::OnActorImpacted ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnActorImpacted = NULL;
 
@@ -4295,7 +4295,7 @@ bool USFXCustomAction_RifleMeleeOne::OnActorImpacted ( unsigned char Resistance,
 // struct FVector                 HitNormal                      ( CPF_OptionalParm | CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXCustomAction_RifleMeleeOne::ReplicateImpact ( class ABioPawn* Target, int ImpactCount, unsigned long bFirstTarget, struct FVector HitLocation, struct FVector HitNormal, int CustomActionReactionType )
+void USFXCustomAction_RifleMeleeOne::ReplicateImpact ( class ABioPawn* Target, int ImpactCount, unsigned long bFirstTarget, struct FVector const& HitLocation, struct FVector const& HitNormal, int CustomActionReactionType )
 {
 	static UFunction* pFnReplicateImpact = NULL;
 
@@ -4447,7 +4447,7 @@ class UClass* USFXCustomAction_RifleMeleeTwo::StaticClass()
 // struct FVector                 HitNormal                      ( CPF_OptionalParm | CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXCustomAction_RifleMeleeTwo::ReplicateImpact ( class ABioPawn* Target, int ImpactCount, unsigned long bFirstTarget, struct FVector HitLocation, struct FVector HitNormal, int CustomActionReactionType )
+void USFXCustomAction_RifleMeleeTwo::ReplicateImpact ( class ABioPawn* Target, int ImpactCount, unsigned long bFirstTarget, struct FVector const& HitLocation, struct FVector const& HitNormal, int CustomActionReactionType )
 {
 	static UFunction* pFnReplicateImpact = NULL;
 
@@ -4615,7 +4615,7 @@ void USFXCustomAction_RifleMeleeThree::RifleMeleeThird ( )
 // struct FVector                 HitNormal                      ( CPF_OptionalParm | CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXCustomAction_RifleMeleeThree::ReplicateImpact ( class ABioPawn* Target, int ImpactCount, unsigned long bFirstTarget, struct FVector HitLocation, struct FVector HitNormal, int CustomActionReactionType )
+void USFXCustomAction_RifleMeleeThree::ReplicateImpact ( class ABioPawn* Target, int ImpactCount, unsigned long bFirstTarget, struct FVector const& HitLocation, struct FVector const& HitNormal, int CustomActionReactionType )
 {
 	static UFunction* pFnReplicateImpact = NULL;
 
@@ -4671,7 +4671,7 @@ void USFXCustomAction_PistolMeleeOne::StopMove ( )
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXCustomAction_PistolMeleeOne::OnActorImpacted ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXCustomAction_PistolMeleeOne::OnActorImpacted ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnActorImpacted = NULL;
 
@@ -4700,7 +4700,7 @@ bool USFXCustomAction_PistolMeleeOne::OnActorImpacted ( unsigned char Resistance
 // struct FVector                 HitNormal                      ( CPF_OptionalParm | CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXCustomAction_PistolMeleeOne::ReplicateImpact ( class ABioPawn* Target, int ImpactCount, unsigned long bFirstTarget, struct FVector HitLocation, struct FVector HitNormal, int CustomActionReactionType )
+void USFXCustomAction_PistolMeleeOne::ReplicateImpact ( class ABioPawn* Target, int ImpactCount, unsigned long bFirstTarget, struct FVector const& HitLocation, struct FVector const& HitNormal, int CustomActionReactionType )
 {
 	static UFunction* pFnReplicateImpact = NULL;
 
@@ -4852,7 +4852,7 @@ class UClass* USFXCustomAction_PistolMeleeTwo::StaticClass()
 // struct FVector                 HitNormal                      ( CPF_OptionalParm | CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXCustomAction_PistolMeleeTwo::ReplicateImpact ( class ABioPawn* Target, int ImpactCount, unsigned long bFirstTarget, struct FVector HitLocation, struct FVector HitNormal, int CustomActionReactionType )
+void USFXCustomAction_PistolMeleeTwo::ReplicateImpact ( class ABioPawn* Target, int ImpactCount, unsigned long bFirstTarget, struct FVector const& HitLocation, struct FVector const& HitNormal, int CustomActionReactionType )
 {
 	static UFunction* pFnReplicateImpact = NULL;
 
@@ -5020,7 +5020,7 @@ void USFXCustomAction_PistolMeleeThree::PistolMeleeThird ( )
 // struct FVector                 HitNormal                      ( CPF_OptionalParm | CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXCustomAction_PistolMeleeThree::ReplicateImpact ( class ABioPawn* Target, int ImpactCount, unsigned long bFirstTarget, struct FVector HitLocation, struct FVector HitNormal, int CustomActionReactionType )
+void USFXCustomAction_PistolMeleeThree::ReplicateImpact ( class ABioPawn* Target, int ImpactCount, unsigned long bFirstTarget, struct FVector const& HitLocation, struct FVector const& HitNormal, int CustomActionReactionType )
 {
 	static UFunction* pFnReplicateImpact = NULL;
 
@@ -5331,9 +5331,9 @@ bool USFXCustomAction_FlinchBase::InternalCanDoCustomAction ( class ABioPawn* Sy
 // Function SFXGameContent.SFXCustomAction_FlinchBase.GetUsedAnimNames
 // [0x00422802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct SFXName>   UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXCustomAction_FlinchBase::eventGetUsedAnimNames ( class TArray<struct SFXName>* UsedAnims )
+void USFXCustomAction_FlinchBase::eventGetUsedAnimNames ( TArray<struct SFXName>* UsedAnims )
 {
 	static UFunction* pFnGetUsedAnimNames = NULL;
 
@@ -5478,9 +5478,9 @@ void USFXPowerCustomAction_Shockwave::EvolvePower ( unsigned char choice )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
-// class FString                  sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXPowerCustomAction_Shockwave::ShouldUsePower ( class AActor* Target, class FString* sOptionalInfo )
+bool USFXPowerCustomAction_Shockwave::ShouldUsePower ( class AActor* Target, FString* sOptionalInfo )
 {
 	static UFunction* pFnShouldUsePower = NULL;
 
@@ -5508,7 +5508,7 @@ bool USFXPowerCustomAction_Shockwave::ShouldUsePower ( class AActor* Target, cla
 // class AActor*                  oImpactActor                   ( CPF_Parm )
 // struct FVector                 vImpactDir                     ( CPF_Parm )
 
-void USFXPowerCustomAction_Shockwave::OnRagdollPhysicsImpact ( class APawn* oPawn, class AActor* oImpactActor, struct FVector vImpactDir )
+void USFXPowerCustomAction_Shockwave::OnRagdollPhysicsImpact ( class APawn* oPawn, class AActor* oImpactActor, struct FVector const& vImpactDir )
 {
 	static UFunction* pFnOnRagdollPhysicsImpact = NULL;
 
@@ -5558,7 +5558,7 @@ void USFXPowerCustomAction_Shockwave::ClientDoPowerSubsequentImpact ( class AAct
 // struct FVector                 ImpactLocation                 ( CPF_Parm )
 // int                            nImpactCount                   ( CPF_Parm )
 
-void USFXPowerCustomAction_Shockwave::DoSubsequentImpact ( class AActor* HitActor, struct FVector ImpactLocation, int nImpactCount )
+void USFXPowerCustomAction_Shockwave::DoSubsequentImpact ( class AActor* HitActor, struct FVector const& ImpactLocation, int nImpactCount )
 {
 	static UFunction* pFnDoSubsequentImpact = NULL;
 
@@ -5579,7 +5579,7 @@ void USFXPowerCustomAction_Shockwave::DoSubsequentImpact ( class AActor* HitActo
 // struct FVector                 location                       ( CPF_Parm )
 // struct FRotator                ProjectileRotation             ( CPF_Parm )
 
-void USFXPowerCustomAction_Shockwave::DoImpact ( struct FVector location, struct FRotator ProjectileRotation )
+void USFXPowerCustomAction_Shockwave::DoImpact ( struct FVector const& location, struct FRotator const& ProjectileRotation )
 {
 	static UFunction* pFnDoImpact = NULL;
 
@@ -5601,7 +5601,7 @@ void USFXPowerCustomAction_Shockwave::DoImpact ( struct FVector location, struct
 // class ASFXProjectile_PowerCustomAction* oProjectile                    ( CPF_OptionalParm | CPF_Parm )
 // class AActor*                  HitActor                       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXPowerCustomAction_Shockwave::OnPowerDetonated ( struct FVector HitLocation, struct FVector HitNormal, class ASFXProjectile_PowerCustomAction* oProjectile, class AActor* HitActor )
+void USFXPowerCustomAction_Shockwave::OnPowerDetonated ( struct FVector const& HitLocation, struct FVector const& HitNormal, class ASFXProjectile_PowerCustomAction* oProjectile, class AActor* HitActor )
 {
 	static UFunction* pFnOnPowerDetonated = NULL;
 
@@ -5745,7 +5745,7 @@ void USFXPowerCustomAction_BioticGrenade::EvolvePower ( unsigned char choice )
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXPowerCustomAction_BioticGrenade::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXPowerCustomAction_BioticGrenade::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnImpact = NULL;
 
@@ -5866,7 +5866,7 @@ float USFXPowerCustomAction_BioticGrenade::GetImpactDamage ( class AActor* oImpa
 // struct FVector                 ImpactNormal                   ( CPF_Parm )
 // class ASFXProjectile_PowerCustomAction* oProjectile                    ( CPF_OptionalParm | CPF_Parm )
 
-void USFXPowerCustomAction_BioticGrenade::PlayDetonationEffects ( struct FVector ImpactLocation, struct FVector ImpactNormal, class ASFXProjectile_PowerCustomAction* oProjectile )
+void USFXPowerCustomAction_BioticGrenade::PlayDetonationEffects ( struct FVector const& ImpactLocation, struct FVector const& ImpactNormal, class ASFXProjectile_PowerCustomAction* oProjectile )
 {
 	static UFunction* pFnPlayDetonationEffects = NULL;
 
@@ -5896,9 +5896,9 @@ class UClass* USFXPowerCustomAction_GrenadeBase::StaticClass()
 // Function SFXGameContent.SFXPowerCustomAction_GrenadeBase.GetHUDWheelIconInfo
 // [0x00020802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXPowerCustomAction_GrenadeBase::eventGetHUDWheelIconInfo ( )
+FString USFXPowerCustomAction_GrenadeBase::eventGetHUDWheelIconInfo ( )
 {
 	static UFunction* pFnGetHUDWheelIconInfo = NULL;
 
@@ -5917,9 +5917,9 @@ class FString USFXPowerCustomAction_GrenadeBase::eventGetHUDWheelIconInfo ( )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
-// class FString                  sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXPowerCustomAction_GrenadeBase::eventShouldUsePower ( class AActor* Target, class FString* sOptionalInfo )
+bool USFXPowerCustomAction_GrenadeBase::eventShouldUsePower ( class AActor* Target, FString* sOptionalInfo )
 {
 	static UFunction* pFnShouldUsePower = NULL;
 
@@ -6165,9 +6165,9 @@ void USFXPowerCustomAction_Throw::EvolvePower ( unsigned char choice )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
-// class FString                  sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXPowerCustomAction_Throw::ShouldUsePower ( class AActor* Target, class FString* sOptionalInfo )
+bool USFXPowerCustomAction_Throw::ShouldUsePower ( class AActor* Target, FString* sOptionalInfo )
 {
 	static UFunction* pFnShouldUsePower = NULL;
 
@@ -6195,7 +6195,7 @@ bool USFXPowerCustomAction_Throw::ShouldUsePower ( class AActor* Target, class F
 // class AActor*                  oImpactActor                   ( CPF_Parm )
 // struct FVector                 vImpactDir                     ( CPF_Parm )
 
-void USFXPowerCustomAction_Throw::OnRagdollPhysicsImpact ( class APawn* oPawn, class AActor* oImpactActor, struct FVector vImpactDir )
+void USFXPowerCustomAction_Throw::OnRagdollPhysicsImpact ( class APawn* oPawn, class AActor* oImpactActor, struct FVector const& vImpactDir )
 {
 	static UFunction* pFnOnRagdollPhysicsImpact = NULL;
 
@@ -6236,7 +6236,7 @@ void USFXPowerCustomAction_Throw::ResetPower ( )
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXPowerCustomAction_Throw::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXPowerCustomAction_Throw::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnImpact = NULL;
 
@@ -6443,9 +6443,9 @@ void USFXPowerCustomAction_Pull::EvolvePower ( unsigned char choice )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
-// class FString                  sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXPowerCustomAction_Pull::ShouldUsePower ( class AActor* Target, class FString* sOptionalInfo )
+bool USFXPowerCustomAction_Pull::ShouldUsePower ( class AActor* Target, FString* sOptionalInfo )
 {
 	static UFunction* pFnShouldUsePower = NULL;
 
@@ -6473,7 +6473,7 @@ bool USFXPowerCustomAction_Pull::ShouldUsePower ( class AActor* Target, class FS
 // class AActor*                  oImpactActor                   ( CPF_Parm )
 // struct FVector                 vImpactDir                     ( CPF_Parm )
 
-void USFXPowerCustomAction_Pull::OnRagdollPhysicsImpact ( class APawn* oPawn, class AActor* oImpactActor, struct FVector vImpactDir )
+void USFXPowerCustomAction_Pull::OnRagdollPhysicsImpact ( class APawn* oPawn, class AActor* oImpactActor, struct FVector const& vImpactDir )
 {
 	static UFunction* pFnOnRagdollPhysicsImpact = NULL;
 
@@ -6514,7 +6514,7 @@ void USFXPowerCustomAction_Pull::DropCurrentTargets ( )
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXPowerCustomAction_Pull::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXPowerCustomAction_Pull::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnImpact = NULL;
 
@@ -6781,9 +6781,9 @@ void USFXPowerCustomAction_Warp::EvolvePower ( unsigned char choice )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
-// class FString                  sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXPowerCustomAction_Warp::ShouldUsePower ( class AActor* Target, class FString* sOptionalInfo )
+bool USFXPowerCustomAction_Warp::ShouldUsePower ( class AActor* Target, FString* sOptionalInfo )
 {
 	static UFunction* pFnShouldUsePower = NULL;
 
@@ -6811,7 +6811,7 @@ bool USFXPowerCustomAction_Warp::ShouldUsePower ( class AActor* Target, class FS
 // struct FVector                 ImpactLocation                 ( CPF_Parm )
 // struct FVector                 ImpactNormal                   ( CPF_Parm )
 
-void USFXPowerCustomAction_Warp::PlayImpactEffects ( class AActor* oImpacted, struct FVector ImpactLocation, struct FVector ImpactNormal )
+void USFXPowerCustomAction_Warp::PlayImpactEffects ( class AActor* oImpacted, struct FVector const& ImpactLocation, struct FVector const& ImpactNormal )
 {
 	static UFunction* pFnPlayImpactEffects = NULL;
 
@@ -6836,7 +6836,7 @@ void USFXPowerCustomAction_Warp::PlayImpactEffects ( class AActor* oImpacted, st
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXPowerCustomAction_Warp::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXPowerCustomAction_Warp::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnImpact = NULL;
 
@@ -7078,9 +7078,9 @@ void USFXPowerCustomAction_Singularity::EvolvePower ( unsigned char choice )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
-// class FString                  sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXPowerCustomAction_Singularity::ShouldUsePower ( class AActor* Target, class FString* sOptionalInfo )
+bool USFXPowerCustomAction_Singularity::ShouldUsePower ( class AActor* Target, FString* sOptionalInfo )
 {
 	static UFunction* pFnShouldUsePower = NULL;
 
@@ -7124,7 +7124,7 @@ void USFXPowerCustomAction_Singularity::OnPowerRankIncreased ( )
 // class AActor*                  oImpactActor                   ( CPF_Parm )
 // struct FVector                 vImpactDir                     ( CPF_Parm )
 
-void USFXPowerCustomAction_Singularity::OnRagdollPhysicsImpact ( class APawn* oPawn, class AActor* oImpactActor, struct FVector vImpactDir )
+void USFXPowerCustomAction_Singularity::OnRagdollPhysicsImpact ( class APawn* oPawn, class AActor* oImpactActor, struct FVector const& vImpactDir )
 {
 	static UFunction* pFnOnRagdollPhysicsImpact = NULL;
 
@@ -7181,7 +7181,7 @@ void USFXPowerCustomAction_Singularity::SpawnSingularity ( )
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXPowerCustomAction_Singularity::OnExplosionImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXPowerCustomAction_Singularity::OnExplosionImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnExplosionImpact = NULL;
 
@@ -7359,7 +7359,7 @@ void USFXPowerCustomAction_Singularity::eventTickCustomAction ( float fDeltaTime
 // struct FVector                 HitNormal                      ( CPF_OptionalParm | CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXPowerCustomAction_Singularity::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector HitLocation, struct FVector HitNormal, int CustomActionReactionType )
+void USFXPowerCustomAction_Singularity::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector const& HitLocation, struct FVector const& HitNormal, int CustomActionReactionType )
 {
 	static UFunction* pFnClientDoCustomActionImpact = NULL;
 
@@ -7385,7 +7385,7 @@ void USFXPowerCustomAction_Singularity::ClientDoCustomActionImpact ( class AActo
 // class ASFXProjectile_PowerCustomAction* oProjectile                    ( CPF_OptionalParm | CPF_Parm )
 // class AActor*                  HitActor                       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXPowerCustomAction_Singularity::OnPowerDetonated ( struct FVector HitLocation, struct FVector HitNormal, class ASFXProjectile_PowerCustomAction* oProjectile, class AActor* HitActor )
+void USFXPowerCustomAction_Singularity::OnPowerDetonated ( struct FVector const& HitLocation, struct FVector const& HitNormal, class ASFXProjectile_PowerCustomAction* oProjectile, class AActor* HitActor )
 {
 	static UFunction* pFnOnPowerDetonated = NULL;
 
@@ -7619,9 +7619,9 @@ void USFXPowerCustomAction_Unity::RecalculateAllPowerData ( unsigned long bReset
 // Function SFXGameContent.SFXPowerCustomAction_Unity.GetHUDWheelIconInfo
 // [0x00020802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXPowerCustomAction_Unity::eventGetHUDWheelIconInfo ( )
+FString USFXPowerCustomAction_Unity::eventGetHUDWheelIconInfo ( )
 {
 	static UFunction* pFnGetHUDWheelIconInfo = NULL;
 
@@ -7661,9 +7661,9 @@ int USFXPowerCustomAction_Unity::CountMediGel ( class ABioBaseSquad* oPlayerSqua
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
-// class FString                  sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXPowerCustomAction_Unity::eventShouldUsePower ( class AActor* Target, class FString* sOptionalInfo )
+bool USFXPowerCustomAction_Unity::eventShouldUsePower ( class AActor* Target, FString* sOptionalInfo )
 {
 	static UFunction* pFnShouldUsePower = NULL;
 
@@ -7694,7 +7694,7 @@ bool USFXPowerCustomAction_Unity::eventShouldUsePower ( class AActor* Target, cl
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXPowerCustomAction_Unity::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXPowerCustomAction_Unity::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnImpact = NULL;
 
@@ -7788,7 +7788,7 @@ void USFXCustomAction_AdeptPunch::StopMove ( )
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXCustomAction_AdeptPunch::OnActorImpacted ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXCustomAction_AdeptPunch::OnActorImpacted ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnActorImpacted = NULL;
 
@@ -8533,7 +8533,7 @@ class UClass* USFXGameEffect_PowerCombo_Cryo::StaticClass()
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXGameEffect_PowerCombo_Cryo::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXGameEffect_PowerCombo_Cryo::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnImpact = NULL;
 
@@ -8604,7 +8604,7 @@ void USFXGameEffect_ElectricComboBeam::OnUpdate ( float DeltaSeconds )
 // class UParticleSystemComponent* PS                             ( CPF_Parm | CPF_EditInline )
 // struct FVector                 TargetLocation                 ( CPF_Parm )
 
-void USFXGameEffect_ElectricComboBeam::PlayBeamEffect ( class UParticleSystemComponent* PS, struct FVector TargetLocation )
+void USFXGameEffect_ElectricComboBeam::PlayBeamEffect ( class UParticleSystemComponent* PS, struct FVector const& TargetLocation )
 {
 	static UFunction* pFnPlayBeamEffect = NULL;
 
@@ -8720,7 +8720,7 @@ class UClass* USFXGameEffect_PowerCombo_Fire::StaticClass()
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXGameEffect_PowerCombo_Fire::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXGameEffect_PowerCombo_Fire::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnImpact = NULL;
 
@@ -8746,7 +8746,7 @@ bool USFXGameEffect_PowerCombo_Fire::OnImpact ( unsigned char Resistance, class 
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-void USFXGameEffect_PowerCombo_Fire::OnPowerComboDetonated ( class USFXPowerCustomAction* DetonationPower, struct FVector HitLocation, struct FVector HitNormal )
+void USFXGameEffect_PowerCombo_Fire::OnPowerComboDetonated ( class USFXPowerCustomAction* DetonationPower, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnPowerComboDetonated = NULL;
 
@@ -8854,7 +8854,7 @@ class UClass* USFXGameEffect_PowerCombo_Biotic::StaticClass()
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-void USFXGameEffect_PowerCombo_Biotic::OnPowerComboDetonated ( class USFXPowerCustomAction* DetonationPower, struct FVector HitLocation, struct FVector HitNormal )
+void USFXGameEffect_PowerCombo_Biotic::OnPowerComboDetonated ( class USFXPowerCustomAction* DetonationPower, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnPowerComboDetonated = NULL;
 
@@ -8939,7 +8939,7 @@ class UClass* USFXGameEffect_PowerCombo_Electric::StaticClass()
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXGameEffect_PowerCombo_Electric::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXGameEffect_PowerCombo_Electric::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnImpact = NULL;
 
@@ -9039,7 +9039,7 @@ void USFXGameEffect_Pull::OnRemoved ( )
 // Parameters infos:
 // struct FVector                 vForce                         ( CPF_Parm )
 
-void USFXGameEffect_Pull::MoveActor ( struct FVector vForce )
+void USFXGameEffect_Pull::MoveActor ( struct FVector const& vForce )
 {
 	static UFunction* pFnMoveActor = NULL;
 
@@ -9284,7 +9284,7 @@ void USFXGameEffect_Singularity::OnRemoved ( )
 // Parameters infos:
 // struct FVector                 vForce                         ( CPF_Parm )
 
-void USFXGameEffect_Singularity::AddForceToActor ( struct FVector vForce )
+void USFXGameEffect_Singularity::AddForceToActor ( struct FVector const& vForce )
 {
 	static UFunction* pFnAddForceToActor = NULL;
 
@@ -9526,9 +9526,9 @@ void USFXPowerCustomAction_Stasis::EvolvePower ( unsigned char choice )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
-// class FString                  sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXPowerCustomAction_Stasis::ShouldUsePower ( class AActor* Target, class FString* sOptionalInfo )
+bool USFXPowerCustomAction_Stasis::ShouldUsePower ( class AActor* Target, FString* sOptionalInfo )
 {
 	static UFunction* pFnShouldUsePower = NULL;
 
@@ -9681,7 +9681,7 @@ void USFXPowerCustomAction_Stasis::ImpactPushAway ( class AActor* oImpacted )
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXPowerCustomAction_Stasis::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXPowerCustomAction_Stasis::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnImpact = NULL;
 
@@ -9746,7 +9746,7 @@ void USFXPowerCustomAction_Stasis::ClientEndStasisEffect ( class AActor* oActor 
 // struct FVector                 HitNormal                      ( CPF_OptionalParm | CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXPowerCustomAction_Stasis::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector HitLocation, struct FVector HitNormal, int CustomActionReactionType )
+void USFXPowerCustomAction_Stasis::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector const& HitLocation, struct FVector const& HitNormal, int CustomActionReactionType )
 {
 	static UFunction* pFnClientDoCustomActionImpact = NULL;
 
@@ -9834,7 +9834,7 @@ void USFXPowerCustomAction_Stasis::StartStasisBubbleVFX ( )
 // class ASFXProjectile_PowerCustomAction* oProjectile                    ( CPF_OptionalParm | CPF_Parm )
 // class AActor*                  HitActor                       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXPowerCustomAction_Stasis::OnPowerDetonated ( struct FVector HitLocation, struct FVector HitNormal, class ASFXProjectile_PowerCustomAction* oProjectile, class AActor* HitActor )
+void USFXPowerCustomAction_Stasis::OnPowerDetonated ( struct FVector const& HitLocation, struct FVector const& HitNormal, class ASFXProjectile_PowerCustomAction* oProjectile, class AActor* HitActor )
 {
 	static UFunction* pFnOnPowerDetonated = NULL;
 
@@ -10047,7 +10047,7 @@ bool ASFXPlaceable::AllowPlaceableDamageEvents ( class AController* EventInstiga
 // struct FVector                 Force                          ( CPF_Parm )
 // class UClass*                  DamageType                     ( CPF_Parm )
 
-bool ASFXPlaceable::ImpactWithPower ( unsigned char Resistance, class APawn* Caster, struct FVector HitLocation, struct FVector HitNormal, float Damage, struct FVector Force, class UClass* DamageType )
+bool ASFXPlaceable::ImpactWithPower ( unsigned char Resistance, class APawn* Caster, struct FVector const& HitLocation, struct FVector const& HitNormal, float Damage, struct FVector const& Force, class UClass* DamageType )
 {
 	static UFunction* pFnImpactWithPower = NULL;
 
@@ -10280,7 +10280,7 @@ void ASFXProjectile_PowerCustomAction_SuperSeeking::InitializeRotation ( class A
 // float                          DeltaTime                      ( CPF_Parm )
 // struct FVector                 SeekVector                     ( CPF_Parm )
 
-void ASFXProjectile_PowerCustomAction_SuperSeeking::TickAimRotation ( float DeltaTime, struct FVector SeekVector )
+void ASFXProjectile_PowerCustomAction_SuperSeeking::TickAimRotation ( float DeltaTime, struct FVector const& SeekVector )
 {
 	static UFunction* pFnTickAimRotation = NULL;
 
@@ -10454,7 +10454,7 @@ void ASFXProjectile_PowerCustomAction_Seeking::Tick ( float DeltaTime )
 // float                          DeltaTime                      ( CPF_Parm )
 // struct FVector                 SeekVector                     ( CPF_Parm )
 
-void ASFXProjectile_PowerCustomAction_Seeking::TickAimRotation ( float DeltaTime, struct FVector SeekVector )
+void ASFXProjectile_PowerCustomAction_Seeking::TickAimRotation ( float DeltaTime, struct FVector const& SeekVector )
 {
 	static UFunction* pFnTickAimRotation = NULL;
 
@@ -10559,7 +10559,7 @@ class UClass* ASFXProjectile_PowerCustomAction_Shockwave::StaticClass()
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-void ASFXProjectile_PowerCustomAction_Shockwave::ReplicateExplode ( struct FVector HitLocation, struct FVector HitNormal )
+void ASFXProjectile_PowerCustomAction_Shockwave::ReplicateExplode ( struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnReplicateExplode = NULL;
 
@@ -10625,7 +10625,7 @@ bool ASFXProjectile_PowerCustomAction_Shockwave::InitializePowerProjectile ( cla
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-void ASFXProjectile_PowerCustomAction_Shockwave::ProcessTouch ( class AActor* Other, struct FVector HitLocation, struct FVector HitNormal )
+void ASFXProjectile_PowerCustomAction_Shockwave::ProcessTouch ( class AActor* Other, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnProcessTouch = NULL;
 
@@ -10647,7 +10647,7 @@ void ASFXProjectile_PowerCustomAction_Shockwave::ProcessTouch ( class AActor* Ot
 // class AActor*                  Wall                           ( CPF_Parm )
 // class UPrimitiveComponent*     WallComp                       ( CPF_Parm | CPF_EditInline )
 
-void ASFXProjectile_PowerCustomAction_Shockwave::eventHitWall ( struct FVector HitNormal, class AActor* Wall, class UPrimitiveComponent* WallComp )
+void ASFXProjectile_PowerCustomAction_Shockwave::eventHitWall ( struct FVector const& HitNormal, class AActor* Wall, class UPrimitiveComponent* WallComp )
 {
 	static UFunction* pFnHitWall = NULL;
 
@@ -11224,7 +11224,7 @@ void ABioPlaypenVolumeAdditive::eventUnTouch ( class AActor* Other )
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-void ABioPlaypenVolumeAdditive::eventTouch ( class AActor* Other, class UPrimitiveComponent* OtherComp, struct FVector HitLocation, struct FVector HitNormal )
+void ABioPlaypenVolumeAdditive::eventTouch ( class AActor* Other, class UPrimitiveComponent* OtherComp, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnTouch = NULL;
 
@@ -11399,7 +11399,7 @@ void USFXAICmd_Base_Cover::NotifyPendingPowerImpact ( struct SFXName Label, floa
 // class UClass*                  DamageType                     ( CPF_Parm )
 // struct FVector                 Momentum                       ( CPF_Parm )
 
-void USFXAICmd_Base_Cover::NotifyTakeHit ( class AController* instigatedBy, struct FVector HitLocation, int Damage, class UClass* DamageType, struct FVector Momentum )
+void USFXAICmd_Base_Cover::NotifyTakeHit ( class AController* instigatedBy, struct FVector const& HitLocation, int Damage, class UClass* DamageType, struct FVector const& Momentum )
 {
 	static UFunction* pFnNotifyTakeHit = NULL;
 
@@ -11695,9 +11695,9 @@ void USFXCustomAction_AIMantleUp::StartCustomAction ( )
 // Function SFXGameContent.SFXCustomAction_AIMantleUp.GetUsedAnimNames
 // [0x00422802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct SFXName>   UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXCustomAction_AIMantleUp::eventGetUsedAnimNames ( class TArray<struct SFXName>* UsedAnims )
+void USFXCustomAction_AIMantleUp::eventGetUsedAnimNames ( TArray<struct SFXName>* UsedAnims )
 {
 	static UFunction* pFnGetUsedAnimNames = NULL;
 
@@ -12070,7 +12070,7 @@ class UClass* USFXCustomAction_DeathReaction_GibHeadshot::StaticClass()
 // struct SFXName                 BoneName                       ( CPF_Parm )
 // class UClass*                  DamageType                     ( CPF_Parm )
 
-void USFXCustomAction_DeathReaction_GibHeadshot::ActivateImpactEmitter ( struct FVector HitLocation, struct FVector HitNormal, struct SFXName BoneName, class UClass* DamageType )
+void USFXCustomAction_DeathReaction_GibHeadshot::ActivateImpactEmitter ( struct FVector const& HitLocation, struct FVector const& HitNormal, struct SFXName BoneName, class UClass* DamageType )
 {
 	static UFunction* pFnActivateImpactEmitter = NULL;
 
@@ -12142,7 +12142,7 @@ void USFXCustomAction_DeathReaction_GibKnockback::StopAnim ( )
 // struct SFXName                 BoneName                       ( CPF_Parm )
 // class UClass*                  DamageType                     ( CPF_Parm )
 
-void USFXCustomAction_DeathReaction_GibKnockback::ActivateImpactEmitter ( struct FVector HitLocation, struct FVector HitNormal, struct SFXName BoneName, class UClass* DamageType )
+void USFXCustomAction_DeathReaction_GibKnockback::ActivateImpactEmitter ( struct FVector const& HitLocation, struct FVector const& HitNormal, struct SFXName BoneName, class UClass* DamageType )
 {
 	static UFunction* pFnActivateImpactEmitter = NULL;
 
@@ -12198,7 +12198,7 @@ class UClass* USFXCustomAction_DeathReaction_Headshot_Cover::StaticClass()
 // struct SFXName                 BoneName                       ( CPF_Parm )
 // class UClass*                  DamageType                     ( CPF_Parm )
 
-void USFXCustomAction_DeathReaction_Headshot_Cover::ActivateImpactEmitter ( struct FVector HitLocation, struct FVector HitNormal, struct SFXName BoneName, class UClass* DamageType )
+void USFXCustomAction_DeathReaction_Headshot_Cover::ActivateImpactEmitter ( struct FVector const& HitLocation, struct FVector const& HitNormal, struct SFXName BoneName, class UClass* DamageType )
 {
 	static UFunction* pFnActivateImpactEmitter = NULL;
 
@@ -12592,9 +12592,9 @@ bool USFXCustomAction_ShieldBreach::InternalCanDoCustomAction ( class ABioPawn* 
 // Function SFXGameContent.SFXCustomAction_ShieldBreach.GetUsedAnimNames
 // [0x00422802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct SFXName>   UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXCustomAction_ShieldBreach::eventGetUsedAnimNames ( class TArray<struct SFXName>* UsedAnims )
+void USFXCustomAction_ShieldBreach::eventGetUsedAnimNames ( TArray<struct SFXName>* UsedAnims )
 {
 	static UFunction* pFnGetUsedAnimNames = NULL;
 
@@ -12766,7 +12766,7 @@ class UClass* USFXCustomAction_TrooperMelee::StaticClass()
 // struct FVector                 HitNormal                      ( CPF_OptionalParm | CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXCustomAction_TrooperMelee::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector HitLocation, struct FVector HitNormal, int CustomActionReactionType )
+void USFXCustomAction_TrooperMelee::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector const& HitLocation, struct FVector const& HitNormal, int CustomActionReactionType )
 {
 	static UFunction* pFnClientDoCustomActionImpact = NULL;
 
@@ -12824,7 +12824,7 @@ void USFXCustomAction_TrooperStomp::OnTimelineImpact ( class AActor* Target )
 // struct FVector                 HitNormal                      ( CPF_OptionalParm | CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXCustomAction_TrooperStomp::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector HitLocation, struct FVector HitNormal, int CustomActionReactionType )
+void USFXCustomAction_TrooperStomp::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector const& HitLocation, struct FVector const& HitNormal, int CustomActionReactionType )
 {
 	static UFunction* pFnClientDoCustomActionImpact = NULL;
 
@@ -13445,9 +13445,9 @@ bool USFXCustomAction_HenchmanMelee::ShouldUsePistolAnim ( )
 // Function SFXGameContent.SFXCustomAction_HenchmanMelee.GetUsedAnimNames
 // [0x00422802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct SFXName>   UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         UsedAnims                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXCustomAction_HenchmanMelee::eventGetUsedAnimNames ( class TArray<struct SFXName>* UsedAnims )
+void USFXCustomAction_HenchmanMelee::eventGetUsedAnimNames ( TArray<struct SFXName>* UsedAnims )
 {
 	static UFunction* pFnGetUsedAnimNames = NULL;
 
@@ -14104,9 +14104,9 @@ void USFXPowerCustomAction_DefensiveShield::RestoreSaveState ( )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
-// class FString                  sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXPowerCustomAction_DefensiveShield::eventShouldUsePower ( class AActor* Target, class FString* sOptionalInfo )
+bool USFXPowerCustomAction_DefensiveShield::eventShouldUsePower ( class AActor* Target, FString* sOptionalInfo )
 {
 	static UFunction* pFnShouldUsePower = NULL;
 
@@ -14302,7 +14302,7 @@ void USFXPowerCustomAction_DefensiveShield::RemoveArmor ( )
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXPowerCustomAction_DefensiveShield::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXPowerCustomAction_DefensiveShield::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnImpact = NULL;
 
@@ -14434,7 +14434,7 @@ void USFXGameEffect_OverloadChain::OnUpdate ( float DeltaSeconds )
 // class UParticleSystemComponent* PS                             ( CPF_Parm | CPF_EditInline )
 // struct FVector                 TargetLocation                 ( CPF_Parm )
 
-void USFXGameEffect_OverloadChain::PlayBeamEffect ( class UParticleSystemComponent* PS, struct FVector TargetLocation )
+void USFXGameEffect_OverloadChain::PlayBeamEffect ( class UParticleSystemComponent* PS, struct FVector const& TargetLocation )
 {
 	static UFunction* pFnPlayBeamEffect = NULL;
 
@@ -14555,9 +14555,9 @@ void USFXPowerCustomAction_Overload::EvolvePower ( unsigned char choice )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
-// class FString                  sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXPowerCustomAction_Overload::ShouldUsePower ( class AActor* Target, class FString* sOptionalInfo )
+bool USFXPowerCustomAction_Overload::ShouldUsePower ( class AActor* Target, FString* sOptionalInfo )
 {
 	static UFunction* pFnShouldUsePower = NULL;
 
@@ -14655,7 +14655,7 @@ class USFXGameEffect_OverloadChain* USFXPowerCustomAction_Overload::CreateOverlo
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXPowerCustomAction_Overload::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXPowerCustomAction_Overload::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnImpact = NULL;
 
@@ -14731,7 +14731,7 @@ float USFXPowerCustomAction_Overload::GetImpactDamage ( class AActor* oImpacted,
 // class ASFXProjectile_PowerCustomAction* oProjectile                    ( CPF_OptionalParm | CPF_Parm )
 // class AActor*                  HitActor                       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXPowerCustomAction_Overload::OnPowerDetonated ( struct FVector HitLocation, struct FVector HitNormal, class ASFXProjectile_PowerCustomAction* oProjectile, class AActor* HitActor )
+void USFXPowerCustomAction_Overload::OnPowerDetonated ( struct FVector const& HitLocation, struct FVector const& HitNormal, class ASFXProjectile_PowerCustomAction* oProjectile, class AActor* HitActor )
 {
 	static UFunction* pFnOnPowerDetonated = NULL;
 
@@ -14840,9 +14840,9 @@ void USFXPowerCustomAction_Reave::RecalculateAllPowerData ( unsigned long bReset
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
-// class FString                  sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXPowerCustomAction_Reave::ShouldUsePower ( class AActor* Target, class FString* sOptionalInfo )
+bool USFXPowerCustomAction_Reave::ShouldUsePower ( class AActor* Target, FString* sOptionalInfo )
 {
 	static UFunction* pFnShouldUsePower = NULL;
 
@@ -14889,7 +14889,7 @@ void USFXPowerCustomAction_Reave::StopSounds ( )
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXPowerCustomAction_Reave::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXPowerCustomAction_Reave::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnImpact = NULL;
 
@@ -14944,7 +14944,7 @@ float USFXPowerCustomAction_Reave::GetImpactDamage ( class AActor* oImpacted, cl
 // class ASFXProjectile_PowerCustomAction* oProjectile                    ( CPF_OptionalParm | CPF_Parm )
 // class AActor*                  HitActor                       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXPowerCustomAction_Reave::OnPowerDetonated ( struct FVector HitLocation, struct FVector HitNormal, class ASFXProjectile_PowerCustomAction* oProjectile, class AActor* HitActor )
+void USFXPowerCustomAction_Reave::OnPowerDetonated ( struct FVector const& HitLocation, struct FVector const& HitNormal, class ASFXProjectile_PowerCustomAction* oProjectile, class AActor* HitActor )
 {
 	static UFunction* pFnOnPowerDetonated = NULL;
 
@@ -15070,9 +15070,9 @@ struct FVector USFXPowerCustomAction_CryoBlast::GetDefaultClientEffectParams ( )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
-// class FString                  sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXPowerCustomAction_CryoBlast::ShouldUsePower ( class AActor* Target, class FString* sOptionalInfo )
+bool USFXPowerCustomAction_CryoBlast::ShouldUsePower ( class AActor* Target, FString* sOptionalInfo )
 {
 	static UFunction* pFnShouldUsePower = NULL;
 
@@ -15193,7 +15193,7 @@ void USFXPowerCustomAction_CryoBlast::ApplyFreezeEffect ( class ABioPawn* oPawn,
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXPowerCustomAction_CryoBlast::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXPowerCustomAction_CryoBlast::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnImpact = NULL;
 
@@ -15308,7 +15308,7 @@ void USFXPowerCustomAction_Barrier::RecalculateAllPowerData ( unsigned long bRes
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXPowerCustomAction_Barrier::OnBlastImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXPowerCustomAction_Barrier::OnBlastImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnBlastImpact = NULL;
 
@@ -15872,7 +15872,7 @@ float USFXGameEffect_AmmoPower::GetDamageVocProbabilityMod ( )
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
 // struct FImpactInfo             Impact                         ( CPF_Parm )
 
-void USFXGameEffect_AmmoPower::OnWeaponImpact ( class ASFXWeapon* Weapon, struct FImpactInfo Impact )
+void USFXGameEffect_AmmoPower::OnWeaponImpact ( class ASFXWeapon* Weapon, struct FImpactInfo const& Impact )
 {
 	static UFunction* pFnOnWeaponImpact = NULL;
 
@@ -15930,7 +15930,7 @@ float USFXGameEffect_AmmoPower::GetBulletsPerSecond ( class ASFXWeapon* Weapon )
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
 // struct FImpactInfo             Impact                         ( CPF_Parm )
 
-float USFXGameEffect_AmmoPower::GetWeaponDamage ( class ASFXWeapon* Weapon, struct FImpactInfo Impact )
+float USFXGameEffect_AmmoPower::GetWeaponDamage ( class ASFXWeapon* Weapon, struct FImpactInfo const& Impact )
 {
 	static UFunction* pFnGetWeaponDamage = NULL;
 
@@ -15952,7 +15952,7 @@ float USFXGameEffect_AmmoPower::GetWeaponDamage ( class ASFXWeapon* Weapon, stru
 // class AActor*                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FImpactInfo             Impact                         ( CPF_Parm )
 
-class AActor* USFXGameEffect_AmmoPower::GetHitTarget ( struct FImpactInfo Impact )
+class AActor* USFXGameEffect_AmmoPower::GetHitTarget ( struct FImpactInfo const& Impact )
 {
 	static UFunction* pFnGetHitTarget = NULL;
 
@@ -16037,7 +16037,7 @@ void USFXPowerCustomAction_AmmoPower::DelayedSetWeaponPower ( )
 // struct FVector                 HitNormal                      ( CPF_OptionalParm | CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXPowerCustomAction_AmmoPower::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector HitLocation, struct FVector HitNormal, int CustomActionReactionType )
+void USFXPowerCustomAction_AmmoPower::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector const& HitLocation, struct FVector const& HitNormal, int CustomActionReactionType )
 {
 	static UFunction* pFnClientDoCustomActionImpact = NULL;
 
@@ -16112,9 +16112,9 @@ void USFXPowerCustomAction_AmmoPower::OnPowerRankIncreased ( )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
-// class FString                  sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXPowerCustomAction_AmmoPower::ShouldUsePower ( class AActor* Target, class FString* sOptionalInfo )
+bool USFXPowerCustomAction_AmmoPower::ShouldUsePower ( class AActor* Target, FString* sOptionalInfo )
 {
 	static UFunction* pFnShouldUsePower = NULL;
 
@@ -16212,7 +16212,7 @@ void USFXPowerCustomAction_AmmoPower::ReplicateConcussiveShotSpecialImpact ( cla
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-void USFXPowerCustomAction_AmmoPower::ConcussiveShotCustomImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+void USFXPowerCustomAction_AmmoPower::ConcussiveShotCustomImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnConcussiveShotCustomImpact = NULL;
 
@@ -16300,7 +16300,7 @@ void USFXPowerCustomAction_AmmoPower::DeferedSetWeaponPower ( )
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXPowerCustomAction_AmmoPower::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXPowerCustomAction_AmmoPower::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnImpact = NULL;
 
@@ -16503,7 +16503,7 @@ float USFXGameEffect_IncendiaryAmmo::GetDamageVocProbabilityMod ( )
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
 // struct FImpactInfo             Impact                         ( CPF_Parm )
 
-void USFXGameEffect_IncendiaryAmmo::OnWeaponImpact ( class ASFXWeapon* Weapon, struct FImpactInfo Impact )
+void USFXGameEffect_IncendiaryAmmo::OnWeaponImpact ( class ASFXWeapon* Weapon, struct FImpactInfo const& Impact )
 {
 	static UFunction* pFnOnWeaponImpact = NULL;
 
@@ -16700,7 +16700,7 @@ class USFXGameEffect_IncendiaryAmmo* USFXPowerCustomAction_IncendiaryAmmo::GetIn
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXPowerCustomAction_IncendiaryAmmo::OnActorImpacted ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXPowerCustomAction_IncendiaryAmmo::OnActorImpacted ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnActorImpacted = NULL;
 
@@ -16748,7 +16748,7 @@ void USFXPowerCustomAction_IncendiaryAmmo::DoConcussiveShotSpecialImpact ( class
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-void USFXPowerCustomAction_IncendiaryAmmo::ConcussiveShotCustomImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+void USFXPowerCustomAction_IncendiaryAmmo::ConcussiveShotCustomImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnConcussiveShotCustomImpact = NULL;
 
@@ -16803,7 +16803,7 @@ void USFXPowerCustomAction_IncendiaryAmmo::ClientDoPowerSubsequentImpact ( class
 // struct FVector                 HitNormal                      ( CPF_OptionalParm | CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
 
-void USFXPowerCustomAction_IncendiaryAmmo::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector HitLocation, struct FVector HitNormal, int CustomActionReactionType )
+void USFXPowerCustomAction_IncendiaryAmmo::ClientDoCustomActionImpact ( class AActor* oActor, int ImpactCount, unsigned long bFirstTarget, struct FVector const& HitLocation, struct FVector const& HitNormal, int CustomActionReactionType )
 {
 	static UFunction* pFnClientDoCustomActionImpact = NULL;
 
@@ -16827,7 +16827,7 @@ void USFXPowerCustomAction_IncendiaryAmmo::ClientDoCustomActionImpact ( class AA
 // struct FImpactInfo             Impact                         ( CPF_Parm )
 // class USFXGameEffect_IncendiaryAmmo* Effect                         ( CPF_Parm )
 
-void USFXPowerCustomAction_IncendiaryAmmo::DoEvolvedAoEImpact ( struct FImpactInfo Impact, class USFXGameEffect_IncendiaryAmmo* Effect )
+void USFXPowerCustomAction_IncendiaryAmmo::DoEvolvedAoEImpact ( struct FImpactInfo const& Impact, class USFXGameEffect_IncendiaryAmmo* Effect )
 {
 	static UFunction* pFnDoEvolvedAoEImpact = NULL;
 
@@ -17091,7 +17091,7 @@ void USFXPowerCustomAction_FragGrenade::EvolvePower ( unsigned char choice )
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXPowerCustomAction_FragGrenade::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXPowerCustomAction_FragGrenade::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnImpact = NULL;
 
@@ -17180,7 +17180,7 @@ float USFXPowerCustomAction_FragGrenade::GetImpactDamage ( class AActor* oImpact
 // struct FVector                 ImpactNormal                   ( CPF_Parm )
 // class ASFXProjectile_PowerCustomAction* oProjectile                    ( CPF_OptionalParm | CPF_Parm )
 
-void USFXPowerCustomAction_FragGrenade::PlayDetonationEffects ( struct FVector ImpactLocation, struct FVector ImpactNormal, class ASFXProjectile_PowerCustomAction* oProjectile )
+void USFXPowerCustomAction_FragGrenade::PlayDetonationEffects ( struct FVector const& ImpactLocation, struct FVector const& ImpactNormal, class ASFXProjectile_PowerCustomAction* oProjectile )
 {
 	static UFunction* pFnPlayDetonationEffects = NULL;
 
@@ -17246,9 +17246,9 @@ void USFXPowerCustomAction_Carnage::EvolvePower ( unsigned char choice )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
-// class FString                  sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        sOptionalInfo                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXPowerCustomAction_Carnage::ShouldUsePower ( class AActor* Target, class FString* sOptionalInfo )
+bool USFXPowerCustomAction_Carnage::ShouldUsePower ( class AActor* Target, FString* sOptionalInfo )
 {
 	static UFunction* pFnShouldUsePower = NULL;
 
@@ -17276,7 +17276,7 @@ bool USFXPowerCustomAction_Carnage::ShouldUsePower ( class AActor* Target, class
 // struct FVector                 ImpactNormal                   ( CPF_Parm )
 // class ASFXProjectile_PowerCustomAction* oProjectile                    ( CPF_OptionalParm | CPF_Parm )
 
-void USFXPowerCustomAction_Carnage::PlayDetonationEffects ( struct FVector ImpactLocation, struct FVector ImpactNormal, class ASFXProjectile_PowerCustomAction* oProjectile )
+void USFXPowerCustomAction_Carnage::PlayDetonationEffects ( struct FVector const& ImpactLocation, struct FVector const& ImpactNormal, class ASFXProjectile_PowerCustomAction* oProjectile )
 {
 	static UFunction* pFnPlayDetonationEffects = NULL;
 
@@ -17363,7 +17363,7 @@ void USFXPowerCustomAction_Carnage::PrecacheVFX ( class ASFXObjectPool* ObjectPo
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
 
-bool USFXPowerCustomAction_Carnage::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector HitLocation, struct FVector HitNormal )
+bool USFXPowerCustomAction_Carnage::OnImpact ( unsigned char Resistance, class AActor* oImpacted, int nPreviouslyImpacted, struct FVector const& HitLocation, struct FVector const& HitNormal )
 {
 	static UFunction* pFnOnImpact = NULL;
 
@@ -17451,7 +17451,7 @@ float USFXPowerCustomAction_Carnage::GetImpactDamage ( class AActor* oImpacted, 
 // unsigned long                  bFirstTarget                   ( CPF_Parm )
 // class ASFXProjectile_PowerCustomAction* oProjectile                    ( CPF_OptionalParm | CPF_Parm )
 
-bool USFXPowerCustomAction_Carnage::DoPowerDetonatedForActor ( class AActor* oActor, struct FVector HitLocation, struct FVector HitNormal, int nImpactCount, unsigned long bFirstTarget, class ASFXProjectile_PowerCustomAction* oProjectile )
+bool USFXPowerCustomAction_Carnage::DoPowerDetonatedForActor ( class AActor* oActor, struct FVector const& HitLocation, struct FVector const& HitNormal, int nImpactCount, unsigned long bFirstTarget, class ASFXProjectile_PowerCustomAction* oProjectile )
 {
 	static UFunction* pFnDoPowerDetonatedForActor = NULL;
 

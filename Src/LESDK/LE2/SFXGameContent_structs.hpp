@@ -30,17 +30,26 @@
 // 0x001C
 struct FLevelCompletionData
 {
-	class FString                                      Label;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Label;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	int                                                PlotID;                                           		// 0x0010 (0x0004) [0x0000000000000000]              
 	int                                                ParagonPoints;                                    		// 0x0014 (0x0004) [0x0000000000000000]              
 	int                                                RenegadePoints;                                   		// 0x0018 (0x0004) [0x0000000000000000]              
+};
+
+// ScriptStruct SFXGameContent.BioSeqAct_GiveMissionXP.MissionReward
+// 0x0010
+struct FMissionReward
+{
+	struct SFXName                                     MissionName;                                      		// 0x0000 (0x0008) [0x0000000000004000]              ( CPF_Config )
+	int                                                XPReward;                                         		// 0x0008 (0x0004) [0x0000000000004000]              ( CPF_Config )
+	int                                                RewardedPlotID;                                   		// 0x000C (0x0004) [0x0000000000004000]              ( CPF_Config )
 };
 
 // ScriptStruct SFXGameContent.SFXCombatStateData.FactorySpawnRequest
 // 0x001C
 struct FFactorySpawnRequest
 {
-	class TArray<class AActor*>                        aoSpawnPoints;                                    		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class AActor*>                              aoSpawnPoints;                                    		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     nmRequester;                                      		// 0x0010 (0x0008) [0x0000000000000000]              
 	unsigned long                                      bCompleted : 1;                                   		// 0x0018 (0x0004) [0x0000000000000000] [0x00000001] 
 	unsigned long                                      bSuccess : 1;                                     		// 0x0018 (0x0004) [0x0000000000000000] [0x00000002] 

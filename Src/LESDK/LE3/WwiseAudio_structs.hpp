@@ -38,7 +38,7 @@ struct FWwiseEventPair
 // 0x001C
 struct FWwiseRTPCForActorHandler
 {
-	class FString                                      m_sRTPCName;                                      		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	FString                                            m_sRTPCName;                                      		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 	class AActor*                                      m_actor;                                          		// 0x0010 (0x0008) [0x0000000000000000]              
 	float                                              m_currentValue;                                   		// 0x0018 (0x0004) [0x0000000000000000]              
 };
@@ -87,7 +87,7 @@ struct FWwiseEventInstance : FWwiseEventPair
 // 0x0018
 struct FWwiseRelationships
 {
-	class TArray<class UWwiseStream*>                  Streams;                                          		// 0x0000 (0x0010) [0x0000000000021003]              ( CPF_Edit | CPF_Const | CPF_Native | CPF_EditConst )
+	TArray<class UWwiseStream*>                        Streams;                                          		// 0x0000 (0x0010) [0x0000000000021003]              ( CPF_Edit | CPF_Const | CPF_Native | CPF_EditConst )
 	class UWwiseBank*                                  Bank;                                             		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 };
 
@@ -111,7 +111,7 @@ struct FWwiseDialogueArgumentValue
 // 0x001C
 struct FWwiseDialogueArgument
 {
-	class TArray<struct FWwiseDialogueArgumentValue>   Values;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FWwiseDialogueArgumentValue>         Values;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     Name;                                             		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	int                                                Id;                                               		// 0x0018 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 };
@@ -136,7 +136,7 @@ struct FWwisePlatformGuid
 // 0x0010
 struct FWwiseFileCacheGuids
 {
-	class TArray<struct FWwisePlatformGuid>            Guids;                                            		// 0x0000 (0x0010) [0x0000000000420003]              ( CPF_Edit | CPF_Const | CPF_EditConst | CPF_NeedCtorLink )
+	TArray<struct FWwisePlatformGuid>                  Guids;                                            		// 0x0000 (0x0010) [0x0000000000420003]              ( CPF_Edit | CPF_Const | CPF_EditConst | CPF_NeedCtorLink )
 };
 
 

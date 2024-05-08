@@ -60,7 +60,7 @@ struct FPlayerMember
 struct FClientConnectionRequest
 {
 	struct FUniqueNetId                                PlayerNetId;                                      		// 0x0000 (0x0008) [0x0000000000000000]              
-	class TArray<struct FConnectionBandwidthStats>     BandwidthHistory;                                 		// 0x0008 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FConnectionBandwidthStats>           BandwidthHistory;                                 		// 0x0008 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	float                                              GoodHostRatio;                                    		// 0x0018 (0x0004) [0x0000000000000000]              
 	int                                                MinutesSinceLastTest;                             		// 0x001C (0x0004) [0x0000000000000000]              
 	unsigned long                                      bCanHostVs : 1;                                   		// 0x0020 (0x0004) [0x0000000000000000] [0x00000001] 
@@ -98,7 +98,7 @@ struct FClientMeshBeaconConnection
 {
 	struct FClientConnectionBandwidthTestData          BandwidthTest;                                    		// 0x0000 (0x0028) [0x0000000000000000]              
 	struct FUniqueNetId                                PlayerNetId;                                      		// 0x0028 (0x0008) [0x0000000000000000]              
-	class TArray<struct FConnectionBandwidthStats>     BandwidthHistory;                                 		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FConnectionBandwidthStats>           BandwidthHistory;                                 		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	FPointer                                           Socket;                                           		// 0x0040 (0x0008) [0x0000000000003000]              ( CPF_Native | CPF_Transient )
 	float                                              ElapsedHeartbeatTime;                             		// 0x0048 (0x0004) [0x0000000000000000]              
 	float                                              GoodHostRatio;                                    		// 0x004C (0x0004) [0x0000000000000000]              
@@ -112,7 +112,7 @@ struct FClientMeshBeaconConnection
 // 0x0019
 struct FEventUploadConfig
 {
-	class FString                                      UploadUrl;                                        		// 0x0000 (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
+	FString                                            UploadUrl;                                        		// 0x0000 (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
 	float                                              TimeOut;                                          		// 0x0010 (0x0004) [0x0000000000000002]              ( CPF_Const )
 	unsigned long                                      bUseCompression : 1;                              		// 0x0014 (0x0004) [0x0000000000000002] [0x00000001] ( CPF_Const )
 	unsigned char                                      UploadType;                                       		// 0x0018 (0x0001) [0x0000000000000002]              ( CPF_Const )
@@ -122,8 +122,8 @@ struct FEventUploadConfig
 // 0x0032
 struct FNewsCacheEntry
 {
-	class FString                                      NewsUrl;                                          		// 0x0000 (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
-	class FString                                      NewsItem;                                         		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            NewsUrl;                                          		// 0x0000 (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
+	FString                                            NewsItem;                                         		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	FPointer                                           HttpDownloader;                                   		// 0x0020 (0x0008) [0x0000000000001002]              ( CPF_Const | CPF_Native )
 	float                                              TimeOut;                                          		// 0x0028 (0x0004) [0x0000000000000002]              ( CPF_Const )
 	unsigned long                                      bIsUnicode : 1;                                   		// 0x002C (0x0004) [0x0000000000000002] [0x00000001] ( CPF_Const )
@@ -148,7 +148,7 @@ struct FPlayerReservation
 struct FPartyReservation
 {
 	struct FUniqueNetId                                PartyLeader;                                      		// 0x0000 (0x0008) [0x0000000000000000]              
-	class TArray<struct FPlayerReservation>            PartyMembers;                                     		// 0x0008 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FPlayerReservation>                  PartyMembers;                                     		// 0x0008 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	int                                                TeamNum;                                          		// 0x0018 (0x0004) [0x0000000000000000]              
 };
 

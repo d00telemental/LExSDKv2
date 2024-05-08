@@ -356,7 +356,7 @@ class UClass* UWwiseAudioComponent::StaticClass()
 // Parameters infos:
 // struct FVector                 NewLocation                    ( CPF_Parm )
 
-void UWwiseAudioComponent::SetLocation ( struct FVector NewLocation )
+void UWwiseAudioComponent::SetLocation ( struct FVector const& NewLocation )
 {
 	static UFunction* pFnSetLocation = NULL;
 
@@ -460,9 +460,9 @@ void UWwiseAudioComponent::Set2D ( )
 // [0x00024400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  GameObjectName                 ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        GameObjectName                 ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool UWwiseAudioComponent::RegisterGameObject ( class FString GameObjectName )
+bool UWwiseAudioComponent::RegisterGameObject ( FString const& GameObjectName )
 {
 	static UFunction* pFnRegisterGameObject = NULL;
 
@@ -644,10 +644,10 @@ struct FVector UWwiseAudioComponent::GetMicPosition ( )
 // [0x00022400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  in_pszRtpcName                 ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        in_pszRtpcName                 ( CPF_Parm | CPF_NeedCtorLink )
 // float                          in_value                       ( CPF_Parm )
 
-bool UWwiseAudioComponent::SetGlobalRTPCFromScript ( class FString in_pszRtpcName, float in_value )
+bool UWwiseAudioComponent::SetGlobalRTPCFromScript ( FString const& in_pszRtpcName, float in_value )
 {
 	static UFunction* pFnSetGlobalRTPCFromScript = NULL;
 
@@ -697,12 +697,12 @@ bool UWwiseAudioComponent::StaticPostGlobalEventFromScript ( struct SFXName Glob
 // Parameters infos:
 // class UWwiseAudioComponent*    ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_EditInline )
 // class AActor*                  pActor                         ( CPF_Parm )
-// class FString                  Label                          ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        Label                          ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // struct SFXName                 ComponentGroup                 ( CPF_OptionalParm | CPF_Parm )
 // struct SFXName                 AttachBone                     ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bRegister                      ( CPF_OptionalParm | CPF_Parm )
 
-class UWwiseAudioComponent* UWwiseAudioComponent::CreateComponentFromScript ( class AActor* pActor, class FString Label, struct SFXName ComponentGroup, struct SFXName AttachBone, unsigned long bRegister )
+class UWwiseAudioComponent* UWwiseAudioComponent::CreateComponentFromScript ( class AActor* pActor, FString const& Label, struct SFXName ComponentGroup, struct SFXName AttachBone, unsigned long bRegister )
 {
 	static UFunction* pFnCreateComponentFromScript = NULL;
 
@@ -804,9 +804,9 @@ bool UWwiseAudioComponent::PostGlobalEvent ( struct SFXName GlobalEventName )
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  sTrigger                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sTrigger                       ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UWwiseAudioComponent::SetWwiseTrigger ( class FString sTrigger )
+bool UWwiseAudioComponent::SetWwiseTrigger ( FString const& sTrigger )
 {
 	static UFunction* pFnSetWwiseTrigger = NULL;
 
@@ -829,10 +829,10 @@ bool UWwiseAudioComponent::SetWwiseTrigger ( class FString sTrigger )
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  sGroup                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sState                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sGroup                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sState                         ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UWwiseAudioComponent::SetWwiseSwitch ( class FString sGroup, class FString sState )
+bool UWwiseAudioComponent::SetWwiseSwitch ( FString const& sGroup, FString const& sState )
 {
 	static UFunction* pFnSetWwiseSwitch = NULL;
 
@@ -856,10 +856,10 @@ bool UWwiseAudioComponent::SetWwiseSwitch ( class FString sGroup, class FString 
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<class FString>    sName                          ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<float>            fValue                         ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<FString>                sName                          ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<float>                  fValue                         ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UWwiseAudioComponent::SetWwiseRTPCs ( class TArray<class FString> sName, class TArray<float> fValue )
+bool UWwiseAudioComponent::SetWwiseRTPCs ( TArray<FString> const& sName, TArray<float> const& fValue )
 {
 	static UFunction* pFnSetWwiseRTPCs = NULL;
 
@@ -883,10 +883,10 @@ bool UWwiseAudioComponent::SetWwiseRTPCs ( class TArray<class FString> sName, cl
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  sName                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sName                          ( CPF_Parm | CPF_NeedCtorLink )
 // float                          fValue                         ( CPF_Parm )
 
-bool UWwiseAudioComponent::SetWwiseRTPC ( class FString sName, float fValue )
+bool UWwiseAudioComponent::SetWwiseRTPC ( FString const& sName, float fValue )
 {
 	static UFunction* pFnSetWwiseRTPC = NULL;
 
@@ -937,7 +937,7 @@ bool UWwiseAudioComponent::Stop ( class UWwiseBaseSoundObject* Base )
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FWwiseEventPair         AudioEvent                     ( CPF_Parm )
 
-bool UWwiseAudioComponent::StopWwiseEvent ( struct FWwiseEventPair AudioEvent )
+bool UWwiseAudioComponent::StopWwiseEvent ( struct FWwiseEventPair const& AudioEvent )
 {
 	static UFunction* pFnStopWwiseEvent = NULL;
 
@@ -990,7 +990,7 @@ bool UWwiseAudioComponent::Play ( class UWwiseBaseSoundObject* Base, unsigned lo
 // struct FWwiseEventPair         AudioEvent                     ( CPF_Parm )
 // unsigned long                  bTrackPosition                 ( CPF_OptionalParm | CPF_Parm )
 
-bool UWwiseAudioComponent::PlayWwiseEvent ( struct FWwiseEventPair AudioEvent, unsigned long bTrackPosition )
+bool UWwiseAudioComponent::PlayWwiseEvent ( struct FWwiseEventPair const& AudioEvent, unsigned long bTrackPosition )
 {
 	static UFunction* pFnPlayWwiseEvent = NULL;
 

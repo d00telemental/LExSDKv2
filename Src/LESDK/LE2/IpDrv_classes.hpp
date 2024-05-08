@@ -241,7 +241,7 @@ public:
 class UHTTPDownload : public UDownload
 {
 public:
-	class FString                                      ProxyServerHost;                                  		// 0x0AA4 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	FString                                            ProxyServerHost;                                  		// 0x0AA4 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
 	int                                                ProxyServerPort;                                  		// 0x0AB4 (0x0004) [0x0000000000004000]              ( CPF_Config )
 	unsigned long                                      MaxRedirection : 1;                               		// 0x0AB8 (0x0004) [0x0000000000004000] [0x00000001] ( CPF_Config )
 	float                                              ConnectionTimeout;                                		// 0x0ABC (0x0004) [0x0000000000004000]              ( CPF_Config )
@@ -277,13 +277,13 @@ public:
 	static UClass* StaticClass();
 
 	void eventResolveFailed ( );
-	void eventResolved ( struct FIpAddr Addr );
+	void eventResolved ( struct FIpAddr const& Addr );
 	void GetLocalIP ( struct FIpAddr* arg );
-	bool StringToIpAddr ( class FString Str, struct FIpAddr* Addr );
-	class FString IpAddrToString ( struct FIpAddr arg );
+	bool StringToIpAddr ( FString const& Str, struct FIpAddr* Addr );
+	FString IpAddrToString ( struct FIpAddr const& arg );
 	int GetLastError ( );
-	void Resolve ( class FString Domain );
-	bool ParseURL ( class FString URL, class FString* Addr, int* PortNum, class FString* LevelName, class FString* EntryName );
+	void Resolve ( FString const& Domain );
+	bool ParseURL ( FString const& URL, FString* Addr, int* PortNum, FString* LevelName, FString* EntryName );
 	bool IsDataPending ( );
 };
 
@@ -292,8 +292,8 @@ public:
 class ATcpLink : public AInternetLink
 {
 public:
-	class TArray<unsigned char>                        SendFIFO;                                         		// 0x02B0 (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
-	class FString                                      RecvBuf;                                          		// 0x02C0 (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
+	TArray<unsigned char>                              SendFIFO;                                         		// 0x02B0 (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
+	FString                                            RecvBuf;                                          		// 0x02C0 (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
 	class UClass*                                      AcceptClass;                                      		// 0x02D0 (0x0008) [0x0000000000000000]              
 	struct FIpAddr                                     RemoteAddr;                                       		// 0x02D8 (0x0014) [0x0000000000000000]              
 	unsigned char                                      LinkState;                                        		// 0x02EC (0x0001) [0x0000000000000000]              
@@ -305,18 +305,18 @@ public:
 	static UClass* StaticClass();
 
 	void eventReceivedBinary ( int Count, unsigned char* B );
-	void eventReceivedLine ( class FString Line );
-	void eventReceivedText ( class FString Text );
+	void eventReceivedLine ( FString const& Line );
+	void eventReceivedText ( FString const& Text );
 	void eventClosed ( );
 	void eventOpened ( );
 	void eventAccepted ( );
 	int ReadBinary ( int Count, unsigned char* B );
-	int ReadText ( class FString* Str );
+	int ReadText ( FString* Str );
 	int SendBinary ( int Count, unsigned char* B );
-	int SendText ( class FString Str );
+	int SendText ( FString const& Str );
 	bool IsConnected ( );
 	bool Close ( );
-	bool Open ( struct FIpAddr Addr );
+	bool Open ( struct FIpAddr const& Addr );
 	bool Listen ( );
 	int BindPort ( int PortNum, unsigned long bUseNextAvailable );
 };
@@ -341,9 +341,9 @@ public:
 class UOnlineEventsInterfaceMcp : public UMCPBase
 {
 public:
-	class TArray<FPointer>                             HttpPostObjects;                                  		// 0x0068 (0x0010) [0x0000000000001002]              ( CPF_Const | CPF_Native )
-	class TArray<struct FEventUploadConfig>            EventUploadConfigs;                               		// 0x0078 (0x0010) [0x0000000000404002]              ( CPF_Const | CPF_Config | CPF_NeedCtorLink )
-	class TArray<unsigned char>                        DisabledUploadTypes;                              		// 0x0088 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	TArray<FPointer>                                   HttpPostObjects;                                  		// 0x0068 (0x0010) [0x0000000000001002]              ( CPF_Const | CPF_Native )
+	TArray<struct FEventUploadConfig>                  EventUploadConfigs;                               		// 0x0078 (0x0010) [0x0000000000404002]              ( CPF_Const | CPF_Config | CPF_NeedCtorLink )
+	TArray<unsigned char>                              DisabledUploadTypes;                              		// 0x0088 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
 	unsigned long                                      bBinaryStats : 1;                                 		// 0x0098 (0x0004) [0x0000000000004002] [0x00000001] ( CPF_Const | CPF_Config )
 
 private:
@@ -352,9 +352,9 @@ private:
 public:
 	static UClass* StaticClass();
 
-	bool UploadHardwareData ( struct FUniqueNetId UniqueId, class FString PlayerNick );
+	bool UploadHardwareData ( struct FUniqueNetId const& UniqueId, FString const& PlayerNick );
 	bool UploadGameplayEventsData ( class UOnlineGameplayEvents* Events );
-	bool UploadProfileData ( struct FUniqueNetId UniqueId, class FString PlayerNick, class UOnlineProfileSettings* ProfileSettings );
+	bool UploadProfileData ( struct FUniqueNetId const& UniqueId, FString const& PlayerNick, class UOnlineProfileSettings* ProfileSettings );
 };
 
 // Class IpDrv.OnlineNewsInterfaceMcp
@@ -362,8 +362,8 @@ public:
 class UOnlineNewsInterfaceMcp : public UMCPBase
 {
 public:
-	class TArray<struct FNewsCacheEntry>               NewsItems;                                        		// 0x0068 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               ReadNewsDelegates;                                		// 0x0078 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FNewsCacheEntry>                     NewsItems;                                        		// 0x0068 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     ReadNewsDelegates;                                		// 0x0078 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnReadNewsCompleted__Delegate;                  		// 0x0088 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	unsigned long                                      bNeedsTicking : 1;                                		// 0x0098 (0x0004) [0x0000000000002000] [0x00000001] ( CPF_Transient )
 
@@ -373,7 +373,7 @@ private:
 public:
 	static UClass* StaticClass();
 
-	class FString GetNews ( unsigned char LocalUserNum, unsigned char NewsType );
+	FString GetNews ( unsigned char LocalUserNum, unsigned char NewsType );
 	void ClearReadNewsCompletedDelegate ( struct FScriptDelegate ReadGameNewsDelegate );
 	void AddReadNewsCompletedDelegate ( struct FScriptDelegate ReadNewsDelegate );
 	void OnReadNewsCompleted ( unsigned long bWasSuccessful, unsigned char NewsType );
@@ -385,9 +385,9 @@ public:
 class UOnlineTitleFileDownloadMcp : public UMCPBase
 {
 public:
-	class TArray<struct FScriptDelegate>               ReadTitleFileCompleteDelegates;                   		// 0x0068 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FTitleFile>                    TitleFiles;                                       		// 0x0078 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      BaseUrl;                                          		// 0x0088 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     ReadTitleFileCompleteDelegates;                   		// 0x0068 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FTitleFile>                          TitleFiles;                                       		// 0x0078 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            BaseUrl;                                          		// 0x0088 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnReadTitleFileComplete__Delegate;              		// 0x0098 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	FPointer                                           HttpDownloader;                                   		// 0x00A8 (0x0008) [0x0000000000001002]              ( CPF_Const | CPF_Native )
 	int                                                CurrentIndex;                                     		// 0x00B0 (0x0004) [0x0000000000002000]              ( CPF_Transient )
@@ -400,12 +400,12 @@ public:
 	static UClass* StaticClass();
 
 	bool ClearDownloadedFiles ( );
-	unsigned char GetTitleFileState ( class FString Filename );
-	bool GetTitleFileContents ( class FString Filename, class TArray<unsigned char>* FileContents );
+	unsigned char GetTitleFileState ( FString const& Filename );
+	bool GetTitleFileContents ( FString const& Filename, TArray<unsigned char>* FileContents );
 	void ClearReadTitleFileCompleteDelegate ( struct FScriptDelegate ReadTitleFileCompleteDelegate );
 	void AddReadTitleFileCompleteDelegate ( struct FScriptDelegate ReadTitleFileCompleteDelegate );
-	bool ReadTitleFile ( class FString FileToRead );
-	void OnReadTitleFileComplete ( unsigned long bWasSuccessful, class FString Filename );
+	bool ReadTitleFile ( FString const& FileToRead );
+	void OnReadTitleFileComplete ( unsigned long bWasSuccessful, FString const& Filename );
 };
 
 // Class IpDrv.MeshBeacon
@@ -446,7 +446,7 @@ class UMeshBeaconClient : public UMeshBeacon
 public:
 	struct FClientConnectionRequest                    ClientPendingRequest;                             		// 0x00A4 (0x0028) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
 	struct FOnlineGameSearchResult                     HostPendingRequest;                               		// 0x00CC (0x0010) [0x0000000000000002]              ( CPF_Const )
-	class FString                                      ResolverClassName;                                		// 0x00DC (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	FString                                            ResolverClassName;                                		// 0x00DC (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnConnectionRequestResult__Delegate;            		// 0x00EC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnReceivedBandwidthTestRequest__Delegate;       		// 0x00FC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnReceivedBandwidthTestResults__Delegate;       		// 0x010C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
@@ -470,7 +470,7 @@ public:
 	void DebugRender ( class UCanvas* Canvas );
 	void DumpInfo ( );
 	bool SendHostNewGameSessionResponse ( unsigned long bSuccess, struct SFXName SessionName, class UClass* SearchClass, unsigned char* PlatformSpecificInfo );
-	void OnCreateNewSessionRequestReceived ( struct SFXName SessionName, class UClass* SearchClass, class TArray<struct FPlayerMember>* Players );
+	void OnCreateNewSessionRequestReceived ( struct SFXName SessionName, class UClass* SearchClass, TArray<struct FPlayerMember>* Players );
 	void OnTravelRequestReceived ( struct SFXName SessionName, class UClass* SearchClass, unsigned char* PlatformSpecificInfo );
 	void OnReceivedBandwidthTestResults ( unsigned char TestType, unsigned char TestResult, struct FConnectionBandwidthStats* BandwidthStats );
 	void OnReceivedBandwidthTestRequest ( unsigned char TestType );
@@ -486,8 +486,8 @@ class UMeshBeaconHost : public UMeshBeacon
 {
 public:
 	struct FUniqueNetId                                OwningPlayerId;                                   		// 0x00A4 (0x0008) [0x0000000000000002]              ( CPF_Const )
-	class TArray<struct FClientMeshBeaconConnection>   ClientConnections;                                		// 0x00AC (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
-	class TArray<struct FUniqueNetId>                  PendingPlayerConnections;                         		// 0x00BC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FClientMeshBeaconConnection>         ClientConnections;                                		// 0x00AC (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
+	TArray<struct FUniqueNetId>                        PendingPlayerConnections;                         		// 0x00BC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnReceivedClientConnectionRequest__Delegate;    		// 0x00CC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnStartedBandwidthTest__Delegate;               		// 0x00DC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnFinishedBandwidthTest__Delegate;              		// 0x00EC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
@@ -502,26 +502,26 @@ private:
 public:
 	static UClass* StaticClass();
 
-	void DebugRender ( class UCanvas* Canvas, struct FUniqueNetId CurOptimalHostId );
+	void DebugRender ( class UCanvas* Canvas, struct FUniqueNetId const& CurOptimalHostId );
 	void DumpConnections ( );
 	void OnReceivedClientCreateNewSessionResult ( unsigned long bSucceeded, struct SFXName SessionName, class UClass* SearchClass, unsigned char* PlatformSpecificInfo );
-	bool RequestClientCreateNewSession ( struct FUniqueNetId PlayerNetId, struct SFXName SessionName, class UClass* SearchClass, class TArray<struct FPlayerMember>* Players );
+	bool RequestClientCreateNewSession ( struct FUniqueNetId const& PlayerNetId, struct SFXName SessionName, class UClass* SearchClass, TArray<struct FPlayerMember>* Players );
 	void TellClientsToTravel ( struct SFXName SessionName, class UClass* SearchClass, unsigned char* PlatformSpecificInfo );
 	void OnAllPendingPlayersConnected ( );
-	bool AllPlayersConnected ( class TArray<struct FUniqueNetId>* Players );
-	int GetConnectionIndexForPlayer ( struct FUniqueNetId PlayerNetId );
-	void SetPendingPlayerConnections ( class TArray<struct FUniqueNetId>* Players );
-	void OnFinishedBandwidthTest ( struct FUniqueNetId PlayerNetId, unsigned char TestType, unsigned char TestResult, struct FConnectionBandwidthStats* BandwidthStats );
-	void OnStartedBandwidthTest ( struct FUniqueNetId PlayerNetId, unsigned char TestType );
+	bool AllPlayersConnected ( TArray<struct FUniqueNetId>* Players );
+	int GetConnectionIndexForPlayer ( struct FUniqueNetId const& PlayerNetId );
+	void SetPendingPlayerConnections ( TArray<struct FUniqueNetId>* Players );
+	void OnFinishedBandwidthTest ( struct FUniqueNetId const& PlayerNetId, unsigned char TestType, unsigned char TestResult, struct FConnectionBandwidthStats* BandwidthStats );
+	void OnStartedBandwidthTest ( struct FUniqueNetId const& PlayerNetId, unsigned char TestType );
 	void OnReceivedClientConnectionRequest ( struct FClientMeshBeaconConnection* NewClientConnection );
 	void AllowBandwidthTesting ( unsigned long bEnabled );
 	void CancelPendingBandwidthTests ( );
 	bool HasPendingBandwidthTest ( );
 	void CancelInProgressBandwidthTests ( );
 	bool HasInProgressBandwidthTest ( );
-	bool RequestClientBandwidthTest ( struct FUniqueNetId PlayerNetId, unsigned char TestType, int TestBufferSize );
+	bool RequestClientBandwidthTest ( struct FUniqueNetId const& PlayerNetId, unsigned char TestType, int TestBufferSize );
 	void eventDestroyBeacon ( );
-	bool InitHostBeacon ( struct FUniqueNetId InOwningPlayerId );
+	bool InitHostBeacon ( struct FUniqueNetId const& InOwningPlayerId );
 };
 
 // Class IpDrv.OnlineSubsystemCommonImpl
@@ -541,10 +541,10 @@ private:
 public:
 	static UClass* StaticClass();
 
-	void GetRegisteredPlayers ( struct SFXName SessionName, class TArray<struct FUniqueNetId>* OutRegisteredPlayers );
-	bool IsPlayerInSession ( struct SFXName SessionName, struct FUniqueNetId PlayerID );
+	void GetRegisteredPlayers ( struct SFXName SessionName, TArray<struct FUniqueNetId>* OutRegisteredPlayers );
+	bool IsPlayerInSession ( struct SFXName SessionName, struct FUniqueNetId const& PlayerID );
 	struct FUniqueNetId eventGetPlayerUniqueNetIdFromIndex ( int UserIndex );
-	class FString eventGetPlayerNicknameFromIndex ( int UserIndex );
+	FString eventGetPlayerNicknameFromIndex ( int UserIndex );
 };
 
 // Class IpDrv.OnlineGameInterfaceImpl
@@ -552,14 +552,14 @@ public:
 class UOnlineGameInterfaceImpl : public UObject
 {
 public:
-	class TArray<struct FScriptDelegate>               CreateOnlineGameCompleteDelegates;                		// 0x0060 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               UpdateOnlineGameCompleteDelegates;                		// 0x0070 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               DestroyOnlineGameCompleteDelegates;               		// 0x0080 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               JoinOnlineGameCompleteDelegates;                  		// 0x0090 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               StartOnlineGameCompleteDelegates;                 		// 0x00A0 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               EndOnlineGameCompleteDelegates;                   		// 0x00B0 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               FindOnlineGamesCompleteDelegates;                 		// 0x00C0 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               CancelFindOnlineGamesCompleteDelegates;           		// 0x00D0 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     CreateOnlineGameCompleteDelegates;                		// 0x0060 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     UpdateOnlineGameCompleteDelegates;                		// 0x0070 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     DestroyOnlineGameCompleteDelegates;               		// 0x0080 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     JoinOnlineGameCompleteDelegates;                  		// 0x0090 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     StartOnlineGameCompleteDelegates;                 		// 0x00A0 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     EndOnlineGameCompleteDelegates;                   		// 0x00B0 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     FindOnlineGamesCompleteDelegates;                 		// 0x00C0 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     CancelFindOnlineGamesCompleteDelegates;           		// 0x00D0 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnFindOnlineGamesComplete__Delegate;            		// 0x00E0 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnCreateOnlineGameComplete__Delegate;           		// 0x00F0 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnUpdateOnlineGameComplete__Delegate;           		// 0x0100 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
@@ -596,12 +596,12 @@ public:
 	bool ReadPlatformSpecificSessionInfoBySessionName ( struct SFXName SessionName, unsigned char* PlatformSpecificInfo );
 	bool ReadPlatformSpecificSessionInfo ( struct FOnlineGameSearchResult* DesiredGame, unsigned char* PlatformSpecificInfo );
 	bool QueryNonAdvertisedData ( int StartAt, int NumberToQuery );
-	bool RecalculateSkillRating ( struct SFXName SessionName, class TArray<struct FUniqueNetId>* Players );
+	bool RecalculateSkillRating ( struct SFXName SessionName, TArray<struct FUniqueNetId>* Players );
 	bool AcceptGameInvite ( unsigned char LocalUserNum, struct SFXName SessionName );
 	void ClearGameInviteAcceptedDelegate ( unsigned char LocalUserNum, struct FScriptDelegate GameInviteAcceptedDelegate );
 	void AddGameInviteAcceptedDelegate ( unsigned char LocalUserNum, struct FScriptDelegate GameInviteAcceptedDelegate );
 	void OnGameInviteAccepted ( struct FOnlineGameSearchResult* InviteResult );
-	class TArray<struct FOnlineArbitrationRegistrant> GetArbitratedPlayers ( struct SFXName SessionName );
+	TArray<struct FOnlineArbitrationRegistrant> GetArbitratedPlayers ( struct SFXName SessionName );
 	void ClearArbitrationRegistrationCompleteDelegate ( struct FScriptDelegate ArbitrationRegistrationCompleteDelegate );
 	void AddArbitrationRegistrationCompleteDelegate ( struct FScriptDelegate ArbitrationRegistrationCompleteDelegate );
 	void OnArbitrationRegistrationComplete ( struct SFXName SessionName, unsigned long bWasSuccessful );
@@ -616,13 +616,13 @@ public:
 	bool StartOnlineGame ( struct SFXName SessionName );
 	void ClearUnregisterPlayerCompleteDelegate ( struct FScriptDelegate UnregisterPlayerCompleteDelegate );
 	void AddUnregisterPlayerCompleteDelegate ( struct FScriptDelegate UnregisterPlayerCompleteDelegate );
-	void OnUnregisterPlayerComplete ( struct SFXName SessionName, struct FUniqueNetId PlayerID, unsigned long bWasSuccessful );
-	bool UnregisterPlayer ( struct SFXName SessionName, struct FUniqueNetId PlayerID );
+	void OnUnregisterPlayerComplete ( struct SFXName SessionName, struct FUniqueNetId const& PlayerID, unsigned long bWasSuccessful );
+	bool UnregisterPlayer ( struct SFXName SessionName, struct FUniqueNetId const& PlayerID );
 	void ClearRegisterPlayerCompleteDelegate ( struct FScriptDelegate RegisterPlayerCompleteDelegate );
 	void AddRegisterPlayerCompleteDelegate ( struct FScriptDelegate RegisterPlayerCompleteDelegate );
-	void OnRegisterPlayerComplete ( struct SFXName SessionName, struct FUniqueNetId PlayerID, unsigned long bWasSuccessful );
-	bool RegisterPlayer ( struct SFXName SessionName, struct FUniqueNetId PlayerID, unsigned long bWasInvited );
-	bool GetResolvedConnectString ( struct SFXName SessionName, class FString* ConnectInfo );
+	void OnRegisterPlayerComplete ( struct SFXName SessionName, struct FUniqueNetId const& PlayerID, unsigned long bWasSuccessful );
+	bool RegisterPlayer ( struct SFXName SessionName, struct FUniqueNetId const& PlayerID, unsigned long bWasInvited );
+	bool GetResolvedConnectString ( struct SFXName SessionName, FString* ConnectInfo );
 	void ClearJoinOnlineGameCompleteDelegate ( struct FScriptDelegate JoinOnlineGameCompleteDelegate );
 	void AddJoinOnlineGameCompleteDelegate ( struct FScriptDelegate JoinOnlineGameCompleteDelegate );
 	void OnJoinOnlineGameComplete ( struct SFXName SessionName, unsigned long bWasSuccessful );
@@ -685,7 +685,7 @@ class UPartyBeaconClient : public UPartyBeacon
 public:
 	struct FPartyReservation                           PendingRequest;                                   		// 0x0098 (0x001C) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FOnlineGameSearchResult                     HostPendingRequest;                               		// 0x00B4 (0x0010) [0x0000000000000002]              ( CPF_Const )
-	class FString                                      ResolverClassName;                                		// 0x00C4 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	FString                                            ResolverClassName;                                		// 0x00C4 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnReservationRequestComplete__Delegate;         		// 0x00D4 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnReservationCountUpdated__Delegate;            		// 0x00E4 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnTravelRequestReceived__Delegate;              		// 0x00F4 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
@@ -705,9 +705,9 @@ public:
 	static UClass* StaticClass();
 
 	void eventDestroyBeacon ( );
-	bool CancelReservation ( struct FUniqueNetId CancellingPartyLeader );
-	bool RequestReservationUpdate ( struct FUniqueNetId RequestingPartyLeader, struct FOnlineGameSearchResult* DesiredHost, class TArray<struct FPlayerReservation>* PlayersToAdd );
-	bool RequestReservation ( struct FUniqueNetId RequestingPartyLeader, struct FOnlineGameSearchResult* DesiredHost, class TArray<struct FPlayerReservation>* Players );
+	bool CancelReservation ( struct FUniqueNetId const& CancellingPartyLeader );
+	bool RequestReservationUpdate ( struct FUniqueNetId const& RequestingPartyLeader, struct FOnlineGameSearchResult* DesiredHost, TArray<struct FPlayerReservation>* PlayersToAdd );
+	bool RequestReservation ( struct FUniqueNetId const& RequestingPartyLeader, struct FOnlineGameSearchResult* DesiredHost, TArray<struct FPlayerReservation>* Players );
 	void OnHostHasCancelled ( );
 	void OnHostIsReady ( );
 	void OnTravelRequestReceived ( struct SFXName SessionName, class UClass* SearchClass, unsigned char* PlatformSpecificInfo );
@@ -720,8 +720,8 @@ public:
 class UPartyBeaconHost : public UPartyBeacon
 {
 public:
-	class TArray<struct FClientBeaconConnection>       Clients;                                          		// 0x0098 (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
-	class TArray<struct FPartyReservation>             Reservations;                                     		// 0x00A8 (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
+	TArray<struct FClientBeaconConnection>             Clients;                                          		// 0x0098 (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
+	TArray<struct FPartyReservation>                   Reservations;                                     		// 0x00A8 (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnReservationChange__Delegate;                  		// 0x00B8 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnReservationsFull__Delegate;                   		// 0x00C8 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnClientCancellationReceived__Delegate;         		// 0x00D8 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
@@ -742,10 +742,10 @@ public:
 
 	void DumpReservations ( );
 	int GetMaxAvailableTeamSize ( );
-	void GetPartyLeaders ( class TArray<struct FUniqueNetId>* PartyLeaders );
-	void GetPlayers ( class TArray<struct FUniqueNetId>* Players );
+	void GetPartyLeaders ( TArray<struct FUniqueNetId>* PartyLeaders );
+	void GetPlayers ( TArray<struct FUniqueNetId>* Players );
 	void AppendReservationSkillsToSearch ( class UOnlineGameSearch* Search );
-	void eventUnregisterParty ( struct FUniqueNetId PartyLeader );
+	void eventUnregisterParty ( struct FUniqueNetId const& PartyLeader );
 	void eventUnregisterPartyMembers ( );
 	void eventRegisterPartyMembers ( );
 	bool AreReservationsFull ( );
@@ -753,12 +753,12 @@ public:
 	void TellClientsHostIsReady ( );
 	void TellClientsToTravel ( struct SFXName SessionName, class UClass* SearchClass, unsigned char* PlatformSpecificInfo );
 	void eventDestroyBeacon ( );
-	void OnClientCancellationReceived ( struct FUniqueNetId PartyLeader );
+	void OnClientCancellationReceived ( struct FUniqueNetId const& PartyLeader );
 	void OnReservationsFull ( );
 	void OnReservationChange ( );
-	void HandlePlayerLogout ( struct FUniqueNetId PlayerID, unsigned long bMaintainParty );
-	unsigned char UpdatePartyReservationEntry ( struct FUniqueNetId PartyLeader, class TArray<struct FPlayerReservation>* PlayerMembers );
-	unsigned char AddPartyReservationEntry ( struct FUniqueNetId PartyLeader, int TeamNum, unsigned long bIsHost, class TArray<struct FPlayerReservation>* PlayerMembers );
+	void HandlePlayerLogout ( struct FUniqueNetId const& PlayerID, unsigned long bMaintainParty );
+	unsigned char UpdatePartyReservationEntry ( struct FUniqueNetId const& PartyLeader, TArray<struct FPlayerReservation>* PlayerMembers );
+	unsigned char AddPartyReservationEntry ( struct FUniqueNetId const& PartyLeader, int TeamNum, unsigned long bIsHost, TArray<struct FPlayerReservation>* PlayerMembers );
 	bool InitHostBeacon ( int InNumTeams, int InNumPlayersPerTeam, int InNumReservations, struct SFXName InSessionName );
 };
 
@@ -801,11 +801,11 @@ class UWebRequest : public UObject
 public:
 	struct FMap_Mirror                                 HeaderMap;                                        		// 0x0060 (0x0048) [0x0000000000001002]              ( CPF_Const | CPF_Native )
 	struct FMap_Mirror                                 VariableMap;                                      		// 0x00A8 (0x0048) [0x0000000000001002]              ( CPF_Const | CPF_Native )
-	class FString                                      RemoteAddr;                                       		// 0x00F0 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      URI;                                              		// 0x0100 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      UserName;                                         		// 0x0110 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      Password;                                         		// 0x0120 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      ContentType;                                      		// 0x0130 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            RemoteAddr;                                       		// 0x00F0 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            URI;                                              		// 0x0100 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            UserName;                                         		// 0x0110 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Password;                                         		// 0x0120 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            ContentType;                                      		// 0x0130 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	int                                                ContentLength;                                    		// 0x0140 (0x0004) [0x0000000000000000]              
 	unsigned char                                      RequestType;                                      		// 0x0144 (0x0001) [0x0000000000000000]              
 
@@ -815,20 +815,20 @@ private:
 public:
 	static UClass* StaticClass();
 
-	int GetHexDigit ( class FString D );
-	void DecodeFormData ( class FString Data );
-	void ProcessHeaderString ( class FString S );
+	int GetHexDigit ( FString const& D );
+	void DecodeFormData ( FString const& Data );
+	void ProcessHeaderString ( FString const& S );
 	void Dump ( );
-	void GetVariables ( class TArray<class FString>* varNames );
-	class FString GetVariableNumber ( class FString VariableName, int Number, class FString DefaultValue );
-	int GetVariableCount ( class FString VariableName );
-	class FString GetVariable ( class FString VariableName, class FString DefaultValue );
-	void AddVariable ( class FString VariableName, class FString Value );
-	void GetHeaders ( class TArray<class FString>* headers );
-	class FString GetHeader ( class FString HeaderName, class FString DefaultValue );
-	void AddHeader ( class FString HeaderName, class FString Value );
-	class FString EncodeBase64 ( class FString Decoded );
-	class FString DecodeBase64 ( class FString Encoded );
+	void GetVariables ( TArray<FString>* varNames );
+	FString GetVariableNumber ( FString const& VariableName, int Number, FString const& DefaultValue );
+	int GetVariableCount ( FString const& VariableName );
+	FString GetVariable ( FString const& VariableName, FString const& DefaultValue );
+	void AddVariable ( FString const& VariableName, FString const& Value );
+	void GetHeaders ( TArray<FString>* headers );
+	FString GetHeader ( FString const& HeaderName, FString const& DefaultValue );
+	void AddHeader ( FString const& HeaderName, FString const& Value );
+	FString EncodeBase64 ( FString const& Decoded );
+	FString DecodeBase64 ( FString const& Encoded );
 };
 
 // Class IpDrv.WebResponse
@@ -837,9 +837,9 @@ class UWebResponse : public UObject
 {
 public:
 	struct FMap_Mirror                                 ReplacementMap;                                   		// 0x0060 (0x0048) [0x0000000000001002]              ( CPF_Const | CPF_Native )
-	class TArray<class FString>                        headers;                                          		// 0x00A8 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      IncludePath;                                      		// 0x00B8 (0x0010) [0x0000000000404002]              ( CPF_Const | CPF_Config | CPF_NeedCtorLink )
-	class FString                                      CharSet;                                          		// 0x00C8 (0x0010) [0x0000000000408002]              ( CPF_Const | CPF_Localized | CPF_NeedCtorLink )
+	TArray<FString>                                    headers;                                          		// 0x00A8 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            IncludePath;                                      		// 0x00B8 (0x0010) [0x0000000000404002]              ( CPF_Const | CPF_Config | CPF_NeedCtorLink )
+	FString                                            CharSet;                                          		// 0x00C8 (0x0010) [0x0000000000408002]              ( CPF_Const | CPF_Localized | CPF_NeedCtorLink )
 	class AWebConnection*                              Connection;                                       		// 0x00D8 (0x0008) [0x0000000000000000]              
 	unsigned long                                      bSentText : 1;                                    		// 0x00E0 (0x0004) [0x0000000000000000] [0x00000001] 
 	unsigned long                                      bSentResponse : 1;                                		// 0x00E0 (0x0004) [0x0000000000000000] [0x00000002] 
@@ -852,25 +852,25 @@ public:
 
 	bool SentResponse ( );
 	bool SentText ( );
-	void Redirect ( class FString URL );
-	void SendStandardHeaders ( class FString ContentType, unsigned long bCache );
-	void HTTPError ( int ErrorNum, class FString Data );
+	void Redirect ( FString const& URL );
+	void SendStandardHeaders ( FString const& ContentType, unsigned long bCache );
+	void HTTPError ( int ErrorNum, FString const& Data );
 	void SendHeaders ( );
-	void AddHeader ( class FString Header, unsigned long bReplace );
-	void HTTPHeader ( class FString Header );
-	void HTTPResponse ( class FString Header );
-	void FailAuthentication ( class FString Realm );
-	bool SendCachedFile ( class FString Filename, class FString ContentType );
+	void AddHeader ( FString const& Header, unsigned long bReplace );
+	void HTTPHeader ( FString const& Header );
+	void HTTPResponse ( FString const& Header );
+	void FailAuthentication ( FString const& Realm );
+	bool SendCachedFile ( FString const& Filename, FString const& ContentType );
 	void eventSendBinary ( int Count, unsigned char* B );
-	void eventSendText ( class FString Text, unsigned long bNoCRLF );
+	void eventSendText ( FString const& Text, unsigned long bNoCRLF );
 	void Dump ( );
-	class FString GetHTTPExpiration ( int OffsetSeconds );
-	class FString LoadParsedUHTM ( class FString Filename );
-	bool IncludeBinaryFile ( class FString Filename );
-	bool IncludeUHTM ( class FString Filename );
+	FString GetHTTPExpiration ( int OffsetSeconds );
+	FString LoadParsedUHTM ( FString const& Filename );
+	bool IncludeBinaryFile ( FString const& Filename );
+	bool IncludeUHTM ( FString const& Filename );
 	void ClearSubst ( );
-	void Subst ( class FString Variable, class FString Value, unsigned long bClear );
-	bool FileExists ( class FString Filename );
+	void Subst ( FString const& Variable, FString const& Value, unsigned long bClear );
+	bool FileExists ( FString const& Filename );
 };
 
 // Class IpDrv.WebApplication
@@ -878,7 +878,7 @@ public:
 class UWebApplication : public UObject
 {
 public:
-	class FString                                      Path;                                             		// 0x0060 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Path;                                             		// 0x0060 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class AWorldInfo*                                  WorldInfo;                                        		// 0x0070 (0x0008) [0x0000000000000000]              
 	class AWebServer*                                  WebServer;                                        		// 0x0078 (0x0008) [0x0000000000000000]              
 
@@ -901,10 +901,10 @@ public:
 class AWebServer : public ATcpLink
 {
 public:
-	class FString                                      Applications[ 0xA ];                              		// 0x02F0 (0x00A0) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
-	class FString                                      ApplicationPaths[ 0xA ];                          		// 0x0390 (0x00A0) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
-	class FString                                      ServerName;                                       		// 0x0430 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
-	class FString                                      ServerURL;                                        		// 0x0440 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Applications[ 0xA ];                              		// 0x02F0 (0x00A0) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	FString                                            ApplicationPaths[ 0xA ];                          		// 0x0390 (0x00A0) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	FString                                            ServerName;                                       		// 0x0430 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	FString                                            ServerURL;                                        		// 0x0440 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class UWebApplication*                             ApplicationObjects[ 0xA ];                        		// 0x0450 (0x0050) [0x0000000000000000]              
 	int                                                ListenPort;                                       		// 0x04A0 (0x0004) [0x0000000000004000]              ( CPF_Config )
 	int                                                MaxConnections;                                   		// 0x04A4 (0x0004) [0x0000000000004000]              ( CPF_Config )
@@ -920,7 +920,7 @@ private:
 public:
 	static UClass* StaticClass();
 
-	class UWebApplication* GetApplication ( class FString URI, class FString* SubURI );
+	class UWebApplication* GetApplication ( FString const& URI, FString* SubURI );
 	void eventLostChild ( class AActor* C );
 	void eventGainedChild ( class AActor* C );
 	void eventDestroyed ( );
@@ -975,7 +975,7 @@ public:
 	void ClearCachedFiles ( );
 	void ClearReadFileDelegate ( struct FScriptDelegate ReadTitleFileCompleteDelegate );
 	void AddReadFileDelegate ( struct FScriptDelegate ReadTitleFileCompleteDelegate );
-	void OnReadFileComplete ( unsigned long bWasSuccessful, class FString Filename );
+	void OnReadFileComplete ( unsigned long bWasSuccessful, FString const& Filename );
 	void DownloadFiles ( );
 	void Init ( );
 };
@@ -985,7 +985,7 @@ public:
 class AWebConnection : public ATcpLink
 {
 public:
-	class FString                                      ReceivedData;                                     		// 0x02F0 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            ReceivedData;                                     		// 0x02F0 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class AWebServer*                                  WebServer;                                        		// 0x0300 (0x0008) [0x0000000000000000]              
 	class UWebRequest*                                 Request;                                          		// 0x0308 (0x0008) [0x0000000000000000]              
 	class UWebResponse*                                Response;                                         		// 0x0310 (0x0008) [0x0000000000000000]              
@@ -1007,11 +1007,11 @@ public:
 	void CheckRawBytes ( );
 	void EndOfHeaders ( );
 	void CreateResponseObject ( );
-	void ProcessPost ( class FString S );
-	void ProcessGet ( class FString S );
-	void ProcessHead ( class FString S );
-	void ReceivedLine ( class FString S );
-	void eventReceivedText ( class FString Text );
+	void ProcessPost ( FString const& S );
+	void ProcessGet ( FString const& S );
+	void ProcessHead ( FString const& S );
+	void ReceivedLine ( FString const& S );
+	void eventReceivedText ( FString const& Text );
 	void eventTimer ( );
 	void eventClosed ( );
 	void eventAccepted ( );

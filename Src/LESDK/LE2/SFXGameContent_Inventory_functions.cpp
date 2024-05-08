@@ -28,6 +28,493 @@
 
 
 
+class UClass* ASFXWeapon_SMG::pClassPointer = NULL;
+
+class UClass* ASFXWeapon_SMG::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXWeapon_SMG" );
+
+		return pClassPointer;
+	};
+
+// Function SFXGameContent_Inventory.SFXWeapon_SMG.GetWeaponSpecificImpactSound
+// [0x00020102] ( FUNC_Simulated )
+// Parameters infos:
+// class UWwiseEvent*             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+// class USFXPhysicalMaterialImpactSounds* ImpactSounds                   ( CPF_Parm )
+
+class UWwiseEvent* ASFXWeapon_SMG::GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds )
+{
+	static UFunction* pFnGetWeaponSpecificImpactSound = NULL;
+
+	if ( ! pFnGetWeaponSpecificImpactSound )
+		pFnGetWeaponSpecificImpactSound = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_SMG.GetWeaponSpecificImpactSound" );
+
+	ASFXWeapon_SMG_execGetWeaponSpecificImpactSound_Parms GetWeaponSpecificImpactSound_Parms;
+	GetWeaponSpecificImpactSound_Parms.ImpactSounds = ImpactSounds;
+
+	this->ProcessEvent ( pFnGetWeaponSpecificImpactSound, &GetWeaponSpecificImpactSound_Parms, NULL );
+
+	return GetWeaponSpecificImpactSound_Parms.ReturnValue;
+};
+
+// Function SFXGameContent_Inventory.SFXWeapon_SMG.GetWeaponSpecificImpactEffect
+// [0x00020102] ( FUNC_Simulated )
+// Parameters infos:
+// class UParticleSystem*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+// class USFXPhysicalMaterialImpactEffects* ImpactEffects                  ( CPF_Parm )
+
+class UParticleSystem* ASFXWeapon_SMG::GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects )
+{
+	static UFunction* pFnGetWeaponSpecificImpactEffect = NULL;
+
+	if ( ! pFnGetWeaponSpecificImpactEffect )
+		pFnGetWeaponSpecificImpactEffect = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_SMG.GetWeaponSpecificImpactEffect" );
+
+	ASFXWeapon_SMG_execGetWeaponSpecificImpactEffect_Parms GetWeaponSpecificImpactEffect_Parms;
+	GetWeaponSpecificImpactEffect_Parms.ImpactEffects = ImpactEffects;
+
+	this->ProcessEvent ( pFnGetWeaponSpecificImpactEffect, &GetWeaponSpecificImpactEffect_Parms, NULL );
+
+	return GetWeaponSpecificImpactEffect_Parms.ReturnValue;
+};
+
+// Function SFXGameContent_Inventory.SFXWeapon_SMG.GetWeaponSpecificDecalData
+// [0x00420102] ( FUNC_Simulated )
+// Parameters infos:
+// class UDecalComponent*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_EditInline )
+// class USFXPhysicalMaterialDecals* DecalEffects                   ( CPF_Parm )
+// float                          FadeTime                       ( CPF_Parm | CPF_OutParm )
+
+class UDecalComponent* ASFXWeapon_SMG::GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime )
+{
+	static UFunction* pFnGetWeaponSpecificDecalData = NULL;
+
+	if ( ! pFnGetWeaponSpecificDecalData )
+		pFnGetWeaponSpecificDecalData = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_SMG.GetWeaponSpecificDecalData" );
+
+	ASFXWeapon_SMG_execGetWeaponSpecificDecalData_Parms GetWeaponSpecificDecalData_Parms;
+	GetWeaponSpecificDecalData_Parms.DecalEffects = DecalEffects;
+
+	if ( FadeTime )
+		GetWeaponSpecificDecalData_Parms.FadeTime = *FadeTime;
+
+	this->ProcessEvent ( pFnGetWeaponSpecificDecalData, &GetWeaponSpecificDecalData_Parms, NULL );
+
+	if ( FadeTime )
+		*FadeTime = GetWeaponSpecificDecalData_Parms.FadeTime;
+
+	return GetWeaponSpecificDecalData_Parms.ReturnValue;
+};
+
+
+
+class UClass* ASFXWeapon_Needler::pClassPointer = NULL;
+
+class UClass* ASFXWeapon_Needler::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXWeapon_Needler" );
+
+		return pClassPointer;
+	};
+
+// Function SFXGameContent_Inventory.SFXWeapon_Needler.GetWeaponSpecificImpactSound
+// [0x00020102] ( FUNC_Simulated )
+// Parameters infos:
+// class UWwiseEvent*             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+// class USFXPhysicalMaterialImpactSounds* ImpactSounds                   ( CPF_Parm )
+
+class UWwiseEvent* ASFXWeapon_Needler::GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds )
+{
+	static UFunction* pFnGetWeaponSpecificImpactSound = NULL;
+
+	if ( ! pFnGetWeaponSpecificImpactSound )
+		pFnGetWeaponSpecificImpactSound = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Needler.GetWeaponSpecificImpactSound" );
+
+	ASFXWeapon_Needler_execGetWeaponSpecificImpactSound_Parms GetWeaponSpecificImpactSound_Parms;
+	GetWeaponSpecificImpactSound_Parms.ImpactSounds = ImpactSounds;
+
+	this->ProcessEvent ( pFnGetWeaponSpecificImpactSound, &GetWeaponSpecificImpactSound_Parms, NULL );
+
+	return GetWeaponSpecificImpactSound_Parms.ReturnValue;
+};
+
+// Function SFXGameContent_Inventory.SFXWeapon_Needler.GetWeaponSpecificImpactEffect
+// [0x00020102] ( FUNC_Simulated )
+// Parameters infos:
+// class UParticleSystem*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+// class USFXPhysicalMaterialImpactEffects* ImpactEffects                  ( CPF_Parm )
+
+class UParticleSystem* ASFXWeapon_Needler::GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects )
+{
+	static UFunction* pFnGetWeaponSpecificImpactEffect = NULL;
+
+	if ( ! pFnGetWeaponSpecificImpactEffect )
+		pFnGetWeaponSpecificImpactEffect = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Needler.GetWeaponSpecificImpactEffect" );
+
+	ASFXWeapon_Needler_execGetWeaponSpecificImpactEffect_Parms GetWeaponSpecificImpactEffect_Parms;
+	GetWeaponSpecificImpactEffect_Parms.ImpactEffects = ImpactEffects;
+
+	this->ProcessEvent ( pFnGetWeaponSpecificImpactEffect, &GetWeaponSpecificImpactEffect_Parms, NULL );
+
+	return GetWeaponSpecificImpactEffect_Parms.ReturnValue;
+};
+
+// Function SFXGameContent_Inventory.SFXWeapon_Needler.GetWeaponSpecificDecalData
+// [0x00420102] ( FUNC_Simulated )
+// Parameters infos:
+// class UDecalComponent*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_EditInline )
+// class USFXPhysicalMaterialDecals* DecalEffects                   ( CPF_Parm )
+// float                          FadeTime                       ( CPF_Parm | CPF_OutParm )
+
+class UDecalComponent* ASFXWeapon_Needler::GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime )
+{
+	static UFunction* pFnGetWeaponSpecificDecalData = NULL;
+
+	if ( ! pFnGetWeaponSpecificDecalData )
+		pFnGetWeaponSpecificDecalData = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Needler.GetWeaponSpecificDecalData" );
+
+	ASFXWeapon_Needler_execGetWeaponSpecificDecalData_Parms GetWeaponSpecificDecalData_Parms;
+	GetWeaponSpecificDecalData_Parms.DecalEffects = DecalEffects;
+
+	if ( FadeTime )
+		GetWeaponSpecificDecalData_Parms.FadeTime = *FadeTime;
+
+	this->ProcessEvent ( pFnGetWeaponSpecificDecalData, &GetWeaponSpecificDecalData_Parms, NULL );
+
+	if ( FadeTime )
+		*FadeTime = GetWeaponSpecificDecalData_Parms.FadeTime;
+
+	return GetWeaponSpecificDecalData_Parms.ReturnValue;
+};
+
+
+
+class UClass* ASFXWeapon_HeavyShotgun::pClassPointer = NULL;
+
+class UClass* ASFXWeapon_HeavyShotgun::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXWeapon_HeavyShotgun" );
+
+		return pClassPointer;
+	};
+
+// Function SFXGameContent_Inventory.SFXWeapon_HeavyShotgun.GetWeaponSpecificImpactSound
+// [0x00020102] ( FUNC_Simulated )
+// Parameters infos:
+// class UWwiseEvent*             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+// class USFXPhysicalMaterialImpactSounds* ImpactSounds                   ( CPF_Parm )
+
+class UWwiseEvent* ASFXWeapon_HeavyShotgun::GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds )
+{
+	static UFunction* pFnGetWeaponSpecificImpactSound = NULL;
+
+	if ( ! pFnGetWeaponSpecificImpactSound )
+		pFnGetWeaponSpecificImpactSound = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_HeavyShotgun.GetWeaponSpecificImpactSound" );
+
+	ASFXWeapon_HeavyShotgun_execGetWeaponSpecificImpactSound_Parms GetWeaponSpecificImpactSound_Parms;
+	GetWeaponSpecificImpactSound_Parms.ImpactSounds = ImpactSounds;
+
+	this->ProcessEvent ( pFnGetWeaponSpecificImpactSound, &GetWeaponSpecificImpactSound_Parms, NULL );
+
+	return GetWeaponSpecificImpactSound_Parms.ReturnValue;
+};
+
+// Function SFXGameContent_Inventory.SFXWeapon_HeavyShotgun.GetWeaponSpecificImpactEffect
+// [0x00020102] ( FUNC_Simulated )
+// Parameters infos:
+// class UParticleSystem*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+// class USFXPhysicalMaterialImpactEffects* ImpactEffects                  ( CPF_Parm )
+
+class UParticleSystem* ASFXWeapon_HeavyShotgun::GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects )
+{
+	static UFunction* pFnGetWeaponSpecificImpactEffect = NULL;
+
+	if ( ! pFnGetWeaponSpecificImpactEffect )
+		pFnGetWeaponSpecificImpactEffect = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_HeavyShotgun.GetWeaponSpecificImpactEffect" );
+
+	ASFXWeapon_HeavyShotgun_execGetWeaponSpecificImpactEffect_Parms GetWeaponSpecificImpactEffect_Parms;
+	GetWeaponSpecificImpactEffect_Parms.ImpactEffects = ImpactEffects;
+
+	this->ProcessEvent ( pFnGetWeaponSpecificImpactEffect, &GetWeaponSpecificImpactEffect_Parms, NULL );
+
+	return GetWeaponSpecificImpactEffect_Parms.ReturnValue;
+};
+
+// Function SFXGameContent_Inventory.SFXWeapon_HeavyShotgun.GetWeaponSpecificDecalData
+// [0x00420102] ( FUNC_Simulated )
+// Parameters infos:
+// class UDecalComponent*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_EditInline )
+// class USFXPhysicalMaterialDecals* DecalEffects                   ( CPF_Parm )
+// float                          FadeTime                       ( CPF_Parm | CPF_OutParm )
+
+class UDecalComponent* ASFXWeapon_HeavyShotgun::GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime )
+{
+	static UFunction* pFnGetWeaponSpecificDecalData = NULL;
+
+	if ( ! pFnGetWeaponSpecificDecalData )
+		pFnGetWeaponSpecificDecalData = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_HeavyShotgun.GetWeaponSpecificDecalData" );
+
+	ASFXWeapon_HeavyShotgun_execGetWeaponSpecificDecalData_Parms GetWeaponSpecificDecalData_Parms;
+	GetWeaponSpecificDecalData_Parms.DecalEffects = DecalEffects;
+
+	if ( FadeTime )
+		GetWeaponSpecificDecalData_Parms.FadeTime = *FadeTime;
+
+	this->ProcessEvent ( pFnGetWeaponSpecificDecalData, &GetWeaponSpecificDecalData_Parms, NULL );
+
+	if ( FadeTime )
+		*FadeTime = GetWeaponSpecificDecalData_Parms.FadeTime;
+
+	return GetWeaponSpecificDecalData_Parms.ReturnValue;
+};
+
+
+
+class UClass* ASFXWeapon_Shotgun::pClassPointer = NULL;
+
+class UClass* ASFXWeapon_Shotgun::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXWeapon_Shotgun" );
+
+		return pClassPointer;
+	};
+
+// Function SFXGameContent_Inventory.SFXWeapon_Shotgun.GetWeaponSpecificImpactSound
+// [0x00020102] ( FUNC_Simulated )
+// Parameters infos:
+// class UWwiseEvent*             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+// class USFXPhysicalMaterialImpactSounds* ImpactSounds                   ( CPF_Parm )
+
+class UWwiseEvent* ASFXWeapon_Shotgun::GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds )
+{
+	static UFunction* pFnGetWeaponSpecificImpactSound = NULL;
+
+	if ( ! pFnGetWeaponSpecificImpactSound )
+		pFnGetWeaponSpecificImpactSound = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Shotgun.GetWeaponSpecificImpactSound" );
+
+	ASFXWeapon_Shotgun_execGetWeaponSpecificImpactSound_Parms GetWeaponSpecificImpactSound_Parms;
+	GetWeaponSpecificImpactSound_Parms.ImpactSounds = ImpactSounds;
+
+	this->ProcessEvent ( pFnGetWeaponSpecificImpactSound, &GetWeaponSpecificImpactSound_Parms, NULL );
+
+	return GetWeaponSpecificImpactSound_Parms.ReturnValue;
+};
+
+// Function SFXGameContent_Inventory.SFXWeapon_Shotgun.GetWeaponSpecificImpactEffect
+// [0x00020102] ( FUNC_Simulated )
+// Parameters infos:
+// class UParticleSystem*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+// class USFXPhysicalMaterialImpactEffects* ImpactEffects                  ( CPF_Parm )
+
+class UParticleSystem* ASFXWeapon_Shotgun::GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects )
+{
+	static UFunction* pFnGetWeaponSpecificImpactEffect = NULL;
+
+	if ( ! pFnGetWeaponSpecificImpactEffect )
+		pFnGetWeaponSpecificImpactEffect = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Shotgun.GetWeaponSpecificImpactEffect" );
+
+	ASFXWeapon_Shotgun_execGetWeaponSpecificImpactEffect_Parms GetWeaponSpecificImpactEffect_Parms;
+	GetWeaponSpecificImpactEffect_Parms.ImpactEffects = ImpactEffects;
+
+	this->ProcessEvent ( pFnGetWeaponSpecificImpactEffect, &GetWeaponSpecificImpactEffect_Parms, NULL );
+
+	return GetWeaponSpecificImpactEffect_Parms.ReturnValue;
+};
+
+// Function SFXGameContent_Inventory.SFXWeapon_Shotgun.GetWeaponSpecificDecalData
+// [0x00420102] ( FUNC_Simulated )
+// Parameters infos:
+// class UDecalComponent*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_EditInline )
+// class USFXPhysicalMaterialDecals* DecalEffects                   ( CPF_Parm )
+// float                          FadeTime                       ( CPF_Parm | CPF_OutParm )
+
+class UDecalComponent* ASFXWeapon_Shotgun::GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime )
+{
+	static UFunction* pFnGetWeaponSpecificDecalData = NULL;
+
+	if ( ! pFnGetWeaponSpecificDecalData )
+		pFnGetWeaponSpecificDecalData = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Shotgun.GetWeaponSpecificDecalData" );
+
+	ASFXWeapon_Shotgun_execGetWeaponSpecificDecalData_Parms GetWeaponSpecificDecalData_Parms;
+	GetWeaponSpecificDecalData_Parms.DecalEffects = DecalEffects;
+
+	if ( FadeTime )
+		GetWeaponSpecificDecalData_Parms.FadeTime = *FadeTime;
+
+	this->ProcessEvent ( pFnGetWeaponSpecificDecalData, &GetWeaponSpecificDecalData_Parms, NULL );
+
+	if ( FadeTime )
+		*FadeTime = GetWeaponSpecificDecalData_Parms.FadeTime;
+
+	return GetWeaponSpecificDecalData_Parms.ReturnValue;
+};
+
+// Function SFXGameContent_Inventory.SFXWeapon_Shotgun.FirePellets
+// [0x00820103] ( FUNC_Final | FUNC_Simulated )
+// Parameters infos:
+// struct FVector                 StartLocation                  ( CPF_Parm )
+// struct FRotator                AimRotation                    ( CPF_Parm )
+// unsigned char                  FireMode                       ( CPF_Parm )
+
+void ASFXWeapon_Shotgun::FirePellets ( struct FVector const& StartLocation, struct FRotator const& AimRotation, unsigned char FireMode )
+{
+	static UFunction* pFnFirePellets = NULL;
+
+	if ( ! pFnFirePellets )
+		pFnFirePellets = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Shotgun.FirePellets" );
+
+	ASFXWeapon_Shotgun_execFirePellets_Parms FirePellets_Parms;
+	memcpy ( &FirePellets_Parms.StartLocation, &StartLocation, 0xC );
+	memcpy ( &FirePellets_Parms.AimRotation, &AimRotation, 0xC );
+	FirePellets_Parms.FireMode = FireMode;
+
+	this->ProcessEvent ( pFnFirePellets, &FirePellets_Parms, NULL );
+};
+
+// Function SFXGameContent_Inventory.SFXWeapon_Shotgun.DrawDebugShotgunCone
+// [0x00020102] ( FUNC_Simulated )
+// Parameters infos:
+// struct FVector                 StartLocation                  ( CPF_Parm )
+// struct FRotator                AimRot                         ( CPF_Parm )
+
+void ASFXWeapon_Shotgun::DrawDebugShotgunCone ( struct FVector const& StartLocation, struct FRotator const& AimRot )
+{
+	static UFunction* pFnDrawDebugShotgunCone = NULL;
+
+	if ( ! pFnDrawDebugShotgunCone )
+		pFnDrawDebugShotgunCone = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Shotgun.DrawDebugShotgunCone" );
+
+	ASFXWeapon_Shotgun_execDrawDebugShotgunCone_Parms DrawDebugShotgunCone_Parms;
+	memcpy ( &DrawDebugShotgunCone_Parms.StartLocation, &StartLocation, 0xC );
+	memcpy ( &DrawDebugShotgunCone_Parms.AimRot, &AimRot, 0xC );
+
+	this->ProcessEvent ( pFnDrawDebugShotgunCone, &DrawDebugShotgunCone_Parms, NULL );
+};
+
+// Function SFXGameContent_Inventory.SFXWeapon_Shotgun.CustomFire
+// [0x00820102] ( FUNC_Simulated )
+// Parameters infos:
+
+void ASFXWeapon_Shotgun::CustomFire ( )
+{
+	static UFunction* pFnCustomFire = NULL;
+
+	if ( ! pFnCustomFire )
+		pFnCustomFire = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Shotgun.CustomFire" );
+
+	ASFXWeapon_Shotgun_execCustomFire_Parms CustomFire_Parms;
+
+	this->ProcessEvent ( pFnCustomFire, &CustomFire_Parms, NULL );
+};
+
+// Function SFXGameContent_Inventory.SFXWeapon_Shotgun.ShouldSpawnTracerFX
+// [0x00020102] ( FUNC_Simulated )
+// Parameters infos:
+// bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+bool ASFXWeapon_Shotgun::ShouldSpawnTracerFX ( )
+{
+	static UFunction* pFnShouldSpawnTracerFX = NULL;
+
+	if ( ! pFnShouldSpawnTracerFX )
+		pFnShouldSpawnTracerFX = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Shotgun.ShouldSpawnTracerFX" );
+
+	ASFXWeapon_Shotgun_execShouldSpawnTracerFX_Parms ShouldSpawnTracerFX_Parms;
+
+	this->ProcessEvent ( pFnShouldSpawnTracerFX, &ShouldSpawnTracerFX_Parms, NULL );
+
+	return ShouldSpawnTracerFX_Parms.ReturnValue;
+};
+
+
+
+class UClass* ASFXWeapon_AutoPistol::pClassPointer = NULL;
+
+class UClass* ASFXWeapon_AutoPistol::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXWeapon_AutoPistol" );
+
+		return pClassPointer;
+	};
+
+// Function SFXGameContent_Inventory.SFXWeapon_AutoPistol.GetWeaponSpecificImpactSound
+// [0x00020102] ( FUNC_Simulated )
+// Parameters infos:
+// class UWwiseEvent*             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+// class USFXPhysicalMaterialImpactSounds* ImpactSounds                   ( CPF_Parm )
+
+class UWwiseEvent* ASFXWeapon_AutoPistol::GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds )
+{
+	static UFunction* pFnGetWeaponSpecificImpactSound = NULL;
+
+	if ( ! pFnGetWeaponSpecificImpactSound )
+		pFnGetWeaponSpecificImpactSound = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_AutoPistol.GetWeaponSpecificImpactSound" );
+
+	ASFXWeapon_AutoPistol_execGetWeaponSpecificImpactSound_Parms GetWeaponSpecificImpactSound_Parms;
+	GetWeaponSpecificImpactSound_Parms.ImpactSounds = ImpactSounds;
+
+	this->ProcessEvent ( pFnGetWeaponSpecificImpactSound, &GetWeaponSpecificImpactSound_Parms, NULL );
+
+	return GetWeaponSpecificImpactSound_Parms.ReturnValue;
+};
+
+// Function SFXGameContent_Inventory.SFXWeapon_AutoPistol.GetWeaponSpecificImpactEffect
+// [0x00020102] ( FUNC_Simulated )
+// Parameters infos:
+// class UParticleSystem*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+// class USFXPhysicalMaterialImpactEffects* ImpactEffects                  ( CPF_Parm )
+
+class UParticleSystem* ASFXWeapon_AutoPistol::GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects )
+{
+	static UFunction* pFnGetWeaponSpecificImpactEffect = NULL;
+
+	if ( ! pFnGetWeaponSpecificImpactEffect )
+		pFnGetWeaponSpecificImpactEffect = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_AutoPistol.GetWeaponSpecificImpactEffect" );
+
+	ASFXWeapon_AutoPistol_execGetWeaponSpecificImpactEffect_Parms GetWeaponSpecificImpactEffect_Parms;
+	GetWeaponSpecificImpactEffect_Parms.ImpactEffects = ImpactEffects;
+
+	this->ProcessEvent ( pFnGetWeaponSpecificImpactEffect, &GetWeaponSpecificImpactEffect_Parms, NULL );
+
+	return GetWeaponSpecificImpactEffect_Parms.ReturnValue;
+};
+
+// Function SFXGameContent_Inventory.SFXWeapon_AutoPistol.GetWeaponSpecificDecalData
+// [0x00420102] ( FUNC_Simulated )
+// Parameters infos:
+// class UDecalComponent*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_EditInline )
+// class USFXPhysicalMaterialDecals* DecalEffects                   ( CPF_Parm )
+// float                          FadeTime                       ( CPF_Parm | CPF_OutParm )
+
+class UDecalComponent* ASFXWeapon_AutoPistol::GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime )
+{
+	static UFunction* pFnGetWeaponSpecificDecalData = NULL;
+
+	if ( ! pFnGetWeaponSpecificDecalData )
+		pFnGetWeaponSpecificDecalData = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_AutoPistol.GetWeaponSpecificDecalData" );
+
+	ASFXWeapon_AutoPistol_execGetWeaponSpecificDecalData_Parms GetWeaponSpecificDecalData_Parms;
+	GetWeaponSpecificDecalData_Parms.DecalEffects = DecalEffects;
+
+	if ( FadeTime )
+		GetWeaponSpecificDecalData_Parms.FadeTime = *FadeTime;
+
+	this->ProcessEvent ( pFnGetWeaponSpecificDecalData, &GetWeaponSpecificDecalData_Parms, NULL );
+
+	if ( FadeTime )
+		*FadeTime = GetWeaponSpecificDecalData_Parms.FadeTime;
+
+	return GetWeaponSpecificDecalData_Parms.ReturnValue;
+};
+
+
+
 class UClass* ASFXWeapon_AssaultRifle::pClassPointer = NULL;
 
 class UClass* ASFXWeapon_AssaultRifle::StaticClass()
@@ -149,7 +636,7 @@ void ASFXWeapon_AssaultRifle::StopMuzzleFlashEffect ( )
 // unsigned char                  FiringMode                     ( CPF_Parm )
 // struct FVector                 HitLocation                    ( CPF_OptionalParm | CPF_Parm )
 
-void ASFXWeapon_AssaultRifle::PlayFireEffects ( unsigned char FiringMode, struct FVector HitLocation )
+void ASFXWeapon_AssaultRifle::PlayFireEffects ( unsigned char FiringMode, struct FVector const& HitLocation )
 {
 	static UFunction* pFnPlayFireEffects = NULL;
 
@@ -197,6 +684,66 @@ bool ASFXWeapon_AssaultRifle::ShouldSpawnTracerFX ( )
 
 	return ShouldSpawnTracerFX_Parms.ReturnValue;
 };
+
+
+
+class UClass* USFXDamageType_SMG::pClassPointer = NULL;
+
+class UClass* USFXDamageType_SMG::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXDamageType_SMG" );
+
+		return pClassPointer;
+	};
+
+
+
+class UClass* USFXDamageType_Needler::pClassPointer = NULL;
+
+class UClass* USFXDamageType_Needler::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXDamageType_Needler" );
+
+		return pClassPointer;
+	};
+
+
+
+class UClass* USFXDamageType_HeavyShotgun::pClassPointer = NULL;
+
+class UClass* USFXDamageType_HeavyShotgun::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXDamageType_HeavyShotgun" );
+
+		return pClassPointer;
+	};
+
+
+
+class UClass* USFXDamageType_Shotgun::pClassPointer = NULL;
+
+class UClass* USFXDamageType_Shotgun::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXDamageType_Shotgun" );
+
+		return pClassPointer;
+	};
+
+
+
+class UClass* USFXDamageType_AutoPistol::pClassPointer = NULL;
+
+class UClass* USFXDamageType_AutoPistol::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXDamageType_AutoPistol" );
+
+		return pClassPointer;
+	};
 
 
 
@@ -324,599 +871,12 @@ class UDecalComponent* ASFXWeapon_SniperRifle::GetWeaponSpecificDecalData ( clas
 
 
 
-class UClass* USFXDamageType_Shotgun::pClassPointer = NULL;
-
-class UClass* USFXDamageType_Shotgun::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXDamageType_Shotgun" );
-
-		return pClassPointer;
-	};
-
-
-
-class UClass* USFXDamageType_FlakGun::pClassPointer = NULL;
-
-class UClass* USFXDamageType_FlakGun::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXDamageType_FlakGun" );
-
-		return pClassPointer;
-	};
-
-
-
-class UClass* USFXDamageType_HeavyShotgun::pClassPointer = NULL;
-
-class UClass* USFXDamageType_HeavyShotgun::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXDamageType_HeavyShotgun" );
-
-		return pClassPointer;
-	};
-
-
-
-class UClass* ASFXWeapon_Shotgun::pClassPointer = NULL;
-
-class UClass* ASFXWeapon_Shotgun::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXWeapon_Shotgun" );
-
-		return pClassPointer;
-	};
-
-// Function SFXGameContent_Inventory.SFXWeapon_Shotgun.GetWeaponSpecificImpactSound
-// [0x00020102] ( FUNC_Simulated )
-// Parameters infos:
-// class UWwiseEvent*             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class USFXPhysicalMaterialImpactSounds* ImpactSounds                   ( CPF_Parm )
-
-class UWwiseEvent* ASFXWeapon_Shotgun::GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds )
-{
-	static UFunction* pFnGetWeaponSpecificImpactSound = NULL;
-
-	if ( ! pFnGetWeaponSpecificImpactSound )
-		pFnGetWeaponSpecificImpactSound = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Shotgun.GetWeaponSpecificImpactSound" );
-
-	ASFXWeapon_Shotgun_execGetWeaponSpecificImpactSound_Parms GetWeaponSpecificImpactSound_Parms;
-	GetWeaponSpecificImpactSound_Parms.ImpactSounds = ImpactSounds;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificImpactSound, &GetWeaponSpecificImpactSound_Parms, NULL );
-
-	return GetWeaponSpecificImpactSound_Parms.ReturnValue;
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_Shotgun.GetWeaponSpecificImpactEffect
-// [0x00020102] ( FUNC_Simulated )
-// Parameters infos:
-// class UParticleSystem*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class USFXPhysicalMaterialImpactEffects* ImpactEffects                  ( CPF_Parm )
-
-class UParticleSystem* ASFXWeapon_Shotgun::GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects )
-{
-	static UFunction* pFnGetWeaponSpecificImpactEffect = NULL;
-
-	if ( ! pFnGetWeaponSpecificImpactEffect )
-		pFnGetWeaponSpecificImpactEffect = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Shotgun.GetWeaponSpecificImpactEffect" );
-
-	ASFXWeapon_Shotgun_execGetWeaponSpecificImpactEffect_Parms GetWeaponSpecificImpactEffect_Parms;
-	GetWeaponSpecificImpactEffect_Parms.ImpactEffects = ImpactEffects;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificImpactEffect, &GetWeaponSpecificImpactEffect_Parms, NULL );
-
-	return GetWeaponSpecificImpactEffect_Parms.ReturnValue;
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_Shotgun.GetWeaponSpecificDecalData
-// [0x00420102] ( FUNC_Simulated )
-// Parameters infos:
-// class UDecalComponent*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_EditInline )
-// class USFXPhysicalMaterialDecals* DecalEffects                   ( CPF_Parm )
-// float                          FadeTime                       ( CPF_Parm | CPF_OutParm )
-
-class UDecalComponent* ASFXWeapon_Shotgun::GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime )
-{
-	static UFunction* pFnGetWeaponSpecificDecalData = NULL;
-
-	if ( ! pFnGetWeaponSpecificDecalData )
-		pFnGetWeaponSpecificDecalData = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Shotgun.GetWeaponSpecificDecalData" );
-
-	ASFXWeapon_Shotgun_execGetWeaponSpecificDecalData_Parms GetWeaponSpecificDecalData_Parms;
-	GetWeaponSpecificDecalData_Parms.DecalEffects = DecalEffects;
-
-	if ( FadeTime )
-		GetWeaponSpecificDecalData_Parms.FadeTime = *FadeTime;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificDecalData, &GetWeaponSpecificDecalData_Parms, NULL );
-
-	if ( FadeTime )
-		*FadeTime = GetWeaponSpecificDecalData_Parms.FadeTime;
-
-	return GetWeaponSpecificDecalData_Parms.ReturnValue;
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_Shotgun.FirePellets
-// [0x00820103] ( FUNC_Final | FUNC_Simulated )
-// Parameters infos:
-// struct FVector                 StartLocation                  ( CPF_Parm )
-// struct FRotator                AimRotation                    ( CPF_Parm )
-// unsigned char                  FireMode                       ( CPF_Parm )
-
-void ASFXWeapon_Shotgun::FirePellets ( struct FVector StartLocation, struct FRotator AimRotation, unsigned char FireMode )
-{
-	static UFunction* pFnFirePellets = NULL;
-
-	if ( ! pFnFirePellets )
-		pFnFirePellets = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Shotgun.FirePellets" );
-
-	ASFXWeapon_Shotgun_execFirePellets_Parms FirePellets_Parms;
-	memcpy ( &FirePellets_Parms.StartLocation, &StartLocation, 0xC );
-	memcpy ( &FirePellets_Parms.AimRotation, &AimRotation, 0xC );
-	FirePellets_Parms.FireMode = FireMode;
-
-	this->ProcessEvent ( pFnFirePellets, &FirePellets_Parms, NULL );
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_Shotgun.DrawDebugShotgunCone
-// [0x00020102] ( FUNC_Simulated )
-// Parameters infos:
-// struct FVector                 StartLocation                  ( CPF_Parm )
-// struct FRotator                AimRot                         ( CPF_Parm )
-
-void ASFXWeapon_Shotgun::DrawDebugShotgunCone ( struct FVector StartLocation, struct FRotator AimRot )
-{
-	static UFunction* pFnDrawDebugShotgunCone = NULL;
-
-	if ( ! pFnDrawDebugShotgunCone )
-		pFnDrawDebugShotgunCone = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Shotgun.DrawDebugShotgunCone" );
-
-	ASFXWeapon_Shotgun_execDrawDebugShotgunCone_Parms DrawDebugShotgunCone_Parms;
-	memcpy ( &DrawDebugShotgunCone_Parms.StartLocation, &StartLocation, 0xC );
-	memcpy ( &DrawDebugShotgunCone_Parms.AimRot, &AimRot, 0xC );
-
-	this->ProcessEvent ( pFnDrawDebugShotgunCone, &DrawDebugShotgunCone_Parms, NULL );
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_Shotgun.CustomFire
-// [0x00820102] ( FUNC_Simulated )
-// Parameters infos:
-
-void ASFXWeapon_Shotgun::CustomFire ( )
-{
-	static UFunction* pFnCustomFire = NULL;
-
-	if ( ! pFnCustomFire )
-		pFnCustomFire = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Shotgun.CustomFire" );
-
-	ASFXWeapon_Shotgun_execCustomFire_Parms CustomFire_Parms;
-
-	this->ProcessEvent ( pFnCustomFire, &CustomFire_Parms, NULL );
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_Shotgun.ShouldSpawnTracerFX
-// [0x00020102] ( FUNC_Simulated )
-// Parameters infos:
-// bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-
-bool ASFXWeapon_Shotgun::ShouldSpawnTracerFX ( )
-{
-	static UFunction* pFnShouldSpawnTracerFX = NULL;
-
-	if ( ! pFnShouldSpawnTracerFX )
-		pFnShouldSpawnTracerFX = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_Shotgun.ShouldSpawnTracerFX" );
-
-	ASFXWeapon_Shotgun_execShouldSpawnTracerFX_Parms ShouldSpawnTracerFX_Parms;
-
-	this->ProcessEvent ( pFnShouldSpawnTracerFX, &ShouldSpawnTracerFX_Parms, NULL );
-
-	return ShouldSpawnTracerFX_Parms.ReturnValue;
-};
-
-
-
-class UClass* ASFXWeapon_FlakGun::pClassPointer = NULL;
-
-class UClass* ASFXWeapon_FlakGun::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXWeapon_FlakGun" );
-
-		return pClassPointer;
-	};
-
-// Function SFXGameContent_Inventory.SFXWeapon_FlakGun.GetWeaponSpecificImpactSound
-// [0x00020102] ( FUNC_Simulated )
-// Parameters infos:
-// class UWwiseEvent*             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class USFXPhysicalMaterialImpactSounds* ImpactSounds                   ( CPF_Parm )
-
-class UWwiseEvent* ASFXWeapon_FlakGun::GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds )
-{
-	static UFunction* pFnGetWeaponSpecificImpactSound = NULL;
-
-	if ( ! pFnGetWeaponSpecificImpactSound )
-		pFnGetWeaponSpecificImpactSound = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_FlakGun.GetWeaponSpecificImpactSound" );
-
-	ASFXWeapon_FlakGun_execGetWeaponSpecificImpactSound_Parms GetWeaponSpecificImpactSound_Parms;
-	GetWeaponSpecificImpactSound_Parms.ImpactSounds = ImpactSounds;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificImpactSound, &GetWeaponSpecificImpactSound_Parms, NULL );
-
-	return GetWeaponSpecificImpactSound_Parms.ReturnValue;
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_FlakGun.GetWeaponSpecificImpactEffect
-// [0x00020102] ( FUNC_Simulated )
-// Parameters infos:
-// class UParticleSystem*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class USFXPhysicalMaterialImpactEffects* ImpactEffects                  ( CPF_Parm )
-
-class UParticleSystem* ASFXWeapon_FlakGun::GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects )
-{
-	static UFunction* pFnGetWeaponSpecificImpactEffect = NULL;
-
-	if ( ! pFnGetWeaponSpecificImpactEffect )
-		pFnGetWeaponSpecificImpactEffect = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_FlakGun.GetWeaponSpecificImpactEffect" );
-
-	ASFXWeapon_FlakGun_execGetWeaponSpecificImpactEffect_Parms GetWeaponSpecificImpactEffect_Parms;
-	GetWeaponSpecificImpactEffect_Parms.ImpactEffects = ImpactEffects;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificImpactEffect, &GetWeaponSpecificImpactEffect_Parms, NULL );
-
-	return GetWeaponSpecificImpactEffect_Parms.ReturnValue;
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_FlakGun.GetWeaponSpecificDecalData
-// [0x00420102] ( FUNC_Simulated )
-// Parameters infos:
-// class UDecalComponent*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_EditInline )
-// class USFXPhysicalMaterialDecals* DecalEffects                   ( CPF_Parm )
-// float                          FadeTime                       ( CPF_Parm | CPF_OutParm )
-
-class UDecalComponent* ASFXWeapon_FlakGun::GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime )
-{
-	static UFunction* pFnGetWeaponSpecificDecalData = NULL;
-
-	if ( ! pFnGetWeaponSpecificDecalData )
-		pFnGetWeaponSpecificDecalData = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_FlakGun.GetWeaponSpecificDecalData" );
-
-	ASFXWeapon_FlakGun_execGetWeaponSpecificDecalData_Parms GetWeaponSpecificDecalData_Parms;
-	GetWeaponSpecificDecalData_Parms.DecalEffects = DecalEffects;
-
-	if ( FadeTime )
-		GetWeaponSpecificDecalData_Parms.FadeTime = *FadeTime;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificDecalData, &GetWeaponSpecificDecalData_Parms, NULL );
-
-	if ( FadeTime )
-		*FadeTime = GetWeaponSpecificDecalData_Parms.FadeTime;
-
-	return GetWeaponSpecificDecalData_Parms.ReturnValue;
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_FlakGun.InitDefaultDecalProperties
-// [0x00020102] ( FUNC_Simulated )
-// Parameters infos:
-
-void ASFXWeapon_FlakGun::InitDefaultDecalProperties ( )
-{
-	static UFunction* pFnInitDefaultDecalProperties = NULL;
-
-	if ( ! pFnInitDefaultDecalProperties )
-		pFnInitDefaultDecalProperties = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_FlakGun.InitDefaultDecalProperties" );
-
-	ASFXWeapon_FlakGun_execInitDefaultDecalProperties_Parms InitDefaultDecalProperties_Parms;
-
-	this->ProcessEvent ( pFnInitDefaultDecalProperties, &InitDefaultDecalProperties_Parms, NULL );
-};
-
-
-
-class UClass* ASFXWeapon_HeavyShotgun::pClassPointer = NULL;
-
-class UClass* ASFXWeapon_HeavyShotgun::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXWeapon_HeavyShotgun" );
-
-		return pClassPointer;
-	};
-
-// Function SFXGameContent_Inventory.SFXWeapon_HeavyShotgun.GetWeaponSpecificImpactSound
-// [0x00020102] ( FUNC_Simulated )
-// Parameters infos:
-// class UWwiseEvent*             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class USFXPhysicalMaterialImpactSounds* ImpactSounds                   ( CPF_Parm )
-
-class UWwiseEvent* ASFXWeapon_HeavyShotgun::GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds )
-{
-	static UFunction* pFnGetWeaponSpecificImpactSound = NULL;
-
-	if ( ! pFnGetWeaponSpecificImpactSound )
-		pFnGetWeaponSpecificImpactSound = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_HeavyShotgun.GetWeaponSpecificImpactSound" );
-
-	ASFXWeapon_HeavyShotgun_execGetWeaponSpecificImpactSound_Parms GetWeaponSpecificImpactSound_Parms;
-	GetWeaponSpecificImpactSound_Parms.ImpactSounds = ImpactSounds;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificImpactSound, &GetWeaponSpecificImpactSound_Parms, NULL );
-
-	return GetWeaponSpecificImpactSound_Parms.ReturnValue;
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_HeavyShotgun.GetWeaponSpecificImpactEffect
-// [0x00020102] ( FUNC_Simulated )
-// Parameters infos:
-// class UParticleSystem*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class USFXPhysicalMaterialImpactEffects* ImpactEffects                  ( CPF_Parm )
-
-class UParticleSystem* ASFXWeapon_HeavyShotgun::GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects )
-{
-	static UFunction* pFnGetWeaponSpecificImpactEffect = NULL;
-
-	if ( ! pFnGetWeaponSpecificImpactEffect )
-		pFnGetWeaponSpecificImpactEffect = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_HeavyShotgun.GetWeaponSpecificImpactEffect" );
-
-	ASFXWeapon_HeavyShotgun_execGetWeaponSpecificImpactEffect_Parms GetWeaponSpecificImpactEffect_Parms;
-	GetWeaponSpecificImpactEffect_Parms.ImpactEffects = ImpactEffects;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificImpactEffect, &GetWeaponSpecificImpactEffect_Parms, NULL );
-
-	return GetWeaponSpecificImpactEffect_Parms.ReturnValue;
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_HeavyShotgun.GetWeaponSpecificDecalData
-// [0x00420102] ( FUNC_Simulated )
-// Parameters infos:
-// class UDecalComponent*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_EditInline )
-// class USFXPhysicalMaterialDecals* DecalEffects                   ( CPF_Parm )
-// float                          FadeTime                       ( CPF_Parm | CPF_OutParm )
-
-class UDecalComponent* ASFXWeapon_HeavyShotgun::GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime )
-{
-	static UFunction* pFnGetWeaponSpecificDecalData = NULL;
-
-	if ( ! pFnGetWeaponSpecificDecalData )
-		pFnGetWeaponSpecificDecalData = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_HeavyShotgun.GetWeaponSpecificDecalData" );
-
-	ASFXWeapon_HeavyShotgun_execGetWeaponSpecificDecalData_Parms GetWeaponSpecificDecalData_Parms;
-	GetWeaponSpecificDecalData_Parms.DecalEffects = DecalEffects;
-
-	if ( FadeTime )
-		GetWeaponSpecificDecalData_Parms.FadeTime = *FadeTime;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificDecalData, &GetWeaponSpecificDecalData_Parms, NULL );
-
-	if ( FadeTime )
-		*FadeTime = GetWeaponSpecificDecalData_Parms.FadeTime;
-
-	return GetWeaponSpecificDecalData_Parms.ReturnValue;
-};
-
-
-
-class UClass* USFXDamageType_AutoPistol::pClassPointer = NULL;
-
-class UClass* USFXDamageType_AutoPistol::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXDamageType_AutoPistol" );
-
-		return pClassPointer;
-	};
-
-
-
-class UClass* USFXDamageType_SMG::pClassPointer = NULL;
-
-class UClass* USFXDamageType_SMG::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXDamageType_SMG" );
-
-		return pClassPointer;
-	};
-
-
-
-class UClass* ASFXWeapon_AutoPistol::pClassPointer = NULL;
-
-class UClass* ASFXWeapon_AutoPistol::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXWeapon_AutoPistol" );
-
-		return pClassPointer;
-	};
-
-// Function SFXGameContent_Inventory.SFXWeapon_AutoPistol.GetWeaponSpecificImpactSound
-// [0x00020102] ( FUNC_Simulated )
-// Parameters infos:
-// class UWwiseEvent*             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class USFXPhysicalMaterialImpactSounds* ImpactSounds                   ( CPF_Parm )
-
-class UWwiseEvent* ASFXWeapon_AutoPistol::GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds )
-{
-	static UFunction* pFnGetWeaponSpecificImpactSound = NULL;
-
-	if ( ! pFnGetWeaponSpecificImpactSound )
-		pFnGetWeaponSpecificImpactSound = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_AutoPistol.GetWeaponSpecificImpactSound" );
-
-	ASFXWeapon_AutoPistol_execGetWeaponSpecificImpactSound_Parms GetWeaponSpecificImpactSound_Parms;
-	GetWeaponSpecificImpactSound_Parms.ImpactSounds = ImpactSounds;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificImpactSound, &GetWeaponSpecificImpactSound_Parms, NULL );
-
-	return GetWeaponSpecificImpactSound_Parms.ReturnValue;
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_AutoPistol.GetWeaponSpecificImpactEffect
-// [0x00020102] ( FUNC_Simulated )
-// Parameters infos:
-// class UParticleSystem*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class USFXPhysicalMaterialImpactEffects* ImpactEffects                  ( CPF_Parm )
-
-class UParticleSystem* ASFXWeapon_AutoPistol::GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects )
-{
-	static UFunction* pFnGetWeaponSpecificImpactEffect = NULL;
-
-	if ( ! pFnGetWeaponSpecificImpactEffect )
-		pFnGetWeaponSpecificImpactEffect = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_AutoPistol.GetWeaponSpecificImpactEffect" );
-
-	ASFXWeapon_AutoPistol_execGetWeaponSpecificImpactEffect_Parms GetWeaponSpecificImpactEffect_Parms;
-	GetWeaponSpecificImpactEffect_Parms.ImpactEffects = ImpactEffects;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificImpactEffect, &GetWeaponSpecificImpactEffect_Parms, NULL );
-
-	return GetWeaponSpecificImpactEffect_Parms.ReturnValue;
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_AutoPistol.GetWeaponSpecificDecalData
-// [0x00420102] ( FUNC_Simulated )
-// Parameters infos:
-// class UDecalComponent*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_EditInline )
-// class USFXPhysicalMaterialDecals* DecalEffects                   ( CPF_Parm )
-// float                          FadeTime                       ( CPF_Parm | CPF_OutParm )
-
-class UDecalComponent* ASFXWeapon_AutoPistol::GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime )
-{
-	static UFunction* pFnGetWeaponSpecificDecalData = NULL;
-
-	if ( ! pFnGetWeaponSpecificDecalData )
-		pFnGetWeaponSpecificDecalData = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_AutoPistol.GetWeaponSpecificDecalData" );
-
-	ASFXWeapon_AutoPistol_execGetWeaponSpecificDecalData_Parms GetWeaponSpecificDecalData_Parms;
-	GetWeaponSpecificDecalData_Parms.DecalEffects = DecalEffects;
-
-	if ( FadeTime )
-		GetWeaponSpecificDecalData_Parms.FadeTime = *FadeTime;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificDecalData, &GetWeaponSpecificDecalData_Parms, NULL );
-
-	if ( FadeTime )
-		*FadeTime = GetWeaponSpecificDecalData_Parms.FadeTime;
-
-	return GetWeaponSpecificDecalData_Parms.ReturnValue;
-};
-
-
-
-class UClass* ASFXWeapon_LightPistol::pClassPointer = NULL;
-
-class UClass* ASFXWeapon_LightPistol::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXWeapon_LightPistol" );
-
-		return pClassPointer;
-	};
-
-
-
-class UClass* ASFXWeapon_SMG::pClassPointer = NULL;
-
-class UClass* ASFXWeapon_SMG::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXWeapon_SMG" );
-
-		return pClassPointer;
-	};
-
-// Function SFXGameContent_Inventory.SFXWeapon_SMG.GetWeaponSpecificImpactSound
-// [0x00020102] ( FUNC_Simulated )
-// Parameters infos:
-// class UWwiseEvent*             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class USFXPhysicalMaterialImpactSounds* ImpactSounds                   ( CPF_Parm )
-
-class UWwiseEvent* ASFXWeapon_SMG::GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds )
-{
-	static UFunction* pFnGetWeaponSpecificImpactSound = NULL;
-
-	if ( ! pFnGetWeaponSpecificImpactSound )
-		pFnGetWeaponSpecificImpactSound = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_SMG.GetWeaponSpecificImpactSound" );
-
-	ASFXWeapon_SMG_execGetWeaponSpecificImpactSound_Parms GetWeaponSpecificImpactSound_Parms;
-	GetWeaponSpecificImpactSound_Parms.ImpactSounds = ImpactSounds;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificImpactSound, &GetWeaponSpecificImpactSound_Parms, NULL );
-
-	return GetWeaponSpecificImpactSound_Parms.ReturnValue;
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_SMG.GetWeaponSpecificImpactEffect
-// [0x00020102] ( FUNC_Simulated )
-// Parameters infos:
-// class UParticleSystem*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class USFXPhysicalMaterialImpactEffects* ImpactEffects                  ( CPF_Parm )
-
-class UParticleSystem* ASFXWeapon_SMG::GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects )
-{
-	static UFunction* pFnGetWeaponSpecificImpactEffect = NULL;
-
-	if ( ! pFnGetWeaponSpecificImpactEffect )
-		pFnGetWeaponSpecificImpactEffect = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_SMG.GetWeaponSpecificImpactEffect" );
-
-	ASFXWeapon_SMG_execGetWeaponSpecificImpactEffect_Parms GetWeaponSpecificImpactEffect_Parms;
-	GetWeaponSpecificImpactEffect_Parms.ImpactEffects = ImpactEffects;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificImpactEffect, &GetWeaponSpecificImpactEffect_Parms, NULL );
-
-	return GetWeaponSpecificImpactEffect_Parms.ReturnValue;
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_SMG.GetWeaponSpecificDecalData
-// [0x00420102] ( FUNC_Simulated )
-// Parameters infos:
-// class UDecalComponent*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_EditInline )
-// class USFXPhysicalMaterialDecals* DecalEffects                   ( CPF_Parm )
-// float                          FadeTime                       ( CPF_Parm | CPF_OutParm )
-
-class UDecalComponent* ASFXWeapon_SMG::GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime )
-{
-	static UFunction* pFnGetWeaponSpecificDecalData = NULL;
-
-	if ( ! pFnGetWeaponSpecificDecalData )
-		pFnGetWeaponSpecificDecalData = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_SMG.GetWeaponSpecificDecalData" );
-
-	ASFXWeapon_SMG_execGetWeaponSpecificDecalData_Parms GetWeaponSpecificDecalData_Parms;
-	GetWeaponSpecificDecalData_Parms.DecalEffects = DecalEffects;
-
-	if ( FadeTime )
-		GetWeaponSpecificDecalData_Parms.FadeTime = *FadeTime;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificDecalData, &GetWeaponSpecificDecalData_Parms, NULL );
-
-	if ( FadeTime )
-		*FadeTime = GetWeaponSpecificDecalData_Parms.FadeTime;
-
-	return GetWeaponSpecificDecalData_Parms.ReturnValue;
-};
-
-
-
 class UClass* USFXDamageType_HeavyPistol::pClassPointer = NULL;
 
 class UClass* USFXDamageType_HeavyPistol::StaticClass()
 	{
 		if ( ! pClassPointer )
 			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXDamageType_HeavyPistol" );
-
-		return pClassPointer;
-	};
-
-
-
-class UClass* USFXDamageType_HandCannon::pClassPointer = NULL;
-
-class UClass* USFXDamageType_HandCannon::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXDamageType_HandCannon" );
 
 		return pClassPointer;
 	};
@@ -1005,88 +965,6 @@ class UDecalComponent* ASFXWeapon_HeavyPistol::GetWeaponSpecificDecalData ( clas
 
 
 
-class UClass* ASFXWeapon_HandCannon::pClassPointer = NULL;
-
-class UClass* ASFXWeapon_HandCannon::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent_Inventory.SFXWeapon_HandCannon" );
-
-		return pClassPointer;
-	};
-
-// Function SFXGameContent_Inventory.SFXWeapon_HandCannon.GetWeaponSpecificImpactSound
-// [0x00020102] ( FUNC_Simulated )
-// Parameters infos:
-// class UWwiseEvent*             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class USFXPhysicalMaterialImpactSounds* ImpactSounds                   ( CPF_Parm )
-
-class UWwiseEvent* ASFXWeapon_HandCannon::GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds )
-{
-	static UFunction* pFnGetWeaponSpecificImpactSound = NULL;
-
-	if ( ! pFnGetWeaponSpecificImpactSound )
-		pFnGetWeaponSpecificImpactSound = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_HandCannon.GetWeaponSpecificImpactSound" );
-
-	ASFXWeapon_HandCannon_execGetWeaponSpecificImpactSound_Parms GetWeaponSpecificImpactSound_Parms;
-	GetWeaponSpecificImpactSound_Parms.ImpactSounds = ImpactSounds;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificImpactSound, &GetWeaponSpecificImpactSound_Parms, NULL );
-
-	return GetWeaponSpecificImpactSound_Parms.ReturnValue;
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_HandCannon.GetWeaponSpecificImpactEffect
-// [0x00020102] ( FUNC_Simulated )
-// Parameters infos:
-// class UParticleSystem*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class USFXPhysicalMaterialImpactEffects* ImpactEffects                  ( CPF_Parm )
-
-class UParticleSystem* ASFXWeapon_HandCannon::GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects )
-{
-	static UFunction* pFnGetWeaponSpecificImpactEffect = NULL;
-
-	if ( ! pFnGetWeaponSpecificImpactEffect )
-		pFnGetWeaponSpecificImpactEffect = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_HandCannon.GetWeaponSpecificImpactEffect" );
-
-	ASFXWeapon_HandCannon_execGetWeaponSpecificImpactEffect_Parms GetWeaponSpecificImpactEffect_Parms;
-	GetWeaponSpecificImpactEffect_Parms.ImpactEffects = ImpactEffects;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificImpactEffect, &GetWeaponSpecificImpactEffect_Parms, NULL );
-
-	return GetWeaponSpecificImpactEffect_Parms.ReturnValue;
-};
-
-// Function SFXGameContent_Inventory.SFXWeapon_HandCannon.GetWeaponSpecificDecalData
-// [0x00420102] ( FUNC_Simulated )
-// Parameters infos:
-// class UDecalComponent*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_EditInline )
-// class USFXPhysicalMaterialDecals* DecalEffects                   ( CPF_Parm )
-// float                          FadeTime                       ( CPF_Parm | CPF_OutParm )
-
-class UDecalComponent* ASFXWeapon_HandCannon::GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime )
-{
-	static UFunction* pFnGetWeaponSpecificDecalData = NULL;
-
-	if ( ! pFnGetWeaponSpecificDecalData )
-		pFnGetWeaponSpecificDecalData = UObject::FindObject< UFunction > ( L"Function SFXGameContent_Inventory.SFXWeapon_HandCannon.GetWeaponSpecificDecalData" );
-
-	ASFXWeapon_HandCannon_execGetWeaponSpecificDecalData_Parms GetWeaponSpecificDecalData_Parms;
-	GetWeaponSpecificDecalData_Parms.DecalEffects = DecalEffects;
-
-	if ( FadeTime )
-		GetWeaponSpecificDecalData_Parms.FadeTime = *FadeTime;
-
-	this->ProcessEvent ( pFnGetWeaponSpecificDecalData, &GetWeaponSpecificDecalData_Parms, NULL );
-
-	if ( FadeTime )
-		*FadeTime = GetWeaponSpecificDecalData_Parms.FadeTime;
-
-	return GetWeaponSpecificDecalData_Parms.ReturnValue;
-};
-
-
-
 class UClass* USFXDamageType_HeavyWeapon::pClassPointer = NULL;
 
 class UClass* USFXDamageType_HeavyWeapon::StaticClass()
@@ -1160,7 +1038,7 @@ void ASFXProjectile_Grenade::Recycle ( )
 // struct FVector                 HurtOrigin                     ( CPF_Parm )
 // unsigned long                  bFullDamage                    ( CPF_Parm )
 
-void ASFXProjectile_Grenade::DoImpact ( class AActor* InImpactedActor, class AController* InInstigatorController, float BaseDamage, float InDamageRadius, float Momentum, struct FVector HurtOrigin, unsigned long bFullDamage )
+void ASFXProjectile_Grenade::DoImpact ( class AActor* InImpactedActor, class AController* InInstigatorController, float BaseDamage, float InDamageRadius, float Momentum, struct FVector const& HurtOrigin, unsigned long bFullDamage )
 {
 	static UFunction* pFnDoImpact = NULL;
 
@@ -1221,7 +1099,7 @@ struct FVector ASFXProjectile_Grenade::GetAimLocation ( )
 // Parameters infos:
 // struct FVector                 Direction                      ( CPF_Parm )
 
-void ASFXProjectile_Grenade::Init ( struct FVector Direction )
+void ASFXProjectile_Grenade::Init ( struct FVector const& Direction )
 {
 	static UFunction* pFnInit = NULL;
 
@@ -1327,7 +1205,7 @@ void ASFXProjectile_SeekingMissile::Recycle ( )
 // struct FVector                 HurtOrigin                     ( CPF_Parm )
 // unsigned long                  bFullDamage                    ( CPF_Parm )
 
-void ASFXProjectile_SeekingMissile::DoImpact ( class AActor* InImpactedActor, class AController* InInstigatorController, float BaseDamage, float InDamageRadius, float Momentum, struct FVector HurtOrigin, unsigned long bFullDamage )
+void ASFXProjectile_SeekingMissile::DoImpact ( class AActor* InImpactedActor, class AController* InInstigatorController, float BaseDamage, float InDamageRadius, float Momentum, struct FVector const& HurtOrigin, unsigned long bFullDamage )
 {
 	static UFunction* pFnDoImpact = NULL;
 
@@ -1383,7 +1261,7 @@ void ASFXProjectile_SeekingMissile::ShutDown ( )
 // Parameters infos:
 // struct FVector                 Direction                      ( CPF_Parm )
 
-void ASFXProjectile_SeekingMissile::Init ( struct FVector Direction )
+void ASFXProjectile_SeekingMissile::Init ( struct FVector const& Direction )
 {
 	static UFunction* pFnInit = NULL;
 
@@ -1520,7 +1398,7 @@ class UClass* ASFXProjectile_Rocket::StaticClass()
 // struct FVector                 HurtOrigin                     ( CPF_Parm )
 // unsigned long                  bFullDamage                    ( CPF_Parm )
 
-void ASFXProjectile_Rocket::DoImpact ( class AActor* InImpactedActor, class AController* InInstigatorController, float BaseDamage, float InDamageRadius, float Momentum, struct FVector HurtOrigin, unsigned long bFullDamage )
+void ASFXProjectile_Rocket::DoImpact ( class AActor* InImpactedActor, class AController* InInstigatorController, float BaseDamage, float InDamageRadius, float Momentum, struct FVector const& HurtOrigin, unsigned long bFullDamage )
 {
 	static UFunction* pFnDoImpact = NULL;
 

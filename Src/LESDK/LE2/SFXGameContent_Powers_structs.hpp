@@ -26,19 +26,11 @@
 # ========================================================================================= #
 */
 
-// ScriptStruct SFXGameContent_Powers.SFXPowerScript_BioticCharge.Charge_PendingVolume
-// 0x000C
-struct FCharge_PendingVolume
-{
-	class AVolume*                                     Volume;                                           		// 0x0000 (0x0008) [0x0000000000000001]              ( CPF_Edit )
-	unsigned long                                      bTouching : 1;                                    		// 0x0008 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
-};
-
 // ScriptStruct SFXGameContent_Powers.SFXGameEffect_CloakVFX.MaterialMapStruct
 // 0x0018
 struct FMaterialMapStruct
 {
-	class TArray<class UMaterialInterface*>            Material;                                         		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<class UMaterialInterface*>                  Material;                                         		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     MeshName;                                         		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 };
 

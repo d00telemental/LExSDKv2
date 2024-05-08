@@ -77,7 +77,7 @@ struct FBioStateEventElement : FBioVersionedNativeObject
 struct FBioStateEvent : FBioVersionedNativeObject
 {
 	FPointer                                           VfTable;                                          		// 0x0004 (0x0008) [0x0000000000803002]              ( CPF_Const | CPF_Native | CPF_Transient | CPF_NoExport )
-	class TArray<FPointer>                             lstEventElements;                                 		// 0x000C (0x0010) [0x0000000000101000]              ( CPF_Native )
+	TArray<FPointer>                                   lstEventElements;                                 		// 0x000C (0x0010) [0x0000000000101000]              ( CPF_Native )
 };
 
 // ScriptStruct SFXGame.BioDefine.BioSEEBool
@@ -176,7 +176,7 @@ struct FBioSEESubstate : FBioStateEventElement
 	unsigned long                                      bUseParam : 1;                                    		// 0x0018 (0x0004) [0x0000000000000000] [0x00000002] 
 	unsigned long                                      bParentTypeOr : 1;                                		// 0x0018 (0x0004) [0x0000000000000000] [0x00000004] 
 	int                                                nParentIndex;                                     		// 0x001C (0x0004) [0x0000000000000000]              
-	class TArray<int>                                  lstSiblingIndices;                                		// 0x0020 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<int>                                        lstSiblingIndices;                                		// 0x0020 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.BioDefine.BioQuestProgress
@@ -186,7 +186,7 @@ struct FBioQuestProgress : FBioVersionedNativeObject
 	FPointer                                           VfTable;                                          		// 0x0004 (0x0008) [0x0000000000803002]              ( CPF_Const | CPF_Native | CPF_Transient | CPF_NoExport )
 	int                                                nQuestAdded;                                      		// 0x000C (0x0004) [0x0000000000000000]              
 	unsigned long                                      bQuestUpdated : 1;                                		// 0x0010 (0x0004) [0x0000000000000000] [0x00000001] 
-	class TArray<int>                                  lstTaskHistory;                                   		// 0x0014 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<int>                                        lstTaskHistory;                                   		// 0x0014 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.BioDefine.BioQuestGoal
@@ -208,8 +208,8 @@ struct FBioQuestTask : FBioVersionedNativeObject
 	unsigned long                                      bQuestCompleteTask : 1;                           		// 0x000C (0x0004) [0x0000000000000000] [0x00000001] 
 	int                                                srName;                                           		// 0x0010 (0x0004) [0x0000000000000000]              
 	int                                                srDescription;                                    		// 0x0014 (0x0004) [0x0000000000000000]              
-	class TArray<int>                                  lstPlotItemIndices;                               		// 0x0018 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
-	class FString                                      sWaypointTag;                                     		// 0x0028 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<int>                                        lstPlotItemIndices;                               		// 0x0018 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	FString                                            sWaypointTag;                                     		// 0x0028 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     nmPlanet;                                         		// 0x0038 (0x0008) [0x0000000000100000]              
 };
 
@@ -230,9 +230,9 @@ struct FBioPlotItem : FBioVersionedNativeObject
 struct FBioQuest : FBioVersionedNativeObject
 {
 	FPointer                                           VfTable;                                          		// 0x0004 (0x0008) [0x0000000000803002]              ( CPF_Const | CPF_Native | CPF_Transient | CPF_NoExport )
-	class TArray<struct FBioQuestGoal>                 lstGoals;                                         		// 0x000C (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
-	class TArray<struct FBioQuestTask>                 lstTasks;                                         		// 0x001C (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
-	class TArray<struct FBioPlotItem>                  lstPlotItems;                                     		// 0x002C (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<struct FBioQuestGoal>                       lstGoals;                                         		// 0x000C (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<struct FBioQuestTask>                       lstTasks;                                         		// 0x001C (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<struct FBioPlotItem>                        lstPlotItems;                                     		// 0x002C (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 	unsigned long                                      bMission : 1;                                     		// 0x003C (0x0004) [0x0000000000000000] [0x00000001] 
 };
 
@@ -252,7 +252,7 @@ struct FBioTaskEval : FBioVersionedNativeObject
 struct FBioStateTaskList : FBioVersionedNativeObject
 {
 	FPointer                                           VfTable;                                          		// 0x0004 (0x0008) [0x0000000000803002]              ( CPF_Const | CPF_Native | CPF_Transient | CPF_NoExport )
-	class TArray<struct FBioTaskEval>                  lstTaskEvals;                                     		// 0x000C (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<struct FBioTaskEval>                        lstTaskEvals;                                     		// 0x000C (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.BioDefine.BioCodexEntry
@@ -296,7 +296,7 @@ struct FBioDiscoveredCodexPage : FBioVersionedNativeObject
 struct FBioDiscoveredCodex : FBioVersionedNativeObject
 {
 	FPointer                                           VfTable;                                          		// 0x0004 (0x0008) [0x0000000000803002]              ( CPF_Const | CPF_Native | CPF_Transient | CPF_NoExport )
-	class TArray<struct FBioDiscoveredCodexPage>       lstDiscoveredPages;                               		// 0x000C (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<struct FBioDiscoveredCodexPage>             lstDiscoveredPages;                               		// 0x000C (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.BioDefine.VisualEffect
@@ -318,21 +318,21 @@ struct FHenchmanInfoStruct
 	struct SFXName                                     AlternateHenchNamePlotFlag;                       		// 0x0018 (0x0008) [0x0000000000000000]              
 	int                                                HenchAcquiredPlotID;                              		// 0x0020 (0x0004) [0x0000000000000000]              
 	int                                                HenchInSquadPlotID;                               		// 0x0024 (0x0004) [0x0000000000000000]              
-	class FString                                      HenchmanImage;                                    		// 0x0028 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            HenchmanImage;                                    		// 0x0028 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.BioDefine.PlayerMeshInfo
 // 0x0084
 struct FPlayerMeshInfo
 {
-	class FString                                      Male;                                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      MaleVisor;                                        		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      MaleFaceplate;                                    		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      MaleMaterialOverride;                             		// 0x0030 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      Female;                                           		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      FemaleVisor;                                      		// 0x0050 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      FemaleFaceplate;                                  		// 0x0060 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      FemaleMaterialOverride;                           		// 0x0070 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Male;                                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            MaleVisor;                                        		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            MaleFaceplate;                                    		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            MaleMaterialOverride;                             		// 0x0030 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Female;                                           		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            FemaleVisor;                                      		// 0x0050 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            FemaleFaceplate;                                  		// 0x0060 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            FemaleMaterialOverride;                           		// 0x0070 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	unsigned long                                      bHasBreather : 1;                                 		// 0x0080 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
 	unsigned long                                      bHideHead : 1;                                    		// 0x0080 (0x0004) [0x0000000000000001] [0x00000002] ( CPF_Edit )
 	unsigned long                                      bHideHair : 1;                                    		// 0x0080 (0x0004) [0x0000000000000001] [0x00000004] ( CPF_Edit )
@@ -368,7 +368,7 @@ struct FPlayerSpecInfo
 struct FCustomizableElement
 {
 	struct FPlayerMeshInfo                             Mesh;                                             		// 0x0000 (0x0084) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<class FString>                        GameEffects;                                      		// 0x0084 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<FString>                                    GameEffects;                                      		// 0x0084 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct FPlayerPatternInfo                          Pattern;                                          		// 0x0094 (0x0078) [0x0000000000000001]              ( CPF_Edit )
 	struct FPlayerTintInfo                             Tint;                                             		// 0x010C (0x0050) [0x0000000000000001]              ( CPF_Edit )
 	struct FPlayerSpecInfo                             Spec;                                             		// 0x015C (0x0038) [0x0000000000000001]              ( CPF_Edit )
@@ -477,7 +477,7 @@ struct FModelVariation
 // 0x0029
 struct FArmorTypes
 {
-	class TArray<struct FModelVariation>               Variations;                                       		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FModelVariation>                     Variations;                                       		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     m_meshPackageName;                                		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	struct SFXName                                     m_materialPackageName;                            		// 0x0018 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	class UPhysicsAsset*                               ArmorPhysicsAsset;                                		// 0x0020 (0x0008) [0x0000000000000001]              ( CPF_Edit )
@@ -488,8 +488,8 @@ struct FArmorTypes
 // 0x0028
 struct FWeaponAnimSpec
 {
-	class FString                                      AnimType;                                         		// 0x0000 (0x0010) [0x0000000000420003]              ( CPF_Edit | CPF_Const | CPF_EditConst | CPF_NeedCtorLink )
-	class TArray<class UAnimSet*>                      m_animSets;                                       		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            AnimType;                                         		// 0x0000 (0x0010) [0x0000000000420003]              ( CPF_Edit | CPF_Const | CPF_EditConst | CPF_NeedCtorLink )
+	TArray<class UAnimSet*>                            m_animSets;                                       		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UAnimSet*                                    m_drawAnimSet;                                    		// 0x0020 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 };
 
@@ -505,14 +505,14 @@ struct FOverrideAnimTreeTemplate
 // 0x0010
 struct FBioCharacterHeadAppearanceMaterialConfig
 {
-	class TArray<class UMaterialInterface*>            m_aMaterials;                                     		// 0x0000 (0x0010) [0x0000000000400009]              ( CPF_Edit | CPF_ExportObject | CPF_NeedCtorLink )
+	TArray<class UMaterialInterface*>                  m_aMaterials;                                     		// 0x0000 (0x0010) [0x0000000000400009]              ( CPF_Edit | CPF_ExportObject | CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.Bio_Appr_Character_Head.BioWrinkleConfig
 // 0x0018
 struct FBioWrinkleConfig
 {
-	class FString                                      WrinkleParameterName;                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            WrinkleParameterName;                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UTexture2D*                                  WrinkleTexture;                                   		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 };
 
@@ -540,7 +540,7 @@ struct FBioHeadGearAppearanceModelSpec
 // 0x0019
 struct FBioHeadGearAppearanceArmorSpec
 {
-	class TArray<struct FBioHeadGearAppearanceModelSpec> m_aModelSpec;                                     		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FBioHeadGearAppearanceModelSpec>     m_aModelSpec;                                     		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     m_nmPackage;                                      		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	unsigned char                                      m_eArmorType;                                     		// 0x0018 (0x0001) [0x0000000000020003]              ( CPF_Edit | CPF_Const | CPF_EditConst )
 };
@@ -557,7 +557,7 @@ struct FInterpPropertyInfo
 // 0x0020
 struct FCachedInstanceParameter
 {
-	class TArray<struct FInterpPropertyInfo>           OffsetInfo;                                       		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FInterpPropertyInfo>                 OffsetInfo;                                       		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     ParameterName;                                    		// 0x0010 (0x0008) [0x0000000000000000]              
 	float                                              fCurrentValue;                                    		// 0x0018 (0x0004) [0x0000000000000000]              
 	unsigned long                                      bInited : 1;                                      		// 0x001C (0x0004) [0x0000000000000000] [0x00000001] 
@@ -575,7 +575,7 @@ struct FVFXAPLStatePair
 // 0x0020
 struct FVisualEffectAttachment
 {
-	class TArray<struct FVFXAPLStatePair>              m_States;                                         		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FVFXAPLStatePair>                    m_States;                                         		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UBioVFXTemplate*                             m_oEffectTemplate;                                		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	struct SFXName                                     m_nmSocket;                                       		// 0x0018 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 };
@@ -648,7 +648,7 @@ struct FBioAnimCheckBlendOutNode
 // 0x0018
 struct FBioAnimCheckBlendOutPath
 {
-	class TArray<struct FBioAnimCheckBlendOutNode>     Nodes;                                            		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<struct FBioAnimCheckBlendOutNode>           Nodes;                                            		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 	FPointer                                           Next;                                             		// 0x0010 (0x0008) [0x0000000000001000]              ( CPF_Native )
 };
 
@@ -700,7 +700,7 @@ struct FBioChildActivateData
 // 0x0020
 struct FBioChildPinData
 {
-	class TArray<class UBioGestChainTree*>             aChainedTrees;                                    		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class UBioGestChainTree*>                   aChainedTrees;                                    		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	float                                              fEndBlendStartTime;                               		// 0x0010 (0x0004) [0x0000000000000000]              
 	float                                              fEndBlendDuration;                                		// 0x0014 (0x0004) [0x0000000000000000]              
 	float                                              fEndTime;                                         		// 0x0018 (0x0004) [0x0000000000000000]              
@@ -745,8 +745,8 @@ struct FBioAnimScalarNodeChildDef
 // 0x002C
 struct FBioAnimScalarNodeBehaviorDef
 {
-	class TArray<struct FBioAnimScalarNodeChildDef>    Children;                                         		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      Description;                                      		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FBioAnimScalarNodeChildDef>          Children;                                         		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Description;                                      		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	float                                              BlendPctPerSecond;                                		// 0x0020 (0x0004) [0x0000000000000000]              
 	float                                              DefaultScalar;                                    		// 0x0024 (0x0004) [0x0000000000000000]              
 	unsigned long                                      BlendInstant : 1;                                 		// 0x0028 (0x0004) [0x0000000000000000] [0x00000001] 
@@ -756,7 +756,7 @@ struct FBioAnimScalarNodeBehaviorDef
 // 0x0011
 struct FBioAnimBlendParams
 {
-	class TArray<float>                                BlendToChildTimes;                                		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<float>                                      BlendToChildTimes;                                		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	unsigned char                                      PlayMode;                                         		// 0x0010 (0x0001) [0x0000000000000001]              ( CPF_Edit )
 };
 
@@ -773,7 +773,7 @@ struct FBioAnimStateNodeChildDef
 // 0x0010
 struct FBioAnimStateNodeBehaviorDef
 {
-	class TArray<struct FBioAnimStateNodeChildDef>     Children;                                         		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FBioAnimStateNodeChildDef>           Children;                                         		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.BioAnimNodeSequenceByBoneRotation.AnimByRotation
@@ -797,7 +797,7 @@ struct FBioAppearanceItemWeaponVFXSpec
 // 0x0034
 struct FBioAppearanceItemSophisticatedVariant
 {
-	class TArray<class UMaterialInterface*>            m_aMaterials;                                     		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<class UMaterialInterface*>                  m_aMaterials;                                     		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UAnimSet*                                    m_oWeaponAnimSet;                                 		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	class UAnimTree*                                   m_oWeaponAnimTree;                                		// 0x0018 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	class UPhysicsAsset*                               m_oPhysicsAsset;                                  		// 0x0020 (0x0008) [0x0000000000000001]              ( CPF_Edit )
@@ -809,16 +809,16 @@ struct FBioAppearanceItemSophisticatedVariant
 // 0x0020
 struct FArtPlaceableProperty
 {
-	class FString                                      sPropertyName;                                    		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      sPropertyValue;                                   		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            sPropertyName;                                    		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            sPropertyValue;                                   		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.BioArtPlaceableRoles.ArtPlaceableRole
 // 0x0020
 struct FArtPlaceableRole
 {
-	class FString                                      sRoleName;                                        		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FArtPlaceableProperty>         aProperties;                                      		// 0x0010 (0x0010) [0x0000000004400001]              ( CPF_Edit | CPF_NeedCtorLink | CPF_EditInline )
+	FString                                            sRoleName;                                        		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FArtPlaceableProperty>               aProperties;                                      		// 0x0010 (0x0010) [0x0000000004400001]              ( CPF_Edit | CPF_NeedCtorLink | CPF_EditInline )
 };
 
 // ScriptStruct SFXGame.BioAttributes.BioComplexIntStructAttribute
@@ -922,7 +922,7 @@ struct FScreenShakeStruct
 // 0x0030
 struct FSFXGalaxyMapSelector
 {
-	class TArray<int>                                  m_PlotNames;                                      		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<int>                                        m_PlotNames;                                      		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class USFXGalaxyMapObject*                         m_GalaxyMapObject;                                		// 0x0010 (0x0008) [0x0000000000000000]              
 	class AActor*                                      m_actor;                                          		// 0x0018 (0x0008) [0x0000000000000000]              
 	int                                                m_Name;                                           		// 0x0020 (0x0004) [0x0000000000000000]              
@@ -935,8 +935,8 @@ struct FSFXGalaxyMapSelector
 // 0x0080
 struct FBioMassRelayLine
 {
-	class FString                                      m_sStartClusterLabel;                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      m_sEndClusterLabel;                               		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            m_sStartClusterLabel;                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            m_sEndClusterLabel;                               		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct FVector                                     m_vLeftEndPosition;                               		// 0x0020 (0x000C) [0x0000000000000001]              ( CPF_Edit )
 	struct FVector                                     m_vRightEndPosition;                              		// 0x002C (0x000C) [0x0000000000000001]              ( CPF_Edit )
 	struct FVector                                     m_vMiddlePosition;                                		// 0x0038 (0x000C) [0x0000000000000001]              ( CPF_Edit )
@@ -993,7 +993,7 @@ struct FGrinderAchievement
 // 0x0019
 struct FAchievementReward
 {
-	class FString                                      Effect;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Effect;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     Name;                                             		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	unsigned char                                      AchievementId;                                    		// 0x0018 (0x0001) [0x0000000000000001]              ( CPF_Edit )
 };
@@ -1002,7 +1002,7 @@ struct FAchievementReward
 // 0x0029
 struct FAchievementData
 {
-	class FString                                      Icon;                                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Icon;                                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     Name;                                             		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	int                                                Title;                                            		// 0x0018 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	int                                                Incomplete;                                       		// 0x001C (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -1090,8 +1090,8 @@ struct FME1_SimpleTalentSaveRecord
 // 0x0038
 struct FComplexTalentSaveRecord
 {
-	class TArray<int>                                  PrereqTalentIDArray;                              		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<int>                                  PrereqTalentRankArray;                            		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<int>                                        PrereqTalentIDArray;                              		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<int>                                        PrereqTalentRankArray;                            		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	int                                                TalentID;                                         		// 0x0020 (0x0004) [0x0000000000000000]              
 	int                                                CurrentRank;                                      		// 0x0024 (0x0004) [0x0000000000000000]              
 	int                                                MaxRank;                                          		// 0x0028 (0x0004) [0x0000000000000000]              
@@ -1114,7 +1114,7 @@ struct FME1_ItemModSaveRecord
 // 0x0021
 struct FME1_ItemSaveRecord
 {
-	class TArray<struct FME1_ItemModSaveRecord>        XMods;                                            		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_ItemModSaveRecord>              XMods;                                            		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	int                                                ItemId;                                           		// 0x0010 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	int                                                Manufacturer;                                     		// 0x0014 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	int                                                PlotConditionalID;                                		// 0x0018 (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -1127,11 +1127,11 @@ struct FME1_ItemSaveRecord
 // 0x00DE
 struct FHenchmanSaveRecord
 {
-	class TArray<struct FPowerSaveRecord>              Powers;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_SimpleTalentSaveRecord>   simpleTalents;                                    		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FComplexTalentSaveRecord>      complexTalents;                                   		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_ItemSaveRecord>           Equipment;                                        		// 0x0030 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_ItemSaveRecord>           Weapons;                                          		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FPowerSaveRecord>                    Powers;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_SimpleTalentSaveRecord>         simpleTalents;                                    		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FComplexTalentSaveRecord>            complexTalents;                                   		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_ItemSaveRecord>                 Equipment;                                        		// 0x0030 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_ItemSaveRecord>                 Weapons;                                          		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     LoadoutWeapons[ 0x6 ];                            		// 0x0050 (0x0030) [0x0000000000000000]              
 	struct SFXName                                     Tag;                                              		// 0x0080 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	struct SFXName                                     MappedPower;                                      		// 0x0088 (0x0008) [0x0000000000000000]              
@@ -1205,16 +1205,16 @@ struct FTextureParameterSaveRecord
 // 0x00A8
 struct FMorphHeadSaveRecord
 {
-	class TArray<struct SFXName>                       AccessoryMeshes;                                  		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FMorphFeatureSaveRecord>       MorphFeatures;                                    		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FOffsetBoneSaveRecord>         OffsetBones;                                      		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FVector>                       LOD0Vertices;                                     		// 0x0030 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FVector>                       LOD1Vertices;                                     		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FVector>                       LOD2Vertices;                                     		// 0x0050 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FVector>                       LOD3Vertices;                                     		// 0x0060 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FScalarParameterSaveRecord>    ScalarParameters;                                 		// 0x0070 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FVectorParameterSaveRecord>    VectorParameters;                                 		// 0x0080 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FTextureParameterSaveRecord>   TextureParameters;                                		// 0x0090 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct SFXName>                             AccessoryMeshes;                                  		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FMorphFeatureSaveRecord>             MorphFeatures;                                    		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FOffsetBoneSaveRecord>               OffsetBones;                                      		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FVector>                             LOD0Vertices;                                     		// 0x0030 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FVector>                             LOD1Vertices;                                     		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FVector>                             LOD2Vertices;                                     		// 0x0050 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FVector>                             LOD3Vertices;                                     		// 0x0060 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FScalarParameterSaveRecord>          ScalarParameters;                                 		// 0x0070 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FVectorParameterSaveRecord>          VectorParameters;                                 		// 0x0080 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FTextureParameterSaveRecord>         TextureParameters;                                		// 0x0090 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     HairMesh;                                         		// 0x00A0 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 };
 
@@ -1275,7 +1275,7 @@ struct FME1_HotKeySaveRecord
 // 0x0010
 struct FME1_GameOptionsSaveRecord
 {
-	class TArray<int>                                  GameOptions;                                      		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<int>                                        GameOptions;                                      		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.SFXSaveGame.ME1ImportBonusSaveRecord
@@ -1296,18 +1296,18 @@ struct FME1ImportBonusSaveRecord
 struct FPlayerSaveRecord
 {
 	struct FAppearanceSaveRecord                       Appearance;                                       		// 0x0000 (0x00E4) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      FirstName;                                        		// 0x00E4 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_ItemSaveRecord>           Items;                                            		// 0x00F4 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_ItemSaveRecord>           BuybackItems;                                     		// 0x0104 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_SimpleTalentSaveRecord>   simpleTalents;                                    		// 0x0114 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FComplexTalentSaveRecord>      complexTalents;                                   		// 0x0124 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FPowerSaveRecord>              Powers;                                           		// 0x0134 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_ItemSaveRecord>           Equipment;                                        		// 0x0144 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_ItemSaveRecord>           IWeapons;                                         		// 0x0154 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FWeaponSaveRecord>             Weapons;                                          		// 0x0164 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FHotKeySaveRecord>             HotKeys;                                          		// 0x0174 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_HotKeySaveRecord>         legacyHotKeys;                                    		// 0x0184 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      FaceCode;                                         		// 0x0194 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            FirstName;                                        		// 0x00E4 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_ItemSaveRecord>                 Items;                                            		// 0x00F4 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_ItemSaveRecord>                 BuybackItems;                                     		// 0x0104 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_SimpleTalentSaveRecord>         simpleTalents;                                    		// 0x0114 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FComplexTalentSaveRecord>            complexTalents;                                   		// 0x0124 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FPowerSaveRecord>                    Powers;                                           		// 0x0134 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_ItemSaveRecord>                 Equipment;                                        		// 0x0144 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_ItemSaveRecord>                 IWeapons;                                         		// 0x0154 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FWeaponSaveRecord>                   Weapons;                                          		// 0x0164 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FHotKeySaveRecord>                   HotKeys;                                          		// 0x0174 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_HotKeySaveRecord>               legacyHotKeys;                                    		// 0x0184 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            FaceCode;                                         		// 0x0194 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct FME1_GameOptionsSaveRecord                  GameOptions;                                      		// 0x01A4 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UClass*                                      PlayerClass;                                      		// 0x01B4 (0x0008) [0x0000000000002001]              ( CPF_Edit | CPF_Transient )
 	struct SFXName                                     LoadoutWeapons[ 0x6 ];                            		// 0x01BC (0x0030) [0x0000000000000000]              
@@ -1372,7 +1372,7 @@ struct FPlayerSaveRecord
 // 0x0018
 struct FPlotQuest
 {
-	class TArray<int>                                  History;                                          		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<int>                                        History;                                          		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	int                                                QuestCounter;                                     		// 0x0010 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	unsigned long                                      bQuestUpdated : 1;                                		// 0x0014 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
 };
@@ -1389,20 +1389,20 @@ struct FPlotCodexPage
 // 0x0010
 struct FPlotCodex
 {
-	class TArray<struct FPlotCodexPage>                Pages;                                            		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FPlotCodexPage>                      Pages;                                            		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.SFXSaveGame.PlotTableSaveRecord
 // 0x0074
 struct FPlotTableSaveRecord
 {
-	class TArray<int>                                  BoolVariables;                                    		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<int>                                  IntVariables;                                     		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<float>                                FloatVariables;                                   		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FPlotQuest>                    QuestProgress;                                    		// 0x0030 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<int>                                  QuestIDs;                                         		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FPlotCodex>                    CodexEntries;                                     		// 0x0050 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<int>                                  CodexIDs;                                         		// 0x0060 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<int>                                        BoolVariables;                                    		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<int>                                        IntVariables;                                     		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<float>                                      FloatVariables;                                   		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FPlotQuest>                          QuestProgress;                                    		// 0x0030 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<int>                                        QuestIDs;                                         		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FPlotCodex>                          CodexEntries;                                     		// 0x0050 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<int>                                        CodexIDs;                                         		// 0x0060 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	int                                                QuestProgressCounter;                             		// 0x0070 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 };
 
@@ -1461,7 +1461,7 @@ struct FME1_BonusTalentSaveRecord
 // 0x0024
 struct FME1_ProfileRewardSaveRecord
 {
-	class FString                                      sName;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sName;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	int                                                Value;                                            		// 0x0010 (0x0004) [0x0000000000000000]              
 	int                                                UnlockedAt;                                       		// 0x0014 (0x0004) [0x0000000000000000]              
 	int                                                AchievementId;                                    		// 0x0018 (0x0004) [0x0000000000000000]              
@@ -1491,8 +1491,8 @@ struct FME1_CharacterStatisticsSaveRecord
 // 0x0067
 struct FME1_CharacterProfileSaveRecord
 {
-	class FString                                      characterID;                                      		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      FullName;                                         		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            characterID;                                      		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            FullName;                                         		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FME1_CharacterStatisticsSaveRecord          CharacterStatistics;                              		// 0x0020 (0x0010) [0x0000000000000000]              
 	int                                                LastPlayedSlot;                                   		// 0x0030 (0x0004) [0x0000000000000000]              
 	int                                                CharacterLevel;                                   		// 0x0034 (0x0004) [0x0000000000000000]              
@@ -1516,21 +1516,21 @@ struct FME1_CharacterProfileSaveRecord
 // 0x0108
 struct FGamerProfileSaveRecord
 {
-	class TArray<struct FProfileBOOLSaveRecord>        BoolVariables;                                    		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_ProfileINTSaveRecord>     IntVariables;                                     		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_ProfileFLOATSaveRecord>   FloatVariables;                                   		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_PlotManagerAchievementSaveRecord> PlotManagerAchievementMaps;                       		// 0x0030 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_ProfilePlaythroughSaveRecord> lstPlaythroughs;                                  		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_ProfileRewardSaveRecord>  RewardStats;                                      		// 0x0050 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<int>                                  AchievementStates;                                		// 0x0060 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_BonusTalentSaveRecord>    UnlockedBonusTalents;                             		// 0x0070 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_BonusTalentSaveRecord>    PassiveBonusTalents;                              		// 0x0080 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<int>                                  IntStats;                                         		// 0x0090 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<float>                                FloatStats;                                       		// 0x00A0 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FME1_CharacterProfileSaveRecord> lstCharacterProfiles;                             		// 0x00B0 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FProfileBOOLSaveRecord>              BoolVariables;                                    		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_ProfileINTSaveRecord>           IntVariables;                                     		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_ProfileFLOATSaveRecord>         FloatVariables;                                   		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_PlotManagerAchievementSaveRecord> PlotManagerAchievementMaps;                       		// 0x0030 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_ProfilePlaythroughSaveRecord>   lstPlaythroughs;                                  		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_ProfileRewardSaveRecord>        RewardStats;                                      		// 0x0050 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<int>                                        AchievementStates;                                		// 0x0060 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_BonusTalentSaveRecord>          UnlockedBonusTalents;                             		// 0x0070 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_BonusTalentSaveRecord>          PassiveBonusTalents;                              		// 0x0080 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<int>                                        IntStats;                                         		// 0x0090 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<float>                                      FloatStats;                                       		// 0x00A0 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FME1_CharacterProfileSaveRecord>     lstCharacterProfiles;                             		// 0x00B0 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct FME1_GameOptionsSaveRecord                  GameOptions;                                      		// 0x00C0 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      LastPlayedCharacterID;                            		// 0x00D0 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      LastSaveGame;                                     		// 0x00E0 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            LastPlayedCharacterID;                            		// 0x00D0 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            LastSaveGame;                                     		// 0x00E0 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	int                                                LastUsedPlaythroughID;                            		// 0x00F0 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	float                                              LowestPlaythroughDamageTaken;                     		// 0x00F4 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	int                                                MostMoneyAccumulated;                             		// 0x00F8 (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -1551,7 +1551,7 @@ struct FME1_EquipmentSaveRecord
 // 0x001C
 struct FME1_VehicleSaveRecord
 {
-	class FString                                      FirstName;                                        		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            FirstName;                                        		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	int                                                LastName;                                         		// 0x0010 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	float                                              HealthCurrent;                                    		// 0x0014 (0x0004) [0x0000000000000000]              
 	float                                              ShieldCurrent;                                    		// 0x0018 (0x0004) [0x0000000000000000]              
@@ -1619,8 +1619,8 @@ struct FSFXHotKeyDefinition
 // 0x003E
 struct FPlayerInfoEx
 {
-	class FString                                      FirstName;                                        		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      FaceCode;                                         		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            FirstName;                                        		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            FaceCode;                                         		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class UClass*                                      CharacterClass;                                   		// 0x0020 (0x0008) [0x0000000000000000]              
 	class UBioMorphFace*                               MorphHead;                                        		// 0x0028 (0x0008) [0x0000000000000000]              
 	struct SFXName                                     BonusTalentClass;                                 		// 0x0030 (0x0008) [0x0000000000000000]              
@@ -1633,16 +1633,16 @@ struct FPlayerInfoEx
 // 0x0030
 struct FME1PlotTableRecord
 {
-	class TArray<int>                                  BoolVariables;                                    		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<int>                                  IntVariables;                                     		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<float>                                FloatVariables;                                   		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<int>                                        BoolVariables;                                    		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<int>                                        IntVariables;                                     		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<float>                                      FloatVariables;                                   		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.SFXSaveGame.GalaxyMapSaveRecord.PlanetSaveRecord
 // 0x0018
 struct FPlanetSaveRecord
 {
-	class TArray<struct FVector2D>                     Probes;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FVector2D>                           Probes;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	int                                                PlanetID;                                         		// 0x0010 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	unsigned long                                      bVisited : 1;                                     		// 0x0014 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
 };
@@ -1651,7 +1651,7 @@ struct FPlanetSaveRecord
 // 0x0010
 struct FGalaxyMapSaveRecord
 {
-	class TArray<struct FPlanetSaveRecord>             Planets;                                          		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FPlanetSaveRecord>                   Planets;                                          		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.SFXSaveGame.ME1_PlotPseudoItemSaveRecord
@@ -1670,8 +1670,8 @@ struct FME1_PlotPseudoItemSaveRecord
 // 0x0028
 struct FBlazeDataStore
 {
-	class TArray<unsigned char>                        LoginInfo;                                        		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<unsigned char>                        PersonaID;                                        		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<unsigned char>                              LoginInfo;                                        		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<unsigned char>                              PersonaID;                                        		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	int                                                DaysSinceRegistration;                            		// 0x0020 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	unsigned long                                      bNucleusRefused : 1;                              		// 0x0024 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
 	unsigned long                                      bNucleusSuccessful : 1;                           		// 0x0024 (0x0004) [0x0000000000000001] [0x00000002] ( CPF_Edit )
@@ -1694,7 +1694,7 @@ struct FBioSFSoundAssetResource
 // 0x0014
 struct FBioSFScreenTipEntry
 {
-	class FString                                      StringContent;                                    		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	FString                                            StringContent;                                    		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 	int                                                StringData;                                       		// 0x0010 (0x0004) [0x0000000000000000]              
 };
 
@@ -1702,8 +1702,8 @@ struct FBioSFScreenTipEntry
 // 0x002B
 struct FSFXCareerCacheEntry
 {
-	class FString                                      Career;                                           		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
-	class FString                                      FirstName;                                        		// 0x0010 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	FString                                            Career;                                           		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	FString                                            FirstName;                                        		// 0x0010 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 	int                                                ClassName;                                        		// 0x0020 (0x0004) [0x0000000000100000]              
 	int                                                SaveTypes;                                        		// 0x0024 (0x0004) [0x0000000000100000]              
 	unsigned char                                      Origin;                                           		// 0x0028 (0x0001) [0x0000000000100000]              
@@ -1715,8 +1715,8 @@ struct FSFXCareerCacheEntry
 // 0x0025
 struct FSFXSaveDescriptor
 {
-	class FString                                      Career;                                           		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
-	class FString                                      SaveName;                                         		// 0x0010 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	FString                                            Career;                                           		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	FString                                            SaveName;                                         		// 0x0010 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 	int                                                Index;                                            		// 0x0020 (0x0004) [0x0000000000100000]              
 	unsigned char                                      Type;                                             		// 0x0024 (0x0001) [0x0000000000100000]              
 };
@@ -1733,9 +1733,9 @@ struct FSFXSavePair
 // 0x0030
 struct FSFXCareerDescriptor
 {
-	class FString                                      Career;                                           		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
-	class TArray<struct FSFXSavePair>                  Saves;                                            		// 0x0010 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
-	class TArray<struct FSFXSaveDescriptor>            CorruptedSaves;                                   		// 0x0020 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	FString                                            Career;                                           		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<struct FSFXSavePair>                        Saves;                                            		// 0x0010 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<struct FSFXSaveDescriptor>                  CorruptedSaves;                                   		// 0x0020 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.SFXEngine.SFXSaveGameCommandEventArgs
@@ -1743,8 +1743,8 @@ struct FSFXCareerDescriptor
 struct FSFXSaveGameCommandEventArgs
 {
 	struct FSFXSaveDescriptor                          Descriptor;                                       		// 0x0000 (0x0028) [0x0000000000500000]              ( CPF_NeedCtorLink )
-	class TArray<struct FSFXCareerDescriptor>          Careers;                                          		// 0x0028 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
-	class TArray<class FString>                        CorruptedCareers;                                 		// 0x0038 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<struct FSFXCareerDescriptor>                Careers;                                          		// 0x0028 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<FString>                                    CorruptedCareers;                                 		// 0x0038 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 	int                                                AdditionalFreeBytesNeeded;                        		// 0x0048 (0x0004) [0x0000000000100000]              
 	int                                                TotalFreeBytes;                                   		// 0x004C (0x0004) [0x0000000000100000]              
 	int                                                PreparedSaveSize;                                 		// 0x0050 (0x0004) [0x0000000000100000]              
@@ -1761,7 +1761,7 @@ struct FSFXSaveGameCommandEventArgs
 // 0x0028
 struct FDynamicLoadInfo
 {
-	class FString                                      ObjectName;                                       		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            ObjectName;                                       		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     SeekFreePackageName;                              		// 0x0010 (0x0008) [0x0000000000000000]              
 	class UObject*                                     CachedObjectHandle;                               		// 0x0018 (0x0008) [0x0000000000002000]              ( CPF_Transient )
 	class UObject*                                     LoadedLinkerRoot;                                 		// 0x0020 (0x0008) [0x0000000000002000]              ( CPF_Transient )
@@ -1790,7 +1790,7 @@ struct FTrilogyGrinderAchievementData
 // 0x0028
 struct FSFXVocalizationEventProperties
 {
-	class TArray<unsigned char>                        Roles;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<unsigned char>                              Roles;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	float                                              ChanceToPlay;                                     		// 0x0010 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	float                                              MinTimeBetweenSec;                                		// 0x0014 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	float                                              TimeLastPlayed;                                   		// 0x0018 (0x0004) [0x0000000000000000]              
@@ -1827,8 +1827,8 @@ struct FSFXVocalization
 // 0x0028
 struct FSFXVocalizationLine
 {
-	class TArray<unsigned char>                        SpecificType;                                     		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<int>                                  SpecificValue;                                    		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<unsigned char>                              SpecificType;                                     		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<int>                                        SpecificValue;                                    		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UWwiseEvent*                                 Sound;                                            		// 0x0020 (0x0008) [0x0000000000000000]              
 };
 
@@ -1846,8 +1846,8 @@ struct FVocEventLog
 // 0x004C
 struct FProfileData
 {
-	class FString                                      Header;                                           		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      Description;                                      		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Header;                                           		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Description;                                      		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             Func;                                             		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             Utility;                                          		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     Keyword;                                          		// 0x0040 (0x0008) [0x0000000000000000]              
@@ -1858,21 +1858,21 @@ struct FProfileData
 // 0x0010
 struct FSFXVocalizationVariation
 {
-	class TArray<struct FSFXVocalizationLine>          Variations;                                       		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FSFXVocalizationLine>                Variations;                                       		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.SFXVocalizationBank.SFXVocalizationRole
 // 0x0010
 struct FSFXVocalizationRole
 {
-	class TArray<struct FSFXVocalizationVariation>     Roles;                                            		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FSFXVocalizationVariation>           Roles;                                            		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.SFXGame.ScaledFloat
 // 0x0028
 struct FScaledFloat
 {
-	class TArray<class USFXGameEffect*>                Bonuses;                                          		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class USFXGameEffect*>                      Bonuses;                                          		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	float                                              X;                                                		// 0x0010 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	float                                              Y;                                                		// 0x0014 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	int                                                MaxLevel;                                         		// 0x0018 (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -1885,8 +1885,8 @@ struct FScaledFloat
 // 0x0048
 struct FSTech
 {
-	class FString                                      sImage;                                           		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sLargeImage;                                      		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sImage;                                           		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sLargeImage;                                      		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     nmTech;                                           		// 0x0020 (0x0008) [0x0000000000000000]              
 	struct SFXName                                     nmResearch;                                       		// 0x0028 (0x0008) [0x0000000000000000]              
 	int                                                srTitle;                                          		// 0x0030 (0x0004) [0x0000000000000000]              
@@ -1971,7 +1971,7 @@ struct FDamageCalculationAlgorithm
 // 0x0019
 struct FBioDialogReplyListDetails
 {
-	class FString                                      sParaphrase;                                      		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            sParaphrase;                                      		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	int                                                nIndex;                                           		// 0x0010 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	int                                                srParaphrase;                                     		// 0x0014 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	unsigned char                                      Category;                                         		// 0x0018 (0x0001) [0x0000000000000001]              ( CPF_Edit )
@@ -1981,7 +1981,7 @@ struct FBioDialogReplyListDetails
 // 0x003D
 struct FBioDialogNode
 {
-	class FString                                      sText;                                            		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            sText;                                            		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UWwiseBaseSoundObject*                       pCue;                                             		// 0x0010 (0x0008) [0x0000000000002000]              ( CPF_Transient )
 	int                                                srText;                                           		// 0x0018 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	int                                                nConditionalFunc;                                 		// 0x001C (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -2003,8 +2003,8 @@ struct FBioDialogNode
 // 0x002F(0x006C - 0x003D)
 struct FBioDialogEntryNode : FBioDialogNode
 {
-	class TArray<struct FBioDialogReplyListDetails>    ReplyListNew;                                     		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<int>                                  aSpeakerList;                                     		// 0x0050 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FBioDialogReplyListDetails>          ReplyListNew;                                     		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<int>                                        aSpeakerList;                                     		// 0x0050 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	int                                                nSpeakerIndex;                                    		// 0x0060 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	int                                                nListenerIndex;                                   		// 0x0064 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	unsigned long                                      bSkippable : 1;                                   		// 0x0068 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
@@ -2014,7 +2014,7 @@ struct FBioDialogEntryNode : FBioDialogNode
 // 0x001C(0x0059 - 0x003D)
 struct FBioDialogReplyNode : FBioDialogNode
 {
-	class TArray<int>                                  EntryList;                                        		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<int>                                        EntryList;                                        		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	int                                                nListenerIndex;                                   		// 0x0050 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	unsigned long                                      bUnskippable : 1;                                 		// 0x0054 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
 	unsigned long                                      bIllegal : 1;                                     		// 0x0054 (0x0004) [0x0000000000002000] [0x00000002] ( CPF_Transient )
@@ -2127,7 +2127,7 @@ struct FBioFoundWeaponData
 // 0x0018
 struct FBioUsedMeshPropData
 {
-	class TArray<class UParticleSystemComponent*>      aEffects;                                         		// 0x0000 (0x0010) [0x0000000004480008]              ( CPF_ExportObject | CPF_Component | CPF_NeedCtorLink | CPF_EditInline )
+	TArray<class UParticleSystemComponent*>            aEffects;                                         		// 0x0000 (0x0010) [0x0000000004480008]              ( CPF_ExportObject | CPF_Component | CPF_NeedCtorLink | CPF_EditInline )
 	class UMeshComponent*                              pPropCmp;                                         		// 0x0010 (0x0008) [0x0000000004080008]              ( CPF_ExportObject | CPF_Component | CPF_EditInline )
 };
 
@@ -2143,7 +2143,7 @@ struct FBioConvPawnPropData
 // 0x0018
 struct FReactionPart
 {
-	class TArray<struct SFXName>                       BoneNames;                                        		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct SFXName>                             BoneNames;                                        		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     BodyPart;                                         		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 };
 
@@ -2222,7 +2222,7 @@ struct FLoadoutWeaponInfo
 // 0x0020
 struct FPlotWeapon
 {
-	class FString                                      WeaponClassName;                                  		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            WeaponClassName;                                  		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     UnlockPlotId;                                     		// 0x0010 (0x0008) [0x0000000000000000]              
 	struct SFXName                                     EquippedPlotId;                                   		// 0x0018 (0x0008) [0x0000000000000000]              
 };
@@ -2239,7 +2239,7 @@ struct FUnlockableWeaponClass
 // 0x0018
 struct FLoadoutInfo
 {
-	class TArray<unsigned char>                        WeaponClasses;                                    		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<unsigned char>                              WeaponClasses;                                    		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     ClassName;                                        		// 0x0010 (0x0008) [0x0000000000000000]              
 };
 
@@ -2273,7 +2273,7 @@ struct FPlotWeaponEditor
 // 0x0060
 struct FSFXGestureData
 {
-	class TArray<int>                                  aChainedGestures;                                 		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<int>                                        aChainedGestures;                                 		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     nmPoseSet;                                        		// 0x0010 (0x0008) [0x0000000000000000]              
 	struct SFXName                                     nmPoseAnim;                                       		// 0x0018 (0x0008) [0x0000000000000000]              
 	struct SFXName                                     nmGestureSet;                                     		// 0x0020 (0x0008) [0x0000000000000000]              
@@ -2431,7 +2431,7 @@ struct FBoneAndWeight
 // 0x001C
 struct FBoneListEmissionArea
 {
-	class TArray<struct FBoneAndWeight>                Bones;                                            		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FBoneAndWeight>                      Bones;                                            		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     AreaTag;                                          		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	unsigned long                                      UseNumVertsAsWeights : 1;                         		// 0x0018 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
 };
@@ -2440,7 +2440,7 @@ struct FBoneListEmissionArea
 // 0x0030
 struct FBioDisplayNotice
 {
-	class FString                                      strTitle;                                         		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            strTitle;                                         		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	int                                                nEventType;                                       		// 0x0010 (0x0004) [0x0000000000000000]              
 	int                                                nTimeToLive;                                      		// 0x0014 (0x0004) [0x0000000000000000]              
 	int                                                nIconIndex;                                       		// 0x0018 (0x0004) [0x0000000000000000]              
@@ -2455,7 +2455,7 @@ struct FBioDisplayNotice
 // 0x001C
 struct FBioTalentNotice
 {
-	class FString                                      sName;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sName;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class ABioPawn*                                    oCharacter;                                       		// 0x0010 (0x0008) [0x0000000000000000]              
 	int                                                nIcon;                                            		// 0x0018 (0x0004) [0x0000000000000000]              
 };
@@ -2481,9 +2481,9 @@ struct FBioDOFTrackData
 // 0x0041
 struct FBioFuncShotData
 {
-	class FString                                      sActor1;                                          		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      sActor2;                                          		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      sStage;                                           		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            sActor1;                                          		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            sActor2;                                          		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            sStage;                                           		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     nmShotName;                                       		// 0x0030 (0x0008) [0x0000000000000000]              
 	int                                                nActor1PosNode;                                   		// 0x0038 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	unsigned long                                      bUseCamera : 1;                                   		// 0x003C (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
@@ -2511,7 +2511,7 @@ struct FBioGestureRenameData
 // 0x0064
 struct FBioGestureData
 {
-	class TArray<int>                                  aChainedGestures;                                 		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<int>                                        aChainedGestures;                                 		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     nmPoseSet;                                        		// 0x0010 (0x0008) [0x0000000000000000]              
 	struct SFXName                                     nmPoseAnim;                                       		// 0x0018 (0x0008) [0x0000000000000000]              
 	struct SFXName                                     nmGestureSet;                                     		// 0x0020 (0x0008) [0x0000000000000000]              
@@ -2551,7 +2551,7 @@ struct FBioGesturePinScrubData
 // 0x0038(0x009C - 0x0064)
 struct FBioGestureScrubData : FBioGestureData
 {
-	class TArray<struct FBioGesturePinScrubData>       aGestPins;                                        		// 0x0064 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FBioGesturePinScrubData>             aGestPins;                                        		// 0x0064 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     nmNextPoseSet;                                    		// 0x0074 (0x0008) [0x0000000000000000]              
 	struct SFXName                                     nmNextPoseAnim;                                   		// 0x007C (0x0008) [0x0000000000000000]              
 	float                                              fCurPoseTime;                                     		// 0x0084 (0x0004) [0x0000000000000000]              
@@ -2712,7 +2712,7 @@ struct FBioGestCharOverride
 // 0x0048
 struct FBioMeshPropActionData
 {
-	class FString                                      sEffect;                                          		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	FString                                            sEffect;                                          		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 	struct FVector                                     vOffsetLocation;                                  		// 0x0010 (0x000C) [0x0000000000000000]              
 	struct FRotator                                    rOffsetRotation;                                  		// 0x001C (0x000C) [0x0000000000000000]              
 	struct FVector                                     vOffsetScale;                                     		// 0x0028 (0x000C) [0x0000000000000000]              
@@ -2726,7 +2726,7 @@ struct FBioMeshPropActionData
 struct FBioMeshPropData
 {
 	struct FMap_Mirror                                 mapActions;                                       		// 0x0000 (0x0048) [0x0000000000001000]              ( CPF_Native )
-	class FString                                      sMesh;                                            		// 0x0048 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	FString                                            sMesh;                                            		// 0x0048 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 	struct FVector                                     vOffsetLocation;                                  		// 0x0058 (0x000C) [0x0000000000000000]              
 	struct FRotator                                    rOffsetRotation;                                  		// 0x0064 (0x000C) [0x0000000000000000]              
 	struct FVector                                     vOffsetScale;                                     		// 0x0070 (0x000C) [0x0000000000000000]              
@@ -2738,8 +2738,8 @@ struct FBioMeshPropData
 // 0x0028
 struct FBioWeaponPropData
 {
-	class TArray<class FString>                        aWeaponClassPrefixes;                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<class FString>                        aWeaponPackages;                                  		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<FString>                                    aWeaponClassPrefixes;                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<FString>                                    aWeaponPackages;                                  		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     nmWeaponBaseClassName;                            		// 0x0020 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 };
 
@@ -2781,9 +2781,9 @@ struct FHintDefinition
 // 0x006C
 struct FSFXNotification
 {
-	class FString                                      sTitle;                                           		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
-	class FString                                      sSubtitle;                                        		// 0x0010 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
-	class FString                                      sBody;                                            		// 0x0020 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	FString                                            sTitle;                                           		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	FString                                            sSubtitle;                                        		// 0x0010 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	FString                                            sBody;                                            		// 0x0020 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     nmType;                                           		// 0x0030 (0x0008) [0x0000000000000000]              
 	class UTexture*                                    oImage;                                           		// 0x0038 (0x0008) [0x0000000000000000]              
 	struct SFXName                                     nRemoteEvent;                                     		// 0x0040 (0x0008) [0x0000000000000000]              
@@ -2800,7 +2800,7 @@ struct FSFXNotification
 // 0x0050
 struct FSFXNotificationData
 {
-	class FString                                      sImageResource;                                   		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	FString                                            sImageResource;                                   		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     nmType;                                           		// 0x0010 (0x0008) [0x0000000000000000]              
 	struct SFXName                                     nRemoteEvent;                                     		// 0x0018 (0x0008) [0x0000000000000000]              
 	struct SFXName                                     nmSound;                                          		// 0x0020 (0x0008) [0x0000000000000000]              
@@ -2849,7 +2849,7 @@ struct FRotationModeTrackKey
 // 0x0042
 struct FLookAtBoneDefinition
 {
-	class TArray<struct SFXName>                       m_anTargetBones;                                  		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct SFXName>                             m_anTargetBones;                                  		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     m_nBoneName;                                      		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	struct SFXName                                     m_nmMasterBoneName;                               		// 0x0018 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	float                                              m_fLimit;                                         		// 0x0020 (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -2890,11 +2890,11 @@ struct FScalarData
 // 0x005D
 struct FHairComponent
 {
-	class FString                                      StyleName;                                        		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      MeshName;                                         		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      ScalpMorphName;                                   		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FTextureData>                  m_aHairTextures;                                  		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScalarData>                   m_aHairScalars;                                   		// 0x0040 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            StyleName;                                        		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            MeshName;                                         		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            ScalpMorphName;                                   		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FTextureData>                        m_aHairTextures;                                  		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScalarData>                         m_aHairScalars;                                   		// 0x0040 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class USkeletalMesh*                               HairMesh;                                         		// 0x0050 (0x0008) [0x0000000000000000]              
 	float                                              ScalpMorphWeight;                                 		// 0x0058 (0x0004) [0x0000000000000000]              
 	unsigned char                                      HairType;                                         		// 0x005C (0x0001) [0x0000000000000000]              
@@ -2904,20 +2904,20 @@ struct FHairComponent
 // 0x0030
 struct FHairData
 {
-	class FString                                      PackageName;                                      		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      HairMorphSpecMaskName;                            		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FHairComponent>                HairComponents;                                   		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            PackageName;                                      		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            HairMorphSpecMaskName;                            		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FHairComponent>                      HairComponents;                                   		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.BioMorphUtility.MaterialComponent
 // 0x0051
 struct FMaterialComponent
 {
-	class FString                                      Label;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      Name;                                             		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      Panel;                                            		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      ParameterName;                                    		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<class FString>                        Params;                                           		// 0x0040 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Label;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Name;                                             		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Panel;                                            		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            ParameterName;                                    		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<FString>                                    Params;                                           		// 0x0040 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	unsigned char                                      Type;                                             		// 0x0050 (0x0001) [0x0000000000000000]              
 };
 
@@ -2925,23 +2925,23 @@ struct FMaterialComponent
 // 0x0020
 struct FMaterialGroup
 {
-	class FString                                      Name;                                             		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FMaterialComponent>            Components;                                       		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Name;                                             		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FMaterialComponent>                  Components;                                       		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.BioMorphUtility.MaterialPanel
 // 0x0020
 struct FMaterialPanel
 {
-	class FString                                      Name;                                             		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FMaterialGroup>                Groups;                                           		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Name;                                             		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FMaterialGroup>                      Groups;                                           		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.BioMorphUtility.MaterialData
 // 0x0010
 struct FMaterialData
 {
-	class TArray<struct FMaterialPanel>                Panels;                                           		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FMaterialPanel>                      Panels;                                           		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.BioMorphUtility.AdditionalData
@@ -2955,7 +2955,7 @@ struct FAdditionalData
 // 0x0014
 struct FBaseSliders
 {
-	class FString                                      m_sSliderName;                                    		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            m_sSliderName;                                    		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	float                                              m_fValue;                                         		// 0x0010 (0x0004) [0x0000000000000000]              
 };
 
@@ -2963,15 +2963,15 @@ struct FBaseSliders
 // 0x0010
 struct FBaseHeads
 {
-	class TArray<struct FBaseSliders>                  m_fBaseHeadSettings;                              		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FBaseSliders>                        m_fBaseHeadSettings;                              		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.BioMorphFaceFrontEnd.SliderModifierSliderData
 // 0x0024
 struct FSliderModifierSliderData
 {
-	class TArray<class UBioMorphFaceFESliderBase*>     m_aoSliderData;                                   		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<float>                                m_fRandWeights;                                   		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class UBioMorphFaceFESliderBase*>           m_aoSliderData;                                   		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<float>                                      m_fRandWeights;                                   		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	float                                              m_fRandWeightsTotal;                              		// 0x0020 (0x0004) [0x0000000000000000]              
 };
 
@@ -2979,20 +2979,20 @@ struct FSliderModifierSliderData
 // 0x0040
 struct FSliderModifier
 {
-	class FString                                      m_sName;                                          		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<float>                                m_aRandMin;                                       		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<float>                                m_aRandMax;                                       		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FSliderModifierSliderData>     m_aSliders;                                       		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            m_sName;                                          		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<float>                                      m_aRandMin;                                       		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<float>                                      m_aRandMax;                                       		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FSliderModifierSliderData>           m_aSliders;                                       		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.BioMorphFaceFrontEnd.Slider
 // 0x0064
 struct FSlider
 {
-	class FString                                      m_sName;                                          		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<class UBioMorphFaceFESliderBase*>     m_aoSliderData;                                   		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<float>                                m_fRandWeights;                                   		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FSliderModifier>               m_aSliderModifiers;                               		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            m_sName;                                          		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class UBioMorphFaceFESliderBase*>           m_aoSliderData;                                   		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<float>                                      m_fRandWeights;                                   		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FSliderModifier>                     m_aSliderModifiers;                               		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	int                                                m_iIndex;                                         		// 0x0040 (0x0004) [0x0000000000000000]              
 	int                                                m_iValue;                                         		// 0x0044 (0x0004) [0x0000000000000000]              
 	int                                                m_iSteps;                                         		// 0x0048 (0x0004) [0x0000000000000000]              
@@ -3008,8 +3008,8 @@ struct FSlider
 // 0x002C
 struct FCategory
 {
-	class FString                                      m_sCatName;                                       		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FSlider>                       m_aoSliders;                                      		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            m_sCatName;                                       		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FSlider>                             m_aoSliders;                                      		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	int                                                m_iCatIndex;                                      		// 0x0020 (0x0004) [0x0000000000000000]              
 	int                                                m_iStringRef;                                     		// 0x0024 (0x0004) [0x0000000000000000]              
 	int                                                m_iDescriptionStringRef;                          		// 0x0028 (0x0004) [0x0000000000000000]              
@@ -3020,7 +3020,7 @@ struct FCategory
 struct FFaceData
 {
 	struct FAdditionalData                             m_pAdditionalParams;                              		// 0x0000 (0x0030) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FCategory>                     m_oCategories;                                    		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FCategory>                           m_oCategories;                                    		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.BioParticleModuleLocationAttachedMesh.EmissionAreaWeight
@@ -3044,10 +3044,10 @@ struct FLocalEmissionAreaWeight
 // 0x006C
 struct FEmissionModuleData
 {
-	class TArray<struct FLocalEmissionAreaWeight>      m_LocalEmissionAreas;                             		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
-	class TArray<struct FMatrix>                       m_EmissionAreaPreviousWorldToLocal;               		// 0x0010 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
-	class TArray<unsigned long>                        m_EmissionAreaPreviousWorldToLocalValid;          		// 0x0020 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
-	class TArray<int>                                  m_NextEmissionAreas;                              		// 0x0030 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<struct FLocalEmissionAreaWeight>            m_LocalEmissionAreas;                             		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<struct FMatrix>                             m_EmissionAreaPreviousWorldToLocal;               		// 0x0010 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<unsigned long>                              m_EmissionAreaPreviousWorldToLocalValid;          		// 0x0020 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<int>                                        m_NextEmissionAreas;                              		// 0x0030 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 	class UMeshComponent*                              m_CachedSpawnMeshes[ 0x4 ];                       		// 0x0040 (0x0020) [0x0000000004080008]              ( CPF_ExportObject | CPF_Component | CPF_EditInline )
 	class UBioParticleModuleLocationAttachedMesh*      m_pOwningModule;                                  		// 0x0060 (0x0008) [0x0000000000000000]              
 	int                                                m_CachedNumSpawnMeshes;                           		// 0x0068 (0x0004) [0x0000000000000000]              
@@ -3191,7 +3191,7 @@ struct FChangeOverLifeKey
 // 0x001C
 struct FStaticKeyBind
 {
-	class FString                                      Command;                                          		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Command;                                          		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     Name;                                             		// 0x0010 (0x0008) [0x0000000000000000]              
 	unsigned long                                      Control : 1;                                      		// 0x0018 (0x0004) [0x0000000000000000] [0x00000001] 
 	unsigned long                                      Shift : 1;                                        		// 0x0018 (0x0004) [0x0000000000000000] [0x00000002] 
@@ -3206,8 +3206,8 @@ struct FStaticKeyBind
 // 0x0020
 struct FDebugMenuEntry
 {
-	class FString                                      Name;                                             		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      Command;                                          		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Name;                                             		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Command;                                          		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.BioPlayerSquad.SquadTargetData
@@ -3313,7 +3313,7 @@ struct FPlotStreamingElement
 // 0x0018
 struct FPlotStreamingSet
 {
-	class TArray<struct FPlotStreamingElement>         Elements;                                         		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FPlotStreamingElement>               Elements;                                         		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     VirtualChunkName;                                 		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 };
 
@@ -3387,12 +3387,12 @@ struct FEffectsMaterialPriority
 // 0x008A
 struct FSFXChoiceEntry
 {
-	class TArray<struct FSFXTokenMapping>              m_mapTokenIDToActual;                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      sChoiceName;                                      		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sChoiceTitle;                                     		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sChoiceImageTitle;                                		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sChoiceDescription;                               		// 0x0040 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sActionText;                                      		// 0x0050 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FSFXTokenMapping>                    m_mapTokenIDToActual;                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            sChoiceName;                                      		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sChoiceTitle;                                     		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sChoiceImageTitle;                                		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sChoiceDescription;                               		// 0x0040 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sActionText;                                      		// 0x0050 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class UTexture2D*                                  oChoiceImage;                                     		// 0x0060 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	int                                                srChoiceName;                                     		// 0x0068 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	int                                                srChoiceTitle;                                    		// 0x006C (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -3413,9 +3413,9 @@ struct FSFXChoiceEntry
 // 0x0038
 struct FDLCInfo_t
 {
-	class FString                                      sImageResource;                                   		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sImageResourceFrame;                              		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sCreditsSection;                                  		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sImageResource;                                   		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sImageResourceFrame;                              		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sCreditsSection;                                  		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	int                                                sDisplayName;                                     		// 0x0030 (0x0004) [0x0000000000000000]              
 	int                                                sDescription;                                     		// 0x0034 (0x0004) [0x0000000000000000]              
 };
@@ -3471,7 +3471,7 @@ struct FBioCreditsDetails
 // 0x0020
 struct FDataCodexEntryDetails
 {
-	class FString                                      sName;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sName;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	FPointer                                           pEntry;                                           		// 0x0010 (0x0008) [0x0000000000000000]              
 	int                                                nSectionID;                                       		// 0x0018 (0x0004) [0x0000000000000000]              
 	unsigned long                                      bUpdated : 1;                                     		// 0x001C (0x0004) [0x0000000000000000] [0x00000001] 
@@ -3481,7 +3481,7 @@ struct FDataCodexEntryDetails
 // 0x001C
 struct FCodexImageDetails
 {
-	class FString                                      sName;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sName;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class UTexture2D*                                  oTexture;                                         		// 0x0010 (0x0008) [0x0000000000000000]              
 	int                                                nID;                                              		// 0x0018 (0x0004) [0x0000000000000000]              
 };
@@ -3490,7 +3490,7 @@ struct FCodexImageDetails
 // 0x001C
 struct FGuiQuestInfo
 {
-	class FString                                      sName;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sName;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	int                                                nID;                                              		// 0x0010 (0x0004) [0x0000000000000000]              
 	int                                                nAdded;                                           		// 0x0014 (0x0004) [0x0000000000000000]              
 	unsigned long                                      bComplete : 1;                                    		// 0x0018 (0x0004) [0x0000000000000000] [0x00000001] 
@@ -3501,7 +3501,7 @@ struct FGuiQuestInfo
 // 0x0044
 struct FBioMessageBoxData
 {
-	class FString                                      m_sMessage;                                       		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	FString                                            m_sMessage;                                       		// 0x0000 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 	struct FBioMessageBoxOptionalParams                m_stParams;                                       		// 0x0010 (0x0014) [0x0000000000000000]              
 	struct SFXName                                     m_nmName;                                         		// 0x0024 (0x0008) [0x0000000000000000]              
 	class UObject*                                     m_pCallbackObject;                                		// 0x002C (0x0008) [0x0000000000000000]              
@@ -3514,7 +3514,7 @@ struct FBioMessageBoxData
 // 0x001C
 struct FSaveGUIAreaInfo
 {
-	class FString                                      ImageName;                                        		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            ImageName;                                        		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     AreaName;                                         		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	int                                                AreaStrRef;                                       		// 0x0018 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 };
@@ -3524,8 +3524,8 @@ struct FSaveGUIAreaInfo
 struct FSaveGUIRecord
 {
 	struct FSFXSaveDescriptor                          SaveDescriptor;                                   		// 0x0000 (0x0028) [0x0000000000500001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      FriendlyName;                                     		// 0x0028 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      ImagePath;                                        		// 0x0038 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            FriendlyName;                                     		// 0x0028 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            ImagePath;                                        		// 0x0038 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class USFXSaveGame*                                SaveGame;                                         		// 0x0048 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	class UTexture2D*                                  AreaImage;                                        		// 0x0050 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	int                                                m_sec;                                            		// 0x0058 (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -3540,9 +3540,9 @@ struct FSaveGUIRecord
 // 0x004A
 struct FSaveGUICareerRecord
 {
-	class FString                                      CareerName;                                       		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      FirstName;                                        		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      ClassName;                                        		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            CareerName;                                       		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            FirstName;                                        		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            ClassName;                                        		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct FSaveTimeStamp                              CreationDate;                                     		// 0x0030 (0x0010) [0x0000000000000001]              ( CPF_Edit )
 	int                                                DeviceID;                                         		// 0x0040 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	unsigned long                                      bActiveCareer : 1;                                		// 0x0044 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
@@ -3554,12 +3554,12 @@ struct FSaveGUICareerRecord
 // 0x0076
 struct FSFXChoiceEntryNoStrRef
 {
-	class FString                                      sChoiceName;                                      		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      sChoiceTitle;                                     		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      sChoiceImageTitle;                                		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      sChoiceDescription;                               		// 0x0030 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      sActionText;                                      		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FSFXTokenMapping>              m_mapTokenIDToActual;                             		// 0x0050 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            sChoiceName;                                      		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            sChoiceTitle;                                     		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            sChoiceImageTitle;                                		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            sChoiceDescription;                               		// 0x0030 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            sActionText;                                      		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FSFXTokenMapping>                    m_mapTokenIDToActual;                             		// 0x0050 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UTexture2D*                                  oChoiceImage;                                     		// 0x0060 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	int                                                nOptionalPaneItemValue;                           		// 0x0068 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	int                                                nChoiceID;                                        		// 0x006C (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -3642,8 +3642,8 @@ struct FLocalizedKeyName
 // 0x0021
 struct FTutorialCommandsDetails
 {
-	class FString                                      srParseString;                                    		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      Action;                                           		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            srParseString;                                    		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Action;                                           		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	unsigned char                                      Mode;                                             		// 0x0020 (0x0001) [0x0000000000000000]              
 };
 
@@ -3651,7 +3651,7 @@ struct FTutorialCommandsDetails
 // 0x0011
 struct FModeAliasPair
 {
-	class FString                                      Alias;                                            		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Alias;                                            		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	unsigned char                                      GameMode;                                         		// 0x0010 (0x0001) [0x0000000000000001]              ( CPF_Edit )
 };
 
@@ -3667,8 +3667,8 @@ struct FSubordinateDesc : FModeAliasPair
 struct FGuiBind : FModeAliasPair
 {
 	struct FKeyBind                                    Keys[ 0x2 ];                                      		// 0x0014 (0x0038) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      KeysLocName[ 0x2 ];                               		// 0x004C (0x0020) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FSubordinateDesc>              Subordinates;                                     		// 0x006C (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            KeysLocName[ 0x2 ];                               		// 0x004C (0x0020) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FSubordinateDesc>                    Subordinates;                                     		// 0x006C (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	int                                                Name;                                             		// 0x007C (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	unsigned long                                      bCategory : 1;                                    		// 0x0080 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
 };
@@ -3677,7 +3677,7 @@ struct FGuiBind : FModeAliasPair
 // 0x001C
 struct FNonBindableKeyDefinition
 {
-	class FString                                      Command;                                          		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Command;                                          		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     Name;                                             		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	unsigned long                                      Control : 1;                                      		// 0x0018 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
 	unsigned long                                      Shift : 1;                                        		// 0x0018 (0x0004) [0x0000000000000001] [0x00000002] ( CPF_Edit )
@@ -3698,7 +3698,7 @@ struct FTurretConstraintData
 // 0x0030
 struct FBioStageCameraCustom
 {
-	class FString                                      m_sCameraName;                                    		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            m_sCameraName;                                    		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	float                                              m_fCameraHeightDelta;                             		// 0x0010 (0x0004) [0x0000000000000000]              
 	float                                              m_fCameraPitchDelta;                              		// 0x0014 (0x0004) [0x0000000000000000]              
 	float                                              m_fCameraYawDelta;                                		// 0x0018 (0x0004) [0x0000000000000000]              
@@ -3744,7 +3744,7 @@ struct FTwitchRec
 struct FBioTimer
 {
 	struct FScriptDelegate                             OnTimer;                                          		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sTimerName;                                       		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sTimerName;                                       		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class UObject*                                     Params;                                           		// 0x0020 (0x0008) [0x0000000000000000]              
 	float                                              fTickTime;                                        		// 0x0028 (0x0004) [0x0000000000000000]              
 };
@@ -3753,10 +3753,10 @@ struct FBioTimer
 // 0x005C
 struct FBioStreamingState
 {
-	class FString                                      StateDescription;                                 		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct SFXName>                       VisibleChunkNames;                                		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct SFXName>                       VisibleSoonChunkNames;                            		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct SFXName>                       LoadChunkNames;                                   		// 0x0030 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            StateDescription;                                 		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct SFXName>                             VisibleChunkNames;                                		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct SFXName>                             VisibleSoonChunkNames;                            		// 0x0020 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct SFXName>                             LoadChunkNames;                                   		// 0x0030 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     StateName;                                        		// 0x0040 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	struct SFXName                                     InChunkName;                                      		// 0x0048 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	float                                              DesignFudget;                                     		// 0x0050 (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -3786,10 +3786,10 @@ struct FEnemyData
 // 0x0040
 struct FBioAudPropagationData
 {
-	class TArray<class UBioEvtSysTrackSetFacing*>      aFacingData;                                      		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<class UBioEvtSysTrackGesture*>        aGestureData;                                     		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<class UBioEvtSysTrackProp*>           aPropData;                                        		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<class UBioEvtSysTrackLighting*>       aLightingData;                                    		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class UBioEvtSysTrackSetFacing*>            aFacingData;                                      		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class UBioEvtSysTrackGesture*>              aGestureData;                                     		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class UBioEvtSysTrackProp*>                 aPropData;                                        		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class UBioEvtSysTrackLighting*>             aLightingData;                                    		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.SFXConvAuditionHelperInterface.BioScrubbingCamData
@@ -3842,10 +3842,10 @@ struct FCachedActorState
 // 0x005C
 struct FSFXSFControlToken
 {
-	class FString                                      TexturePath;                                      		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      Resource;                                         		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      Align;                                            		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      VAlign;                                           		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            TexturePath;                                      		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Resource;                                         		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Align;                                            		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            VAlign;                                           		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     Token;                                            		// 0x0040 (0x0008) [0x0000000000000000]              
 	int                                                Height;                                           		// 0x0048 (0x0004) [0x0000000000000000]              
 	int                                                Width;                                            		// 0x004C (0x0004) [0x0000000000000000]              
@@ -3874,7 +3874,7 @@ struct FSFXStringMap
 // 0x001E
 struct FCoverLeanPosition
 {
-	class TArray<unsigned char>                        WeaponTypes;                                      		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<unsigned char>                              WeaponTypes;                                      		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FVector                                     Offset;                                           		// 0x0010 (0x000C) [0x0000000000000000]              
 	unsigned char                                      Direction;                                        		// 0x001C (0x0001) [0x0000000000000000]              
 	unsigned char                                      Type;                                             		// 0x001D (0x0001) [0x0000000000000000]              
@@ -3971,7 +3971,7 @@ struct FSFXObjectPoolTracers
 // 0x001C
 struct FSFXObjectPoolProjectiles
 {
-	class TArray<class AProjectile*>                   Projectiles;                                      		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class AProjectile*>                         Projectiles;                                      		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class UClass*                                      ProjectileClass;                                  		// 0x0010 (0x0008) [0x0000000000000000]              
 	int                                                NextIdx;                                          		// 0x0018 (0x0004) [0x0000000000000000]              
 };
@@ -3980,7 +3980,7 @@ struct FSFXObjectPoolProjectiles
 // 0x001C
 struct FSFXObjectPoolDroppedAmmos
 {
-	class TArray<class ADroppedPickup*>                DroppedAmmos;                                     		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class ADroppedPickup*>                      DroppedAmmos;                                     		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class UClass*                                      DroppedAmmoClass;                                 		// 0x0010 (0x0008) [0x0000000000000000]              
 	int                                                NextIdx;                                          		// 0x0018 (0x0004) [0x0000000000000000]              
 };
@@ -3998,7 +3998,7 @@ struct FSFXObjectPoolImpactPSCs
 // 0x001C
 struct FSFXObjectPoolPSCs
 {
-	class TArray<class UParticleSystemComponent*>      PSysComponents;                                   		// 0x0000 (0x0010) [0x0000000004480008]              ( CPF_ExportObject | CPF_Component | CPF_NeedCtorLink | CPF_EditInline )
+	TArray<class UParticleSystemComponent*>            PSysComponents;                                   		// 0x0000 (0x0010) [0x0000000004480008]              ( CPF_ExportObject | CPF_Component | CPF_NeedCtorLink | CPF_EditInline )
 	class UParticleSystem*                             Template;                                         		// 0x0010 (0x0008) [0x0000000000000000]              
 	int                                                NextIdx;                                          		// 0x0018 (0x0004) [0x0000000000000000]              
 };
@@ -4007,7 +4007,7 @@ struct FSFXObjectPoolPSCs
 // 0x001C
 struct FSFXObjectPoolEmitters
 {
-	class TArray<class AEmitter*>                      Emitters;                                         		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class AEmitter*>                            Emitters;                                         		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class UParticleSystem*                             Template;                                         		// 0x0010 (0x0008) [0x0000000000000000]              
 	int                                                NextIdx;                                          		// 0x0018 (0x0004) [0x0000000000000000]              
 };
@@ -4032,12 +4032,12 @@ struct FEnemyCoverInfo
 // 0x0078
 struct FScarInfo
 {
-	class FString                                      Emissive;                                         		// 0x0000 (0x0010) [0x0000000000404001]              ( CPF_Edit | CPF_Config | CPF_NeedCtorLink )
-	class FString                                      Normal;                                           		// 0x0010 (0x0010) [0x0000000000404001]              ( CPF_Edit | CPF_Config | CPF_NeedCtorLink )
-	class FString                                      EyeEmissive;                                      		// 0x0020 (0x0010) [0x0000000000404001]              ( CPF_Edit | CPF_Config | CPF_NeedCtorLink )
-	class FString                                      FemaleEmissive;                                   		// 0x0030 (0x0010) [0x0000000000404001]              ( CPF_Edit | CPF_Config | CPF_NeedCtorLink )
-	class FString                                      FemaleNormal;                                     		// 0x0040 (0x0010) [0x0000000000404001]              ( CPF_Edit | CPF_Config | CPF_NeedCtorLink )
-	class FString                                      FemaleEyeEmissive;                                		// 0x0050 (0x0010) [0x0000000000404001]              ( CPF_Edit | CPF_Config | CPF_NeedCtorLink )
+	FString                                            Emissive;                                         		// 0x0000 (0x0010) [0x0000000000404001]              ( CPF_Edit | CPF_Config | CPF_NeedCtorLink )
+	FString                                            Normal;                                           		// 0x0010 (0x0010) [0x0000000000404001]              ( CPF_Edit | CPF_Config | CPF_NeedCtorLink )
+	FString                                            EyeEmissive;                                      		// 0x0020 (0x0010) [0x0000000000404001]              ( CPF_Edit | CPF_Config | CPF_NeedCtorLink )
+	FString                                            FemaleEmissive;                                   		// 0x0030 (0x0010) [0x0000000000404001]              ( CPF_Edit | CPF_Config | CPF_NeedCtorLink )
+	FString                                            FemaleNormal;                                     		// 0x0040 (0x0010) [0x0000000000404001]              ( CPF_Edit | CPF_Config | CPF_NeedCtorLink )
+	FString                                            FemaleEyeEmissive;                                		// 0x0050 (0x0010) [0x0000000000404001]              ( CPF_Edit | CPF_Config | CPF_NeedCtorLink )
 	struct FLinearColor                                Color;                                            		// 0x0060 (0x0010) [0x0000000000004001]              ( CPF_Edit | CPF_Config )
 	struct FVector2D                                   Threshold;                                        		// 0x0070 (0x0008) [0x0000000000004001]              ( CPF_Edit | CPF_Config )
 };
@@ -4046,8 +4046,8 @@ struct FScarInfo
 // 0x0024
 struct FSFXPowerWheelIcon
 {
-	class FString                                      sPath;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sID;                                              		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sPath;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sID;                                              		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	float                                              fBoundary;                                        		// 0x0020 (0x0004) [0x0000000000000000]              
 };
 
@@ -4055,7 +4055,7 @@ struct FSFXPowerWheelIcon
 // 0x0011
 struct FSFXPowerWheelButtonIcon
 {
-	class FString                                      sPath;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sPath;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	unsigned char                                      eIcon;                                            		// 0x0010 (0x0001) [0x0000000000000000]              
 };
 
@@ -4064,9 +4064,9 @@ struct FSFXPowerWheelButtonIcon
 struct FSFXPowerWheelIconPower : FSFXPowerWheelIcon
 {
 	struct FSFXPowerWheelButtonIcon                    oMappedIcon;                                      		// 0x0024 (0x0014) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sName;                                            		// 0x0038 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sDescription;                                     		// 0x0048 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sMappedBGPath;                                    		// 0x0058 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sName;                                            		// 0x0038 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sDescription;                                     		// 0x0048 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sMappedBGPath;                                    		// 0x0058 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class USFXPower*                                   pPower;                                           		// 0x0068 (0x0008) [0x0000000000000000]              
 	class ABioPawn*                                    pPawn;                                            		// 0x0070 (0x0008) [0x0000000000000000]              
 	struct SFXName                                     nmPowerName;                                      		// 0x0078 (0x0008) [0x0000000000000000]              
@@ -4087,7 +4087,7 @@ struct FSFXPowerWheelIconPower : FSFXPowerWheelIcon
 // 0x001D
 struct FKillScore
 {
-	class FString                                      Message;                                          		// 0x0000 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	FString                                            Message;                                          		// 0x0000 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
 	struct SFXName                                     DamageClassName;                                  		// 0x0010 (0x0008) [0x0000000000004000]              ( CPF_Config )
 	int                                                Points;                                           		// 0x0018 (0x0004) [0x0000000000004000]              ( CPF_Config )
 	unsigned char                                      GrinderAchievementId;                             		// 0x001C (0x0001) [0x0000000000004000]              ( CPF_Config )
@@ -4105,7 +4105,7 @@ struct FDamageRecordStruct
 // 0x0014
 struct FScoreEvent
 {
-	class FString                                      Text;                                             		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Text;                                             		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	float                                              ExpiryTime;                                       		// 0x0010 (0x0004) [0x0000000000000000]              
 };
 
@@ -4129,8 +4129,8 @@ struct FOriginMap
 // 0x0034
 struct FResearchMenu
 {
-	class FString                                      sImagePath;                                       		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FTechData>                     m_ResearchChoices;                                		// 0x0010 (0x0010) [0x0000000000402000]              ( CPF_Transient | CPF_NeedCtorLink )
+	FString                                            sImagePath;                                       		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FTechData>                           m_ResearchChoices;                                		// 0x0010 (0x0010) [0x0000000000402000]              ( CPF_Transient | CPF_NeedCtorLink )
 	int                                                Index;                                            		// 0x0020 (0x0004) [0x0000000000000000]              
 	int                                                srTitle;                                          		// 0x0024 (0x0004) [0x0000000000000000]              
 	int                                                srSubTitle;                                       		// 0x0028 (0x0004) [0x0000000000000000]              
@@ -4142,8 +4142,8 @@ struct FResearchMenu
 // 0x0020
 struct FSFXHudDmgIndicatorPaths
 {
-	class FString                                      _alpha;                                           		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      _visible;                                         		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            _alpha;                                           		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            _visible;                                         		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.SFXSFHandler_HUD.SFXHUDResistances
@@ -4164,13 +4164,13 @@ struct FSFXHUDResistances
 // 0x00B4
 struct FSFXHUDSquadMemberInfo
 {
-	class FString                                      sPath;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sIconImagePath;                                   		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sShieldPath;                                      		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sBioticPath;                                      		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sArmourPath;                                      		// 0x0040 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sHealthPath;                                      		// 0x0050 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sPowerPath;                                       		// 0x0060 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sPath;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sIconImagePath;                                   		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sShieldPath;                                      		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sBioticPath;                                      		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sArmourPath;                                      		// 0x0040 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sHealthPath;                                      		// 0x0050 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sPowerPath;                                       		// 0x0060 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FSFXHUDResistances                          Resistances;                                      		// 0x0070 (0x0014) [0x0000000000000000]              
 	struct FSFXHUDResistances                          DisplayedResistances;                             		// 0x0084 (0x0014) [0x0000000000000000]              
 	class ABioPawn*                                    pPawn;                                            		// 0x0098 (0x0008) [0x0000000000000000]              
@@ -4199,8 +4199,8 @@ struct FSFXHUDSquadMemberInfo
 // 0x003C
 struct FSFXHUDTargetInfo
 {
-	class FString                                      sName;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sStatus;                                          		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sName;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sStatus;                                          		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FSFXHUDResistances                          Resistances;                                      		// 0x0020 (0x0014) [0x0000000000000000]              
 	int                                                nStatusFlags;                                     		// 0x0034 (0x0004) [0x0000000000000000]              
 	unsigned long                                      bInteractive : 1;                                 		// 0x0038 (0x0004) [0x0000000000000000] [0x00000001] 
@@ -4212,9 +4212,9 @@ struct FSFXHUDTargetInfo
 // 0x0045(0x0069 - 0x0024)
 struct FSFXPowerWheelIconWeapon : FSFXPowerWheelIcon
 {
-	class FString                                      sName;                                            		// 0x0024 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sDescription;                                     		// 0x0034 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sIconResource;                                    		// 0x0044 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sName;                                            		// 0x0024 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sDescription;                                     		// 0x0034 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sIconResource;                                    		// 0x0044 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class UClass*                                      oWeaponClass;                                     		// 0x0054 (0x0008) [0x0000000000000000]              
 	int                                                nWeaponIcon;                                      		// 0x005C (0x0004) [0x0000000000000000]              
 	int                                                nAmmo;                                            		// 0x0060 (0x0004) [0x0000000000000000]              
@@ -4242,16 +4242,16 @@ struct FSFXRadarElementData
 // 0x0030
 struct FSFXPowerWheelPawnIndices
 {
-	class TArray<int>                                  aPlayer;                                          		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<int>                                  aHench1;                                          		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<int>                                  aHench2;                                          		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<int>                                        aPlayer;                                          		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<int>                                        aHench1;                                          		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<int>                                        aHench2;                                          		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.SFXSFHandler_Slideshow.SFXSlideshowEntry
 // 0x0030
 struct FSFXSlideshowEntry
 {
-	class FString                                      ImagePath;                                        		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            ImagePath;                                        		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UTexture2D*                                  Image;                                            		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	float                                              DisplayTime;                                      		// 0x0018 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	float                                              MinDisplayTime;                                   		// 0x001C (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -4265,7 +4265,7 @@ struct FSFXSlideshowEntry
 // 0x0020
 struct FSFXSlideshowParams
 {
-	class TArray<struct FSFXSlideshowEntry>            Slides;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FSFXSlideshowEntry>                  Slides;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     Music;                                            		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	float                                              SlideFadeScalar;                                  		// 0x0018 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	unsigned long                                      AutoAdvance : 1;                                  		// 0x001C (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
@@ -4280,8 +4280,8 @@ struct FSFXSlideshowParams
 // 0x0024
 struct FPhotoModeOptionPage
 {
-	class FString                                      Text;                                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<unsigned char>                        Options;                                          		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Text;                                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<unsigned char>                              Options;                                          		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	int                                                Label;                                            		// 0x0020 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 };
 
@@ -4289,7 +4289,7 @@ struct FPhotoModeOptionPage
 // 0x0025
 struct FPhotoModeSliderOption
 {
-	class FString                                      Text;                                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Text;                                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	int                                                Label;                                            		// 0x0010 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	float                                              DefaultValue;                                     		// 0x0014 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	float                                              MaxValue;                                         		// 0x0018 (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -4302,7 +4302,7 @@ struct FPhotoModeSliderOption
 // 0x002D
 struct FPhotoModeRangeSliderOption
 {
-	class FString                                      Text;                                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Text;                                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct FVector2D                                   Range;                                            		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	int                                                Label;                                            		// 0x0018 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	float                                              DefaultValue;                                     		// 0x001C (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -4316,7 +4316,7 @@ struct FPhotoModeRangeSliderOption
 // 0x0018
 struct FPhotoModeOptionText
 {
-	class FString                                      Text;                                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Text;                                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	int                                                Label;                                            		// 0x0010 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	float                                              Value;                                            		// 0x0014 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 };
@@ -4325,8 +4325,8 @@ struct FPhotoModeOptionText
 // 0x002D
 struct FPhotoModeTextSliderOption
 {
-	class FString                                      Text;                                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FPhotoModeOptionText>          Values;                                           		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Text;                                             		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FPhotoModeOptionText>                Values;                                           		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	int                                                Label;                                            		// 0x0020 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	int                                                DefaultValue;                                     		// 0x0024 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	unsigned long                                      bHidden : 1;                                      		// 0x0028 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
@@ -4337,7 +4337,7 @@ struct FPhotoModeTextSliderOption
 // 0x001C
 struct FPRCInfo_t
 {
-	class FString                                      sCreditsSection;                                  		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sCreditsSection;                                  		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	float                                              fFadeTime;                                        		// 0x0010 (0x0004) [0x0000000000000000]              
 	float                                              fHoldTime;                                        		// 0x0014 (0x0004) [0x0000000000000000]              
 	float                                              fScrollTime;                                      		// 0x0018 (0x0004) [0x0000000000000000]              
@@ -4374,18 +4374,18 @@ struct FSMATextureParameter
 // 0x0040
 struct FTelemetryHookConfig
 {
-	class FString                                      Name;                                             		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      Event;                                            		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      AutoFillParameters;                               		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      Channel;                                          		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Name;                                             		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Event;                                            		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            AutoFillParameters;                               		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Channel;                                          		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.SFXTelemetry.TelemetryPlotPoint_Milestone
 // 0x0024
 struct FTelemetryPlotPoint_Milestone
 {
-	class FString                                      Moment;                                           		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      Milestone;                                        		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Moment;                                           		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Milestone;                                        		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	int                                                PlotPointId;                                      		// 0x0020 (0x0004) [0x0000000000000000]              
 };
 
@@ -4393,7 +4393,7 @@ struct FTelemetryPlotPoint_Milestone
 // 0x001D
 struct FTelemetryHook
 {
-	class FString                                      Event;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Event;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     Name;                                             		// 0x0010 (0x0008) [0x0000000000000000]              
 	int                                                AutoFillParameterBits;                            		// 0x0018 (0x0004) [0x0000000000000000]              
 	unsigned char                                      Channel;                                          		// 0x001C (0x0001) [0x0000000000000000]              
@@ -4403,8 +4403,8 @@ struct FTelemetryHook
 // 0x0020
 struct FSFXVocalizationParam
 {
-	class TArray<unsigned char>                        SpecificType;                                     		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<int>                                  SpecificValue;                                    		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<unsigned char>                              SpecificType;                                     		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<int>                                        SpecificValue;                                    		// 0x0010 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 };
 
 // ScriptStruct SFXGame.SFXVocalizationBank.SFXVocalizationLineV2
@@ -4414,7 +4414,7 @@ struct FSFXVocalizationLineV2
 	struct FSFXVocalizationParam                       Instigator;                                       		// 0x0000 (0x0020) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FSFXVocalizationParam                       Recipient;                                        		// 0x0020 (0x0020) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FSFXVocalizationParam                       ThirdParam;                                       		// 0x0040 (0x0020) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      DebugText;                                        		// 0x0060 (0x0010) [0x0200000000400000]              ( CPF_NeedCtorLink )
+	FString                                            DebugText;                                        		// 0x0060 (0x0010) [0x0200000000400000]              ( CPF_NeedCtorLink )
 	class UWwiseEvent*                                 Sound;                                            		// 0x0070 (0x0008) [0x0000000000000000]              
 };
 
@@ -4422,7 +4422,7 @@ struct FSFXVocalizationLineV2
 // 0x0010
 struct FSFXVocalizationEventV2
 {
-	class TArray<struct FSFXVocalizationLineV2>        Lines;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FSFXVocalizationLineV2>              Lines;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 };
 
 

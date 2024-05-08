@@ -31,20 +31,29 @@
 struct UObject_execGetNetIndex_Parms
 {
 	int                                                ReturnValue;                                      		// 0x0000 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGetNetIndex_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetNetIndex_Parms() {}
 };
 
 // Function Core.Object.appScreenDebugMessage
 // [0x00020003] ( FUNC_Final )
 struct UObject_execappScreenDebugMessage_Parms
 {
-	class FString                                      sMsg;                                             		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    sMsg; };                                          		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+
+	 UObject_execappScreenDebugMessage_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execappScreenDebugMessage_Parms() {}
 };
 
 // Function Core.Object.appScreenDebugMessageStatic
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execappScreenDebugMessageStatic_Parms
 {
-	class FString                                      sMsg;                                             		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    sMsg; };                                          		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+
+	 UObject_execappScreenDebugMessageStatic_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execappScreenDebugMessageStatic_Parms() {}
 };
 
 // Function Core.Object.GetSystemTime
@@ -59,31 +68,43 @@ struct UObject_execGetSystemTime_Parms
 	int                                                Min;                                              		// 0x0014 (0x0004) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	int                                                Sec;                                              		// 0x0018 (0x0004) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	int                                                MSec;                                             		// 0x001C (0x0004) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+
+	 UObject_execGetSystemTime_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetSystemTime_Parms() {}
 };
 
 // Function Core.Object.TimeStamp
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 struct UObject_execTimeStamp_Parms
 {
-	class FString                                      ReturnValue;                                      		// 0x0000 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0000 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execTimeStamp_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execTimeStamp_Parms() {}
 };
 
 // Function Core.Object.TransformVectorByRotation
 // [0x00024401] ( FUNC_Final | FUNC_Native )
 struct UObject_execTransformVectorByRotation_Parms
 {
-	struct FRotator                                    SourceRotation;                                   		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     SourceVector;                                     		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            SourceRotation; };                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             SourceVector; };                                  		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      bInverse;                                         		// 0x0018 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x001C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x001C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execTransformVectorByRotation_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execTransformVectorByRotation_Parms() {}
 };
 
 // Function Core.Object.GetPackageName
 // [0x00020003] ( FUNC_Final )
 struct UObject_execGetPackageName_Parms
 {
-	struct SFXName                                     ReturnValue;                                      		// 0x0000 (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct SFXName                             ReturnValue; };                                   		// 0x0000 (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UObject*                                  o;                                                		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UObject_execGetPackageName_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetPackageName_Parms() {}
 };
 
 // Function Core.Object.IsPendingKill
@@ -91,6 +112,9 @@ struct UObject_execGetPackageName_Parms
 struct UObject_execIsPendingKill_Parms
 {
 	unsigned long                                      ReturnValue;                                      		// 0x0000 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execIsPendingKill_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execIsPendingKill_Parms() {}
 };
 
 // Function Core.Object.ByteToFloat
@@ -100,6 +124,9 @@ struct UObject_execByteToFloat_Parms
 	unsigned char                                      inputByte;                                        		// 0x0000 (0x0001) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      bSigned;                                          		// 0x0004 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execByteToFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execByteToFloat_Parms() {}
 };
 
 // Function Core.Object.FloatToByte
@@ -109,6 +136,9 @@ struct UObject_execFloatToByte_Parms
 	float                                              inputFloat;                                       		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      bSigned;                                          		// 0x0004 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	unsigned char                                      ReturnValue;                                      		// 0x0008 (0x0001) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execFloatToByte_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execFloatToByte_Parms() {}
 };
 
 // Function Core.Object.UnwindHeading
@@ -117,6 +147,9 @@ struct UObject_execUnwindHeading_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execUnwindHeading_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execUnwindHeading_Parms() {}
 };
 
 // Function Core.Object.FindDeltaAngle
@@ -127,105 +160,135 @@ struct UObject_execFindDeltaAngle_Parms
 	float                                              A2;                                               		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           Delta;                                            		// 0x000C (0x0004) [0x0000000000000000]              
+
+	 UObject_execFindDeltaAngle_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execFindDeltaAngle_Parms() {}
 };
 
 // Function Core.Object.GetHeadingAngle
 // [0x00022103] ( FUNC_Final | FUNC_Simulated )
 struct UObject_execGetHeadingAngle_Parms
 {
-	struct FVector                                     Dir;                                              		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             Dir; };                                           		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           Angle;                                            		// 0x0010 (0x0004) [0x0000000000000000]              
+
+	 UObject_execGetHeadingAngle_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetHeadingAngle_Parms() {}
 };
 
 // Function Core.Object.GetAngularDegreesFromRadians
 // [0x00422103] ( FUNC_Final | FUNC_Simulated )
 struct UObject_execGetAngularDegreesFromRadians_Parms
 {
-	struct FVector2D                                   OutFOV;                                           		// 0x0000 (0x0008) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FVector2D                           OutFOV; };                                        		// 0x0000 (0x0008) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+
+	 UObject_execGetAngularDegreesFromRadians_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetAngularDegreesFromRadians_Parms() {}
 };
 
 // Function Core.Object.GetAngularFromDotDist
 // [0x00422401] ( FUNC_Final | FUNC_Native )
 struct UObject_execGetAngularFromDotDist_Parms
 {
-	struct FVector2D                                   OutAngDist;                                       		// 0x0000 (0x0008) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
-	struct FVector2D                                   DotDist;                                          		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector2D                           OutAngDist; };                                    		// 0x0000 (0x0008) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FVector2D                           DotDist; };                                       		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+
+	 UObject_execGetAngularFromDotDist_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetAngularFromDotDist_Parms() {}
 };
 
 // Function Core.Object.GetAngularDistance
 // [0x00422401] ( FUNC_Final | FUNC_Native )
 struct UObject_execGetAngularDistance_Parms
 {
-	struct FVector2D                                   OutAngularDist;                                   		// 0x0000 (0x0008) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
-	struct FVector                                     Direction;                                        		// 0x0008 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     AxisX;                                            		// 0x0014 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     AxisY;                                            		// 0x0020 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     AxisZ;                                            		// 0x002C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector2D                           OutAngularDist; };                                		// 0x0000 (0x0008) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FVector                             Direction; };                                     		// 0x0008 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             AxisX; };                                         		// 0x0014 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             AxisY; };                                         		// 0x0020 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             AxisZ; };                                         		// 0x002C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0038 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGetAngularDistance_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetAngularDistance_Parms() {}
 };
 
 // Function Core.Object.GetDotDistance
 // [0x00422401] ( FUNC_Final | FUNC_Native )
 struct UObject_execGetDotDistance_Parms
 {
-	struct FVector2D                                   OutDotDist;                                       		// 0x0000 (0x0008) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
-	struct FVector                                     Direction;                                        		// 0x0008 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     AxisX;                                            		// 0x0014 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     AxisY;                                            		// 0x0020 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     AxisZ;                                            		// 0x002C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector2D                           OutDotDist; };                                    		// 0x0000 (0x0008) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FVector                             Direction; };                                     		// 0x0008 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             AxisX; };                                         		// 0x0014 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             AxisY; };                                         		// 0x0020 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             AxisZ; };                                         		// 0x002C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0038 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGetDotDistance_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetDotDistance_Parms() {}
 };
 
 // Function Core.Object.PointProjectToPlane
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execPointProjectToPlane_Parms
 {
-	struct FVector                                     Point;                                            		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     A;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     B;                                                		// 0x0018 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     C;                                                		// 0x0024 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0030 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             Point; };                                         		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             B; };                                             		// 0x0018 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             C; };                                             		// 0x0024 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0030 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execPointProjectToPlane_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execPointProjectToPlane_Parms() {}
 };
 
 // Function Core.Object.PointDistToPlane
 // [0x00424103] ( FUNC_Final | FUNC_Simulated )
 struct UObject_execPointDistToPlane_Parms
 {
-	struct FVector                                     Point;                                            		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    Orientation;                                      		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     Origin;                                           		// 0x0018 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     out_ClosestPoint;                                 		// 0x0024 (0x000C) [0x0000000000000190]              ( CPF_OptionalParm | CPF_Parm | CPF_OutParm )
+	union { struct FVector                             Point; };                                         		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            Orientation; };                                   		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             Origin; };                                        		// 0x0018 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             out_ClosestPoint; };                              		// 0x0024 (0x000C) [0x0000000000000190]              ( CPF_OptionalParm | CPF_Parm | CPF_OutParm )
 	float                                              ReturnValue;                                      		// 0x0030 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FVector                                  AxisX;                                            		// 0x0034 (0x000C) [0x0000000000000000]              
-	// struct FVector                                  AxisY;                                            		// 0x0040 (0x000C) [0x0000000000000000]              
-	// struct FVector                                  AxisZ;                                            		// 0x004C (0x000C) [0x0000000000000000]              
-	// struct FVector                                  PointNoZ;                                         		// 0x0058 (0x000C) [0x0000000000000000]              
-	// struct FVector                                  OriginNoZ;                                        		// 0x0064 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          AxisX; };                                         		// 0x0034 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          AxisY; };                                         		// 0x0040 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          AxisZ; };                                         		// 0x004C (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          PointNoZ; };                                      		// 0x0058 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          OriginNoZ; };                                     		// 0x0064 (0x000C) [0x0000000000000000]              
 	// float                                           fPointZ;                                          		// 0x0070 (0x0004) [0x0000000000000000]              
 	// float                                           fProjDistToAxis;                                  		// 0x0074 (0x0004) [0x0000000000000000]              
+
+	 UObject_execPointDistToPlane_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execPointDistToPlane_Parms() {}
 };
 
 // Function Core.Object.PointDistToSegment
 // [0x00424401] ( FUNC_Final | FUNC_Native )
 struct UObject_execPointDistToSegment_Parms
 {
-	struct FVector                                     Point;                                            		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     StartPoint;                                       		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     EndPoint;                                         		// 0x0018 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     OutClosestPoint;                                  		// 0x0024 (0x000C) [0x0000000000000190]              ( CPF_OptionalParm | CPF_Parm | CPF_OutParm )
+	union { struct FVector                             Point; };                                         		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             StartPoint; };                                    		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             EndPoint; };                                      		// 0x0018 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             OutClosestPoint; };                               		// 0x0024 (0x000C) [0x0000000000000190]              ( CPF_OptionalParm | CPF_Parm | CPF_OutParm )
 	float                                              ReturnValue;                                      		// 0x0030 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execPointDistToSegment_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execPointDistToSegment_Parms() {}
 };
 
 // Function Core.Object.PointDistToLine
 // [0x00424401] ( FUNC_Final | FUNC_Native )
 struct UObject_execPointDistToLine_Parms
 {
-	struct FVector                                     Point;                                            		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     Line;                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     Origin;                                           		// 0x0018 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     OutClosestPoint;                                  		// 0x0024 (0x000C) [0x0000000000000190]              ( CPF_OptionalParm | CPF_Parm | CPF_OutParm )
+	union { struct FVector                             Point; };                                         		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             Line; };                                          		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             Origin; };                                        		// 0x0018 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             OutClosestPoint; };                               		// 0x0024 (0x000C) [0x0000000000000190]              ( CPF_OptionalParm | CPF_Parm | CPF_OutParm )
 	float                                              ReturnValue;                                      		// 0x0030 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execPointDistToLine_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execPointDistToLine_Parms() {}
 };
 
 // Function Core.Object.GetObjectArrayFromConfigSection
@@ -233,10 +296,13 @@ struct UObject_execPointDistToLine_Parms
 struct UObject_execGetObjectArrayFromConfigSection_Parms
 {
 	class UClass*                                      SearchClass;                                      		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
-	class TArray<class UObject*>                       out_ObjectResults;                                		// 0x0008 (0x0010) [0x0000000000400180]              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+	union { TArray<class UObject*>                     out_ObjectResults; };                             		// 0x0008 (0x0010) [0x0000000000400180]              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 	unsigned long                                      SearchChildren;                                   		// 0x0018 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	class UObject*                                     ResultOuter;                                      		// 0x001C (0x0008) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
-	class TArray<class UObject*>                       ReturnValue;                                      		// 0x0024 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { TArray<class UObject*>                     ReturnValue; };                                   		// 0x0024 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execGetObjectArrayFromConfigSection_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetObjectArrayFromConfigSection_Parms() {}
 };
 
 // Function Core.Object.GetPerObjectConfigSections
@@ -244,41 +310,56 @@ struct UObject_execGetObjectArrayFromConfigSection_Parms
 struct UObject_execGetPerObjectConfigSections_Parms
 {
 	class UClass*                                      SearchClass;                                      		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
-	class TArray<class FString>                        out_SectionNames;                                 		// 0x0008 (0x0010) [0x0000000000400180]              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+	union { TArray<FString>                            out_SectionNames; };                              		// 0x0008 (0x0010) [0x0000000000400180]              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 	class UObject*                                     ObjectOuter;                                      		// 0x0018 (0x0008) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	int                                                MaxResults;                                       		// 0x0020 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0024 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGetPerObjectConfigSections_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetPerObjectConfigSections_Parms() {}
 };
 
 // Function Core.Object.StaticSaveConfig
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execStaticSaveConfig_Parms
 {
+
+	 UObject_execStaticSaveConfig_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execStaticSaveConfig_Parms() {}
 };
 
 // Function Core.Object.SaveConfig
 // [0x00020401] ( FUNC_Final | FUNC_Native ) iNative [0x0218]
 struct UObject_execSaveConfig_Parms
 {
+
+	 UObject_execSaveConfig_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSaveConfig_Parms() {}
 };
 
 // Function Core.Object.FindObject
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execFindObject_Parms
 {
-	class FString                                      ObjectName;                                       		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    ObjectName; };                                    		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
 	class UClass*                                      ObjectClass;                                      		// 0x0010 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	class UObject*                                     ReturnValue;                                      		// 0x0018 (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execFindObject_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execFindObject_Parms() {}
 };
 
 // Function Core.Object.DynamicLoadObject
 // [0x00026401] ( FUNC_Final | FUNC_Native )
 struct UObject_execDynamicLoadObject_Parms
 {
-	class FString                                      ObjectName;                                       		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    ObjectName; };                                    		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
 	class UClass*                                      ObjectClass;                                      		// 0x0010 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      MayFail;                                          		// 0x0018 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	class UObject*                                     ReturnValue;                                      		// 0x001C (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execDynamicLoadObject_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execDynamicLoadObject_Parms() {}
 };
 
 // Function Core.Object.GetEnumIndex
@@ -286,8 +367,11 @@ struct UObject_execDynamicLoadObject_Parms
 struct UObject_execGetEnumIndex_Parms
 {
 	class UObject*                                     E;                                                		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
-	struct SFXName                                     valueName;                                        		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct SFXName                             valueName; };                                     		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGetEnumIndex_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetEnumIndex_Parms() {}
 };
 
 // Function Core.Object.GetEnum
@@ -296,51 +380,75 @@ struct UObject_execGetEnum_Parms
 {
 	class UObject*                                     E;                                                		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	int                                                i;                                                		// 0x0008 (0x0004) [0x0000000000000880]              ( CPF_Parm | CPF_CoerceParm )
-	struct SFXName                                     ReturnValue;                                      		// 0x000C (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct SFXName                             ReturnValue; };                                   		// 0x000C (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGetEnum_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetEnum_Parms() {}
 };
 
 // Function Core.Object.ContinuedState
 // [0x00020800] ( FUNC_Event )
 struct UObject_eventContinuedState_Parms
 {
+
+	 UObject_eventContinuedState_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_eventContinuedState_Parms() {}
 };
 
 // Function Core.Object.PausedState
 // [0x00020800] ( FUNC_Event )
 struct UObject_eventPausedState_Parms
 {
+
+	 UObject_eventPausedState_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_eventPausedState_Parms() {}
 };
 
 // Function Core.Object.PoppedState
 // [0x00020800] ( FUNC_Event )
 struct UObject_eventPoppedState_Parms
 {
+
+	 UObject_eventPoppedState_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_eventPoppedState_Parms() {}
 };
 
 // Function Core.Object.PushedState
 // [0x00020800] ( FUNC_Event )
 struct UObject_eventPushedState_Parms
 {
+
+	 UObject_eventPushedState_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_eventPushedState_Parms() {}
 };
 
 // Function Core.Object.EndState
 // [0x00020800] ( FUNC_Event )
 struct UObject_eventEndState_Parms
 {
-	struct SFXName                                     NextStateName;                                    		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct SFXName                             NextStateName; };                                 		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+
+	 UObject_eventEndState_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_eventEndState_Parms() {}
 };
 
 // Function Core.Object.BeginState
 // [0x00020800] ( FUNC_Event )
 struct UObject_eventBeginState_Parms
 {
-	struct SFXName                                     PreviousStateName;                                		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct SFXName                             PreviousStateName; };                             		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+
+	 UObject_eventBeginState_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_eventBeginState_Parms() {}
 };
 
 // Function Core.Object.DumpStateStack
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 struct UObject_execDumpStateStack_Parms
 {
+
+	 UObject_execDumpStateStack_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execDumpStateStack_Parms() {}
 };
 
 // Function Core.Object.PopState
@@ -348,49 +456,67 @@ struct UObject_execDumpStateStack_Parms
 struct UObject_execPopState_Parms
 {
 	unsigned long                                      bPopAll;                                          		// 0x0000 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
+
+	 UObject_execPopState_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execPopState_Parms() {}
 };
 
 // Function Core.Object.PushState
 // [0x00024401] ( FUNC_Final | FUNC_Native )
 struct UObject_execPushState_Parms
 {
-	struct SFXName                                     NewState;                                         		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
-	struct SFXName                                     NewLabel;                                         		// 0x0008 (0x0008) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
+	union { struct SFXName                             NewState; };                                      		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct SFXName                             NewLabel; };                                      		// 0x0008 (0x0008) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
+
+	 UObject_execPushState_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execPushState_Parms() {}
 };
 
 // Function Core.Object.GetStateName
 // [0x00020401] ( FUNC_Final | FUNC_Native ) iNative [0x011C]
 struct UObject_execGetStateName_Parms
 {
-	struct SFXName                                     ReturnValue;                                      		// 0x0000 (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct SFXName                             ReturnValue; };                                   		// 0x0000 (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGetStateName_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetStateName_Parms() {}
 };
 
 // Function Core.Object.IsChildState
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 struct UObject_execIsChildState_Parms
 {
-	struct SFXName                                     TestState;                                        		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
-	struct SFXName                                     TestParentState;                                  		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct SFXName                             TestState; };                                     		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct SFXName                             TestParentState; };                               		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execIsChildState_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execIsChildState_Parms() {}
 };
 
 // Function Core.Object.IsInState
 // [0x00024401] ( FUNC_Final | FUNC_Native ) iNative [0x0119]
 struct UObject_execIsInState_Parms
 {
-	struct SFXName                                     TestState;                                        		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct SFXName                             TestState; };                                     		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      bTestStateStack;                                  		// 0x0008 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execIsInState_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execIsInState_Parms() {}
 };
 
 // Function Core.Object.GotoState
 // [0x00024401] ( FUNC_Final | FUNC_Native ) iNative [0x026C]
 struct UObject_execGotoState_Parms
 {
-	struct SFXName                                     NewState;                                         		// 0x0000 (0x0008) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
-	struct SFXName                                     Label;                                            		// 0x0008 (0x0008) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
+	union { struct SFXName                             NewState; };                                      		// 0x0000 (0x0008) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
+	union { struct SFXName                             Label; };                                         		// 0x0008 (0x0008) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	unsigned long                                      bForceEvents;                                     		// 0x0010 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	unsigned long                                      bKeepStack;                                       		// 0x0014 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
+
+	 UObject_execGotoState_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGotoState_Parms() {}
 };
 
 // Function Core.Object.IsUTracing
@@ -398,6 +524,9 @@ struct UObject_execGotoState_Parms
 struct UObject_execIsUTracing_Parms
 {
 	unsigned long                                      ReturnValue;                                      		// 0x0000 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execIsUTracing_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execIsUTracing_Parms() {}
 };
 
 // Function Core.Object.SetUTracing
@@ -405,13 +534,19 @@ struct UObject_execIsUTracing_Parms
 struct UObject_execSetUTracing_Parms
 {
 	unsigned long                                      bShouldUTrace;                                    		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
+
+	 UObject_execSetUTracing_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSetUTracing_Parms() {}
 };
 
 // Function Core.Object.GetFuncName
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execGetFuncName_Parms
 {
-	struct SFXName                                     ReturnValue;                                      		// 0x0000 (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct SFXName                             ReturnValue; };                                   		// 0x0000 (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGetFuncName_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetFuncName_Parms() {}
 };
 
 // Function Core.Object.DebugBreak
@@ -420,72 +555,99 @@ struct UObject_execDebugBreak_Parms
 {
 	int                                                UserFlags;                                        		// 0x0000 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	unsigned char                                      DebuggerType;                                     		// 0x0004 (0x0001) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
+
+	 UObject_execDebugBreak_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execDebugBreak_Parms() {}
 };
 
 // Function Core.Object.ScriptTrace
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execScriptTrace_Parms
 {
+
+	 UObject_execScriptTrace_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execScriptTrace_Parms() {}
 };
 
 // Function Core.Object.ParseLocalizedPropertyPath
 // [0x00022003] ( FUNC_Final )
 struct UObject_execParseLocalizedPropertyPath_Parms
 {
-	class FString                                      PathName;                                         		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
-	class FString                                      ReturnValue;                                      		// 0x0010 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-	// class TArray<class FString>                     Pieces;                                           		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	union { FString                                    PathName; };                                      		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0010 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	// union { TArray<FString>                         Pieces; };                                        		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+
+	 UObject_execParseLocalizedPropertyPath_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execParseLocalizedPropertyPath_Parms() {}
 };
 
 // Function Core.Object.Localize
 // [0x00022400] ( FUNC_Native )
 struct UObject_execLocalize_Parms
 {
-	class FString                                      SectionName;                                      		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
-	class FString                                      KeyName;                                          		// 0x0010 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
-	class FString                                      PackageName;                                      		// 0x0020 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
-	class FString                                      ReturnValue;                                      		// 0x0030 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    SectionName; };                                   		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    KeyName; };                                       		// 0x0010 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    PackageName; };                                   		// 0x0020 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0030 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execLocalize_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execLocalize_Parms() {}
 };
 
 // Function Core.Object.WarnInternal
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x00E8]
 struct UObject_execWarnInternal_Parms
 {
-	class FString                                      S;                                                		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    S; };                                             		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+
+	 UObject_execWarnInternal_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execWarnInternal_Parms() {}
 };
 
 // Function Core.Object.LogInternal
 // [0x00026401] ( FUNC_Final | FUNC_Native ) iNative [0x00E7]
 struct UObject_execLogInternal_Parms
 {
-	class FString                                      S;                                                		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-	struct SFXName                                     Tag;                                              		// 0x0010 (0x0008) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
+	union { FString                                    S; };                                             		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { struct SFXName                             Tag; };                                           		// 0x0010 (0x0008) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
+
+	 UObject_execLogInternal_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execLogInternal_Parms() {}
 };
 
 // Function Core.Object.Subtract_LinearColorLinearColor
 // [0x00023003] ( FUNC_Final )
 struct UObject_execSubtract_LinearColorLinearColor_Parms
 {
-	struct FLinearColor                                A;                                                		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
-	struct FLinearColor                                B;                                                		// 0x0010 (0x0010) [0x0000000000000080]              ( CPF_Parm )
-	struct FLinearColor                                ReturnValue;                                      		// 0x0020 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FLinearColor                        A; };                                             		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FLinearColor                        B; };                                             		// 0x0010 (0x0010) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FLinearColor                        ReturnValue; };                                   		// 0x0020 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtract_LinearColorLinearColor_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtract_LinearColorLinearColor_Parms() {}
 };
 
 // Function Core.Object.Multiply_LinearColorFloat
 // [0x00023003] ( FUNC_Final )
 struct UObject_execMultiply_LinearColorFloat_Parms
 {
-	struct FLinearColor                                LC;                                               		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FLinearColor                        LC; };                                            		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Mult;                                             		// 0x0010 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FLinearColor                                ReturnValue;                                      		// 0x0014 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FLinearColor                        ReturnValue; };                                   		// 0x0014 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiply_LinearColorFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiply_LinearColorFloat_Parms() {}
 };
 
 // Function Core.Object.ColorToLinearColor
 // [0x00022003] ( FUNC_Final )
 struct UObject_execColorToLinearColor_Parms
 {
-	struct FColor                                      OldColor;                                         		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FLinearColor                                ReturnValue;                                      		// 0x0004 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FColor                              OldColor; };                                      		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FLinearColor                        ReturnValue; };                                   		// 0x0004 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execColorToLinearColor_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execColorToLinearColor_Parms() {}
 };
 
 // Function Core.Object.MakeLinearColor
@@ -496,25 +658,31 @@ struct UObject_execMakeLinearColor_Parms
 	float                                              G;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              A;                                                		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FLinearColor                                ReturnValue;                                      		// 0x0010 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FLinearColor                             LC;                                               		// 0x0020 (0x0010) [0x0000000000000000]              
+	union { struct FLinearColor                        ReturnValue; };                                   		// 0x0010 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	// union { struct FLinearColor                     LC; };                                            		// 0x0020 (0x0010) [0x0000000000000000]              
+
+	 UObject_execMakeLinearColor_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMakeLinearColor_Parms() {}
 };
 
 // Function Core.Object.LerpColor
 // [0x00022003] ( FUNC_Final )
 struct UObject_execLerpColor_Parms
 {
-	struct FColor                                      A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FColor                                      B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FColor                              A; };                                             		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FColor                              B; };                                             		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Alpha;                                            		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FColor                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FVector                                  FloatA;                                           		// 0x0010 (0x000C) [0x0000000000000000]              
-	// struct FVector                                  FloatB;                                           		// 0x001C (0x000C) [0x0000000000000000]              
-	// struct FVector                                  FloatResult;                                      		// 0x0028 (0x000C) [0x0000000000000000]              
+	union { struct FColor                              ReturnValue; };                                   		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	// union { struct FVector                          FloatA; };                                        		// 0x0010 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          FloatB; };                                        		// 0x001C (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          FloatResult; };                                   		// 0x0028 (0x000C) [0x0000000000000000]              
 	// float                                           AlphaA;                                           		// 0x0034 (0x0004) [0x0000000000000000]              
 	// float                                           AlphaB;                                           		// 0x0038 (0x0004) [0x0000000000000000]              
 	// float                                           FloatResultAlpha;                                 		// 0x003C (0x0004) [0x0000000000000000]              
-	// struct FColor                                   Result;                                           		// 0x0040 (0x0004) [0x0000000000000000]              
+	// union { struct FColor                           Result; };                                        		// 0x0040 (0x0004) [0x0000000000000000]              
+
+	 UObject_execLerpColor_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execLerpColor_Parms() {}
 };
 
 // Function Core.Object.MakeColor
@@ -525,26 +693,35 @@ struct UObject_execMakeColor_Parms
 	unsigned char                                      G;                                                		// 0x0001 (0x0001) [0x0000000000000080]              ( CPF_Parm )
 	unsigned char                                      B;                                                		// 0x0002 (0x0001) [0x0000000000000080]              ( CPF_Parm )
 	unsigned char                                      A;                                                		// 0x0003 (0x0001) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
-	struct FColor                                      ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FColor                                   C;                                                		// 0x0008 (0x0004) [0x0000000000000000]              
+	union { struct FColor                              ReturnValue; };                                   		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	// union { struct FColor                           C; };                                             		// 0x0008 (0x0004) [0x0000000000000000]              
+
+	 UObject_execMakeColor_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMakeColor_Parms() {}
 };
 
 // Function Core.Object.Add_ColorColor
 // [0x00023003] ( FUNC_Final )
 struct UObject_execAdd_ColorColor_Parms
 {
-	struct FColor                                      A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FColor                                      B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FColor                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FColor                              A; };                                             		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FColor                              B; };                                             		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FColor                              ReturnValue; };                                   		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAdd_ColorColor_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAdd_ColorColor_Parms() {}
 };
 
 // Function Core.Object.Multiply_ColorFloat
 // [0x00023003] ( FUNC_Final )
 struct UObject_execMultiply_ColorFloat_Parms
 {
-	struct FColor                                      A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FColor                              A; };                                             		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FColor                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FColor                              ReturnValue; };                                   		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiply_ColorFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiply_ColorFloat_Parms() {}
 };
 
 // Function Core.Object.Multiply_FloatColor
@@ -552,44 +729,59 @@ struct UObject_execMultiply_ColorFloat_Parms
 struct UObject_execMultiply_FloatColor_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FColor                                      B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FColor                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FColor                              B; };                                             		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FColor                              ReturnValue; };                                   		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiply_FloatColor_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiply_FloatColor_Parms() {}
 };
 
 // Function Core.Object.Subtract_ColorColor
 // [0x00023003] ( FUNC_Final )
 struct UObject_execSubtract_ColorColor_Parms
 {
-	struct FColor                                      A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FColor                                      B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FColor                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FColor                              A; };                                             		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FColor                              B; };                                             		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FColor                              ReturnValue; };                                   		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtract_ColorColor_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtract_ColorColor_Parms() {}
 };
 
 // Function Core.Object.EvalInterpCurveVector2D
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 struct UObject_execEvalInterpCurveVector2D_Parms
 {
-	struct FInterpCurveVector2D                        Vector2DCurve;                                    		// 0x0000 (0x0014) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { struct FInterpCurveVector2D                Vector2DCurve; };                                 		// 0x0000 (0x0014) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
 	float                                              InVal;                                            		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector2D                                   ReturnValue;                                      		// 0x0018 (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector2D                           ReturnValue; };                                   		// 0x0018 (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execEvalInterpCurveVector2D_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execEvalInterpCurveVector2D_Parms() {}
 };
 
 // Function Core.Object.EvalInterpCurveVector
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 struct UObject_execEvalInterpCurveVector_Parms
 {
-	struct FInterpCurveVector                          VectorCurve;                                      		// 0x0000 (0x0014) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { struct FInterpCurveVector                  VectorCurve; };                                   		// 0x0000 (0x0014) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
 	float                                              InVal;                                            		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execEvalInterpCurveVector_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execEvalInterpCurveVector_Parms() {}
 };
 
 // Function Core.Object.EvalInterpCurveFloat
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 struct UObject_execEvalInterpCurveFloat_Parms
 {
-	struct FInterpCurveFloat                           FloatCurve;                                       		// 0x0000 (0x0014) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { struct FInterpCurveFloat                   FloatCurve; };                                    		// 0x0000 (0x0014) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
 	float                                              InVal;                                            		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execEvalInterpCurveFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execEvalInterpCurveFloat_Parms() {}
 };
 
 // Function Core.Object.vect2d
@@ -598,72 +790,96 @@ struct UObject_execvect2d_Parms
 {
 	float                                              InX;                                              		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              InY;                                              		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector2D                                   ReturnValue;                                      		// 0x0008 (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FVector2D                                NewVect2d;                                        		// 0x0010 (0x0008) [0x0000000000000000]              
+	union { struct FVector2D                           ReturnValue; };                                   		// 0x0008 (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	// union { struct FVector2D                        NewVect2d; };                                     		// 0x0010 (0x0008) [0x0000000000000000]              
+
+	 UObject_execvect2d_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execvect2d_Parms() {}
 };
 
 // Function Core.Object.GetMappedRangeValue
 // [0x00022501] ( FUNC_Final | FUNC_Simulated | FUNC_Native )
 struct UObject_execGetMappedRangeValue_Parms
 {
-	struct FVector2D                                   InputRange;                                       		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector2D                                   OutputRange;                                      		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector2D                           InputRange; };                                    		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector2D                           OutputRange; };                                   		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Value;                                            		// 0x0010 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0014 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGetMappedRangeValue_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetMappedRangeValue_Parms() {}
 };
 
 // Function Core.Object.GetRangePctByValue
 // [0x00022103] ( FUNC_Final | FUNC_Simulated )
 struct UObject_execGetRangePctByValue_Parms
 {
-	struct FVector2D                                   Range;                                            		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector2D                           Range; };                                         		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Value;                                            		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGetRangePctByValue_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetRangePctByValue_Parms() {}
 };
 
 // Function Core.Object.GetRangeValueByPct
 // [0x00022103] ( FUNC_Final | FUNC_Simulated )
 struct UObject_execGetRangeValueByPct_Parms
 {
-	struct FVector2D                                   Range;                                            		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector2D                           Range; };                                         		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Pct;                                              		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGetRangeValueByPct_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetRangeValueByPct_Parms() {}
 };
 
 // Function Core.Object.Subtract_Vector2DVector2D
 // [0x00023401] ( FUNC_Final | FUNC_Native )
 struct UObject_execSubtract_Vector2DVector2D_Parms
 {
-	struct FVector2D                                   A;                                                		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector2D                                   B;                                                		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector2D                                   ReturnValue;                                      		// 0x0010 (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector2D                           A; };                                             		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector2D                           B; };                                             		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector2D                           ReturnValue; };                                   		// 0x0010 (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtract_Vector2DVector2D_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtract_Vector2DVector2D_Parms() {}
 };
 
 // Function Core.Object.Add_Vector2DVector2D
 // [0x00023401] ( FUNC_Final | FUNC_Native )
 struct UObject_execAdd_Vector2DVector2D_Parms
 {
-	struct FVector2D                                   A;                                                		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector2D                                   B;                                                		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector2D                                   ReturnValue;                                      		// 0x0010 (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector2D                           A; };                                             		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector2D                           B; };                                             		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector2D                           ReturnValue; };                                   		// 0x0010 (0x0008) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAdd_Vector2DVector2D_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAdd_Vector2DVector2D_Parms() {}
 };
 
 // Function Core.Object.GetVectorSide
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execGetVectorSide_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGetVectorSide_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetVectorSide_Parms() {}
 };
 
 // Function Core.Object.GetAngleBetween
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execGetAngleBetween_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGetAngleBetween_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetAngleBetween_Parms() {}
 };
 
 // Function Core.Object.NotEqual_IntStringRef
@@ -673,6 +889,9 @@ struct UObject_execNotEqual_IntStringRef_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNotEqual_IntStringRef_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNotEqual_IntStringRef_Parms() {}
 };
 
 // Function Core.Object.NotEqual_StringRefInt
@@ -682,6 +901,9 @@ struct UObject_execNotEqual_StringRefInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNotEqual_StringRefInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNotEqual_StringRefInt_Parms() {}
 };
 
 // Function Core.Object.NotEqual_StringRefStringRef
@@ -691,6 +913,9 @@ struct UObject_execNotEqual_StringRefStringRef_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNotEqual_StringRefStringRef_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNotEqual_StringRefStringRef_Parms() {}
 };
 
 // Function Core.Object.EqualEqual_IntStringRef
@@ -700,6 +925,9 @@ struct UObject_execEqualEqual_IntStringRef_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execEqualEqual_IntStringRef_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execEqualEqual_IntStringRef_Parms() {}
 };
 
 // Function Core.Object.EqualEqual_StringRefInt
@@ -709,6 +937,9 @@ struct UObject_execEqualEqual_StringRefInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execEqualEqual_StringRefInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execEqualEqual_StringRefInt_Parms() {}
 };
 
 // Function Core.Object.EqualEqual_StringRefStringRef
@@ -718,217 +949,292 @@ struct UObject_execEqualEqual_StringRefStringRef_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execEqualEqual_StringRefStringRef_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execEqualEqual_StringRefStringRef_Parms() {}
 };
 
 // Function Core.Object.Subtract_QuatQuat
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x010F]
 struct UObject_execSubtract_QuatQuat_Parms
 {
-	struct FQuat                                       A;                                                		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
-	struct FQuat                                       B;                                                		// 0x0010 (0x0010) [0x0000000000000080]              ( CPF_Parm )
-	struct FQuat                                       ReturnValue;                                      		// 0x0020 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FQuat                               A; };                                             		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FQuat                               B; };                                             		// 0x0010 (0x0010) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FQuat                               ReturnValue; };                                   		// 0x0020 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtract_QuatQuat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtract_QuatQuat_Parms() {}
 };
 
 // Function Core.Object.Add_QuatQuat
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x010E]
 struct UObject_execAdd_QuatQuat_Parms
 {
-	struct FQuat                                       A;                                                		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
-	struct FQuat                                       B;                                                		// 0x0010 (0x0010) [0x0000000000000080]              ( CPF_Parm )
-	struct FQuat                                       ReturnValue;                                      		// 0x0020 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FQuat                               A; };                                             		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FQuat                               B; };                                             		// 0x0010 (0x0010) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FQuat                               ReturnValue; };                                   		// 0x0020 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAdd_QuatQuat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAdd_QuatQuat_Parms() {}
 };
 
 // Function Core.Object.QuatSlerp
 // [0x00026401] ( FUNC_Final | FUNC_Native )
 struct UObject_execQuatSlerp_Parms
 {
-	struct FQuat                                       A;                                                		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
-	struct FQuat                                       B;                                                		// 0x0010 (0x0010) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FQuat                               A; };                                             		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FQuat                               B; };                                             		// 0x0010 (0x0010) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Alpha;                                            		// 0x0020 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      bShortestPath;                                    		// 0x0024 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
-	struct FQuat                                       ReturnValue;                                      		// 0x0030 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FQuat                               ReturnValue; };                                   		// 0x0030 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execQuatSlerp_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execQuatSlerp_Parms() {}
 };
 
 // Function Core.Object.QuatToRotator
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execQuatToRotator_Parms
 {
-	struct FQuat                                       A;                                                		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FQuat                               A; };                                             		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execQuatToRotator_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execQuatToRotator_Parms() {}
 };
 
 // Function Core.Object.QuatFromRotator
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execQuatFromRotator_Parms
 {
-	struct FRotator                                    A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FQuat                                       ReturnValue;                                      		// 0x0010 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FQuat                               ReturnValue; };                                   		// 0x0010 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execQuatFromRotator_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execQuatFromRotator_Parms() {}
 };
 
 // Function Core.Object.QuatFromAxisAndAngle
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execQuatFromAxisAndAngle_Parms
 {
-	struct FVector                                     Axis;                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             Axis; };                                          		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Angle;                                            		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FQuat                                       ReturnValue;                                      		// 0x0010 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FQuat                               ReturnValue; };                                   		// 0x0010 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execQuatFromAxisAndAngle_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execQuatFromAxisAndAngle_Parms() {}
 };
 
 // Function Core.Object.QuatFindBetween
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execQuatFindBetween_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FQuat                                       ReturnValue;                                      		// 0x0020 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FQuat                               ReturnValue; };                                   		// 0x0020 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execQuatFindBetween_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execQuatFindBetween_Parms() {}
 };
 
 // Function Core.Object.QuatRotateVector
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execQuatRotateVector_Parms
 {
-	struct FQuat                                       A;                                                		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     B;                                                		// 0x0010 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x001C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FQuat                               A; };                                             		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             B; };                                             		// 0x0010 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x001C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execQuatRotateVector_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execQuatRotateVector_Parms() {}
 };
 
 // Function Core.Object.QuatInvert
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execQuatInvert_Parms
 {
-	struct FQuat                                       A;                                                		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
-	struct FQuat                                       ReturnValue;                                      		// 0x0010 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FQuat                               A; };                                             		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FQuat                               ReturnValue; };                                   		// 0x0010 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execQuatInvert_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execQuatInvert_Parms() {}
 };
 
 // Function Core.Object.QuatDot
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execQuatDot_Parms
 {
-	struct FQuat                                       A;                                                		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
-	struct FQuat                                       B;                                                		// 0x0010 (0x0010) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FQuat                               A; };                                             		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FQuat                               B; };                                             		// 0x0010 (0x0010) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0020 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execQuatDot_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execQuatDot_Parms() {}
 };
 
 // Function Core.Object.QuatProduct
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execQuatProduct_Parms
 {
-	struct FQuat                                       A;                                                		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
-	struct FQuat                                       B;                                                		// 0x0010 (0x0010) [0x0000000000000080]              ( CPF_Parm )
-	struct FQuat                                       ReturnValue;                                      		// 0x0020 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FQuat                               A; };                                             		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FQuat                               B; };                                             		// 0x0010 (0x0010) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FQuat                               ReturnValue; };                                   		// 0x0020 (0x0010) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execQuatProduct_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execQuatProduct_Parms() {}
 };
 
 // Function Core.Object.MatrixGetAxis
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execMatrixGetAxis_Parms
 {
-	struct FMatrix                                     TM;                                               		// 0x0000 (0x0040) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FMatrix                             TM; };                                            		// 0x0000 (0x0040) [0x0000000000000080]              ( CPF_Parm )
 	unsigned char                                      Axis;                                             		// 0x0040 (0x0001) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0044 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0044 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMatrixGetAxis_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMatrixGetAxis_Parms() {}
 };
 
 // Function Core.Object.MatrixGetOrigin
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execMatrixGetOrigin_Parms
 {
-	struct FMatrix                                     TM;                                               		// 0x0000 (0x0040) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0040 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FMatrix                             TM; };                                            		// 0x0000 (0x0040) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0040 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMatrixGetOrigin_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMatrixGetOrigin_Parms() {}
 };
 
 // Function Core.Object.MatrixGetRotator
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execMatrixGetRotator_Parms
 {
-	struct FMatrix                                     TM;                                               		// 0x0000 (0x0040) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0040 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FMatrix                             TM; };                                            		// 0x0000 (0x0040) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0040 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMatrixGetRotator_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMatrixGetRotator_Parms() {}
 };
 
 // Function Core.Object.MakeRotationMatrix
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execMakeRotationMatrix_Parms
 {
-	struct FRotator                                    Rotation;                                         		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FMatrix                                     ReturnValue;                                      		// 0x0010 (0x0040) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            Rotation; };                                      		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FMatrix                             ReturnValue; };                                   		// 0x0010 (0x0040) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMakeRotationMatrix_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMakeRotationMatrix_Parms() {}
 };
 
 // Function Core.Object.MakeRotationTranslationMatrix
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execMakeRotationTranslationMatrix_Parms
 {
-	struct FVector                                     Translation;                                      		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    Rotation;                                         		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FMatrix                                     ReturnValue;                                      		// 0x0020 (0x0040) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             Translation; };                                   		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            Rotation; };                                      		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FMatrix                             ReturnValue; };                                   		// 0x0020 (0x0040) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMakeRotationTranslationMatrix_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMakeRotationTranslationMatrix_Parms() {}
 };
 
 // Function Core.Object.InverseTransformNormal
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execInverseTransformNormal_Parms
 {
-	struct FMatrix                                     TM;                                               		// 0x0000 (0x0040) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     A;                                                		// 0x0040 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x004C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FMatrix                             TM; };                                            		// 0x0000 (0x0040) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0040 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x004C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execInverseTransformNormal_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execInverseTransformNormal_Parms() {}
 };
 
 // Function Core.Object.TransformNormal
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execTransformNormal_Parms
 {
-	struct FMatrix                                     TM;                                               		// 0x0000 (0x0040) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     A;                                                		// 0x0040 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x004C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FMatrix                             TM; };                                            		// 0x0000 (0x0040) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0040 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x004C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execTransformNormal_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execTransformNormal_Parms() {}
 };
 
 // Function Core.Object.InverseTransformVector
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execInverseTransformVector_Parms
 {
-	struct FMatrix                                     TM;                                               		// 0x0000 (0x0040) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     A;                                                		// 0x0040 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x004C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FMatrix                             TM; };                                            		// 0x0000 (0x0040) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0040 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x004C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execInverseTransformVector_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execInverseTransformVector_Parms() {}
 };
 
 // Function Core.Object.TransformVector
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execTransformVector_Parms
 {
-	struct FMatrix                                     TM;                                               		// 0x0000 (0x0040) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     A;                                                		// 0x0040 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x004C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FMatrix                             TM; };                                            		// 0x0000 (0x0040) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0040 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x004C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execTransformVector_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execTransformVector_Parms() {}
 };
 
 // Function Core.Object.Multiply_MatrixMatrix
 // [0x00023401] ( FUNC_Final | FUNC_Native )
 struct UObject_execMultiply_MatrixMatrix_Parms
 {
-	struct FMatrix                                     A;                                                		// 0x0000 (0x0040) [0x0000000000000080]              ( CPF_Parm )
-	struct FMatrix                                     B;                                                		// 0x0040 (0x0040) [0x0000000000000080]              ( CPF_Parm )
-	struct FMatrix                                     ReturnValue;                                      		// 0x0080 (0x0040) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FMatrix                             A; };                                             		// 0x0000 (0x0040) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FMatrix                             B; };                                             		// 0x0040 (0x0040) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FMatrix                             ReturnValue; };                                   		// 0x0080 (0x0040) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiply_MatrixMatrix_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiply_MatrixMatrix_Parms() {}
 };
 
 // Function Core.Object.NotEqual_NameName
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x00FF]
 struct UObject_execNotEqual_NameName_Parms
 {
-	struct SFXName                                     A;                                                		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
-	struct SFXName                                     B;                                                		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct SFXName                             A; };                                             		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct SFXName                             B; };                                             		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNotEqual_NameName_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNotEqual_NameName_Parms() {}
 };
 
 // Function Core.Object.EqualEqual_NameName
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x00FE]
 struct UObject_execEqualEqual_NameName_Parms
 {
-	struct SFXName                                     A;                                                		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
-	struct SFXName                                     B;                                                		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct SFXName                             A; };                                             		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct SFXName                             B; };                                             		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execEqualEqual_NameName_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execEqualEqual_NameName_Parms() {}
 };
 
 // Function Core.Object.IsA
 // [0x00020401] ( FUNC_Final | FUNC_Native ) iNative [0x00C5]
 struct UObject_execIsA_Parms
 {
-	struct SFXName                                     className;                                        		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+	union { struct SFXName                             className; };                                     		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execIsA_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execIsA_Parms() {}
 };
 
 // Function Core.Object.ClassIsChildOf
@@ -938,6 +1244,9 @@ struct UObject_execClassIsChildOf_Parms
 	class UClass*                                      TestClass;                                        		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	class UClass*                                      ParentClass;                                      		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execClassIsChildOf_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execClassIsChildOf_Parms() {}
 };
 
 // Function Core.Object.NotEqual_InterfaceInterface
@@ -947,6 +1256,9 @@ struct UObject_execNotEqual_InterfaceInterface_Parms
 	class UInterface*                                  A;                                                		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
 	class UInterface*                                  B;                                                		// 0x0010 (0x0010) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0020 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNotEqual_InterfaceInterface_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNotEqual_InterfaceInterface_Parms() {}
 };
 
 // Function Core.Object.EqualEqual_InterfaceInterface
@@ -956,6 +1268,9 @@ struct UObject_execEqualEqual_InterfaceInterface_Parms
 	class UInterface*                                  A;                                                		// 0x0000 (0x0010) [0x0000000000000080]              ( CPF_Parm )
 	class UInterface*                                  B;                                                		// 0x0010 (0x0010) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0020 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execEqualEqual_InterfaceInterface_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execEqualEqual_InterfaceInterface_Parms() {}
 };
 
 // Function Core.Object.NotEqual_ObjectObject
@@ -965,6 +1280,9 @@ struct UObject_execNotEqual_ObjectObject_Parms
 	class UObject*                                     A;                                                		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	class UObject*                                     B;                                                		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNotEqual_ObjectObject_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNotEqual_ObjectObject_Parms() {}
 };
 
 // Function Core.Object.EqualEqual_ObjectObject
@@ -974,6 +1292,9 @@ struct UObject_execEqualEqual_ObjectObject_Parms
 	class UObject*                                     A;                                                		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	class UObject*                                     B;                                                		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execEqualEqual_ObjectObject_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execEqualEqual_ObjectObject_Parms() {}
 };
 
 // Function Core.Object.PathName
@@ -981,78 +1302,102 @@ struct UObject_execEqualEqual_ObjectObject_Parms
 struct UObject_execPathName_Parms
 {
 	class UObject*                                     CheckObject;                                      		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
-	class FString                                      ReturnValue;                                      		// 0x0008 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0008 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execPathName_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execPathName_Parms() {}
 };
 
 // Function Core.Object.SplitString
 // [0x00026003] ( FUNC_Final )
 struct UObject_execSplitString_Parms
 {
-	class FString                                      Source;                                           		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
-	class FString                                      Delimiter;                                        		// 0x0010 (0x0010) [0x0000000000400090]              ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    Source; };                                        		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    Delimiter; };                                     		// 0x0010 (0x0010) [0x0000000000400090]              ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 	unsigned long                                      bCullEmpty;                                       		// 0x0020 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
-	class TArray<class FString>                        ReturnValue;                                      		// 0x0024 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-	// class TArray<class FString>                     Result;                                           		// 0x0034 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	union { TArray<FString>                            ReturnValue; };                                   		// 0x0024 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	// union { TArray<FString>                         Result; };                                        		// 0x0034 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+
+	 UObject_execSplitString_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSplitString_Parms() {}
 };
 
 // Function Core.Object.ParseStringIntoArray
 // [0x00422401] ( FUNC_Final | FUNC_Native )
 struct UObject_execParseStringIntoArray_Parms
 {
-	class FString                                      BaseString;                                       		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
-	class TArray<class FString>                        Pieces;                                           		// 0x0010 (0x0010) [0x0000000000400180]              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-	class FString                                      delim;                                            		// 0x0020 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    BaseString; };                                    		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { TArray<FString>                            Pieces; };                                        		// 0x0010 (0x0010) [0x0000000000400180]              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+	union { FString                                    delim; };                                         		// 0x0020 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
 	unsigned long                                      bCullEmpty;                                       		// 0x0030 (0x0004) [0x0000000000000080]              ( CPF_Parm )
+
+	 UObject_execParseStringIntoArray_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execParseStringIntoArray_Parms() {}
 };
 
 // Function Core.Object.JoinArray
 // [0x00426003] ( FUNC_Final )
 struct UObject_execJoinArray_Parms
 {
-	class TArray<class FString>                        StringArray;                                      		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
-	class FString                                      out_Result;                                       		// 0x0010 (0x0010) [0x0000000000400180]              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-	class FString                                      delim;                                            		// 0x0020 (0x0010) [0x0000000000400090]              ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+	union { TArray<FString>                            StringArray; };                                   		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    out_Result; };                                    		// 0x0010 (0x0010) [0x0000000000400180]              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+	union { FString                                    delim; };                                         		// 0x0020 (0x0010) [0x0000000000400090]              ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 	unsigned long                                      bIgnoreBlanks;                                    		// 0x0030 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	// int                                             i;                                                		// 0x0034 (0x0004) [0x0000000000000000]              
+
+	 UObject_execJoinArray_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execJoinArray_Parms() {}
 };
 
 // Function Core.Object.GetRightMost
 // [0x00022003] ( FUNC_Final )
 struct UObject_execGetRightMost_Parms
 {
-	class FString                                      Text;                                             		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-	class FString                                      ReturnValue;                                      		// 0x0010 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    Text; };                                          		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0010 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 	// int                                             idx;                                              		// 0x0020 (0x0004) [0x0000000000000000]              
+
+	 UObject_execGetRightMost_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetRightMost_Parms() {}
 };
 
 // Function Core.Object.Split
 // [0x00026003] ( FUNC_Final )
 struct UObject_execSplit_Parms
 {
-	class FString                                      Text;                                             		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-	class FString                                      SplitStr;                                         		// 0x0010 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    Text; };                                          		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    SplitStr; };                                      		// 0x0010 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 	unsigned long                                      bOmitSplitStr;                                    		// 0x0020 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
-	class FString                                      ReturnValue;                                      		// 0x0024 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0024 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 	// int                                             pos;                                              		// 0x0034 (0x0004) [0x0000000000000000]              
+
+	 UObject_execSplit_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSplit_Parms() {}
 };
 
 // Function Core.Object.Repl
 // [0x00026401] ( FUNC_Final | FUNC_Native ) iNative [0x00C9]
 struct UObject_execRepl_Parms
 {
-	class FString                                      Src;                                              		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-	class FString                                      Match;                                            		// 0x0010 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-	class FString                                      With;                                             		// 0x0020 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    Src; };                                           		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    Match; };                                         		// 0x0010 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    With; };                                          		// 0x0020 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 	unsigned long                                      bCaseSensitive;                                   		// 0x0030 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
-	class FString                                      ReturnValue;                                      		// 0x0034 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0034 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execRepl_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execRepl_Parms() {}
 };
 
 // Function Core.Object.Asc
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x00ED]
 struct UObject_execAsc_Parms
 {
-	class FString                                      S;                                                		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    S; };                                             		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
 	int                                                ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAsc_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAsc_Parms() {}
 };
 
 // Function Core.Object.Chr
@@ -1060,179 +1405,239 @@ struct UObject_execAsc_Parms
 struct UObject_execChr_Parms
 {
 	int                                                i;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	class FString                                      ReturnValue;                                      		// 0x0004 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0004 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execChr_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execChr_Parms() {}
 };
 
 // Function Core.Object.Locs
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x00EE]
 struct UObject_execLocs_Parms
 {
-	class FString                                      S;                                                		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-	class FString                                      ReturnValue;                                      		// 0x0010 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    S; };                                             		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0010 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execLocs_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execLocs_Parms() {}
 };
 
 // Function Core.Object.Caps
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x00EB]
 struct UObject_execCaps_Parms
 {
-	class FString                                      S;                                                		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-	class FString                                      ReturnValue;                                      		// 0x0010 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    S; };                                             		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0010 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execCaps_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execCaps_Parms() {}
 };
 
 // Function Core.Object.Right
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x00EA]
 struct UObject_execRight_Parms
 {
-	class FString                                      S;                                                		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    S; };                                             		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 	int                                                i;                                                		// 0x0010 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	class FString                                      ReturnValue;                                      		// 0x0014 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0014 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execRight_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execRight_Parms() {}
 };
 
 // Function Core.Object.Left
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x028D]
 struct UObject_execLeft_Parms
 {
-	class FString                                      S;                                                		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    S; };                                             		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 	int                                                i;                                                		// 0x0010 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	class FString                                      ReturnValue;                                      		// 0x0014 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0014 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execLeft_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execLeft_Parms() {}
 };
 
 // Function Core.Object.Mid
 // [0x00026401] ( FUNC_Final | FUNC_Native ) iNative [0x028C]
 struct UObject_execMid_Parms
 {
-	class FString                                      S;                                                		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    S; };                                             		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 	int                                                i;                                                		// 0x0010 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                J;                                                		// 0x0014 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
-	class FString                                      ReturnValue;                                      		// 0x0018 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0018 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execMid_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMid_Parms() {}
 };
 
 // Function Core.Object.InStr
 // [0x00026401] ( FUNC_Final | FUNC_Native ) iNative [0x028B]
 struct UObject_execInStr_Parms
 {
-	class FString                                      S;                                                		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-	class FString                                      T;                                                		// 0x0010 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    S; };                                             		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    T; };                                             		// 0x0010 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 	unsigned long                                      bSearchFromRight;                                 		// 0x0020 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	unsigned long                                      bIgnoreCase;                                      		// 0x0024 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	int                                                StartPos;                                         		// 0x0028 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x002C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execInStr_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execInStr_Parms() {}
 };
 
 // Function Core.Object.Len
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x028A]
 struct UObject_execLen_Parms
 {
-	class FString                                      S;                                                		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    S; };                                             		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 	int                                                ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execLen_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execLen_Parms() {}
 };
 
 // Function Core.Object.SubtractEqual_StrStr
 // [0x00423401] ( FUNC_Final | FUNC_Native ) iNative [0x0144]
 struct UObject_execSubtractEqual_StrStr_Parms
 {
-	class FString                                      A;                                                		// 0x0000 (0x0010) [0x0000000000400180]              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-	class FString                                      B;                                                		// 0x0010 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-	class FString                                      ReturnValue;                                      		// 0x0020 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    A; };                                             		// 0x0000 (0x0010) [0x0000000000400180]              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+	union { FString                                    B; };                                             		// 0x0010 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0020 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execSubtractEqual_StrStr_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtractEqual_StrStr_Parms() {}
 };
 
 // Function Core.Object.AtEqual_StrStr
 // [0x00423401] ( FUNC_Final | FUNC_Native ) iNative [0x0143]
 struct UObject_execAtEqual_StrStr_Parms
 {
-	class FString                                      A;                                                		// 0x0000 (0x0010) [0x0000000000400180]              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-	class FString                                      B;                                                		// 0x0010 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-	class FString                                      ReturnValue;                                      		// 0x0020 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    A; };                                             		// 0x0000 (0x0010) [0x0000000000400180]              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+	union { FString                                    B; };                                             		// 0x0010 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0020 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execAtEqual_StrStr_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAtEqual_StrStr_Parms() {}
 };
 
 // Function Core.Object.ConcatEqual_StrStr
 // [0x00423401] ( FUNC_Final | FUNC_Native ) iNative [0x0142]
 struct UObject_execConcatEqual_StrStr_Parms
 {
-	class FString                                      A;                                                		// 0x0000 (0x0010) [0x0000000000400180]              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-	class FString                                      B;                                                		// 0x0010 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-	class FString                                      ReturnValue;                                      		// 0x0020 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    A; };                                             		// 0x0000 (0x0010) [0x0000000000400180]              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+	union { FString                                    B; };                                             		// 0x0010 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0020 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execConcatEqual_StrStr_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execConcatEqual_StrStr_Parms() {}
 };
 
 // Function Core.Object.ComplementEqual_StrStr
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x025F]
 struct UObject_execComplementEqual_StrStr_Parms
 {
-	class FString                                      A;                                                		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
-	class FString                                      B;                                                		// 0x0010 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    A; };                                             		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    B; };                                             		// 0x0010 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
 	unsigned long                                      ReturnValue;                                      		// 0x0020 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execComplementEqual_StrStr_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execComplementEqual_StrStr_Parms() {}
 };
 
 // Function Core.Object.NotEqual_StrStr
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x025E]
 struct UObject_execNotEqual_StrStr_Parms
 {
-	class FString                                      A;                                                		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
-	class FString                                      B;                                                		// 0x0010 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    A; };                                             		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    B; };                                             		// 0x0010 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
 	unsigned long                                      ReturnValue;                                      		// 0x0020 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNotEqual_StrStr_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNotEqual_StrStr_Parms() {}
 };
 
 // Function Core.Object.EqualEqual_StrStr
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x025D]
 struct UObject_execEqualEqual_StrStr_Parms
 {
-	class FString                                      A;                                                		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
-	class FString                                      B;                                                		// 0x0010 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    A; };                                             		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    B; };                                             		// 0x0010 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
 	unsigned long                                      ReturnValue;                                      		// 0x0020 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execEqualEqual_StrStr_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execEqualEqual_StrStr_Parms() {}
 };
 
 // Function Core.Object.GreaterEqual_StrStr
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x025C]
 struct UObject_execGreaterEqual_StrStr_Parms
 {
-	class FString                                      A;                                                		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
-	class FString                                      B;                                                		// 0x0010 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    A; };                                             		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    B; };                                             		// 0x0010 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
 	unsigned long                                      ReturnValue;                                      		// 0x0020 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGreaterEqual_StrStr_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGreaterEqual_StrStr_Parms() {}
 };
 
 // Function Core.Object.LessEqual_StrStr
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x025B]
 struct UObject_execLessEqual_StrStr_Parms
 {
-	class FString                                      A;                                                		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
-	class FString                                      B;                                                		// 0x0010 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    A; };                                             		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    B; };                                             		// 0x0010 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
 	unsigned long                                      ReturnValue;                                      		// 0x0020 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execLessEqual_StrStr_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execLessEqual_StrStr_Parms() {}
 };
 
 // Function Core.Object.Greater_StrStr
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x025A]
 struct UObject_execGreater_StrStr_Parms
 {
-	class FString                                      A;                                                		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
-	class FString                                      B;                                                		// 0x0010 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    A; };                                             		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    B; };                                             		// 0x0010 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
 	unsigned long                                      ReturnValue;                                      		// 0x0020 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGreater_StrStr_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGreater_StrStr_Parms() {}
 };
 
 // Function Core.Object.Less_StrStr
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x0259]
 struct UObject_execLess_StrStr_Parms
 {
-	class FString                                      A;                                                		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
-	class FString                                      B;                                                		// 0x0010 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    A; };                                             		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    B; };                                             		// 0x0010 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
 	unsigned long                                      ReturnValue;                                      		// 0x0020 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execLess_StrStr_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execLess_StrStr_Parms() {}
 };
 
 // Function Core.Object.At_StrStr
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x00A8]
 struct UObject_execAt_StrStr_Parms
 {
-	class FString                                      A;                                                		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-	class FString                                      B;                                                		// 0x0010 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-	class FString                                      ReturnValue;                                      		// 0x0020 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    A; };                                             		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    B; };                                             		// 0x0010 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0020 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execAt_StrStr_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAt_StrStr_Parms() {}
 };
 
 // Function Core.Object.Concat_StrStr
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x0258]
 struct UObject_execConcat_StrStr_Parms
 {
-	class FString                                      A;                                                		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-	class FString                                      B;                                                		// 0x0010 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-	class FString                                      ReturnValue;                                      		// 0x0020 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    A; };                                             		// 0x0000 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    B; };                                             		// 0x0010 (0x0010) [0x0000000000400880]              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0020 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execConcat_StrStr_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execConcat_StrStr_Parms() {}
 };
 
 // Function Core.Object.MakeRotator
@@ -1242,8 +1647,11 @@ struct UObject_execMakeRotator_Parms
 	int                                                Pitch;                                            		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                Yaw;                                              		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                Roll;                                             		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x000C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FRotator                                 R;                                                		// 0x0018 (0x000C) [0x0000000000000000]              
+	union { struct FRotator                            ReturnValue; };                                   		// 0x000C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	// union { struct FRotator                         R; };                                             		// 0x0018 (0x000C) [0x0000000000000000]              
+
+	 UObject_execMakeRotator_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMakeRotator_Parms() {}
 };
 
 // Function Core.Object.SClampRotAxis
@@ -1258,6 +1666,9 @@ struct UObject_execSClampRotAxis_Parms
 	float                                              InterpolationSpeed;                               		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// unsigned long                                   bClamped;                                         		// 0x001C (0x0004) [0x0000000000000000]              
+
+	 UObject_execSClampRotAxis_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSClampRotAxis_Parms() {}
 };
 
 // Function Core.Object.ClampRotAxisFromRange
@@ -1270,6 +1681,9 @@ struct UObject_execClampRotAxisFromRange_Parms
 	int                                                ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// int                                             Delta;                                            		// 0x0010 (0x0004) [0x0000000000000000]              
 	// int                                             Center;                                           		// 0x0014 (0x0004) [0x0000000000000000]              
+
+	 UObject_execClampRotAxisFromRange_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execClampRotAxisFromRange_Parms() {}
 };
 
 // Function Core.Object.ClampRotAxisFromBase
@@ -1281,6 +1695,9 @@ struct UObject_execClampRotAxisFromBase_Parms
 	int                                                MaxDelta;                                         		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// int                                             DeltaFromCenter;                                  		// 0x0010 (0x0004) [0x0000000000000000]              
+
+	 UObject_execClampRotAxisFromBase_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execClampRotAxisFromBase_Parms() {}
 };
 
 // Function Core.Object.ClampRotAxis
@@ -1292,26 +1709,35 @@ struct UObject_execClampRotAxis_Parms
 	int                                                MaxLimit;                                         		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                MinLimit;                                         		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	// int                                             DesiredViewAxis;                                  		// 0x0010 (0x0004) [0x0000000000000000]              
+
+	 UObject_execClampRotAxis_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execClampRotAxis_Parms() {}
 };
 
 // Function Core.Object.RSize
 // [0x00022003] ( FUNC_Final )
 struct UObject_execRSize_Parms
 {
-	struct FRotator                                    R;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            R; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// int                                             PitchNorm;                                        		// 0x0010 (0x0004) [0x0000000000000000]              
 	// int                                             YawNorm;                                          		// 0x0014 (0x0004) [0x0000000000000000]              
 	// int                                             RollNorm;                                         		// 0x0018 (0x0004) [0x0000000000000000]              
+
+	 UObject_execRSize_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execRSize_Parms() {}
 };
 
 // Function Core.Object.RDiff
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execRDiff_Parms
 {
-	struct FRotator                                    A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execRDiff_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execRDiff_Parms() {}
 };
 
 // Function Core.Object.NormalizeRotAxis
@@ -1320,67 +1746,88 @@ struct UObject_execNormalizeRotAxis_Parms
 {
 	int                                                Angle;                                            		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNormalizeRotAxis_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNormalizeRotAxis_Parms() {}
 };
 
 // Function Core.Object.RInterpTo
 // [0x00026401] ( FUNC_Final | FUNC_Native )
 struct UObject_execRInterpTo_Parms
 {
-	struct FRotator                                    Current;                                          		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    Target;                                           		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            Current; };                                       		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            Target; };                                        		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              DeltaTime;                                        		// 0x0018 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              InterpSpeed;                                      		// 0x001C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      bConstantInterpSpeed;                             		// 0x0020 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0024 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0024 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execRInterpTo_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execRInterpTo_Parms() {}
 };
 
 // Function Core.Object.RTransform
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execRTransform_Parms
 {
-	struct FRotator                                    R;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    RBasis;                                           		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            R; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            RBasis; };                                        		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execRTransform_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execRTransform_Parms() {}
 };
 
 // Function Core.Object.RSmerp
 // [0x00026401] ( FUNC_Final | FUNC_Native )
 struct UObject_execRSmerp_Parms
 {
-	struct FRotator                                    A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Alpha;                                            		// 0x0018 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      bShortestPath;                                    		// 0x001C (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0020 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0020 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execRSmerp_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execRSmerp_Parms() {}
 };
 
 // Function Core.Object.RLerp
 // [0x00026401] ( FUNC_Final | FUNC_Native )
 struct UObject_execRLerp_Parms
 {
-	struct FRotator                                    A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Alpha;                                            		// 0x0018 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      bShortestPath;                                    		// 0x001C (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0020 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0020 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execRLerp_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execRLerp_Parms() {}
 };
 
 // Function Core.Object.Normalize
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execNormalize_Parms
 {
-	struct FRotator                                    Rot;                                              		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x000C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            Rot; };                                           		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x000C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNormalize_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNormalize_Parms() {}
 };
 
 // Function Core.Object.OrthoRotation
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execOrthoRotation_Parms
 {
-	struct FVector                                     X;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     Y;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     Z;                                                		// 0x0018 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0024 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             X; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             Y; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             Z; };                                             		// 0x0018 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0024 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execOrthoRotation_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execOrthoRotation_Parms() {}
 };
 
 // Function Core.Object.RotRand
@@ -1388,27 +1835,36 @@ struct UObject_execOrthoRotation_Parms
 struct UObject_execRotRand_Parms
 {
 	unsigned long                                      bRoll;                                            		// 0x0000 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0004 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0004 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execRotRand_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execRotRand_Parms() {}
 };
 
 // Function Core.Object.GetUnAxes
 // [0x00422401] ( FUNC_Final | FUNC_Native ) iNative [0x00E6]
 struct UObject_execGetUnAxes_Parms
 {
-	struct FRotator                                    A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     X;                                                		// 0x000C (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
-	struct FVector                                     Y;                                                		// 0x0018 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
-	struct FVector                                     Z;                                                		// 0x0024 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FRotator                            A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             X; };                                             		// 0x000C (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FVector                             Y; };                                             		// 0x0018 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FVector                             Z; };                                             		// 0x0024 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+
+	 UObject_execGetUnAxes_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetUnAxes_Parms() {}
 };
 
 // Function Core.Object.GetAxes
 // [0x00422401] ( FUNC_Final | FUNC_Native ) iNative [0x00E5]
 struct UObject_execGetAxes_Parms
 {
-	struct FRotator                                    A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     X;                                                		// 0x000C (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
-	struct FVector                                     Y;                                                		// 0x0018 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
-	struct FVector                                     Z;                                                		// 0x0024 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FRotator                            A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             X; };                                             		// 0x000C (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FVector                             Y; };                                             		// 0x0018 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FVector                             Z; };                                             		// 0x0024 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+
+	 UObject_execGetAxes_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetAxes_Parms() {}
 };
 
 // Function Core.Object.ClockwiseFrom_IntInt
@@ -1418,69 +1874,93 @@ struct UObject_execClockwiseFrom_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execClockwiseFrom_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execClockwiseFrom_IntInt_Parms() {}
 };
 
 // Function Core.Object.SubtractEqual_RotatorRotator
 // [0x00423401] ( FUNC_Final | FUNC_Native ) iNative [0x013F]
 struct UObject_execSubtractEqual_RotatorRotator_Parms
 {
-	struct FRotator                                    A;                                                		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
-	struct FRotator                                    B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            A; };                                             		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FRotator                            B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtractEqual_RotatorRotator_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtractEqual_RotatorRotator_Parms() {}
 };
 
 // Function Core.Object.AddEqual_RotatorRotator
 // [0x00423401] ( FUNC_Final | FUNC_Native ) iNative [0x013E]
 struct UObject_execAddEqual_RotatorRotator_Parms
 {
-	struct FRotator                                    A;                                                		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
-	struct FRotator                                    B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            A; };                                             		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FRotator                            B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAddEqual_RotatorRotator_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAddEqual_RotatorRotator_Parms() {}
 };
 
 // Function Core.Object.Subtract_RotatorRotator
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x013D]
 struct UObject_execSubtract_RotatorRotator_Parms
 {
-	struct FRotator                                    A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtract_RotatorRotator_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtract_RotatorRotator_Parms() {}
 };
 
 // Function Core.Object.Add_RotatorRotator
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x013C]
 struct UObject_execAdd_RotatorRotator_Parms
 {
-	struct FRotator                                    A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAdd_RotatorRotator_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAdd_RotatorRotator_Parms() {}
 };
 
 // Function Core.Object.DivideEqual_RotatorFloat
 // [0x00423401] ( FUNC_Final | FUNC_Native ) iNative [0x0123]
 struct UObject_execDivideEqual_RotatorFloat_Parms
 {
-	struct FRotator                                    A;                                                		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FRotator                            A; };                                             		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	float                                              B;                                                		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execDivideEqual_RotatorFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execDivideEqual_RotatorFloat_Parms() {}
 };
 
 // Function Core.Object.MultiplyEqual_RotatorFloat
 // [0x00423401] ( FUNC_Final | FUNC_Native ) iNative [0x0122]
 struct UObject_execMultiplyEqual_RotatorFloat_Parms
 {
-	struct FRotator                                    A;                                                		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FRotator                            A; };                                             		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	float                                              B;                                                		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiplyEqual_RotatorFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiplyEqual_RotatorFloat_Parms() {}
 };
 
 // Function Core.Object.Divide_RotatorFloat
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x0121]
 struct UObject_execDivide_RotatorFloat_Parms
 {
-	struct FRotator                                    A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execDivide_RotatorFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execDivide_RotatorFloat_Parms() {}
 };
 
 // Function Core.Object.Multiply_FloatRotator
@@ -1488,325 +1968,433 @@ struct UObject_execDivide_RotatorFloat_Parms
 struct UObject_execMultiply_FloatRotator_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    B;                                                		// 0x0004 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            B; };                                             		// 0x0004 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiply_FloatRotator_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiply_FloatRotator_Parms() {}
 };
 
 // Function Core.Object.Multiply_RotatorFloat
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x011F]
 struct UObject_execMultiply_RotatorFloat_Parms
 {
-	struct FRotator                                    A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    ReturnValue;                                      		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FRotator                            ReturnValue; };                                   		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiply_RotatorFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiply_RotatorFloat_Parms() {}
 };
 
 // Function Core.Object.NotEqual_RotatorRotator
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x00CB]
 struct UObject_execNotEqual_RotatorRotator_Parms
 {
-	struct FRotator                                    A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNotEqual_RotatorRotator_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNotEqual_RotatorRotator_Parms() {}
 };
 
 // Function Core.Object.EqualEqual_RotatorRotator
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x008E]
 struct UObject_execEqualEqual_RotatorRotator_Parms
 {
-	struct FRotator                                    A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execEqualEqual_RotatorRotator_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execEqualEqual_RotatorRotator_Parms() {}
 };
 
 // Function Core.Object.InCylinder
 // [0x00024103] ( FUNC_Final | FUNC_Simulated )
 struct UObject_execInCylinder_Parms
 {
-	struct FVector                                     Origin;                                           		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    Dir;                                              		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             Origin; };                                        		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            Dir; };                                           		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Width;                                            		// 0x0018 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     A;                                                		// 0x001C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x001C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      bIgnoreZ;                                         		// 0x0028 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x002C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FVector                                  B;                                                		// 0x0030 (0x000C) [0x0000000000000000]              
-	// struct FVector                                  VDir;                                             		// 0x003C (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          B; };                                             		// 0x0030 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          VDir; };                                          		// 0x003C (0x000C) [0x0000000000000000]              
+
+	 UObject_execInCylinder_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execInCylinder_Parms() {}
 };
 
 // Function Core.Object.NoZDot
 // [0x00020103] ( FUNC_Final | FUNC_Simulated )
 struct UObject_execNoZDot_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNoZDot_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNoZDot_Parms() {}
 };
 
 // Function Core.Object.ClampLength
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execClampLength_Parms
 {
-	struct FVector                                     V;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             V; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              MaxLength;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execClampLength_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execClampLength_Parms() {}
 };
 
 // Function Core.Object.VInterpTo
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execVInterpTo_Parms
 {
-	struct FVector                                     Current;                                          		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     Target;                                           		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             Current; };                                       		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             Target; };                                        		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              DeltaTime;                                        		// 0x0018 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              InterpSpeed;                                      		// 0x001C (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0020 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0020 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execVInterpTo_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execVInterpTo_Parms() {}
 };
 
 // Function Core.Object.IsZero
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x05DD]
 struct UObject_execIsZero_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execIsZero_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execIsZero_Parms() {}
 };
 
 // Function Core.Object.ProjectOnTo
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x05DC]
 struct UObject_execProjectOnTo_Parms
 {
-	struct FVector                                     X;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     Y;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             X; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             Y; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execProjectOnTo_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execProjectOnTo_Parms() {}
 };
 
 // Function Core.Object.MirrorVectorByNormal
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x012C]
 struct UObject_execMirrorVectorByNormal_Parms
 {
-	struct FVector                                     InVect;                                           		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     InNormal;                                         		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             InVect; };                                        		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             InNormal; };                                      		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMirrorVectorByNormal_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMirrorVectorByNormal_Parms() {}
 };
 
 // Function Core.Object.VRandCone2
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execVRandCone2_Parms
 {
-	struct FVector                                     Dir;                                              		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             Dir; };                                           		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              HorizontalConeHalfAngleRadians;                   		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              VerticalConeHalfAngleRadians;                     		// 0x0010 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0014 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0014 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execVRandCone2_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execVRandCone2_Parms() {}
 };
 
 // Function Core.Object.VRandCone
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execVRandCone_Parms
 {
-	struct FVector                                     Dir;                                              		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             Dir; };                                           		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ConeHalfAngleRadians;                             		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execVRandCone_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execVRandCone_Parms() {}
 };
 
 // Function Core.Object.VRand
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x00FC]
 struct UObject_execVRand_Parms
 {
-	struct FVector                                     ReturnValue;                                      		// 0x0000 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0000 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execVRand_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execVRand_Parms() {}
 };
 
 // Function Core.Object.VSmerp
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execVSmerp_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Alpha;                                            		// 0x0018 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x001C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x001C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execVSmerp_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execVSmerp_Parms() {}
 };
 
 // Function Core.Object.VLerp
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execVLerp_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Alpha;                                            		// 0x0018 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x001C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x001C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execVLerp_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execVLerp_Parms() {}
 };
 
 // Function Core.Object.Normal
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x00E2]
 struct UObject_execNormal_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x000C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x000C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNormal_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNormal_Parms() {}
 };
 
 // Function Core.Object.VSizeSq2D
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execVSizeSq2D_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execVSizeSq2D_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execVSizeSq2D_Parms() {}
 };
 
 // Function Core.Object.VSizeSq
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execVSizeSq_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execVSizeSq_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execVSizeSq_Parms() {}
 };
 
 // Function Core.Object.VSize2D
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execVSize2D_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execVSize2D_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execVSize2D_Parms() {}
 };
 
 // Function Core.Object.VSize
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x00E1]
 struct UObject_execVSize_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execVSize_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execVSize_Parms() {}
 };
 
 // Function Core.Object.SubtractEqual_VectorVector
 // [0x00423401] ( FUNC_Final | FUNC_Native ) iNative [0x00E0]
 struct UObject_execSubtractEqual_VectorVector_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
-	struct FVector                                     B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FVector                             B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtractEqual_VectorVector_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtractEqual_VectorVector_Parms() {}
 };
 
 // Function Core.Object.AddEqual_VectorVector
 // [0x00423401] ( FUNC_Final | FUNC_Native ) iNative [0x00DF]
 struct UObject_execAddEqual_VectorVector_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
-	struct FVector                                     B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FVector                             B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAddEqual_VectorVector_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAddEqual_VectorVector_Parms() {}
 };
 
 // Function Core.Object.DivideEqual_VectorFloat
 // [0x00423401] ( FUNC_Final | FUNC_Native ) iNative [0x00DE]
 struct UObject_execDivideEqual_VectorFloat_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	float                                              B;                                                		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execDivideEqual_VectorFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execDivideEqual_VectorFloat_Parms() {}
 };
 
 // Function Core.Object.MultiplyEqual_VectorVector
 // [0x00423401] ( FUNC_Final | FUNC_Native ) iNative [0x0129]
 struct UObject_execMultiplyEqual_VectorVector_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
-	struct FVector                                     B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FVector                             B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiplyEqual_VectorVector_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiplyEqual_VectorVector_Parms() {}
 };
 
 // Function Core.Object.MultiplyEqual_VectorFloat
 // [0x00423401] ( FUNC_Final | FUNC_Native ) iNative [0x00DD]
 struct UObject_execMultiplyEqual_VectorFloat_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	float                                              B;                                                		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiplyEqual_VectorFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiplyEqual_VectorFloat_Parms() {}
 };
 
 // Function Core.Object.Cross_VectorVector
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x00DC]
 struct UObject_execCross_VectorVector_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execCross_VectorVector_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execCross_VectorVector_Parms() {}
 };
 
 // Function Core.Object.Dot_VectorVector
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x00DB]
 struct UObject_execDot_VectorVector_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execDot_VectorVector_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execDot_VectorVector_Parms() {}
 };
 
 // Function Core.Object.NotEqual_VectorVector
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x00DA]
 struct UObject_execNotEqual_VectorVector_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNotEqual_VectorVector_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNotEqual_VectorVector_Parms() {}
 };
 
 // Function Core.Object.EqualEqual_VectorVector
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x00D9]
 struct UObject_execEqualEqual_VectorVector_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execEqualEqual_VectorVector_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execEqualEqual_VectorVector_Parms() {}
 };
 
 // Function Core.Object.GreaterGreater_VectorRotator
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x0114]
 struct UObject_execGreaterGreater_VectorRotator_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGreaterGreater_VectorRotator_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGreaterGreater_VectorRotator_Parms() {}
 };
 
 // Function Core.Object.LessLess_VectorRotator
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x0113]
 struct UObject_execLessLess_VectorRotator_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execLessLess_VectorRotator_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execLessLess_VectorRotator_Parms() {}
 };
 
 // Function Core.Object.Subtract_VectorVector
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x00D8]
 struct UObject_execSubtract_VectorVector_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtract_VectorVector_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtract_VectorVector_Parms() {}
 };
 
 // Function Core.Object.Add_VectorVector
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x00D7]
 struct UObject_execAdd_VectorVector_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAdd_VectorVector_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAdd_VectorVector_Parms() {}
 };
 
 // Function Core.Object.Divide_VectorFloat
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x00D6]
 struct UObject_execDivide_VectorFloat_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execDivide_VectorFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execDivide_VectorFloat_Parms() {}
 };
 
 // Function Core.Object.Multiply_VectorVector
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x0128]
 struct UObject_execMultiply_VectorVector_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     B;                                                		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             B; };                                             		// 0x000C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0018 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiply_VectorVector_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiply_VectorVector_Parms() {}
 };
 
 // Function Core.Object.Multiply_FloatVector
@@ -1814,34 +2402,46 @@ struct UObject_execMultiply_VectorVector_Parms
 struct UObject_execMultiply_FloatVector_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     B;                                                		// 0x0004 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             B; };                                             		// 0x0004 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiply_FloatVector_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiply_FloatVector_Parms() {}
 };
 
 // Function Core.Object.Multiply_VectorFloat
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x00D4]
 struct UObject_execMultiply_VectorFloat_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiply_VectorFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiply_VectorFloat_Parms() {}
 };
 
 // Function Core.Object.Subtract_PreVector
 // [0x00023411] ( FUNC_Final | FUNC_Native ) iNative [0x00D3]
 struct UObject_execSubtract_PreVector_Parms
 {
-	struct FVector                                     A;                                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x000C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             A; };                                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x000C (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtract_PreVector_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtract_PreVector_Parms() {}
 };
 
 // Function Core.Object.SetBioRwBox
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execSetBioRwBox_Parms
 {
-	struct FBioRwBox                                   Target;                                           		// 0x0000 (0x0030) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     Min;                                              		// 0x0030 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     Max;                                              		// 0x003C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FBioRwBox                           Target; };                                        		// 0x0000 (0x0030) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             Min; };                                           		// 0x0030 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             Max; };                                           		// 0x003C (0x000C) [0x0000000000000080]              ( CPF_Parm )
+
+	 UObject_execSetBioRwBox_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSetBioRwBox_Parms() {}
 };
 
 // Function Core.Object.GetTokenisedString
@@ -1849,8 +2449,11 @@ struct UObject_execSetBioRwBox_Parms
 struct UObject_execGetTokenisedString_Parms
 {
 	int                                                srStringID;                                       		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	class TArray<struct FSFXTokenMapping>              TokenList;                                        		// 0x0004 (0x0010) [0x0000000000400090]              ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
-	class FString                                      ReturnValue;                                      		// 0x0014 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { TArray<struct FSFXTokenMapping>            TokenList; };                                     		// 0x0004 (0x0010) [0x0000000000400090]              ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0014 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execGetTokenisedString_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGetTokenisedString_Parms() {}
 };
 
 // Function Core.Object.SetCustomToken
@@ -1858,13 +2461,19 @@ struct UObject_execGetTokenisedString_Parms
 struct UObject_execSetCustomToken_Parms
 {
 	int                                                nTokenNum;                                        		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	class FString                                      sToken;                                           		// 0x0004 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    sToken; };                                        		// 0x0004 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+
+	 UObject_execSetCustomToken_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSetCustomToken_Parms() {}
 };
 
 // Function Core.Object.ClearCustomTokens
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 struct UObject_execClearCustomTokens_Parms
 {
+
+	 UObject_execClearCustomTokens_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execClearCustomTokens_Parms() {}
 };
 
 // Function Core.Object.FInterpConstantTo
@@ -1876,6 +2485,9 @@ struct UObject_execFInterpConstantTo_Parms
 	float                                              DeltaTime;                                        		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              InterpSpeed;                                      		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execFInterpConstantTo_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execFInterpConstantTo_Parms() {}
 };
 
 // Function Core.Object.FInterpTo
@@ -1887,6 +2499,9 @@ struct UObject_execFInterpTo_Parms
 	float                                              DeltaTime;                                        		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              InterpSpeed;                                      		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execFInterpTo_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execFInterpTo_Parms() {}
 };
 
 // Function Core.Object.FPctByRange
@@ -1897,6 +2512,9 @@ struct UObject_execFPctByRange_Parms
 	float                                              InMin;                                            		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              InMax;                                            		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execFPctByRange_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execFPctByRange_Parms() {}
 };
 
 // Function Core.Object.RandRange
@@ -1906,6 +2524,9 @@ struct UObject_execRandRange_Parms
 	float                                              InMin;                                            		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              InMax;                                            		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execRandRange_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execRandRange_Parms() {}
 };
 
 // Function Core.Object.FInterpEaseInOut
@@ -1917,6 +2538,9 @@ struct UObject_execFInterpEaseInOut_Parms
 	float                                              Alpha;                                            		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Exp;                                              		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execFInterpEaseInOut_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execFInterpEaseInOut_Parms() {}
 };
 
 // Function Core.Object.FInterpEaseOut
@@ -1928,6 +2552,9 @@ struct UObject_execFInterpEaseOut_Parms
 	float                                              Alpha;                                            		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Exp;                                              		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execFInterpEaseOut_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execFInterpEaseOut_Parms() {}
 };
 
 // Function Core.Object.FInterpEaseIn
@@ -1939,6 +2566,9 @@ struct UObject_execFInterpEaseIn_Parms
 	float                                              Alpha;                                            		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Exp;                                              		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execFInterpEaseIn_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execFInterpEaseIn_Parms() {}
 };
 
 // Function Core.Object.FCubicInterp
@@ -1951,6 +2581,9 @@ struct UObject_execFCubicInterp_Parms
 	float                                              T1;                                               		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              A;                                                		// 0x0010 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0014 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execFCubicInterp_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execFCubicInterp_Parms() {}
 };
 
 // Function Core.Object.FCeil
@@ -1959,6 +2592,9 @@ struct UObject_execFCeil_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execFCeil_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execFCeil_Parms() {}
 };
 
 // Function Core.Object.FFloor
@@ -1967,6 +2603,9 @@ struct UObject_execFFloor_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execFFloor_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execFFloor_Parms() {}
 };
 
 // Function Core.Object.Round
@@ -1975,6 +2614,9 @@ struct UObject_execRound_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execRound_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execRound_Parms() {}
 };
 
 // Function Core.Object.Lerp
@@ -1985,6 +2627,9 @@ struct UObject_execLerp_Parms
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Alpha;                                            		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execLerp_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execLerp_Parms() {}
 };
 
 // Function Core.Object.FClamp
@@ -1995,6 +2640,9 @@ struct UObject_execFClamp_Parms
 	float                                              A;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execFClamp_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execFClamp_Parms() {}
 };
 
 // Function Core.Object.FMax
@@ -2004,6 +2652,9 @@ struct UObject_execFMax_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execFMax_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execFMax_Parms() {}
 };
 
 // Function Core.Object.FMin
@@ -2013,6 +2664,9 @@ struct UObject_execFMin_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execFMin_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execFMin_Parms() {}
 };
 
 // Function Core.Object.FRand
@@ -2020,6 +2674,9 @@ struct UObject_execFMin_Parms
 struct UObject_execFRand_Parms
 {
 	float                                              ReturnValue;                                      		// 0x0000 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execFRand_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execFRand_Parms() {}
 };
 
 // Function Core.Object.Square
@@ -2028,6 +2685,9 @@ struct UObject_execSquare_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSquare_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSquare_Parms() {}
 };
 
 // Function Core.Object.Sqrt
@@ -2036,6 +2696,9 @@ struct UObject_execSqrt_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSqrt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSqrt_Parms() {}
 };
 
 // Function Core.Object.Loge
@@ -2044,6 +2707,9 @@ struct UObject_execLoge_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execLoge_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execLoge_Parms() {}
 };
 
 // Function Core.Object.Exp
@@ -2052,6 +2718,9 @@ struct UObject_execExp_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execExp_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execExp_Parms() {}
 };
 
 // Function Core.Object.Atan2
@@ -2061,6 +2730,9 @@ struct UObject_execAtan2_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAtan2_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAtan2_Parms() {}
 };
 
 // Function Core.Object.Atan
@@ -2069,6 +2741,9 @@ struct UObject_execAtan_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAtan_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAtan_Parms() {}
 };
 
 // Function Core.Object.Tan
@@ -2077,6 +2752,9 @@ struct UObject_execTan_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execTan_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execTan_Parms() {}
 };
 
 // Function Core.Object.Acos
@@ -2085,6 +2763,9 @@ struct UObject_execAcos_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAcos_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAcos_Parms() {}
 };
 
 // Function Core.Object.Cos
@@ -2093,6 +2774,9 @@ struct UObject_execCos_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execCos_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execCos_Parms() {}
 };
 
 // Function Core.Object.Asin
@@ -2101,6 +2785,9 @@ struct UObject_execAsin_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAsin_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAsin_Parms() {}
 };
 
 // Function Core.Object.Sin
@@ -2109,6 +2796,9 @@ struct UObject_execSin_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSin_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSin_Parms() {}
 };
 
 // Function Core.Object.Abs
@@ -2117,6 +2807,9 @@ struct UObject_execAbs_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAbs_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAbs_Parms() {}
 };
 
 // Function Core.Object.SubtractEqual_FloatFloat
@@ -2126,6 +2819,9 @@ struct UObject_execSubtractEqual_FloatFloat_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtractEqual_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtractEqual_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.AddEqual_FloatFloat
@@ -2135,6 +2831,9 @@ struct UObject_execAddEqual_FloatFloat_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAddEqual_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAddEqual_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.DivideEqual_FloatFloat
@@ -2144,6 +2843,9 @@ struct UObject_execDivideEqual_FloatFloat_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execDivideEqual_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execDivideEqual_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.MultiplyEqual_FloatFloat
@@ -2153,6 +2855,9 @@ struct UObject_execMultiplyEqual_FloatFloat_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiplyEqual_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiplyEqual_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.NotEqual_FloatFloat
@@ -2162,6 +2867,9 @@ struct UObject_execNotEqual_FloatFloat_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNotEqual_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNotEqual_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.ComplementEqual_FloatFloat
@@ -2171,6 +2879,9 @@ struct UObject_execComplementEqual_FloatFloat_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execComplementEqual_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execComplementEqual_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.EqualEqual_FloatFloat
@@ -2180,6 +2891,9 @@ struct UObject_execEqualEqual_FloatFloat_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execEqualEqual_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execEqualEqual_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.GreaterEqual_FloatFloat
@@ -2189,6 +2903,9 @@ struct UObject_execGreaterEqual_FloatFloat_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGreaterEqual_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGreaterEqual_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.LessEqual_FloatFloat
@@ -2198,6 +2915,9 @@ struct UObject_execLessEqual_FloatFloat_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execLessEqual_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execLessEqual_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.Greater_FloatFloat
@@ -2207,6 +2927,9 @@ struct UObject_execGreater_FloatFloat_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGreater_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGreater_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.Less_FloatFloat
@@ -2216,6 +2939,9 @@ struct UObject_execLess_FloatFloat_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execLess_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execLess_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.Subtract_FloatFloat
@@ -2225,6 +2951,9 @@ struct UObject_execSubtract_FloatFloat_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtract_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtract_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.Add_FloatFloat
@@ -2234,6 +2963,9 @@ struct UObject_execAdd_FloatFloat_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAdd_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAdd_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.Percent_FloatFloat
@@ -2243,6 +2975,9 @@ struct UObject_execPercent_FloatFloat_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execPercent_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execPercent_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.Divide_FloatFloat
@@ -2252,6 +2987,9 @@ struct UObject_execDivide_FloatFloat_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execDivide_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execDivide_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.Multiply_FloatFloat
@@ -2261,6 +2999,9 @@ struct UObject_execMultiply_FloatFloat_Parms
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiply_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiply_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.MultiplyMultiply_FloatFloat
@@ -2270,6 +3011,9 @@ struct UObject_execMultiplyMultiply_FloatFloat_Parms
 	float                                              Base;                                             		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              Exp;                                              		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiplyMultiply_FloatFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiplyMultiply_FloatFloat_Parms() {}
 };
 
 // Function Core.Object.Subtract_PreFloat
@@ -2278,6 +3022,9 @@ struct UObject_execSubtract_PreFloat_Parms
 {
 	float                                              A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtract_PreFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtract_PreFloat_Parms() {}
 };
 
 // Function Core.Object.ToHex
@@ -2285,7 +3032,10 @@ struct UObject_execSubtract_PreFloat_Parms
 struct UObject_execToHex_Parms
 {
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	class FString                                      ReturnValue;                                      		// 0x0004 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+	union { FString                                    ReturnValue; };                                   		// 0x0004 (0x0010) [0x0000000000400580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+
+	 UObject_execToHex_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execToHex_Parms() {}
 };
 
 // Function Core.Object.Clamp
@@ -2296,6 +3046,9 @@ struct UObject_execClamp_Parms
 	int                                                A;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execClamp_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execClamp_Parms() {}
 };
 
 // Function Core.Object.Max
@@ -2305,6 +3058,9 @@ struct UObject_execMax_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMax_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMax_Parms() {}
 };
 
 // Function Core.Object.Min
@@ -2314,6 +3070,9 @@ struct UObject_execMin_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMin_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMin_Parms() {}
 };
 
 // Function Core.Object.Rand
@@ -2322,6 +3081,9 @@ struct UObject_execRand_Parms
 {
 	int                                                Max;                                              		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execRand_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execRand_Parms() {}
 };
 
 // Function Core.Object.SubtractSubtract_Int
@@ -2330,6 +3092,9 @@ struct UObject_execSubtractSubtract_Int_Parms
 {
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	int                                                ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtractSubtract_Int_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtractSubtract_Int_Parms() {}
 };
 
 // Function Core.Object.AddAdd_Int
@@ -2338,6 +3103,9 @@ struct UObject_execAddAdd_Int_Parms
 {
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	int                                                ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAddAdd_Int_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAddAdd_Int_Parms() {}
 };
 
 // Function Core.Object.SubtractSubtract_PreInt
@@ -2346,6 +3114,9 @@ struct UObject_execSubtractSubtract_PreInt_Parms
 {
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	int                                                ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtractSubtract_PreInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtractSubtract_PreInt_Parms() {}
 };
 
 // Function Core.Object.AddAdd_PreInt
@@ -2354,6 +3125,9 @@ struct UObject_execAddAdd_PreInt_Parms
 {
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	int                                                ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAddAdd_PreInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAddAdd_PreInt_Parms() {}
 };
 
 // Function Core.Object.SubtractEqual_IntInt
@@ -2363,6 +3137,9 @@ struct UObject_execSubtractEqual_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtractEqual_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtractEqual_IntInt_Parms() {}
 };
 
 // Function Core.Object.AddEqual_IntInt
@@ -2372,6 +3149,9 @@ struct UObject_execAddEqual_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAddEqual_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAddEqual_IntInt_Parms() {}
 };
 
 // Function Core.Object.DivideEqual_IntFloat
@@ -2381,6 +3161,9 @@ struct UObject_execDivideEqual_IntFloat_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execDivideEqual_IntFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execDivideEqual_IntFloat_Parms() {}
 };
 
 // Function Core.Object.MultiplyEqual_IntFloat
@@ -2390,6 +3173,9 @@ struct UObject_execMultiplyEqual_IntFloat_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiplyEqual_IntFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiplyEqual_IntFloat_Parms() {}
 };
 
 // Function Core.Object.Or_IntInt
@@ -2399,6 +3185,9 @@ struct UObject_execOr_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execOr_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execOr_IntInt_Parms() {}
 };
 
 // Function Core.Object.Xor_IntInt
@@ -2408,6 +3197,9 @@ struct UObject_execXor_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execXor_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execXor_IntInt_Parms() {}
 };
 
 // Function Core.Object.And_IntInt
@@ -2417,6 +3209,9 @@ struct UObject_execAnd_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAnd_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAnd_IntInt_Parms() {}
 };
 
 // Function Core.Object.NotEqual_IntInt
@@ -2426,6 +3221,9 @@ struct UObject_execNotEqual_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNotEqual_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNotEqual_IntInt_Parms() {}
 };
 
 // Function Core.Object.EqualEqual_IntInt
@@ -2435,6 +3233,9 @@ struct UObject_execEqualEqual_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execEqualEqual_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execEqualEqual_IntInt_Parms() {}
 };
 
 // Function Core.Object.GreaterEqual_IntInt
@@ -2444,6 +3245,9 @@ struct UObject_execGreaterEqual_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGreaterEqual_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGreaterEqual_IntInt_Parms() {}
 };
 
 // Function Core.Object.LessEqual_IntInt
@@ -2453,6 +3257,9 @@ struct UObject_execLessEqual_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execLessEqual_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execLessEqual_IntInt_Parms() {}
 };
 
 // Function Core.Object.Greater_IntInt
@@ -2462,6 +3269,9 @@ struct UObject_execGreater_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGreater_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGreater_IntInt_Parms() {}
 };
 
 // Function Core.Object.Less_IntInt
@@ -2471,6 +3281,9 @@ struct UObject_execLess_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execLess_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execLess_IntInt_Parms() {}
 };
 
 // Function Core.Object.GreaterGreaterGreater_IntInt
@@ -2480,6 +3293,9 @@ struct UObject_execGreaterGreaterGreater_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGreaterGreaterGreater_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGreaterGreaterGreater_IntInt_Parms() {}
 };
 
 // Function Core.Object.GreaterGreater_IntInt
@@ -2489,6 +3305,9 @@ struct UObject_execGreaterGreater_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execGreaterGreater_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execGreaterGreater_IntInt_Parms() {}
 };
 
 // Function Core.Object.LessLess_IntInt
@@ -2498,6 +3317,9 @@ struct UObject_execLessLess_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execLessLess_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execLessLess_IntInt_Parms() {}
 };
 
 // Function Core.Object.Subtract_IntInt
@@ -2507,6 +3329,9 @@ struct UObject_execSubtract_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtract_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtract_IntInt_Parms() {}
 };
 
 // Function Core.Object.Add_IntInt
@@ -2516,6 +3341,9 @@ struct UObject_execAdd_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAdd_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAdd_IntInt_Parms() {}
 };
 
 // Function Core.Object.Percent_IntInt
@@ -2525,6 +3353,9 @@ struct UObject_execPercent_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execPercent_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execPercent_IntInt_Parms() {}
 };
 
 // Function Core.Object.Divide_IntInt
@@ -2534,6 +3365,9 @@ struct UObject_execDivide_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execDivide_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execDivide_IntInt_Parms() {}
 };
 
 // Function Core.Object.Multiply_IntInt
@@ -2543,6 +3377,9 @@ struct UObject_execMultiply_IntInt_Parms
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiply_IntInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiply_IntInt_Parms() {}
 };
 
 // Function Core.Object.Subtract_PreInt
@@ -2551,6 +3388,9 @@ struct UObject_execSubtract_PreInt_Parms
 {
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtract_PreInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtract_PreInt_Parms() {}
 };
 
 // Function Core.Object.Complement_PreInt
@@ -2559,6 +3399,9 @@ struct UObject_execComplement_PreInt_Parms
 {
 	int                                                A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execComplement_PreInt_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execComplement_PreInt_Parms() {}
 };
 
 // Function Core.Object.SubtractSubtract_Byte
@@ -2567,6 +3410,9 @@ struct UObject_execSubtractSubtract_Byte_Parms
 {
 	unsigned char                                      A;                                                		// 0x0000 (0x0001) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	unsigned char                                      ReturnValue;                                      		// 0x0001 (0x0001) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtractSubtract_Byte_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtractSubtract_Byte_Parms() {}
 };
 
 // Function Core.Object.AddAdd_Byte
@@ -2575,6 +3421,9 @@ struct UObject_execAddAdd_Byte_Parms
 {
 	unsigned char                                      A;                                                		// 0x0000 (0x0001) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	unsigned char                                      ReturnValue;                                      		// 0x0001 (0x0001) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAddAdd_Byte_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAddAdd_Byte_Parms() {}
 };
 
 // Function Core.Object.SubtractSubtract_PreByte
@@ -2583,6 +3432,9 @@ struct UObject_execSubtractSubtract_PreByte_Parms
 {
 	unsigned char                                      A;                                                		// 0x0000 (0x0001) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	unsigned char                                      ReturnValue;                                      		// 0x0001 (0x0001) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtractSubtract_PreByte_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtractSubtract_PreByte_Parms() {}
 };
 
 // Function Core.Object.AddAdd_PreByte
@@ -2591,6 +3443,9 @@ struct UObject_execAddAdd_PreByte_Parms
 {
 	unsigned char                                      A;                                                		// 0x0000 (0x0001) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	unsigned char                                      ReturnValue;                                      		// 0x0001 (0x0001) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAddAdd_PreByte_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAddAdd_PreByte_Parms() {}
 };
 
 // Function Core.Object.SubtractEqual_ByteByte
@@ -2600,6 +3455,9 @@ struct UObject_execSubtractEqual_ByteByte_Parms
 	unsigned char                                      A;                                                		// 0x0000 (0x0001) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	unsigned char                                      B;                                                		// 0x0001 (0x0001) [0x0000000000000080]              ( CPF_Parm )
 	unsigned char                                      ReturnValue;                                      		// 0x0002 (0x0001) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execSubtractEqual_ByteByte_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execSubtractEqual_ByteByte_Parms() {}
 };
 
 // Function Core.Object.AddEqual_ByteByte
@@ -2609,6 +3467,9 @@ struct UObject_execAddEqual_ByteByte_Parms
 	unsigned char                                      A;                                                		// 0x0000 (0x0001) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	unsigned char                                      B;                                                		// 0x0001 (0x0001) [0x0000000000000080]              ( CPF_Parm )
 	unsigned char                                      ReturnValue;                                      		// 0x0002 (0x0001) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAddEqual_ByteByte_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAddEqual_ByteByte_Parms() {}
 };
 
 // Function Core.Object.DivideEqual_ByteByte
@@ -2618,6 +3479,9 @@ struct UObject_execDivideEqual_ByteByte_Parms
 	unsigned char                                      A;                                                		// 0x0000 (0x0001) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	unsigned char                                      B;                                                		// 0x0001 (0x0001) [0x0000000000000080]              ( CPF_Parm )
 	unsigned char                                      ReturnValue;                                      		// 0x0002 (0x0001) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execDivideEqual_ByteByte_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execDivideEqual_ByteByte_Parms() {}
 };
 
 // Function Core.Object.MultiplyEqual_ByteFloat
@@ -2627,6 +3491,9 @@ struct UObject_execMultiplyEqual_ByteFloat_Parms
 	unsigned char                                      A;                                                		// 0x0000 (0x0001) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	float                                              B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned char                                      ReturnValue;                                      		// 0x0008 (0x0001) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiplyEqual_ByteFloat_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiplyEqual_ByteFloat_Parms() {}
 };
 
 // Function Core.Object.MultiplyEqual_ByteByte
@@ -2636,6 +3503,9 @@ struct UObject_execMultiplyEqual_ByteByte_Parms
 	unsigned char                                      A;                                                		// 0x0000 (0x0001) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	unsigned char                                      B;                                                		// 0x0001 (0x0001) [0x0000000000000080]              ( CPF_Parm )
 	unsigned char                                      ReturnValue;                                      		// 0x0002 (0x0001) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execMultiplyEqual_ByteByte_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execMultiplyEqual_ByteByte_Parms() {}
 };
 
 // Function Core.Object.OrOr_BoolBool
@@ -2645,6 +3515,9 @@ struct UObject_execOrOr_BoolBool_Parms
 	unsigned long                                      A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      B;                                                		// 0x0004 (0x0004) [0x0000000000000280]              ( CPF_Parm | CPF_SkipParm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execOrOr_BoolBool_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execOrOr_BoolBool_Parms() {}
 };
 
 // Function Core.Object.XorXor_BoolBool
@@ -2654,6 +3527,9 @@ struct UObject_execXorXor_BoolBool_Parms
 	unsigned long                                      A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execXorXor_BoolBool_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execXorXor_BoolBool_Parms() {}
 };
 
 // Function Core.Object.AndAnd_BoolBool
@@ -2663,6 +3539,9 @@ struct UObject_execAndAnd_BoolBool_Parms
 	unsigned long                                      A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      B;                                                		// 0x0004 (0x0004) [0x0000000000000280]              ( CPF_Parm | CPF_SkipParm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execAndAnd_BoolBool_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execAndAnd_BoolBool_Parms() {}
 };
 
 // Function Core.Object.NotEqual_BoolBool
@@ -2672,6 +3551,9 @@ struct UObject_execNotEqual_BoolBool_Parms
 	unsigned long                                      A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNotEqual_BoolBool_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNotEqual_BoolBool_Parms() {}
 };
 
 // Function Core.Object.EqualEqual_BoolBool
@@ -2681,6 +3563,9 @@ struct UObject_execEqualEqual_BoolBool_Parms
 	unsigned long                                      A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      B;                                                		// 0x0004 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execEqualEqual_BoolBool_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execEqualEqual_BoolBool_Parms() {}
 };
 
 // Function Core.Object.Not_PreBool
@@ -2689,6 +3574,9 @@ struct UObject_execNot_PreBool_Parms
 {
 	unsigned long                                      A;                                                		// 0x0000 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UObject_execNot_PreBool_Parms() { memset(this, 0, sizeof *this); }
+	~UObject_execNot_PreBool_Parms() {}
 };
 
 // Function Core.DistributionVector.GetVectorValue
@@ -2697,7 +3585,10 @@ struct UDistributionVector_execGetVectorValue_Parms
 {
 	float                                              F;                                                		// 0x0000 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	int                                                LastExtreme;                                      		// 0x0004 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0008 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0008 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UDistributionVector_execGetVectorValue_Parms() { memset(this, 0, sizeof *this); }
+	~UDistributionVector_execGetVectorValue_Parms() {}
 };
 
 // Function Core.DistributionFloat.GetFloatValue
@@ -2706,22 +3597,31 @@ struct UDistributionFloat_execGetFloatValue_Parms
 {
 	float                                              F;                                                		// 0x0000 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UDistributionFloat_execGetFloatValue_Parms() { memset(this, 0, sizeof *this); }
+	~UDistributionFloat_execGetFloatValue_Parms() {}
 };
 
 // Function Core.HelpCommandlet.Main
 // [0x00020C00] ( FUNC_Event | FUNC_Native )
 struct UHelpCommandlet_eventMain_Parms
 {
-	class FString                                      Params;                                           		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    Params; };                                        		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
 	int                                                ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UHelpCommandlet_eventMain_Parms() { memset(this, 0, sizeof *this); }
+	~UHelpCommandlet_eventMain_Parms() {}
 };
 
 // Function Core.Commandlet.Main
 // [0x00020C00] ( FUNC_Event | FUNC_Native )
 struct UCommandlet_eventMain_Parms
 {
-	class FString                                      Params;                                           		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { FString                                    Params; };                                        		// 0x0000 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
 	int                                                ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UCommandlet_eventMain_Parms() { memset(this, 0, sizeof *this); }
+	~UCommandlet_eventMain_Parms() {}
 };
 
 

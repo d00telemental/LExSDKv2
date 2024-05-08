@@ -69,15 +69,6 @@
 # ========================================================================================= #
 */
 
-// Enum SFXGameContent.SFXSeqAct_GetActorHealth.EGetHealthType
-/*enum EGetHealthType
-{
-	GetHealthType_Current                              = 0,
-	GetHealthType_Percent                              = 1,
-	GetHealthType_Maximum                              = 2,
-	GetHealthType_MAX                                  = 3
-};*/
-
 
 /*
 # ========================================================================================= #
@@ -118,12 +109,70 @@ public:
 	static UClass* StaticClass();
 
 	int eventGetObjClassVersion ( );
-	void BeginSave ( struct FSFXSaveDescriptor Descriptor );
+	void BeginSave ( struct FSFXSaveDescriptor const& Descriptor );
 	void Deactivated ( );
 	bool Update ( float DeltaTime );
 	void Activated ( );
 	class ABioPlayerController* GetBioPlayerController ( );
 	bool CanSave ( class ABioPlayerController* PC );
+};
+
+// Class SFXGameContent.SFXSeqAct_ResourceSnapshot
+// 0x0014 (0x010C - 0x00F8)
+class USFXSeqAct_ResourceSnapshot : public USequenceAction
+{
+public:
+	int                                                MissionComplete_Credits;                          		// 0x00F8 (0x0004) [0x0000000000000002]              ( CPF_Const )
+	int                                                MissionComplete_Eezo;                             		// 0x00FC (0x0004) [0x0000000000000002]              ( CPF_Const )
+	int                                                MissionComplete_Iridium;                          		// 0x0100 (0x0004) [0x0000000000000002]              ( CPF_Const )
+	int                                                MissionComplete_Palladium;                        		// 0x0104 (0x0004) [0x0000000000000002]              ( CPF_Const )
+	int                                                MissionComplete_Platinum;                         		// 0x0108 (0x0004) [0x0000000000000002]              ( CPF_Const )
+
+private:
+	static UClass* pClassPointer;
+
+public:
+	static UClass* StaticClass();
+
+	int eventGetObjClassVersion ( );
+	void Activated ( );
+};
+
+// Class SFXGameContent.SFXSeqAct_ExplodingPlaceable
+// 0x0030 (0x0128 - 0x00F8)
+class USFXSeqAct_ExplodingPlaceable : public USequenceAction
+{
+public:
+	TArray<unsigned char>                              AnimatedReactions;                                		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	class UObject*                                     Player;                                           		// 0x0108 (0x0008) [0x0000000000000001]              ( CPF_Edit )
+	class UObject*                                     Instigator;                                       		// 0x0110 (0x0008) [0x0000000000000001]              ( CPF_Edit )
+	float                                              Radius;                                           		// 0x0118 (0x0004) [0x0000000000000001]              ( CPF_Edit )
+	float                                              Damage;                                           		// 0x011C (0x0004) [0x0000000000000001]              ( CPF_Edit )
+	float                                              Momentum;                                         		// 0x0120 (0x0004) [0x0000000000000001]              ( CPF_Edit )
+	float                                              VerticalOffset;                                   		// 0x0124 (0x0004) [0x0000000000000000]              
+
+private:
+	static UClass* pClassPointer;
+
+public:
+	static UClass* StaticClass();
+
+	int eventGetObjClassVersion ( );
+	void Activated ( );
+};
+
+// Class SFXGameContent.SFXSeqAct_CloseMissionCompletion
+// 0x0000 (0x0100 - 0x0100)
+class USFXSeqAct_CloseMissionCompletion : public USFXSeqAct_CloseChoiceGui
+{
+public:
+
+private:
+	static UClass* pClassPointer;
+
+public:
+	static UClass* StaticClass();
+
 };
 
 // Class SFXGameContent.SFXSeqAct_SystemsHandleArriveOnNormandy
@@ -159,93 +208,6 @@ public:
 	void Activated ( );
 };
 
-// Class SFXGameContent.BioSeqAct_SetPlotPersuadeCheck
-// 0x0010 (0x0108 - 0x00F8)
-class UBioSeqAct_SetPlotPersuadeCheck : public USequenceAction
-{
-public:
-	class TArray<struct FLevelCompletionData>          CharmPersuadeDefs;                                		// 0x00F8 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
-	void eventActivated ( );
-	class ABioWorldInfo* getWorld ( );
-};
-
-// Class SFXGameContent.SFXSeqAct_SetAreaMap
-// 0x0049 (0x0141 - 0x00F8)
-class USFXSeqAct_SetAreaMap : public USequenceAction
-{
-public:
-	class FString                                      m_sAreaMapGuiResource;                            		// 0x00F8 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
-	struct FVector                                     RefPoint1_Image_Px;                               		// 0x0108 (0x000C) [0x0000000000000001]              ( CPF_Edit )
-	struct FVector                                     RefPoint2_Image_Px;                               		// 0x0114 (0x000C) [0x0000000000000001]              ( CPF_Edit )
-	class UTexture2D*                                  MapAsset;                                         		// 0x0120 (0x0008) [0x0000000000000001]              ( CPF_Edit )
-	class AActor*                                      Ref1;                                             		// 0x0128 (0x0008) [0x0000000000000000]              
-	class AActor*                                      Ref2;                                             		// 0x0130 (0x0008) [0x0000000000000000]              
-	class UGFxMovieInfo*                               m_oAreaMapReference;                              		// 0x0138 (0x0008) [0x0000000000000000]              
-	unsigned char                                      MapLayout;                                        		// 0x0140 (0x0001) [0x0000000000000001]              ( CPF_Edit )
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
-	int eventGetObjClassVersion ( );
-	void Activated ( );
-};
-
-// Class SFXGameContent.BioSeqAct_ShowHint
-// 0x0015 (0x010D - 0x00F8)
-class UBioSeqAct_ShowHint : public USequenceAction
-{
-public:
-	int                                                srXBoxMessage;                                    		// 0x00F8 (0x0004) [0x0000000000000000]              
-	int                                                srPCMessage;                                      		// 0x00FC (0x0004) [0x0000000000000000]              
-	int                                                srPS3Message;                                     		// 0x0100 (0x0004) [0x0000000000000000]              
-	float                                              fDisplayTime;                                     		// 0x0104 (0x0004) [0x0000000000000001]              ( CPF_Edit )
-	unsigned long                                      bCached : 1;                                      		// 0x0108 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
-	unsigned long                                      bForceVisible : 1;                                		// 0x0108 (0x0004) [0x0000000000000001] [0x00000002] ( CPF_Edit )
-	unsigned char                                      Position;                                         		// 0x010C (0x0001) [0x0000000000000001]              ( CPF_Edit )
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
-	int eventGetObjClassVersion ( );
-	void Activated ( );
-};
-
-// Class SFXGameContent.BioSeqAct_GetMembersOfSquad
-// 0x0038 (0x0130 - 0x00F8)
-class UBioSeqAct_GetMembersOfSquad : public USequenceAction
-{
-public:
-	class TArray<class APawn*>                         m_aoActorList;                                    		// 0x00F8 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<class UObject*>                       m_aoPassSquads;                                   		// 0x0108 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class APawn*                                       m_oCurrentMember;                                 		// 0x0118 (0x0008) [0x0000000000000000]              
-	class APawn*                                       m_oOutputCurrentMember;                           		// 0x0120 (0x0008) [0x0000000000000000]              
-	int                                                m_nIndex;                                         		// 0x0128 (0x0004) [0x0000000000000000]              
-	unsigned long                                      m_bAlsoReturnDeadMembers : 1;                     		// 0x012C (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
-	int eventGetObjClassVersion ( );
-	void Activated ( );
-	class APawn* FindAPawn ( );
-};
-
 // Class SFXGameContent.BioBaseSquadDesign
 // 0x0000 (0x02E4 - 0x02E4)
 class ABioBaseSquadDesign : public ABioBaseSquad
@@ -274,6 +236,102 @@ public:
 
 };
 
+// Class SFXGameContent.BioSquadCombat
+// 0x0000 (0x02E4 - 0x02E4)
+class ABioSquadCombat : public ABioBaseSquadDesignCombat
+{
+public:
+
+private:
+	static UClass* pClassPointer;
+
+public:
+	static UClass* StaticClass();
+
+};
+
+// Class SFXGameContent.BioSeqAct_ShowMissionCompletion
+// 0x000B (0x015C - 0x0151)
+class UBioSeqAct_ShowMissionCompletion : public UBioSeqAct_ShowChoiceGUI
+{
+public:
+	class UGFxMovieInfo*                               m_oMissionCompletionReferenced;                   		// 0x0154 (0x0008) [0x0000000000000001]              ( CPF_Edit )
+
+private:
+	static UClass* pClassPointer;
+
+public:
+	static UClass* StaticClass();
+
+};
+
+// Class SFXGameContent.BioSeqAct_ShowHint
+// 0x0015 (0x010D - 0x00F8)
+class UBioSeqAct_ShowHint : public USequenceAction
+{
+public:
+	int                                                srXBoxMessage;                                    		// 0x00F8 (0x0004) [0x0000000000000000]              
+	int                                                srPCMessage;                                      		// 0x00FC (0x0004) [0x0000000000000000]              
+	int                                                srPS3Message;                                     		// 0x0100 (0x0004) [0x0000000000000000]              
+	float                                              fDisplayTime;                                     		// 0x0104 (0x0004) [0x0000000000000001]              ( CPF_Edit )
+	unsigned long                                      bCached : 1;                                      		// 0x0108 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
+	unsigned long                                      bForceVisible : 1;                                		// 0x0108 (0x0004) [0x0000000000000001] [0x00000002] ( CPF_Edit )
+	unsigned char                                      Position;                                         		// 0x010C (0x0001) [0x0000000000000001]              ( CPF_Edit )
+
+private:
+	static UClass* pClassPointer;
+
+public:
+	static UClass* StaticClass();
+
+	int eventGetObjClassVersion ( );
+	void Activated ( );
+};
+
+// Class SFXGameContent.BioSeqAct_SetPlotPersuadeCheck
+// 0x0010 (0x0108 - 0x00F8)
+class UBioSeqAct_SetPlotPersuadeCheck : public USequenceAction
+{
+public:
+	TArray<struct FLevelCompletionData>                CharmPersuadeDefs;                                		// 0x00F8 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+
+private:
+	static UClass* pClassPointer;
+
+public:
+	static UClass* StaticClass();
+
+	void eventActivated ( );
+	class ABioWorldInfo* getWorld ( );
+};
+
+// Class SFXGameContent.BioSeqAct_GiveMissionXP
+// 0x003C (0x0134 - 0x00F8)
+class UBioSeqAct_GiveMissionXP : public USequenceAction
+{
+public:
+	TArray<struct FMissionReward>                      MissionRewards;                                   		// 0x00F8 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	struct SFXName                                     MissionName;                                      		// 0x0108 (0x0008) [0x0000000000000000]              
+	class ABioPlayerController*                        Player;                                           		// 0x0110 (0x0008) [0x0000000000000001]              ( CPF_Edit )
+	int                                                XPRewarded;                                       		// 0x0118 (0x0004) [0x0000000000000000]              
+	int                                                LevelsRewarded;                                   		// 0x011C (0x0004) [0x0000000000000000]              
+	int                                                TalentsRewarded;                                  		// 0x0120 (0x0004) [0x0000000000000000]              
+	int                                                newLevel;                                         		// 0x0124 (0x0004) [0x0000000000000000]              
+	float                                              SecondPlaythroughXPBonus;                         		// 0x0128 (0x0004) [0x0000000000004000]              ( CPF_Config )
+	int                                                SecondPlaythrough_AchievementID;                  		// 0x012C (0x0004) [0x0000000000004000]              ( CPF_Config )
+	unsigned long                                      bSkipNotifications : 1;                           		// 0x0130 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
+
+private:
+	static UClass* pClassPointer;
+
+public:
+	static UClass* StaticClass();
+
+	int eventGetObjClassVersion ( );
+	int GetMissionXP ( );
+	void Activated ( );
+};
+
 // Class SFXGameContent.BioFaction_Hostile1
 // 0x0003 (0x0080 - 0x007D)
 class UBioFaction_Hostile1 : public UBioFaction
@@ -288,11 +346,19 @@ public:
 
 };
 
-// Class SFXGameContent.BioFaction_Ambient
-// 0x0003 (0x0080 - 0x007D)
-class UBioFaction_Ambient : public UBioFaction
+// Class SFXGameContent.SFXSeqAct_SetAreaMap
+// 0x0049 (0x0141 - 0x00F8)
+class USFXSeqAct_SetAreaMap : public USequenceAction
 {
 public:
+	FString                                            m_sAreaMapGuiResource;                            		// 0x00F8 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	struct FVector                                     RefPoint1_Image_Px;                               		// 0x0108 (0x000C) [0x0000000000000001]              ( CPF_Edit )
+	struct FVector                                     RefPoint2_Image_Px;                               		// 0x0114 (0x000C) [0x0000000000000001]              ( CPF_Edit )
+	class UTexture2D*                                  MapAsset;                                         		// 0x0120 (0x0008) [0x0000000000000001]              ( CPF_Edit )
+	class AActor*                                      Ref1;                                             		// 0x0128 (0x0008) [0x0000000000000000]              
+	class AActor*                                      Ref2;                                             		// 0x0130 (0x0008) [0x0000000000000000]              
+	class UGFxMovieInfo*                               m_oAreaMapReference;                              		// 0x0138 (0x0008) [0x0000000000000000]              
+	unsigned char                                      MapLayout;                                        		// 0x0140 (0x0001) [0x0000000000000001]              ( CPF_Edit )
 
 private:
 	static UClass* pClassPointer;
@@ -300,6 +366,31 @@ private:
 public:
 	static UClass* StaticClass();
 
+	int eventGetObjClassVersion ( );
+	void Activated ( );
+};
+
+// Class SFXGameContent.BioSeqAct_GetMembersOfSquad
+// 0x0038 (0x0130 - 0x00F8)
+class UBioSeqAct_GetMembersOfSquad : public USequenceAction
+{
+public:
+	TArray<class APawn*>                               m_aoActorList;                                    		// 0x00F8 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class UObject*>                             m_aoPassSquads;                                   		// 0x0108 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	class APawn*                                       m_oCurrentMember;                                 		// 0x0118 (0x0008) [0x0000000000000000]              
+	class APawn*                                       m_oOutputCurrentMember;                           		// 0x0120 (0x0008) [0x0000000000000000]              
+	int                                                m_nIndex;                                         		// 0x0128 (0x0004) [0x0000000000000000]              
+	unsigned long                                      m_bAlsoReturnDeadMembers : 1;                     		// 0x012C (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
+
+private:
+	static UClass* pClassPointer;
+
+public:
+	static UClass* StaticClass();
+
+	int eventGetObjClassVersion ( );
+	void Activated ( );
+	class APawn* FindAPawn ( );
 };
 
 // Class SFXGameContent.BioSeqAct_CombatController
@@ -307,7 +398,7 @@ public:
 class UBioSeqAct_CombatController : public UBioSequenceLatentAction
 {
 public:
-	class TArray<class UObject*>                       m_aoPassSquad;                                    		// 0x0110 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class UObject*>                             m_aoPassSquad;                                    		// 0x0110 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class USFXCombatStateData*                         m_oCombatStateData;                               		// 0x0120 (0x0008) [0x0000000000000000]              
 	float                                              m_fTimeSinceLastUpdate;                           		// 0x0128 (0x0004) [0x0000000000000000]              
 	unsigned long                                      m_bDebugMode : 1;                                 		// 0x012C (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
@@ -325,7 +416,7 @@ public:
 	bool eventUpdate ( float DeltaTime );
 	void Activated ( );
 	class USFXCombatStateData* GetCombatData ( );
-	void DebugLog ( class FString sMessage );
+	void DebugLog ( FString const& sMessage );
 };
 
 // Class SFXGameContent.BioSeqVar_CombatState
@@ -349,7 +440,7 @@ class USFXCombatStateData : public UObject
 {
 public:
 	struct FFactorySpawnRequest                        m_SpawnRequest;                                   		// 0x0060 (0x001C) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<class ABioBaseSquad*>                 m_aoSquads;                                       		// 0x007C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class ABioBaseSquad*>                       m_aoSquads;                                       		// 0x007C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	int                                                m_nGlobalBudget;                                  		// 0x008C (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	int                                                m_nActiveBudget;                                  		// 0x0090 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	float                                              m_fRespawnInterval;                               		// 0x0094 (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -369,7 +460,7 @@ public:
 	void UpdateEnemyCount ( );
 	void ReportSpawnResult ( unsigned long bSuccessfullySpawned );
 	void ClearSpawnRequest ( );
-	void RequestSpawn ( struct SFXName nmRequesterName, class TArray<class AActor*> aoSpawnPoints );
+	void RequestSpawn ( struct SFXName nmRequesterName, TArray<class AActor*> const& aoSpawnPoints );
 };
 
 // Class SFXGameContent.BioSeqAct_RespawnFactory
@@ -396,8 +487,8 @@ public:
 class UBioSeqAct_SpawnLocation : public UBioSequenceLatentAction
 {
 public:
-	class TArray<class AActor*>                        m_aoSpawnPoints;                                  		// 0x0110 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<class UObject*>                       m_aoPassSpawnPoints;                              		// 0x0120 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class AActor*>                              m_aoSpawnPoints;                                  		// 0x0110 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class UObject*>                             m_aoPassSpawnPoints;                              		// 0x0120 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class USFXCombatStateData*                         m_oCombatStateData;                               		// 0x0130 (0x0008) [0x0000000000000000]              
 	float                                              m_fSpawnDelayedTime;                              		// 0x0138 (0x0004) [0x0000000000000000]              
 	int                                                m_nSpawnRetrys;                                   		// 0x013C (0x0004) [0x0000000000000000]              
@@ -422,72 +513,8 @@ public:
 	bool eventUpdate ( float DeltaTime );
 	void QueueSpawn ( );
 	void Activated ( );
-	void DebugLog ( class FString sMessage );
+	void DebugLog ( FString const& sMessage );
 	class USFXCombatStateData* GetCombatData ( );
-};
-
-// Class SFXGameContent.BioSquadCombat
-// 0x0000 (0x02E4 - 0x02E4)
-class ABioSquadCombat : public ABioBaseSquadDesignCombat
-{
-public:
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
-};
-
-// Class SFXGameContent.SFXSeqAct_CompareAliveSquadMembers
-// 0x0018 (0x0110 - 0x00F8)
-class USFXSeqAct_CompareAliveSquadMembers : public USequenceAction
-{
-public:
-	class TArray<class AActor*>                        Squads;                                           		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	int                                                AliveSquadMemberCount;                            		// 0x0108 (0x0004) [0x0000000000000000]              
-	int                                                Threshold;                                        		// 0x010C (0x0004) [0x0000000000000001]              ( CPF_Edit )
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
-	void Activated ( );
-};
-
-// Class SFXGameContent.SFXSeqAct_ToggleSleeping
-// 0x0004 (0x00FC - 0x00F8)
-class USFXSeqAct_ToggleSleeping : public USequenceAction
-{
-public:
-	float                                              fSleepPerceptionDistance;                         		// 0x00F8 (0x0004) [0x0000000000000001]              ( CPF_Edit )
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
-	int eventGetObjClassVersion ( );
-	void Activated ( );
-};
-
-// Class SFXGameContent.BioSeqAct_CancelHint
-// 0x0000 (0x00F8 - 0x00F8)
-class UBioSeqAct_CancelHint : public USequenceAction
-{
-public:
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
-	void Activated ( );
 };
 
 // Class SFXGameContent.BioSeqAct_CheckIfInVolume
@@ -508,14 +535,16 @@ public:
 	void Activated ( );
 };
 
-// Class SFXGameContent.SFXSeqAct_EnablePowers
+// Class SFXGameContent.SFXSeqAct_ApplyImpulse
 // 0x0024 (0x011C - 0x00F8)
-class USFXSeqAct_EnablePowers : public USequenceAction
+class USFXSeqAct_ApplyImpulse : public USequenceAction
 {
 public:
-	class TArray<class APawn*>                         Pawns;                                            		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct SFXName>                       Powers;                                           		// 0x0108 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	unsigned long                                      Enable : 1;                                       		// 0x0118 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
+	struct FVector                                     Position;                                         		// 0x00F8 (0x000C) [0x0000000000000001]              ( CPF_Edit )
+	struct SFXName                                     BoneName;                                         		// 0x0104 (0x0008) [0x0000000000000001]              ( CPF_Edit )
+	class AActor*                                      Instigator;                                       		// 0x010C (0x0008) [0x0000000000000000]              
+	float                                              MomentumScale;                                    		// 0x0114 (0x0004) [0x0000000000000001]              ( CPF_Edit )
+	unsigned long                                      bVelChange : 1;                                   		// 0x0118 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
 
 private:
 	static UClass* pClassPointer;
@@ -526,14 +555,14 @@ public:
 	void Activated ( );
 };
 
-// Class SFXGameContent.SFXSeqAct_GetActorHealth
-// 0x000D (0x0105 - 0x00F8)
-class USFXSeqAct_GetActorHealth : public USequenceAction
+// Class SFXGameContent.SFXSeqAct_CompareAliveSquadMembers
+// 0x0018 (0x0110 - 0x00F8)
+class USFXSeqAct_CompareAliveSquadMembers : public USequenceAction
 {
 public:
-	class AActor*                                      Actor;                                            		// 0x00F8 (0x0008) [0x0000000000000000]              
-	float                                              Health;                                           		// 0x0100 (0x0004) [0x0000000000000000]              
-	unsigned char                                      GetHealthType;                                    		// 0x0104 (0x0001) [0x0000000000000001]              ( CPF_Edit )
+	TArray<class AActor*>                              Squads;                                           		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	int                                                AliveSquadMemberCount;                            		// 0x0108 (0x0004) [0x0000000000000000]              
+	int                                                Threshold;                                        		// 0x010C (0x0004) [0x0000000000000001]              ( CPF_Edit )
 
 private:
 	static UClass* pClassPointer;
@@ -541,7 +570,37 @@ private:
 public:
 	static UClass* StaticClass();
 
-	void eventActivated ( );
+	void Activated ( );
+};
+
+// Class SFXGameContent.SFXSeqAct_LocationControlSpawnDoor
+// 0x004D (0x015D - 0x0110)
+class USFXSeqAct_LocationControlSpawnDoor : public UBioSequenceLatentAction
+{
+public:
+	TArray<class ASFXDoor*>                            m_aoDoors;                                        		// 0x0110 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class AActor*>                              m_aoVolumes;                                      		// 0x0120 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class UObject*>                             m_aoPassDoors;                                    		// 0x0130 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class UObject*>                             m_aoPassVolumes;                                  		// 0x0140 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	float                                              m_fUpdateTime;                                    		// 0x0150 (0x0004) [0x0000000000000001]              ( CPF_Edit )
+	float                                              m_fTimeSinceLastUpdate;                           		// 0x0154 (0x0004) [0x0000000000000000]              
+	unsigned long                                      m_bDisabled : 1;                                  		// 0x0158 (0x0004) [0x0000000000000000] [0x00000001] 
+	unsigned long                                      m_bDebugMode : 1;                                 		// 0x0158 (0x0004) [0x0000000000000001] [0x00000002] ( CPF_Edit )
+	unsigned long                                      m_bLastKnownState : 1;                            		// 0x0158 (0x0004) [0x0000000000000001] [0x00000004] ( CPF_Edit )
+	unsigned long                                      m_bStopWhenNextClosed : 1;                        		// 0x0158 (0x0004) [0x0000000000000001] [0x00000008] ( CPF_Edit )
+	unsigned char                                      eClosedState;                                     		// 0x015C (0x0001) [0x0000000000000001]              ( CPF_Edit )
+
+private:
+	static UClass* pClassPointer;
+
+public:
+	static UClass* StaticClass();
+
+	int eventGetObjClassVersion ( );
+	bool eventUpdate ( float DeltaTime );
+	bool PawnIsInVolumes ( );
+	void Activated ( );
+	bool AllDoorsClosed ( );
 };
 
 

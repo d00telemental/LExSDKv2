@@ -55,10 +55,10 @@ class UClass* UGFxFSCmdHandler::StaticClass()
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class UGFxMovie*               Movie                          ( CPF_Parm )
-// class FString                  Cmd                            ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  arg                            ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Cmd                            ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        arg                            ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UGFxFSCmdHandler::eventFSCommand ( class UGFxMovie* Movie, class FString Cmd, class FString arg )
+bool UGFxFSCmdHandler::eventFSCommand ( class UGFxMovie* Movie, FString const& Cmd, FString const& arg )
 {
 	static UFunction* pFnFSCommand = NULL;
 
@@ -91,9 +91,9 @@ class UClass* UGFxGameViewportClient::StaticClass()
 // [0x00420802] ( FUNC_Event )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  OutError                       ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        OutError                       ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UGFxGameViewportClient::eventInit ( class FString* OutError )
+bool UGFxGameViewportClient::eventInit ( FString* OutError )
 {
 	static UFunction* pFnInit = NULL;
 
@@ -172,10 +172,10 @@ class UGFxMovie* UGFxInteraction::GetFocusMovie ( )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  MovieName                      ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        MovieName                      ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  captureInput                   ( CPF_Parm )
 
-bool UGFxInteraction::SetFocusMovie ( class FString MovieName, unsigned long captureInput )
+bool UGFxInteraction::SetFocusMovie ( FString const& MovieName, unsigned long captureInput )
 {
 	static UFunction* pFnSetFocusMovie = NULL;
 
@@ -261,9 +261,9 @@ bool UGFxMovie::RegisterGFxValue ( class UGFxValue* i_val )
 // [0x00080401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // class UGFxValue*               Obj                            ( CPF_Parm )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 
-void UGFxMovie::ActionScriptSetFunction ( class UGFxValue* Obj, class FString member )
+void UGFxMovie::ActionScriptSetFunction ( class UGFxValue* Obj, FString const& member )
 {
 	static UFunction* pFnActionScriptSetFunction = NULL;
 
@@ -285,9 +285,9 @@ void UGFxMovie::ActionScriptSetFunction ( class UGFxValue* Obj, class FString me
 // [0x00080401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // class UGFxValue*               ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 
-class UGFxValue* UGFxMovie::ActionScriptObject ( class FString Path )
+class UGFxValue* UGFxMovie::ActionScriptObject ( FString const& Path )
 {
 	static UFunction* pFnActionScriptObject = NULL;
 
@@ -309,10 +309,10 @@ class UGFxValue* UGFxMovie::ActionScriptObject ( class FString Path )
 // Function GFxUI.GFxMovie.ActionScriptString
 // [0x00080401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 
-class FString UGFxMovie::ActionScriptString ( class FString Path )
+FString UGFxMovie::ActionScriptString ( FString const& Path )
 {
 	static UFunction* pFnActionScriptString = NULL;
 
@@ -335,9 +335,9 @@ class FString UGFxMovie::ActionScriptString ( class FString Path )
 // [0x00080401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 
-float UGFxMovie::ActionScriptFloat ( class FString Path )
+float UGFxMovie::ActionScriptFloat ( FString const& Path )
 {
 	static UFunction* pFnActionScriptFloat = NULL;
 
@@ -360,9 +360,9 @@ float UGFxMovie::ActionScriptFloat ( class FString Path )
 // [0x00080401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 
-int UGFxMovie::ActionScriptInt ( class FString Path )
+int UGFxMovie::ActionScriptInt ( FString const& Path )
 {
 	static UFunction* pFnActionScriptInt = NULL;
 
@@ -384,9 +384,9 @@ int UGFxMovie::ActionScriptInt ( class FString Path )
 // Function GFxUI.GFxMovie.ActionScriptVoid
 // [0x00080401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 
-void UGFxMovie::ActionScriptVoid ( class FString Path )
+void UGFxMovie::ActionScriptVoid ( FString const& Path )
 {
 	static UFunction* pFnActionScriptVoid = NULL;
 
@@ -442,10 +442,10 @@ void UGFxMovie::SetFsCmdHandler ( class UGFxFSCmdHandler* H )
 // Function GFxUI.GFxMovie.SetVariableObject
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 // class UGFxValue*               Value                          ( CPF_Parm )
 
-void UGFxMovie::SetVariableObject ( class FString Path, class UGFxValue* Value )
+void UGFxMovie::SetVariableObject ( FString const& Path, class UGFxValue* Value )
 {
 	static UFunction* pFnSetVariableObject = NULL;
 
@@ -467,10 +467,10 @@ void UGFxMovie::SetVariableObject ( class FString Path, class UGFxValue* Value )
 // [0x00024400] ( FUNC_Native )
 // Parameters infos:
 // class UGFxValue*               ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 // class UClass*                  Type                           ( CPF_OptionalParm | CPF_Parm )
 
-class UGFxValue* UGFxMovie::GetVariableObject ( class FString Path, class UClass* Type )
+class UGFxValue* UGFxMovie::GetVariableObject ( FString const& Path, class UClass* Type )
 {
 	static UFunction* pFnGetVariableObject = NULL;
 
@@ -517,10 +517,10 @@ class UGFxValue* UGFxMovie::CreateArray ( )
 // [0x00024400] ( FUNC_Native )
 // Parameters infos:
 // class UGFxValue*               ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  ASClass                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ASClass                        ( CPF_Parm | CPF_NeedCtorLink )
 // class UClass*                  Type                           ( CPF_OptionalParm | CPF_Parm )
 
-class UGFxValue* UGFxMovie::CreateObject ( class FString ASClass, class UClass* Type )
+class UGFxValue* UGFxMovie::CreateObject ( FString const& ASClass, class UClass* Type )
 {
 	static UFunction* pFnCreateObject = NULL;
 
@@ -544,11 +544,11 @@ class UGFxValue* UGFxMovie::CreateObject ( class FString ASClass, class UClass* 
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Index                          ( CPF_Parm )
-// class TArray<class FString>    arg                            ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<FString>                arg                            ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UGFxMovie::SetVariableStringArray ( class FString Path, int Index, class TArray<class FString> arg )
+bool UGFxMovie::SetVariableStringArray ( FString const& Path, int Index, TArray<FString> const& arg )
 {
 	static UFunction* pFnSetVariableStringArray = NULL;
 
@@ -573,11 +573,11 @@ bool UGFxMovie::SetVariableStringArray ( class FString Path, int Index, class TA
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Index                          ( CPF_Parm )
-// class TArray<float>            arg                            ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<float>                  arg                            ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UGFxMovie::SetVariableFloatArray ( class FString Path, int Index, class TArray<float> arg )
+bool UGFxMovie::SetVariableFloatArray ( FString const& Path, int Index, TArray<float> const& arg )
 {
 	static UFunction* pFnSetVariableFloatArray = NULL;
 
@@ -602,11 +602,11 @@ bool UGFxMovie::SetVariableFloatArray ( class FString Path, int Index, class TAr
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Index                          ( CPF_Parm )
-// class TArray<int>              arg                            ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    arg                            ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UGFxMovie::SetVariableIntArray ( class FString Path, int Index, class TArray<int> arg )
+bool UGFxMovie::SetVariableIntArray ( FString const& Path, int Index, TArray<int> const& arg )
 {
 	static UFunction* pFnSetVariableIntArray = NULL;
 
@@ -631,11 +631,11 @@ bool UGFxMovie::SetVariableIntArray ( class FString Path, int Index, class TArra
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Index                          ( CPF_Parm )
-// class TArray<struct FASValue>  arg                            ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FASValue>        arg                            ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UGFxMovie::SetVariableArray ( class FString Path, int Index, class TArray<struct FASValue> arg )
+bool UGFxMovie::SetVariableArray ( FString const& Path, int Index, TArray<struct FASValue> const& arg )
 {
 	static UFunction* pFnSetVariableArray = NULL;
 
@@ -660,11 +660,11 @@ bool UGFxMovie::SetVariableArray ( class FString Path, int Index, class TArray<s
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Index                          ( CPF_Parm )
-// class TArray<class FString>    arg                            ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<FString>                arg                            ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UGFxMovie::GetVariableStringArray ( class FString Path, int Index, class TArray<class FString>* arg )
+bool UGFxMovie::GetVariableStringArray ( FString const& Path, int Index, TArray<FString>* arg )
 {
 	static UFunction* pFnGetVariableStringArray = NULL;
 
@@ -694,11 +694,11 @@ bool UGFxMovie::GetVariableStringArray ( class FString Path, int Index, class TA
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Index                          ( CPF_Parm )
-// class TArray<float>            arg                            ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<float>                  arg                            ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UGFxMovie::GetVariableFloatArray ( class FString Path, int Index, class TArray<float>* arg )
+bool UGFxMovie::GetVariableFloatArray ( FString const& Path, int Index, TArray<float>* arg )
 {
 	static UFunction* pFnGetVariableFloatArray = NULL;
 
@@ -728,11 +728,11 @@ bool UGFxMovie::GetVariableFloatArray ( class FString Path, int Index, class TAr
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Index                          ( CPF_Parm )
-// class TArray<int>              arg                            ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<int>                    arg                            ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UGFxMovie::GetVariableIntArray ( class FString Path, int Index, class TArray<int>* arg )
+bool UGFxMovie::GetVariableIntArray ( FString const& Path, int Index, TArray<int>* arg )
 {
 	static UFunction* pFnGetVariableIntArray = NULL;
 
@@ -762,11 +762,11 @@ bool UGFxMovie::GetVariableIntArray ( class FString Path, int Index, class TArra
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Index                          ( CPF_Parm )
-// class TArray<struct FASValue>  arg                            ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FASValue>        arg                            ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UGFxMovie::GetVariableArray ( class FString Path, int Index, class TArray<struct FASValue>* arg )
+bool UGFxMovie::GetVariableArray ( FString const& Path, int Index, TArray<struct FASValue>* arg )
 {
 	static UFunction* pFnGetVariableArray = NULL;
 
@@ -795,10 +795,10 @@ bool UGFxMovie::GetVariableArray ( class FString Path, int Index, class TArray<s
 // Function GFxUI.GFxMovie.SetVariableString
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  S                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_NeedCtorLink )
 
-void UGFxMovie::SetVariableString ( class FString Path, class FString S )
+void UGFxMovie::SetVariableString ( FString const& Path, FString const& S )
 {
 	static UFunction* pFnSetVariableString = NULL;
 
@@ -819,10 +819,10 @@ void UGFxMovie::SetVariableString ( class FString Path, class FString S )
 // Function GFxUI.GFxMovie.SetVariableNumber
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 // float                          F                              ( CPF_Parm )
 
-void UGFxMovie::SetVariableNumber ( class FString Path, float F )
+void UGFxMovie::SetVariableNumber ( FString const& Path, float F )
 {
 	static UFunction* pFnSetVariableNumber = NULL;
 
@@ -843,10 +843,10 @@ void UGFxMovie::SetVariableNumber ( class FString Path, float F )
 // Function GFxUI.GFxMovie.SetVariableBool
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  B                              ( CPF_Parm )
 
-void UGFxMovie::SetVariableBool ( class FString Path, unsigned long B )
+void UGFxMovie::SetVariableBool ( FString const& Path, unsigned long B )
 {
 	static UFunction* pFnSetVariableBool = NULL;
 
@@ -867,10 +867,10 @@ void UGFxMovie::SetVariableBool ( class FString Path, unsigned long B )
 // Function GFxUI.GFxMovie.SetVariable
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 // struct FASValue                arg                            ( CPF_Parm | CPF_NeedCtorLink )
 
-void UGFxMovie::SetVariable ( class FString Path, struct FASValue arg )
+void UGFxMovie::SetVariable ( FString const& Path, struct FASValue const& arg )
 {
 	static UFunction* pFnSetVariable = NULL;
 
@@ -891,10 +891,10 @@ void UGFxMovie::SetVariable ( class FString Path, struct FASValue arg )
 // Function GFxUI.GFxMovie.GetVariableString
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 
-class FString UGFxMovie::GetVariableString ( class FString Path )
+FString UGFxMovie::GetVariableString ( FString const& Path )
 {
 	static UFunction* pFnGetVariableString = NULL;
 
@@ -917,9 +917,9 @@ class FString UGFxMovie::GetVariableString ( class FString Path )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 
-float UGFxMovie::GetVariableNumber ( class FString Path )
+float UGFxMovie::GetVariableNumber ( FString const& Path )
 {
 	static UFunction* pFnGetVariableNumber = NULL;
 
@@ -942,9 +942,9 @@ float UGFxMovie::GetVariableNumber ( class FString Path )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UGFxMovie::GetVariableBool ( class FString Path )
+bool UGFxMovie::GetVariableBool ( FString const& Path )
 {
 	static UFunction* pFnGetVariableBool = NULL;
 
@@ -967,9 +967,9 @@ bool UGFxMovie::GetVariableBool ( class FString Path )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // struct FASValue                ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 
-struct FASValue UGFxMovie::GetVariable ( class FString Path )
+struct FASValue UGFxMovie::GetVariable ( FString const& Path )
 {
 	static UFunction* pFnGetVariable = NULL;
 
@@ -1032,10 +1032,10 @@ void UGFxMovie::RefreshDataStoreBindings ( )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // struct FASValue                ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  method                         ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FASValue>  Args                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        method                         ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FASValue>        Args                           ( CPF_Parm | CPF_NeedCtorLink )
 
-struct FASValue UGFxMovie::Invoke ( class FString method, class TArray<struct FASValue> Args )
+struct FASValue UGFxMovie::Invoke ( FString const& method, TArray<struct FASValue> const& Args )
 {
 	static UFunction* pFnInvoke = NULL;
 
@@ -1193,10 +1193,10 @@ void UGFxMovie::Advance ( float Time )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Resource                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Resource                       ( CPF_Parm | CPF_NeedCtorLink )
 // class UTexture*                Texture                        ( CPF_Parm )
 
-bool UGFxMovie::SetExternalTexture ( class FString Resource, class UTexture* Texture )
+bool UGFxMovie::SetExternalTexture ( FString const& Resource, class UTexture* Texture )
 {
 	static UFunction* pFnSetExternalTexture = NULL;
 
@@ -1697,9 +1697,9 @@ class UClass* UGFxValue::StaticClass()
 // [0x00080401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // class UGFxValue*               Target                         ( CPF_Parm )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 
-void UGFxValue::ActionScriptSetFunctionOn ( class UGFxValue* Target, class FString member )
+void UGFxValue::ActionScriptSetFunctionOn ( class UGFxValue* Target, FString const& member )
 {
 	static UFunction* pFnActionScriptSetFunctionOn = NULL;
 
@@ -1720,9 +1720,9 @@ void UGFxValue::ActionScriptSetFunctionOn ( class UGFxValue* Target, class FStri
 // Function GFxUI.GFxValue.ActionScriptSetFunction
 // [0x00080401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 
-void UGFxValue::ActionScriptSetFunction ( class FString member )
+void UGFxValue::ActionScriptSetFunction ( FString const& member )
 {
 	static UFunction* pFnActionScriptSetFunction = NULL;
 
@@ -1742,10 +1742,10 @@ void UGFxValue::ActionScriptSetFunction ( class FString member )
 // Function GFxUI.GFxValue.ActionScriptArray
 // [0x00080401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class TArray<class UGFxValue*> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<class UGFxValue*>       ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 
-class TArray<class UGFxValue*> UGFxValue::ActionScriptArray ( class FString Path )
+TArray<class UGFxValue*> UGFxValue::ActionScriptArray ( FString const& Path )
 {
 	static UFunction* pFnActionScriptArray = NULL;
 
@@ -1768,9 +1768,9 @@ class TArray<class UGFxValue*> UGFxValue::ActionScriptArray ( class FString Path
 // [0x00080401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // class UGFxValue*               ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Path                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Path                           ( CPF_Parm | CPF_NeedCtorLink )
 
-class UGFxValue* UGFxValue::ActionScriptObject ( class FString Path )
+class UGFxValue* UGFxValue::ActionScriptObject ( FString const& Path )
 {
 	static UFunction* pFnActionScriptObject = NULL;
 
@@ -1792,10 +1792,10 @@ class UGFxValue* UGFxValue::ActionScriptObject ( class FString Path )
 // Function GFxUI.GFxValue.ActionScriptString
 // [0x00080401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  method                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        method                         ( CPF_Parm | CPF_NeedCtorLink )
 
-class FString UGFxValue::ActionScriptString ( class FString method )
+FString UGFxValue::ActionScriptString ( FString const& method )
 {
 	static UFunction* pFnActionScriptString = NULL;
 
@@ -1818,9 +1818,9 @@ class FString UGFxValue::ActionScriptString ( class FString method )
 // [0x00080401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  method                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        method                         ( CPF_Parm | CPF_NeedCtorLink )
 
-float UGFxValue::ActionScriptFloat ( class FString method )
+float UGFxValue::ActionScriptFloat ( FString const& method )
 {
 	static UFunction* pFnActionScriptFloat = NULL;
 
@@ -1843,9 +1843,9 @@ float UGFxValue::ActionScriptFloat ( class FString method )
 // [0x00080401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  method                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        method                         ( CPF_Parm | CPF_NeedCtorLink )
 
-int UGFxValue::ActionScriptInt ( class FString method )
+int UGFxValue::ActionScriptInt ( FString const& method )
 {
 	static UFunction* pFnActionScriptInt = NULL;
 
@@ -1867,9 +1867,9 @@ int UGFxValue::ActionScriptInt ( class FString method )
 // Function GFxUI.GFxValue.ActionScriptVoid
 // [0x00080401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  method                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        method                         ( CPF_Parm | CPF_NeedCtorLink )
 
-void UGFxValue::ActionScriptVoid ( class FString method )
+void UGFxValue::ActionScriptVoid ( FString const& method )
 {
 	static UFunction* pFnActionScriptVoid = NULL;
 
@@ -1890,10 +1890,10 @@ void UGFxValue::ActionScriptVoid ( class FString method )
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // int                            Index                          ( CPF_Parm )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  S                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_NeedCtorLink )
 
-void UGFxValue::SetElementMemberString ( int Index, class FString member, class FString S )
+void UGFxValue::SetElementMemberString ( int Index, FString const& member, FString const& S )
 {
 	static UFunction* pFnSetElementMemberString = NULL;
 
@@ -1916,10 +1916,10 @@ void UGFxValue::SetElementMemberString ( int Index, class FString member, class 
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // int                            Index                          ( CPF_Parm )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 // float                          F                              ( CPF_Parm )
 
-void UGFxValue::SetElementMemberNumber ( int Index, class FString member, float F )
+void UGFxValue::SetElementMemberNumber ( int Index, FString const& member, float F )
 {
 	static UFunction* pFnSetElementMemberNumber = NULL;
 
@@ -1942,10 +1942,10 @@ void UGFxValue::SetElementMemberNumber ( int Index, class FString member, float 
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // int                            Index                          ( CPF_Parm )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  B                              ( CPF_Parm )
 
-void UGFxValue::SetElementMemberBool ( int Index, class FString member, unsigned long B )
+void UGFxValue::SetElementMemberBool ( int Index, FString const& member, unsigned long B )
 {
 	static UFunction* pFnSetElementMemberBool = NULL;
 
@@ -1968,10 +1968,10 @@ void UGFxValue::SetElementMemberBool ( int Index, class FString member, unsigned
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // int                            Index                          ( CPF_Parm )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 // class UGFxValue*               val                            ( CPF_Parm )
 
-void UGFxValue::SetElementMemberObject ( int Index, class FString member, class UGFxValue* val )
+void UGFxValue::SetElementMemberObject ( int Index, FString const& member, class UGFxValue* val )
 {
 	static UFunction* pFnSetElementMemberObject = NULL;
 
@@ -1994,10 +1994,10 @@ void UGFxValue::SetElementMemberObject ( int Index, class FString member, class 
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // int                            Index                          ( CPF_Parm )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 // struct FASValue                arg                            ( CPF_Parm | CPF_NeedCtorLink )
 
-void UGFxValue::SetElementMember ( int Index, class FString member, struct FASValue arg )
+void UGFxValue::SetElementMember ( int Index, FString const& member, struct FASValue const& arg )
 {
 	static UFunction* pFnSetElementMember = NULL;
 
@@ -2019,11 +2019,11 @@ void UGFxValue::SetElementMember ( int Index, class FString member, struct FASVa
 // Function GFxUI.GFxValue.GetElementMemberString
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // int                            Index                          ( CPF_Parm )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 
-class FString UGFxValue::GetElementMemberString ( int Index, class FString member )
+FString UGFxValue::GetElementMemberString ( int Index, FString const& member )
 {
 	static UFunction* pFnGetElementMemberString = NULL;
 
@@ -2048,9 +2048,9 @@ class FString UGFxValue::GetElementMemberString ( int Index, class FString membe
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            Index                          ( CPF_Parm )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 
-float UGFxValue::GetElementMemberNumber ( int Index, class FString member )
+float UGFxValue::GetElementMemberNumber ( int Index, FString const& member )
 {
 	static UFunction* pFnGetElementMemberNumber = NULL;
 
@@ -2075,9 +2075,9 @@ float UGFxValue::GetElementMemberNumber ( int Index, class FString member )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            Index                          ( CPF_Parm )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UGFxValue::GetElementMemberBool ( int Index, class FString member )
+bool UGFxValue::GetElementMemberBool ( int Index, FString const& member )
 {
 	static UFunction* pFnGetElementMemberBool = NULL;
 
@@ -2102,10 +2102,10 @@ bool UGFxValue::GetElementMemberBool ( int Index, class FString member )
 // Parameters infos:
 // class UGFxValue*               ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            Index                          ( CPF_Parm )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 // class UClass*                  Type                           ( CPF_OptionalParm | CPF_Parm )
 
-class UGFxValue* UGFxValue::GetElementMemberObject ( int Index, class FString member, class UClass* Type )
+class UGFxValue* UGFxValue::GetElementMemberObject ( int Index, FString const& member, class UClass* Type )
 {
 	static UFunction* pFnGetElementMemberObject = NULL;
 
@@ -2131,9 +2131,9 @@ class UGFxValue* UGFxValue::GetElementMemberObject ( int Index, class FString me
 // Parameters infos:
 // struct FASValue                ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // int                            Index                          ( CPF_Parm )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 
-struct FASValue UGFxValue::GetElementMember ( int Index, class FString member )
+struct FASValue UGFxValue::GetElementMember ( int Index, FString const& member )
 {
 	static UFunction* pFnGetElementMember = NULL;
 
@@ -2159,7 +2159,7 @@ struct FASValue UGFxValue::GetElementMember ( int Index, class FString member )
 // int                            Index                          ( CPF_Parm )
 // struct FASColorTransform       cxform                         ( CPF_Parm )
 
-void UGFxValue::SetElementColorTransform ( int Index, struct FASColorTransform cxform )
+void UGFxValue::SetElementColorTransform ( int Index, struct FASColorTransform const& cxform )
 {
 	static UFunction* pFnSetElementColorTransform = NULL;
 
@@ -2233,7 +2233,7 @@ void UGFxValue::SetElementVisible ( int Index, unsigned long Visible )
 // int                            Index                          ( CPF_Parm )
 // struct FMatrix                 M                              ( CPF_Parm )
 
-void UGFxValue::SetElementDisplayMatrix ( int Index, struct FMatrix M )
+void UGFxValue::SetElementDisplayMatrix ( int Index, struct FMatrix const& M )
 {
 	static UFunction* pFnSetElementDisplayMatrix = NULL;
 
@@ -2257,7 +2257,7 @@ void UGFxValue::SetElementDisplayMatrix ( int Index, struct FMatrix M )
 // int                            Index                          ( CPF_Parm )
 // struct FASDisplayInfo          D                              ( CPF_Parm )
 
-void UGFxValue::SetElementDisplayInfo ( int Index, struct FASDisplayInfo D )
+void UGFxValue::SetElementDisplayInfo ( int Index, struct FASDisplayInfo const& D )
 {
 	static UFunction* pFnSetElementDisplayInfo = NULL;
 
@@ -2279,9 +2279,9 @@ void UGFxValue::SetElementDisplayInfo ( int Index, struct FASDisplayInfo D )
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // int                            Index                          ( CPF_Parm )
-// class FString                  S                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_NeedCtorLink )
 
-void UGFxValue::SetElementString ( int Index, class FString S )
+void UGFxValue::SetElementString ( int Index, FString const& S )
 {
 	static UFunction* pFnSetElementString = NULL;
 
@@ -2377,7 +2377,7 @@ void UGFxValue::SetElementObject ( int Index, class UGFxValue* val )
 // int                            Index                          ( CPF_Parm )
 // struct FASValue                arg                            ( CPF_Parm | CPF_NeedCtorLink )
 
-void UGFxValue::SetElement ( int Index, struct FASValue arg )
+void UGFxValue::SetElement ( int Index, struct FASValue const& arg )
 {
 	static UFunction* pFnSetElement = NULL;
 
@@ -2448,10 +2448,10 @@ struct FASDisplayInfo UGFxValue::GetElementDisplayInfo ( int Index )
 // Function GFxUI.GFxValue.GetElementString
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // int                            Index                          ( CPF_Parm )
 
-class FString UGFxValue::GetElementString ( int Index )
+FString UGFxValue::GetElementString ( int Index )
 {
 	static UFunction* pFnGetElementString = NULL;
 
@@ -2575,9 +2575,9 @@ struct FASValue UGFxValue::GetElement ( int Index )
 // Function GFxUI.GFxValue.SetText
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  Text                           ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        Text                           ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 
-void UGFxValue::SetText ( class FString Text )
+void UGFxValue::SetText ( FString const& Text )
 {
 	static UFunction* pFnSetText = NULL;
 
@@ -2597,9 +2597,9 @@ void UGFxValue::SetText ( class FString Text )
 // Function GFxUI.GFxValue.GetText
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString UGFxValue::GetText ( )
+FString UGFxValue::GetText ( )
 {
 	static UFunction* pFnGetText = NULL;
 
@@ -2621,12 +2621,12 @@ class FString UGFxValue::GetText ( )
 // [0x00024401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // class UGFxValue*               ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  symbolname                     ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  instancename                   ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        symbolname                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        instancename                   ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Depth                          ( CPF_OptionalParm | CPF_Parm )
 // class UClass*                  Type                           ( CPF_OptionalParm | CPF_Parm )
 
-class UGFxValue* UGFxValue::AttachMovie ( class FString symbolname, class FString instancename, int Depth, class UClass* Type )
+class UGFxValue* UGFxValue::AttachMovie ( FString const& symbolname, FString const& instancename, int Depth, class UClass* Type )
 {
 	static UFunction* pFnAttachMovie = NULL;
 
@@ -2652,11 +2652,11 @@ class UGFxValue* UGFxValue::AttachMovie ( class FString symbolname, class FStrin
 // [0x00024401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // class UGFxValue*               ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  instancename                   ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        instancename                   ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Depth                          ( CPF_OptionalParm | CPF_Parm )
 // class UClass*                  Type                           ( CPF_OptionalParm | CPF_Parm )
 
-class UGFxValue* UGFxValue::CreateEmptyMovieClip ( class FString instancename, int Depth, class UClass* Type )
+class UGFxValue* UGFxValue::CreateEmptyMovieClip ( FString const& instancename, int Depth, class UClass* Type )
 {
 	static UFunction* pFnCreateEmptyMovieClip = NULL;
 
@@ -2702,9 +2702,9 @@ void UGFxValue::GotoAndStopI ( int frame )
 // Function GFxUI.GFxValue.GotoAndStop
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  frame                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        frame                          ( CPF_Parm | CPF_NeedCtorLink )
 
-void UGFxValue::GotoAndStop ( class FString frame )
+void UGFxValue::GotoAndStop ( FString const& frame )
 {
 	static UFunction* pFnGotoAndStop = NULL;
 
@@ -2746,9 +2746,9 @@ void UGFxValue::GotoAndPlayI ( int frame )
 // Function GFxUI.GFxValue.GotoAndPlay
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  frame                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        frame                          ( CPF_Parm | CPF_NeedCtorLink )
 
-void UGFxValue::GotoAndPlay ( class FString frame )
+void UGFxValue::GotoAndPlay ( FString const& frame )
 {
 	static UFunction* pFnGotoAndPlay = NULL;
 
@@ -2770,7 +2770,7 @@ void UGFxValue::GotoAndPlay ( class FString frame )
 // Parameters infos:
 // struct FASColorTransform       cxform                         ( CPF_Parm )
 
-void UGFxValue::SetColorTransform ( struct FASColorTransform cxform )
+void UGFxValue::SetColorTransform ( struct FASColorTransform const& cxform )
 {
 	static UFunction* pFnSetColorTransform = NULL;
 
@@ -2838,7 +2838,7 @@ void UGFxValue::SetVisible ( unsigned long Visible )
 // Parameters infos:
 // struct FMatrix                 M                              ( CPF_Parm )
 
-void UGFxValue::SetDisplayMatrix3D ( struct FMatrix M )
+void UGFxValue::SetDisplayMatrix3D ( struct FMatrix const& M )
 {
 	static UFunction* pFnSetDisplayMatrix3D = NULL;
 
@@ -2860,7 +2860,7 @@ void UGFxValue::SetDisplayMatrix3D ( struct FMatrix M )
 // Parameters infos:
 // struct FMatrix                 M                              ( CPF_Parm )
 
-void UGFxValue::SetDisplayMatrix ( struct FMatrix M )
+void UGFxValue::SetDisplayMatrix ( struct FMatrix const& M )
 {
 	static UFunction* pFnSetDisplayMatrix = NULL;
 
@@ -2882,7 +2882,7 @@ void UGFxValue::SetDisplayMatrix ( struct FMatrix M )
 // Parameters infos:
 // struct FASDisplayInfo          D                              ( CPF_Parm )
 
-void UGFxValue::SetDisplayInfo ( struct FASDisplayInfo D )
+void UGFxValue::SetDisplayInfo ( struct FASDisplayInfo const& D )
 {
 	static UFunction* pFnSetDisplayInfo = NULL;
 
@@ -3008,10 +3008,10 @@ struct FASDisplayInfo UGFxValue::GetDisplayInfo ( )
 // Function GFxUI.GFxValue.SetString
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  S                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_NeedCtorLink )
 
-void UGFxValue::SetString ( class FString member, class FString S )
+void UGFxValue::SetString ( FString const& member, FString const& S )
 {
 	static UFunction* pFnSetString = NULL;
 
@@ -3032,10 +3032,10 @@ void UGFxValue::SetString ( class FString member, class FString S )
 // Function GFxUI.GFxValue.SetNumber
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 // float                          F                              ( CPF_Parm )
 
-void UGFxValue::SetNumber ( class FString member, float F )
+void UGFxValue::SetNumber ( FString const& member, float F )
 {
 	static UFunction* pFnSetNumber = NULL;
 
@@ -3056,10 +3056,10 @@ void UGFxValue::SetNumber ( class FString member, float F )
 // Function GFxUI.GFxValue.SetBool
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  B                              ( CPF_Parm )
 
-void UGFxValue::SetBool ( class FString member, unsigned long B )
+void UGFxValue::SetBool ( FString const& member, unsigned long B )
 {
 	static UFunction* pFnSetBool = NULL;
 
@@ -3080,11 +3080,11 @@ void UGFxValue::SetBool ( class FString member, unsigned long B )
 // Function GFxUI.GFxValue.SetFunction
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 // class UObject*                 context                        ( CPF_Parm )
 // struct SFXName                 fname                          ( CPF_Parm )
 
-void UGFxValue::SetFunction ( class FString member, class UObject* context, struct SFXName fname )
+void UGFxValue::SetFunction ( FString const& member, class UObject* context, struct SFXName fname )
 {
 	static UFunction* pFnSetFunction = NULL;
 
@@ -3106,10 +3106,10 @@ void UGFxValue::SetFunction ( class FString member, class UObject* context, stru
 // Function GFxUI.GFxValue.SetObject
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 // class UGFxValue*               val                            ( CPF_Parm )
 
-void UGFxValue::SetObject ( class FString member, class UGFxValue* val )
+void UGFxValue::SetObject ( FString const& member, class UGFxValue* val )
 {
 	static UFunction* pFnSetObject = NULL;
 
@@ -3130,10 +3130,10 @@ void UGFxValue::SetObject ( class FString member, class UGFxValue* val )
 // Function GFxUI.GFxValue.Set
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 // struct FASValue                arg                            ( CPF_Parm | CPF_NeedCtorLink )
 
-void UGFxValue::Set ( class FString member, struct FASValue arg )
+void UGFxValue::Set ( FString const& member, struct FASValue const& arg )
 {
 	static UFunction* pFnSet = NULL;
 
@@ -3154,10 +3154,10 @@ void UGFxValue::Set ( class FString member, struct FASValue arg )
 // Function GFxUI.GFxValue.GetString
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 
-class FString UGFxValue::GetString ( class FString member )
+FString UGFxValue::GetString ( FString const& member )
 {
 	static UFunction* pFnGetString = NULL;
 
@@ -3180,9 +3180,9 @@ class FString UGFxValue::GetString ( class FString member )
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 
-float UGFxValue::GetNumber ( class FString member )
+float UGFxValue::GetNumber ( FString const& member )
 {
 	static UFunction* pFnGetNumber = NULL;
 
@@ -3205,9 +3205,9 @@ float UGFxValue::GetNumber ( class FString member )
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UGFxValue::GetBool ( class FString member )
+bool UGFxValue::GetBool ( FString const& member )
 {
 	static UFunction* pFnGetBool = NULL;
 
@@ -3230,10 +3230,10 @@ bool UGFxValue::GetBool ( class FString member )
 // [0x00024401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // class UGFxValue*               ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 // class UClass*                  Type                           ( CPF_OptionalParm | CPF_Parm )
 
-class UGFxValue* UGFxValue::GetObject ( class FString member, class UClass* Type )
+class UGFxValue* UGFxValue::GetObject ( FString const& member, class UClass* Type )
 {
 	static UFunction* pFnGetObject = NULL;
 
@@ -3257,9 +3257,9 @@ class UGFxValue* UGFxValue::GetObject ( class FString member, class UClass* Type
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // struct FASValue                ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
 
-struct FASValue UGFxValue::Get ( class FString member )
+struct FASValue UGFxValue::Get ( FString const& member )
 {
 	static UFunction* pFnGet = NULL;
 
@@ -3282,10 +3282,10 @@ struct FASValue UGFxValue::Get ( class FString member )
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // struct FASValue                ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  member                         ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FASValue>  Args                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        member                         ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FASValue>        Args                           ( CPF_Parm | CPF_NeedCtorLink )
 
-struct FASValue UGFxValue::Invoke ( class FString member, class TArray<struct FASValue> Args )
+struct FASValue UGFxValue::Invoke ( FString const& member, TArray<struct FASValue> const& Args )
 {
 	static UFunction* pFnInvoke = NULL;
 
@@ -3513,10 +3513,10 @@ class UClass* UGFxFSCmdHandler_Kismet::StaticClass()
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class UGFxMovie*               Movie                          ( CPF_Parm )
-// class FString                  Cmd                            ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  arg                            ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Cmd                            ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        arg                            ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UGFxFSCmdHandler_Kismet::eventFSCommand ( class UGFxMovie* Movie, class FString Cmd, class FString arg )
+bool UGFxFSCmdHandler_Kismet::eventFSCommand ( class UGFxMovie* Movie, FString const& Cmd, FString const& arg )
 {
 	static UFunction* pFnFSCommand = NULL;
 
@@ -3554,9 +3554,9 @@ class UClass* UGFxDataStoreSubscriber::StaticClass()
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            BindingIndex                   ( CPF_OptionalParm | CPF_Parm )
-// class TArray<class UUIDataStore*> out_BoundDataStores            ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<class UUIDataStore*>    out_BoundDataStores            ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UGFxDataStoreSubscriber::SaveSubscriberValue ( int BindingIndex, class TArray<class UUIDataStore*>* out_BoundDataStores )
+bool UGFxDataStoreSubscriber::SaveSubscriberValue ( int BindingIndex, TArray<class UUIDataStore*>* out_BoundDataStores )
 {
 	static UFunction* pFnSaveSubscriberValue = NULL;
 
@@ -3604,9 +3604,9 @@ void UGFxDataStoreSubscriber::ClearBoundDataStores ( )
 // Function GFxUI.GFxDataStoreSubscriber.GetBoundDataStores
 // [0x00420401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class TArray<class UUIDataStore*> out_BoundDataStores            ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<class UUIDataStore*>    out_BoundDataStores            ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void UGFxDataStoreSubscriber::GetBoundDataStores ( class TArray<class UUIDataStore*>* out_BoundDataStores )
+void UGFxDataStoreSubscriber::GetBoundDataStores ( TArray<class UUIDataStore*>* out_BoundDataStores )
 {
 	static UFunction* pFnGetBoundDataStores = NULL;
 
@@ -3686,10 +3686,10 @@ bool UGFxDataStoreSubscriber::RefreshSubscriberValue ( int BindingIndex )
 // Function GFxUI.GFxDataStoreSubscriber.GetDataStoreBinding
 // [0x00024401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // int                            BindingIndex                   ( CPF_OptionalParm | CPF_Parm )
 
-class FString UGFxDataStoreSubscriber::GetDataStoreBinding ( int BindingIndex )
+FString UGFxDataStoreSubscriber::GetDataStoreBinding ( int BindingIndex )
 {
 	static UFunction* pFnGetDataStoreBinding = NULL;
 
@@ -3711,10 +3711,10 @@ class FString UGFxDataStoreSubscriber::GetDataStoreBinding ( int BindingIndex )
 // Function GFxUI.GFxDataStoreSubscriber.SetDataStoreBinding
 // [0x00024401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  MarkupText                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        MarkupText                     ( CPF_Parm | CPF_NeedCtorLink )
 // int                            BindingIndex                   ( CPF_OptionalParm | CPF_Parm )
 
-void UGFxDataStoreSubscriber::SetDataStoreBinding ( class FString MarkupText, int BindingIndex )
+void UGFxDataStoreSubscriber::SetDataStoreBinding ( FString const& MarkupText, int BindingIndex )
 {
 	static UFunction* pFnSetDataStoreBinding = NULL;
 

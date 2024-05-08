@@ -31,71 +31,71 @@
 
 class TArray<class UObject*>* UObject::GObjObjects = nullptr;
 
+void UObject::AppendName(FStringView& OutString, SFXName::FormatMode const Mode) const {
+    ::LESDK::AppendObjectName(this, OutString, Mode);
+}
+
 void UObject::AppendName(FString& OutString, SFXName::FormatMode const Mode) const {
     ::LESDK::AppendObjectName(this, OutString, Mode);
 }
 
-void UObject::AppendName(FStringRAII& OutString, SFXName::FormatMode const Mode) const {
-    ::LESDK::AppendObjectName(this, OutString, Mode);
+void UObject::AppendNameCPP(FStringView& OutString) const {
+    ::LESDK::AppendObjectNameCPP(this, OutString);
 }
 
 void UObject::AppendNameCPP(FString& OutString) const {
     ::LESDK::AppendObjectNameCPP(this, OutString);
 }
 
-void UObject::AppendNameCPP(FStringRAII& OutString) const {
-    ::LESDK::AppendObjectNameCPP(this, OutString);
+void UObject::AppendFullName(FStringView& OutString, SFXName::FormatMode const Mode) const {
+    ::LESDK::AppendObjectNameFull(this, OutString, Mode);
 }
 
 void UObject::AppendFullName(FString& OutString, SFXName::FormatMode const Mode) const {
     ::LESDK::AppendObjectNameFull(this, OutString, Mode);
 }
 
-void UObject::AppendFullName(FStringRAII& OutString, SFXName::FormatMode const Mode) const {
-    ::LESDK::AppendObjectNameFull(this, OutString, Mode);
-}
 
-
-FStringRAII UObject::GetName() const {
-    FStringRAII OutString{};
+FString UObject::GetName() const {
+    FString OutString{};
     OutString.Reserve(255);
     AppendName(OutString, SFXName::k_formatInstanced);
     return OutString;
 }
 
-FStringRAII UObject::GetNameCPP() const {
-    FStringRAII OutString{};
+FString UObject::GetNameCPP() const {
+    FString OutString{};
     OutString.Reserve(255);
     AppendNameCPP(OutString);
     return OutString;
 }
 
-FStringRAII UObject::GetFullName() const {
-    FStringRAII OutString{};
+FString UObject::GetFullName() const {
+    FString OutString{};
     OutString.Reserve(255);
     AppendFullName(OutString, SFXName::k_formatInstanced);
     return OutString;
 }
 
 
-FStringRAII const& UObject::StaticName() const {
-    thread_local FStringRAII OutString{};
+FString const& UObject::StaticName() const {
+    thread_local FString OutString{};
     OutString.Clear();
     OutString.Reserve(255);
     AppendName(OutString, SFXName::k_formatInstanced);
     return OutString;
 }
 
-FStringRAII const& UObject::StaticNameCPP() const {
-    thread_local FStringRAII OutString{};
+FString const& UObject::StaticNameCPP() const {
+    thread_local FString OutString{};
     OutString.Clear();
     OutString.Reserve(255);
     AppendNameCPP(OutString);
     return OutString;
 }
 
-FStringRAII const& UObject::StaticFullName() const {
-    thread_local FStringRAII OutString{};
+FString const& UObject::StaticFullName() const {
+    thread_local FString OutString{};
     OutString.Clear();
     OutString.Reserve(255);
     AppendFullName(OutString, SFXName::k_formatInstanced);
@@ -185,9 +185,9 @@ int UObject::GetNetIndex ( )
 // Function Core.Object.appScreenWarningMessage
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sMsg                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sMsg                           ( CPF_Parm | CPF_NeedCtorLink )
 
-void UObject::appScreenWarningMessage ( class FString sMsg )
+void UObject::appScreenWarningMessage ( FString const& sMsg )
 {
 	static UFunction* pFnappScreenWarningMessage = NULL;
 
@@ -207,9 +207,9 @@ void UObject::appScreenWarningMessage ( class FString sMsg )
 // Function Core.Object.appScreenDebugMessage
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sMsg                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sMsg                           ( CPF_Parm | CPF_NeedCtorLink )
 
-void UObject::appScreenDebugMessage ( class FString sMsg )
+void UObject::appScreenDebugMessage ( FString const& sMsg )
 {
 	static UFunction* pFnappScreenDebugMessage = NULL;
 
@@ -305,9 +305,9 @@ void UObject::GetSystemTime ( int* Year, int* Month, int* DayOfWeek, int* Day, i
 // Function Core.Object.TimeStamp
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString UObject::TimeStamp ( )
+FString UObject::TimeStamp ( )
 {
 	static UFunction* pFnTimeStamp = NULL;
 
@@ -333,7 +333,7 @@ class FString UObject::TimeStamp ( )
 // struct FVector                 SourceVector                   ( CPF_Parm )
 // unsigned long                  bInverse                       ( CPF_OptionalParm | CPF_Parm )
 
-struct FVector UObject::TransformVectorByRotation ( struct FRotator SourceRotation, struct FVector SourceVector, unsigned long bInverse )
+struct FVector UObject::TransformVectorByRotation ( struct FRotator const& SourceRotation, struct FVector const& SourceVector, unsigned long bInverse )
 {
 	static UFunction* pFnTransformVectorByRotation = NULL;
 
@@ -492,7 +492,7 @@ float UObject::FindDeltaAngle ( float A1, float A2 )
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 Dir                            ( CPF_Parm )
 
-float UObject::GetHeadingAngle ( struct FVector Dir )
+float UObject::GetHeadingAngle ( struct FVector const& Dir )
 {
 	static UFunction* pFnGetHeadingAngle = NULL;
 
@@ -536,7 +536,7 @@ void UObject::GetAngularDegreesFromRadians ( struct FVector2D* OutFOV )
 // struct FVector2D               DotDist                        ( CPF_Parm )
 // struct FVector2D               OutAngDist                     ( CPF_Parm | CPF_OutParm )
 
-void UObject::GetAngularFromDotDist ( struct FVector2D DotDist, struct FVector2D* OutAngDist )
+void UObject::GetAngularFromDotDist ( struct FVector2D const& DotDist, struct FVector2D* OutAngDist )
 {
 	static UFunction* pFnGetAngularFromDotDist = NULL;
 
@@ -569,7 +569,7 @@ void UObject::GetAngularFromDotDist ( struct FVector2D DotDist, struct FVector2D
 // struct FVector                 AxisZ                          ( CPF_Parm )
 // struct FVector2D               OutAngularDist                 ( CPF_Parm | CPF_OutParm )
 
-bool UObject::GetAngularDistance ( struct FVector Direction, struct FVector AxisX, struct FVector AxisY, struct FVector AxisZ, struct FVector2D* OutAngularDist )
+bool UObject::GetAngularDistance ( struct FVector const& Direction, struct FVector const& AxisX, struct FVector const& AxisY, struct FVector const& AxisZ, struct FVector2D* OutAngularDist )
 {
 	static UFunction* pFnGetAngularDistance = NULL;
 
@@ -607,7 +607,7 @@ bool UObject::GetAngularDistance ( struct FVector Direction, struct FVector Axis
 // struct FVector                 AxisZ                          ( CPF_Parm )
 // struct FVector2D               OutDotDist                     ( CPF_Parm | CPF_OutParm )
 
-bool UObject::GetDotDistance ( struct FVector Direction, struct FVector AxisX, struct FVector AxisY, struct FVector AxisZ, struct FVector2D* OutDotDist )
+bool UObject::GetDotDistance ( struct FVector const& Direction, struct FVector const& AxisX, struct FVector const& AxisY, struct FVector const& AxisZ, struct FVector2D* OutDotDist )
 {
 	static UFunction* pFnGetDotDistance = NULL;
 
@@ -643,7 +643,7 @@ bool UObject::GetDotDistance ( struct FVector Direction, struct FVector AxisX, s
 // struct FVector                 Location                       ( CPF_Parm )
 // struct FVector                 Extent                         ( CPF_Parm )
 
-bool UObject::PointInBox ( struct FVector Point, struct FVector Location, struct FVector Extent )
+bool UObject::PointInBox ( struct FVector const& Point, struct FVector const& Location, struct FVector const& Extent )
 {
 	static UFunction* pFnPointInBox = NULL;
 
@@ -669,7 +669,7 @@ bool UObject::PointInBox ( struct FVector Point, struct FVector Location, struct
 // struct FVector                 B                              ( CPF_Parm )
 // struct FVector                 C                              ( CPF_Parm )
 
-struct FVector UObject::PointProjectToPlane ( struct FVector Point, struct FVector A, struct FVector B, struct FVector C )
+struct FVector UObject::PointProjectToPlane ( struct FVector const& Point, struct FVector const& A, struct FVector const& B, struct FVector const& C )
 {
 	static UFunction* pFnPointProjectToPlane = NULL;
 
@@ -700,7 +700,7 @@ struct FVector UObject::PointProjectToPlane ( struct FVector Point, struct FVect
 // struct FVector                 Origin                         ( CPF_Parm )
 // struct FVector                 out_ClosestPoint               ( CPF_OptionalParm | CPF_Parm | CPF_OutParm )
 
-float UObject::PointDistToPlane ( struct FVector Point, struct FRotator Orientation, struct FVector Origin, struct FVector* out_ClosestPoint )
+float UObject::PointDistToPlane ( struct FVector const& Point, struct FRotator const& Orientation, struct FVector const& Origin, struct FVector* out_ClosestPoint )
 {
 	static UFunction* pFnPointDistToPlane = NULL;
 
@@ -732,7 +732,7 @@ float UObject::PointDistToPlane ( struct FVector Point, struct FRotator Orientat
 // struct FVector                 EndPoint                       ( CPF_Parm )
 // struct FVector                 OutClosestPoint                ( CPF_OptionalParm | CPF_Parm | CPF_OutParm )
 
-float UObject::PointDistToSegment ( struct FVector Point, struct FVector StartPoint, struct FVector EndPoint, struct FVector* OutClosestPoint )
+float UObject::PointDistToSegment ( struct FVector const& Point, struct FVector const& StartPoint, struct FVector const& EndPoint, struct FVector* OutClosestPoint )
 {
 	static UFunction* pFnPointDistToSegment = NULL;
 
@@ -768,7 +768,7 @@ float UObject::PointDistToSegment ( struct FVector Point, struct FVector StartPo
 // struct FVector                 Origin                         ( CPF_Parm )
 // struct FVector                 OutClosestPoint                ( CPF_OptionalParm | CPF_Parm | CPF_OutParm )
 
-float UObject::PointDistToLine ( struct FVector Point, struct FVector Line, struct FVector Origin, struct FVector* OutClosestPoint )
+float UObject::PointDistToLine ( struct FVector const& Point, struct FVector const& Line, struct FVector const& Origin, struct FVector* OutClosestPoint )
 {
 	static UFunction* pFnPointDistToLine = NULL;
 
@@ -802,9 +802,9 @@ float UObject::PointDistToLine ( struct FVector Point, struct FVector Line, stru
 // class UClass*                  SearchClass                    ( CPF_Parm )
 // class UObject*                 ObjectOuter                    ( CPF_OptionalParm | CPF_Parm )
 // int                            MaxResults                     ( CPF_OptionalParm | CPF_Parm )
-// class TArray<class FString>    out_SectionNames               ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<FString>                out_SectionNames               ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UObject::GetPerObjectConfigSections ( class UClass* SearchClass, class UObject* ObjectOuter, int MaxResults, class TArray<class FString>* out_SectionNames )
+bool UObject::GetPerObjectConfigSections ( class UClass* SearchClass, class UObject* ObjectOuter, int MaxResults, TArray<FString>* out_SectionNames )
 {
 	static UFunction* pFnGetPerObjectConfigSections = NULL;
 
@@ -880,10 +880,10 @@ void UObject::SaveConfig ( )
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // class UObject*                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  ObjectName                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ObjectName                     ( CPF_Parm | CPF_NeedCtorLink )
 // class UClass*                  ObjectClass                    ( CPF_Parm )
 
-class UObject* UObject::FindObject ( class FString ObjectName, class UClass* ObjectClass )
+class UObject* UObject::FindObject ( FString const& ObjectName, class UClass* ObjectClass )
 {
 	static UFunction* pFnFindObject = NULL;
 
@@ -907,11 +907,11 @@ class UObject* UObject::FindObject ( class FString ObjectName, class UClass* Obj
 // [0x00026401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // class UObject*                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  ObjectName                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ObjectName                     ( CPF_Parm | CPF_NeedCtorLink )
 // class UClass*                  ObjectClass                    ( CPF_Parm )
 // unsigned long                  MayFail                        ( CPF_OptionalParm | CPF_Parm )
 
-class UObject* UObject::DynamicLoadObject ( class FString ObjectName, class UClass* ObjectClass, unsigned long MayFail )
+class UObject* UObject::DynamicLoadObject ( FString const& ObjectName, class UClass* ObjectClass, unsigned long MayFail )
 {
 	static UFunction* pFnDynamicLoadObject = NULL;
 
@@ -1572,10 +1572,10 @@ void UObject::ScriptTrace ( )
 // Function Core.Object.ParseLocalizedPropertyPath
 // [0x00022003] ( FUNC_Final )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  PathName                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        PathName                       ( CPF_Parm | CPF_NeedCtorLink )
 
-class FString UObject::ParseLocalizedPropertyPath ( class FString PathName )
+FString UObject::ParseLocalizedPropertyPath ( FString const& PathName )
 {
 	static UFunction* pFnParseLocalizedPropertyPath = NULL;
 
@@ -1593,12 +1593,12 @@ class FString UObject::ParseLocalizedPropertyPath ( class FString PathName )
 // Function Core.Object.Localize
 // [0x00022400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  SectionName                    ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  KeyName                        ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  PackageName                    ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        SectionName                    ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        KeyName                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        PackageName                    ( CPF_Parm | CPF_NeedCtorLink )
 
-class FString UObject::Localize ( class FString SectionName, class FString KeyName, class FString PackageName )
+FString UObject::Localize ( FString const& SectionName, FString const& KeyName, FString const& PackageName )
 {
 	static UFunction* pFnLocalize = NULL;
 
@@ -1622,9 +1622,9 @@ class FString UObject::Localize ( class FString SectionName, class FString KeyNa
 // Function Core.Object.WarnInternal
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x00E8]
 // Parameters infos:
-// class FString                  S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 
-void UObject::WarnInternal ( class FString S )
+void UObject::WarnInternal ( FString const& S )
 {
 	static UFunction* pFnWarnInternal = NULL;
 
@@ -1649,10 +1649,10 @@ void UObject::WarnInternal ( class FString S )
 // Function Core.Object.LogInternal
 // [0x00026401] ( FUNC_Final | FUNC_Native ) iNative [0x00E7]
 // Parameters infos:
-// class FString                  S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 // struct SFXName                 Tag                            ( CPF_OptionalParm | CPF_Parm )
 
-void UObject::LogInternal ( class FString S, struct SFXName Tag )
+void UObject::LogInternal ( FString const& S, struct SFXName Tag )
 {
 	static UFunction* pFnLogInternal = NULL;
 
@@ -1682,7 +1682,7 @@ void UObject::LogInternal ( class FString S, struct SFXName Tag )
 // struct FLinearColor            A                              ( CPF_Parm )
 // struct FLinearColor            B                              ( CPF_Parm )
 
-struct FLinearColor UObject::Subtract_LinearColorLinearColor ( struct FLinearColor A, struct FLinearColor B )
+struct FLinearColor UObject::Subtract_LinearColorLinearColor ( struct FLinearColor const& A, struct FLinearColor const& B )
 {
 	static UFunction* pFnSubtract_LinearColorLinearColor = NULL;
 
@@ -1705,7 +1705,7 @@ struct FLinearColor UObject::Subtract_LinearColorLinearColor ( struct FLinearCol
 // struct FLinearColor            LC                             ( CPF_Parm )
 // float                          Mult                           ( CPF_Parm )
 
-struct FLinearColor UObject::Multiply_LinearColorFloat ( struct FLinearColor LC, float Mult )
+struct FLinearColor UObject::Multiply_LinearColorFloat ( struct FLinearColor const& LC, float Mult )
 {
 	static UFunction* pFnMultiply_LinearColorFloat = NULL;
 
@@ -1727,7 +1727,7 @@ struct FLinearColor UObject::Multiply_LinearColorFloat ( struct FLinearColor LC,
 // struct FLinearColor            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FColor                  OldColor                       ( CPF_Parm )
 
-struct FLinearColor UObject::ColorToLinearColor ( struct FColor OldColor )
+struct FLinearColor UObject::ColorToLinearColor ( struct FColor const& OldColor )
 {
 	static UFunction* pFnColorToLinearColor = NULL;
 
@@ -1777,7 +1777,7 @@ struct FLinearColor UObject::MakeLinearColor ( float R, float G, float B, float 
 // struct FColor                  B                              ( CPF_Parm )
 // float                          Alpha                          ( CPF_Parm )
 
-struct FColor UObject::LerpColor ( struct FColor A, struct FColor B, float Alpha )
+struct FColor UObject::LerpColor ( struct FColor const& A, struct FColor const& B, float Alpha )
 {
 	static UFunction* pFnLerpColor = NULL;
 
@@ -1828,7 +1828,7 @@ struct FColor UObject::MakeColor ( unsigned char R, unsigned char G, unsigned ch
 // struct FColor                  A                              ( CPF_Parm )
 // struct FColor                  B                              ( CPF_Parm )
 
-struct FColor UObject::Add_ColorColor ( struct FColor A, struct FColor B )
+struct FColor UObject::Add_ColorColor ( struct FColor const& A, struct FColor const& B )
 {
 	static UFunction* pFnAdd_ColorColor = NULL;
 
@@ -1851,7 +1851,7 @@ struct FColor UObject::Add_ColorColor ( struct FColor A, struct FColor B )
 // struct FColor                  A                              ( CPF_Parm )
 // float                          B                              ( CPF_Parm )
 
-struct FColor UObject::Multiply_ColorFloat ( struct FColor A, float B )
+struct FColor UObject::Multiply_ColorFloat ( struct FColor const& A, float B )
 {
 	static UFunction* pFnMultiply_ColorFloat = NULL;
 
@@ -1874,7 +1874,7 @@ struct FColor UObject::Multiply_ColorFloat ( struct FColor A, float B )
 // float                          A                              ( CPF_Parm )
 // struct FColor                  B                              ( CPF_Parm )
 
-struct FColor UObject::Multiply_FloatColor ( float A, struct FColor B )
+struct FColor UObject::Multiply_FloatColor ( float A, struct FColor const& B )
 {
 	static UFunction* pFnMultiply_FloatColor = NULL;
 
@@ -1897,7 +1897,7 @@ struct FColor UObject::Multiply_FloatColor ( float A, struct FColor B )
 // struct FColor                  A                              ( CPF_Parm )
 // struct FColor                  B                              ( CPF_Parm )
 
-struct FColor UObject::Subtract_ColorColor ( struct FColor A, struct FColor B )
+struct FColor UObject::Subtract_ColorColor ( struct FColor const& A, struct FColor const& B )
 {
 	static UFunction* pFnSubtract_ColorColor = NULL;
 
@@ -1920,7 +1920,7 @@ struct FColor UObject::Subtract_ColorColor ( struct FColor A, struct FColor B )
 // struct FInterpCurveVector2D    Vector2DCurve                  ( CPF_Parm | CPF_NeedCtorLink )
 // float                          InVal                          ( CPF_Parm )
 
-struct FVector2D UObject::EvalInterpCurveVector2D ( struct FInterpCurveVector2D Vector2DCurve, float InVal )
+struct FVector2D UObject::EvalInterpCurveVector2D ( struct FInterpCurveVector2D const& Vector2DCurve, float InVal )
 {
 	static UFunction* pFnEvalInterpCurveVector2D = NULL;
 
@@ -1947,7 +1947,7 @@ struct FVector2D UObject::EvalInterpCurveVector2D ( struct FInterpCurveVector2D 
 // struct FInterpCurveVector      VectorCurve                    ( CPF_Parm | CPF_NeedCtorLink )
 // float                          InVal                          ( CPF_Parm )
 
-struct FVector UObject::EvalInterpCurveVector ( struct FInterpCurveVector VectorCurve, float InVal )
+struct FVector UObject::EvalInterpCurveVector ( struct FInterpCurveVector const& VectorCurve, float InVal )
 {
 	static UFunction* pFnEvalInterpCurveVector = NULL;
 
@@ -1974,7 +1974,7 @@ struct FVector UObject::EvalInterpCurveVector ( struct FInterpCurveVector Vector
 // struct FInterpCurveFloat       FloatCurve                     ( CPF_Parm | CPF_NeedCtorLink )
 // float                          InVal                          ( CPF_Parm )
 
-float UObject::EvalInterpCurveFloat ( struct FInterpCurveFloat FloatCurve, float InVal )
+float UObject::EvalInterpCurveFloat ( struct FInterpCurveFloat const& FloatCurve, float InVal )
 {
 	static UFunction* pFnEvalInterpCurveFloat = NULL;
 
@@ -2025,7 +2025,7 @@ struct FVector2D UObject::vect2d ( float InX, float InY )
 // struct FVector2D               OutputRange                    ( CPF_Parm )
 // float                          Value                          ( CPF_Parm )
 
-float UObject::GetMappedRangeValue ( struct FVector2D InputRange, struct FVector2D OutputRange, float Value )
+float UObject::GetMappedRangeValue ( struct FVector2D const& InputRange, struct FVector2D const& OutputRange, float Value )
 {
 	static UFunction* pFnGetMappedRangeValue = NULL;
 
@@ -2053,7 +2053,7 @@ float UObject::GetMappedRangeValue ( struct FVector2D InputRange, struct FVector
 // struct FVector2D               Range                          ( CPF_Parm )
 // float                          Value                          ( CPF_Parm )
 
-float UObject::GetRangePctByValue ( struct FVector2D Range, float Value )
+float UObject::GetRangePctByValue ( struct FVector2D const& Range, float Value )
 {
 	static UFunction* pFnGetRangePctByValue = NULL;
 
@@ -2076,7 +2076,7 @@ float UObject::GetRangePctByValue ( struct FVector2D Range, float Value )
 // struct FVector2D               Range                          ( CPF_Parm )
 // float                          Pct                            ( CPF_Parm )
 
-float UObject::GetRangeValueByPct ( struct FVector2D Range, float Pct )
+float UObject::GetRangeValueByPct ( struct FVector2D const& Range, float Pct )
 {
 	static UFunction* pFnGetRangeValueByPct = NULL;
 
@@ -2099,7 +2099,7 @@ float UObject::GetRangeValueByPct ( struct FVector2D Range, float Pct )
 // struct FVector2D               A                              ( CPF_Parm )
 // struct FVector2D               B                              ( CPF_Parm )
 
-struct FVector2D UObject::Subtract_Vector2DVector2D ( struct FVector2D A, struct FVector2D B )
+struct FVector2D UObject::Subtract_Vector2DVector2D ( struct FVector2D const& A, struct FVector2D const& B )
 {
 	static UFunction* pFnSubtract_Vector2DVector2D = NULL;
 
@@ -2126,7 +2126,7 @@ struct FVector2D UObject::Subtract_Vector2DVector2D ( struct FVector2D A, struct
 // struct FVector2D               A                              ( CPF_Parm )
 // struct FVector2D               B                              ( CPF_Parm )
 
-struct FVector2D UObject::Add_Vector2DVector2D ( struct FVector2D A, struct FVector2D B )
+struct FVector2D UObject::Add_Vector2DVector2D ( struct FVector2D const& A, struct FVector2D const& B )
 {
 	static UFunction* pFnAdd_Vector2DVector2D = NULL;
 
@@ -2153,7 +2153,7 @@ struct FVector2D UObject::Add_Vector2DVector2D ( struct FVector2D A, struct FVec
 // struct FVector                 A                              ( CPF_Parm )
 // struct FVector                 B                              ( CPF_Parm )
 
-int UObject::GetVectorSide ( struct FVector A, struct FVector B )
+int UObject::GetVectorSide ( struct FVector const& A, struct FVector const& B )
 {
 	static UFunction* pFnGetVectorSide = NULL;
 
@@ -2180,7 +2180,7 @@ int UObject::GetVectorSide ( struct FVector A, struct FVector B )
 // struct FVector                 A                              ( CPF_Parm )
 // struct FVector                 B                              ( CPF_Parm )
 
-float UObject::GetAngleBetween ( struct FVector A, struct FVector B )
+float UObject::GetAngleBetween ( struct FVector const& A, struct FVector const& B )
 {
 	static UFunction* pFnGetAngleBetween = NULL;
 
@@ -2399,7 +2399,7 @@ bool UObject::EqualEqual_StringRefStringRef ( int A, int B )
 // struct FQuat                   A                              ( CPF_Parm )
 // struct FQuat                   B                              ( CPF_Parm )
 
-struct FQuat UObject::Subtract_QuatQuat ( struct FQuat A, struct FQuat B )
+struct FQuat UObject::Subtract_QuatQuat ( struct FQuat const& A, struct FQuat const& B )
 {
 	static UFunction* pFnSubtract_QuatQuat = NULL;
 
@@ -2431,7 +2431,7 @@ struct FQuat UObject::Subtract_QuatQuat ( struct FQuat A, struct FQuat B )
 // struct FQuat                   A                              ( CPF_Parm )
 // struct FQuat                   B                              ( CPF_Parm )
 
-struct FQuat UObject::Add_QuatQuat ( struct FQuat A, struct FQuat B )
+struct FQuat UObject::Add_QuatQuat ( struct FQuat const& A, struct FQuat const& B )
 {
 	static UFunction* pFnAdd_QuatQuat = NULL;
 
@@ -2465,7 +2465,7 @@ struct FQuat UObject::Add_QuatQuat ( struct FQuat A, struct FQuat B )
 // float                          Alpha                          ( CPF_Parm )
 // unsigned long                  bShortestPath                  ( CPF_OptionalParm | CPF_Parm )
 
-struct FQuat UObject::QuatSlerp ( struct FQuat A, struct FQuat B, float Alpha, unsigned long bShortestPath )
+struct FQuat UObject::QuatSlerp ( struct FQuat const& A, struct FQuat const& B, float Alpha, unsigned long bShortestPath )
 {
 	static UFunction* pFnQuatSlerp = NULL;
 
@@ -2493,7 +2493,7 @@ struct FQuat UObject::QuatSlerp ( struct FQuat A, struct FQuat B, float Alpha, u
 // struct FRotator                ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FQuat                   A                              ( CPF_Parm )
 
-struct FRotator UObject::QuatToRotator ( struct FQuat A )
+struct FRotator UObject::QuatToRotator ( struct FQuat const& A )
 {
 	static UFunction* pFnQuatToRotator = NULL;
 
@@ -2518,7 +2518,7 @@ struct FRotator UObject::QuatToRotator ( struct FQuat A )
 // struct FQuat                   ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FRotator                A                              ( CPF_Parm )
 
-struct FQuat UObject::QuatFromRotator ( struct FRotator A )
+struct FQuat UObject::QuatFromRotator ( struct FRotator const& A )
 {
 	static UFunction* pFnQuatFromRotator = NULL;
 
@@ -2544,7 +2544,7 @@ struct FQuat UObject::QuatFromRotator ( struct FRotator A )
 // struct FVector                 Axis                           ( CPF_Parm )
 // float                          Angle                          ( CPF_Parm )
 
-struct FQuat UObject::QuatFromAxisAndAngle ( struct FVector Axis, float Angle )
+struct FQuat UObject::QuatFromAxisAndAngle ( struct FVector const& Axis, float Angle )
 {
 	static UFunction* pFnQuatFromAxisAndAngle = NULL;
 
@@ -2571,7 +2571,7 @@ struct FQuat UObject::QuatFromAxisAndAngle ( struct FVector Axis, float Angle )
 // struct FVector                 A                              ( CPF_Parm )
 // struct FVector                 B                              ( CPF_Parm )
 
-struct FQuat UObject::QuatFindBetween ( struct FVector A, struct FVector B )
+struct FQuat UObject::QuatFindBetween ( struct FVector const& A, struct FVector const& B )
 {
 	static UFunction* pFnQuatFindBetween = NULL;
 
@@ -2598,7 +2598,7 @@ struct FQuat UObject::QuatFindBetween ( struct FVector A, struct FVector B )
 // struct FQuat                   A                              ( CPF_Parm )
 // struct FVector                 B                              ( CPF_Parm )
 
-struct FVector UObject::QuatRotateVector ( struct FQuat A, struct FVector B )
+struct FVector UObject::QuatRotateVector ( struct FQuat const& A, struct FVector const& B )
 {
 	static UFunction* pFnQuatRotateVector = NULL;
 
@@ -2624,7 +2624,7 @@ struct FVector UObject::QuatRotateVector ( struct FQuat A, struct FVector B )
 // struct FQuat                   ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FQuat                   A                              ( CPF_Parm )
 
-struct FQuat UObject::QuatInvert ( struct FQuat A )
+struct FQuat UObject::QuatInvert ( struct FQuat const& A )
 {
 	static UFunction* pFnQuatInvert = NULL;
 
@@ -2650,7 +2650,7 @@ struct FQuat UObject::QuatInvert ( struct FQuat A )
 // struct FQuat                   A                              ( CPF_Parm )
 // struct FQuat                   B                              ( CPF_Parm )
 
-float UObject::QuatDot ( struct FQuat A, struct FQuat B )
+float UObject::QuatDot ( struct FQuat const& A, struct FQuat const& B )
 {
 	static UFunction* pFnQuatDot = NULL;
 
@@ -2677,7 +2677,7 @@ float UObject::QuatDot ( struct FQuat A, struct FQuat B )
 // struct FQuat                   A                              ( CPF_Parm )
 // struct FQuat                   B                              ( CPF_Parm )
 
-struct FQuat UObject::QuatProduct ( struct FQuat A, struct FQuat B )
+struct FQuat UObject::QuatProduct ( struct FQuat const& A, struct FQuat const& B )
 {
 	static UFunction* pFnQuatProduct = NULL;
 
@@ -2704,7 +2704,7 @@ struct FQuat UObject::QuatProduct ( struct FQuat A, struct FQuat B )
 // struct FMatrix                 TM                             ( CPF_Parm )
 // unsigned char                  Axis                           ( CPF_Parm )
 
-struct FVector UObject::MatrixGetAxis ( struct FMatrix TM, unsigned char Axis )
+struct FVector UObject::MatrixGetAxis ( struct FMatrix const& TM, unsigned char Axis )
 {
 	static UFunction* pFnMatrixGetAxis = NULL;
 
@@ -2730,7 +2730,7 @@ struct FVector UObject::MatrixGetAxis ( struct FMatrix TM, unsigned char Axis )
 // struct FVector                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FMatrix                 TM                             ( CPF_Parm )
 
-struct FVector UObject::MatrixGetOrigin ( struct FMatrix TM )
+struct FVector UObject::MatrixGetOrigin ( struct FMatrix const& TM )
 {
 	static UFunction* pFnMatrixGetOrigin = NULL;
 
@@ -2755,7 +2755,7 @@ struct FVector UObject::MatrixGetOrigin ( struct FMatrix TM )
 // struct FRotator                ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FMatrix                 TM                             ( CPF_Parm )
 
-struct FRotator UObject::MatrixGetRotator ( struct FMatrix TM )
+struct FRotator UObject::MatrixGetRotator ( struct FMatrix const& TM )
 {
 	static UFunction* pFnMatrixGetRotator = NULL;
 
@@ -2780,7 +2780,7 @@ struct FRotator UObject::MatrixGetRotator ( struct FMatrix TM )
 // struct FMatrix                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FRotator                Rotation                       ( CPF_Parm )
 
-struct FMatrix UObject::MakeRotationMatrix ( struct FRotator Rotation )
+struct FMatrix UObject::MakeRotationMatrix ( struct FRotator const& Rotation )
 {
 	static UFunction* pFnMakeRotationMatrix = NULL;
 
@@ -2806,7 +2806,7 @@ struct FMatrix UObject::MakeRotationMatrix ( struct FRotator Rotation )
 // struct FVector                 Translation                    ( CPF_Parm )
 // struct FRotator                Rotation                       ( CPF_Parm )
 
-struct FMatrix UObject::MakeRotationTranslationMatrix ( struct FVector Translation, struct FRotator Rotation )
+struct FMatrix UObject::MakeRotationTranslationMatrix ( struct FVector const& Translation, struct FRotator const& Rotation )
 {
 	static UFunction* pFnMakeRotationTranslationMatrix = NULL;
 
@@ -2833,7 +2833,7 @@ struct FMatrix UObject::MakeRotationTranslationMatrix ( struct FVector Translati
 // struct FMatrix                 TM                             ( CPF_Parm )
 // struct FVector                 A                              ( CPF_Parm )
 
-struct FVector UObject::InverseTransformNormal ( struct FMatrix TM, struct FVector A )
+struct FVector UObject::InverseTransformNormal ( struct FMatrix const& TM, struct FVector const& A )
 {
 	static UFunction* pFnInverseTransformNormal = NULL;
 
@@ -2860,7 +2860,7 @@ struct FVector UObject::InverseTransformNormal ( struct FMatrix TM, struct FVect
 // struct FMatrix                 TM                             ( CPF_Parm )
 // struct FVector                 A                              ( CPF_Parm )
 
-struct FVector UObject::TransformNormal ( struct FMatrix TM, struct FVector A )
+struct FVector UObject::TransformNormal ( struct FMatrix const& TM, struct FVector const& A )
 {
 	static UFunction* pFnTransformNormal = NULL;
 
@@ -2887,7 +2887,7 @@ struct FVector UObject::TransformNormal ( struct FMatrix TM, struct FVector A )
 // struct FMatrix                 TM                             ( CPF_Parm )
 // struct FVector                 A                              ( CPF_Parm )
 
-struct FVector UObject::InverseTransformVector ( struct FMatrix TM, struct FVector A )
+struct FVector UObject::InverseTransformVector ( struct FMatrix const& TM, struct FVector const& A )
 {
 	static UFunction* pFnInverseTransformVector = NULL;
 
@@ -2914,7 +2914,7 @@ struct FVector UObject::InverseTransformVector ( struct FMatrix TM, struct FVect
 // struct FMatrix                 TM                             ( CPF_Parm )
 // struct FVector                 A                              ( CPF_Parm )
 
-struct FVector UObject::TransformVector ( struct FMatrix TM, struct FVector A )
+struct FVector UObject::TransformVector ( struct FMatrix const& TM, struct FVector const& A )
 {
 	static UFunction* pFnTransformVector = NULL;
 
@@ -2941,7 +2941,7 @@ struct FVector UObject::TransformVector ( struct FMatrix TM, struct FVector A )
 // struct FMatrix                 A                              ( CPF_Parm )
 // struct FMatrix                 B                              ( CPF_Parm )
 
-struct FMatrix UObject::Multiply_MatrixMatrix ( struct FMatrix A, struct FMatrix B )
+struct FMatrix UObject::Multiply_MatrixMatrix ( struct FMatrix const& A, struct FMatrix const& B )
 {
 	static UFunction* pFnMultiply_MatrixMatrix = NULL;
 
@@ -3208,10 +3208,10 @@ bool UObject::EqualEqual_ObjectObject ( class UObject* A, class UObject* B )
 // Function Core.Object.PathName
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // class UObject*                 CheckObject                    ( CPF_Parm )
 
-class FString UObject::PathName ( class UObject* CheckObject )
+FString UObject::PathName ( class UObject* CheckObject )
 {
 	static UFunction* pFnPathName = NULL;
 
@@ -3233,12 +3233,12 @@ class FString UObject::PathName ( class UObject* CheckObject )
 // Function Core.Object.SplitString
 // [0x00026003] ( FUNC_Final )
 // Parameters infos:
-// class TArray<class FString>    ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  Source                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Delimiter                      ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// TArray<FString>                ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        Source                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Delimiter                      ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bCullEmpty                     ( CPF_OptionalParm | CPF_Parm )
 
-class TArray<class FString> UObject::SplitString ( class FString Source, class FString Delimiter, unsigned long bCullEmpty )
+TArray<FString> UObject::SplitString ( FString const& Source, FString const& Delimiter, unsigned long bCullEmpty )
 {
 	static UFunction* pFnSplitString = NULL;
 
@@ -3258,12 +3258,12 @@ class TArray<class FString> UObject::SplitString ( class FString Source, class F
 // Function Core.Object.ParseStringIntoArray
 // [0x00422401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  BaseString                     ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  delim                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        BaseString                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        delim                          ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bCullEmpty                     ( CPF_Parm )
-// class TArray<class FString>    Pieces                         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<FString>                Pieces                         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void UObject::ParseStringIntoArray ( class FString BaseString, class FString delim, unsigned long bCullEmpty, class TArray<class FString>* Pieces )
+void UObject::ParseStringIntoArray ( FString const& BaseString, FString const& delim, unsigned long bCullEmpty, TArray<FString>* Pieces )
 {
 	static UFunction* pFnParseStringIntoArray = NULL;
 
@@ -3291,12 +3291,12 @@ void UObject::ParseStringIntoArray ( class FString BaseString, class FString del
 // Function Core.Object.JoinArray
 // [0x00426003] ( FUNC_Final )
 // Parameters infos:
-// class TArray<class FString>    StringArray                    ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  delim                          ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// TArray<FString>                StringArray                    ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        delim                          ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bIgnoreBlanks                  ( CPF_OptionalParm | CPF_Parm )
-// class FString                  out_Result                     ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        out_Result                     ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void UObject::JoinArray ( class TArray<class FString> StringArray, class FString delim, unsigned long bIgnoreBlanks, class FString* out_Result )
+void UObject::JoinArray ( TArray<FString> const& StringArray, FString const& delim, unsigned long bIgnoreBlanks, FString* out_Result )
 {
 	static UFunction* pFnJoinArray = NULL;
 
@@ -3320,10 +3320,10 @@ void UObject::JoinArray ( class TArray<class FString> StringArray, class FString
 // Function Core.Object.GetRightMost
 // [0x00022003] ( FUNC_Final )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  Text                           ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        Text                           ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 
-class FString UObject::GetRightMost ( class FString Text )
+FString UObject::GetRightMost ( FString const& Text )
 {
 	static UFunction* pFnGetRightMost = NULL;
 
@@ -3341,12 +3341,12 @@ class FString UObject::GetRightMost ( class FString Text )
 // Function Core.Object.Split
 // [0x00026003] ( FUNC_Final )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  Text                           ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-// class FString                  SplitStr                       ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        Text                           ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        SplitStr                       ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 // unsigned long                  bOmitSplitStr                  ( CPF_OptionalParm | CPF_Parm )
 
-class FString UObject::Split ( class FString Text, class FString SplitStr, unsigned long bOmitSplitStr )
+FString UObject::Split ( FString const& Text, FString const& SplitStr, unsigned long bOmitSplitStr )
 {
 	static UFunction* pFnSplit = NULL;
 
@@ -3366,13 +3366,13 @@ class FString UObject::Split ( class FString Text, class FString SplitStr, unsig
 // Function Core.Object.Repl
 // [0x00026401] ( FUNC_Final | FUNC_Native ) iNative [0x00C9]
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  Src                            ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-// class FString                  Match                          ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-// class FString                  With                           ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        Src                            ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        Match                          ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        With                           ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 // unsigned long                  bCaseSensitive                 ( CPF_OptionalParm | CPF_Parm )
 
-class FString UObject::Repl ( class FString Src, class FString Match, class FString With, unsigned long bCaseSensitive )
+FString UObject::Repl ( FString const& Src, FString const& Match, FString const& With, unsigned long bCaseSensitive )
 {
 	static UFunction* pFnRepl = NULL;
 
@@ -3403,9 +3403,9 @@ class FString UObject::Repl ( class FString Src, class FString Match, class FStr
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x00ED]
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  S                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_NeedCtorLink )
 
-int UObject::Asc ( class FString S )
+int UObject::Asc ( FString const& S )
 {
 	static UFunction* pFnAsc = NULL;
 
@@ -3432,10 +3432,10 @@ int UObject::Asc ( class FString S )
 // Function Core.Object.Chr
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x00EC]
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // int                            I                              ( CPF_Parm )
 
-class FString UObject::Chr ( int I )
+FString UObject::Chr ( int I )
 {
 	static UFunction* pFnChr = NULL;
 
@@ -3462,10 +3462,10 @@ class FString UObject::Chr ( int I )
 // Function Core.Object.Locs
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x00EE]
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 
-class FString UObject::Locs ( class FString S )
+FString UObject::Locs ( FString const& S )
 {
 	static UFunction* pFnLocs = NULL;
 
@@ -3492,10 +3492,10 @@ class FString UObject::Locs ( class FString S )
 // Function Core.Object.Caps
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x00EB]
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 
-class FString UObject::Caps ( class FString S )
+FString UObject::Caps ( FString const& S )
 {
 	static UFunction* pFnCaps = NULL;
 
@@ -3522,11 +3522,11 @@ class FString UObject::Caps ( class FString S )
 // Function Core.Object.Right
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x00EA]
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 // int                            I                              ( CPF_Parm )
 
-class FString UObject::Right ( class FString S, int I )
+FString UObject::Right ( FString const& S, int I )
 {
 	static UFunction* pFnRight = NULL;
 
@@ -3554,11 +3554,11 @@ class FString UObject::Right ( class FString S, int I )
 // Function Core.Object.Left
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x0080]
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 // int                            I                              ( CPF_Parm )
 
-class FString UObject::Left ( class FString S, int I )
+FString UObject::Left ( FString const& S, int I )
 {
 	static UFunction* pFnLeft = NULL;
 
@@ -3586,12 +3586,12 @@ class FString UObject::Left ( class FString S, int I )
 // Function Core.Object.Mid
 // [0x00026401] ( FUNC_Final | FUNC_Native ) iNative [0x007F]
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 // int                            I                              ( CPF_Parm )
 // int                            J                              ( CPF_OptionalParm | CPF_Parm )
 
-class FString UObject::Mid ( class FString S, int I, int J )
+FString UObject::Mid ( FString const& S, int I, int J )
 {
 	static UFunction* pFnMid = NULL;
 
@@ -3621,13 +3621,13 @@ class FString UObject::Mid ( class FString S, int I, int J )
 // [0x00026401] ( FUNC_Final | FUNC_Native ) iNative [0x007E]
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-// class FString                  T                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        T                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 // unsigned long                  bSearchFromRight               ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bIgnoreCase                    ( CPF_OptionalParm | CPF_Parm )
 // int                            StartPos                       ( CPF_OptionalParm | CPF_Parm )
 
-int UObject::InStr ( class FString S, class FString T, unsigned long bSearchFromRight, unsigned long bIgnoreCase, int StartPos )
+int UObject::InStr ( FString const& S, FString const& T, unsigned long bSearchFromRight, unsigned long bIgnoreCase, int StartPos )
 {
 	static UFunction* pFnInStr = NULL;
 
@@ -3659,9 +3659,9 @@ int UObject::InStr ( class FString S, class FString T, unsigned long bSearchFrom
 // [0x00022401] ( FUNC_Final | FUNC_Native ) iNative [0x007D]
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 
-int UObject::Len ( class FString S )
+int UObject::Len ( FString const& S )
 {
 	static UFunction* pFnLen = NULL;
 
@@ -3688,11 +3688,11 @@ int UObject::Len ( class FString S )
 // Function Core.Object.SubtractEqual_StrStr
 // [0x00423401] ( FUNC_Final | FUNC_Native ) iNative [0x0144]
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  B                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-// class FString                  A                              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        B                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        A                              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-class FString UObject::SubtractEqual_StrStr ( class FString B, class FString* A )
+FString UObject::SubtractEqual_StrStr ( FString const& B, FString* A )
 {
 	static UFunction* pFnSubtractEqual_StrStr = NULL;
 
@@ -3725,11 +3725,11 @@ class FString UObject::SubtractEqual_StrStr ( class FString B, class FString* A 
 // Function Core.Object.AtEqual_StrStr
 // [0x00423401] ( FUNC_Final | FUNC_Native ) iNative [0x0143]
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  B                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-// class FString                  A                              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        B                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        A                              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-class FString UObject::AtEqual_StrStr ( class FString B, class FString* A )
+FString UObject::AtEqual_StrStr ( FString const& B, FString* A )
 {
 	static UFunction* pFnAtEqual_StrStr = NULL;
 
@@ -3762,11 +3762,11 @@ class FString UObject::AtEqual_StrStr ( class FString B, class FString* A )
 // Function Core.Object.ConcatEqual_StrStr
 // [0x00423401] ( FUNC_Final | FUNC_Native ) iNative [0x0142]
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  B                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-// class FString                  A                              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        B                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        A                              ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-class FString UObject::ConcatEqual_StrStr ( class FString B, class FString* A )
+FString UObject::ConcatEqual_StrStr ( FString const& B, FString* A )
 {
 	static UFunction* pFnConcatEqual_StrStr = NULL;
 
@@ -3800,10 +3800,10 @@ class FString UObject::ConcatEqual_StrStr ( class FString B, class FString* A )
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x007C]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  A                              ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  B                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        A                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        B                              ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UObject::ComplementEqual_StrStr ( class FString A, class FString B )
+bool UObject::ComplementEqual_StrStr ( FString const& A, FString const& B )
 {
 	static UFunction* pFnComplementEqual_StrStr = NULL;
 
@@ -3832,10 +3832,10 @@ bool UObject::ComplementEqual_StrStr ( class FString A, class FString B )
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x007B]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  A                              ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  B                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        A                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        B                              ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UObject::NotEqual_StrStr ( class FString A, class FString B )
+bool UObject::NotEqual_StrStr ( FString const& A, FString const& B )
 {
 	static UFunction* pFnNotEqual_StrStr = NULL;
 
@@ -3864,10 +3864,10 @@ bool UObject::NotEqual_StrStr ( class FString A, class FString B )
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x007A]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  A                              ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  B                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        A                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        B                              ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UObject::EqualEqual_StrStr ( class FString A, class FString B )
+bool UObject::EqualEqual_StrStr ( FString const& A, FString const& B )
 {
 	static UFunction* pFnEqualEqual_StrStr = NULL;
 
@@ -3896,10 +3896,10 @@ bool UObject::EqualEqual_StrStr ( class FString A, class FString B )
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x0079]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  A                              ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  B                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        A                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        B                              ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UObject::GreaterEqual_StrStr ( class FString A, class FString B )
+bool UObject::GreaterEqual_StrStr ( FString const& A, FString const& B )
 {
 	static UFunction* pFnGreaterEqual_StrStr = NULL;
 
@@ -3928,10 +3928,10 @@ bool UObject::GreaterEqual_StrStr ( class FString A, class FString B )
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x0078]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  A                              ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  B                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        A                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        B                              ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UObject::LessEqual_StrStr ( class FString A, class FString B )
+bool UObject::LessEqual_StrStr ( FString const& A, FString const& B )
 {
 	static UFunction* pFnLessEqual_StrStr = NULL;
 
@@ -3960,10 +3960,10 @@ bool UObject::LessEqual_StrStr ( class FString A, class FString B )
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x0074]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  A                              ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  B                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        A                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        B                              ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UObject::Greater_StrStr ( class FString A, class FString B )
+bool UObject::Greater_StrStr ( FString const& A, FString const& B )
 {
 	static UFunction* pFnGreater_StrStr = NULL;
 
@@ -3992,10 +3992,10 @@ bool UObject::Greater_StrStr ( class FString A, class FString B )
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x0073]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  A                              ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  B                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        A                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        B                              ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UObject::Less_StrStr ( class FString A, class FString B )
+bool UObject::Less_StrStr ( FString const& A, FString const& B )
 {
 	static UFunction* pFnLess_StrStr = NULL;
 
@@ -4023,11 +4023,11 @@ bool UObject::Less_StrStr ( class FString A, class FString B )
 // Function Core.Object.At_StrStr
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x00A8]
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  A                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-// class FString                  B                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        A                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        B                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 
-class FString UObject::At_StrStr ( class FString A, class FString B )
+FString UObject::At_StrStr ( FString const& A, FString const& B )
 {
 	static UFunction* pFnAt_StrStr = NULL;
 
@@ -4055,11 +4055,11 @@ class FString UObject::At_StrStr ( class FString A, class FString B )
 // Function Core.Object.Concat_StrStr
 // [0x00023401] ( FUNC_Final | FUNC_Native ) iNative [0x0070]
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  A                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-// class FString                  B                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        A                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        B                              ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 
-class FString UObject::Concat_StrStr ( class FString A, class FString B )
+FString UObject::Concat_StrStr ( FString const& A, FString const& B )
 {
 	static UFunction* pFnConcat_StrStr = NULL;
 
@@ -4230,7 +4230,7 @@ void UObject::ClampRotAxis ( int ViewAxis, int MaxLimit, int MinLimit, int* out_
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FRotator                R                              ( CPF_Parm )
 
-float UObject::RSize ( struct FRotator R )
+float UObject::RSize ( struct FRotator const& R )
 {
 	static UFunction* pFnRSize = NULL;
 
@@ -4252,7 +4252,7 @@ float UObject::RSize ( struct FRotator R )
 // struct FRotator                A                              ( CPF_Parm )
 // struct FRotator                B                              ( CPF_Parm )
 
-float UObject::RDiff ( struct FRotator A, struct FRotator B )
+float UObject::RDiff ( struct FRotator const& A, struct FRotator const& B )
 {
 	static UFunction* pFnRDiff = NULL;
 
@@ -4307,7 +4307,7 @@ int UObject::NormalizeRotAxis ( int Angle )
 // float                          InterpSpeed                    ( CPF_Parm )
 // unsigned long                  bConstantInterpSpeed           ( CPF_OptionalParm | CPF_Parm )
 
-struct FRotator UObject::RInterpTo ( struct FRotator Current, struct FRotator Target, float DeltaTime, float InterpSpeed, unsigned long bConstantInterpSpeed )
+struct FRotator UObject::RInterpTo ( struct FRotator const& Current, struct FRotator const& Target, float DeltaTime, float InterpSpeed, unsigned long bConstantInterpSpeed )
 {
 	static UFunction* pFnRInterpTo = NULL;
 
@@ -4337,7 +4337,7 @@ struct FRotator UObject::RInterpTo ( struct FRotator Current, struct FRotator Ta
 // struct FRotator                R                              ( CPF_Parm )
 // struct FRotator                RBasis                         ( CPF_Parm )
 
-struct FRotator UObject::RTransform ( struct FRotator R, struct FRotator RBasis )
+struct FRotator UObject::RTransform ( struct FRotator const& R, struct FRotator const& RBasis )
 {
 	static UFunction* pFnRTransform = NULL;
 
@@ -4366,7 +4366,7 @@ struct FRotator UObject::RTransform ( struct FRotator R, struct FRotator RBasis 
 // float                          Alpha                          ( CPF_Parm )
 // unsigned long                  bShortestPath                  ( CPF_OptionalParm | CPF_Parm )
 
-struct FRotator UObject::RSmerp ( struct FRotator A, struct FRotator B, float Alpha, unsigned long bShortestPath )
+struct FRotator UObject::RSmerp ( struct FRotator const& A, struct FRotator const& B, float Alpha, unsigned long bShortestPath )
 {
 	static UFunction* pFnRSmerp = NULL;
 
@@ -4397,7 +4397,7 @@ struct FRotator UObject::RSmerp ( struct FRotator A, struct FRotator B, float Al
 // float                          Alpha                          ( CPF_Parm )
 // unsigned long                  bShortestPath                  ( CPF_OptionalParm | CPF_Parm )
 
-struct FRotator UObject::RLerp ( struct FRotator A, struct FRotator B, float Alpha, unsigned long bShortestPath )
+struct FRotator UObject::RLerp ( struct FRotator const& A, struct FRotator const& B, float Alpha, unsigned long bShortestPath )
 {
 	static UFunction* pFnRLerp = NULL;
 
@@ -4425,7 +4425,7 @@ struct FRotator UObject::RLerp ( struct FRotator A, struct FRotator B, float Alp
 // struct FRotator                ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FRotator                Rot                            ( CPF_Parm )
 
-struct FRotator UObject::Normalize ( struct FRotator Rot )
+struct FRotator UObject::Normalize ( struct FRotator const& Rot )
 {
 	static UFunction* pFnNormalize = NULL;
 
@@ -4452,7 +4452,7 @@ struct FRotator UObject::Normalize ( struct FRotator Rot )
 // struct FVector                 Y                              ( CPF_Parm )
 // struct FVector                 Z                              ( CPF_Parm )
 
-struct FRotator UObject::OrthoRotation ( struct FVector X, struct FVector Y, struct FVector Z )
+struct FRotator UObject::OrthoRotation ( struct FVector const& X, struct FVector const& Y, struct FVector const& Z )
 {
 	static UFunction* pFnOrthoRotation = NULL;
 
@@ -4511,7 +4511,7 @@ struct FRotator UObject::RotRand ( unsigned long bRoll )
 // struct FVector                 Y                              ( CPF_Parm | CPF_OutParm )
 // struct FVector                 Z                              ( CPF_Parm | CPF_OutParm )
 
-void UObject::GetUnAxes ( struct FRotator A, struct FVector* X, struct FVector* Y, struct FVector* Z )
+void UObject::GetUnAxes ( struct FRotator const& A, struct FVector* X, struct FVector* Y, struct FVector* Z )
 {
 	static UFunction* pFnGetUnAxes = NULL;
 
@@ -4559,7 +4559,7 @@ void UObject::GetUnAxes ( struct FRotator A, struct FVector* X, struct FVector* 
 // struct FVector                 Y                              ( CPF_Parm | CPF_OutParm )
 // struct FVector                 Z                              ( CPF_Parm | CPF_OutParm )
 
-void UObject::GetAxes ( struct FRotator A, struct FVector* X, struct FVector* Y, struct FVector* Z )
+void UObject::GetAxes ( struct FRotator const& A, struct FVector* X, struct FVector* Y, struct FVector* Z )
 {
 	static UFunction* pFnGetAxes = NULL;
 
@@ -4633,7 +4633,7 @@ bool UObject::ClockwiseFrom_IntInt ( int A, int B )
 // struct FRotator                B                              ( CPF_Parm )
 // struct FRotator                A                              ( CPF_Parm | CPF_OutParm )
 
-struct FRotator UObject::SubtractEqual_RotatorRotator ( struct FRotator B, struct FRotator* A )
+struct FRotator UObject::SubtractEqual_RotatorRotator ( struct FRotator const& B, struct FRotator* A )
 {
 	static UFunction* pFnSubtractEqual_RotatorRotator = NULL;
 
@@ -4670,7 +4670,7 @@ struct FRotator UObject::SubtractEqual_RotatorRotator ( struct FRotator B, struc
 // struct FRotator                B                              ( CPF_Parm )
 // struct FRotator                A                              ( CPF_Parm | CPF_OutParm )
 
-struct FRotator UObject::AddEqual_RotatorRotator ( struct FRotator B, struct FRotator* A )
+struct FRotator UObject::AddEqual_RotatorRotator ( struct FRotator const& B, struct FRotator* A )
 {
 	static UFunction* pFnAddEqual_RotatorRotator = NULL;
 
@@ -4707,7 +4707,7 @@ struct FRotator UObject::AddEqual_RotatorRotator ( struct FRotator B, struct FRo
 // struct FRotator                A                              ( CPF_Parm )
 // struct FRotator                B                              ( CPF_Parm )
 
-struct FRotator UObject::Subtract_RotatorRotator ( struct FRotator A, struct FRotator B )
+struct FRotator UObject::Subtract_RotatorRotator ( struct FRotator const& A, struct FRotator const& B )
 {
 	static UFunction* pFnSubtract_RotatorRotator = NULL;
 
@@ -4739,7 +4739,7 @@ struct FRotator UObject::Subtract_RotatorRotator ( struct FRotator A, struct FRo
 // struct FRotator                A                              ( CPF_Parm )
 // struct FRotator                B                              ( CPF_Parm )
 
-struct FRotator UObject::Add_RotatorRotator ( struct FRotator A, struct FRotator B )
+struct FRotator UObject::Add_RotatorRotator ( struct FRotator const& A, struct FRotator const& B )
 {
 	static UFunction* pFnAdd_RotatorRotator = NULL;
 
@@ -4845,7 +4845,7 @@ struct FRotator UObject::MultiplyEqual_RotatorFloat ( float B, struct FRotator* 
 // struct FRotator                A                              ( CPF_Parm )
 // float                          B                              ( CPF_Parm )
 
-struct FRotator UObject::Divide_RotatorFloat ( struct FRotator A, float B )
+struct FRotator UObject::Divide_RotatorFloat ( struct FRotator const& A, float B )
 {
 	static UFunction* pFnDivide_RotatorFloat = NULL;
 
@@ -4877,7 +4877,7 @@ struct FRotator UObject::Divide_RotatorFloat ( struct FRotator A, float B )
 // float                          A                              ( CPF_Parm )
 // struct FRotator                B                              ( CPF_Parm )
 
-struct FRotator UObject::Multiply_FloatRotator ( float A, struct FRotator B )
+struct FRotator UObject::Multiply_FloatRotator ( float A, struct FRotator const& B )
 {
 	static UFunction* pFnMultiply_FloatRotator = NULL;
 
@@ -4909,7 +4909,7 @@ struct FRotator UObject::Multiply_FloatRotator ( float A, struct FRotator B )
 // struct FRotator                A                              ( CPF_Parm )
 // float                          B                              ( CPF_Parm )
 
-struct FRotator UObject::Multiply_RotatorFloat ( struct FRotator A, float B )
+struct FRotator UObject::Multiply_RotatorFloat ( struct FRotator const& A, float B )
 {
 	static UFunction* pFnMultiply_RotatorFloat = NULL;
 
@@ -4941,7 +4941,7 @@ struct FRotator UObject::Multiply_RotatorFloat ( struct FRotator A, float B )
 // struct FRotator                A                              ( CPF_Parm )
 // struct FRotator                B                              ( CPF_Parm )
 
-bool UObject::NotEqual_RotatorRotator ( struct FRotator A, struct FRotator B )
+bool UObject::NotEqual_RotatorRotator ( struct FRotator const& A, struct FRotator const& B )
 {
 	static UFunction* pFnNotEqual_RotatorRotator = NULL;
 
@@ -4973,7 +4973,7 @@ bool UObject::NotEqual_RotatorRotator ( struct FRotator A, struct FRotator B )
 // struct FRotator                A                              ( CPF_Parm )
 // struct FRotator                B                              ( CPF_Parm )
 
-bool UObject::EqualEqual_RotatorRotator ( struct FRotator A, struct FRotator B )
+bool UObject::EqualEqual_RotatorRotator ( struct FRotator const& A, struct FRotator const& B )
 {
 	static UFunction* pFnEqualEqual_RotatorRotator = NULL;
 
@@ -5008,7 +5008,7 @@ bool UObject::EqualEqual_RotatorRotator ( struct FRotator A, struct FRotator B )
 // struct FVector                 A                              ( CPF_Parm )
 // unsigned long                  bIgnoreZ                       ( CPF_OptionalParm | CPF_Parm )
 
-bool UObject::InCylinder ( struct FVector Origin, struct FRotator Dir, float Width, struct FVector A, unsigned long bIgnoreZ )
+bool UObject::InCylinder ( struct FVector const& Origin, struct FRotator const& Dir, float Width, struct FVector const& A, unsigned long bIgnoreZ )
 {
 	static UFunction* pFnInCylinder = NULL;
 
@@ -5034,7 +5034,7 @@ bool UObject::InCylinder ( struct FVector Origin, struct FRotator Dir, float Wid
 // struct FVector                 A                              ( CPF_Parm )
 // struct FVector                 B                              ( CPF_Parm )
 
-float UObject::NoZDot ( struct FVector A, struct FVector B )
+float UObject::NoZDot ( struct FVector const& A, struct FVector const& B )
 {
 	static UFunction* pFnNoZDot = NULL;
 
@@ -5057,7 +5057,7 @@ float UObject::NoZDot ( struct FVector A, struct FVector B )
 // struct FVector                 V                              ( CPF_Parm )
 // float                          MaxLength                      ( CPF_Parm )
 
-struct FVector UObject::ClampLength ( struct FVector V, float MaxLength )
+struct FVector UObject::ClampLength ( struct FVector const& V, float MaxLength )
 {
 	static UFunction* pFnClampLength = NULL;
 
@@ -5086,7 +5086,7 @@ struct FVector UObject::ClampLength ( struct FVector V, float MaxLength )
 // float                          DeltaTime                      ( CPF_Parm )
 // float                          InterpSpeed                    ( CPF_Parm )
 
-struct FVector UObject::VInterpTo ( struct FVector Current, struct FVector Target, float DeltaTime, float InterpSpeed )
+struct FVector UObject::VInterpTo ( struct FVector const& Current, struct FVector const& Target, float DeltaTime, float InterpSpeed )
 {
 	static UFunction* pFnVInterpTo = NULL;
 
@@ -5114,7 +5114,7 @@ struct FVector UObject::VInterpTo ( struct FVector Current, struct FVector Targe
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 A                              ( CPF_Parm )
 
-bool UObject::IsZero ( struct FVector A )
+bool UObject::IsZero ( struct FVector const& A )
 {
 	static UFunction* pFnIsZero = NULL;
 
@@ -5145,7 +5145,7 @@ bool UObject::IsZero ( struct FVector A )
 // struct FVector                 X                              ( CPF_Parm )
 // struct FVector                 Y                              ( CPF_Parm )
 
-struct FVector UObject::ProjectOnTo ( struct FVector X, struct FVector Y )
+struct FVector UObject::ProjectOnTo ( struct FVector const& X, struct FVector const& Y )
 {
 	static UFunction* pFnProjectOnTo = NULL;
 
@@ -5177,7 +5177,7 @@ struct FVector UObject::ProjectOnTo ( struct FVector X, struct FVector Y )
 // struct FVector                 InVect                         ( CPF_Parm )
 // struct FVector                 InNormal                       ( CPF_Parm )
 
-struct FVector UObject::MirrorVectorByNormal ( struct FVector InVect, struct FVector InNormal )
+struct FVector UObject::MirrorVectorByNormal ( struct FVector const& InVect, struct FVector const& InNormal )
 {
 	static UFunction* pFnMirrorVectorByNormal = NULL;
 
@@ -5210,7 +5210,7 @@ struct FVector UObject::MirrorVectorByNormal ( struct FVector InVect, struct FVe
 // float                          HorizontalConeHalfAngleRadians ( CPF_Parm )
 // float                          VerticalConeHalfAngleRadians   ( CPF_Parm )
 
-struct FVector UObject::VRandCone2 ( struct FVector Dir, float HorizontalConeHalfAngleRadians, float VerticalConeHalfAngleRadians )
+struct FVector UObject::VRandCone2 ( struct FVector const& Dir, float HorizontalConeHalfAngleRadians, float VerticalConeHalfAngleRadians )
 {
 	static UFunction* pFnVRandCone2 = NULL;
 
@@ -5238,7 +5238,7 @@ struct FVector UObject::VRandCone2 ( struct FVector Dir, float HorizontalConeHal
 // struct FVector                 Dir                            ( CPF_Parm )
 // float                          ConeHalfAngleRadians           ( CPF_Parm )
 
-struct FVector UObject::VRandCone ( struct FVector Dir, float ConeHalfAngleRadians )
+struct FVector UObject::VRandCone ( struct FVector const& Dir, float ConeHalfAngleRadians )
 {
 	static UFunction* pFnVRandCone = NULL;
 
@@ -5294,7 +5294,7 @@ struct FVector UObject::VRand ( )
 // struct FVector                 B                              ( CPF_Parm )
 // float                          Alpha                          ( CPF_Parm )
 
-struct FVector UObject::VSmerp ( struct FVector A, struct FVector B, float Alpha )
+struct FVector UObject::VSmerp ( struct FVector const& A, struct FVector const& B, float Alpha )
 {
 	static UFunction* pFnVSmerp = NULL;
 
@@ -5323,7 +5323,7 @@ struct FVector UObject::VSmerp ( struct FVector A, struct FVector B, float Alpha
 // struct FVector                 B                              ( CPF_Parm )
 // float                          Alpha                          ( CPF_Parm )
 
-struct FVector UObject::VLerp ( struct FVector A, struct FVector B, float Alpha )
+struct FVector UObject::VLerp ( struct FVector const& A, struct FVector const& B, float Alpha )
 {
 	static UFunction* pFnVLerp = NULL;
 
@@ -5350,7 +5350,7 @@ struct FVector UObject::VLerp ( struct FVector A, struct FVector B, float Alpha 
 // struct FVector                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 A                              ( CPF_Parm )
 
-struct FVector UObject::Normal ( struct FVector A )
+struct FVector UObject::Normal ( struct FVector const& A )
 {
 	static UFunction* pFnNormal = NULL;
 
@@ -5380,7 +5380,7 @@ struct FVector UObject::Normal ( struct FVector A )
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 A                              ( CPF_Parm )
 
-float UObject::VSizeSq2D ( struct FVector A )
+float UObject::VSizeSq2D ( struct FVector const& A )
 {
 	static UFunction* pFnVSizeSq2D = NULL;
 
@@ -5405,7 +5405,7 @@ float UObject::VSizeSq2D ( struct FVector A )
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 A                              ( CPF_Parm )
 
-float UObject::VSizeSq ( struct FVector A )
+float UObject::VSizeSq ( struct FVector const& A )
 {
 	static UFunction* pFnVSizeSq = NULL;
 
@@ -5430,7 +5430,7 @@ float UObject::VSizeSq ( struct FVector A )
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 A                              ( CPF_Parm )
 
-float UObject::VSize2D ( struct FVector A )
+float UObject::VSize2D ( struct FVector const& A )
 {
 	static UFunction* pFnVSize2D = NULL;
 
@@ -5455,7 +5455,7 @@ float UObject::VSize2D ( struct FVector A )
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 A                              ( CPF_Parm )
 
-float UObject::VSize ( struct FVector A )
+float UObject::VSize ( struct FVector const& A )
 {
 	static UFunction* pFnVSize = NULL;
 
@@ -5486,7 +5486,7 @@ float UObject::VSize ( struct FVector A )
 // struct FVector                 B                              ( CPF_Parm )
 // struct FVector                 A                              ( CPF_Parm | CPF_OutParm )
 
-struct FVector UObject::SubtractEqual_VectorVector ( struct FVector B, struct FVector* A )
+struct FVector UObject::SubtractEqual_VectorVector ( struct FVector const& B, struct FVector* A )
 {
 	static UFunction* pFnSubtractEqual_VectorVector = NULL;
 
@@ -5523,7 +5523,7 @@ struct FVector UObject::SubtractEqual_VectorVector ( struct FVector B, struct FV
 // struct FVector                 B                              ( CPF_Parm )
 // struct FVector                 A                              ( CPF_Parm | CPF_OutParm )
 
-struct FVector UObject::AddEqual_VectorVector ( struct FVector B, struct FVector* A )
+struct FVector UObject::AddEqual_VectorVector ( struct FVector const& B, struct FVector* A )
 {
 	static UFunction* pFnAddEqual_VectorVector = NULL;
 
@@ -5597,7 +5597,7 @@ struct FVector UObject::DivideEqual_VectorFloat ( float B, struct FVector* A )
 // struct FVector                 B                              ( CPF_Parm )
 // struct FVector                 A                              ( CPF_Parm | CPF_OutParm )
 
-struct FVector UObject::MultiplyEqual_VectorVector ( struct FVector B, struct FVector* A )
+struct FVector UObject::MultiplyEqual_VectorVector ( struct FVector const& B, struct FVector* A )
 {
 	static UFunction* pFnMultiplyEqual_VectorVector = NULL;
 
@@ -5671,7 +5671,7 @@ struct FVector UObject::MultiplyEqual_VectorFloat ( float B, struct FVector* A )
 // struct FVector                 A                              ( CPF_Parm )
 // struct FVector                 B                              ( CPF_Parm )
 
-struct FVector UObject::Cross_VectorVector ( struct FVector A, struct FVector B )
+struct FVector UObject::Cross_VectorVector ( struct FVector const& A, struct FVector const& B )
 {
 	static UFunction* pFnCross_VectorVector = NULL;
 
@@ -5703,7 +5703,7 @@ struct FVector UObject::Cross_VectorVector ( struct FVector A, struct FVector B 
 // struct FVector                 A                              ( CPF_Parm )
 // struct FVector                 B                              ( CPF_Parm )
 
-float UObject::Dot_VectorVector ( struct FVector A, struct FVector B )
+float UObject::Dot_VectorVector ( struct FVector const& A, struct FVector const& B )
 {
 	static UFunction* pFnDot_VectorVector = NULL;
 
@@ -5735,7 +5735,7 @@ float UObject::Dot_VectorVector ( struct FVector A, struct FVector B )
 // struct FVector                 A                              ( CPF_Parm )
 // struct FVector                 B                              ( CPF_Parm )
 
-bool UObject::NotEqual_VectorVector ( struct FVector A, struct FVector B )
+bool UObject::NotEqual_VectorVector ( struct FVector const& A, struct FVector const& B )
 {
 	static UFunction* pFnNotEqual_VectorVector = NULL;
 
@@ -5767,7 +5767,7 @@ bool UObject::NotEqual_VectorVector ( struct FVector A, struct FVector B )
 // struct FVector                 A                              ( CPF_Parm )
 // struct FVector                 B                              ( CPF_Parm )
 
-bool UObject::EqualEqual_VectorVector ( struct FVector A, struct FVector B )
+bool UObject::EqualEqual_VectorVector ( struct FVector const& A, struct FVector const& B )
 {
 	static UFunction* pFnEqualEqual_VectorVector = NULL;
 
@@ -5799,7 +5799,7 @@ bool UObject::EqualEqual_VectorVector ( struct FVector A, struct FVector B )
 // struct FVector                 A                              ( CPF_Parm )
 // struct FRotator                B                              ( CPF_Parm )
 
-struct FVector UObject::GreaterGreater_VectorRotator ( struct FVector A, struct FRotator B )
+struct FVector UObject::GreaterGreater_VectorRotator ( struct FVector const& A, struct FRotator const& B )
 {
 	static UFunction* pFnGreaterGreater_VectorRotator = NULL;
 
@@ -5831,7 +5831,7 @@ struct FVector UObject::GreaterGreater_VectorRotator ( struct FVector A, struct 
 // struct FVector                 A                              ( CPF_Parm )
 // struct FRotator                B                              ( CPF_Parm )
 
-struct FVector UObject::LessLess_VectorRotator ( struct FVector A, struct FRotator B )
+struct FVector UObject::LessLess_VectorRotator ( struct FVector const& A, struct FRotator const& B )
 {
 	static UFunction* pFnLessLess_VectorRotator = NULL;
 
@@ -5863,7 +5863,7 @@ struct FVector UObject::LessLess_VectorRotator ( struct FVector A, struct FRotat
 // struct FVector                 A                              ( CPF_Parm )
 // struct FVector                 B                              ( CPF_Parm )
 
-struct FVector UObject::Subtract_VectorVector ( struct FVector A, struct FVector B )
+struct FVector UObject::Subtract_VectorVector ( struct FVector const& A, struct FVector const& B )
 {
 	static UFunction* pFnSubtract_VectorVector = NULL;
 
@@ -5895,7 +5895,7 @@ struct FVector UObject::Subtract_VectorVector ( struct FVector A, struct FVector
 // struct FVector                 A                              ( CPF_Parm )
 // struct FVector                 B                              ( CPF_Parm )
 
-struct FVector UObject::Add_VectorVector ( struct FVector A, struct FVector B )
+struct FVector UObject::Add_VectorVector ( struct FVector const& A, struct FVector const& B )
 {
 	static UFunction* pFnAdd_VectorVector = NULL;
 
@@ -5927,7 +5927,7 @@ struct FVector UObject::Add_VectorVector ( struct FVector A, struct FVector B )
 // struct FVector                 A                              ( CPF_Parm )
 // float                          B                              ( CPF_Parm )
 
-struct FVector UObject::Divide_VectorFloat ( struct FVector A, float B )
+struct FVector UObject::Divide_VectorFloat ( struct FVector const& A, float B )
 {
 	static UFunction* pFnDivide_VectorFloat = NULL;
 
@@ -5959,7 +5959,7 @@ struct FVector UObject::Divide_VectorFloat ( struct FVector A, float B )
 // struct FVector                 A                              ( CPF_Parm )
 // struct FVector                 B                              ( CPF_Parm )
 
-struct FVector UObject::Multiply_VectorVector ( struct FVector A, struct FVector B )
+struct FVector UObject::Multiply_VectorVector ( struct FVector const& A, struct FVector const& B )
 {
 	static UFunction* pFnMultiply_VectorVector = NULL;
 
@@ -5991,7 +5991,7 @@ struct FVector UObject::Multiply_VectorVector ( struct FVector A, struct FVector
 // float                          A                              ( CPF_Parm )
 // struct FVector                 B                              ( CPF_Parm )
 
-struct FVector UObject::Multiply_FloatVector ( float A, struct FVector B )
+struct FVector UObject::Multiply_FloatVector ( float A, struct FVector const& B )
 {
 	static UFunction* pFnMultiply_FloatVector = NULL;
 
@@ -6023,7 +6023,7 @@ struct FVector UObject::Multiply_FloatVector ( float A, struct FVector B )
 // struct FVector                 A                              ( CPF_Parm )
 // float                          B                              ( CPF_Parm )
 
-struct FVector UObject::Multiply_VectorFloat ( struct FVector A, float B )
+struct FVector UObject::Multiply_VectorFloat ( struct FVector const& A, float B )
 {
 	static UFunction* pFnMultiply_VectorFloat = NULL;
 
@@ -6054,7 +6054,7 @@ struct FVector UObject::Multiply_VectorFloat ( struct FVector A, float B )
 // struct FVector                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 A                              ( CPF_Parm )
 
-struct FVector UObject::Subtract_PreVector ( struct FVector A )
+struct FVector UObject::Subtract_PreVector ( struct FVector const& A )
 {
 	static UFunction* pFnSubtract_PreVector = NULL;
 
@@ -6085,7 +6085,7 @@ struct FVector UObject::Subtract_PreVector ( struct FVector A )
 // struct FVector                 Min                            ( CPF_Parm )
 // struct FVector                 Max                            ( CPF_Parm )
 
-void UObject::SetBioRwBox ( struct FBioRwBox Target, struct FVector Min, struct FVector Max )
+void UObject::SetBioRwBox ( struct FBioRwBox const& Target, struct FVector const& Min, struct FVector const& Max )
 {
 	static UFunction* pFnSetBioRwBox = NULL;
 
@@ -6133,9 +6133,9 @@ struct FBioStrRes UObject::GetStringInfo ( int srID )
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // int                            nTokenNum                      ( CPF_Parm )
-// class FString                  sToken                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sToken                         ( CPF_Parm | CPF_NeedCtorLink )
 
-void UObject::SetCustomToken ( int nTokenNum, class FString sToken )
+void UObject::SetCustomToken ( int nTokenNum, FString const& sToken )
 {
 	static UFunction* pFnSetCustomToken = NULL;
 
@@ -6227,10 +6227,10 @@ bool UObject::AddTalkFile ( class UBioBaseTlkFile* TalkFile )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // class UObject*                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  sIniKey                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sIniKey                        ( CPF_Parm | CPF_NeedCtorLink )
 // class UClass*                  ExpectedClass                  ( CPF_Parm )
 
-class UObject* UObject::DynamicLoadDefaultResource ( class FString sIniKey, class UClass* ExpectedClass )
+class UObject* UObject::DynamicLoadDefaultResource ( FString const& sIniKey, class UClass* ExpectedClass )
 {
 	static UFunction* pFnDynamicLoadDefaultResource = NULL;
 
@@ -6254,12 +6254,12 @@ class UObject* UObject::DynamicLoadDefaultResource ( class FString sIniKey, clas
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  sFile                          ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sSection                       ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sKey                           ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<class FString>    aResult                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        sFile                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sSection                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sKey                           ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<FString>                aResult                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UObject::GetIniArray ( class FString sFile, class FString sSection, class FString sKey, class TArray<class FString>* aResult )
+bool UObject::GetIniArray ( FString const& sFile, FString const& sSection, FString const& sKey, TArray<FString>* aResult )
 {
 	static UFunction* pFnGetIniArray = NULL;
 
@@ -7698,10 +7698,10 @@ float UObject::Subtract_PreFloat ( float A )
 // Function Core.Object.ToHex
 // [0x00022401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // int                            A                              ( CPF_Parm )
 
-class FString UObject::ToHex ( int A )
+FString UObject::ToHex ( int A )
 {
 	static UFunction* pFnToHex = NULL;
 
@@ -9791,9 +9791,9 @@ class UClass* UHelpCommandlet::StaticClass()
 // [0x00020C00] ( FUNC_Event | FUNC_Native )
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Params                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Params                         ( CPF_Parm | CPF_NeedCtorLink )
 
-int UHelpCommandlet::eventMain ( class FString Params )
+int UHelpCommandlet::eventMain ( FString const& Params )
 {
 	static UFunction* pFnMain = NULL;
 
@@ -9828,9 +9828,9 @@ class UClass* UCommandlet::StaticClass()
 // [0x00020C00] ( FUNC_Event | FUNC_Native )
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Params                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Params                         ( CPF_Parm | CPF_NeedCtorLink )
 
-int UCommandlet::eventMain ( class FString Params )
+int UCommandlet::eventMain ( FString const& Params )
 {
 	static UFunction* pFnMain = NULL;
 
@@ -9878,9 +9878,9 @@ class UClass* UBioBaseTokenParser::StaticClass()
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            nActionCode                    ( CPF_Parm )
-// class FString                  sToken                         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        sToken                         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UBioBaseTokenParser::eventGetStringToken ( int nActionCode, class FString* sToken )
+bool UBioBaseTokenParser::eventGetStringToken ( int nActionCode, FString* sToken )
 {
 	static UFunction* pFnGetStringToken = NULL;
 

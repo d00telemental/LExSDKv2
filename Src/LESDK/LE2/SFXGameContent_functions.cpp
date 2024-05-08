@@ -90,7 +90,7 @@ int USFXSeqAct_SaveGame::eventGetObjClassVersion ( )
 // Parameters infos:
 // struct FSFXSaveDescriptor      Descriptor                     ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXSeqAct_SaveGame::BeginSave ( struct FSFXSaveDescriptor Descriptor )
+void USFXSeqAct_SaveGame::BeginSave ( struct FSFXSaveDescriptor const& Descriptor )
 {
 	static UFunction* pFnBeginSave = NULL;
 
@@ -195,6 +195,112 @@ bool USFXSeqAct_SaveGame::CanSave ( class ABioPlayerController* PC )
 
 	return CanSave_Parms.ReturnValue;
 };
+
+
+
+class UClass* USFXSeqAct_ResourceSnapshot::pClassPointer = NULL;
+
+class UClass* USFXSeqAct_ResourceSnapshot::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.SFXSeqAct_ResourceSnapshot" );
+
+		return pClassPointer;
+	};
+
+// Function SFXGameContent.SFXSeqAct_ResourceSnapshot.GetObjClassVersion
+// [0x00022802] ( FUNC_Event )
+// Parameters infos:
+// int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+int USFXSeqAct_ResourceSnapshot::eventGetObjClassVersion ( )
+{
+	static UFunction* pFnGetObjClassVersion = NULL;
+
+	if ( ! pFnGetObjClassVersion )
+		pFnGetObjClassVersion = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_ResourceSnapshot.GetObjClassVersion" );
+
+	USFXSeqAct_ResourceSnapshot_eventGetObjClassVersion_Parms GetObjClassVersion_Parms;
+
+	this->ProcessEvent ( pFnGetObjClassVersion, &GetObjClassVersion_Parms, NULL );
+
+	return GetObjClassVersion_Parms.ReturnValue;
+};
+
+// Function SFXGameContent.SFXSeqAct_ResourceSnapshot.Activated
+// [0x00820002] 
+// Parameters infos:
+
+void USFXSeqAct_ResourceSnapshot::Activated ( )
+{
+	static UFunction* pFnActivated = NULL;
+
+	if ( ! pFnActivated )
+		pFnActivated = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_ResourceSnapshot.Activated" );
+
+	USFXSeqAct_ResourceSnapshot_execActivated_Parms Activated_Parms;
+
+	this->ProcessEvent ( pFnActivated, &Activated_Parms, NULL );
+};
+
+
+
+class UClass* USFXSeqAct_ExplodingPlaceable::pClassPointer = NULL;
+
+class UClass* USFXSeqAct_ExplodingPlaceable::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.SFXSeqAct_ExplodingPlaceable" );
+
+		return pClassPointer;
+	};
+
+// Function SFXGameContent.SFXSeqAct_ExplodingPlaceable.GetObjClassVersion
+// [0x00022802] ( FUNC_Event )
+// Parameters infos:
+// int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+int USFXSeqAct_ExplodingPlaceable::eventGetObjClassVersion ( )
+{
+	static UFunction* pFnGetObjClassVersion = NULL;
+
+	if ( ! pFnGetObjClassVersion )
+		pFnGetObjClassVersion = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_ExplodingPlaceable.GetObjClassVersion" );
+
+	USFXSeqAct_ExplodingPlaceable_eventGetObjClassVersion_Parms GetObjClassVersion_Parms;
+
+	this->ProcessEvent ( pFnGetObjClassVersion, &GetObjClassVersion_Parms, NULL );
+
+	return GetObjClassVersion_Parms.ReturnValue;
+};
+
+// Function SFXGameContent.SFXSeqAct_ExplodingPlaceable.Activated
+// [0x00820002] 
+// Parameters infos:
+
+void USFXSeqAct_ExplodingPlaceable::Activated ( )
+{
+	static UFunction* pFnActivated = NULL;
+
+	if ( ! pFnActivated )
+		pFnActivated = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_ExplodingPlaceable.Activated" );
+
+	USFXSeqAct_ExplodingPlaceable_execActivated_Parms Activated_Parms;
+
+	this->ProcessEvent ( pFnActivated, &Activated_Parms, NULL );
+};
+
+
+
+class UClass* USFXSeqAct_CloseMissionCompletion::pClassPointer = NULL;
+
+class UClass* USFXSeqAct_CloseMissionCompletion::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.SFXSeqAct_CloseMissionCompletion" );
+
+		return pClassPointer;
+	};
 
 
 
@@ -309,6 +415,77 @@ void USFXSeqAct_ChooseLoadout::Activated ( )
 
 
 
+class UClass* ABioSquadCombat::pClassPointer = NULL;
+
+class UClass* ABioSquadCombat::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.BioSquadCombat" );
+
+		return pClassPointer;
+	};
+
+
+
+class UClass* UBioSeqAct_ShowMissionCompletion::pClassPointer = NULL;
+
+class UClass* UBioSeqAct_ShowMissionCompletion::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.BioSeqAct_ShowMissionCompletion" );
+
+		return pClassPointer;
+	};
+
+
+
+class UClass* UBioSeqAct_ShowHint::pClassPointer = NULL;
+
+class UClass* UBioSeqAct_ShowHint::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.BioSeqAct_ShowHint" );
+
+		return pClassPointer;
+	};
+
+// Function SFXGameContent.BioSeqAct_ShowHint.GetObjClassVersion
+// [0x00022802] ( FUNC_Event )
+// Parameters infos:
+// int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+int UBioSeqAct_ShowHint::eventGetObjClassVersion ( )
+{
+	static UFunction* pFnGetObjClassVersion = NULL;
+
+	if ( ! pFnGetObjClassVersion )
+		pFnGetObjClassVersion = UObject::FindObject< UFunction > ( L"Function SFXGameContent.BioSeqAct_ShowHint.GetObjClassVersion" );
+
+	UBioSeqAct_ShowHint_eventGetObjClassVersion_Parms GetObjClassVersion_Parms;
+
+	this->ProcessEvent ( pFnGetObjClassVersion, &GetObjClassVersion_Parms, NULL );
+
+	return GetObjClassVersion_Parms.ReturnValue;
+};
+
+// Function SFXGameContent.BioSeqAct_ShowHint.Activated
+// [0x00020002] 
+// Parameters infos:
+
+void UBioSeqAct_ShowHint::Activated ( )
+{
+	static UFunction* pFnActivated = NULL;
+
+	if ( ! pFnActivated )
+		pFnActivated = UObject::FindObject< UFunction > ( L"Function SFXGameContent.BioSeqAct_ShowHint.Activated" );
+
+	UBioSeqAct_ShowHint_execActivated_Parms Activated_Parms;
+
+	this->ProcessEvent ( pFnActivated, &Activated_Parms, NULL );
+};
+
+
+
 class UClass* UBioSeqAct_SetPlotPersuadeCheck::pClassPointer = NULL;
 
 class UClass* UBioSeqAct_SetPlotPersuadeCheck::StaticClass()
@@ -356,6 +533,108 @@ class ABioWorldInfo* UBioSeqAct_SetPlotPersuadeCheck::getWorld ( )
 
 
 
+class UClass* UBioSeqAct_GiveMissionXP::pClassPointer = NULL;
+
+class UClass* UBioSeqAct_GiveMissionXP::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.BioSeqAct_GiveMissionXP" );
+
+		return pClassPointer;
+	};
+
+// Function SFXGameContent.BioSeqAct_GiveMissionXP.GetObjClassVersion
+// [0x00022802] ( FUNC_Event )
+// Parameters infos:
+// int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+int UBioSeqAct_GiveMissionXP::eventGetObjClassVersion ( )
+{
+	static UFunction* pFnGetObjClassVersion = NULL;
+
+	if ( ! pFnGetObjClassVersion )
+		pFnGetObjClassVersion = UObject::FindObject< UFunction > ( L"Function SFXGameContent.BioSeqAct_GiveMissionXP.GetObjClassVersion" );
+
+	UBioSeqAct_GiveMissionXP_eventGetObjClassVersion_Parms GetObjClassVersion_Parms;
+
+	this->ProcessEvent ( pFnGetObjClassVersion, &GetObjClassVersion_Parms, NULL );
+
+	return GetObjClassVersion_Parms.ReturnValue;
+};
+
+// Function SFXGameContent.BioSeqAct_GiveMissionXP.GetMissionXP
+// [0x00840003] ( FUNC_Final )
+// Parameters infos:
+// int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+int UBioSeqAct_GiveMissionXP::GetMissionXP ( )
+{
+	static UFunction* pFnGetMissionXP = NULL;
+
+	if ( ! pFnGetMissionXP )
+		pFnGetMissionXP = UObject::FindObject< UFunction > ( L"Function SFXGameContent.BioSeqAct_GiveMissionXP.GetMissionXP" );
+
+	UBioSeqAct_GiveMissionXP_execGetMissionXP_Parms GetMissionXP_Parms;
+
+	this->ProcessEvent ( pFnGetMissionXP, &GetMissionXP_Parms, NULL );
+
+	return GetMissionXP_Parms.ReturnValue;
+};
+
+// Function SFXGameContent.BioSeqAct_GiveMissionXP.Activated
+// [0x00020002] 
+// Parameters infos:
+
+void UBioSeqAct_GiveMissionXP::Activated ( )
+{
+	static UFunction* pFnActivated = NULL;
+
+	if ( ! pFnActivated )
+		pFnActivated = UObject::FindObject< UFunction > ( L"Function SFXGameContent.BioSeqAct_GiveMissionXP.Activated" );
+
+	UBioSeqAct_GiveMissionXP_execActivated_Parms Activated_Parms;
+
+	this->ProcessEvent ( pFnActivated, &Activated_Parms, NULL );
+};
+
+
+
+class UClass* UBioFaction_Hostile1::pClassPointer = NULL;
+
+class UClass* UBioFaction_Hostile1::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.BioFaction_Hostile1" );
+
+		return pClassPointer;
+	};
+
+
+
+class UClass* ABioBaseSquadDesignCombat::pClassPointer = NULL;
+
+class UClass* ABioBaseSquadDesignCombat::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.BioBaseSquadDesignCombat" );
+
+		return pClassPointer;
+	};
+
+
+
+class UClass* ABioBaseSquadDesign::pClassPointer = NULL;
+
+class UClass* ABioBaseSquadDesign::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.BioBaseSquadDesign" );
+
+		return pClassPointer;
+	};
+
+
+
 class UClass* USFXSeqAct_SetAreaMap::pClassPointer = NULL;
 
 class UClass* USFXSeqAct_SetAreaMap::StaticClass()
@@ -397,53 +676,6 @@ void USFXSeqAct_SetAreaMap::Activated ( )
 		pFnActivated = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_SetAreaMap.Activated" );
 
 	USFXSeqAct_SetAreaMap_execActivated_Parms Activated_Parms;
-
-	this->ProcessEvent ( pFnActivated, &Activated_Parms, NULL );
-};
-
-
-
-class UClass* UBioSeqAct_ShowHint::pClassPointer = NULL;
-
-class UClass* UBioSeqAct_ShowHint::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.BioSeqAct_ShowHint" );
-
-		return pClassPointer;
-	};
-
-// Function SFXGameContent.BioSeqAct_ShowHint.GetObjClassVersion
-// [0x00022802] ( FUNC_Event )
-// Parameters infos:
-// int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-
-int UBioSeqAct_ShowHint::eventGetObjClassVersion ( )
-{
-	static UFunction* pFnGetObjClassVersion = NULL;
-
-	if ( ! pFnGetObjClassVersion )
-		pFnGetObjClassVersion = UObject::FindObject< UFunction > ( L"Function SFXGameContent.BioSeqAct_ShowHint.GetObjClassVersion" );
-
-	UBioSeqAct_ShowHint_eventGetObjClassVersion_Parms GetObjClassVersion_Parms;
-
-	this->ProcessEvent ( pFnGetObjClassVersion, &GetObjClassVersion_Parms, NULL );
-
-	return GetObjClassVersion_Parms.ReturnValue;
-};
-
-// Function SFXGameContent.BioSeqAct_ShowHint.Activated
-// [0x00020002] 
-// Parameters infos:
-
-void UBioSeqAct_ShowHint::Activated ( )
-{
-	static UFunction* pFnActivated = NULL;
-
-	if ( ! pFnActivated )
-		pFnActivated = UObject::FindObject< UFunction > ( L"Function SFXGameContent.BioSeqAct_ShowHint.Activated" );
-
-	UBioSeqAct_ShowHint_execActivated_Parms Activated_Parms;
 
 	this->ProcessEvent ( pFnActivated, &Activated_Parms, NULL );
 };
@@ -513,54 +745,6 @@ class APawn* UBioSeqAct_GetMembersOfSquad::FindAPawn ( )
 
 	return FindAPawn_Parms.ReturnValue;
 };
-
-
-
-class UClass* ABioBaseSquadDesign::pClassPointer = NULL;
-
-class UClass* ABioBaseSquadDesign::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.BioBaseSquadDesign" );
-
-		return pClassPointer;
-	};
-
-
-
-class UClass* ABioBaseSquadDesignCombat::pClassPointer = NULL;
-
-class UClass* ABioBaseSquadDesignCombat::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.BioBaseSquadDesignCombat" );
-
-		return pClassPointer;
-	};
-
-
-
-class UClass* UBioFaction_Hostile1::pClassPointer = NULL;
-
-class UClass* UBioFaction_Hostile1::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.BioFaction_Hostile1" );
-
-		return pClassPointer;
-	};
-
-
-
-class UClass* UBioFaction_Ambient::pClassPointer = NULL;
-
-class UClass* UBioFaction_Ambient::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.BioFaction_Ambient" );
-
-		return pClassPointer;
-	};
 
 
 
@@ -652,9 +836,9 @@ class USFXCombatStateData* UBioSeqAct_CombatController::GetCombatData ( )
 // Function SFXGameContent.BioSeqAct_CombatController.DebugLog
 // [0x00020002] 
 // Parameters infos:
-// class FString                  sMessage                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sMessage                       ( CPF_Parm | CPF_NeedCtorLink )
 
-void UBioSeqAct_CombatController::DebugLog ( class FString sMessage )
+void UBioSeqAct_CombatController::DebugLog ( FString const& sMessage )
 {
 	static UFunction* pFnDebugLog = NULL;
 
@@ -764,9 +948,9 @@ void USFXCombatStateData::ClearSpawnRequest ( )
 // [0x00020002] 
 // Parameters infos:
 // struct SFXName                 nmRequesterName                ( CPF_Parm )
-// class TArray<class AActor*>    aoSpawnPoints                  ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<class AActor*>          aoSpawnPoints                  ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXCombatStateData::RequestSpawn ( struct SFXName nmRequesterName, class TArray<class AActor*> aoSpawnPoints )
+void USFXCombatStateData::RequestSpawn ( struct SFXName nmRequesterName, TArray<class AActor*> const& aoSpawnPoints )
 {
 	static UFunction* pFnRequestSpawn = NULL;
 
@@ -1005,9 +1189,9 @@ void UBioSeqAct_SpawnLocation::Activated ( )
 // Function SFXGameContent.BioSeqAct_SpawnLocation.DebugLog
 // [0x00020002] 
 // Parameters infos:
-// class FString                  sMessage                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sMessage                       ( CPF_Parm | CPF_NeedCtorLink )
 
-void UBioSeqAct_SpawnLocation::DebugLog ( class FString sMessage )
+void UBioSeqAct_SpawnLocation::DebugLog ( FString const& sMessage )
 {
 	static UFunction* pFnDebugLog = NULL;
 
@@ -1037,121 +1221,6 @@ class USFXCombatStateData* UBioSeqAct_SpawnLocation::GetCombatData ( )
 	this->ProcessEvent ( pFnGetCombatData, &GetCombatData_Parms, NULL );
 
 	return GetCombatData_Parms.ReturnValue;
-};
-
-
-
-class UClass* ABioSquadCombat::pClassPointer = NULL;
-
-class UClass* ABioSquadCombat::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.BioSquadCombat" );
-
-		return pClassPointer;
-	};
-
-
-
-class UClass* USFXSeqAct_CompareAliveSquadMembers::pClassPointer = NULL;
-
-class UClass* USFXSeqAct_CompareAliveSquadMembers::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.SFXSeqAct_CompareAliveSquadMembers" );
-
-		return pClassPointer;
-	};
-
-// Function SFXGameContent.SFXSeqAct_CompareAliveSquadMembers.Activated
-// [0x00020002] 
-// Parameters infos:
-
-void USFXSeqAct_CompareAliveSquadMembers::Activated ( )
-{
-	static UFunction* pFnActivated = NULL;
-
-	if ( ! pFnActivated )
-		pFnActivated = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_CompareAliveSquadMembers.Activated" );
-
-	USFXSeqAct_CompareAliveSquadMembers_execActivated_Parms Activated_Parms;
-
-	this->ProcessEvent ( pFnActivated, &Activated_Parms, NULL );
-};
-
-
-
-class UClass* USFXSeqAct_ToggleSleeping::pClassPointer = NULL;
-
-class UClass* USFXSeqAct_ToggleSleeping::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.SFXSeqAct_ToggleSleeping" );
-
-		return pClassPointer;
-	};
-
-// Function SFXGameContent.SFXSeqAct_ToggleSleeping.GetObjClassVersion
-// [0x00022802] ( FUNC_Event )
-// Parameters infos:
-// int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-
-int USFXSeqAct_ToggleSleeping::eventGetObjClassVersion ( )
-{
-	static UFunction* pFnGetObjClassVersion = NULL;
-
-	if ( ! pFnGetObjClassVersion )
-		pFnGetObjClassVersion = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_ToggleSleeping.GetObjClassVersion" );
-
-	USFXSeqAct_ToggleSleeping_eventGetObjClassVersion_Parms GetObjClassVersion_Parms;
-
-	this->ProcessEvent ( pFnGetObjClassVersion, &GetObjClassVersion_Parms, NULL );
-
-	return GetObjClassVersion_Parms.ReturnValue;
-};
-
-// Function SFXGameContent.SFXSeqAct_ToggleSleeping.Activated
-// [0x00020002] 
-// Parameters infos:
-
-void USFXSeqAct_ToggleSleeping::Activated ( )
-{
-	static UFunction* pFnActivated = NULL;
-
-	if ( ! pFnActivated )
-		pFnActivated = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_ToggleSleeping.Activated" );
-
-	USFXSeqAct_ToggleSleeping_execActivated_Parms Activated_Parms;
-
-	this->ProcessEvent ( pFnActivated, &Activated_Parms, NULL );
-};
-
-
-
-class UClass* UBioSeqAct_CancelHint::pClassPointer = NULL;
-
-class UClass* UBioSeqAct_CancelHint::StaticClass()
-	{
-		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.BioSeqAct_CancelHint" );
-
-		return pClassPointer;
-	};
-
-// Function SFXGameContent.BioSeqAct_CancelHint.Activated
-// [0x00020002] 
-// Parameters infos:
-
-void UBioSeqAct_CancelHint::Activated ( )
-{
-	static UFunction* pFnActivated = NULL;
-
-	if ( ! pFnActivated )
-		pFnActivated = UObject::FindObject< UFunction > ( L"Function SFXGameContent.BioSeqAct_CancelHint.Activated" );
-
-	UBioSeqAct_CancelHint_execActivated_Parms Activated_Parms;
-
-	this->ProcessEvent ( pFnActivated, &Activated_Parms, NULL );
 };
 
 
@@ -1203,58 +1272,164 @@ void UBioSeqAct_CheckIfInVolume::Activated ( )
 
 
 
-class UClass* USFXSeqAct_EnablePowers::pClassPointer = NULL;
+class UClass* USFXSeqAct_ApplyImpulse::pClassPointer = NULL;
 
-class UClass* USFXSeqAct_EnablePowers::StaticClass()
+class UClass* USFXSeqAct_ApplyImpulse::StaticClass()
 	{
 		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.SFXSeqAct_EnablePowers" );
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.SFXSeqAct_ApplyImpulse" );
 
 		return pClassPointer;
 	};
 
-// Function SFXGameContent.SFXSeqAct_EnablePowers.Activated
-// [0x00020002] 
+// Function SFXGameContent.SFXSeqAct_ApplyImpulse.Activated
+// [0x00820002] 
 // Parameters infos:
 
-void USFXSeqAct_EnablePowers::Activated ( )
+void USFXSeqAct_ApplyImpulse::Activated ( )
 {
 	static UFunction* pFnActivated = NULL;
 
 	if ( ! pFnActivated )
-		pFnActivated = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_EnablePowers.Activated" );
+		pFnActivated = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_ApplyImpulse.Activated" );
 
-	USFXSeqAct_EnablePowers_execActivated_Parms Activated_Parms;
+	USFXSeqAct_ApplyImpulse_execActivated_Parms Activated_Parms;
 
 	this->ProcessEvent ( pFnActivated, &Activated_Parms, NULL );
 };
 
 
 
-class UClass* USFXSeqAct_GetActorHealth::pClassPointer = NULL;
+class UClass* USFXSeqAct_CompareAliveSquadMembers::pClassPointer = NULL;
 
-class UClass* USFXSeqAct_GetActorHealth::StaticClass()
+class UClass* USFXSeqAct_CompareAliveSquadMembers::StaticClass()
 	{
 		if ( ! pClassPointer )
-			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.SFXSeqAct_GetActorHealth" );
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.SFXSeqAct_CompareAliveSquadMembers" );
 
 		return pClassPointer;
 	};
 
-// Function SFXGameContent.SFXSeqAct_GetActorHealth.Activated
-// [0x00020802] ( FUNC_Event )
+// Function SFXGameContent.SFXSeqAct_CompareAliveSquadMembers.Activated
+// [0x00020002] 
 // Parameters infos:
 
-void USFXSeqAct_GetActorHealth::eventActivated ( )
+void USFXSeqAct_CompareAliveSquadMembers::Activated ( )
 {
 	static UFunction* pFnActivated = NULL;
 
 	if ( ! pFnActivated )
-		pFnActivated = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_GetActorHealth.Activated" );
+		pFnActivated = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_CompareAliveSquadMembers.Activated" );
 
-	USFXSeqAct_GetActorHealth_eventActivated_Parms Activated_Parms;
+	USFXSeqAct_CompareAliveSquadMembers_execActivated_Parms Activated_Parms;
 
 	this->ProcessEvent ( pFnActivated, &Activated_Parms, NULL );
+};
+
+
+
+class UClass* USFXSeqAct_LocationControlSpawnDoor::pClassPointer = NULL;
+
+class UClass* USFXSeqAct_LocationControlSpawnDoor::StaticClass()
+	{
+		if ( ! pClassPointer )
+			pClassPointer = UObject::FindClass ( L"Class SFXGameContent.SFXSeqAct_LocationControlSpawnDoor" );
+
+		return pClassPointer;
+	};
+
+// Function SFXGameContent.SFXSeqAct_LocationControlSpawnDoor.GetObjClassVersion
+// [0x00022802] ( FUNC_Event )
+// Parameters infos:
+// int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+int USFXSeqAct_LocationControlSpawnDoor::eventGetObjClassVersion ( )
+{
+	static UFunction* pFnGetObjClassVersion = NULL;
+
+	if ( ! pFnGetObjClassVersion )
+		pFnGetObjClassVersion = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_LocationControlSpawnDoor.GetObjClassVersion" );
+
+	USFXSeqAct_LocationControlSpawnDoor_eventGetObjClassVersion_Parms GetObjClassVersion_Parms;
+
+	this->ProcessEvent ( pFnGetObjClassVersion, &GetObjClassVersion_Parms, NULL );
+
+	return GetObjClassVersion_Parms.ReturnValue;
+};
+
+// Function SFXGameContent.SFXSeqAct_LocationControlSpawnDoor.Update
+// [0x00020802] ( FUNC_Event )
+// Parameters infos:
+// bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+// float                          DeltaTime                      ( CPF_Parm )
+
+bool USFXSeqAct_LocationControlSpawnDoor::eventUpdate ( float DeltaTime )
+{
+	static UFunction* pFnUpdate = NULL;
+
+	if ( ! pFnUpdate )
+		pFnUpdate = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_LocationControlSpawnDoor.Update" );
+
+	USFXSeqAct_LocationControlSpawnDoor_eventUpdate_Parms Update_Parms;
+	Update_Parms.DeltaTime = DeltaTime;
+
+	this->ProcessEvent ( pFnUpdate, &Update_Parms, NULL );
+
+	return Update_Parms.ReturnValue;
+};
+
+// Function SFXGameContent.SFXSeqAct_LocationControlSpawnDoor.PawnIsInVolumes
+// [0x00020002] 
+// Parameters infos:
+// bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+bool USFXSeqAct_LocationControlSpawnDoor::PawnIsInVolumes ( )
+{
+	static UFunction* pFnPawnIsInVolumes = NULL;
+
+	if ( ! pFnPawnIsInVolumes )
+		pFnPawnIsInVolumes = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_LocationControlSpawnDoor.PawnIsInVolumes" );
+
+	USFXSeqAct_LocationControlSpawnDoor_execPawnIsInVolumes_Parms PawnIsInVolumes_Parms;
+
+	this->ProcessEvent ( pFnPawnIsInVolumes, &PawnIsInVolumes_Parms, NULL );
+
+	return PawnIsInVolumes_Parms.ReturnValue;
+};
+
+// Function SFXGameContent.SFXSeqAct_LocationControlSpawnDoor.Activated
+// [0x00020000] 
+// Parameters infos:
+
+void USFXSeqAct_LocationControlSpawnDoor::Activated ( )
+{
+	static UFunction* pFnActivated = NULL;
+
+	if ( ! pFnActivated )
+		pFnActivated = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_LocationControlSpawnDoor.Activated" );
+
+	USFXSeqAct_LocationControlSpawnDoor_execActivated_Parms Activated_Parms;
+
+	this->ProcessEvent ( pFnActivated, &Activated_Parms, NULL );
+};
+
+// Function SFXGameContent.SFXSeqAct_LocationControlSpawnDoor.AllDoorsClosed
+// [0x00020002] 
+// Parameters infos:
+// bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+bool USFXSeqAct_LocationControlSpawnDoor::AllDoorsClosed ( )
+{
+	static UFunction* pFnAllDoorsClosed = NULL;
+
+	if ( ! pFnAllDoorsClosed )
+		pFnAllDoorsClosed = UObject::FindObject< UFunction > ( L"Function SFXGameContent.SFXSeqAct_LocationControlSpawnDoor.AllDoorsClosed" );
+
+	USFXSeqAct_LocationControlSpawnDoor_execAllDoorsClosed_Parms AllDoorsClosed_Parms;
+
+	this->ProcessEvent ( pFnAllDoorsClosed, &AllDoorsClosed_Parms, NULL );
+
+	return AllDoorsClosed_Parms.ReturnValue;
 };
 
 

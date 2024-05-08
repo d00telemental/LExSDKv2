@@ -220,7 +220,7 @@
 class USFXOnlineEvent : public UObject
 {
 public:
-	class FString                                      ErrorString;                                      		// 0x0060 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            ErrorString;                                      		// 0x0060 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	int                                                EventID;                                          		// 0x0070 (0x0004) [0x0000000000000000]              
 	float                                              TimeOut;                                          		// 0x0074 (0x0004) [0x0000000000000000]              
 	int                                                ErrorCode;                                        		// 0x0078 (0x0004) [0x0000000000000000]              
@@ -246,8 +246,8 @@ public:
 	void EnableTimeout ( );
 	void SetTimeout ( float fEventTimeout );
 	float GetTimeout ( );
-	void SetErrorString ( class FString sMessage );
-	class FString GetErrorString ( );
+	void SetErrorString ( FString const& sMessage );
+	FString GetErrorString ( );
 	void SetErrorCode ( int nCode );
 	int GetErrorCode ( );
 	void SetStatus ( unsigned char eNewStatus );
@@ -282,10 +282,10 @@ public:
 class USFXOnlineEvent_PlatformKeyboardUI : public USFXOnlineEvent
 {
 public:
-	class FString                                      Response;                                         		// 0x0084 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
-	class FString                                      TitleText;                                        		// 0x0094 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      DescriptionText;                                  		// 0x00A4 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      DefaultText;                                      		// 0x00B4 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            Response;                                         		// 0x0084 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	FString                                            TitleText;                                        		// 0x0094 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            DescriptionText;                                  		// 0x00A4 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            DefaultText;                                      		// 0x00B4 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	FPointer                                           ResponseBuffer;                                   		// 0x00C4 (0x0008) [0x0000000000001000]              ( CPF_Native )
 	unsigned long                                      ShouldValidate : 1;                               		// 0x00CC (0x0004) [0x0000000000000000] [0x00000001] 
 	unsigned long                                      RouteThroughConsole : 1;                          		// 0x00CC (0x0004) [0x0000000000000000] [0x00000002] 
@@ -304,7 +304,7 @@ public:
 class USFXOnlineEvent_String : public USFXOnlineEvent
 {
 public:
-	class FString                                      StringData;                                       		// 0x0084 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            StringData;                                       		// 0x0084 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 
 private:
 	static UClass* pClassPointer;
@@ -312,8 +312,8 @@ private:
 public:
 	static UClass* StaticClass();
 
-	void SetStringData ( class FString sStringData );
-	class FString GetStringData ( );
+	void SetStringData ( FString const& sStringData );
+	FString GetStringData ( );
 };
 
 // Class SFXOnlineFoundation.SFXOnlineEvent_Notification
@@ -321,7 +321,7 @@ public:
 class USFXOnlineEvent_Notification : public USFXOnlineEvent_String
 {
 public:
-	class FString                                      m_sImageName;                                     		// 0x0094 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            m_sImageName;                                     		// 0x0094 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	int                                                m_nPriority;                                      		// 0x00A4 (0x0004) [0x0000000000000000]              
 
 private:
@@ -332,8 +332,8 @@ public:
 
 	void SetPriority ( int nPriority );
 	int GetPriority ( );
-	void SetImageName ( class FString sImageName );
-	class FString GetImageName ( );
+	void SetImageName ( FString const& sImageName );
+	FString GetImageName ( );
 };
 
 // Class SFXOnlineFoundation.SFXOnlineEventList
@@ -341,7 +341,7 @@ public:
 class USFXOnlineEventList : public UObject
 {
 public:
-	class TArray<class USFXOnlineEvent*>               EventList;                                        		// 0x0060 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
+	TArray<class USFXOnlineEvent*>                     EventList;                                        		// 0x0060 (0x0010) [0x0000000000500000]              ( CPF_NeedCtorLink )
 
 private:
 	static UClass* pClassPointer;
@@ -428,34 +428,34 @@ public:
 	unsigned char CanDownloadUserContent ( int nUserIndex );
 	unsigned char CanCommunicate ( int nUserIndex );
 	unsigned char CanPlayOnline ( int nUserIndex );
-	void EnterCDKey ( class FString sKey );
+	void EnterCDKey ( FString const& sKey );
 	void OnDownloadOffersUICompleted ( );
 	void OnDLCInfoLoaded ( );
 	void OpenCerberusUI ( );
-	bool CheckEntitlement ( class FString sGroup, class FString sTag );
+	bool CheckEntitlement ( FString const& sGroup, FString const& sTag );
 	bool IsCerberusMember ( );
-	void DisablePersona ( class FString sPersonaNonGrata );
-	void CreatePersona ( class FString sPersonaName );
-	void SelectPersona ( class FString sPersonaName );
+	void DisablePersona ( FString const& sPersonaNonGrata );
+	void CreatePersona ( FString const& sPersonaName );
+	void SelectPersona ( FString const& sPersonaName );
 	void AcceptTOS ( unsigned long bAccepted );
 	void Disconnect ( );
-	void SubmitStore ( class TArray<int> aiChosen );
-	void SubmitCreateNucleusAccountEx ( class FString sEmail, class FString sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bBioWareProducts, class FString i_sCountryCode, int BirthDay, int BirthMonth, int BirthYear, class FString i_sLanguageCode, unsigned long bSubmit );
-	void SubmitEmailPasswordMismatch ( class FString Email, class FString Password, int eReturnCode );
+	void SubmitStore ( TArray<int> const& aiChosen );
+	void SubmitCreateNucleusAccountEx ( FString const& sEmail, FString const& sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bBioWareProducts, FString const& i_sCountryCode, int BirthDay, int BirthMonth, int BirthYear, FString const& i_sLanguageCode, unsigned long bSubmit );
+	void SubmitEmailPasswordMismatch ( FString const& Email, FString const& Password, int eReturnCode );
 	void SubmitMessageBox ( int eReturnCode );
-	void SubmitRedeemCode ( unsigned long bContinue, class FString i_sCode );
+	void SubmitRedeemCode ( unsigned long bContinue, FString const& i_sCode );
 	void SubmitCerberusWelcomeMessage ( );
 	void SubmitCerberusIntro ( int eReturnCode );
 	void SubmitNucleusWelcomeMessage ( );
-	void SubmitCreateNucleusAccount ( class FString sEmail, class FString sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bBioWareProducts, unsigned long bSubmit );
-	void SubmitParentEmail ( unsigned long bContinue, class FString ParentEmail );
-	void SubmitNucleusLogin ( class FString Email, class FString Password, unsigned char eReturnCode );
+	void SubmitCreateNucleusAccount ( FString const& sEmail, FString const& sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bBioWareProducts, unsigned long bSubmit );
+	void SubmitParentEmail ( unsigned long bContinue, FString const& ParentEmail );
+	void SubmitNucleusLogin ( FString const& Email, FString const& Password, unsigned char eReturnCode );
 	void SubmitIntroPage ( unsigned long bContinue, unsigned long bSimulated );
 	void Connect ( unsigned char connectMode );
 	void GoBackInUI ( );
 	void Cancel ( );
 	struct FUniqueNetId GetUserId ( );
-	class FString GetPersonaName ( );
+	FString GetPersonaName ( );
 	bool HasInternetConnection ( );
 	bool IsConnectedTo3rdPartyOnlineService ( );
 	bool HasAccountFor3rdPartyOnlineService ( );
@@ -479,13 +479,13 @@ public:
 	static UClass* StaticClass();
 
 	struct FSFXOnlineTargetOfferInfo GetTargetOfferInfo ( unsigned char nSource );
-	unsigned char HasUserPurchasedAnOffer ( struct FSFXOnline_OfferID aOfferId );
-	bool DownloadOffers ( class TArray<struct FSFXOnline_OfferID> aOfferIds );
-	class FString GetOfferKeyIfEntitled ( int internalId );
-	class TArray<struct FSFXOfferDescriptor> GetGrantingOffers ( );
-	class TArray<struct FSFXOfferDescriptor> GetEntitledDLCInfo ( );
+	unsigned char HasUserPurchasedAnOffer ( struct FSFXOnline_OfferID const& aOfferId );
+	bool DownloadOffers ( TArray<struct FSFXOnline_OfferID> const& aOfferIds );
+	FString GetOfferKeyIfEntitled ( int internalId );
+	TArray<struct FSFXOfferDescriptor> GetGrantingOffers ( );
+	TArray<struct FSFXOfferDescriptor> GetEntitledDLCInfo ( );
 	void RefreshEntitlementFlags ( );
-	class TArray<struct FSFXOnlineEntitlementGroupInfo> GetEntitlementGroups ( );
+	TArray<struct FSFXOnlineEntitlementGroupInfo> GetEntitlementGroups ( );
 	int GetDaysSinceCerberusRegistration ( );
 	bool IsCalendarUnlockEarned ( int nDay );
 	void RequestServerInfo ( );
@@ -510,12 +510,12 @@ public:
 	bool ShowStoreUI ( );
 	bool GetOnlineXuid ( int nUserIndex, struct FUniqueNetId* oUserXuid );
 	bool GetOfflineXuid ( int nUserIndex, struct FUniqueNetId* oUserXuid );
-	bool AddRecentPlayer ( struct FUniqueNetId oPlayerId, class FString sDescription );
-	bool ShowKeyboardUI ( unsigned char byLocalUserNum, class FString sTitleText, class FString sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, class FString sDefaultText, int nMaxResultLength );
+	bool AddRecentPlayer ( struct FUniqueNetId const& oPlayerId, FString const& sDescription );
+	bool ShowKeyboardUI ( unsigned char byLocalUserNum, FString const& sTitleText, FString const& sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, FString const& sDefaultText, int nMaxResultLength );
 	bool ShowAchievementsUI ( unsigned char byLocalUserNum );
-	bool ShowFeedbackUI ( unsigned char byLocalUserNum, struct FUniqueNetId oPlayerId );
-	bool ShowGamerCardUI ( unsigned char byLocalUserNum, struct FUniqueNetId oPlayerId );
-	bool ShowFriendsInviteUI ( unsigned char byLocalUserNum, struct FUniqueNetId oPlayerId );
+	bool ShowFeedbackUI ( unsigned char byLocalUserNum, struct FUniqueNetId const& oPlayerId );
+	bool ShowGamerCardUI ( unsigned char byLocalUserNum, struct FUniqueNetId const& oPlayerId );
+	bool ShowFriendsInviteUI ( unsigned char byLocalUserNum, struct FUniqueNetId const& oPlayerId );
 	bool ShowFriendsUI ( unsigned char byLocalUserNum );
 	unsigned char CanShowPresenceInformation ( unsigned char byLocalUserNum );
 	unsigned char CanViewPlayerProfiles ( unsigned char byLocalUserNum );
@@ -523,7 +523,7 @@ public:
 	unsigned char CanDownloadUserContent ( unsigned char byLocalUserNum );
 	unsigned char CanCommunicate ( unsigned char byLocalUserNum );
 	unsigned char CanPlayOnline ( unsigned char byLocalUserNum );
-	void SetRichPresence ( unsigned char byLocalUserNum, int nPresenceMode, class TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, class TArray<struct FSettingsProperty>* aProperties );
+	void SetRichPresence ( unsigned char byLocalUserNum, int nPresenceMode, TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, TArray<struct FSettingsProperty>* aProperties );
 	bool ShowLoginUI ( unsigned long bShowOnlineOnly );
 	unsigned char GetLoginStatus ( unsigned char byLocalUserNum );
 };
@@ -542,7 +542,7 @@ public:
 
 	void Flush ( unsigned char Channel );
 	void RegisterConnectionDelegates ( );
-	void OnDisconnect ( int Error, class FString SessionId );
+	void OnDisconnect ( int Error, FString const& SessionId );
 	void OnAuthenticate ( );
 	bool CanCollect ( );
 };
@@ -559,25 +559,25 @@ private:
 public:
 	static UClass* StaticClass();
 
-	void eventShowStore ( class TArray<struct FSFXOfferDescriptor> aOffers );
+	void eventShowStore ( TArray<struct FSFXOfferDescriptor> const& aOffers );
 	void eventHasCerberusDLC ( unsigned long bVal );
-	void eventOnDisplayNotification ( unsigned char Type, class FString MessageData, class FString Title, class FString Image );
+	void eventOnDisplayNotification ( unsigned char Type, FString const& MessageData, FString const& Title, FString const& Image );
 	void eventClearNotifications ( );
 	void eventCloseEANetworking ( );
 	void eventSetState ( unsigned char eState );
-	void ShowEmailPasswordMismatch ( class FString Email, class FString Password );
+	void ShowEmailPasswordMismatch ( FString const& Email, FString const& Password );
 	void ShowMessageBoxWait ( int srMessage, int srButton1Text, int srButton2Text );
-	void ShowMessageBox ( class FString sTitle, class FString sMessage, class FString sButton1Text, class FString sButton2Text, class FString sButton3Text );
-	void ShowCreateNucleusAccountEx ( class FString sEmail, class FString sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bBioWareProducts, class FString i_sCountryCode, int BirthDay, int BirthMonth, int BirthYear, class FString i_sLanguageCode, class TArray<class FString> m_CountryCodeList, class TArray<class FString> m_CountryDisplayList );
+	void ShowMessageBox ( FString const& sTitle, FString const& sMessage, FString const& sButton1Text, FString const& sButton2Text, FString const& sButton3Text );
+	void ShowCreateNucleusAccountEx ( FString const& sEmail, FString const& sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bBioWareProducts, FString const& i_sCountryCode, int BirthDay, int BirthMonth, int BirthYear, FString const& i_sLanguageCode, TArray<FString> const& m_CountryCodeList, TArray<FString> const& m_CountryDisplayList );
 	void ShowCerberusWelcomeMessage ( );
 	void ShowRedeemCode ( );
 	void ShowCerberusIntro ( );
 	void ShowNucleusWelcomeMessage ( );
-	void ShowCreateNucleusAccount ( class FString sEmail, class FString sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bRegisterProduct, unsigned long bBioWareProducts, unsigned long bUnderage );
+	void ShowCreateNucleusAccount ( FString const& sEmail, FString const& sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bRegisterProduct, unsigned long bBioWareProducts, unsigned long bUnderage );
 	void ShowParentEmail ( );
-	void ShowAccountDemographics ( class TArray<class FString> m_CountryCodeList, class TArray<class FString> m_CountryDisplayList );
-	void ShowTermsOfService ( class FString i_sTermsOfService, unsigned long bTOSChanged );
-	void ShowNucleusLogin ( class FString Email, class FString Password, int eScreenState );
+	void ShowAccountDemographics ( TArray<FString> const& m_CountryCodeList, TArray<FString> const& m_CountryDisplayList );
+	void ShowTermsOfService ( FString const& i_sTermsOfService, unsigned long bTOSChanged );
+	void ShowNucleusLogin ( FString const& Email, FString const& Password, int eScreenState );
 	void ShowIntroPage ( );
 };
 
@@ -600,7 +600,7 @@ public:
 class USFXOnlineComponent : public UObject
 {
 public:
-	class TArray<struct FSFXOnlineSubscriberEventType> EventSubscriberTable;                             		// 0x0060 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FSFXOnlineSubscriberEventType>       EventSubscriberTable;                             		// 0x0060 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnEvent__Delegate;                              		// 0x0070 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     APIName;                                          		// 0x0080 (0x0008) [0x0000000000000002]              ( CPF_Const )
 	class USFXOnlineSubsystem*                         OnlineSubsystem;                                  		// 0x0088 (0x0008) [0x0000000000000000]              
@@ -617,8 +617,8 @@ public:
 	bool eventIsConsole ( );
 	bool IsEventPending ( unsigned char eEventType, int nEventId );
 	class USFXOnlineEvent* GetEvent ( unsigned char eEventType, int nEventId );
-	void WaitingForWorkSetObject ( class TArray<class USFXOnlineEvent*> aOnlineEventSet, struct FScriptDelegate fnWorkComplete );
-	void WaitingForWorkSetType ( class TArray<unsigned char> aWorkUnits, struct FScriptDelegate fnWorkComplete );
+	void WaitingForWorkSetObject ( TArray<class USFXOnlineEvent*> const& aOnlineEventSet, struct FScriptDelegate fnWorkComplete );
+	void WaitingForWorkSetType ( TArray<unsigned char> const& aWorkUnits, struct FScriptDelegate fnWorkComplete );
 	void WaitingForWorkObject ( class USFXOnlineEvent* oEvent, struct FScriptDelegate fnWorkComplete );
 	void WaitingForWorkType ( unsigned char eWork, struct FScriptDelegate fnWorkComplete, int nEventId );
 	void NotifyWorkFinishedObject ( class USFXOnlineEvent* oEvent, unsigned char eStatusFinished );
@@ -644,8 +644,8 @@ class USFXOnlineComponentOrigin : public USFXOnlineComponent
 {
 public:
 	FPointer                                           VfTable_IISFXOnlineComponent;                     		// 0x0094 (0x0008) [0x0000000000801002]              ( CPF_Const | CPF_Native | CPF_NoExport )
-	class FString                                      mPresenceString;                                  		// 0x009C (0x0010) [0x0000000000001000]              ( CPF_Native )
-	class FString                                      mGamePresenceString;                              		// 0x00AC (0x0010) [0x0000000000001000]              ( CPF_Native )
+	FString                                            mPresenceString;                                  		// 0x009C (0x0010) [0x0000000000001000]              ( CPF_Native )
+	FString                                            mGamePresenceString;                              		// 0x00AC (0x0010) [0x0000000000001000]              ( CPF_Native )
 	int                                                mQueryAchievementsTimeOut;                        		// 0x00BC (0x0004) [0x0000000000004000]              ( CPF_Config )
 	unsigned long                                      mServiceStarted : 1;                              		// 0x00C0 (0x0004) [0x0000000000001000] [0x00000001] ( CPF_Native )
 	unsigned long                                      mIsLoggedIn : 1;                                  		// 0x00C0 (0x0004) [0x0000000000001000] [0x00000002] ( CPF_Native )
@@ -658,7 +658,7 @@ public:
 
 	void OnTick ( );
 	bool RefreshServerAchievements_ASync ( struct FSFXCachedAchievements* cached );
-	bool SetRichPresence ( class FString presence, class FString gamePresence );
+	bool SetRichPresence ( FString const& presence, FString const& gamePresence );
 	bool RequestProfile ( );
 	bool StartService ( );
 	bool EnsureSignedIn ( );
@@ -676,17 +676,17 @@ public:
 	struct FSFXProfileSettingsCache                    ProfileCache[ 0x4 ];                              		// 0x009C (0x0140) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FBioPerUserDelegateLists                    PerUserDelegates[ 0x4 ];                          		// 0x01DC (0x0080) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FLoginStatusDelegates                       PlayerLoginStatusDelegates[ 0x4 ];                		// 0x025C (0x0040) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FSFXCachedAchievements>        CachedAchievementList;                            		// 0x029C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               LocalPlayerStorageReadDelegates;                  		// 0x02AC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               LocalPlayerStorageWriteDelegates;                 		// 0x02BC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               RemotePlayerStorageReadDelegates;                 		// 0x02CC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               LoginCancelledDelegates;                          		// 0x02DC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               LoginFailedDelegates;                             		// 0x02EC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               LogoutCompletedDelegates;                         		// 0x02FC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               LoginChangeDelegates;                             		// 0x030C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      ProfileDataDirectory;                             		// 0x031C (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
-	class FString                                      ProfileDataExtension;                             		// 0x032C (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
-	class FString                                      LoggedInPlayerName;                               		// 0x033C (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
+	TArray<struct FSFXCachedAchievements>              CachedAchievementList;                            		// 0x029C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     LocalPlayerStorageReadDelegates;                  		// 0x02AC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     LocalPlayerStorageWriteDelegates;                 		// 0x02BC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     RemotePlayerStorageReadDelegates;                 		// 0x02CC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     LoginCancelledDelegates;                          		// 0x02DC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     LoginFailedDelegates;                             		// 0x02EC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     LogoutCompletedDelegates;                         		// 0x02FC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     LoginChangeDelegates;                             		// 0x030C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            ProfileDataDirectory;                             		// 0x031C (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	FString                                            ProfileDataExtension;                             		// 0x032C (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	FString                                            LoggedInPlayerName;                               		// 0x033C (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnProfileDataChanged__Delegate;                 		// 0x034C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnLoginChange__Delegate;                        		// 0x035C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnLoginCancelled__Delegate;                     		// 0x036C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
@@ -721,7 +721,7 @@ public:
 	void AddUnlockAchievementCompleteDelegate ( unsigned char LocalUserNum, struct FScriptDelegate UnlockAchievementCompleteDelegate );
 	void OnUnlockAchievementComplete ( unsigned long bWasSuccessful );
 	bool UnlockAchievement ( unsigned char LocalUserNum, int AchievementId );
-	unsigned char GetAchievements ( unsigned char LocalUserNum, int TitleId, int SetIndex, class TArray<struct FAchievementDetails>* Achievements );
+	unsigned char GetAchievements ( unsigned char LocalUserNum, int TitleId, int SetIndex, TArray<struct FAchievementDetails>* Achievements );
 	void ClearReadAchievementsCompleteDelegate ( unsigned char LocalUserNum, struct FScriptDelegate ReadAchievementsCompleteDelegate );
 	void AddReadAchievementsCompleteDelegate ( unsigned char LocalUserNum, struct FScriptDelegate ReadAchievementsCompleteDelegate );
 	void OnReadAchievementsComplete ( int TitleId );
@@ -729,36 +729,36 @@ public:
 	bool DeleteMessage ( unsigned char LocalUserNum, int MessageIndex );
 	void ClearFriendMessageReceivedDelegate ( unsigned char LocalUserNum, struct FScriptDelegate MessageDelegate );
 	void AddFriendMessageReceivedDelegate ( unsigned char LocalUserNum, struct FScriptDelegate MessageDelegate );
-	void OnFriendMessageReceived ( unsigned char LocalUserNum, struct FUniqueNetId SendingPlayer, class FString SendingNick, class FString Message );
-	void GetFriendMessages ( unsigned char LocalUserNum, class TArray<struct FOnlineFriendMessage>* FriendMessages );
+	void OnFriendMessageReceived ( unsigned char LocalUserNum, struct FUniqueNetId const& SendingPlayer, FString const& SendingNick, FString const& Message );
+	void GetFriendMessages ( unsigned char LocalUserNum, TArray<struct FOnlineFriendMessage>* FriendMessages );
 	void ClearJoinFriendGameCompleteDelegate ( struct FScriptDelegate JoinFriendGameCompleteDelegate );
 	void AddJoinFriendGameCompleteDelegate ( struct FScriptDelegate JoinFriendGameCompleteDelegate );
 	void OnJoinFriendGameComplete ( unsigned long bWasSuccessful );
-	bool JoinFriendGame ( unsigned char LocalUserNum, struct FUniqueNetId Friend );
+	bool JoinFriendGame ( unsigned char LocalUserNum, struct FUniqueNetId const& Friend );
 	void ClearReceivedGameInviteDelegate ( unsigned char LocalUserNum, struct FScriptDelegate ReceivedGameInviteDelegate );
 	void AddReceivedGameInviteDelegate ( unsigned char LocalUserNum, struct FScriptDelegate ReceivedGameInviteDelegate );
-	void OnReceivedGameInvite ( unsigned char LocalUserNum, class FString InviterName );
-	bool SendGameInviteToFriends ( unsigned char LocalUserNum, class TArray<struct FUniqueNetId> Friends, class FString Text );
-	bool SendGameInviteToFriend ( unsigned char LocalUserNum, struct FUniqueNetId Friend, class FString Text );
-	bool SendMessageToFriend ( unsigned char LocalUserNum, struct FUniqueNetId Friend, class FString Message );
+	void OnReceivedGameInvite ( unsigned char LocalUserNum, FString const& InviterName );
+	bool SendGameInviteToFriends ( unsigned char LocalUserNum, TArray<struct FUniqueNetId> const& Friends, FString const& Text );
+	bool SendGameInviteToFriend ( unsigned char LocalUserNum, struct FUniqueNetId const& Friend, FString const& Text );
+	bool SendMessageToFriend ( unsigned char LocalUserNum, struct FUniqueNetId const& Friend, FString const& Message );
 	void ClearFriendInviteReceivedDelegate ( unsigned char LocalUserNum, struct FScriptDelegate InviteDelegate );
 	void AddFriendInviteReceivedDelegate ( unsigned char LocalUserNum, struct FScriptDelegate InviteDelegate );
-	void OnFriendInviteReceived ( unsigned char LocalUserNum, struct FUniqueNetId RequestingPlayer, class FString RequestingNick, class FString Message );
-	bool RemoveFriend ( unsigned char LocalUserNum, struct FUniqueNetId FormerFriend );
-	bool DenyFriendInvite ( unsigned char LocalUserNum, struct FUniqueNetId RequestingPlayer );
-	bool AcceptFriendInvite ( unsigned char LocalUserNum, struct FUniqueNetId RequestingPlayer );
+	void OnFriendInviteReceived ( unsigned char LocalUserNum, struct FUniqueNetId const& RequestingPlayer, FString const& RequestingNick, FString const& Message );
+	bool RemoveFriend ( unsigned char LocalUserNum, struct FUniqueNetId const& FormerFriend );
+	bool DenyFriendInvite ( unsigned char LocalUserNum, struct FUniqueNetId const& RequestingPlayer );
+	bool AcceptFriendInvite ( unsigned char LocalUserNum, struct FUniqueNetId const& RequestingPlayer );
 	void ClearAddFriendByNameCompleteDelegate ( unsigned char LocalUserNum, struct FScriptDelegate FriendDelegate );
 	void AddAddFriendByNameCompleteDelegate ( unsigned char LocalUserNum, struct FScriptDelegate FriendDelegate );
 	void OnAddFriendByNameComplete ( unsigned long bWasSuccessful );
-	bool AddFriendByName ( unsigned char LocalUserNum, class FString FriendName, class FString Message );
-	bool AddFriend ( unsigned char LocalUserNum, struct FUniqueNetId NewFriend, class FString Message );
-	class FString GetKeyboardInputResults ( unsigned char* bWasCanceled );
+	bool AddFriendByName ( unsigned char LocalUserNum, FString const& FriendName, FString const& Message );
+	bool AddFriend ( unsigned char LocalUserNum, struct FUniqueNetId const& NewFriend, FString const& Message );
+	FString GetKeyboardInputResults ( unsigned char* bWasCanceled );
 	void ClearKeyboardInputDoneDelegate ( struct FScriptDelegate InputDelegate );
 	void AddKeyboardInputDoneDelegate ( struct FScriptDelegate InputDelegate );
 	void OnKeyboardInputComplete ( unsigned long bWasSuccessful );
-	bool ShowKeyboardUI ( unsigned char LocalUserNum, class FString TitleText, class FString DescriptionText, unsigned long bIsPassword, unsigned long bShouldValidate, class FString DefaultText, int MaxResultLength );
-	void SetOnlineStatus ( unsigned char LocalUserNum, int StatusId, class TArray<struct FLocalizedStringSetting>* LocalizedStringSettings, class TArray<struct FSettingsProperty>* Properties );
-	unsigned char GetFriendsList ( unsigned char LocalUserNum, int Count, int StartingAt, class TArray<struct FOnlineFriend>* Friends );
+	bool ShowKeyboardUI ( unsigned char LocalUserNum, FString const& TitleText, FString const& DescriptionText, unsigned long bIsPassword, unsigned long bShouldValidate, FString const& DefaultText, int MaxResultLength );
+	void SetOnlineStatus ( unsigned char LocalUserNum, int StatusId, TArray<struct FLocalizedStringSetting>* LocalizedStringSettings, TArray<struct FSettingsProperty>* Properties );
+	unsigned char GetFriendsList ( unsigned char LocalUserNum, int Count, int StartingAt, TArray<struct FOnlineFriend>* Friends );
 	void ClearReadFriendsCompleteDelegate ( unsigned char LocalUserNum, struct FScriptDelegate ReadFriendsCompleteDelegate );
 	void AddReadFriendsCompleteDelegate ( unsigned char LocalUserNum, struct FScriptDelegate ReadFriendsCompleteDelegate );
 	void OnReadFriendsComplete ( unsigned long bWasSuccessful );
@@ -768,10 +768,10 @@ public:
 	void OnWritePlayerStorageComplete ( unsigned char LocalUserNum, unsigned long bWasSuccessful );
 	bool WritePlayerStorage ( unsigned char LocalUserNum, class UOnlinePlayerStorage* PlayerStorage );
 	class UOnlinePlayerStorage* GetPlayerStorage ( unsigned char LocalUserNum );
-	void ClearReadPlayerStorageForNetIdCompleteDelegate ( struct FUniqueNetId NetId, struct FScriptDelegate ReadPlayerStorageForNetIdCompleteDelegate );
-	void AddReadPlayerStorageForNetIdCompleteDelegate ( struct FUniqueNetId NetId, struct FScriptDelegate ReadPlayerStorageForNetIdCompleteDelegate );
-	void OnReadPlayerStorageForNetIdComplete ( struct FUniqueNetId NetId, unsigned long bWasSuccessful );
-	bool ReadPlayerStorageForNetId ( struct FUniqueNetId NetId, class UOnlinePlayerStorage* PlayerStorage );
+	void ClearReadPlayerStorageForNetIdCompleteDelegate ( struct FUniqueNetId const& NetId, struct FScriptDelegate ReadPlayerStorageForNetIdCompleteDelegate );
+	void AddReadPlayerStorageForNetIdCompleteDelegate ( struct FUniqueNetId const& NetId, struct FScriptDelegate ReadPlayerStorageForNetIdCompleteDelegate );
+	void OnReadPlayerStorageForNetIdComplete ( struct FUniqueNetId const& NetId, unsigned long bWasSuccessful );
+	bool ReadPlayerStorageForNetId ( struct FUniqueNetId const& NetId, class UOnlinePlayerStorage* PlayerStorage );
 	void ClearReadPlayerStorageCompleteDelegate ( unsigned char LocalUserNum, struct FScriptDelegate ReadPlayerStorageCompleteDelegate );
 	void AddReadPlayerStorageCompleteDelegate ( unsigned char LocalUserNum, struct FScriptDelegate ReadPlayerStorageCompleteDelegate );
 	void OnReadPlayerStorageComplete ( unsigned char LocalUserNum, unsigned long bWasSuccessful );
@@ -793,13 +793,13 @@ public:
 	void AddLoginCancelledDelegate ( struct FScriptDelegate CancelledDelegate );
 	void ClearLoginStatusChangeDelegate ( struct FScriptDelegate LoginStatusDelegate, unsigned char LocalUserNum );
 	void AddLoginStatusChangeDelegate ( struct FScriptDelegate LoginStatusDelegate, unsigned char LocalUserNum );
-	void OnLoginStatusChange ( unsigned char NewStatus, struct FUniqueNetId NewId );
+	void OnLoginStatusChange ( unsigned char NewStatus, struct FUniqueNetId const& NewId );
 	void ClearLoginChangeDelegate ( struct FScriptDelegate LoginDelegate );
 	void AddLoginChangeDelegate ( struct FScriptDelegate LoginDelegate );
 	bool ShowFriendsUI ( unsigned char LocalUserNum );
-	bool IsMuted ( unsigned char LocalUserNum, struct FUniqueNetId PlayerID );
-	bool AreAnyFriends ( unsigned char LocalUserNum, class TArray<struct FFriendsQuery>* Query );
-	bool IsFriend ( unsigned char LocalUserNum, struct FUniqueNetId PlayerID );
+	bool IsMuted ( unsigned char LocalUserNum, struct FUniqueNetId const& PlayerID );
+	bool AreAnyFriends ( unsigned char LocalUserNum, TArray<struct FFriendsQuery>* Query );
+	bool IsFriend ( unsigned char LocalUserNum, struct FUniqueNetId const& PlayerID );
 	unsigned char CanShowPresenceInformation ( unsigned char LocalUserNum );
 	unsigned char CanViewPlayerProfiles ( unsigned char LocalUserNum );
 	unsigned char CanPurchaseContent ( unsigned char LocalUserNum );
@@ -808,7 +808,7 @@ public:
 	unsigned char CanPlayOnline ( unsigned char LocalUserNum );
 	bool IsLocalLogin ( unsigned char LocalUserNum );
 	bool IsGuestLogin ( unsigned char LocalUserNum );
-	class FString GetPlayerNickname ( unsigned char LocalUserNum );
+	FString GetPlayerNickname ( unsigned char LocalUserNum );
 	bool GetUniquePlayerId ( unsigned char LocalUserNum, struct FUniqueNetId* PlayerID );
 	unsigned char GetLoginStatus ( unsigned char LocalUserNum );
 	void ClearLogoutCompletedDelegate ( unsigned char LocalUserNum, struct FScriptDelegate LogoutDelegate );
@@ -819,14 +819,14 @@ public:
 	void AddLoginFailedDelegate ( unsigned char LocalUserNum, struct FScriptDelegate LoginDelegate );
 	void OnLoginFailed ( unsigned char LocalUserNum, unsigned char ErrorCode );
 	bool AutoLogin ( );
-	bool Login ( unsigned char LocalUserNum, class FString LoginName, class FString Password, unsigned long bWantsLocalOnly );
+	bool Login ( unsigned char LocalUserNum, FString const& LoginName, FString const& Password, unsigned long bWantsLocalOnly );
 	bool ShowLoginUI ( unsigned long bShowOnlineOnly );
 	void OnFriendsChange ( );
 	void OnMutingChange ( );
 	void OnLoginCancelled ( );
 	void OnLoginChange ( unsigned char LocalUserNum );
 	void OnProfileDataChanged ( );
-	class FString CreateProfileName ( unsigned long bIsTrilogyProfile );
+	FString CreateProfileName ( unsigned long bIsTrilogyProfile );
 	bool DoesProfileExist ( unsigned long bIsTrilogyProfile );
 	void OnTick ( class USFXOnlineEvent* oEvent );
 	struct SFXName GetAPIName ( );
@@ -850,26 +850,26 @@ private:
 public:
 	static UClass* StaticClass();
 
-	bool ShowCustomPlayersUI ( unsigned char LocalUserNum, class FString Title, class FString Description, class TArray<struct FUniqueNetId>* Players );
+	bool ShowCustomPlayersUI ( unsigned char LocalUserNum, FString const& Title, FString const& Description, TArray<struct FUniqueNetId>* Players );
 	bool ShowPlayersUI ( unsigned char LocalUserNum );
-	bool ShowFriendsInviteUI ( unsigned char LocalUserNum, struct FUniqueNetId PlayerID );
+	bool ShowFriendsInviteUI ( unsigned char LocalUserNum, struct FUniqueNetId const& PlayerID );
 	void ClearProfileDataChangedDelegate ( unsigned char LocalUserNum, struct FScriptDelegate ProfileDataChangedDelegate );
 	void AddProfileDataChangedDelegate ( unsigned char LocalUserNum, struct FScriptDelegate ProfileDataChangedDelegate );
 	void OnProfileDataChanged ( );
 	bool UnlockGamerPicture ( unsigned char LocalUserNum, int PictureId );
 	bool IsDeviceValid ( int DeviceID, int SizeNeeded );
-	int GetDeviceSelectionResults ( unsigned char LocalUserNum, class FString* DeviceName );
+	int GetDeviceSelectionResults ( unsigned char LocalUserNum, FString* DeviceName );
 	void ClearDeviceSelectionDoneDelegate ( unsigned char LocalUserNum, struct FScriptDelegate DeviceDelegate );
 	void AddDeviceSelectionDoneDelegate ( unsigned char LocalUserNum, struct FScriptDelegate DeviceDelegate );
 	void OnDeviceSelectionComplete ( unsigned long bWasSuccessful );
 	bool ShowDeviceSelectionUI ( unsigned char LocalUserNum, int SizeNeeded, unsigned long bForceShowUI, unsigned long bManageStorage );
 	bool ShowMembershipMarketplaceUI ( unsigned char LocalUserNum );
 	bool ShowContentMarketplaceUI ( unsigned char LocalUserNum, int CategoryMask, int OfferId );
-	bool ShowInviteUI ( unsigned char LocalUserNum, class FString InviteText );
+	bool ShowInviteUI ( unsigned char LocalUserNum, FString const& InviteText );
 	bool ShowAchievementsUI ( unsigned char LocalUserNum );
 	bool ShowMessagesUI ( unsigned char LocalUserNum );
-	bool ShowGamerCardUI ( unsigned char LocalUserNum, struct FUniqueNetId PlayerID );
-	bool ShowFeedbackUI ( unsigned char LocalUserNum, struct FUniqueNetId PlayerID );
+	bool ShowGamerCardUI ( unsigned char LocalUserNum, struct FUniqueNetId const& PlayerID );
+	bool ShowFeedbackUI ( unsigned char LocalUserNum, struct FUniqueNetId const& PlayerID );
 	void OnTick ( class USFXOnlineEvent* oEvent );
 	struct SFXName GetAPIName ( );
 	void OnRelease ( );
@@ -882,13 +882,13 @@ class USFXOnlineComponentUnrealSystem : public USFXOnlineComponent
 {
 public:
 	FPointer                                           VfTable_IISFXOnlineComponent;                     		// 0x0094 (0x0008) [0x0000000000801002]              ( CPF_Const | CPF_Native | CPF_NoExport )
-	class TArray<struct FScriptDelegate>               ExternalUIChangeDelegates;                        		// 0x009C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               ControllerChangeDelegates;                        		// 0x00AC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FTitleFile>                    TitleManagedFiles;                                		// 0x00BC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               ReadTitleFileCompleteDelegates;                   		// 0x00CC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               StorageDeviceChangeDelegates;                     		// 0x00DC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               ConnectionStatusChangeDelegates;                  		// 0x00EC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FScriptDelegate>               LinkStatusChangeDelegates;                        		// 0x00FC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     ExternalUIChangeDelegates;                        		// 0x009C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     ControllerChangeDelegates;                        		// 0x00AC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FTitleFile>                          TitleManagedFiles;                                		// 0x00BC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     ReadTitleFileCompleteDelegates;                   		// 0x00CC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     StorageDeviceChangeDelegates;                     		// 0x00DC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     ConnectionStatusChangeDelegates;                  		// 0x00EC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FScriptDelegate>                     LinkStatusChangeDelegates;                        		// 0x00FC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnLinkStatusChange__Delegate;                   		// 0x010C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnExternalUIChange__Delegate;                   		// 0x011C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnControllerChange__Delegate;                   		// 0x012C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
@@ -903,12 +903,12 @@ private:
 public:
 	static UClass* StaticClass();
 
-	unsigned char GetTitleFileState ( class FString Filename );
-	bool GetTitleFileContents ( class FString Filename, class TArray<unsigned char>* FileContents );
+	unsigned char GetTitleFileState ( FString const& Filename );
+	bool GetTitleFileContents ( FString const& Filename, TArray<unsigned char>* FileContents );
 	void ClearReadTitleFileCompleteDelegate ( struct FScriptDelegate ReadTitleFileCompleteDelegate );
 	void AddReadTitleFileCompleteDelegate ( struct FScriptDelegate ReadTitleFileCompleteDelegate );
-	bool ReadTitleFile ( class FString FileToRead );
-	void OnReadTitleFileComplete ( unsigned long bWasSuccessful, class FString Filename );
+	bool ReadTitleFile ( FString const& FileToRead );
+	void OnReadTitleFileComplete ( unsigned long bWasSuccessful, FString const& Filename );
 	void ClearStorageDeviceChangeDelegate ( struct FScriptDelegate StorageDeviceChangeDelegate );
 	void AddStorageDeviceChangeDelegate ( struct FScriptDelegate StorageDeviceChangeDelegate );
 	void OnStorageDeviceChange ( );
@@ -955,8 +955,8 @@ public:
 	void OnRelease ( );
 	void OnInitialize ( class USFXOnlineSubsystem* oOnlineSubsystem );
 	void StopWaitingForAllWork ( class UObject* oCallbackTarget );
-	void WaitingForWorkSetObject ( class TArray<class USFXOnlineEvent*> aEventObjects, struct FScriptDelegate fnWorkComplete );
-	void WaitingForWorkSetType ( class TArray<unsigned char> aEventTypes, struct FScriptDelegate fnWorkComplete, class TArray<int> aWorkEventIds );
+	void WaitingForWorkSetObject ( TArray<class USFXOnlineEvent*> const& aEventObjects, struct FScriptDelegate fnWorkComplete );
+	void WaitingForWorkSetType ( TArray<unsigned char> const& aEventTypes, struct FScriptDelegate fnWorkComplete, TArray<int> const& aWorkEventIds );
 	void WaitingForWorkObject ( class USFXOnlineEvent* oEvent, struct FScriptDelegate fnWorkComplete );
 	void WaitingForWorkType ( unsigned char eEventType, struct FScriptDelegate fnWorkComplete, int nEventId );
 	bool IsEventPending ( unsigned char eEventType, int nEventId );
@@ -979,11 +979,11 @@ public:
 class USFXOnlineSubsystem : public UOnlineSubsystem
 {
 public:
-	class FString                                      GameProtocolVersion;                              		// 0x015C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<struct FSFXOnlineAchievement>         AchievementList;                                  		// 0x016C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<class FString>                        SuggestPersonaNameKeywords;                       		// 0x017C (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
-	class TArray<struct FSFXOnlineComponentDescription> ComponentClassList;                               		// 0x018C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      OnlineUIClass;                                    		// 0x019C (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	FString                                            GameProtocolVersion;                              		// 0x015C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FSFXOnlineAchievement>               AchievementList;                                  		// 0x016C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<FString>                                    SuggestPersonaNameKeywords;                       		// 0x017C (0x0010) [0x0000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
+	TArray<struct FSFXOnlineComponentDescription>      ComponentClassList;                               		// 0x018C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            OnlineUIClass;                                    		// 0x019C (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
 	FPointer                                           PlatformOnlineGameCallbackManager;                		// 0x01AC (0x0008) [0x0000000000001002]              ( CPF_Const | CPF_Native )
 	class UISFXOnlineComponent*                        OnlineComponentList[ 0x16 ];                      		// 0x01B4 (0x0160) [0x0000000000000000]              
 	unsigned char                                      UnknownData00[ 0xB0 ];                            		// 0x0264 (0x00B0) FIX WRONG TYPE SIZE OF PREVIUS PROPERTY
@@ -1002,16 +1002,16 @@ public:
 	static UClass* StaticClass();
 
 	void eventExit ( );
-	bool ShowConsoleRoutedKeyboardUI ( unsigned char eLocalUserNum, class FString sTitleText, class FString sDescriptionText, unsigned long bIsPassword, unsigned long bShouldValidate, class FString sDefaultText, int nMaxResultLength );
-	bool ShowKeyboardUI ( unsigned char eLocalUserNum, class FString sTitleText, class FString sDescriptionText, unsigned long bIsPassword, unsigned long bShouldValidate, class FString sDefaultText, int nMaxResultLength );
-	class FString FormatTime ( float fInSeconds, unsigned long bShowHours, unsigned long bShowMins );
-	bool CheckEntitlement ( class FString sGroup, class FString sTag );
+	bool ShowConsoleRoutedKeyboardUI ( unsigned char eLocalUserNum, FString const& sTitleText, FString const& sDescriptionText, unsigned long bIsPassword, unsigned long bShouldValidate, FString const& sDefaultText, int nMaxResultLength );
+	bool ShowKeyboardUI ( unsigned char eLocalUserNum, FString const& sTitleText, FString const& sDescriptionText, unsigned long bIsPassword, unsigned long bShouldValidate, FString const& sDefaultText, int nMaxResultLength );
+	FString FormatTime ( float fInSeconds, unsigned long bShowHours, unsigned long bShowMins );
+	bool CheckEntitlement ( FString const& sGroup, FString const& sTag );
 	bool IsCerberusMember ( );
 	struct FUniqueNetId GetUniqueIdFromConnection ( class APlayerReplicationInfo* oPRI );
-	class FString MD5HashString ( class FString InStr );
-	class FString GetProjectID ( );
-	class FString GetCDKey ( );
-	class FString GetLanguage ( );
+	FString MD5HashString ( FString const& InStr );
+	FString GetProjectID ( );
+	FString GetCDKey ( );
+	FString GetLanguage ( );
 	struct SFXName GetPlatform ( );
 	void eventShutDown ( );
 	bool NativeInit ( );
@@ -1020,7 +1020,7 @@ public:
 	int GetMaxObserverCount ( );
 	int GetMaxPlayerCount ( );
 	void SetMaxPlayerCount ( int nMaxPlayers );
-	class FString GetGameProtocolVersion ( );
+	FString GetGameProtocolVersion ( );
 	class USFXOnlineComponentOrigin* GetComponentOrigin ( );
 	class USFXOnlineComponentUnrealPlayerEx* GetComponentUnrealPlayerEx ( );
 	class USFXOnlineComponentUnrealPlayer* GetComponentUnrealPlayer ( );
@@ -1034,13 +1034,13 @@ public:
 	class UISFXOnlineComponentAchievement* GetComponentAchievement ( );
 	class UISFXOnlineComponentPlatform* GetComponentPlatform ( );
 	class USFXOnlineSubsystem* GetOnlineSubsystem ( );
-	class FString StripBadPWCharacters ( class FString sPassword );
-	class FString eventGetURL ( );
+	FString StripBadPWCharacters ( FString const& sPassword );
+	FString eventGetURL ( );
 	void SetUnrealInterfaces ( );
 	void CreateComponents ( );
 	void InitGameProtocolVersion ( );
 	bool eventInit ( );
-	class TArray<struct FSFXOnlineAchievement> GetAchievementList ( );
+	TArray<struct FSFXOnlineAchievement> GetAchievementList ( );
 };
 
 // Class SFXOnlineFoundation.SFXOnlineComponentAchievementPC
@@ -1086,22 +1086,22 @@ public:
 	bool ShowStoreUI ( );
 	bool GetOnlineXuid ( int nUserIndex, struct FUniqueNetId* oPlayerXuid );
 	bool GetOfflineXuid ( int nUserIndex, struct FUniqueNetId* oPlayerXuid );
-	bool ShowKeyboardUI ( unsigned char LocalUserNum, class FString sTitleText, class FString sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, class FString sDefaultText, int nMaxResultLength );
-	bool ShowFriendsInviteUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerXuid );
+	bool ShowKeyboardUI ( unsigned char LocalUserNum, FString const& sTitleText, FString const& sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, FString const& sDefaultText, int nMaxResultLength );
+	bool ShowFriendsInviteUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerXuid );
 	bool ShowFriendsUI ( unsigned char eLocalUserNum );
 	bool ShowAchievementsUI ( unsigned char byLocalUserNum );
-	bool ShowFeedbackUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerId );
-	bool ShowGamerCardUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerId );
+	bool ShowFeedbackUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerId );
+	bool ShowGamerCardUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerId );
 	unsigned char CanShowPresenceInformation ( unsigned char eLocalUserNum );
 	unsigned char CanViewPlayerProfiles ( unsigned char eLocalUserNum );
 	unsigned char CanPurchaseContent ( unsigned char eLocalUserNum );
 	unsigned char CanDownloadUserContent ( unsigned char eLocalUserNum );
 	unsigned char CanCommunicate ( unsigned char eLocalUserNum );
 	unsigned char CanPlayOnline ( unsigned char eLocalUserNum );
-	void SetRichPresence ( unsigned char eLocalUserNum, int nPresenceMode, class TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, class TArray<struct FSettingsProperty>* aProperties );
+	void SetRichPresence ( unsigned char eLocalUserNum, int nPresenceMode, TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, TArray<struct FSettingsProperty>* aProperties );
 	bool ShowLoginUI ( unsigned long bShowOnlineOnly );
 	unsigned char GetLoginStatus ( unsigned char eLocalUserNum );
-	bool AddRecentPlayer ( struct FUniqueNetId oPlayerId, class FString sDescription );
+	bool AddRecentPlayer ( struct FUniqueNetId const& oPlayerId, FString const& sDescription );
 	struct SFXName GetAPIName ( );
 	void OnRelease ( );
 	void OnInitialize ( class USFXOnlineSubsystem* oOnlineSubsystem );
@@ -1136,7 +1136,7 @@ class USFXOnlineComponentPlatformXenon : public USFXOnlineComponent
 public:
 	FPointer                                           VfTable_IISFXOnlineComponentPlatform;             		// 0x0094 (0x0008) [0x0000000000801002]              ( CPF_Const | CPF_Native | CPF_NoExport )
 	struct FCachedLoginState                           LastLoginState[ 0x4 ];                            		// 0x009C (0x0050) [0x0000000000000002]              ( CPF_Const )
-	class TArray<FPointer>                             OverlappedTasks;                                  		// 0x00EC (0x0010) [0x0000000000001000]              ( CPF_Native )
+	TArray<FPointer>                                   OverlappedTasks;                                  		// 0x00EC (0x0010) [0x0000000000001000]              ( CPF_Native )
 	FPointer                                           NotificationHandle;                               		// 0x00FC (0x0008) [0x0000000000003002]              ( CPF_Const | CPF_Native | CPF_Transient )
 	int                                                NumLogins;                                        		// 0x0104 (0x0004) [0x0000000000000002]              ( CPF_Const )
 	int                                                LastInputDeviceConnectedMask;                     		// 0x0108 (0x0004) [0x0000000000000000]              
@@ -1157,24 +1157,24 @@ public:
 	bool ShowStoreUI ( );
 	bool GetOnlineXuid ( int nUserIndex, struct FUniqueNetId* oPlayerXuid );
 	bool GetOfflineXuid ( int nUserIndex, struct FUniqueNetId* oPlayerXuid );
-	bool ShowKeyboardUI ( unsigned char LocalUserNum, class FString sTitleText, class FString sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, class FString sDefaultText, int nMaxResultLength );
-	bool ShowFriendsInviteUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerXuid );
+	bool ShowKeyboardUI ( unsigned char LocalUserNum, FString const& sTitleText, FString const& sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, FString const& sDefaultText, int nMaxResultLength );
+	bool ShowFriendsInviteUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerXuid );
 	bool ShowFriendsUI ( unsigned char eLocalUserNum );
 	bool ShowAchievementsUI ( unsigned char byLocalUserNum );
-	bool ShowFeedbackUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerXuid );
-	bool ShowGamerCardUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerXuid );
+	bool ShowFeedbackUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerXuid );
+	bool ShowGamerCardUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerXuid );
 	unsigned char CanShowPresenceInformation ( unsigned char eLocalUserNum );
 	unsigned char CanViewPlayerProfiles ( unsigned char eLocalUserNum );
 	unsigned char CanPurchaseContent ( unsigned char eLocalUserNum );
 	unsigned char CanDownloadUserContent ( unsigned char eLocalUserNum );
 	unsigned char CanCommunicate ( unsigned char eLocalUserNum );
 	unsigned char CanPlayOnline ( unsigned char eLocalUserNum );
-	void SetRichPresence ( unsigned char eLocalUserNum, int nPresenceMode, class TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, class TArray<struct FSettingsProperty>* aProperties );
+	void SetRichPresence ( unsigned char eLocalUserNum, int nPresenceMode, TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, TArray<struct FSettingsProperty>* aProperties );
 	bool ShowLoginUI ( unsigned long bShowOnlineOnly );
 	unsigned char GetLoginStatus ( unsigned char eLocalUserNum );
 	void TickAsyncTasks ( );
 	void OnTick ( class USFXOnlineEvent* oEvent );
-	bool AddRecentPlayer ( struct FUniqueNetId oPlayerId, class FString sDescription );
+	bool AddRecentPlayer ( struct FUniqueNetId const& oPlayerId, FString const& sDescription );
 	struct SFXName GetAPIName ( );
 	void OnRelease ( );
 	void OnInitialize ( class USFXOnlineSubsystem* oOnlineSubsystem );
@@ -1208,7 +1208,7 @@ class USFXOnlineComponentPlatformPS3 : public USFXOnlineComponent
 {
 public:
 	FPointer                                           VfTable_IISFXOnlineComponentPlatform;             		// 0x0094 (0x0008) [0x0000000000801002]              ( CPF_Const | CPF_Native | CPF_NoExport )
-	class TArray<struct FUniqueNetId>                  PendingRecentPlayers;                             		// 0x009C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FUniqueNetId>                        PendingRecentPlayers;                             		// 0x009C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnSignInComplete__Delegate;                     		// 0x00AC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	FPointer                                           NpData;                                           		// 0x00BC (0x0008) [0x0000000000003002]              ( CPF_Const | CPF_Native | CPF_Transient )
 	unsigned long                                      m_bLaunchedSignInUI : 1;                          		// 0x00C4 (0x0004) [0x0000000000000000] [0x00000001] 
@@ -1227,22 +1227,22 @@ public:
 	bool ShowStoreUI ( );
 	bool GetOnlineXuid ( int nUserIndex, struct FUniqueNetId* oPlayerXuid );
 	bool GetOfflineXuid ( int nUserIndex, struct FUniqueNetId* oPlayerXuid );
-	bool ShowKeyboardUI ( unsigned char LocalUserNum, class FString sTitleText, class FString sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, class FString sDefaultText, int nMaxResultLength );
-	bool ShowFriendsInviteUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerXuid );
+	bool ShowKeyboardUI ( unsigned char LocalUserNum, FString const& sTitleText, FString const& sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, FString const& sDefaultText, int nMaxResultLength );
+	bool ShowFriendsInviteUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerXuid );
 	bool ShowFriendsUI ( unsigned char eLocalUserNum );
 	bool ShowAchievementsUI ( unsigned char byLocalUserNum );
-	bool ShowFeedbackUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerId );
-	bool ShowGamerCardUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerId );
+	bool ShowFeedbackUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerId );
+	bool ShowGamerCardUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerId );
 	unsigned char CanShowPresenceInformation ( unsigned char eLocalUserNum );
 	unsigned char CanViewPlayerProfiles ( unsigned char eLocalUserNum );
 	unsigned char CanPurchaseContent ( unsigned char eLocalUserNum );
 	unsigned char CanDownloadUserContent ( unsigned char eLocalUserNum );
 	unsigned char CanCommunicate ( unsigned char eLocalUserNum );
 	unsigned char CanPlayOnline ( unsigned char eLocalUserNum );
-	void SetRichPresence ( unsigned char eLocalUserNum, int nPresenceMode, class TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, class TArray<struct FSettingsProperty>* aProperties );
+	void SetRichPresence ( unsigned char eLocalUserNum, int nPresenceMode, TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, TArray<struct FSettingsProperty>* aProperties );
 	bool ShowLoginUI ( unsigned long bShowOnlineOnly );
 	unsigned char GetLoginStatus ( unsigned char eLocalUserNum );
-	bool AddRecentPlayer ( struct FUniqueNetId oPlayerId, class FString sDescription );
+	bool AddRecentPlayer ( struct FUniqueNetId const& oPlayerId, FString const& sDescription );
 	void OnKeyboardUI ( class USFXOnlineEvent* oEvent );
 	void OnTick ( class USFXOnlineEvent* oEvent );
 	struct SFXName GetAPIName ( );
@@ -1287,29 +1287,29 @@ public:
 	static UClass* StaticClass();
 
 	void OnTick ( class USFXOnlineEvent* oEvent );
-	void OnKeyboardUIClosed ( unsigned long Success, class FString InputBuffer );
+	void OnKeyboardUIClosed ( unsigned long Success, FString const& InputBuffer );
 	int GetRebootUserData ( );
 	bool WasRebootedFromOSCodeRedemptionUI ( );
 	bool ShowCodeRedemptionUI ( int UserData );
 	bool ShowStoreUI ( );
 	bool GetOnlineXuid ( int nUserIndex, struct FUniqueNetId* oPlayerXuid );
 	bool GetOfflineXuid ( int nUserIndex, struct FUniqueNetId* oPlayerXuid );
-	bool ShowKeyboardUI ( unsigned char LocalUserNum, class FString sTitleText, class FString sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, class FString sDefaultText, int nMaxResultLength );
-	bool ShowFriendsInviteUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerXuid );
+	bool ShowKeyboardUI ( unsigned char LocalUserNum, FString const& sTitleText, FString const& sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, FString const& sDefaultText, int nMaxResultLength );
+	bool ShowFriendsInviteUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerXuid );
 	bool ShowFriendsUI ( unsigned char eLocalUserNum );
 	bool ShowAchievementsUI ( unsigned char byLocalUserNum );
-	bool ShowFeedbackUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerId );
-	bool ShowGamerCardUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerId );
+	bool ShowFeedbackUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerId );
+	bool ShowGamerCardUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerId );
 	unsigned char CanShowPresenceInformation ( unsigned char eLocalUserNum );
 	unsigned char CanViewPlayerProfiles ( unsigned char eLocalUserNum );
 	unsigned char CanPurchaseContent ( unsigned char eLocalUserNum );
 	unsigned char CanDownloadUserContent ( unsigned char eLocalUserNum );
 	unsigned char CanCommunicate ( unsigned char eLocalUserNum );
 	unsigned char CanPlayOnline ( unsigned char eLocalUserNum );
-	void SetRichPresence ( unsigned char eLocalUserNum, int nPresenceMode, class TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, class TArray<struct FSettingsProperty>* aProperties );
+	void SetRichPresence ( unsigned char eLocalUserNum, int nPresenceMode, TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, TArray<struct FSettingsProperty>* aProperties );
 	bool ShowLoginUI ( unsigned long bShowOnlineOnly );
 	unsigned char GetLoginStatus ( unsigned char eLocalUserNum );
-	bool AddRecentPlayer ( struct FUniqueNetId oPlayerId, class FString sDescription );
+	bool AddRecentPlayer ( struct FUniqueNetId const& oPlayerId, FString const& sDescription );
 	struct SFXName GetAPIName ( );
 	void OnRelease ( );
 	void OnInitialize ( class USFXOnlineSubsystem* oOnlineSubsystem );
@@ -1352,29 +1352,29 @@ private:
 public:
 	static UClass* StaticClass();
 
-	void OnKeyboardUIClosed ( unsigned long Success, class FString InputBuffer );
+	void OnKeyboardUIClosed ( unsigned long Success, FString const& InputBuffer );
 	int GetRebootUserData ( );
 	bool WasRebootedFromOSCodeRedemptionUI ( );
 	bool ShowCodeRedemptionUI ( int UserData );
 	bool ShowStoreUI ( );
 	bool GetOnlineXuid ( int nUserIndex, struct FUniqueNetId* oPlayerXuid );
 	bool GetOfflineXuid ( int nUserIndex, struct FUniqueNetId* oPlayerXuid );
-	bool ShowKeyboardUI ( unsigned char LocalUserNum, class FString sTitleText, class FString sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, class FString sDefaultText, int nMaxResultLength );
-	bool ShowFriendsInviteUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerXuid );
+	bool ShowKeyboardUI ( unsigned char LocalUserNum, FString const& sTitleText, FString const& sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, FString const& sDefaultText, int nMaxResultLength );
+	bool ShowFriendsInviteUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerXuid );
 	bool ShowFriendsUI ( unsigned char eLocalUserNum );
 	bool ShowAchievementsUI ( unsigned char byLocalUserNum );
-	bool ShowFeedbackUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerId );
-	bool ShowGamerCardUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerId );
+	bool ShowFeedbackUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerId );
+	bool ShowGamerCardUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerId );
 	unsigned char CanShowPresenceInformation ( unsigned char eLocalUserNum );
 	unsigned char CanViewPlayerProfiles ( unsigned char eLocalUserNum );
 	unsigned char CanPurchaseContent ( unsigned char eLocalUserNum );
 	unsigned char CanDownloadUserContent ( unsigned char eLocalUserNum );
 	unsigned char CanCommunicate ( unsigned char eLocalUserNum );
 	unsigned char CanPlayOnline ( unsigned char eLocalUserNum );
-	void SetRichPresence ( unsigned char eLocalUserNum, int nPresenceMode, class TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, class TArray<struct FSettingsProperty>* aProperties );
+	void SetRichPresence ( unsigned char eLocalUserNum, int nPresenceMode, TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, TArray<struct FSettingsProperty>* aProperties );
 	bool ShowLoginUI ( unsigned long bShowOnlineOnly );
 	unsigned char GetLoginStatus ( unsigned char eLocalUserNum );
-	bool AddRecentPlayer ( struct FUniqueNetId oPlayerId, class FString sDescription );
+	bool AddRecentPlayer ( struct FUniqueNetId const& oPlayerId, FString const& sDescription );
 	struct SFXName GetAPIName ( );
 	void OnRelease ( );
 	void OnInitialize ( class USFXOnlineSubsystem* oOnlineSubsystem );
@@ -1386,11 +1386,11 @@ class USFXOnlineComponentTelemetrySystem : public USFXOnlineComponent
 {
 public:
 	FPointer                                           VfTable_IISFXOnlineComponentTelemetry;            		// 0x0094 (0x0008) [0x0000000000801002]              ( CPF_Const | CPF_Native | CPF_NoExport )
-	class FString                                      InitTestServerAddressOverride;                    		// 0x009C (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
-	class FString                                      InitProdServerAddressOverride;                    		// 0x00AC (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
-	class FString                                      InitDomain;                                       		// 0x00BC (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
-	class FString                                      InitTitleMode;                                    		// 0x00CC (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
-	class FString                                      InitDisabledCountryList;                          		// 0x00DC (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	FString                                            InitTestServerAddressOverride;                    		// 0x009C (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	FString                                            InitProdServerAddressOverride;                    		// 0x00AC (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	FString                                            InitDomain;                                       		// 0x00BC (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	FString                                            InitTitleMode;                                    		// 0x00CC (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	FString                                            InitDisabledCountryList;                          		// 0x00DC (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
 	struct FScriptDelegate                             __CanCollect__Delegate;                           		// 0x00EC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnAuthenticate__Delegate;                       		// 0x00FC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct FScriptDelegate                             __OnDisconnect__Delegate;                         		// 0x010C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
@@ -1415,7 +1415,7 @@ public:
 	void OnRelease ( );
 	void OnInitialize ( class USFXOnlineSubsystem* oOnlineSubsystem );
 	void RegisterConnectionDelegates ( struct FScriptDelegate CollectDelegate, struct FScriptDelegate AuthenticateDelegate, struct FScriptDelegate DisconnectDelegate );
-	void OnDisconnect ( int Error, class FString SessionId );
+	void OnDisconnect ( int Error, FString const& SessionId );
 	void OnAuthenticate ( );
 	bool CanCollect ( );
 };

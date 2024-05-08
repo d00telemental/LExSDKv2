@@ -54,8 +54,8 @@
 class AGameAIController : public AAIController
 {
 public:
-	class TArray<struct SFXName>                       AILogFilter;                                      		// 0x04A8 (0x0010) [0x0000000000404001]              ( CPF_Edit | CPF_Config | CPF_NeedCtorLink )
-	class FString                                      DemoActionString;                                 		// 0x04B8 (0x0010) [0x0000000000400020]              ( CPF_Net | CPF_NeedCtorLink )
+	TArray<struct SFXName>                             AILogFilter;                                      		// 0x04A8 (0x0010) [0x0000000000404001]              ( CPF_Edit | CPF_Config | CPF_NeedCtorLink )
+	FString                                            DemoActionString;                                 		// 0x04B8 (0x0010) [0x0000000000400020]              ( CPF_Net | CPF_NeedCtorLink )
 	class UGameAICommand*                              CommandList;                                      		// 0x04C8 (0x0008) [0x0000000000002002]              ( CPF_Const | CPF_Transient )
 	class AFileLog*                                    AILogFile;                                        		// 0x04D0 (0x0008) [0x0000000000002000]              ( CPF_Transient )
 	unsigned long                                      bHasRunawayCommandList : 1;                       		// 0x04D8 (0x0004) [0x0000000000002000] [0x00000001] ( CPF_Transient )
@@ -73,12 +73,12 @@ private:
 public:
 	static UClass* StaticClass();
 
-	class FString eventGetActionString ( );
-	bool eventGeneratePathToLocation ( struct FVector Goal, float WithinDistance, unsigned long bAllowPartialPath );
+	FString eventGetActionString ( );
+	bool eventGeneratePathToLocation ( struct FVector const& Goal, float WithinDistance, unsigned long bAllowPartialPath );
 	bool eventGeneratePathToActor ( class AActor* Goal, float WithinDistance, unsigned long bAllowPartialPath );
-	void SetDesiredRotation ( struct FRotator TargetDesiredRotation, unsigned long InLockDesiredRotation, unsigned long InUnlockWhenReached, float InterpolationTime );
-	void eventAILog_Internal ( class FString LogText, struct SFXName LogCategory, unsigned long bForce );
-	void RecordDemoAILog ( class FString LogText );
+	void SetDesiredRotation ( struct FRotator const& TargetDesiredRotation, unsigned long InLockDesiredRotation, unsigned long InUnlockWhenReached, float InterpolationTime );
+	void eventAILog_Internal ( FString const& LogText, struct SFXName LogCategory, unsigned long bForce );
+	void RecordDemoAILog ( FString const& LogText );
 	void eventDestroyed ( );
 	class UGameAICommand* GetAICommandInStack ( class UClass* InClass );
 	class UGameAICommand* FindCommandOfClass ( class UClass* SearchClass );
@@ -111,9 +111,9 @@ private:
 public:
 	static UClass* StaticClass();
 
-	void GetDebugOverheadText ( class APlayerController* PC, class TArray<class FString>* OutText );
+	void GetDebugOverheadText ( class APlayerController* PC, TArray<FString>* OutText );
 	void eventDrawDebug ( class AHUD* H, struct SFXName Category );
-	class FString eventGetDumpString ( );
+	FString eventGetDumpString ( );
 	void Resumed ( struct SFXName OldCommandName );
 	void Paused ( class UGameAICommand* NewCommand );
 	void Popped ( );
@@ -153,7 +153,7 @@ public:
 class USeqAct_ModifyProperty : public USequenceAction
 {
 public:
-	class TArray<struct FPropertyInfo>                 Properties;                                       		// 0x00F8 (0x0010) [0x0000000004400001]              ( CPF_Edit | CPF_NeedCtorLink | CPF_EditInline )
+	TArray<struct FPropertyInfo>                       Properties;                                       		// 0x00F8 (0x0010) [0x0000000004400001]              ( CPF_Edit | CPF_NeedCtorLink | CPF_EditInline )
 
 private:
 	static UClass* pClassPointer;

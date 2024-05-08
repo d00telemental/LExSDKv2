@@ -40,6 +40,40 @@
 # ========================================================================================= #
 */
 
+// Class SFXGameContent_Inventory.SFXWeapon_AutoPistol
+// 0x0000 (0x0974 - 0x0974)
+class ASFXWeapon_AutoPistol : public ASFXWeapon_AutoPistol_Base
+{
+public:
+
+private:
+	static UClass* pClassPointer;
+
+public:
+	static UClass* StaticClass();
+
+	class UWwiseEvent* GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds );
+	class UParticleSystem* GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects );
+	class UDecalComponent* GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime );
+};
+
+// Class SFXGameContent_Inventory.SFXWeapon_SMG
+// 0x0000 (0x0974 - 0x0974)
+class ASFXWeapon_SMG : public ASFXWeapon_AutoPistol
+{
+public:
+
+private:
+	static UClass* pClassPointer;
+
+public:
+	static UClass* StaticClass();
+
+	class UWwiseEvent* GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds );
+	class UParticleSystem* GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects );
+	class UDecalComponent* GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime );
+};
+
 // Class SFXGameContent_Inventory.SFXWeapon_AssaultRifle
 // 0x0008 (0x097C - 0x0974)
 class ASFXWeapon_AssaultRifle : public ASFXWeapon_AssaultRifle_Base
@@ -59,14 +93,14 @@ public:
 	class UParticleSystem* GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects );
 	class UDecalComponent* GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime );
 	void StopMuzzleFlashEffect ( );
-	void PlayFireEffects ( unsigned char FiringMode, struct FVector HitLocation );
+	void PlayFireEffects ( unsigned char FiringMode, struct FVector const& HitLocation );
 	void PlayMuzzleFlashEffect ( );
 	bool ShouldSpawnTracerFX ( );
 };
 
-// Class SFXGameContent_Inventory.SFXDamageType_AssaultRifle
-// 0x0000 (0x0114 - 0x0114)
-class USFXDamageType_AssaultRifle : public USFXDamageType_Weapon
+// Class SFXGameContent_Inventory.SFXWeapon_Needler
+// 0x0000 (0x097C - 0x097C)
+class ASFXWeapon_Needler : public ASFXWeapon_AssaultRifle
 {
 public:
 
@@ -76,82 +110,9 @@ private:
 public:
 	static UClass* StaticClass();
 
-};
-
-// Class SFXGameContent_Inventory.SFXDamageType_SniperRifle
-// 0x0000 (0x0114 - 0x0114)
-class USFXDamageType_SniperRifle : public USFXDamageType_Weapon
-{
-public:
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
-};
-
-// Class SFXGameContent_Inventory.SFXWeapon_SniperRifle
-// 0x0010 (0x0984 - 0x0974)
-class ASFXWeapon_SniperRifle : public ASFXWeapon_SniperRifle_Base
-{
-public:
-	class UWwiseEvent*                                 ActivateSniperZoomWwiseEvent;                     		// 0x0974 (0x0008) [0x0000000000000000]              
-	class UWwiseEvent*                                 DeActivateSniperZoomWwiseEvent;                   		// 0x097C (0x0008) [0x0000000000000000]              
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
-	void SetZoomed ( unsigned long bState );
 	class UWwiseEvent* GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds );
 	class UParticleSystem* GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects );
 	class UDecalComponent* GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime );
-};
-
-// Class SFXGameContent_Inventory.SFXDamageType_Shotgun
-// 0x0000 (0x0114 - 0x0114)
-class USFXDamageType_Shotgun : public USFXDamageType_Weapon
-{
-public:
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
-};
-
-// Class SFXGameContent_Inventory.SFXDamageType_FlakGun
-// 0x0000 (0x0114 - 0x0114)
-class USFXDamageType_FlakGun : public USFXDamageType_Shotgun
-{
-public:
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
-};
-
-// Class SFXGameContent_Inventory.SFXDamageType_HeavyShotgun
-// 0x0000 (0x0114 - 0x0114)
-class USFXDamageType_HeavyShotgun : public USFXDamageType_Shotgun
-{
-public:
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
 };
 
 // Class SFXGameContent_Inventory.SFXWeapon_Shotgun
@@ -159,7 +120,7 @@ public:
 class ASFXWeapon_Shotgun : public ASFXWeapon_Shotgun_Base
 {
 public:
-	class TArray<struct FVector2D>                     PelletSpread;                                     		// 0x0974 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FVector2D>                           PelletSpread;                                     		// 0x0974 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	float                                              fZoomAccuracyBonus;                               		// 0x0984 (0x0004) [0x0000000000004000]              ( CPF_Config )
 	float                                              StartTraceAdjustDist;                             		// 0x0988 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 
@@ -172,28 +133,10 @@ public:
 	class UWwiseEvent* GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds );
 	class UParticleSystem* GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects );
 	class UDecalComponent* GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime );
-	void FirePellets ( struct FVector StartLocation, struct FRotator AimRotation, unsigned char FireMode );
-	void DrawDebugShotgunCone ( struct FVector StartLocation, struct FRotator AimRot );
+	void FirePellets ( struct FVector const& StartLocation, struct FRotator const& AimRotation, unsigned char FireMode );
+	void DrawDebugShotgunCone ( struct FVector const& StartLocation, struct FRotator const& AimRot );
 	void CustomFire ( );
 	bool ShouldSpawnTracerFX ( );
-};
-
-// Class SFXGameContent_Inventory.SFXWeapon_FlakGun
-// 0x0000 (0x098C - 0x098C)
-class ASFXWeapon_FlakGun : public ASFXWeapon_Shotgun
-{
-public:
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
-	class UWwiseEvent* GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds );
-	class UParticleSystem* GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects );
-	class UDecalComponent* GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime );
-	void InitDefaultDecalProperties ( );
 };
 
 // Class SFXGameContent_Inventory.SFXWeapon_HeavyShotgun
@@ -241,26 +184,9 @@ public:
 
 };
 
-// Class SFXGameContent_Inventory.SFXWeapon_AutoPistol
-// 0x0000 (0x0974 - 0x0974)
-class ASFXWeapon_AutoPistol : public ASFXWeapon_AutoPistol_Base
-{
-public:
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
-	class UWwiseEvent* GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds );
-	class UParticleSystem* GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects );
-	class UDecalComponent* GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime );
-};
-
-// Class SFXGameContent_Inventory.SFXWeapon_LightPistol
-// 0x0000 (0x0974 - 0x0974)
-class ASFXWeapon_LightPistol : public ASFXWeapon_AutoPistol
+// Class SFXGameContent_Inventory.SFXDamageType_AssaultRifle
+// 0x0000 (0x0114 - 0x0114)
+class USFXDamageType_AssaultRifle : public USFXDamageType_Weapon
 {
 public:
 
@@ -272,9 +198,9 @@ public:
 
 };
 
-// Class SFXGameContent_Inventory.SFXWeapon_SMG
-// 0x0000 (0x0974 - 0x0974)
-class ASFXWeapon_SMG : public ASFXWeapon_AutoPistol
+// Class SFXGameContent_Inventory.SFXDamageType_Needler
+// 0x0000 (0x0114 - 0x0114)
+class USFXDamageType_Needler : public USFXDamageType_AssaultRifle
 {
 public:
 
@@ -284,6 +210,65 @@ private:
 public:
 	static UClass* StaticClass();
 
+};
+
+// Class SFXGameContent_Inventory.SFXDamageType_Shotgun
+// 0x0000 (0x0114 - 0x0114)
+class USFXDamageType_Shotgun : public USFXDamageType_Weapon
+{
+public:
+
+private:
+	static UClass* pClassPointer;
+
+public:
+	static UClass* StaticClass();
+
+};
+
+// Class SFXGameContent_Inventory.SFXDamageType_HeavyShotgun
+// 0x0000 (0x0114 - 0x0114)
+class USFXDamageType_HeavyShotgun : public USFXDamageType_Shotgun
+{
+public:
+
+private:
+	static UClass* pClassPointer;
+
+public:
+	static UClass* StaticClass();
+
+};
+
+// Class SFXGameContent_Inventory.SFXDamageType_SniperRifle
+// 0x0000 (0x0114 - 0x0114)
+class USFXDamageType_SniperRifle : public USFXDamageType_Weapon
+{
+public:
+
+private:
+	static UClass* pClassPointer;
+
+public:
+	static UClass* StaticClass();
+
+};
+
+// Class SFXGameContent_Inventory.SFXWeapon_SniperRifle
+// 0x0010 (0x0984 - 0x0974)
+class ASFXWeapon_SniperRifle : public ASFXWeapon_SniperRifle_Base
+{
+public:
+	class UWwiseEvent*                                 ActivateSniperZoomWwiseEvent;                     		// 0x0974 (0x0008) [0x0000000000000000]              
+	class UWwiseEvent*                                 DeActivateSniperZoomWwiseEvent;                   		// 0x097C (0x0008) [0x0000000000000000]              
+
+private:
+	static UClass* pClassPointer;
+
+public:
+	static UClass* StaticClass();
+
+	void SetZoomed ( unsigned long bState );
 	class UWwiseEvent* GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds );
 	class UParticleSystem* GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects );
 	class UDecalComponent* GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime );
@@ -303,40 +288,9 @@ public:
 
 };
 
-// Class SFXGameContent_Inventory.SFXDamageType_HandCannon
-// 0x0000 (0x0114 - 0x0114)
-class USFXDamageType_HandCannon : public USFXDamageType_HeavyPistol
-{
-public:
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
-};
-
 // Class SFXGameContent_Inventory.SFXWeapon_HeavyPistol
 // 0x0000 (0x0974 - 0x0974)
 class ASFXWeapon_HeavyPistol : public ASFXWeapon_HeavyPistol_Base
-{
-public:
-
-private:
-	static UClass* pClassPointer;
-
-public:
-	static UClass* StaticClass();
-
-	class UWwiseEvent* GetWeaponSpecificImpactSound ( class USFXPhysicalMaterialImpactSounds* ImpactSounds );
-	class UParticleSystem* GetWeaponSpecificImpactEffect ( class USFXPhysicalMaterialImpactEffects* ImpactEffects );
-	class UDecalComponent* GetWeaponSpecificDecalData ( class USFXPhysicalMaterialDecals* DecalEffects, float* FadeTime );
-};
-
-// Class SFXGameContent_Inventory.SFXWeapon_HandCannon
-// 0x0000 (0x0974 - 0x0974)
-class ASFXWeapon_HandCannon : public ASFXWeapon_HeavyPistol
 {
 public:
 
@@ -410,10 +364,10 @@ public:
 	static UClass* StaticClass();
 
 	void Recycle ( );
-	void DoImpact ( class AActor* InImpactedActor, class AController* InInstigatorController, float BaseDamage, float InDamageRadius, float Momentum, struct FVector HurtOrigin, unsigned long bFullDamage );
+	void DoImpact ( class AActor* InImpactedActor, class AController* InInstigatorController, float BaseDamage, float InDamageRadius, float Momentum, struct FVector const& HurtOrigin, unsigned long bFullDamage );
 	void Tick ( float DeltaTime );
 	struct FVector GetAimLocation ( );
-	void Init ( struct FVector Direction );
+	void Init ( struct FVector const& Direction );
 };
 
 // Class SFXGameContent_Inventory.SFXDamageType_MissileLauncher
@@ -485,10 +439,10 @@ public:
 	static UClass* StaticClass();
 
 	void Recycle ( );
-	void DoImpact ( class AActor* InImpactedActor, class AController* InInstigatorController, float BaseDamage, float InDamageRadius, float Momentum, struct FVector HurtOrigin, unsigned long bFullDamage );
+	void DoImpact ( class AActor* InImpactedActor, class AController* InInstigatorController, float BaseDamage, float InDamageRadius, float Momentum, struct FVector const& HurtOrigin, unsigned long bFullDamage );
 	void Destroyed ( );
 	void ShutDown ( );
-	void Init ( struct FVector Direction );
+	void Init ( struct FVector const& Direction );
 	void TickPlayer ( float DeltaTime );
 	void TickNPC ( float DeltaTime );
 	void Tick ( float DeltaTime );
@@ -524,7 +478,7 @@ private:
 public:
 	static UClass* StaticClass();
 
-	void DoImpact ( class AActor* InImpactedActor, class AController* InInstigatorController, float BaseDamage, float InDamageRadius, float Momentum, struct FVector HurtOrigin, unsigned long bFullDamage );
+	void DoImpact ( class AActor* InImpactedActor, class AController* InInstigatorController, float BaseDamage, float InDamageRadius, float Momentum, struct FVector const& HurtOrigin, unsigned long bFullDamage );
 };
 
 

@@ -83,7 +83,7 @@ void AInternetLink::eventResolveFailed ( )
 // Parameters infos:
 // struct FIpAddr                 Addr                           ( CPF_Parm )
 
-void AInternetLink::eventResolved ( struct FIpAddr Addr )
+void AInternetLink::eventResolved ( struct FIpAddr const& Addr )
 {
 	static UFunction* pFnResolved = NULL;
 
@@ -127,10 +127,10 @@ void AInternetLink::GetLocalIP ( struct FIpAddr* arg )
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Str                            ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Str                            ( CPF_Parm | CPF_NeedCtorLink )
 // struct FIpAddr                 Addr                           ( CPF_Parm | CPF_OutParm )
 
-bool AInternetLink::StringToIpAddr ( class FString Str, struct FIpAddr* Addr )
+bool AInternetLink::StringToIpAddr ( FString const& Str, struct FIpAddr* Addr )
 {
 	static UFunction* pFnStringToIpAddr = NULL;
 
@@ -158,10 +158,10 @@ bool AInternetLink::StringToIpAddr ( class FString Str, struct FIpAddr* Addr )
 // Function IpDrv.InternetLink.IpAddrToString
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // struct FIpAddr                 arg                            ( CPF_Parm )
 
-class FString AInternetLink::IpAddrToString ( struct FIpAddr arg )
+FString AInternetLink::IpAddrToString ( struct FIpAddr const& arg )
 {
 	static UFunction* pFnIpAddrToString = NULL;
 
@@ -206,9 +206,9 @@ int AInternetLink::GetLastError ( )
 // Function IpDrv.InternetLink.Resolve
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  Domain                         ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        Domain                         ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 
-void AInternetLink::Resolve ( class FString Domain )
+void AInternetLink::Resolve ( FString const& Domain )
 {
 	static UFunction* pFnResolve = NULL;
 
@@ -229,13 +229,13 @@ void AInternetLink::Resolve ( class FString Domain )
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  URL                            ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
-// class FString                  Addr                           ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        URL                            ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        Addr                           ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 // int                            PortNum                        ( CPF_Parm | CPF_OutParm )
-// class FString                  LevelName                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-// class FString                  EntryName                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        LevelName                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        EntryName                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool AInternetLink::ParseURL ( class FString URL, class FString* Addr, int* PortNum, class FString* LevelName, class FString* EntryName )
+bool AInternetLink::ParseURL ( FString const& URL, FString* Addr, int* PortNum, FString* LevelName, FString* EntryName )
 {
 	static UFunction* pFnParseURL = NULL;
 
@@ -336,9 +336,9 @@ void ATcpLink::eventReceivedBinary ( int Count, unsigned char* B )
 // Function IpDrv.TcpLink.ReceivedLine
 // [0x00020800] ( FUNC_Event )
 // Parameters infos:
-// class FString                  Line                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Line                           ( CPF_Parm | CPF_NeedCtorLink )
 
-void ATcpLink::eventReceivedLine ( class FString Line )
+void ATcpLink::eventReceivedLine ( FString const& Line )
 {
 	static UFunction* pFnReceivedLine = NULL;
 
@@ -354,9 +354,9 @@ void ATcpLink::eventReceivedLine ( class FString Line )
 // Function IpDrv.TcpLink.ReceivedText
 // [0x00020800] ( FUNC_Event )
 // Parameters infos:
-// class FString                  Text                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Text                           ( CPF_Parm | CPF_NeedCtorLink )
 
-void ATcpLink::eventReceivedText ( class FString Text )
+void ATcpLink::eventReceivedText ( FString const& Text )
 {
 	static UFunction* pFnReceivedText = NULL;
 
@@ -453,9 +453,9 @@ int ATcpLink::ReadBinary ( int Count, unsigned char* B )
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Str                            ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        Str                            ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-int ATcpLink::ReadText ( class FString* Str )
+int ATcpLink::ReadText ( FString* Str )
 {
 	static UFunction* pFnReadText = NULL;
 
@@ -510,9 +510,9 @@ int ATcpLink::SendBinary ( int Count, unsigned char* B )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Str                            ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        Str                            ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 
-int ATcpLink::SendText ( class FString Str )
+int ATcpLink::SendText ( FString const& Str )
 {
 	static UFunction* pFnSendText = NULL;
 
@@ -583,7 +583,7 @@ bool ATcpLink::Close ( )
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FIpAddr                 Addr                           ( CPF_Parm )
 
-bool ATcpLink::Open ( struct FIpAddr Addr )
+bool ATcpLink::Open ( struct FIpAddr const& Addr )
 {
 	static UFunction* pFnOpen = NULL;
 
@@ -681,9 +681,9 @@ class UClass* UOnlineEventsInterfaceMcp::StaticClass()
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            UniqueId                       ( CPF_Parm )
-// class FString                  PlayerNick                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        PlayerNick                     ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UOnlineEventsInterfaceMcp::UploadHardwareData ( struct FUniqueNetId UniqueId, class FString PlayerNick )
+bool UOnlineEventsInterfaceMcp::UploadHardwareData ( struct FUniqueNetId const& UniqueId, FString const& PlayerNick )
 {
 	static UFunction* pFnUploadHardwareData = NULL;
 
@@ -729,10 +729,10 @@ bool UOnlineEventsInterfaceMcp::UploadGameplayEventsData ( class UOnlineGameplay
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            UniqueId                       ( CPF_Parm )
-// class FString                  PlayerNick                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        PlayerNick                     ( CPF_Parm | CPF_NeedCtorLink )
 // class UOnlineProfileSettings*  ProfileSettings                ( CPF_Parm )
 
-bool UOnlineEventsInterfaceMcp::UploadProfileData ( struct FUniqueNetId UniqueId, class FString PlayerNick, class UOnlineProfileSettings* ProfileSettings )
+bool UOnlineEventsInterfaceMcp::UploadProfileData ( struct FUniqueNetId const& UniqueId, FString const& PlayerNick, class UOnlineProfileSettings* ProfileSettings )
 {
 	static UFunction* pFnUploadProfileData = NULL;
 
@@ -768,11 +768,11 @@ class UClass* UOnlineNewsInterfaceMcp::StaticClass()
 // Function IpDrv.OnlineNewsInterfaceMcp.GetNews
 // [0x00020002] 
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // unsigned char                  NewsType                       ( CPF_Parm )
 
-class FString UOnlineNewsInterfaceMcp::GetNews ( unsigned char LocalUserNum, unsigned char NewsType )
+FString UOnlineNewsInterfaceMcp::GetNews ( unsigned char LocalUserNum, unsigned char NewsType )
 {
 	static UFunction* pFnGetNews = NULL;
 
@@ -910,9 +910,9 @@ bool UOnlineTitleFileDownloadMcp::ClearDownloadedFiles ( )
 // [0x00020002] 
 // Parameters infos:
 // unsigned char                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Filename                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Filename                       ( CPF_Parm | CPF_NeedCtorLink )
 
-unsigned char UOnlineTitleFileDownloadMcp::GetTitleFileState ( class FString Filename )
+unsigned char UOnlineTitleFileDownloadMcp::GetTitleFileState ( FString const& Filename )
 {
 	static UFunction* pFnGetTitleFileState = NULL;
 
@@ -931,10 +931,10 @@ unsigned char UOnlineTitleFileDownloadMcp::GetTitleFileState ( class FString Fil
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Filename                       ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<unsigned char>    FileContents                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        Filename                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<unsigned char>          FileContents                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UOnlineTitleFileDownloadMcp::GetTitleFileContents ( class FString Filename, class TArray<unsigned char>* FileContents )
+bool UOnlineTitleFileDownloadMcp::GetTitleFileContents ( FString const& Filename, TArray<unsigned char>* FileContents )
 {
 	static UFunction* pFnGetTitleFileContents = NULL;
 
@@ -999,9 +999,9 @@ void UOnlineTitleFileDownloadMcp::AddReadTitleFileCompleteDelegate ( struct FScr
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  FileToRead                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        FileToRead                     ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UOnlineTitleFileDownloadMcp::ReadTitleFile ( class FString FileToRead )
+bool UOnlineTitleFileDownloadMcp::ReadTitleFile ( FString const& FileToRead )
 {
 	static UFunction* pFnReadTitleFile = NULL;
 
@@ -1024,9 +1024,9 @@ bool UOnlineTitleFileDownloadMcp::ReadTitleFile ( class FString FileToRead )
 // [0x00120000] 
 // Parameters infos:
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
-// class FString                  Filename                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Filename                       ( CPF_Parm | CPF_NeedCtorLink )
 
-void UOnlineTitleFileDownloadMcp::OnReadTitleFileComplete ( unsigned long bWasSuccessful, class FString Filename )
+void UOnlineTitleFileDownloadMcp::OnReadTitleFileComplete ( unsigned long bWasSuccessful, FString const& Filename )
 {
 	static UFunction* pFnOnReadTitleFileComplete = NULL;
 
@@ -1159,9 +1159,9 @@ bool UMeshBeaconClient::SendHostNewGameSessionResponse ( unsigned long bSuccess,
 // Parameters infos:
 // struct SFXName                 SessionName                    ( CPF_Parm )
 // class UClass*                  SearchClass                    ( CPF_Parm )
-// class TArray<struct FPlayerMember> Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FPlayerMember>   Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void UMeshBeaconClient::OnCreateNewSessionRequestReceived ( struct SFXName SessionName, class UClass* SearchClass, class TArray<struct FPlayerMember>* Players )
+void UMeshBeaconClient::OnCreateNewSessionRequestReceived ( struct SFXName SessionName, class UClass* SearchClass, TArray<struct FPlayerMember>* Players )
 {
 	static UFunction* pFnOnCreateNewSessionRequestReceived = NULL;
 
@@ -1375,7 +1375,7 @@ class UClass* UMeshBeaconHost::StaticClass()
 // class UCanvas*                 Canvas                         ( CPF_Parm )
 // struct FUniqueNetId            CurOptimalHostId               ( CPF_Parm )
 
-void UMeshBeaconHost::DebugRender ( class UCanvas* Canvas, struct FUniqueNetId CurOptimalHostId )
+void UMeshBeaconHost::DebugRender ( class UCanvas* Canvas, struct FUniqueNetId const& CurOptimalHostId )
 {
 	static UFunction* pFnDebugRender = NULL;
 
@@ -1441,9 +1441,9 @@ void UMeshBeaconHost::OnReceivedClientCreateNewSessionResult ( unsigned long bSu
 // struct FUniqueNetId            PlayerNetId                    ( CPF_Parm )
 // struct SFXName                 SessionName                    ( CPF_Parm )
 // class UClass*                  SearchClass                    ( CPF_Parm )
-// class TArray<struct FPlayerMember> Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FPlayerMember>   Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UMeshBeaconHost::RequestClientCreateNewSession ( struct FUniqueNetId PlayerNetId, struct SFXName SessionName, class UClass* SearchClass, class TArray<struct FPlayerMember>* Players )
+bool UMeshBeaconHost::RequestClientCreateNewSession ( struct FUniqueNetId const& PlayerNetId, struct SFXName SessionName, class UClass* SearchClass, TArray<struct FPlayerMember>* Players )
 {
 	static UFunction* pFnRequestClientCreateNewSession = NULL;
 
@@ -1521,9 +1521,9 @@ void UMeshBeaconHost::OnAllPendingPlayersConnected ( )
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<struct FUniqueNetId> Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FUniqueNetId>    Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UMeshBeaconHost::AllPlayersConnected ( class TArray<struct FUniqueNetId>* Players )
+bool UMeshBeaconHost::AllPlayersConnected ( TArray<struct FUniqueNetId>* Players )
 {
 	static UFunction* pFnAllPlayersConnected = NULL;
 
@@ -1553,7 +1553,7 @@ bool UMeshBeaconHost::AllPlayersConnected ( class TArray<struct FUniqueNetId>* P
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            PlayerNetId                    ( CPF_Parm )
 
-int UMeshBeaconHost::GetConnectionIndexForPlayer ( struct FUniqueNetId PlayerNetId )
+int UMeshBeaconHost::GetConnectionIndexForPlayer ( struct FUniqueNetId const& PlayerNetId )
 {
 	static UFunction* pFnGetConnectionIndexForPlayer = NULL;
 
@@ -1575,9 +1575,9 @@ int UMeshBeaconHost::GetConnectionIndexForPlayer ( struct FUniqueNetId PlayerNet
 // Function IpDrv.MeshBeaconHost.SetPendingPlayerConnections
 // [0x00420002] 
 // Parameters infos:
-// class TArray<struct FUniqueNetId> Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FUniqueNetId>    Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void UMeshBeaconHost::SetPendingPlayerConnections ( class TArray<struct FUniqueNetId>* Players )
+void UMeshBeaconHost::SetPendingPlayerConnections ( TArray<struct FUniqueNetId>* Players )
 {
 	static UFunction* pFnSetPendingPlayerConnections = NULL;
 
@@ -1603,7 +1603,7 @@ void UMeshBeaconHost::SetPendingPlayerConnections ( class TArray<struct FUniqueN
 // unsigned char                  TestResult                     ( CPF_Parm )
 // struct FConnectionBandwidthStats BandwidthStats                 ( CPF_Const | CPF_Parm | CPF_OutParm )
 
-void UMeshBeaconHost::OnFinishedBandwidthTest ( struct FUniqueNetId PlayerNetId, unsigned char TestType, unsigned char TestResult, struct FConnectionBandwidthStats* BandwidthStats )
+void UMeshBeaconHost::OnFinishedBandwidthTest ( struct FUniqueNetId const& PlayerNetId, unsigned char TestType, unsigned char TestResult, struct FConnectionBandwidthStats* BandwidthStats )
 {
 	static UFunction* pFnOnFinishedBandwidthTest = NULL;
 
@@ -1630,7 +1630,7 @@ void UMeshBeaconHost::OnFinishedBandwidthTest ( struct FUniqueNetId PlayerNetId,
 // struct FUniqueNetId            PlayerNetId                    ( CPF_Parm )
 // unsigned char                  TestType                       ( CPF_Parm )
 
-void UMeshBeaconHost::OnStartedBandwidthTest ( struct FUniqueNetId PlayerNetId, unsigned char TestType )
+void UMeshBeaconHost::OnStartedBandwidthTest ( struct FUniqueNetId const& PlayerNetId, unsigned char TestType )
 {
 	static UFunction* pFnOnStartedBandwidthTest = NULL;
 
@@ -1779,7 +1779,7 @@ bool UMeshBeaconHost::HasInProgressBandwidthTest ( )
 // unsigned char                  TestType                       ( CPF_Parm )
 // int                            TestBufferSize                 ( CPF_Parm )
 
-bool UMeshBeaconHost::RequestClientBandwidthTest ( struct FUniqueNetId PlayerNetId, unsigned char TestType, int TestBufferSize )
+bool UMeshBeaconHost::RequestClientBandwidthTest ( struct FUniqueNetId const& PlayerNetId, unsigned char TestType, int TestBufferSize )
 {
 	static UFunction* pFnRequestClientBandwidthTest = NULL;
 
@@ -1826,7 +1826,7 @@ void UMeshBeaconHost::eventDestroyBeacon ( )
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            InOwningPlayerId               ( CPF_Parm )
 
-bool UMeshBeaconHost::InitHostBeacon ( struct FUniqueNetId InOwningPlayerId )
+bool UMeshBeaconHost::InitHostBeacon ( struct FUniqueNetId const& InOwningPlayerId )
 {
 	static UFunction* pFnInitHostBeacon = NULL;
 
@@ -1861,9 +1861,9 @@ class UClass* UOnlineSubsystemCommonImpl::StaticClass()
 // [0x00420002] 
 // Parameters infos:
 // struct SFXName                 SessionName                    ( CPF_Parm )
-// class TArray<struct FUniqueNetId> OutRegisteredPlayers           ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FUniqueNetId>    OutRegisteredPlayers           ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void UOnlineSubsystemCommonImpl::GetRegisteredPlayers ( struct SFXName SessionName, class TArray<struct FUniqueNetId>* OutRegisteredPlayers )
+void UOnlineSubsystemCommonImpl::GetRegisteredPlayers ( struct SFXName SessionName, TArray<struct FUniqueNetId>* OutRegisteredPlayers )
 {
 	static UFunction* pFnGetRegisteredPlayers = NULL;
 
@@ -1889,7 +1889,7 @@ void UOnlineSubsystemCommonImpl::GetRegisteredPlayers ( struct SFXName SessionNa
 // struct SFXName                 SessionName                    ( CPF_Parm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool UOnlineSubsystemCommonImpl::IsPlayerInSession ( struct SFXName SessionName, struct FUniqueNetId PlayerID )
+bool UOnlineSubsystemCommonImpl::IsPlayerInSession ( struct SFXName SessionName, struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnIsPlayerInSession = NULL;
 
@@ -1933,10 +1933,10 @@ struct FUniqueNetId UOnlineSubsystemCommonImpl::eventGetPlayerUniqueNetIdFromInd
 // Function IpDrv.OnlineSubsystemCommonImpl.GetPlayerNicknameFromIndex
 // [0x00020800] ( FUNC_Event )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // int                            UserIndex                      ( CPF_Parm )
 
-class FString UOnlineSubsystemCommonImpl::eventGetPlayerNicknameFromIndex ( int UserIndex )
+FString UOnlineSubsystemCommonImpl::eventGetPlayerNicknameFromIndex ( int UserIndex )
 {
 	static UFunction* pFnGetPlayerNicknameFromIndex = NULL;
 
@@ -2085,9 +2085,9 @@ bool UOnlineGameInterfaceImpl::QueryNonAdvertisedData ( int StartAt, int NumberT
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct SFXName                 SessionName                    ( CPF_Parm )
-// class TArray<struct FUniqueNetId> Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FUniqueNetId>    Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UOnlineGameInterfaceImpl::RecalculateSkillRating ( struct SFXName SessionName, class TArray<struct FUniqueNetId>* Players )
+bool UOnlineGameInterfaceImpl::RecalculateSkillRating ( struct SFXName SessionName, TArray<struct FUniqueNetId>* Players )
 {
 	static UFunction* pFnRecalculateSkillRating = NULL;
 
@@ -2197,10 +2197,10 @@ void UOnlineGameInterfaceImpl::OnGameInviteAccepted ( struct FOnlineGameSearchRe
 // Function IpDrv.OnlineGameInterfaceImpl.GetArbitratedPlayers
 // [0x00020000] 
 // Parameters infos:
-// class TArray<struct FOnlineArbitrationRegistrant> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// TArray<struct FOnlineArbitrationRegistrant> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // struct SFXName                 SessionName                    ( CPF_Parm )
 
-class TArray<struct FOnlineArbitrationRegistrant> UOnlineGameInterfaceImpl::GetArbitratedPlayers ( struct SFXName SessionName )
+TArray<struct FOnlineArbitrationRegistrant> UOnlineGameInterfaceImpl::GetArbitratedPlayers ( struct SFXName SessionName )
 {
 	static UFunction* pFnGetArbitratedPlayers = NULL;
 
@@ -2497,7 +2497,7 @@ void UOnlineGameInterfaceImpl::AddUnregisterPlayerCompleteDelegate ( struct FScr
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
 
-void UOnlineGameInterfaceImpl::OnUnregisterPlayerComplete ( struct SFXName SessionName, struct FUniqueNetId PlayerID, unsigned long bWasSuccessful )
+void UOnlineGameInterfaceImpl::OnUnregisterPlayerComplete ( struct SFXName SessionName, struct FUniqueNetId const& PlayerID, unsigned long bWasSuccessful )
 {
 	static UFunction* pFnOnUnregisterPlayerComplete = NULL;
 
@@ -2519,7 +2519,7 @@ void UOnlineGameInterfaceImpl::OnUnregisterPlayerComplete ( struct SFXName Sessi
 // struct SFXName                 SessionName                    ( CPF_Parm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool UOnlineGameInterfaceImpl::UnregisterPlayer ( struct SFXName SessionName, struct FUniqueNetId PlayerID )
+bool UOnlineGameInterfaceImpl::UnregisterPlayer ( struct SFXName SessionName, struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnUnregisterPlayer = NULL;
 
@@ -2578,7 +2578,7 @@ void UOnlineGameInterfaceImpl::AddRegisterPlayerCompleteDelegate ( struct FScrip
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
 
-void UOnlineGameInterfaceImpl::OnRegisterPlayerComplete ( struct SFXName SessionName, struct FUniqueNetId PlayerID, unsigned long bWasSuccessful )
+void UOnlineGameInterfaceImpl::OnRegisterPlayerComplete ( struct SFXName SessionName, struct FUniqueNetId const& PlayerID, unsigned long bWasSuccessful )
 {
 	static UFunction* pFnOnRegisterPlayerComplete = NULL;
 
@@ -2601,7 +2601,7 @@ void UOnlineGameInterfaceImpl::OnRegisterPlayerComplete ( struct SFXName Session
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 // unsigned long                  bWasInvited                    ( CPF_Parm )
 
-bool UOnlineGameInterfaceImpl::RegisterPlayer ( struct SFXName SessionName, struct FUniqueNetId PlayerID, unsigned long bWasInvited )
+bool UOnlineGameInterfaceImpl::RegisterPlayer ( struct SFXName SessionName, struct FUniqueNetId const& PlayerID, unsigned long bWasInvited )
 {
 	static UFunction* pFnRegisterPlayer = NULL;
 
@@ -2623,9 +2623,9 @@ bool UOnlineGameInterfaceImpl::RegisterPlayer ( struct SFXName SessionName, stru
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct SFXName                 SessionName                    ( CPF_Parm )
-// class FString                  ConnectInfo                    ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        ConnectInfo                    ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UOnlineGameInterfaceImpl::GetResolvedConnectString ( struct SFXName SessionName, class FString* ConnectInfo )
+bool UOnlineGameInterfaceImpl::GetResolvedConnectString ( struct SFXName SessionName, FString* ConnectInfo )
 {
 	static UFunction* pFnGetResolvedConnectString = NULL;
 
@@ -3296,7 +3296,7 @@ void UPartyBeaconClient::eventDestroyBeacon ( )
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            CancellingPartyLeader          ( CPF_Parm )
 
-bool UPartyBeaconClient::CancelReservation ( struct FUniqueNetId CancellingPartyLeader )
+bool UPartyBeaconClient::CancelReservation ( struct FUniqueNetId const& CancellingPartyLeader )
 {
 	static UFunction* pFnCancelReservation = NULL;
 
@@ -3321,9 +3321,9 @@ bool UPartyBeaconClient::CancelReservation ( struct FUniqueNetId CancellingParty
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            RequestingPartyLeader          ( CPF_Parm )
 // struct FOnlineGameSearchResult DesiredHost                    ( CPF_Const | CPF_Parm | CPF_OutParm )
-// class TArray<struct FPlayerReservation> PlayersToAdd                   ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FPlayerReservation> PlayersToAdd                   ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UPartyBeaconClient::RequestReservationUpdate ( struct FUniqueNetId RequestingPartyLeader, struct FOnlineGameSearchResult* DesiredHost, class TArray<struct FPlayerReservation>* PlayersToAdd )
+bool UPartyBeaconClient::RequestReservationUpdate ( struct FUniqueNetId const& RequestingPartyLeader, struct FOnlineGameSearchResult* DesiredHost, TArray<struct FPlayerReservation>* PlayersToAdd )
 {
 	static UFunction* pFnRequestReservationUpdate = NULL;
 
@@ -3360,9 +3360,9 @@ bool UPartyBeaconClient::RequestReservationUpdate ( struct FUniqueNetId Requesti
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            RequestingPartyLeader          ( CPF_Parm )
 // struct FOnlineGameSearchResult DesiredHost                    ( CPF_Const | CPF_Parm | CPF_OutParm )
-// class TArray<struct FPlayerReservation> Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FPlayerReservation> Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UPartyBeaconClient::RequestReservation ( struct FUniqueNetId RequestingPartyLeader, struct FOnlineGameSearchResult* DesiredHost, class TArray<struct FPlayerReservation>* Players )
+bool UPartyBeaconClient::RequestReservation ( struct FUniqueNetId const& RequestingPartyLeader, struct FOnlineGameSearchResult* DesiredHost, TArray<struct FPlayerReservation>* Players )
 {
 	static UFunction* pFnRequestReservation = NULL;
 
@@ -3537,9 +3537,9 @@ int UPartyBeaconHost::GetMaxAvailableTeamSize ( )
 // Function IpDrv.PartyBeaconHost.GetPartyLeaders
 // [0x00420002] 
 // Parameters infos:
-// class TArray<struct FUniqueNetId> PartyLeaders                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FUniqueNetId>    PartyLeaders                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void UPartyBeaconHost::GetPartyLeaders ( class TArray<struct FUniqueNetId>* PartyLeaders )
+void UPartyBeaconHost::GetPartyLeaders ( TArray<struct FUniqueNetId>* PartyLeaders )
 {
 	static UFunction* pFnGetPartyLeaders = NULL;
 
@@ -3560,9 +3560,9 @@ void UPartyBeaconHost::GetPartyLeaders ( class TArray<struct FUniqueNetId>* Part
 // Function IpDrv.PartyBeaconHost.GetPlayers
 // [0x00420002] 
 // Parameters infos:
-// class TArray<struct FUniqueNetId> Players                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FUniqueNetId>    Players                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void UPartyBeaconHost::GetPlayers ( class TArray<struct FUniqueNetId>* Players )
+void UPartyBeaconHost::GetPlayers ( TArray<struct FUniqueNetId>* Players )
 {
 	static UFunction* pFnGetPlayers = NULL;
 
@@ -3607,7 +3607,7 @@ void UPartyBeaconHost::AppendReservationSkillsToSearch ( class UOnlineGameSearch
 // Parameters infos:
 // struct FUniqueNetId            PartyLeader                    ( CPF_Parm )
 
-void UPartyBeaconHost::eventUnregisterParty ( struct FUniqueNetId PartyLeader )
+void UPartyBeaconHost::eventUnregisterParty ( struct FUniqueNetId const& PartyLeader )
 {
 	static UFunction* pFnUnregisterParty = NULL;
 
@@ -3762,7 +3762,7 @@ void UPartyBeaconHost::eventDestroyBeacon ( )
 // Parameters infos:
 // struct FUniqueNetId            PartyLeader                    ( CPF_Parm )
 
-void UPartyBeaconHost::OnClientCancellationReceived ( struct FUniqueNetId PartyLeader )
+void UPartyBeaconHost::OnClientCancellationReceived ( struct FUniqueNetId const& PartyLeader )
 {
 	static UFunction* pFnOnClientCancellationReceived = NULL;
 
@@ -3813,7 +3813,7 @@ void UPartyBeaconHost::OnReservationChange ( )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 // unsigned long                  bMaintainParty                 ( CPF_Parm )
 
-void UPartyBeaconHost::HandlePlayerLogout ( struct FUniqueNetId PlayerID, unsigned long bMaintainParty )
+void UPartyBeaconHost::HandlePlayerLogout ( struct FUniqueNetId const& PlayerID, unsigned long bMaintainParty )
 {
 	static UFunction* pFnHandlePlayerLogout = NULL;
 
@@ -3836,9 +3836,9 @@ void UPartyBeaconHost::HandlePlayerLogout ( struct FUniqueNetId PlayerID, unsign
 // Parameters infos:
 // unsigned char                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            PartyLeader                    ( CPF_Parm )
-// class TArray<struct FPlayerReservation> PlayerMembers                  ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FPlayerReservation> PlayerMembers                  ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-unsigned char UPartyBeaconHost::UpdatePartyReservationEntry ( struct FUniqueNetId PartyLeader, class TArray<struct FPlayerReservation>* PlayerMembers )
+unsigned char UPartyBeaconHost::UpdatePartyReservationEntry ( struct FUniqueNetId const& PartyLeader, TArray<struct FPlayerReservation>* PlayerMembers )
 {
 	static UFunction* pFnUpdatePartyReservationEntry = NULL;
 
@@ -3870,9 +3870,9 @@ unsigned char UPartyBeaconHost::UpdatePartyReservationEntry ( struct FUniqueNetI
 // struct FUniqueNetId            PartyLeader                    ( CPF_Parm )
 // int                            TeamNum                        ( CPF_Parm )
 // unsigned long                  bIsHost                        ( CPF_Parm )
-// class TArray<struct FPlayerReservation> PlayerMembers                  ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FPlayerReservation> PlayerMembers                  ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-unsigned char UPartyBeaconHost::AddPartyReservationEntry ( struct FUniqueNetId PartyLeader, int TeamNum, unsigned long bIsHost, class TArray<struct FPlayerReservation>* PlayerMembers )
+unsigned char UPartyBeaconHost::AddPartyReservationEntry ( struct FUniqueNetId const& PartyLeader, int TeamNum, unsigned long bIsHost, TArray<struct FPlayerReservation>* PlayerMembers )
 {
 	static UFunction* pFnAddPartyReservationEntry = NULL;
 
@@ -3970,9 +3970,9 @@ class UClass* UWebRequest::StaticClass()
 // [0x00020002] 
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  D                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        D                              ( CPF_Parm | CPF_NeedCtorLink )
 
-int UWebRequest::GetHexDigit ( class FString D )
+int UWebRequest::GetHexDigit ( FString const& D )
 {
 	static UFunction* pFnGetHexDigit = NULL;
 
@@ -3990,9 +3990,9 @@ int UWebRequest::GetHexDigit ( class FString D )
 // Function IpDrv.WebRequest.DecodeFormData
 // [0x00020002] 
 // Parameters infos:
-// class FString                  Data                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Data                           ( CPF_Parm | CPF_NeedCtorLink )
 
-void UWebRequest::DecodeFormData ( class FString Data )
+void UWebRequest::DecodeFormData ( FString const& Data )
 {
 	static UFunction* pFnDecodeFormData = NULL;
 
@@ -4008,9 +4008,9 @@ void UWebRequest::DecodeFormData ( class FString Data )
 // Function IpDrv.WebRequest.ProcessHeaderString
 // [0x00020002] 
 // Parameters infos:
-// class FString                  S                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_NeedCtorLink )
 
-void UWebRequest::ProcessHeaderString ( class FString S )
+void UWebRequest::ProcessHeaderString ( FString const& S )
 {
 	static UFunction* pFnProcessHeaderString = NULL;
 
@@ -4046,9 +4046,9 @@ void UWebRequest::Dump ( )
 // Function IpDrv.WebRequest.GetVariables
 // [0x00420401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class TArray<class FString>    varNames                       ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<FString>                varNames                       ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void UWebRequest::GetVariables ( class TArray<class FString>* varNames )
+void UWebRequest::GetVariables ( TArray<FString>* varNames )
 {
 	static UFunction* pFnGetVariables = NULL;
 
@@ -4073,12 +4073,12 @@ void UWebRequest::GetVariables ( class TArray<class FString>* varNames )
 // Function IpDrv.WebRequest.GetVariableNumber
 // [0x00024401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  VariableName                   ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        VariableName                   ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Number                         ( CPF_Parm )
-// class FString                  DefaultValue                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        DefaultValue                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-class FString UWebRequest::GetVariableNumber ( class FString VariableName, int Number, class FString DefaultValue )
+FString UWebRequest::GetVariableNumber ( FString const& VariableName, int Number, FString const& DefaultValue )
 {
 	static UFunction* pFnGetVariableNumber = NULL;
 
@@ -4103,9 +4103,9 @@ class FString UWebRequest::GetVariableNumber ( class FString VariableName, int N
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  VariableName                   ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        VariableName                   ( CPF_Parm | CPF_NeedCtorLink )
 
-int UWebRequest::GetVariableCount ( class FString VariableName )
+int UWebRequest::GetVariableCount ( FString const& VariableName )
 {
 	static UFunction* pFnGetVariableCount = NULL;
 
@@ -4127,11 +4127,11 @@ int UWebRequest::GetVariableCount ( class FString VariableName )
 // Function IpDrv.WebRequest.GetVariable
 // [0x00024401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  VariableName                   ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  DefaultValue                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        VariableName                   ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        DefaultValue                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-class FString UWebRequest::GetVariable ( class FString VariableName, class FString DefaultValue )
+FString UWebRequest::GetVariable ( FString const& VariableName, FString const& DefaultValue )
 {
 	static UFunction* pFnGetVariable = NULL;
 
@@ -4154,10 +4154,10 @@ class FString UWebRequest::GetVariable ( class FString VariableName, class FStri
 // Function IpDrv.WebRequest.AddVariable
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  VariableName                   ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Value                          ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        VariableName                   ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Value                          ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 
-void UWebRequest::AddVariable ( class FString VariableName, class FString Value )
+void UWebRequest::AddVariable ( FString const& VariableName, FString const& Value )
 {
 	static UFunction* pFnAddVariable = NULL;
 
@@ -4178,9 +4178,9 @@ void UWebRequest::AddVariable ( class FString VariableName, class FString Value 
 // Function IpDrv.WebRequest.GetHeaders
 // [0x00420401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class TArray<class FString>    headers                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<FString>                headers                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void UWebRequest::GetHeaders ( class TArray<class FString>* headers )
+void UWebRequest::GetHeaders ( TArray<FString>* headers )
 {
 	static UFunction* pFnGetHeaders = NULL;
 
@@ -4205,11 +4205,11 @@ void UWebRequest::GetHeaders ( class TArray<class FString>* headers )
 // Function IpDrv.WebRequest.GetHeader
 // [0x00024401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  HeaderName                     ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  DefaultValue                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        HeaderName                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        DefaultValue                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-class FString UWebRequest::GetHeader ( class FString HeaderName, class FString DefaultValue )
+FString UWebRequest::GetHeader ( FString const& HeaderName, FString const& DefaultValue )
 {
 	static UFunction* pFnGetHeader = NULL;
 
@@ -4232,10 +4232,10 @@ class FString UWebRequest::GetHeader ( class FString HeaderName, class FString D
 // Function IpDrv.WebRequest.AddHeader
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  HeaderName                     ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Value                          ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        HeaderName                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Value                          ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 
-void UWebRequest::AddHeader ( class FString HeaderName, class FString Value )
+void UWebRequest::AddHeader ( FString const& HeaderName, FString const& Value )
 {
 	static UFunction* pFnAddHeader = NULL;
 
@@ -4256,10 +4256,10 @@ void UWebRequest::AddHeader ( class FString HeaderName, class FString Value )
 // Function IpDrv.WebRequest.EncodeBase64
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  Decoded                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        Decoded                        ( CPF_Parm | CPF_NeedCtorLink )
 
-class FString UWebRequest::EncodeBase64 ( class FString Decoded )
+FString UWebRequest::EncodeBase64 ( FString const& Decoded )
 {
 	static UFunction* pFnEncodeBase64 = NULL;
 
@@ -4281,10 +4281,10 @@ class FString UWebRequest::EncodeBase64 ( class FString Decoded )
 // Function IpDrv.WebRequest.DecodeBase64
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  Encoded                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        Encoded                        ( CPF_Parm | CPF_NeedCtorLink )
 
-class FString UWebRequest::DecodeBase64 ( class FString Encoded )
+FString UWebRequest::DecodeBase64 ( FString const& Encoded )
 {
 	static UFunction* pFnDecodeBase64 = NULL;
 
@@ -4356,9 +4356,9 @@ bool UWebResponse::SentText ( )
 // Function IpDrv.WebResponse.Redirect
 // [0x00020002] 
 // Parameters infos:
-// class FString                  URL                            ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        URL                            ( CPF_Parm | CPF_NeedCtorLink )
 
-void UWebResponse::Redirect ( class FString URL )
+void UWebResponse::Redirect ( FString const& URL )
 {
 	static UFunction* pFnRedirect = NULL;
 
@@ -4374,10 +4374,10 @@ void UWebResponse::Redirect ( class FString URL )
 // Function IpDrv.WebResponse.SendStandardHeaders
 // [0x00024002] 
 // Parameters infos:
-// class FString                  ContentType                    ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        ContentType                    ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bCache                         ( CPF_OptionalParm | CPF_Parm )
 
-void UWebResponse::SendStandardHeaders ( class FString ContentType, unsigned long bCache )
+void UWebResponse::SendStandardHeaders ( FString const& ContentType, unsigned long bCache )
 {
 	static UFunction* pFnSendStandardHeaders = NULL;
 
@@ -4395,9 +4395,9 @@ void UWebResponse::SendStandardHeaders ( class FString ContentType, unsigned lon
 // [0x00024002] 
 // Parameters infos:
 // int                            ErrorNum                       ( CPF_Parm )
-// class FString                  Data                           ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        Data                           ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-void UWebResponse::HTTPError ( int ErrorNum, class FString Data )
+void UWebResponse::HTTPError ( int ErrorNum, FString const& Data )
 {
 	static UFunction* pFnHTTPError = NULL;
 
@@ -4430,10 +4430,10 @@ void UWebResponse::SendHeaders ( )
 // Function IpDrv.WebResponse.AddHeader
 // [0x00024002] 
 // Parameters infos:
-// class FString                  Header                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Header                         ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bReplace                       ( CPF_OptionalParm | CPF_Parm )
 
-void UWebResponse::AddHeader ( class FString Header, unsigned long bReplace )
+void UWebResponse::AddHeader ( FString const& Header, unsigned long bReplace )
 {
 	static UFunction* pFnAddHeader = NULL;
 
@@ -4450,9 +4450,9 @@ void UWebResponse::AddHeader ( class FString Header, unsigned long bReplace )
 // Function IpDrv.WebResponse.HTTPHeader
 // [0x00020002] 
 // Parameters infos:
-// class FString                  Header                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Header                         ( CPF_Parm | CPF_NeedCtorLink )
 
-void UWebResponse::HTTPHeader ( class FString Header )
+void UWebResponse::HTTPHeader ( FString const& Header )
 {
 	static UFunction* pFnHTTPHeader = NULL;
 
@@ -4468,9 +4468,9 @@ void UWebResponse::HTTPHeader ( class FString Header )
 // Function IpDrv.WebResponse.HTTPResponse
 // [0x00020002] 
 // Parameters infos:
-// class FString                  Header                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Header                         ( CPF_Parm | CPF_NeedCtorLink )
 
-void UWebResponse::HTTPResponse ( class FString Header )
+void UWebResponse::HTTPResponse ( FString const& Header )
 {
 	static UFunction* pFnHTTPResponse = NULL;
 
@@ -4486,9 +4486,9 @@ void UWebResponse::HTTPResponse ( class FString Header )
 // Function IpDrv.WebResponse.FailAuthentication
 // [0x00020002] 
 // Parameters infos:
-// class FString                  Realm                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Realm                          ( CPF_Parm | CPF_NeedCtorLink )
 
-void UWebResponse::FailAuthentication ( class FString Realm )
+void UWebResponse::FailAuthentication ( FString const& Realm )
 {
 	static UFunction* pFnFailAuthentication = NULL;
 
@@ -4505,10 +4505,10 @@ void UWebResponse::FailAuthentication ( class FString Realm )
 // [0x00024002] 
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Filename                       ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  ContentType                    ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        Filename                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ContentType                    ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool UWebResponse::SendCachedFile ( class FString Filename, class FString ContentType )
+bool UWebResponse::SendCachedFile ( FString const& Filename, FString const& ContentType )
 {
 	static UFunction* pFnSendCachedFile = NULL;
 
@@ -4547,10 +4547,10 @@ void UWebResponse::eventSendBinary ( int Count, unsigned char* B )
 // Function IpDrv.WebResponse.SendText
 // [0x00024802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  Text                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Text                           ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bNoCRLF                        ( CPF_OptionalParm | CPF_Parm )
 
-void UWebResponse::eventSendText ( class FString Text, unsigned long bNoCRLF )
+void UWebResponse::eventSendText ( FString const& Text, unsigned long bNoCRLF )
 {
 	static UFunction* pFnSendText = NULL;
 
@@ -4587,10 +4587,10 @@ void UWebResponse::Dump ( )
 // Function IpDrv.WebResponse.GetHTTPExpiration
 // [0x00024401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // int                            OffsetSeconds                  ( CPF_OptionalParm | CPF_Parm )
 
-class FString UWebResponse::GetHTTPExpiration ( int OffsetSeconds )
+FString UWebResponse::GetHTTPExpiration ( int OffsetSeconds )
 {
 	static UFunction* pFnGetHTTPExpiration = NULL;
 
@@ -4612,10 +4612,10 @@ class FString UWebResponse::GetHTTPExpiration ( int OffsetSeconds )
 // Function IpDrv.WebResponse.LoadParsedUHTM
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  Filename                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        Filename                       ( CPF_Parm | CPF_NeedCtorLink )
 
-class FString UWebResponse::LoadParsedUHTM ( class FString Filename )
+FString UWebResponse::LoadParsedUHTM ( FString const& Filename )
 {
 	static UFunction* pFnLoadParsedUHTM = NULL;
 
@@ -4638,9 +4638,9 @@ class FString UWebResponse::LoadParsedUHTM ( class FString Filename )
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Filename                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Filename                       ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UWebResponse::IncludeBinaryFile ( class FString Filename )
+bool UWebResponse::IncludeBinaryFile ( FString const& Filename )
 {
 	static UFunction* pFnIncludeBinaryFile = NULL;
 
@@ -4663,9 +4663,9 @@ bool UWebResponse::IncludeBinaryFile ( class FString Filename )
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Filename                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Filename                       ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UWebResponse::IncludeUHTM ( class FString Filename )
+bool UWebResponse::IncludeUHTM ( FString const& Filename )
 {
 	static UFunction* pFnIncludeUHTM = NULL;
 
@@ -4707,11 +4707,11 @@ void UWebResponse::ClearSubst ( )
 // Function IpDrv.WebResponse.Subst
 // [0x00024401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  Variable                       ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Value                          ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        Variable                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Value                          ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 // unsigned long                  bClear                         ( CPF_OptionalParm | CPF_Parm )
 
-void UWebResponse::Subst ( class FString Variable, class FString Value, unsigned long bClear )
+void UWebResponse::Subst ( FString const& Variable, FString const& Value, unsigned long bClear )
 {
 	static UFunction* pFnSubst = NULL;
 
@@ -4734,9 +4734,9 @@ void UWebResponse::Subst ( class FString Variable, class FString Value, unsigned
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Filename                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Filename                       ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UWebResponse::FileExists ( class FString Filename )
+bool UWebResponse::FileExists ( FString const& Filename )
 {
 	static UFunction* pFnFileExists = NULL;
 
@@ -4894,10 +4894,10 @@ class UClass* AWebServer::StaticClass()
 // [0x00420002] 
 // Parameters infos:
 // class UWebApplication*         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  URI                            ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  SubURI                         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        URI                            ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        SubURI                         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-class UWebApplication* AWebServer::GetApplication ( class FString URI, class FString* SubURI )
+class UWebApplication* AWebServer::GetApplication ( FString const& URI, FString* SubURI )
 {
 	static UFunction* pFnGetApplication = NULL;
 
@@ -5134,9 +5134,9 @@ void UIniLocPatcherMcp::AddReadFileDelegate ( struct FScriptDelegate ReadTitleFi
 // [0x00020002] 
 // Parameters infos:
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
-// class FString                  Filename                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Filename                       ( CPF_Parm | CPF_NeedCtorLink )
 
-void UIniLocPatcherMcp::OnReadFileComplete ( unsigned long bWasSuccessful, class FString Filename )
+void UIniLocPatcherMcp::OnReadFileComplete ( unsigned long bWasSuccessful, FString const& Filename )
 {
 	static UFunction* pFnOnReadFileComplete = NULL;
 
@@ -5280,9 +5280,9 @@ void AWebConnection::CreateResponseObject ( )
 // Function IpDrv.WebConnection.ProcessPost
 // [0x00020002] 
 // Parameters infos:
-// class FString                  S                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_NeedCtorLink )
 
-void AWebConnection::ProcessPost ( class FString S )
+void AWebConnection::ProcessPost ( FString const& S )
 {
 	static UFunction* pFnProcessPost = NULL;
 
@@ -5298,9 +5298,9 @@ void AWebConnection::ProcessPost ( class FString S )
 // Function IpDrv.WebConnection.ProcessGet
 // [0x00020002] 
 // Parameters infos:
-// class FString                  S                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_NeedCtorLink )
 
-void AWebConnection::ProcessGet ( class FString S )
+void AWebConnection::ProcessGet ( FString const& S )
 {
 	static UFunction* pFnProcessGet = NULL;
 
@@ -5316,9 +5316,9 @@ void AWebConnection::ProcessGet ( class FString S )
 // Function IpDrv.WebConnection.ProcessHead
 // [0x00020002] 
 // Parameters infos:
-// class FString                  S                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_NeedCtorLink )
 
-void AWebConnection::ProcessHead ( class FString S )
+void AWebConnection::ProcessHead ( FString const& S )
 {
 	static UFunction* pFnProcessHead = NULL;
 
@@ -5334,9 +5334,9 @@ void AWebConnection::ProcessHead ( class FString S )
 // Function IpDrv.WebConnection.ReceivedLine
 // [0x00020002] 
 // Parameters infos:
-// class FString                  S                              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        S                              ( CPF_Parm | CPF_NeedCtorLink )
 
-void AWebConnection::ReceivedLine ( class FString S )
+void AWebConnection::ReceivedLine ( FString const& S )
 {
 	static UFunction* pFnReceivedLine = NULL;
 
@@ -5352,9 +5352,9 @@ void AWebConnection::ReceivedLine ( class FString S )
 // Function IpDrv.WebConnection.ReceivedText
 // [0x00020802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  Text                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Text                           ( CPF_Parm | CPF_NeedCtorLink )
 
-void AWebConnection::eventReceivedText ( class FString Text )
+void AWebConnection::eventReceivedText ( FString const& Text )
 {
 	static UFunction* pFnReceivedText = NULL;
 

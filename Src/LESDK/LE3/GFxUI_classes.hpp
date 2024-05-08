@@ -98,7 +98,7 @@
 class UGFxEngine : public UObject
 {
 public:
-	class TArray<struct FGCReference>                  GCReferences;                                     		// 0x0060 (0x0010) [0x0000000000402000]              ( CPF_Transient | CPF_NeedCtorLink )
+	TArray<struct FGCReference>                        GCReferences;                                     		// 0x0060 (0x0010) [0x0000000000402000]              ( CPF_Transient | CPF_NeedCtorLink )
 	int                                                RefCount;                                         		// 0x0070 (0x0004) [0x0000000000002000]              ( CPF_Transient )
 
 private:
@@ -121,7 +121,7 @@ private:
 public:
 	static UClass* StaticClass();
 
-	bool eventFSCommand ( class UGFxMovie* movie, class FString Cmd, class FString Arg );
+	bool eventFSCommand ( class UGFxMovie* movie, FString const& Cmd, FString const& Arg );
 };
 
 // Class GFxUI.GFxGameViewportClient
@@ -138,7 +138,7 @@ private:
 public:
 	static UClass* StaticClass();
 
-	bool eventInit ( class FString* OutError );
+	bool eventInit ( FString* OutError );
 };
 
 // Class GFxUI.GFxInteraction
@@ -158,7 +158,7 @@ public:
 	void NotifyPlayerAdded ( int PlayerIndex, class ULocalPlayer* AddedPlayer );
 	void NotifyGameSessionEnded ( );
 	class UGFxMovie* GetFocusMovie ( );
-	bool SetFocusMovie ( class FString MovieName, unsigned long captureInput );
+	bool SetFocusMovie ( FString const& MovieName, unsigned long captureInput );
 };
 
 // Class GFxUI.GFxMovie
@@ -166,10 +166,10 @@ public:
 class UGFxMovie : public UObject
 {
 public:
-	class TArray<struct SFXName>                       CaptureKeys;                                      		// 0x0060 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct SFXName>                       FocusIgnoreKeys;                                  		// 0x0070 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FExternalTexture>              ExternalTextures;                                 		// 0x0080 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FGFxDataStoreBinding>          DataStoreBindings;                                		// 0x0090 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct SFXName>                             CaptureKeys;                                      		// 0x0060 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct SFXName>                             FocusIgnoreKeys;                                  		// 0x0070 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FExternalTexture>                    ExternalTextures;                                 		// 0x0080 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FGFxDataStoreBinding>                DataStoreBindings;                                		// 0x0090 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	FPointer                                           pMovie;                                           		// 0x00A0 (0x0008) [0x0000000000003002]              ( CPF_Const | CPF_Native | CPF_Transient )
 	FPointer                                           pCaptureKeys;                                     		// 0x00A8 (0x0008) [0x0000000000003002]              ( CPF_Const | CPF_Native | CPF_Transient )
 	FPointer                                           pFocusIgnoreKeys;                                 		// 0x00B0 (0x0008) [0x0000000000003002]              ( CPF_Const | CPF_Native | CPF_Transient )
@@ -203,43 +203,43 @@ public:
 
 	bool UnregisterGFxValue ( class UGFxValue* i_val );
 	bool RegisterGFxValue ( class UGFxValue* i_val );
-	void ActionScriptSetFunction ( class UGFxValue* Obj, class FString member );
-	class UGFxValue* ActionScriptObject ( class FString Path );
-	class FString ActionScriptString ( class FString Path );
-	float ActionScriptFloat ( class FString Path );
-	int ActionScriptInt ( class FString Path );
-	void ActionScriptVoid ( class FString Path );
+	void ActionScriptSetFunction ( class UGFxValue* Obj, FString const& member );
+	class UGFxValue* ActionScriptObject ( FString const& Path );
+	FString ActionScriptString ( FString const& Path );
+	float ActionScriptFloat ( FString const& Path );
+	int ActionScriptInt ( FString const& Path );
+	void ActionScriptVoid ( FString const& Path );
 	class APlayerController* GetPC ( );
 	class ULocalPlayer* GetLP ( );
 	void SetExternalInterface ( class UObject* H );
 	void SetFsCmdHandler ( class UGFxFSCmdHandler* H );
-	void SetVariableObject ( class FString Path, class UGFxValue* Value );
-	class UGFxValue* GetVariableObject ( class FString Path, class UClass* Type );
+	void SetVariableObject ( FString const& Path, class UGFxValue* Value );
+	class UGFxValue* GetVariableObject ( FString const& Path, class UClass* Type );
 	class UGFxValue* CreateArray ( );
-	class UGFxValue* CreateObject ( class FString ASClass, class UClass* Type );
-	bool SetVariableStringArray ( class FString Path, int Index, class TArray<class FString> Arg );
-	bool SetVariableFloatArray ( class FString Path, int Index, class TArray<float> Arg );
-	bool SetVariableIntArray ( class FString Path, int Index, class TArray<int> Arg );
-	bool SetVariableArray ( class FString Path, int Index, class TArray<struct FASValue> Arg );
-	bool GetVariableStringArray ( class FString Path, int Index, class TArray<class FString>* Arg );
-	bool GetVariableFloatArray ( class FString Path, int Index, class TArray<float>* Arg );
-	bool GetVariableIntArray ( class FString Path, int Index, class TArray<int>* Arg );
-	bool GetVariableArray ( class FString Path, int Index, class TArray<struct FASValue>* Arg );
-	void SetVariableString ( class FString Path, class FString S );
-	void SetVariableNumber ( class FString Path, float F );
-	void SetVariableBool ( class FString Path, unsigned long B );
-	void SetVariable ( class FString Path, struct FASValue Arg );
-	class FString GetVariableString ( class FString Path );
-	float GetVariableNumber ( class FString Path );
-	bool GetVariableBool ( class FString Path );
-	struct FASValue GetVariable ( class FString Path );
+	class UGFxValue* CreateObject ( FString const& ASClass, class UClass* Type );
+	bool SetVariableStringArray ( FString const& Path, int Index, TArray<FString> const& Arg );
+	bool SetVariableFloatArray ( FString const& Path, int Index, TArray<float> const& Arg );
+	bool SetVariableIntArray ( FString const& Path, int Index, TArray<int> const& Arg );
+	bool SetVariableArray ( FString const& Path, int Index, TArray<struct FASValue> const& Arg );
+	bool GetVariableStringArray ( FString const& Path, int Index, TArray<FString>* Arg );
+	bool GetVariableFloatArray ( FString const& Path, int Index, TArray<float>* Arg );
+	bool GetVariableIntArray ( FString const& Path, int Index, TArray<int>* Arg );
+	bool GetVariableArray ( FString const& Path, int Index, TArray<struct FASValue>* Arg );
+	void SetVariableString ( FString const& Path, FString const& S );
+	void SetVariableNumber ( FString const& Path, float F );
+	void SetVariableBool ( FString const& Path, unsigned long B );
+	void SetVariable ( FString const& Path, struct FASValue const& Arg );
+	FString GetVariableString ( FString const& Path );
+	float GetVariableNumber ( FString const& Path );
+	bool GetVariableBool ( FString const& Path );
+	struct FASValue GetVariable ( FString const& Path );
 	void PublishDataStoreValues ( );
 	void RefreshDataStoreBindings ( );
-	struct FASValue Invoke ( class FString method, class TArray<struct FASValue>* Args );
+	struct FASValue Invoke ( FString const& method, TArray<struct FASValue>* Args );
 	void SetTimingMode ( unsigned char mode );
 	void Pause ( unsigned long pauseplay );
 	void Advance ( float Time );
-	bool SetExternalTexture ( class FString Resource, class UTexture* Texture );
+	bool SetExternalTexture ( FString const& Resource, class UTexture* Texture );
 	void FlushPlayerInput ( unsigned long capturekeysonly );
 	void ClearFocusIgnoreKeys ( );
 	void AddFocusIgnoreKey ( struct SFXName Key );
@@ -265,11 +265,11 @@ public:
 class UGFxMovieInfo : public UObject
 {
 public:
-	class TArray<unsigned char>                        RawData;                                          		// 0x0060 (0x0014) [0x2000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
+	TArray<unsigned char>                              RawData;                                          		// 0x0060 (0x0014) [0x2000000000400002]              ( CPF_Const | CPF_NeedCtorLink )
 	unsigned char                                      UnknownData00[ 0x4 ];                             		// 0x0064 (0x0004) FIX WRONG TYPE SIZE OF PREVIUS PROPERTY
-	class TArray<class UObject*>                       References;                                       		// 0x0074 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<class UObject*>                       UserReferences;                                   		// 0x0084 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<class UObject*>                       CompressedTextureReferences;                      		// 0x0094 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<class UObject*>                             References;                                       		// 0x0074 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<class UObject*>                             UserReferences;                                   		// 0x0084 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<class UObject*>                             CompressedTextureReferences;                      		// 0x0094 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	unsigned long                                      bUsesFontlib : 1;                                 		// 0x00A4 (0x0004) [0x0000000000020001] [0x00000001] ( CPF_Edit | CPF_EditConst )
 
 private:
@@ -293,73 +293,73 @@ private:
 public:
 	static UClass* StaticClass();
 
-	void ActionScriptSetFunctionOn ( class UGFxValue* Target, class FString member );
-	void ActionScriptSetFunction ( class FString member );
-	class TArray<class UGFxValue*> ActionScriptArray ( class FString Path );
-	class UGFxValue* ActionScriptObject ( class FString Path );
-	class FString ActionScriptString ( class FString method );
-	float ActionScriptFloat ( class FString method );
-	int ActionScriptInt ( class FString method );
-	void ActionScriptVoid ( class FString method );
-	void SetElementMemberString ( int Index, class FString member, class FString S );
-	void SetElementMemberNumber ( int Index, class FString member, float F );
-	void SetElementMemberBool ( int Index, class FString member, unsigned long B );
-	void SetElementMemberObject ( int Index, class FString member, class UGFxValue* val );
-	void SetElementMember ( int Index, class FString member, struct FASValue Arg );
-	class FString GetElementMemberString ( int Index, class FString member );
-	float GetElementMemberNumber ( int Index, class FString member );
-	bool GetElementMemberBool ( int Index, class FString member );
-	class UGFxValue* GetElementMemberObject ( int Index, class FString member, class UClass* Type );
-	struct FASValue GetElementMember ( int Index, class FString member );
-	void SetElementColorTransform ( int Index, struct FASColorTransform cxform );
+	void ActionScriptSetFunctionOn ( class UGFxValue* Target, FString const& member );
+	void ActionScriptSetFunction ( FString const& member );
+	TArray<class UGFxValue*> ActionScriptArray ( FString const& Path );
+	class UGFxValue* ActionScriptObject ( FString const& Path );
+	FString ActionScriptString ( FString const& method );
+	float ActionScriptFloat ( FString const& method );
+	int ActionScriptInt ( FString const& method );
+	void ActionScriptVoid ( FString const& method );
+	void SetElementMemberString ( int Index, FString const& member, FString const& S );
+	void SetElementMemberNumber ( int Index, FString const& member, float F );
+	void SetElementMemberBool ( int Index, FString const& member, unsigned long B );
+	void SetElementMemberObject ( int Index, FString const& member, class UGFxValue* val );
+	void SetElementMember ( int Index, FString const& member, struct FASValue const& Arg );
+	FString GetElementMemberString ( int Index, FString const& member );
+	float GetElementMemberNumber ( int Index, FString const& member );
+	bool GetElementMemberBool ( int Index, FString const& member );
+	class UGFxValue* GetElementMemberObject ( int Index, FString const& member, class UClass* Type );
+	struct FASValue GetElementMember ( int Index, FString const& member );
+	void SetElementColorTransform ( int Index, struct FASColorTransform const& cxform );
 	void SetElementPosition ( int Index, float X, float Y );
 	void SetElementVisible ( int Index, unsigned long visible );
-	void SetElementDisplayMatrix ( int Index, struct FMatrix M );
-	void SetElementDisplayInfo ( int Index, struct FASDisplayInfo D );
-	void SetElementString ( int Index, class FString S );
+	void SetElementDisplayMatrix ( int Index, struct FMatrix const& M );
+	void SetElementDisplayInfo ( int Index, struct FASDisplayInfo const& D );
+	void SetElementString ( int Index, FString const& S );
 	void SetElementNumber ( int Index, float F );
 	void SetElementBool ( int Index, unsigned long B );
 	void SetElementObject ( int Index, class UGFxValue* val );
-	void SetElement ( int Index, struct FASValue Arg );
+	void SetElement ( int Index, struct FASValue const& Arg );
 	struct FMatrix GetElementDisplayMatrix ( int Index );
 	struct FASDisplayInfo GetElementDisplayInfo ( int Index );
-	class FString GetElementString ( int Index );
+	FString GetElementString ( int Index );
 	float GetElementNumber ( int Index );
 	bool GetElementBool ( int Index );
 	class UGFxValue* GetElementObject ( int Index, class UClass* Type );
 	struct FASValue GetElement ( int Index );
-	void SetMemberObjectText ( class FString sMember, class FString sText, unsigned long bIsHTML );
-	void SetText ( class FString Text, unsigned long bIsHTML );
-	class FString GetText ( );
+	void SetMemberObjectText ( FString const& sMember, FString const& sText, unsigned long bIsHTML );
+	void SetText ( FString const& Text, unsigned long bIsHTML );
+	FString GetText ( );
 	class UGFxValue* CastTo ( class UClass* Type );
-	class UGFxValue* AttachMovie ( class FString symbolname, class FString InstanceName, int Depth, class UClass* Type );
-	class UGFxValue* CreateEmptyMovieClip ( class FString InstanceName, int Depth, class UClass* Type );
+	class UGFxValue* AttachMovie ( FString const& symbolname, FString const& InstanceName, int Depth, class UClass* Type );
+	class UGFxValue* CreateEmptyMovieClip ( FString const& InstanceName, int Depth, class UClass* Type );
 	void GotoAndStopI ( int frame );
-	void GotoAndStop ( class FString frame );
+	void GotoAndStop ( FString const& frame );
 	void GotoAndPlayI ( int frame );
-	void GotoAndPlay ( class FString frame );
-	void SetColorTransform ( struct FASColorTransform cxform );
+	void GotoAndPlay ( FString const& frame );
+	void SetColorTransform ( struct FASColorTransform const& cxform );
 	void SetPosition ( float X, float Y );
 	void SetVisible ( unsigned long visible );
-	void SetDisplayMatrix3D ( struct FMatrix M );
-	void SetDisplayMatrix ( struct FMatrix M );
+	void SetDisplayMatrix3D ( struct FMatrix const& M );
+	void SetDisplayMatrix ( struct FMatrix const& M );
 	void SetDisplayInfo ( struct FASDisplayInfo* D );
 	bool GetPosition ( float* X, float* Y );
 	struct FASColorTransform GetColorTransform ( );
 	struct FMatrix GetDisplayMatrix ( );
 	struct FASDisplayInfo GetDisplayInfo ( );
-	void SetString ( class FString member, class FString S );
-	void SetNumber ( class FString member, float F );
-	void SetBool ( class FString member, unsigned long B );
-	void SetFunction ( class FString member, class UObject* Context, struct SFXName fname );
-	void SetObject ( class FString member, class UGFxValue* val );
-	void Set ( class FString member, struct FASValue Arg );
-	class FString GetString ( class FString member );
-	float GetNumber ( class FString member );
-	bool GetBool ( class FString member );
-	class UGFxValue* GetObject ( class FString member, class UClass* Type );
-	struct FASValue Get ( class FString member );
-	struct FASValue Invoke ( class FString member, class TArray<struct FASValue> Args );
+	void SetString ( FString const& member, FString const& S );
+	void SetNumber ( FString const& member, float F );
+	void SetBool ( FString const& member, unsigned long B );
+	void SetFunction ( FString const& member, class UObject* Context, struct SFXName fname );
+	void SetObject ( FString const& member, class UGFxValue* val );
+	void Set ( FString const& member, struct FASValue const& Arg );
+	FString GetString ( FString const& member );
+	float GetNumber ( FString const& member );
+	bool GetBool ( FString const& member );
+	class UGFxValue* GetObject ( FString const& member, class UClass* Type );
+	struct FASValue Get ( FString const& member );
+	struct FASValue Invoke ( FString const& member, TArray<struct FASValue> const& Args );
 };
 
 // Class GFxUI.GFxAction_CloseMovie
@@ -384,7 +384,7 @@ public:
 class UGFxAction_GetVariable : public USequenceAction
 {
 public:
-	class FString                                      Variable;                                         		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Variable;                                         		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UGFxMovie*                                   movie;                                            		// 0x0108 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 
 private:
@@ -401,8 +401,8 @@ public:
 class UGFxAction_Invoke : public USequenceAction
 {
 public:
-	class FString                                      methodName;                                       		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FASValue>                      Arguments;                                        		// 0x0108 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            methodName;                                       		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FASValue>                            Arguments;                                        		// 0x0108 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UGFxMovie*                                   movie;                                            		// 0x0118 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 
 private:
@@ -438,7 +438,7 @@ public:
 class UGFxAction_SetCaptureKeys : public USequenceAction
 {
 public:
-	class TArray<struct SFXName>                       CaptureKeys;                                      		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct SFXName>                             CaptureKeys;                                      		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UGFxMovie*                                   movie;                                            		// 0x0108 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 
 private:
@@ -470,7 +470,7 @@ public:
 class UGFxAction_SetVariable : public USequenceAction
 {
 public:
-	class FString                                      Variable;                                         		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Variable;                                         		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UGFxMovie*                                   movie;                                            		// 0x0108 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 
 private:
@@ -487,7 +487,7 @@ public:
 class UGFxEvent_FsCommand : public USequenceEvent
 {
 public:
-	class FString                                      FSCommand;                                        		// 0x0128 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            FSCommand;                                        		// 0x0128 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UGFxMovie*                                   movie;                                            		// 0x0138 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 
 private:
@@ -511,7 +511,7 @@ private:
 public:
 	static UClass* StaticClass();
 
-	bool eventFSCommand ( class UGFxMovie* movie, class FString Cmd, class FString Arg );
+	bool eventFSCommand ( class UGFxMovie* movie, FString const& Cmd, FString const& Arg );
 };
 
 // Class GFxUI.GFxDataStoreSubscriber
@@ -528,13 +528,13 @@ private:
 public:
 	static UClass* StaticClass();
 
-	bool SaveSubscriberValue ( int BindingIndex, class TArray<class UUIDataStore*>* out_BoundDataStores );
+	bool SaveSubscriberValue ( int BindingIndex, TArray<class UUIDataStore*>* out_BoundDataStores );
 	void ClearBoundDataStores ( );
-	void GetBoundDataStores ( class TArray<class UUIDataStore*>* out_BoundDataStores );
+	void GetBoundDataStores ( TArray<class UUIDataStore*>* out_BoundDataStores );
 	void NotifyDataStoreValueUpdated ( class UUIDataStore* SourceDataStore, unsigned long bValuesInvalidated, struct SFXName PropertyTag, class UUIDataProvider* SourceProvider, int ArrayIndex );
 	bool RefreshSubscriberValue ( int BindingIndex );
-	class FString GetDataStoreBinding ( int BindingIndex );
-	void SetDataStoreBinding ( class FString MarkupText, int BindingIndex );
+	FString GetDataStoreBinding ( int BindingIndex );
+	void SetDataStoreBinding ( FString const& MarkupText, int BindingIndex );
 	void PublishValues ( );
 };
 

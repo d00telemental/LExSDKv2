@@ -95,7 +95,7 @@ struct FTakeHitInfo
 // 0x001C
 struct FPropertyInfo
 {
-	class FString                                      PropertyValue;                                    		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            PropertyValue;                                    		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	struct SFXName                                     PropertyName;                                     		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	unsigned long                                      bModifyProperty : 1;                              		// 0x0018 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
 };

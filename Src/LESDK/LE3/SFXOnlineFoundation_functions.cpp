@@ -100,9 +100,9 @@ bool USFXOnlineComponent::eventIsConsole ( )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  eEventType                     ( CPF_Parm )
-// class TArray<class USFXOnlineEvent*> aPendingEvents                 ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<class USFXOnlineEvent*> aPendingEvents                 ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponent::GetAllPendingEvents ( unsigned char eEventType, class TArray<class USFXOnlineEvent*>* aPendingEvents )
+bool USFXOnlineComponent::GetAllPendingEvents ( unsigned char eEventType, TArray<class USFXOnlineEvent*>* aPendingEvents )
 {
 	static UFunction* pFnGetAllPendingEvents = NULL;
 
@@ -209,10 +209,10 @@ class USFXOnlineEvent* USFXOnlineComponent::GetEvent ( unsigned char eEventType,
 // Function SFXOnlineFoundation.SFXOnlineComponent.WaitingForWorkSetObject
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class TArray<class USFXOnlineEvent*> aOnlineEventSet                ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<class USFXOnlineEvent*> aOnlineEventSet                ( CPF_Parm | CPF_NeedCtorLink )
 // struct FScriptDelegate         fnWorkComplete                 ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponent::WaitingForWorkSetObject ( class TArray<class USFXOnlineEvent*> aOnlineEventSet, struct FScriptDelegate fnWorkComplete )
+void USFXOnlineComponent::WaitingForWorkSetObject ( TArray<class USFXOnlineEvent*> const& aOnlineEventSet, struct FScriptDelegate fnWorkComplete )
 {
 	static UFunction* pFnWaitingForWorkSetObject = NULL;
 
@@ -233,10 +233,10 @@ void USFXOnlineComponent::WaitingForWorkSetObject ( class TArray<class USFXOnlin
 // Function SFXOnlineFoundation.SFXOnlineComponent.WaitingForWorkSetType
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class TArray<unsigned char>    aWorkUnits                     ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<unsigned char>          aWorkUnits                     ( CPF_Parm | CPF_NeedCtorLink )
 // struct FScriptDelegate         fnWorkComplete                 ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponent::WaitingForWorkSetType ( class TArray<unsigned char> aWorkUnits, struct FScriptDelegate fnWorkComplete )
+void USFXOnlineComponent::WaitingForWorkSetType ( TArray<unsigned char> const& aWorkUnits, struct FScriptDelegate fnWorkComplete )
 {
 	static UFunction* pFnWaitingForWorkSetType = NULL;
 
@@ -645,9 +645,9 @@ class UClass* USFXOnlineEvent::StaticClass()
 // [0x00022400] ( FUNC_Native )
 // Parameters infos:
 // unsigned char                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  sEventString                   ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sEventString                   ( CPF_Parm | CPF_NeedCtorLink )
 
-unsigned char USFXOnlineEvent::GetEventTypeFromString ( class FString sEventString )
+unsigned char USFXOnlineEvent::GetEventTypeFromString ( FString const& sEventString )
 {
 	static UFunction* pFnGetEventTypeFromString = NULL;
 
@@ -669,10 +669,10 @@ unsigned char USFXOnlineEvent::GetEventTypeFromString ( class FString sEventStri
 // Function SFXOnlineFoundation.SFXOnlineEvent.GetEventOutcomeAsString
 // [0x00022400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // unsigned char                  oEventOutcome                  ( CPF_Parm )
 
-class FString USFXOnlineEvent::GetEventOutcomeAsString ( unsigned char oEventOutcome )
+FString USFXOnlineEvent::GetEventOutcomeAsString ( unsigned char oEventOutcome )
 {
 	static UFunction* pFnGetEventOutcomeAsString = NULL;
 
@@ -694,10 +694,10 @@ class FString USFXOnlineEvent::GetEventOutcomeAsString ( unsigned char oEventOut
 // Function SFXOnlineFoundation.SFXOnlineEvent.GetEventStatusAsString
 // [0x00022400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // unsigned char                  eStatusStatus                  ( CPF_Parm )
 
-class FString USFXOnlineEvent::GetEventStatusAsString ( unsigned char eStatusStatus )
+FString USFXOnlineEvent::GetEventStatusAsString ( unsigned char eStatusStatus )
 {
 	static UFunction* pFnGetEventStatusAsString = NULL;
 
@@ -719,10 +719,10 @@ class FString USFXOnlineEvent::GetEventStatusAsString ( unsigned char eStatusSta
 // Function SFXOnlineFoundation.SFXOnlineEvent.GetEventTypeAsString
 // [0x00022400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // unsigned char                  eEventType                     ( CPF_Parm )
 
-class FString USFXOnlineEvent::GetEventTypeAsString ( unsigned char eEventType )
+FString USFXOnlineEvent::GetEventTypeAsString ( unsigned char eEventType )
 {
 	static UFunction* pFnGetEventTypeAsString = NULL;
 
@@ -1170,9 +1170,9 @@ float USFXOnlineEvent::GetTimeout ( )
 // Function SFXOnlineFoundation.SFXOnlineEvent.SetErrorString
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  sMessage                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sMessage                       ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineEvent::SetErrorString ( class FString sMessage )
+void USFXOnlineEvent::SetErrorString ( FString const& sMessage )
 {
 	static UFunction* pFnSetErrorString = NULL;
 
@@ -1192,9 +1192,9 @@ void USFXOnlineEvent::SetErrorString ( class FString sMessage )
 // Function SFXOnlineFoundation.SFXOnlineEvent.GetErrorString
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineEvent::GetErrorString ( )
+FString USFXOnlineEvent::GetErrorString ( )
 {
 	static UFunction* pFnGetErrorString = NULL;
 
@@ -1557,9 +1557,9 @@ class UClass* USFXOnlineEvent_String::StaticClass()
 // Function SFXOnlineFoundation.SFXOnlineEvent_String.SetStringData
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  sStringData                    ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sStringData                    ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineEvent_String::SetStringData ( class FString sStringData )
+void USFXOnlineEvent_String::SetStringData ( FString const& sStringData )
 {
 	static UFunction* pFnSetStringData = NULL;
 
@@ -1579,9 +1579,9 @@ void USFXOnlineEvent_String::SetStringData ( class FString sStringData )
 // Function SFXOnlineFoundation.SFXOnlineEvent_String.GetStringData
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineEvent_String::GetStringData ( )
+FString USFXOnlineEvent_String::GetStringData ( )
 {
 	static UFunction* pFnGetStringData = NULL;
 
@@ -1659,9 +1659,9 @@ int USFXOnlineEvent_Notification::GetPriority ( )
 // Function SFXOnlineFoundation.SFXOnlineEvent_Notification.SetImageName
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  sImageName                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sImageName                     ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineEvent_Notification::SetImageName ( class FString sImageName )
+void USFXOnlineEvent_Notification::SetImageName ( FString const& sImageName )
 {
 	static UFunction* pFnSetImageName = NULL;
 
@@ -1681,9 +1681,9 @@ void USFXOnlineEvent_Notification::SetImageName ( class FString sImageName )
 // Function SFXOnlineFoundation.SFXOnlineEvent_Notification.GetImageName
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineEvent_Notification::GetImageName ( )
+FString USFXOnlineEvent_Notification::GetImageName ( )
 {
 	static UFunction* pFnGetImageName = NULL;
 
@@ -1778,9 +1778,9 @@ bool USFXOnlineEventList::RemoveEvent ( class USFXOnlineEvent* oEvent )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  eEventType                     ( CPF_Parm )
-// class TArray<class USFXOnlineEvent*> PendingEvents                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<class USFXOnlineEvent*> PendingEvents                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineEventList::GetAllPendingEvents ( unsigned char eEventType, class TArray<class USFXOnlineEvent*>* PendingEvents )
+bool USFXOnlineEventList::GetAllPendingEvents ( unsigned char eEventType, TArray<class USFXOnlineEvent*>* PendingEvents )
 {
 	static UFunction* pFnGetAllPendingEvents = NULL;
 
@@ -2222,9 +2222,9 @@ void UISFXOnlineComponentCommerce::METR_UpdateDLCEntitlements ( )
 // Function SFXOnlineFoundation.ISFXOnlineComponentCommerce.DecryptOfflineEntitlementInfo
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString UISFXOnlineComponentCommerce::DecryptOfflineEntitlementInfo ( )
+FString UISFXOnlineComponentCommerce::DecryptOfflineEntitlementInfo ( )
 {
 	static UFunction* pFnDecryptOfflineEntitlementInfo = NULL;
 
@@ -2246,9 +2246,9 @@ class FString UISFXOnlineComponentCommerce::DecryptOfflineEntitlementInfo ( )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  a_sEncryptedContent            ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        a_sEncryptedContent            ( CPF_Parm | CPF_NeedCtorLink )
 
-bool UISFXOnlineComponentCommerce::StoreOfflineEntitlementInfo ( class FString a_sEncryptedContent )
+bool UISFXOnlineComponentCommerce::StoreOfflineEntitlementInfo ( FString const& a_sEncryptedContent )
 {
 	static UFunction* pFnStoreOfflineEntitlementInfo = NULL;
 
@@ -2310,9 +2310,9 @@ void UISFXOnlineComponentCommerce::NucleusEntitlementsRefreshOffline ( )
 // Function SFXOnlineFoundation.ISFXOnlineComponentCommerce.LoadDimeConfig
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sConfig                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sConfig                        ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentCommerce::LoadDimeConfig ( class FString sConfig )
+void UISFXOnlineComponentCommerce::LoadDimeConfig ( FString const& sConfig )
 {
 	static UFunction* pFnLoadDimeConfig = NULL;
 
@@ -2348,9 +2348,9 @@ void UISFXOnlineComponentCommerce::OnDimeConfigLoaded ( )
 // Function SFXOnlineFoundation.ISFXOnlineComponentCommerce.FetchOfferDetails
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class TArray<struct FBWOfferId> aOffers                        ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FBWOfferId>      aOffers                        ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentCommerce::FetchOfferDetails ( class TArray<struct FBWOfferId> aOffers )
+void UISFXOnlineComponentCommerce::FetchOfferDetails ( TArray<struct FBWOfferId> const& aOffers )
 {
 	static UFunction* pFnFetchOfferDetails = NULL;
 
@@ -2386,10 +2386,10 @@ void UISFXOnlineComponentCommerce::OnFetchOfferDetailsComplete ( )
 // Function SFXOnlineFoundation.ISFXOnlineComponentCommerce.GetOffersList
 // [0x00424800] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct FBWOfferId> aOfferFilter                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FBWOfferInfo> aOffers                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FBWOfferId>      aOfferFilter                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FBWOfferInfo>    aOffers                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentCommerce::eventGetOffersList ( class TArray<struct FBWOfferId> aOfferFilter, class TArray<struct FBWOfferInfo>* aOffers )
+void UISFXOnlineComponentCommerce::eventGetOffersList ( TArray<struct FBWOfferId> const& aOfferFilter, TArray<struct FBWOfferInfo>* aOffers )
 {
 	static UFunction* pFnGetOffersList = NULL;
 
@@ -2411,9 +2411,9 @@ void UISFXOnlineComponentCommerce::eventGetOffersList ( class TArray<struct FBWO
 // Function SFXOnlineFoundation.ISFXOnlineComponentCommerce.GetWalletBalance
 // [0x00020000] 
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString UISFXOnlineComponentCommerce::GetWalletBalance ( )
+FString UISFXOnlineComponentCommerce::GetWalletBalance ( )
 {
 	static UFunction* pFnGetWalletBalance = NULL;
 
@@ -2452,7 +2452,7 @@ void UISFXOnlineComponentCommerce::Display1stPartyStore ( )
 // Parameters infos:
 // struct FBWOfferId              Id                             ( CPF_Parm )
 
-void UISFXOnlineComponentCommerce::PurchaseOfferId ( struct FBWOfferId Id )
+void UISFXOnlineComponentCommerce::PurchaseOfferId ( struct FBWOfferId const& Id )
 {
 	static UFunction* pFnPurchaseOfferId = NULL;
 
@@ -2513,9 +2513,9 @@ void UISFXOnlineComponentCommerce::OnCodeRedeemed ( unsigned char nResult )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // unsigned long                  bContinue                      ( CPF_Parm )
-// class FString                  strCode                        ( CPF_Const | CPF_Parm | CPF_NeedCtorLink )
+// FString                        strCode                        ( CPF_Const | CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentCommerce::SubmitRedeemCode ( unsigned long bContinue, class FString strCode )
+void UISFXOnlineComponentCommerce::SubmitRedeemCode ( unsigned long bContinue, FString const& strCode )
 {
 	static UFunction* pFnSubmitRedeemCode = NULL;
 
@@ -2614,7 +2614,7 @@ void UISFXOnlineComponentCommerce::OnProcessAutoGrantsComplete ( )
 // struct FBWEntitlementId        Id                             ( CPF_Parm )
 // unsigned long                  bUseNucleusCheck               ( CPF_OptionalParm | CPF_Parm )
 
-bool UISFXOnlineComponentCommerce::GrantEntitlementId ( struct FBWEntitlementId Id, unsigned long bUseNucleusCheck )
+bool UISFXOnlineComponentCommerce::GrantEntitlementId ( struct FBWEntitlementId const& Id, unsigned long bUseNucleusCheck )
 {
 	static UFunction* pFnGrantEntitlementId = NULL;
 
@@ -2640,7 +2640,7 @@ bool UISFXOnlineComponentCommerce::GrantEntitlementId ( struct FBWEntitlementId 
 // struct FBWEntitlementId        Id                             ( CPF_Parm )
 // int                            nResult                        ( CPF_Parm )
 
-void UISFXOnlineComponentCommerce::OnGrantEntitlementResult ( struct FBWEntitlementId Id, int nResult )
+void UISFXOnlineComponentCommerce::OnGrantEntitlementResult ( struct FBWEntitlementId const& Id, int nResult )
 {
 	static UFunction* pFnOnGrantEntitlementResult = NULL;
 
@@ -2661,7 +2661,7 @@ void UISFXOnlineComponentCommerce::OnGrantEntitlementResult ( struct FBWEntitlem
 // struct FBWConsumableId         Id                             ( CPF_Parm )
 // int                            nCopies                        ( CPF_OptionalParm | CPF_Parm )
 
-bool UISFXOnlineComponentCommerce::ConsumeId ( struct FBWConsumableId Id, int nCopies )
+bool UISFXOnlineComponentCommerce::ConsumeId ( struct FBWConsumableId const& Id, int nCopies )
 {
 	static UFunction* pFnConsumeId = NULL;
 
@@ -2688,7 +2688,7 @@ bool UISFXOnlineComponentCommerce::ConsumeId ( struct FBWConsumableId Id, int nC
 // int                            nCopies                        ( CPF_Parm )
 // int                            nResult                        ( CPF_Parm )
 
-void UISFXOnlineComponentCommerce::OnConsumeResult ( struct FBWConsumableId Id, int nCopies, int nResult )
+void UISFXOnlineComponentCommerce::OnConsumeResult ( struct FBWConsumableId const& Id, int nCopies, int nResult )
 {
 	static UFunction* pFnOnConsumeResult = NULL;
 
@@ -2710,7 +2710,7 @@ void UISFXOnlineComponentCommerce::OnConsumeResult ( struct FBWConsumableId Id, 
 // struct FBWConsumableId         Id                             ( CPF_Parm )
 // struct FBWConsumableInfo       oConsumable                    ( CPF_Parm | CPF_OutParm )
 
-bool UISFXOnlineComponentCommerce::eventGetConsumableInfo ( struct FBWConsumableId Id, struct FBWConsumableInfo* oConsumable )
+bool UISFXOnlineComponentCommerce::eventGetConsumableInfo ( struct FBWConsumableId const& Id, struct FBWConsumableInfo* oConsumable )
 {
 	static UFunction* pFnGetConsumableInfo = NULL;
 
@@ -2735,9 +2735,9 @@ bool UISFXOnlineComponentCommerce::eventGetConsumableInfo ( struct FBWConsumable
 // [0x00420800] ( FUNC_Event )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<struct FBWConsumableInfo> aConsumables                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FBWConsumableInfo> aConsumables                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UISFXOnlineComponentCommerce::eventGetConsumablesList ( class TArray<struct FBWConsumableInfo>* aConsumables )
+bool UISFXOnlineComponentCommerce::eventGetConsumablesList ( TArray<struct FBWConsumableInfo>* aConsumables )
 {
 	static UFunction* pFnGetConsumablesList = NULL;
 
@@ -2764,7 +2764,7 @@ bool UISFXOnlineComponentCommerce::eventGetConsumablesList ( class TArray<struct
 // struct FBWEntitlementId        Id                             ( CPF_Parm )
 // struct FBWEntitlementInfo      oEntitlement                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UISFXOnlineComponentCommerce::eventGetEntitlementInfo ( struct FBWEntitlementId Id, struct FBWEntitlementInfo* oEntitlement )
+bool UISFXOnlineComponentCommerce::eventGetEntitlementInfo ( struct FBWEntitlementId const& Id, struct FBWEntitlementInfo* oEntitlement )
 {
 	static UFunction* pFnGetEntitlementInfo = NULL;
 
@@ -2789,9 +2789,9 @@ bool UISFXOnlineComponentCommerce::eventGetEntitlementInfo ( struct FBWEntitleme
 // [0x00420800] ( FUNC_Event )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<struct FBWEntitlementInfo> aEntitlements                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FBWEntitlementInfo> aEntitlements                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UISFXOnlineComponentCommerce::eventGetEntitlementsList ( class TArray<struct FBWEntitlementInfo>* aEntitlements )
+bool UISFXOnlineComponentCommerce::eventGetEntitlementsList ( TArray<struct FBWEntitlementInfo>* aEntitlements )
 {
 	static UFunction* pFnGetEntitlementsList = NULL;
 
@@ -2864,9 +2864,9 @@ class UClass* UISFXOnlineComponentGalaxyAtWar::StaticClass()
 // Function SFXOnlineFoundation.ISFXOnlineComponentGalaxyAtWar.SetBaseURL
 // [0x00020800] ( FUNC_Event )
 // Parameters infos:
-// class FString                  BaseUrl                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        BaseUrl                        ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentGalaxyAtWar::eventSetBaseURL ( class FString BaseUrl )
+void UISFXOnlineComponentGalaxyAtWar::eventSetBaseURL ( FString const& BaseUrl )
 {
 	static UFunction* pFnSetBaseURL = NULL;
 
@@ -2944,10 +2944,10 @@ void UISFXOnlineComponentGalaxyAtWar::GetTouchMessagesHTTPRequest ( int msgType,
 // [0x00420800] ( FUNC_Event )
 // Parameters infos:
 // class USFXOnlineHTTPRequest*   request                        ( CPF_Parm )
-// class TArray<struct FMessageEntry> messageEntries                 ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FMessageEntry>   messageEntries                 ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 // int                            errorCode                      ( CPF_Parm | CPF_OutParm )
 
-void UISFXOnlineComponentGalaxyAtWar::eventParseGetMessagesResult ( class USFXOnlineHTTPRequest* request, class TArray<struct FMessageEntry>* messageEntries, int* errorCode )
+void UISFXOnlineComponentGalaxyAtWar::eventParseGetMessagesResult ( class USFXOnlineHTTPRequest* request, TArray<struct FMessageEntry>* messageEntries, int* errorCode )
 {
 	static UFunction* pFnParseGetMessagesResult = NULL;
 
@@ -3006,10 +3006,10 @@ void UISFXOnlineComponentGalaxyAtWar::GetGetMessagesHTTPRequest ( int msgType, c
 // Parameters infos:
 // class USFXOnlineHTTPRequest*   request                        ( CPF_Parm )
 // int                            messageId                      ( CPF_Parm | CPF_OutParm )
-// class TArray<int>              messageIds                     ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<int>                    messageIds                     ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 // int                            errorCode                      ( CPF_Parm | CPF_OutParm )
 
-void UISFXOnlineComponentGalaxyAtWar::eventParseSendMessageResult ( class USFXOnlineHTTPRequest* request, int* messageId, class TArray<int>* messageIds, int* errorCode )
+void UISFXOnlineComponentGalaxyAtWar::eventParseSendMessageResult ( class USFXOnlineHTTPRequest* request, int* messageId, TArray<int>* messageIds, int* errorCode )
 {
 	static UFunction* pFnParseSendMessageResult = NULL;
 
@@ -3044,12 +3044,12 @@ void UISFXOnlineComponentGalaxyAtWar::eventParseSendMessageResult ( class USFXOn
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // int                            msgType                        ( CPF_Parm )
-// class FString                  param1                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  param2                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  param3                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        param1                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        param2                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        param3                         ( CPF_Parm | CPF_NeedCtorLink )
 // class USFXOnlineHTTPRequest*   pSFXOnlineHTTPRequest          ( CPF_Parm | CPF_OutParm )
 
-void UISFXOnlineComponentGalaxyAtWar::GetSendMessageHTTPRequest ( int msgType, class FString param1, class FString param2, class FString param3, class USFXOnlineHTTPRequest** pSFXOnlineHTTPRequest )
+void UISFXOnlineComponentGalaxyAtWar::GetSendMessageHTTPRequest ( int msgType, FString const& param1, FString const& param2, FString const& param3, class USFXOnlineHTTPRequest** pSFXOnlineHTTPRequest )
 {
 	static UFunction* pFnGetSendMessageHTTPRequest = NULL;
 
@@ -3079,12 +3079,12 @@ void UISFXOnlineComponentGalaxyAtWar::GetSendMessageHTTPRequest ( int msgType, c
 // [0x00420800] ( FUNC_Event )
 // Parameters infos:
 // class USFXOnlineHTTPRequest*   request                        ( CPF_Parm )
-// class TArray<int>              updatedSecurityRatings         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-// class TArray<int>              updatedWarAssets               ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<int>                    updatedSecurityRatings         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<int>                    updatedWarAssets               ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 // int                            Level                          ( CPF_Parm | CPF_OutParm )
 // int                            errorCode                      ( CPF_Parm | CPF_OutParm )
 
-void UISFXOnlineComponentGalaxyAtWar::eventParseHTTPRatingsAssetsLevel ( class USFXOnlineHTTPRequest* request, class TArray<int>* updatedSecurityRatings, class TArray<int>* updatedWarAssets, int* Level, int* errorCode )
+void UISFXOnlineComponentGalaxyAtWar::eventParseHTTPRatingsAssetsLevel ( class USFXOnlineHTTPRequest* request, TArray<int>* updatedSecurityRatings, TArray<int>* updatedWarAssets, int* Level, int* errorCode )
 {
 	static UFunction* pFnParseHTTPRatingsAssetsLevel = NULL;
 
@@ -3125,11 +3125,11 @@ void UISFXOnlineComponentGalaxyAtWar::eventParseHTTPRatingsAssetsLevel ( class U
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // int                            defaultRatingIncrease          ( CPF_Parm )
-// class TArray<struct FMapEntry> securityRatingsIncrease        ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FMapEntry> warAssetsIncrease              ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FMapEntry>       securityRatingsIncrease        ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FMapEntry>       warAssetsIncrease              ( CPF_Parm | CPF_NeedCtorLink )
 // class USFXOnlineHTTPRequest*   pSFXOnlineHTTPRequest          ( CPF_Parm | CPF_OutParm )
 
-void UISFXOnlineComponentGalaxyAtWar::GetIncreaseRatingsHTTPRequest ( int defaultRatingIncrease, class TArray<struct FMapEntry> securityRatingsIncrease, class TArray<struct FMapEntry> warAssetsIncrease, class USFXOnlineHTTPRequest** pSFXOnlineHTTPRequest )
+void UISFXOnlineComponentGalaxyAtWar::GetIncreaseRatingsHTTPRequest ( int defaultRatingIncrease, TArray<struct FMapEntry> const& securityRatingsIncrease, TArray<struct FMapEntry> const& warAssetsIncrease, class USFXOnlineHTTPRequest** pSFXOnlineHTTPRequest )
 {
 	static UFunction* pFnGetIncreaseRatingsHTTPRequest = NULL;
 
@@ -3207,11 +3207,11 @@ int UISFXOnlineComponentGalaxyAtWar::eventParseAuthenticationResult ( class USFX
 // Function SFXOnlineFoundation.ISFXOnlineComponentGalaxyAtWar.GetAuthenticationHTTPRequest
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  token                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        token                          ( CPF_Parm | CPF_NeedCtorLink )
 // int                            tokenType                      ( CPF_Parm )
 // class USFXOnlineHTTPRequest*   pSFXOnlineHTTPRequest          ( CPF_Parm | CPF_OutParm )
 
-void UISFXOnlineComponentGalaxyAtWar::GetAuthenticationHTTPRequest ( class FString token, int tokenType, class USFXOnlineHTTPRequest** pSFXOnlineHTTPRequest )
+void UISFXOnlineComponentGalaxyAtWar::GetAuthenticationHTTPRequest ( FString const& token, int tokenType, class USFXOnlineHTTPRequest** pSFXOnlineHTTPRequest )
 {
 	static UFunction* pFnGetAuthenticationHTTPRequest = NULL;
 
@@ -3338,11 +3338,11 @@ void UISFXOnlineComponentGalaxyAtWar::GetMessages ( int msgType )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // int                            msgType                        ( CPF_Parm )
-// class FString                  sendMsgParam1                  ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sendMsgParam1                  ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  ParamType                      ( CPF_Parm )
-// class FString                  sendMsgParam3                  ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sendMsgParam3                  ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentGalaxyAtWar::SendMessage ( int msgType, class FString sendMsgParam1, unsigned char ParamType, class FString sendMsgParam3 )
+void UISFXOnlineComponentGalaxyAtWar::SendMessage ( int msgType, FString const& sendMsgParam1, unsigned char ParamType, FString const& sendMsgParam3 )
 {
 	static UFunction* pFnSendMessage = NULL;
 
@@ -3366,10 +3366,10 @@ void UISFXOnlineComponentGalaxyAtWar::SendMessage ( int msgType, class FString s
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // int                            defaultRatingIncrease          ( CPF_Parm )
-// class TArray<struct FMapEntry> securityRatingIncrease         ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FMapEntry> warAssetIncrease               ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FMapEntry>       securityRatingIncrease         ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FMapEntry>       warAssetIncrease               ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentGalaxyAtWar::IncreaseRatings ( int defaultRatingIncrease, class TArray<struct FMapEntry> securityRatingIncrease, class TArray<struct FMapEntry> warAssetIncrease )
+void UISFXOnlineComponentGalaxyAtWar::IncreaseRatings ( int defaultRatingIncrease, TArray<struct FMapEntry> const& securityRatingIncrease, TArray<struct FMapEntry> const& warAssetIncrease )
 {
 	static UFunction* pFnIncreaseRatings = NULL;
 
@@ -3435,10 +3435,10 @@ void UISFXOnlineComponentGalaxyAtWar::OnTouchMessagesComplete ( int Count, int e
 // Function SFXOnlineFoundation.ISFXOnlineComponentGalaxyAtWar.OnGetMessagesComplete
 // [0x00120000] 
 // Parameters infos:
-// class TArray<struct FMessageEntry> Messages                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FMessageEntry>   Messages                       ( CPF_Parm | CPF_NeedCtorLink )
 // int                            errorCode                      ( CPF_Parm )
 
-void UISFXOnlineComponentGalaxyAtWar::OnGetMessagesComplete ( class TArray<struct FMessageEntry> Messages, int errorCode )
+void UISFXOnlineComponentGalaxyAtWar::OnGetMessagesComplete ( TArray<struct FMessageEntry> const& Messages, int errorCode )
 {
 	static UFunction* pFnOnGetMessagesComplete = NULL;
 
@@ -3456,10 +3456,10 @@ void UISFXOnlineComponentGalaxyAtWar::OnGetMessagesComplete ( class TArray<struc
 // [0x00120000] 
 // Parameters infos:
 // int                            messageId                      ( CPF_Parm )
-// class TArray<int>              messageIds                     ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    messageIds                     ( CPF_Parm | CPF_NeedCtorLink )
 // int                            errorCode                      ( CPF_Parm )
 
-void UISFXOnlineComponentGalaxyAtWar::OnSendMessageComplete ( int messageId, class TArray<int> messageIds, int errorCode )
+void UISFXOnlineComponentGalaxyAtWar::OnSendMessageComplete ( int messageId, TArray<int> const& messageIds, int errorCode )
 {
 	static UFunction* pFnOnSendMessageComplete = NULL;
 
@@ -3477,12 +3477,12 @@ void UISFXOnlineComponentGalaxyAtWar::OnSendMessageComplete ( int messageId, cla
 // Function SFXOnlineFoundation.ISFXOnlineComponentGalaxyAtWar.OnIncreaseRatingsComplete
 // [0x00120000] 
 // Parameters infos:
-// class TArray<int>              updatedSecurityRatings         ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<int>              updatedWarAssets               ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    updatedSecurityRatings         ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    updatedWarAssets               ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Level                          ( CPF_Parm )
 // int                            errorCode                      ( CPF_Parm )
 
-void UISFXOnlineComponentGalaxyAtWar::OnIncreaseRatingsComplete ( class TArray<int> updatedSecurityRatings, class TArray<int> updatedWarAssets, int Level, int errorCode )
+void UISFXOnlineComponentGalaxyAtWar::OnIncreaseRatingsComplete ( TArray<int> const& updatedSecurityRatings, TArray<int> const& updatedWarAssets, int Level, int errorCode )
 {
 	static UFunction* pFnOnIncreaseRatingsComplete = NULL;
 
@@ -3501,12 +3501,12 @@ void UISFXOnlineComponentGalaxyAtWar::OnIncreaseRatingsComplete ( class TArray<i
 // Function SFXOnlineFoundation.ISFXOnlineComponentGalaxyAtWar.OnGetRatingsComplete
 // [0x00120000] 
 // Parameters infos:
-// class TArray<int>              updatedSecurityRatings         ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<int>              updatedWarAssets               ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    updatedSecurityRatings         ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    updatedWarAssets               ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Level                          ( CPF_Parm )
 // int                            errorCode                      ( CPF_Parm )
 
-void UISFXOnlineComponentGalaxyAtWar::OnGetRatingsComplete ( class TArray<int> updatedSecurityRatings, class TArray<int> updatedWarAssets, int Level, int errorCode )
+void UISFXOnlineComponentGalaxyAtWar::OnGetRatingsComplete ( TArray<int> const& updatedSecurityRatings, TArray<int> const& updatedWarAssets, int Level, int errorCode )
 {
 	static UFunction* pFnOnGetRatingsComplete = NULL;
 
@@ -3648,9 +3648,9 @@ bool UISFXOnlineComponentGame::IsInvalidHost ( )
 // [0x00420000] 
 // Parameters infos:
 // unsigned long                  bInvitee                       ( CPF_Parm )
-// class TArray<struct FMPDLCInfo> missingDLCs                    ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FMPDLCInfo>      missingDLCs                    ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentGame::GetMultiplayer_MissingDLCs ( unsigned long bInvitee, class TArray<struct FMPDLCInfo>* missingDLCs )
+void UISFXOnlineComponentGame::GetMultiplayer_MissingDLCs ( unsigned long bInvitee, TArray<struct FMPDLCInfo>* missingDLCs )
 {
 	static UFunction* pFnGetMultiplayer_MissingDLCs = NULL;
 
@@ -3672,9 +3672,9 @@ void UISFXOnlineComponentGame::GetMultiplayer_MissingDLCs ( unsigned long bInvit
 // Function SFXOnlineFoundation.ISFXOnlineComponentGame.SetMPDLCInfo
 // [0x00420800] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct FMPDLCInfo> allAvailableDLCs               ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FMPDLCInfo>      allAvailableDLCs               ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentGame::eventSetMPDLCInfo ( class TArray<struct FMPDLCInfo>* allAvailableDLCs )
+void UISFXOnlineComponentGame::eventSetMPDLCInfo ( TArray<struct FMPDLCInfo>* allAvailableDLCs )
 {
 	static UFunction* pFnSetMPDLCInfo = NULL;
 
@@ -3829,7 +3829,7 @@ bool UISFXOnlineComponentGame::WasKickedOutOfGame ( )
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool UISFXOnlineComponentGame::KickPlayer ( struct FUniqueNetId PlayerID )
+bool UISFXOnlineComponentGame::KickPlayer ( struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnKickPlayer = NULL;
 
@@ -4191,12 +4191,12 @@ bool UISFXOnlineComponentGameEntryFlow::IsInGalaxyMapFlow ( )
 // Function SFXOnlineFoundation.ISFXOnlineComponentGameEntryFlow.ActivateConnectToMapFlow
 // [0x00024000] 
 // Parameters infos:
-// class FString                  mapPackageName                 ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        mapPackageName                 ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  fromGalaxyMap                  ( CPF_OptionalParm | CPF_Parm )
 // unsigned char                  Difficulty                     ( CPF_OptionalParm | CPF_Parm )
 // int                            objectiveMode                  ( CPF_OptionalParm | CPF_Parm )
 
-void UISFXOnlineComponentGameEntryFlow::ActivateConnectToMapFlow ( class FString mapPackageName, unsigned long fromGalaxyMap, unsigned char Difficulty, int objectiveMode )
+void UISFXOnlineComponentGameEntryFlow::ActivateConnectToMapFlow ( FString const& mapPackageName, unsigned long fromGalaxyMap, unsigned char Difficulty, int objectiveMode )
 {
 	static UFunction* pFnActivateConnectToMapFlow = NULL;
 
@@ -4960,9 +4960,9 @@ bool UISFXOnlineComponentGameFlow::eventDebugValidateStates ( unsigned long writ
 // Function SFXOnlineFoundation.ISFXOnlineComponentGameFlow.GetStateStr
 // [0x00020800] ( FUNC_Event )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString UISFXOnlineComponentGameFlow::eventGetStateStr ( )
+FString UISFXOnlineComponentGameFlow::eventGetStateStr ( )
 {
 	static UFunction* pFnGetStateStr = NULL;
 
@@ -5042,9 +5042,9 @@ void UISFXOnlineComponentLeaderboard::eventAddRankNotificationCallback ( )
 // Function SFXOnlineFoundation.ISFXOnlineComponentLeaderboard.GetCurrentRankNotificationsArray
 // [0x00020000] 
 // Parameters infos:
-// class TArray<struct FRankBypassNotification> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// TArray<struct FRankBypassNotification> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class TArray<struct FRankBypassNotification> UISFXOnlineComponentLeaderboard::GetCurrentRankNotificationsArray ( )
+TArray<struct FRankBypassNotification> UISFXOnlineComponentLeaderboard::GetCurrentRankNotificationsArray ( )
 {
 	static UFunction* pFnGetCurrentRankNotificationsArray = NULL;
 
@@ -5113,9 +5113,9 @@ int UISFXOnlineComponentLeaderboard::ShowGamerCardForRecord ( unsigned char Loca
 // Function SFXOnlineFoundation.ISFXOnlineComponentLeaderboard.ReadLeaderboardList
 // [0x00420401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class TArray<int>              jobIds                         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<int>                    jobIds                         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentLeaderboard::ReadLeaderboardList ( class TArray<int>* jobIds )
+void UISFXOnlineComponentLeaderboard::ReadLeaderboardList ( TArray<int>* jobIds )
 {
 	static UFunction* pFnReadLeaderboardList = NULL;
 
@@ -5173,7 +5173,7 @@ int UISFXOnlineComponentLeaderboard::GetFriendLeaderboardData ( int pLbId, FPoin
 // int                            nRankRange                     ( CPF_Parm )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-int UISFXOnlineComponentLeaderboard::GetLeaderboardCenteredData ( int pLbId, struct FUniqueNetId nPlayerId, int nRankRange, FPointer pExternalData )
+int UISFXOnlineComponentLeaderboard::GetLeaderboardCenteredData ( int pLbId, struct FUniqueNetId const& nPlayerId, int nRankRange, FPointer pExternalData )
 {
 	static UFunction* pFnGetLeaderboardCenteredData = NULL;
 
@@ -5294,7 +5294,7 @@ void UISFXOnlineComponentLeaderboard::GetRankNotifications ( )
 // int                            nRankRange                     ( CPF_Parm )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-void UISFXOnlineComponentLeaderboard::RequestLeaderboardCenteredData ( struct FLeaderboardDefinition LeaderboardDef, struct FUniqueNetId nPlayerId, int nRankRange, FPointer pExternalData )
+void UISFXOnlineComponentLeaderboard::RequestLeaderboardCenteredData ( struct FLeaderboardDefinition const& LeaderboardDef, struct FUniqueNetId const& nPlayerId, int nRankRange, FPointer pExternalData )
 {
 	static UFunction* pFnRequestLeaderboardCenteredData = NULL;
 
@@ -5322,7 +5322,7 @@ void UISFXOnlineComponentLeaderboard::RequestLeaderboardCenteredData ( struct FL
 // int                            nRankRange                     ( CPF_Parm )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-void UISFXOnlineComponentLeaderboard::RequestLeaderboardData ( struct FLeaderboardDefinition LeaderboardDef, int nRankStart, int nRankRange, FPointer pExternalData )
+void UISFXOnlineComponentLeaderboard::RequestLeaderboardData ( struct FLeaderboardDefinition const& LeaderboardDef, int nRankStart, int nRankRange, FPointer pExternalData )
 {
 	static UFunction* pFnRequestLeaderboardData = NULL;
 
@@ -5346,9 +5346,9 @@ void UISFXOnlineComponentLeaderboard::RequestLeaderboardData ( struct FLeaderboa
 // [0x00420401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<struct FLeaderboardMapGroup> aLBDefTableRows                ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardMapGroup> aLBDefTableRows                ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UISFXOnlineComponentLeaderboard::GetLeaderboardDefinitionTable ( class TArray<struct FLeaderboardMapGroup>* aLBDefTableRows )
+bool UISFXOnlineComponentLeaderboard::GetLeaderboardDefinitionTable ( TArray<struct FLeaderboardMapGroup>* aLBDefTableRows )
 {
 	static UFunction* pFnGetLeaderboardDefinitionTable = NULL;
 
@@ -5376,9 +5376,9 @@ bool UISFXOnlineComponentLeaderboard::GetLeaderboardDefinitionTable ( class TArr
 // [0x00420401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<struct FLeaderboardDefinition> aLBDefinitions                 ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardDefinition> aLBDefinitions                 ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool UISFXOnlineComponentLeaderboard::GetLeaderboardDefinitions ( class TArray<struct FLeaderboardDefinition>* aLBDefinitions )
+bool UISFXOnlineComponentLeaderboard::GetLeaderboardDefinitions ( TArray<struct FLeaderboardDefinition>* aLBDefinitions )
 {
 	static UFunction* pFnGetLeaderboardDefinitions = NULL;
 
@@ -5405,9 +5405,9 @@ bool UISFXOnlineComponentLeaderboard::GetLeaderboardDefinitions ( class TArray<s
 // Function SFXOnlineFoundation.ISFXOnlineComponentLeaderboard.OnGetRankNotificationsCompleted
 // [0x00120000] 
 // Parameters infos:
-// class TArray<struct FRankBypassNotification> RankBypassNotificationArray    ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FRankBypassNotification> RankBypassNotificationArray    ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentLeaderboard::OnGetRankNotificationsCompleted ( class TArray<struct FRankBypassNotification> RankBypassNotificationArray )
+void UISFXOnlineComponentLeaderboard::OnGetRankNotificationsCompleted ( TArray<struct FRankBypassNotification> const& RankBypassNotificationArray )
 {
 	static UFunction* pFnOnGetRankNotificationsCompleted = NULL;
 
@@ -5441,14 +5441,14 @@ void UISFXOnlineComponentLeaderboard::OnReadLbListCompleted ( unsigned char erro
 // Function SFXOnlineFoundation.ISFXOnlineComponentLeaderboard.OnResultsRetrieved
 // [0x00124000] 
 // Parameters infos:
-// class TArray<struct FLeaderboardColumn> aColumnInfo                    ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardColumn> aColumnInfo                    ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
 // int                            iTotalRanks                    ( CPF_Parm )
 // struct FUniqueNetId            uidEntity                      ( CPF_Parm )
 // unsigned char                  nErrorCode                     ( CPF_Parm )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-void UISFXOnlineComponentLeaderboard::OnResultsRetrieved ( class TArray<struct FLeaderboardColumn> aColumnInfo, class TArray<struct FLeaderboardRecord> aResults, int iTotalRanks, struct FUniqueNetId uidEntity, unsigned char nErrorCode, FPointer pExternalData )
+void UISFXOnlineComponentLeaderboard::OnResultsRetrieved ( TArray<struct FLeaderboardColumn> const& aColumnInfo, TArray<struct FLeaderboardRecord> const& aResults, int iTotalRanks, struct FUniqueNetId const& uidEntity, unsigned char nErrorCode, FPointer pExternalData )
 {
 	static UFunction* pFnOnResultsRetrieved = NULL;
 
@@ -5738,9 +5738,9 @@ unsigned char UISFXOnlineComponentLogin::CanPlayOnline ( int nUserIndex )
 // Function SFXOnlineFoundation.ISFXOnlineComponentLogin.EnterCDKey
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sKey                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sKey                           ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentLogin::EnterCDKey ( class FString sKey )
+void UISFXOnlineComponentLogin::EnterCDKey ( FString const& sKey )
 {
 	static UFunction* pFnEnterCDKey = NULL;
 
@@ -5824,9 +5824,9 @@ void UISFXOnlineComponentLogin::OnImportFriendListToBlazeCompleted ( unsigned ch
 // Function SFXOnlineFoundation.ISFXOnlineComponentLogin.OnAuthTokenRetrieved
 // [0x00120000] 
 // Parameters infos:
-// class FString                  token                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        token                          ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentLogin::OnAuthTokenRetrieved ( class FString token )
+void UISFXOnlineComponentLogin::OnAuthTokenRetrieved ( FString const& token )
 {
 	static UFunction* pFnOnAuthTokenRetrieved = NULL;
 
@@ -5947,9 +5947,9 @@ bool UISFXOnlineComponentLogin::IsCerberusMember ( )
 // Function SFXOnlineFoundation.ISFXOnlineComponentLogin.DisablePersona
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sPersonaNonGrata               ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sPersonaNonGrata               ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentLogin::DisablePersona ( class FString sPersonaNonGrata )
+void UISFXOnlineComponentLogin::DisablePersona ( FString const& sPersonaNonGrata )
 {
 	static UFunction* pFnDisablePersona = NULL;
 
@@ -5969,9 +5969,9 @@ void UISFXOnlineComponentLogin::DisablePersona ( class FString sPersonaNonGrata 
 // Function SFXOnlineFoundation.ISFXOnlineComponentLogin.CreatePersona
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sPersonaName                   ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sPersonaName                   ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentLogin::CreatePersona ( class FString sPersonaName )
+void UISFXOnlineComponentLogin::CreatePersona ( FString const& sPersonaName )
 {
 	static UFunction* pFnCreatePersona = NULL;
 
@@ -5991,9 +5991,9 @@ void UISFXOnlineComponentLogin::CreatePersona ( class FString sPersonaName )
 // Function SFXOnlineFoundation.ISFXOnlineComponentLogin.SelectPersona
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sPersonaName                   ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sPersonaName                   ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentLogin::SelectPersona ( class FString sPersonaName )
+void UISFXOnlineComponentLogin::SelectPersona ( FString const& sPersonaName )
 {
 	static UFunction* pFnSelectPersona = NULL;
 
@@ -6057,9 +6057,9 @@ void UISFXOnlineComponentLogin::Disconnect ( unsigned long bShowError )
 // Function SFXOnlineFoundation.ISFXOnlineComponentLogin.SubmitStore
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class TArray<int>              aiChosen                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    aiChosen                       ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentLogin::SubmitStore ( class TArray<int> aiChosen )
+void UISFXOnlineComponentLogin::SubmitStore ( TArray<int> const& aiChosen )
 {
 	static UFunction* pFnSubmitStore = NULL;
 
@@ -6079,19 +6079,19 @@ void UISFXOnlineComponentLogin::SubmitStore ( class TArray<int> aiChosen )
 // Function SFXOnlineFoundation.ISFXOnlineComponentLogin.SubmitCreateNucleusAccountEx
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sEmail                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sEmail                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bEAProducts                    ( CPF_Parm )
 // unsigned long                  bThirdParty                    ( CPF_Parm )
 // unsigned long                  bBioWareProducts               ( CPF_Parm )
-// class FString                  i_sCountryCode                 ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        i_sCountryCode                 ( CPF_Parm | CPF_NeedCtorLink )
 // int                            BirthDay                       ( CPF_Parm )
 // int                            BirthMonth                     ( CPF_Parm )
 // int                            BirthYear                      ( CPF_Parm )
-// class FString                  i_sLanguageCode                ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        i_sLanguageCode                ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bSubmit                        ( CPF_Parm )
 
-void UISFXOnlineComponentLogin::SubmitCreateNucleusAccountEx ( class FString sEmail, class FString sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bBioWareProducts, class FString i_sCountryCode, int BirthDay, int BirthMonth, int BirthYear, class FString i_sLanguageCode, unsigned long bSubmit )
+void UISFXOnlineComponentLogin::SubmitCreateNucleusAccountEx ( FString const& sEmail, FString const& sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bBioWareProducts, FString const& i_sCountryCode, int BirthDay, int BirthMonth, int BirthYear, FString const& i_sLanguageCode, unsigned long bSubmit )
 {
 	static UFunction* pFnSubmitCreateNucleusAccountEx = NULL;
 
@@ -6121,11 +6121,11 @@ void UISFXOnlineComponentLogin::SubmitCreateNucleusAccountEx ( class FString sEm
 // Function SFXOnlineFoundation.ISFXOnlineComponentLogin.SubmitEmailPasswordMismatch
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  email                          ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Password                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        email                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Password                       ( CPF_Parm | CPF_NeedCtorLink )
 // int                            eReturnCode                    ( CPF_Parm )
 
-void UISFXOnlineComponentLogin::SubmitEmailPasswordMismatch ( class FString email, class FString Password, int eReturnCode )
+void UISFXOnlineComponentLogin::SubmitEmailPasswordMismatch ( FString const& email, FString const& Password, int eReturnCode )
 {
 	static UFunction* pFnSubmitEmailPasswordMismatch = NULL;
 
@@ -6170,9 +6170,9 @@ void UISFXOnlineComponentLogin::SubmitMessageBox ( int eReturnCode )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // unsigned long                  bContinue                      ( CPF_Parm )
-// class FString                  i_sCode                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        i_sCode                        ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentLogin::SubmitRedeemCode ( unsigned long bContinue, class FString i_sCode )
+void UISFXOnlineComponentLogin::SubmitRedeemCode ( unsigned long bContinue, FString const& i_sCode )
 {
 	static UFunction* pFnSubmitRedeemCode = NULL;
 
@@ -6255,14 +6255,14 @@ void UISFXOnlineComponentLogin::SubmitNucleusWelcomeMessage ( )
 // Function SFXOnlineFoundation.ISFXOnlineComponentLogin.SubmitCreateNucleusAccount
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sEmail                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sEmail                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bEAProducts                    ( CPF_Parm )
 // unsigned long                  bThirdParty                    ( CPF_Parm )
 // unsigned long                  bBioWareProducts               ( CPF_Parm )
 // unsigned long                  bSubmit                        ( CPF_Parm )
 
-void UISFXOnlineComponentLogin::SubmitCreateNucleusAccount ( class FString sEmail, class FString sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bBioWareProducts, unsigned long bSubmit )
+void UISFXOnlineComponentLogin::SubmitCreateNucleusAccount ( FString const& sEmail, FString const& sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bBioWareProducts, unsigned long bSubmit )
 {
 	static UFunction* pFnSubmitCreateNucleusAccount = NULL;
 
@@ -6288,9 +6288,9 @@ void UISFXOnlineComponentLogin::SubmitCreateNucleusAccount ( class FString sEmai
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // unsigned long                  bContinue                      ( CPF_Parm )
-// class FString                  ParentEmail                    ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ParentEmail                    ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentLogin::SubmitParentEmail ( unsigned long bContinue, class FString ParentEmail )
+void UISFXOnlineComponentLogin::SubmitParentEmail ( unsigned long bContinue, FString const& ParentEmail )
 {
 	static UFunction* pFnSubmitParentEmail = NULL;
 
@@ -6311,11 +6311,11 @@ void UISFXOnlineComponentLogin::SubmitParentEmail ( unsigned long bContinue, cla
 // Function SFXOnlineFoundation.ISFXOnlineComponentLogin.SubmitNucleusLogin
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  email                          ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Password                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        email                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Password                       ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  eReturnCode                    ( CPF_Parm )
 
-void UISFXOnlineComponentLogin::SubmitNucleusLogin ( class FString email, class FString Password, unsigned char eReturnCode )
+void UISFXOnlineComponentLogin::SubmitNucleusLogin ( FString const& email, FString const& Password, unsigned char eReturnCode )
 {
 	static UFunction* pFnSubmitNucleusLogin = NULL;
 
@@ -6361,10 +6361,10 @@ void UISFXOnlineComponentLogin::SubmitIntroPage ( unsigned long bContinue, unsig
 // Function SFXOnlineFoundation.ISFXOnlineComponentLogin.AutoLogin
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sEmail                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sEmail                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentLogin::AutoLogin ( class FString sEmail, class FString sPassword )
+void UISFXOnlineComponentLogin::AutoLogin ( FString const& sEmail, FString const& sPassword )
 {
 	static UFunction* pFnAutoLogin = NULL;
 
@@ -6493,9 +6493,9 @@ struct FUniqueNetId UISFXOnlineComponentLogin::GetUserId ( )
 // Function SFXOnlineFoundation.ISFXOnlineComponentLogin.GetPersonaName
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString UISFXOnlineComponentLogin::GetPersonaName ( )
+FString UISFXOnlineComponentLogin::GetPersonaName ( )
 {
 	static UFunction* pFnGetPersonaName = NULL;
 
@@ -6633,7 +6633,7 @@ void UISFXOnlineComponentLogin::Connect ( unsigned char connectMode )
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            userId                         ( CPF_Parm )
 
-bool UISFXOnlineComponentLogin::IsActiveUser ( struct FUniqueNetId userId )
+bool UISFXOnlineComponentLogin::IsActiveUser ( struct FUniqueNetId const& userId )
 {
 	static UFunction* pFnIsActiveUser = NULL;
 
@@ -6825,11 +6825,11 @@ void UISFXOnlineComponentMessaging::FetchAllMessagesViaJob ( )
 // Function SFXOnlineFoundation.ISFXOnlineComponentMessaging.SendMessage
 // [0x00024400] ( FUNC_Native )
 // Parameters infos:
-// class TArray<class FString>    sendToPersonaNames             ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<FString>                sendToPersonaNames             ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  msgType                        ( CPF_Parm )
-// class TArray<class FString>    Params                         ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// TArray<FString>                Params                         ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentMessaging::SendMessage ( class TArray<class FString> sendToPersonaNames, unsigned char msgType, class TArray<class FString> Params )
+void UISFXOnlineComponentMessaging::SendMessage ( TArray<FString> const& sendToPersonaNames, unsigned char msgType, TArray<FString> const& Params )
 {
 	static UFunction* pFnSendMessage = NULL;
 
@@ -6945,9 +6945,9 @@ void UISFXOnlineComponentNotification::ReadPlayerStorageCallback ( unsigned long
 // Function SFXOnlineFoundation.ISFXOnlineComponentNotification.GetStoreCatalogId
 // [0x00020800] ( FUNC_Event )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString UISFXOnlineComponentNotification::eventGetStoreCatalogId ( )
+FString UISFXOnlineComponentNotification::eventGetStoreCatalogId ( )
 {
 	static UFunction* pFnGetStoreCatalogId = NULL;
 
@@ -7118,9 +7118,9 @@ void UISFXOnlineComponentNotification::RequestLiveTlkTable ( unsigned long bMain
 // Function SFXOnlineFoundation.ISFXOnlineComponentNotification.GetDimeInfo
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString UISFXOnlineComponentNotification::GetDimeInfo ( )
+FString UISFXOnlineComponentNotification::GetDimeInfo ( )
 {
 	static UFunction* pFnGetDimeInfo = NULL;
 
@@ -7141,9 +7141,9 @@ class FString UISFXOnlineComponentNotification::GetDimeInfo ( )
 // Function SFXOnlineFoundation.ISFXOnlineComponentNotification.GetEntitlementInfo
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class TArray<struct FSFXOnlineEntitlementLookupInfo> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// TArray<struct FSFXOnlineEntitlementLookupInfo> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class TArray<struct FSFXOnlineEntitlementLookupInfo> UISFXOnlineComponentNotification::GetEntitlementInfo ( )
+TArray<struct FSFXOnlineEntitlementLookupInfo> UISFXOnlineComponentNotification::GetEntitlementInfo ( )
 {
 	static UFunction* pFnGetEntitlementInfo = NULL;
 
@@ -7334,9 +7334,9 @@ int UISFXOnlineComponentPlatform::GetMinimumAgeForOnlinePlay ( )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // int                            Count                          ( CPF_OptionalParm | CPF_Parm )
 // int                            StartingAt                     ( CPF_OptionalParm | CPF_Parm )
-// class TArray<struct FOnlineFriend> Friends                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FOnlineFriend>   Friends                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-unsigned char UISFXOnlineComponentPlatform::GetFriendsList ( unsigned char LocalUserNum, int Count, int StartingAt, class TArray<struct FOnlineFriend>* Friends )
+unsigned char UISFXOnlineComponentPlatform::GetFriendsList ( unsigned char LocalUserNum, int Count, int StartingAt, TArray<struct FOnlineFriend>* Friends )
 {
 	static UFunction* pFnGetFriendsList = NULL;
 
@@ -7484,9 +7484,9 @@ bool UISFXOnlineComponentPlatform::GetOfflineXuid ( int nUserIndex, struct FUniq
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
-// class FString                  sDescription                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDescription                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool UISFXOnlineComponentPlatform::AddRecentPlayer ( struct FUniqueNetId oPlayerId, class FString sDescription )
+bool UISFXOnlineComponentPlatform::AddRecentPlayer ( struct FUniqueNetId const& oPlayerId, FString const& sDescription )
 {
 	static UFunction* pFnAddRecentPlayer = NULL;
 
@@ -7511,15 +7511,15 @@ bool UISFXOnlineComponentPlatform::AddRecentPlayer ( struct FUniqueNetId oPlayer
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  byLocalUserNum                 ( CPF_Parm )
-// class FString                  sTitleText                     ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sDescriptionText               ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sTitleText                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDescriptionText               ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  nKeyboardType                  ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bShouldValidate                ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bRouteThroughConsole           ( CPF_OptionalParm | CPF_Parm )
-// class FString                  sDefaultText                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDefaultText                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // int                            nMaxResultLength               ( CPF_OptionalParm | CPF_Parm )
 
-bool UISFXOnlineComponentPlatform::ShowKeyboardUI ( unsigned char byLocalUserNum, class FString sTitleText, class FString sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, class FString sDefaultText, int nMaxResultLength )
+bool UISFXOnlineComponentPlatform::ShowKeyboardUI ( unsigned char byLocalUserNum, FString const& sTitleText, FString const& sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, FString const& sDefaultText, int nMaxResultLength )
 {
 	static UFunction* pFnShowKeyboardUI = NULL;
 
@@ -7577,7 +7577,7 @@ bool UISFXOnlineComponentPlatform::ShowAchievementsUI ( unsigned char byLocalUse
 // unsigned char                  byLocalUserNum                 ( CPF_Parm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
 
-bool UISFXOnlineComponentPlatform::ShowFeedbackUI ( unsigned char byLocalUserNum, struct FUniqueNetId oPlayerId )
+bool UISFXOnlineComponentPlatform::ShowFeedbackUI ( unsigned char byLocalUserNum, struct FUniqueNetId const& oPlayerId )
 {
 	static UFunction* pFnShowFeedbackUI = NULL;
 
@@ -7604,7 +7604,7 @@ bool UISFXOnlineComponentPlatform::ShowFeedbackUI ( unsigned char byLocalUserNum
 // unsigned char                  byLocalUserNum                 ( CPF_Parm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
 
-bool UISFXOnlineComponentPlatform::ShowGamerCardUI ( unsigned char byLocalUserNum, struct FUniqueNetId oPlayerId )
+bool UISFXOnlineComponentPlatform::ShowGamerCardUI ( unsigned char byLocalUserNum, struct FUniqueNetId const& oPlayerId )
 {
 	static UFunction* pFnShowGamerCardUI = NULL;
 
@@ -7629,9 +7629,9 @@ bool UISFXOnlineComponentPlatform::ShowGamerCardUI ( unsigned char byLocalUserNu
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class FString                  InviteText                     ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        InviteText                     ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool UISFXOnlineComponentPlatform::ShowInviteUI ( unsigned char LocalUserNum, class FString InviteText )
+bool UISFXOnlineComponentPlatform::ShowInviteUI ( unsigned char LocalUserNum, FString const& InviteText )
 {
 	static UFunction* pFnShowInviteUI = NULL;
 
@@ -7658,7 +7658,7 @@ bool UISFXOnlineComponentPlatform::ShowInviteUI ( unsigned char LocalUserNum, cl
 // unsigned char                  byLocalUserNum                 ( CPF_Parm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
 
-bool UISFXOnlineComponentPlatform::ShowFriendsInviteUI ( unsigned char byLocalUserNum, struct FUniqueNetId oPlayerId )
+bool UISFXOnlineComponentPlatform::ShowFriendsInviteUI ( unsigned char byLocalUserNum, struct FUniqueNetId const& oPlayerId )
 {
 	static UFunction* pFnShowFriendsInviteUI = NULL;
 
@@ -7858,10 +7858,10 @@ unsigned char UISFXOnlineComponentPlatform::CanPlayOnline ( unsigned char byLoca
 // Parameters infos:
 // unsigned char                  byLocalUserNum                 ( CPF_Parm )
 // int                            nPresenceMode                  ( CPF_Parm )
-// class TArray<struct FLocalizedStringSetting> aLocalizedStringSettings       ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-// class TArray<struct FSettingsProperty> aProperties                    ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FLocalizedStringSetting> aLocalizedStringSettings       ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FSettingsProperty> aProperties                    ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentPlatform::SetRichPresence ( unsigned char byLocalUserNum, int nPresenceMode, class TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, class TArray<struct FSettingsProperty>* aProperties )
+void UISFXOnlineComponentPlatform::SetRichPresence ( unsigned char byLocalUserNum, int nPresenceMode, TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, TArray<struct FSettingsProperty>* aProperties )
 {
 	static UFunction* pFnSetRichPresence = NULL;
 
@@ -8051,12 +8051,12 @@ void UISFXOnlineComponentStats::OnReadStatsGroupListCompleted ( unsigned char er
 // Function SFXOnlineFoundation.ISFXOnlineComponentStats.OnResultsRetrieved
 // [0x00124000] 
 // Parameters infos:
-// class TArray<struct FLeaderboardColumn> aColumnInfo                    ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardColumn> aColumnInfo                    ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  nErrorCode                     ( CPF_Parm )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-void UISFXOnlineComponentStats::OnResultsRetrieved ( class TArray<struct FLeaderboardColumn> aColumnInfo, class TArray<struct FLeaderboardRecord> aResults, unsigned char nErrorCode, FPointer pExternalData )
+void UISFXOnlineComponentStats::OnResultsRetrieved ( TArray<struct FLeaderboardColumn> const& aColumnInfo, TArray<struct FLeaderboardRecord> const& aResults, unsigned char nErrorCode, FPointer pExternalData )
 {
 	static UFunction* pFnOnResultsRetrieved = NULL;
 
@@ -8126,9 +8126,9 @@ void UISFXOnlineComponentTelemetry::RegisterConnectionDelegates ( )
 // [0x00120000] 
 // Parameters infos:
 // int                            Error                          ( CPF_Parm )
-// class FString                  SessionId                      ( CPF_Const | CPF_Parm | CPF_NeedCtorLink )
+// FString                        SessionId                      ( CPF_Const | CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentTelemetry::OnDisconnect ( int Error, class FString SessionId )
+void UISFXOnlineComponentTelemetry::OnDisconnect ( int Error, FString const& SessionId )
 {
 	static UFunction* pFnOnDisconnect = NULL;
 
@@ -8229,9 +8229,9 @@ void UISFXOnlineComponentUserInterface::eventUpdateGalaxyAtWarLevel ( float newL
 // Function SFXOnlineFoundation.ISFXOnlineComponentUserInterface.ShowStore
 // [0x00020800] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct FSFXOfferDescriptor> aOffers                        ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FSFXOfferDescriptor> aOffers                        ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentUserInterface::eventShowStore ( class TArray<struct FSFXOfferDescriptor> aOffers )
+void UISFXOnlineComponentUserInterface::eventShowStore ( TArray<struct FSFXOfferDescriptor> const& aOffers )
 {
 	static UFunction* pFnShowStore = NULL;
 
@@ -8267,7 +8267,7 @@ void UISFXOnlineComponentUserInterface::eventHasCerberusDLC ( unsigned long bVal
 // Parameters infos:
 // struct FSFXOnlineMOTDInfo      Info                           ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentUserInterface::eventOnDisplayNotification ( struct FSFXOnlineMOTDInfo Info )
+void UISFXOnlineComponentUserInterface::eventOnDisplayNotification ( struct FSFXOnlineMOTDInfo const& Info )
 {
 	static UFunction* pFnOnDisplayNotification = NULL;
 
@@ -8283,9 +8283,9 @@ void UISFXOnlineComponentUserInterface::eventOnDisplayNotification ( struct FSFX
 // Function SFXOnlineFoundation.ISFXOnlineComponentUserInterface.ClearNotifications
 // [0x00024800] ( FUNC_Event )
 // Parameters infos:
-// class TArray<unsigned char>    MessageTypesToClear            ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// TArray<unsigned char>          MessageTypesToClear            ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentUserInterface::eventClearNotifications ( class TArray<unsigned char> MessageTypesToClear )
+void UISFXOnlineComponentUserInterface::eventClearNotifications ( TArray<unsigned char> const& MessageTypesToClear )
 {
 	static UFunction* pFnClearNotifications = NULL;
 
@@ -8356,10 +8356,10 @@ void UISFXOnlineComponentUserInterface::eventMessageBoxCallback ( unsigned long 
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  sMessage                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sMessage                       ( CPF_Parm | CPF_NeedCtorLink )
 // int                            srButton1Text                  ( CPF_Parm )
 
-bool UISFXOnlineComponentUserInterface::ShowQueuedMessageBox ( class FString sMessage, int srButton1Text )
+bool UISFXOnlineComponentUserInterface::ShowQueuedMessageBox ( FString const& sMessage, int srButton1Text )
 {
 	static UFunction* pFnShowQueuedMessageBox = NULL;
 
@@ -8382,10 +8382,10 @@ bool UISFXOnlineComponentUserInterface::ShowQueuedMessageBox ( class FString sMe
 // Function SFXOnlineFoundation.ISFXOnlineComponentUserInterface.ShowEmailPasswordMismatch
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  email                          ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Password                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        email                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Password                       ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentUserInterface::ShowEmailPasswordMismatch ( class FString email, class FString Password )
+void UISFXOnlineComponentUserInterface::ShowEmailPasswordMismatch ( FString const& email, FString const& Password )
 {
 	static UFunction* pFnShowEmailPasswordMismatch = NULL;
 
@@ -8406,13 +8406,13 @@ void UISFXOnlineComponentUserInterface::ShowEmailPasswordMismatch ( class FStrin
 // Function SFXOnlineFoundation.ISFXOnlineComponentUserInterface.ShowMessageBox
 // [0x00024400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sTitle                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sMessage                       ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sButton1Text                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sButton2Text                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sButton3Text                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sTitle                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sMessage                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sButton1Text                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sButton2Text                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sButton3Text                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentUserInterface::ShowMessageBox ( class FString sTitle, class FString sMessage, class FString sButton1Text, class FString sButton2Text, class FString sButton3Text )
+void UISFXOnlineComponentUserInterface::ShowMessageBox ( FString const& sTitle, FString const& sMessage, FString const& sButton1Text, FString const& sButton2Text, FString const& sButton3Text )
 {
 	static UFunction* pFnShowMessageBox = NULL;
 
@@ -8452,20 +8452,20 @@ void UISFXOnlineComponentUserInterface::eventShowRedeemCodeConfirmation ( )
 // Function SFXOnlineFoundation.ISFXOnlineComponentUserInterface.ShowCreateNucleusAccountEx
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sEmail                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sEmail                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bEAProducts                    ( CPF_Parm )
 // unsigned long                  bThirdParty                    ( CPF_Parm )
 // unsigned long                  bBioWareProducts               ( CPF_Parm )
-// class FString                  i_sCountryCode                 ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        i_sCountryCode                 ( CPF_Parm | CPF_NeedCtorLink )
 // int                            BirthDay                       ( CPF_Parm )
 // int                            BirthMonth                     ( CPF_Parm )
 // int                            BirthYear                      ( CPF_Parm )
-// class FString                  i_sLanguageCode                ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<class FString>    m_CountryCodeList              ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<class FString>    m_CountryDisplayList           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        i_sLanguageCode                ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<FString>                m_CountryCodeList              ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<FString>                m_CountryDisplayList           ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentUserInterface::ShowCreateNucleusAccountEx ( class FString sEmail, class FString sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bBioWareProducts, class FString i_sCountryCode, int BirthDay, int BirthMonth, int BirthYear, class FString i_sLanguageCode, class TArray<class FString> m_CountryCodeList, class TArray<class FString> m_CountryDisplayList )
+void UISFXOnlineComponentUserInterface::ShowCreateNucleusAccountEx ( FString const& sEmail, FString const& sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bBioWareProducts, FString const& i_sCountryCode, int BirthDay, int BirthMonth, int BirthYear, FString const& i_sLanguageCode, TArray<FString> const& m_CountryCodeList, TArray<FString> const& m_CountryDisplayList )
 {
 	static UFunction* pFnShowCreateNucleusAccountEx = NULL;
 
@@ -8576,15 +8576,15 @@ void UISFXOnlineComponentUserInterface::ShowNucleusWelcomeMessage ( )
 // Function SFXOnlineFoundation.ISFXOnlineComponentUserInterface.ShowCreateNucleusAccount
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sEmail                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sEmail                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bEAProducts                    ( CPF_Parm )
 // unsigned long                  bThirdParty                    ( CPF_Parm )
 // unsigned long                  bRegisterProduct               ( CPF_Parm )
 // unsigned long                  bBioWareProducts               ( CPF_Parm )
 // unsigned long                  bUnderage                      ( CPF_Parm )
 
-void UISFXOnlineComponentUserInterface::ShowCreateNucleusAccount ( class FString sEmail, class FString sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bRegisterProduct, unsigned long bBioWareProducts, unsigned long bUnderage )
+void UISFXOnlineComponentUserInterface::ShowCreateNucleusAccount ( FString const& sEmail, FString const& sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bRegisterProduct, unsigned long bBioWareProducts, unsigned long bUnderage )
 {
 	static UFunction* pFnShowCreateNucleusAccount = NULL;
 
@@ -8630,10 +8630,10 @@ void UISFXOnlineComponentUserInterface::ShowParentEmail ( )
 // Function SFXOnlineFoundation.ISFXOnlineComponentUserInterface.ShowAccountDemographics
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class TArray<class FString>    m_CountryCodeList              ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<class FString>    m_CountryDisplayList           ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<FString>                m_CountryCodeList              ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<FString>                m_CountryDisplayList           ( CPF_Parm | CPF_NeedCtorLink )
 
-void UISFXOnlineComponentUserInterface::ShowAccountDemographics ( class TArray<class FString> m_CountryCodeList, class TArray<class FString> m_CountryDisplayList )
+void UISFXOnlineComponentUserInterface::ShowAccountDemographics ( TArray<FString> const& m_CountryCodeList, TArray<FString> const& m_CountryDisplayList )
 {
 	static UFunction* pFnShowAccountDemographics = NULL;
 
@@ -8654,11 +8654,11 @@ void UISFXOnlineComponentUserInterface::ShowAccountDemographics ( class TArray<c
 // Function SFXOnlineFoundation.ISFXOnlineComponentUserInterface.ShowTermsOfService
 // [0x00024400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  i_sTermsOfService              ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  i_sPrivacyPolicy               ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        i_sTermsOfService              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        i_sPrivacyPolicy               ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bTOSChanged                    ( CPF_OptionalParm | CPF_Parm )
 
-void UISFXOnlineComponentUserInterface::ShowTermsOfService ( class FString i_sTermsOfService, class FString i_sPrivacyPolicy, unsigned long bTOSChanged )
+void UISFXOnlineComponentUserInterface::ShowTermsOfService ( FString const& i_sTermsOfService, FString const& i_sPrivacyPolicy, unsigned long bTOSChanged )
 {
 	static UFunction* pFnShowTermsOfService = NULL;
 
@@ -8680,11 +8680,11 @@ void UISFXOnlineComponentUserInterface::ShowTermsOfService ( class FString i_sTe
 // Function SFXOnlineFoundation.ISFXOnlineComponentUserInterface.ShowNucleusLogin
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  email                          ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Password                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        email                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Password                       ( CPF_Parm | CPF_NeedCtorLink )
 // int                            eScreenState                   ( CPF_Parm )
 
-void UISFXOnlineComponentUserInterface::ShowNucleusLogin ( class FString email, class FString Password, int eScreenState )
+void UISFXOnlineComponentUserInterface::ShowNucleusLogin ( FString const& email, FString const& Password, int eScreenState )
 {
 	static UFunction* pFnShowNucleusLogin = NULL;
 
@@ -9666,9 +9666,9 @@ void USFXOnlineComponentGameFlow::OnInitialize ( class USFXOnlineSubsystem* oOnl
 // Function SFXOnlineFoundation.SFXOnlineComponentGameFlow.GetStateStr
 // [0x00020802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineComponentGameFlow::eventGetStateStr ( )
+FString USFXOnlineComponentGameFlow::eventGetStateStr ( )
 {
 	static UFunction* pFnGetStateStr = NULL;
 
@@ -10018,7 +10018,7 @@ struct FSFXOnlineImageRequest USFXOnlineComponentImageManager::RemoveRequest ( c
 // Parameters infos:
 // struct FSFXOnlineImageRequest  request                        ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentImageManager::AddCompletedRequest ( struct FSFXOnlineImageRequest request )
+void USFXOnlineComponentImageManager::AddCompletedRequest ( struct FSFXOnlineImageRequest const& request )
 {
 	static UFunction* pFnAddCompletedRequest = NULL;
 
@@ -10036,7 +10036,7 @@ void USFXOnlineComponentImageManager::AddCompletedRequest ( struct FSFXOnlineIma
 // Parameters infos:
 // struct FSFXOnlineImageRequest  request                        ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentImageManager::AddPendingRequest ( struct FSFXOnlineImageRequest request )
+void USFXOnlineComponentImageManager::AddPendingRequest ( struct FSFXOnlineImageRequest const& request )
 {
 	static UFunction* pFnAddPendingRequest = NULL;
 
@@ -10053,9 +10053,9 @@ void USFXOnlineComponentImageManager::AddPendingRequest ( struct FSFXOnlineImage
 // [0x00040003] ( FUNC_Final )
 // Parameters infos:
 // struct FSFXOnlineImageRequest  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  ImageName                      ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ImageName                      ( CPF_Parm | CPF_NeedCtorLink )
 
-struct FSFXOnlineImageRequest USFXOnlineComponentImageManager::StartRequest ( class FString ImageName )
+struct FSFXOnlineImageRequest USFXOnlineComponentImageManager::StartRequest ( FString const& ImageName )
 {
 	static UFunction* pFnStartRequest = NULL;
 
@@ -10074,9 +10074,9 @@ struct FSFXOnlineImageRequest USFXOnlineComponentImageManager::StartRequest ( cl
 // [0x00020002] 
 // Parameters infos:
 // struct FSFXOnlineImageRequest  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  ImageName                      ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ImageName                      ( CPF_Parm | CPF_NeedCtorLink )
 
-struct FSFXOnlineImageRequest USFXOnlineComponentImageManager::GetImage ( class FString ImageName )
+struct FSFXOnlineImageRequest USFXOnlineComponentImageManager::GetImage ( FString const& ImageName )
 {
 	static UFunction* pFnGetImage = NULL;
 
@@ -10094,10 +10094,10 @@ struct FSFXOnlineImageRequest USFXOnlineComponentImageManager::GetImage ( class 
 // Function SFXOnlineFoundation.SFXOnlineComponentImageManager.RequestImage
 // [0x00020002] 
 // Parameters infos:
-// class FString                  ImageName                      ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ImageName                      ( CPF_Parm | CPF_NeedCtorLink )
 // struct FScriptDelegate         CompletedCallback              ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentImageManager::RequestImage ( class FString ImageName, struct FScriptDelegate CompletedCallback )
+void USFXOnlineComponentImageManager::RequestImage ( FString const& ImageName, struct FScriptDelegate CompletedCallback )
 {
 	static UFunction* pFnRequestImage = NULL;
 
@@ -10224,7 +10224,7 @@ void USFXOnlineComponentImageManager::OnInitialize ( class USFXOnlineSubsystem* 
 // Parameters infos:
 // struct FSFXOnlineImageRequest  request                        ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentImageManager::OnImageRequestCompleted ( struct FSFXOnlineImageRequest request )
+void USFXOnlineComponentImageManager::OnImageRequestCompleted ( struct FSFXOnlineImageRequest const& request )
 {
 	static UFunction* pFnOnImageRequestCompleted = NULL;
 
@@ -10276,9 +10276,9 @@ void USFXOnlineComponentImageManager::eventSetMaxImages ( int maxImages )
 // Function SFXOnlineFoundation.SFXOnlineComponentImageManager.SetBaseURL
 // [0x00020802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  BaseUrl                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        BaseUrl                        ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentImageManager::eventSetBaseURL ( class FString BaseUrl )
+void USFXOnlineComponentImageManager::eventSetBaseURL ( FString const& BaseUrl )
 {
 	static UFunction* pFnSetBaseURL = NULL;
 
@@ -10335,11 +10335,11 @@ bool USFXOnlineComponentUnrealPlayerEx::UnlockAvatarAward ( unsigned char LocalU
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class FString                  Title                          ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Description                    ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FUniqueNetId> Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        Title                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Description                    ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FUniqueNetId>    Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentUnrealPlayerEx::ShowCustomPlayersUI ( unsigned char LocalUserNum, class FString Title, class FString Description, class TArray<struct FUniqueNetId>* Players )
+bool USFXOnlineComponentUnrealPlayerEx::ShowCustomPlayersUI ( unsigned char LocalUserNum, FString const& Title, FString const& Description, TArray<struct FUniqueNetId>* Players )
 {
 	static UFunction* pFnShowCustomPlayersUI = NULL;
 
@@ -10390,7 +10390,7 @@ bool USFXOnlineComponentUnrealPlayerEx::ShowPlayersUI ( unsigned char LocalUserN
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool USFXOnlineComponentUnrealPlayerEx::ShowFriendsInviteUI ( unsigned char LocalUserNum, struct FUniqueNetId PlayerID )
+bool USFXOnlineComponentUnrealPlayerEx::ShowFriendsInviteUI ( unsigned char LocalUserNum, struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnShowFriendsInviteUI = NULL;
 
@@ -10517,9 +10517,9 @@ bool USFXOnlineComponentUnrealPlayerEx::IsDeviceValid ( int DeviceID, int SizeNe
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class FString                  DeviceName                     ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        DeviceName                     ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-int USFXOnlineComponentUnrealPlayerEx::GetDeviceSelectionResults ( unsigned char LocalUserNum, class FString* DeviceName )
+int USFXOnlineComponentUnrealPlayerEx::GetDeviceSelectionResults ( unsigned char LocalUserNum, FString* DeviceName )
 {
 	static UFunction* pFnGetDeviceSelectionResults = NULL;
 
@@ -10686,9 +10686,9 @@ bool USFXOnlineComponentUnrealPlayerEx::ShowContentMarketplaceUI ( unsigned char
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class FString                  InviteText                     ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        InviteText                     ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentUnrealPlayerEx::ShowInviteUI ( unsigned char LocalUserNum, class FString InviteText )
+bool USFXOnlineComponentUnrealPlayerEx::ShowInviteUI ( unsigned char LocalUserNum, FString const& InviteText )
 {
 	static UFunction* pFnShowInviteUI = NULL;
 
@@ -10753,7 +10753,7 @@ bool USFXOnlineComponentUnrealPlayerEx::ShowMessagesUI ( unsigned char LocalUser
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool USFXOnlineComponentUnrealPlayerEx::ShowGamerCardUI ( unsigned char LocalUserNum, struct FUniqueNetId PlayerID )
+bool USFXOnlineComponentUnrealPlayerEx::ShowGamerCardUI ( unsigned char LocalUserNum, struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnShowGamerCardUI = NULL;
 
@@ -10776,7 +10776,7 @@ bool USFXOnlineComponentUnrealPlayerEx::ShowGamerCardUI ( unsigned char LocalUse
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool USFXOnlineComponentUnrealPlayerEx::ShowFeedbackUI ( unsigned char LocalUserNum, struct FUniqueNetId PlayerID )
+bool USFXOnlineComponentUnrealPlayerEx::ShowFeedbackUI ( unsigned char LocalUserNum, struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnShowFeedbackUI = NULL;
 
@@ -10895,9 +10895,9 @@ class UClass* USFXOnlineComponentUnrealSystem::StaticClass()
 // [0x00020002] 
 // Parameters infos:
 // unsigned char                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Filename                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Filename                       ( CPF_Parm | CPF_NeedCtorLink )
 
-unsigned char USFXOnlineComponentUnrealSystem::GetTitleFileState ( class FString Filename )
+unsigned char USFXOnlineComponentUnrealSystem::GetTitleFileState ( FString const& Filename )
 {
 	static UFunction* pFnGetTitleFileState = NULL;
 
@@ -10916,10 +10916,10 @@ unsigned char USFXOnlineComponentUnrealSystem::GetTitleFileState ( class FString
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Filename                       ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<unsigned char>    FileContents                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        Filename                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<unsigned char>          FileContents                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentUnrealSystem::GetTitleFileContents ( class FString Filename, class TArray<unsigned char>* FileContents )
+bool USFXOnlineComponentUnrealSystem::GetTitleFileContents ( FString const& Filename, TArray<unsigned char>* FileContents )
 {
 	static UFunction* pFnGetTitleFileContents = NULL;
 
@@ -10984,9 +10984,9 @@ void USFXOnlineComponentUnrealSystem::AddReadTitleFileCompleteDelegate ( struct 
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  FileToRead                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        FileToRead                     ( CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentUnrealSystem::ReadTitleFile ( class FString FileToRead )
+bool USFXOnlineComponentUnrealSystem::ReadTitleFile ( FString const& FileToRead )
 {
 	static UFunction* pFnReadTitleFile = NULL;
 
@@ -11009,9 +11009,9 @@ bool USFXOnlineComponentUnrealSystem::ReadTitleFile ( class FString FileToRead )
 // [0x00120000] 
 // Parameters infos:
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
-// class FString                  Filename                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Filename                       ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentUnrealSystem::OnReadTitleFileComplete ( unsigned long bWasSuccessful, class FString Filename )
+void USFXOnlineComponentUnrealSystem::OnReadTitleFileComplete ( unsigned long bWasSuccessful, FString const& Filename )
 {
 	static UFunction* pFnOnReadTitleFileComplete = NULL;
 
@@ -11762,9 +11762,9 @@ int USFXOnlineComponentVoiceInterface::GetDefaultInputDevice ( )
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<class FString>    OutputDevices                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<FString>                OutputDevices                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentVoiceInterface::EnumerateOutputDevices ( class TArray<class FString>* OutputDevices )
+bool USFXOnlineComponentVoiceInterface::EnumerateOutputDevices ( TArray<FString>* OutputDevices )
 {
 	static UFunction* pFnEnumerateOutputDevices = NULL;
 
@@ -11792,9 +11792,9 @@ bool USFXOnlineComponentVoiceInterface::EnumerateOutputDevices ( class TArray<cl
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<class FString>    InputDevices                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<FString>                InputDevices                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentVoiceInterface::EnumerateInputDevices ( class TArray<class FString>* InputDevices )
+bool USFXOnlineComponentVoiceInterface::EnumerateInputDevices ( TArray<FString>* InputDevices )
 {
 	static UFunction* pFnEnumerateInputDevices = NULL;
 
@@ -12002,9 +12002,9 @@ void USFXOnlineComponentVoiceInterface::AddRecognitionCompleteDelegate ( unsigne
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class TArray<struct FSpeechRecognizedWord> Words                          ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FSpeechRecognizedWord> Words                          ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentVoiceInterface::GetRecognitionResults ( unsigned char LocalUserNum, class TArray<struct FSpeechRecognizedWord>* Words )
+bool USFXOnlineComponentVoiceInterface::GetRecognitionResults ( unsigned char LocalUserNum, TArray<struct FSpeechRecognizedWord>* Words )
 {
 	static UFunction* pFnGetRecognitionResults = NULL;
 
@@ -12130,7 +12130,7 @@ void USFXOnlineComponentVoiceInterface::StartNetworkedVoice ( unsigned char Loca
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool USFXOnlineComponentVoiceInterface::IsRemoteTalkerMuted ( unsigned char LocalUserNum, struct FUniqueNetId PlayerID )
+bool USFXOnlineComponentVoiceInterface::IsRemoteTalkerMuted ( unsigned char LocalUserNum, struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnIsRemoteTalkerMuted = NULL;
 
@@ -12157,7 +12157,7 @@ bool USFXOnlineComponentVoiceInterface::IsRemoteTalkerMuted ( unsigned char Loca
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool USFXOnlineComponentVoiceInterface::UnmuteRemoteTalker ( unsigned char LocalUserNum, struct FUniqueNetId PlayerID )
+bool USFXOnlineComponentVoiceInterface::UnmuteRemoteTalker ( unsigned char LocalUserNum, struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnUnmuteRemoteTalker = NULL;
 
@@ -12184,7 +12184,7 @@ bool USFXOnlineComponentVoiceInterface::UnmuteRemoteTalker ( unsigned char Local
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool USFXOnlineComponentVoiceInterface::MuteRemoteTalker ( unsigned char LocalUserNum, struct FUniqueNetId PlayerID )
+bool USFXOnlineComponentVoiceInterface::MuteRemoteTalker ( unsigned char LocalUserNum, struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnMuteRemoteTalker = NULL;
 
@@ -12212,7 +12212,7 @@ bool USFXOnlineComponentVoiceInterface::MuteRemoteTalker ( unsigned char LocalUs
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 // int                            Priority                       ( CPF_Parm )
 
-bool USFXOnlineComponentVoiceInterface::SetRemoteTalkerPriority ( unsigned char LocalUserNum, struct FUniqueNetId PlayerID, int Priority )
+bool USFXOnlineComponentVoiceInterface::SetRemoteTalkerPriority ( unsigned char LocalUserNum, struct FUniqueNetId const& PlayerID, int Priority )
 {
 	static UFunction* pFnSetRemoteTalkerPriority = NULL;
 
@@ -12264,7 +12264,7 @@ bool USFXOnlineComponentVoiceInterface::IsHeadsetPresent ( unsigned char LocalUs
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-int USFXOnlineComponentVoiceInterface::GetRemotePlayerStatus ( struct FUniqueNetId PlayerID )
+int USFXOnlineComponentVoiceInterface::GetRemotePlayerStatus ( struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnGetRemotePlayerStatus = NULL;
 
@@ -12289,7 +12289,7 @@ int USFXOnlineComponentVoiceInterface::GetRemotePlayerStatus ( struct FUniqueNet
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool USFXOnlineComponentVoiceInterface::IsRemotePlayerTalking ( struct FUniqueNetId PlayerID )
+bool USFXOnlineComponentVoiceInterface::IsRemotePlayerTalking ( struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnIsRemotePlayerTalking = NULL;
 
@@ -12339,7 +12339,7 @@ bool USFXOnlineComponentVoiceInterface::IsLocalPlayerTalking ( unsigned char Loc
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool USFXOnlineComponentVoiceInterface::UnregisterRemoteTalker ( struct FUniqueNetId PlayerID )
+bool USFXOnlineComponentVoiceInterface::UnregisterRemoteTalker ( struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnUnregisterRemoteTalker = NULL;
 
@@ -12364,7 +12364,7 @@ bool USFXOnlineComponentVoiceInterface::UnregisterRemoteTalker ( struct FUniqueN
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool USFXOnlineComponentVoiceInterface::RegisterRemoteTalker ( struct FUniqueNetId PlayerID )
+bool USFXOnlineComponentVoiceInterface::RegisterRemoteTalker ( struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnRegisterRemoteTalker = NULL;
 
@@ -12455,7 +12455,7 @@ void USFXOnlineComponentVoiceInterface::OnRecognitionComplete ( )
 // struct FUniqueNetId            Player                         ( CPF_Parm )
 // unsigned long                  bIsTalking                     ( CPF_Parm )
 
-void USFXOnlineComponentVoiceInterface::OnPlayerTalkingStateChange ( struct FUniqueNetId Player, unsigned long bIsTalking )
+void USFXOnlineComponentVoiceInterface::OnPlayerTalkingStateChange ( struct FUniqueNetId const& Player, unsigned long bIsTalking )
 {
 	static UFunction* pFnOnPlayerTalkingStateChange = NULL;
 
@@ -12615,12 +12615,12 @@ void USFXOnlineComponentXMLParser::OnInitialize ( class USFXOnlineSubsystem* oOn
 // [0x00424400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Element                        ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  attrib                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Element                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        attrib                         ( CPF_Parm | CPF_NeedCtorLink )
 // int                            skipcount                      ( CPF_OptionalParm | CPF_Parm )
 // int                            intOut                         ( CPF_Parm | CPF_OutParm )
 
-bool USFXOnlineComponentXMLParser::GetXMLAttribInteger ( class FString Element, class FString attrib, int skipcount, int* intOut )
+bool USFXOnlineComponentXMLParser::GetXMLAttribInteger ( FString const& Element, FString const& attrib, int skipcount, int* intOut )
 {
 	static UFunction* pFnGetXMLAttribInteger = NULL;
 
@@ -12651,12 +12651,12 @@ bool USFXOnlineComponentXMLParser::GetXMLAttribInteger ( class FString Element, 
 // [0x00424400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Element                        ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  attrib                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Element                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        attrib                         ( CPF_Parm | CPF_NeedCtorLink )
 // int                            skipcount                      ( CPF_OptionalParm | CPF_Parm )
-// class FString                  stringOut                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        stringOut                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentXMLParser::GetXMLAttribString ( class FString Element, class FString attrib, int skipcount, class FString* stringOut )
+bool USFXOnlineComponentXMLParser::GetXMLAttribString ( FString const& Element, FString const& attrib, int skipcount, FString* stringOut )
 {
 	static UFunction* pFnGetXMLAttribString = NULL;
 
@@ -12687,11 +12687,11 @@ bool USFXOnlineComponentXMLParser::GetXMLAttribString ( class FString Element, c
 // [0x00424400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Element                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Element                        ( CPF_Parm | CPF_NeedCtorLink )
 // int                            skipcount                      ( CPF_OptionalParm | CPF_Parm )
 // int                            intOut                         ( CPF_Parm | CPF_OutParm )
 
-bool USFXOnlineComponentXMLParser::GetXMLInteger ( class FString Element, int skipcount, int* intOut )
+bool USFXOnlineComponentXMLParser::GetXMLInteger ( FString const& Element, int skipcount, int* intOut )
 {
 	static UFunction* pFnGetXMLInteger = NULL;
 
@@ -12721,11 +12721,11 @@ bool USFXOnlineComponentXMLParser::GetXMLInteger ( class FString Element, int sk
 // [0x00424400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  Element                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Element                        ( CPF_Parm | CPF_NeedCtorLink )
 // int                            skipcount                      ( CPF_OptionalParm | CPF_Parm )
-// class FString                  stringOut                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        stringOut                      ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentXMLParser::GetXMLString ( class FString Element, int skipcount, class FString* stringOut )
+bool USFXOnlineComponentXMLParser::GetXMLString ( FString const& Element, int skipcount, FString* stringOut )
 {
 	static UFunction* pFnGetXMLString = NULL;
 
@@ -12754,9 +12754,9 @@ bool USFXOnlineComponentXMLParser::GetXMLString ( class FString Element, int ski
 // Function SFXOnlineFoundation.SFXOnlineComponentXMLParser.StartParsing
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  xmlInput                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        xmlInput                       ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentXMLParser::StartParsing ( class FString xmlInput )
+void USFXOnlineComponentXMLParser::StartParsing ( FString const& xmlInput )
 {
 	static UFunction* pFnStartParsing = NULL;
 
@@ -12875,10 +12875,10 @@ void USFXOnlineComponentCoordinator::StopWaitingForAllWork ( class UObject* oCal
 // Function SFXOnlineFoundation.SFXOnlineComponentCoordinator.WaitingForWorkSetObject
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class TArray<class USFXOnlineEvent*> aEventObjects                  ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<class USFXOnlineEvent*> aEventObjects                  ( CPF_Parm | CPF_NeedCtorLink )
 // struct FScriptDelegate         fnWorkComplete                 ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentCoordinator::WaitingForWorkSetObject ( class TArray<class USFXOnlineEvent*> aEventObjects, struct FScriptDelegate fnWorkComplete )
+void USFXOnlineComponentCoordinator::WaitingForWorkSetObject ( TArray<class USFXOnlineEvent*> const& aEventObjects, struct FScriptDelegate fnWorkComplete )
 {
 	static UFunction* pFnWaitingForWorkSetObject = NULL;
 
@@ -12899,11 +12899,11 @@ void USFXOnlineComponentCoordinator::WaitingForWorkSetObject ( class TArray<clas
 // Function SFXOnlineFoundation.SFXOnlineComponentCoordinator.WaitingForWorkSetType
 // [0x00024400] ( FUNC_Native )
 // Parameters infos:
-// class TArray<unsigned char>    aEventTypes                    ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<unsigned char>          aEventTypes                    ( CPF_Parm | CPF_NeedCtorLink )
 // struct FScriptDelegate         fnWorkComplete                 ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<int>              aWorkEventIds                  ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    aWorkEventIds                  ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentCoordinator::WaitingForWorkSetType ( class TArray<unsigned char> aEventTypes, struct FScriptDelegate fnWorkComplete, class TArray<int> aWorkEventIds )
+void USFXOnlineComponentCoordinator::WaitingForWorkSetType ( TArray<unsigned char> const& aEventTypes, struct FScriptDelegate fnWorkComplete, TArray<int> const& aWorkEventIds )
 {
 	static UFunction* pFnWaitingForWorkSetType = NULL;
 
@@ -13001,9 +13001,9 @@ void USFXOnlineComponentCoordinator::WaitingForWorkType ( unsigned char eEventTy
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  EventType                      ( CPF_Parm )
-// class TArray<class USFXOnlineEvent*> PendingEvents                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<class USFXOnlineEvent*> PendingEvents                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentCoordinator::GetAllPendingEvents ( unsigned char EventType, class TArray<class USFXOnlineEvent*>* PendingEvents )
+bool USFXOnlineComponentCoordinator::GetAllPendingEvents ( unsigned char EventType, TArray<class USFXOnlineEvent*>* PendingEvents )
 {
 	static UFunction* pFnGetAllPendingEvents = NULL;
 
@@ -13384,10 +13384,10 @@ class UClass* USFXOnlineEventNotifier::StaticClass()
 // Function SFXOnlineFoundation.SFXOnlineEventNotifier.NotifyCallbacks
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class TArray<struct FScriptDelegate> NotifyArray                    ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FScriptDelegate> NotifyArray                    ( CPF_Parm | CPF_NeedCtorLink )
 // class USFXOnlineEvent*         Event                          ( CPF_Parm )
 
-void USFXOnlineEventNotifier::NotifyCallbacks ( class TArray<struct FScriptDelegate> NotifyArray, class USFXOnlineEvent* Event )
+void USFXOnlineEventNotifier::NotifyCallbacks ( TArray<struct FScriptDelegate> const& NotifyArray, class USFXOnlineEvent* Event )
 {
 	static UFunction* pFnNotifyCallbacks = NULL;
 
@@ -13627,9 +13627,9 @@ class UClass* USFXOnlineHTTPRequest::StaticClass()
 // Function SFXOnlineFoundation.SFXOnlineHTTPRequest.GenerateParametersString
 // [0x00020802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineHTTPRequest::eventGenerateParametersString ( )
+FString USFXOnlineHTTPRequest::eventGenerateParametersString ( )
 {
 	static UFunction* pFnGenerateParametersString = NULL;
 
@@ -13646,9 +13646,9 @@ class FString USFXOnlineHTTPRequest::eventGenerateParametersString ( )
 // Function SFXOnlineFoundation.SFXOnlineHTTPRequest.GenerateHeaderParametersString
 // [0x00020802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineHTTPRequest::eventGenerateHeaderParametersString ( )
+FString USFXOnlineHTTPRequest::eventGenerateHeaderParametersString ( )
 {
 	static UFunction* pFnGenerateHeaderParametersString = NULL;
 
@@ -13713,9 +13713,9 @@ void USFXOnlineHTTPRequest::eventClearParams ( )
 // Function SFXOnlineFoundation.SFXOnlineHTTPRequest.AddSubURL
 // [0x00020802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  subUrl                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        subUrl                         ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineHTTPRequest::eventAddSubURL ( class FString subUrl )
+void USFXOnlineHTTPRequest::eventAddSubURL ( FString const& subUrl )
 {
 	static UFunction* pFnAddSubURL = NULL;
 
@@ -13731,9 +13731,9 @@ void USFXOnlineHTTPRequest::eventAddSubURL ( class FString subUrl )
 // Function SFXOnlineFoundation.SFXOnlineHTTPRequest.SetBaseURL
 // [0x00020802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  URL                            ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        URL                            ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineHTTPRequest::eventSetBaseURL ( class FString URL )
+void USFXOnlineHTTPRequest::eventSetBaseURL ( FString const& URL )
 {
 	static UFunction* pFnSetBaseURL = NULL;
 
@@ -13767,10 +13767,10 @@ void USFXOnlineHTTPRequest::SetPost ( unsigned long post )
 // Function SFXOnlineFoundation.SFXOnlineHTTPRequest.AddHeaderParameter
 // [0x00020002] 
 // Parameters infos:
-// class FString                  Key                            ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Value                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Key                            ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Value                          ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineHTTPRequest::AddHeaderParameter ( class FString Key, class FString Value )
+void USFXOnlineHTTPRequest::AddHeaderParameter ( FString const& Key, FString const& Value )
 {
 	static UFunction* pFnAddHeaderParameter = NULL;
 
@@ -13787,10 +13787,10 @@ void USFXOnlineHTTPRequest::AddHeaderParameter ( class FString Key, class FStrin
 // Function SFXOnlineFoundation.SFXOnlineHTTPRequest.AddParameter
 // [0x00020802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  Key                            ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Value                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Key                            ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Value                          ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineHTTPRequest::eventAddParameter ( class FString Key, class FString Value )
+void USFXOnlineHTTPRequest::eventAddParameter ( FString const& Key, FString const& Value )
 {
 	static UFunction* pFnAddParameter = NULL;
 
@@ -13807,10 +13807,10 @@ void USFXOnlineHTTPRequest::eventAddParameter ( class FString Key, class FString
 // Function SFXOnlineFoundation.SFXOnlineHTTPRequest.AddHeaderTerminator
 // [0x00022400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  InputString                    ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        InputString                    ( CPF_Parm | CPF_NeedCtorLink )
 
-class FString USFXOnlineHTTPRequest::AddHeaderTerminator ( class FString InputString )
+FString USFXOnlineHTTPRequest::AddHeaderTerminator ( FString const& InputString )
 {
 	static UFunction* pFnAddHeaderTerminator = NULL;
 
@@ -13832,10 +13832,10 @@ class FString USFXOnlineHTTPRequest::AddHeaderTerminator ( class FString InputSt
 // Function SFXOnlineFoundation.SFXOnlineHTTPRequest.URLEncodeString
 // [0x00022400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  InputString                    ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        InputString                    ( CPF_Parm | CPF_NeedCtorLink )
 
-class FString USFXOnlineHTTPRequest::URLEncodeString ( class FString InputString )
+FString USFXOnlineHTTPRequest::URLEncodeString ( FString const& InputString )
 {
 	static UFunction* pFnURLEncodeString = NULL;
 
@@ -13914,14 +13914,14 @@ void USFXOnlineSubsystem::eventExit ( )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  eLocalUserNum                  ( CPF_Parm )
-// class FString                  sTitleText                     ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sDescriptionText               ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sTitleText                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDescriptionText               ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bIsPassword                    ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bShouldValidate                ( CPF_OptionalParm | CPF_Parm )
-// class FString                  sDefaultText                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDefaultText                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // int                            nMaxResultLength               ( CPF_OptionalParm | CPF_Parm )
 
-bool USFXOnlineSubsystem::ShowConsoleRoutedKeyboardUI ( unsigned char eLocalUserNum, class FString sTitleText, class FString sDescriptionText, unsigned long bIsPassword, unsigned long bShouldValidate, class FString sDefaultText, int nMaxResultLength )
+bool USFXOnlineSubsystem::ShowConsoleRoutedKeyboardUI ( unsigned char eLocalUserNum, FString const& sTitleText, FString const& sDescriptionText, unsigned long bIsPassword, unsigned long bShouldValidate, FString const& sDefaultText, int nMaxResultLength )
 {
 	static UFunction* pFnShowConsoleRoutedKeyboardUI = NULL;
 
@@ -13947,14 +13947,14 @@ bool USFXOnlineSubsystem::ShowConsoleRoutedKeyboardUI ( unsigned char eLocalUser
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  eLocalUserNum                  ( CPF_Parm )
-// class FString                  sTitleText                     ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sDescriptionText               ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sTitleText                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDescriptionText               ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bIsPassword                    ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bShouldValidate                ( CPF_OptionalParm | CPF_Parm )
-// class FString                  sDefaultText                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDefaultText                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // int                            nMaxResultLength               ( CPF_OptionalParm | CPF_Parm )
 
-bool USFXOnlineSubsystem::ShowKeyboardUI ( unsigned char eLocalUserNum, class FString sTitleText, class FString sDescriptionText, unsigned long bIsPassword, unsigned long bShouldValidate, class FString sDefaultText, int nMaxResultLength )
+bool USFXOnlineSubsystem::ShowKeyboardUI ( unsigned char eLocalUserNum, FString const& sTitleText, FString const& sDescriptionText, unsigned long bIsPassword, unsigned long bShouldValidate, FString const& sDefaultText, int nMaxResultLength )
 {
 	static UFunction* pFnShowKeyboardUI = NULL;
 
@@ -14020,9 +14020,9 @@ bool USFXOnlineSubsystem::IsCerberusMember ( )
 // Function SFXOnlineFoundation.SFXOnlineSubsystem.GetProjectID
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineSubsystem::GetProjectID ( )
+FString USFXOnlineSubsystem::GetProjectID ( )
 {
 	static UFunction* pFnGetProjectID = NULL;
 
@@ -14043,9 +14043,9 @@ class FString USFXOnlineSubsystem::GetProjectID ( )
 // Function SFXOnlineFoundation.SFXOnlineSubsystem.GetCDKey
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineSubsystem::GetCDKey ( )
+FString USFXOnlineSubsystem::GetCDKey ( )
 {
 	static UFunction* pFnGetCDKey = NULL;
 
@@ -14066,9 +14066,9 @@ class FString USFXOnlineSubsystem::GetCDKey ( )
 // Function SFXOnlineFoundation.SFXOnlineSubsystem.GetLanguage
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineSubsystem::GetLanguage ( )
+FString USFXOnlineSubsystem::GetLanguage ( )
 {
 	static UFunction* pFnGetLanguage = NULL;
 
@@ -14156,9 +14156,9 @@ bool USFXOnlineSubsystem::NativeInit ( )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // int                            componentIdx                   ( CPF_Parm )
-// class FString                  componentClassName             ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        componentClassName             ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineSubsystem::NativeInitOnlineComponent ( int componentIdx, class FString componentClassName )
+void USFXOnlineSubsystem::NativeInitOnlineComponent ( int componentIdx, FString const& componentClassName )
 {
 	static UFunction* pFnNativeInitOnlineComponent = NULL;
 
@@ -14179,9 +14179,9 @@ void USFXOnlineSubsystem::NativeInitOnlineComponent ( int componentIdx, class FS
 // Function SFXOnlineFoundation.SFXOnlineSubsystem.GetGameProtocolVersion
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineSubsystem::GetGameProtocolVersion ( )
+FString USFXOnlineSubsystem::GetGameProtocolVersion ( )
 {
 	static UFunction* pFnGetGameProtocolVersion = NULL;
 
@@ -14869,9 +14869,9 @@ class USFXOnlineSubsystem* USFXOnlineSubsystem::GetOnlineSubsystem ( )
 // Function SFXOnlineFoundation.SFXOnlineSubsystem.GetURL
 // [0x00020902] ( FUNC_Simulated | FUNC_Event )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineSubsystem::eventGetURL ( )
+FString USFXOnlineSubsystem::eventGetURL ( )
 {
 	static UFunction* pFnGetURL = NULL;
 
@@ -15228,9 +15228,9 @@ bool USFXOnlineComponentOrigin::GrantAchievement ( int AchievementId )
 // [0x00420401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  personaName                    ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        personaName                    ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentOrigin::IsMuted ( class FString* personaName )
+bool USFXOnlineComponentOrigin::IsMuted ( FString* personaName )
 {
 	static UFunction* pFnIsMuted = NULL;
 
@@ -15607,10 +15607,10 @@ bool USFXOnlineComponentOrigin::SetPresenceState ( unsigned char presence )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  presence                       ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  gamePresence                   ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        presence                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        gamePresence                   ( CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentOrigin::SetRichPresence ( class FString presence, class FString gamePresence )
+bool USFXOnlineComponentOrigin::SetRichPresence ( FString const& presence, FString const& gamePresence )
 {
 	static UFunction* pFnSetRichPresence = NULL;
 
@@ -15657,9 +15657,9 @@ bool USFXOnlineComponentOrigin::ClearSessionPresence ( )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  SessionId                      ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        SessionId                      ( CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentOrigin::SetSessionPresence ( class FString SessionId )
+bool USFXOnlineComponentOrigin::SetSessionPresence ( FString const& SessionId )
 {
 	static UFunction* pFnSetSessionPresence = NULL;
 
@@ -15705,9 +15705,9 @@ bool USFXOnlineComponentOrigin::RequestFriendsList ( )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  offerId                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        offerId                        ( CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentOrigin::Checkout ( class FString offerId )
+bool USFXOnlineComponentOrigin::Checkout ( FString const& offerId )
 {
 	static UFunction* pFnCheckout = NULL;
 
@@ -15730,9 +15730,9 @@ bool USFXOnlineComponentOrigin::Checkout ( class FString offerId )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  offerId                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        offerId                        ( CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentOrigin::ShowCheckoutOverlay ( class FString offerId )
+bool USFXOnlineComponentOrigin::ShowCheckoutOverlay ( FString const& offerId )
 {
 	static UFunction* pFnShowCheckoutOverlay = NULL;
 
@@ -15755,9 +15755,9 @@ bool USFXOnlineComponentOrigin::ShowCheckoutOverlay ( class FString offerId )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  categoryId                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        categoryId                     ( CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentOrigin::ShowStoreOverlay ( class FString categoryId )
+bool USFXOnlineComponentOrigin::ShowStoreOverlay ( FString const& categoryId )
 {
 	static UFunction* pFnShowStoreOverlay = NULL;
 
@@ -16056,9 +16056,9 @@ void USFXOnlineComponentOrigin::eventAddWalletBalanceAvailableDelegate ( struct 
 // [0x00020802] ( FUNC_Event )
 // Parameters infos:
 // unsigned long                  Success                        ( CPF_Parm )
-// class FString                  authKey                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        authKey                        ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentOrigin::eventTriggerOriginAuthKeyDelegates ( unsigned long Success, class FString authKey )
+void USFXOnlineComponentOrigin::eventTriggerOriginAuthKeyDelegates ( unsigned long Success, FString const& authKey )
 {
 	static UFunction* pFnTriggerOriginAuthKeyDelegates = NULL;
 
@@ -16184,9 +16184,9 @@ void USFXOnlineComponentOrigin::OnWalletBalanceAvailable ( unsigned long Success
 // [0x00120000] 
 // Parameters infos:
 // unsigned long                  Success                        ( CPF_Parm )
-// class FString                  authKey                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        authKey                        ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentOrigin::OnOriginAuthKey ( unsigned long Success, class FString authKey )
+void USFXOnlineComponentOrigin::OnOriginAuthKey ( unsigned long Success, FString const& authKey )
 {
 	static UFunction* pFnOnOriginAuthKey = NULL;
 
@@ -16304,9 +16304,9 @@ int USFXOnlineComponentPlatformPC::GetMinimumAgeForOnlinePlay ( )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // int                            Count                          ( CPF_OptionalParm | CPF_Parm )
 // int                            StartingAt                     ( CPF_OptionalParm | CPF_Parm )
-// class TArray<struct FOnlineFriend> Friends                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FOnlineFriend>   Friends                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-unsigned char USFXOnlineComponentPlatformPC::GetFriendsList ( unsigned char LocalUserNum, int Count, int StartingAt, class TArray<struct FOnlineFriend>* Friends )
+unsigned char USFXOnlineComponentPlatformPC::GetFriendsList ( unsigned char LocalUserNum, int Count, int StartingAt, TArray<struct FOnlineFriend>* Friends )
 {
 	static UFunction* pFnGetFriendsList = NULL;
 
@@ -16454,15 +16454,15 @@ bool USFXOnlineComponentPlatformPC::GetOfflineXuid ( int nUserIndex, struct FUni
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class FString                  sTitleText                     ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sDescriptionText               ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sTitleText                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDescriptionText               ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  nKeyboardType                  ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bShouldValidate                ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bRouteThroughConsole           ( CPF_OptionalParm | CPF_Parm )
-// class FString                  sDefaultText                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDefaultText                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // int                            nMaxResultLength               ( CPF_OptionalParm | CPF_Parm )
 
-bool USFXOnlineComponentPlatformPC::ShowKeyboardUI ( unsigned char LocalUserNum, class FString sTitleText, class FString sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, class FString sDefaultText, int nMaxResultLength )
+bool USFXOnlineComponentPlatformPC::ShowKeyboardUI ( unsigned char LocalUserNum, FString const& sTitleText, FString const& sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, FString const& sDefaultText, int nMaxResultLength )
 {
 	static UFunction* pFnShowKeyboardUI = NULL;
 
@@ -16493,9 +16493,9 @@ bool USFXOnlineComponentPlatformPC::ShowKeyboardUI ( unsigned char LocalUserNum,
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class FString                  InviteText                     ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        InviteText                     ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentPlatformPC::ShowInviteUI ( unsigned char LocalUserNum, class FString InviteText )
+bool USFXOnlineComponentPlatformPC::ShowInviteUI ( unsigned char LocalUserNum, FString const& InviteText )
 {
 	static UFunction* pFnShowInviteUI = NULL;
 
@@ -16522,7 +16522,7 @@ bool USFXOnlineComponentPlatformPC::ShowInviteUI ( unsigned char LocalUserNum, c
 // unsigned char                  eLocalUserNum                  ( CPF_Parm )
 // struct FUniqueNetId            oPlayerXuid                    ( CPF_Parm )
 
-bool USFXOnlineComponentPlatformPC::ShowFriendsInviteUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerXuid )
+bool USFXOnlineComponentPlatformPC::ShowFriendsInviteUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerXuid )
 {
 	static UFunction* pFnShowFriendsInviteUI = NULL;
 
@@ -16599,7 +16599,7 @@ bool USFXOnlineComponentPlatformPC::ShowAchievementsUI ( unsigned char byLocalUs
 // unsigned char                  eLocalUserNum                  ( CPF_Parm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
 
-bool USFXOnlineComponentPlatformPC::ShowFeedbackUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerId )
+bool USFXOnlineComponentPlatformPC::ShowFeedbackUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerId )
 {
 	static UFunction* pFnShowFeedbackUI = NULL;
 
@@ -16626,7 +16626,7 @@ bool USFXOnlineComponentPlatformPC::ShowFeedbackUI ( unsigned char eLocalUserNum
 // unsigned char                  eLocalUserNum                  ( CPF_Parm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
 
-bool USFXOnlineComponentPlatformPC::ShowGamerCardUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerId )
+bool USFXOnlineComponentPlatformPC::ShowGamerCardUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerId )
 {
 	static UFunction* pFnShowGamerCardUI = NULL;
 
@@ -16801,10 +16801,10 @@ unsigned char USFXOnlineComponentPlatformPC::CanPlayOnline ( unsigned char eLoca
 // Parameters infos:
 // unsigned char                  eLocalUserNum                  ( CPF_Parm )
 // int                            nPresenceMode                  ( CPF_Parm )
-// class TArray<struct FLocalizedStringSetting> aLocalizedStringSettings       ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-// class TArray<struct FSettingsProperty> aProperties                    ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FLocalizedStringSetting> aLocalizedStringSettings       ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FSettingsProperty> aProperties                    ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentPlatformPC::SetRichPresence ( unsigned char eLocalUserNum, int nPresenceMode, class TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, class TArray<struct FSettingsProperty>* aProperties )
+void USFXOnlineComponentPlatformPC::SetRichPresence ( unsigned char eLocalUserNum, int nPresenceMode, TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, TArray<struct FSettingsProperty>* aProperties )
 {
 	static UFunction* pFnSetRichPresence = NULL;
 
@@ -16889,9 +16889,9 @@ unsigned char USFXOnlineComponentPlatformPC::GetLoginStatus ( unsigned char eLoc
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
-// class FString                  sDescription                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDescription                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentPlatformPC::AddRecentPlayer ( struct FUniqueNetId oPlayerId, class FString sDescription )
+bool USFXOnlineComponentPlatformPC::AddRecentPlayer ( struct FUniqueNetId const& oPlayerId, FString const& sDescription )
 {
 	static UFunction* pFnAddRecentPlayer = NULL;
 
@@ -17357,9 +17357,9 @@ int USFXOnlineComponentPlatformXenon::GetMinimumAgeForOnlinePlay ( )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // int                            Count                          ( CPF_OptionalParm | CPF_Parm )
 // int                            StartingAt                     ( CPF_OptionalParm | CPF_Parm )
-// class TArray<struct FOnlineFriend> Friends                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FOnlineFriend>   Friends                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-unsigned char USFXOnlineComponentPlatformXenon::GetFriendsList ( unsigned char LocalUserNum, int Count, int StartingAt, class TArray<struct FOnlineFriend>* Friends )
+unsigned char USFXOnlineComponentPlatformXenon::GetFriendsList ( unsigned char LocalUserNum, int Count, int StartingAt, TArray<struct FOnlineFriend>* Friends )
 {
 	static UFunction* pFnGetFriendsList = NULL;
 
@@ -17507,15 +17507,15 @@ bool USFXOnlineComponentPlatformXenon::GetOfflineXuid ( int nUserIndex, struct F
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class FString                  sTitleText                     ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sDescriptionText               ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sTitleText                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDescriptionText               ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  nKeyboardType                  ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bShouldValidate                ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bRouteThroughConsole           ( CPF_OptionalParm | CPF_Parm )
-// class FString                  sDefaultText                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDefaultText                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // int                            nMaxResultLength               ( CPF_OptionalParm | CPF_Parm )
 
-bool USFXOnlineComponentPlatformXenon::ShowKeyboardUI ( unsigned char LocalUserNum, class FString sTitleText, class FString sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, class FString sDefaultText, int nMaxResultLength )
+bool USFXOnlineComponentPlatformXenon::ShowKeyboardUI ( unsigned char LocalUserNum, FString const& sTitleText, FString const& sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, FString const& sDefaultText, int nMaxResultLength )
 {
 	static UFunction* pFnShowKeyboardUI = NULL;
 
@@ -17546,9 +17546,9 @@ bool USFXOnlineComponentPlatformXenon::ShowKeyboardUI ( unsigned char LocalUserN
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class FString                  InviteText                     ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        InviteText                     ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentPlatformXenon::ShowInviteUI ( unsigned char LocalUserNum, class FString InviteText )
+bool USFXOnlineComponentPlatformXenon::ShowInviteUI ( unsigned char LocalUserNum, FString const& InviteText )
 {
 	static UFunction* pFnShowInviteUI = NULL;
 
@@ -17575,7 +17575,7 @@ bool USFXOnlineComponentPlatformXenon::ShowInviteUI ( unsigned char LocalUserNum
 // unsigned char                  eLocalUserNum                  ( CPF_Parm )
 // struct FUniqueNetId            oPlayerXuid                    ( CPF_Parm )
 
-bool USFXOnlineComponentPlatformXenon::ShowFriendsInviteUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerXuid )
+bool USFXOnlineComponentPlatformXenon::ShowFriendsInviteUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerXuid )
 {
 	static UFunction* pFnShowFriendsInviteUI = NULL;
 
@@ -17652,7 +17652,7 @@ bool USFXOnlineComponentPlatformXenon::ShowAchievementsUI ( unsigned char byLoca
 // unsigned char                  eLocalUserNum                  ( CPF_Parm )
 // struct FUniqueNetId            oPlayerXuid                    ( CPF_Parm )
 
-bool USFXOnlineComponentPlatformXenon::ShowFeedbackUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerXuid )
+bool USFXOnlineComponentPlatformXenon::ShowFeedbackUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerXuid )
 {
 	static UFunction* pFnShowFeedbackUI = NULL;
 
@@ -17679,7 +17679,7 @@ bool USFXOnlineComponentPlatformXenon::ShowFeedbackUI ( unsigned char eLocalUser
 // unsigned char                  eLocalUserNum                  ( CPF_Parm )
 // struct FUniqueNetId            oUniqueNetId                   ( CPF_Parm )
 
-bool USFXOnlineComponentPlatformXenon::ShowGamerCardUI ( unsigned char eLocalUserNum, struct FUniqueNetId oUniqueNetId )
+bool USFXOnlineComponentPlatformXenon::ShowGamerCardUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oUniqueNetId )
 {
 	static UFunction* pFnShowGamerCardUI = NULL;
 
@@ -17854,10 +17854,10 @@ unsigned char USFXOnlineComponentPlatformXenon::CanPlayOnline ( unsigned char eL
 // Parameters infos:
 // unsigned char                  eLocalUserNum                  ( CPF_Parm )
 // int                            nPresenceMode                  ( CPF_Parm )
-// class TArray<struct FLocalizedStringSetting> aLocalizedStringSettings       ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-// class TArray<struct FSettingsProperty> aProperties                    ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FLocalizedStringSetting> aLocalizedStringSettings       ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FSettingsProperty> aProperties                    ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentPlatformXenon::SetRichPresence ( unsigned char eLocalUserNum, int nPresenceMode, class TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, class TArray<struct FSettingsProperty>* aProperties )
+void USFXOnlineComponentPlatformXenon::SetRichPresence ( unsigned char eLocalUserNum, int nPresenceMode, TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, TArray<struct FSettingsProperty>* aProperties )
 {
 	static UFunction* pFnSetRichPresence = NULL;
 
@@ -18022,9 +18022,9 @@ bool USFXOnlineComponentPlatformXenon::eventIsPlayerInParty ( )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
-// class FString                  sDescription                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDescription                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentPlatformXenon::AddRecentPlayer ( struct FUniqueNetId oPlayerId, class FString sDescription )
+bool USFXOnlineComponentPlatformXenon::AddRecentPlayer ( struct FUniqueNetId const& oPlayerId, FString const& sDescription )
 {
 	static UFunction* pFnAddRecentPlayer = NULL;
 
@@ -18267,7 +18267,7 @@ int USFXOnlineComponentXenonLiveParty::GetPartyBandwidth ( )
 // struct FQWord                  Data1                          ( CPF_Parm )
 // struct FQWord                  Data2                          ( CPF_Parm )
 
-bool USFXOnlineComponentXenonLiveParty::SetPartyMemberCustomData ( unsigned char LocalUserNum, struct FQWord Data1, struct FQWord Data2 )
+bool USFXOnlineComponentXenonLiveParty::SetPartyMemberCustomData ( unsigned char LocalUserNum, struct FQWord const& Data1, struct FQWord const& Data2 )
 {
 	static UFunction* pFnSetPartyMemberCustomData = NULL;
 
@@ -18292,9 +18292,9 @@ bool USFXOnlineComponentXenonLiveParty::SetPartyMemberCustomData ( unsigned char
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<struct FOnlinePartyMember> PartyMembers                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FOnlinePartyMember> PartyMembers                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentXenonLiveParty::GetPartyMemberInformation ( class TArray<struct FOnlinePartyMember>* PartyMembers )
+bool USFXOnlineComponentXenonLiveParty::GetPartyMemberInformation ( TArray<struct FOnlinePartyMember>* PartyMembers )
 {
 	static UFunction* pFnGetPartyMemberInformation = NULL;
 
@@ -18798,9 +18798,9 @@ int USFXOnlineComponentPlatformPS3::GetMinimumAgeForOnlinePlay ( )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // int                            Count                          ( CPF_OptionalParm | CPF_Parm )
 // int                            StartingAt                     ( CPF_OptionalParm | CPF_Parm )
-// class TArray<struct FOnlineFriend> Friends                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FOnlineFriend>   Friends                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-unsigned char USFXOnlineComponentPlatformPS3::GetFriendsList ( unsigned char LocalUserNum, int Count, int StartingAt, class TArray<struct FOnlineFriend>* Friends )
+unsigned char USFXOnlineComponentPlatformPS3::GetFriendsList ( unsigned char LocalUserNum, int Count, int StartingAt, TArray<struct FOnlineFriend>* Friends )
 {
 	static UFunction* pFnGetFriendsList = NULL;
 
@@ -18948,15 +18948,15 @@ bool USFXOnlineComponentPlatformPS3::GetOfflineXuid ( int nUserIndex, struct FUn
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class FString                  sTitleText                     ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sDescriptionText               ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sTitleText                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDescriptionText               ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  nKeyboardType                  ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bShouldValidate                ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bRouteThroughConsole           ( CPF_OptionalParm | CPF_Parm )
-// class FString                  sDefaultText                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDefaultText                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // int                            nMaxResultLength               ( CPF_OptionalParm | CPF_Parm )
 
-bool USFXOnlineComponentPlatformPS3::ShowKeyboardUI ( unsigned char LocalUserNum, class FString sTitleText, class FString sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, class FString sDefaultText, int nMaxResultLength )
+bool USFXOnlineComponentPlatformPS3::ShowKeyboardUI ( unsigned char LocalUserNum, FString const& sTitleText, FString const& sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, FString const& sDefaultText, int nMaxResultLength )
 {
 	static UFunction* pFnShowKeyboardUI = NULL;
 
@@ -18987,9 +18987,9 @@ bool USFXOnlineComponentPlatformPS3::ShowKeyboardUI ( unsigned char LocalUserNum
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class FString                  InviteText                     ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        InviteText                     ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentPlatformPS3::ShowInviteUI ( unsigned char LocalUserNum, class FString InviteText )
+bool USFXOnlineComponentPlatformPS3::ShowInviteUI ( unsigned char LocalUserNum, FString const& InviteText )
 {
 	static UFunction* pFnShowInviteUI = NULL;
 
@@ -19016,7 +19016,7 @@ bool USFXOnlineComponentPlatformPS3::ShowInviteUI ( unsigned char LocalUserNum, 
 // unsigned char                  eLocalUserNum                  ( CPF_Parm )
 // struct FUniqueNetId            oPlayerXuid                    ( CPF_Parm )
 
-bool USFXOnlineComponentPlatformPS3::ShowFriendsInviteUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerXuid )
+bool USFXOnlineComponentPlatformPS3::ShowFriendsInviteUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerXuid )
 {
 	static UFunction* pFnShowFriendsInviteUI = NULL;
 
@@ -19093,7 +19093,7 @@ bool USFXOnlineComponentPlatformPS3::ShowAchievementsUI ( unsigned char byLocalU
 // unsigned char                  eLocalUserNum                  ( CPF_Parm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
 
-bool USFXOnlineComponentPlatformPS3::ShowFeedbackUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerId )
+bool USFXOnlineComponentPlatformPS3::ShowFeedbackUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerId )
 {
 	static UFunction* pFnShowFeedbackUI = NULL;
 
@@ -19120,7 +19120,7 @@ bool USFXOnlineComponentPlatformPS3::ShowFeedbackUI ( unsigned char eLocalUserNu
 // unsigned char                  eLocalUserNum                  ( CPF_Parm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
 
-bool USFXOnlineComponentPlatformPS3::ShowGamerCardUI ( unsigned char eLocalUserNum, struct FUniqueNetId oPlayerId )
+bool USFXOnlineComponentPlatformPS3::ShowGamerCardUI ( unsigned char eLocalUserNum, struct FUniqueNetId const& oPlayerId )
 {
 	static UFunction* pFnShowGamerCardUI = NULL;
 
@@ -19295,10 +19295,10 @@ unsigned char USFXOnlineComponentPlatformPS3::CanPlayOnline ( unsigned char eLoc
 // Parameters infos:
 // unsigned char                  eLocalUserNum                  ( CPF_Parm )
 // int                            nPresenceMode                  ( CPF_Parm )
-// class TArray<struct FLocalizedStringSetting> aLocalizedStringSettings       ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-// class TArray<struct FSettingsProperty> aProperties                    ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FLocalizedStringSetting> aLocalizedStringSettings       ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FSettingsProperty> aProperties                    ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentPlatformPS3::SetRichPresence ( unsigned char eLocalUserNum, int nPresenceMode, class TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, class TArray<struct FSettingsProperty>* aProperties )
+void USFXOnlineComponentPlatformPS3::SetRichPresence ( unsigned char eLocalUserNum, int nPresenceMode, TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, TArray<struct FSettingsProperty>* aProperties )
 {
 	static UFunction* pFnSetRichPresence = NULL;
 
@@ -19426,9 +19426,9 @@ unsigned char USFXOnlineComponentPlatformPS3::GetLoginStatus ( unsigned char eLo
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
-// class FString                  sDescription                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDescription                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentPlatformPS3::AddRecentPlayer ( struct FUniqueNetId oPlayerId, class FString sDescription )
+bool USFXOnlineComponentPlatformPS3::AddRecentPlayer ( struct FUniqueNetId const& oPlayerId, FString const& sDescription )
 {
 	static UFunction* pFnAddRecentPlayer = NULL;
 
@@ -19849,9 +19849,9 @@ void USFXOnlineComponentPlatformDingo::OnTick ( class USFXOnlineEvent* oEvent )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // unsigned long                  Success                        ( CPF_Parm )
-// class FString                  InputBuffer                    ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        InputBuffer                    ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentPlatformDingo::OnKeyboardUIClosed ( unsigned long Success, class FString InputBuffer )
+void USFXOnlineComponentPlatformDingo::OnKeyboardUIClosed ( unsigned long Success, FString const& InputBuffer )
 {
 	static UFunction* pFnOnKeyboardUIClosed = NULL;
 
@@ -19945,9 +19945,9 @@ int USFXOnlineComponentPlatformDingo::GetMinimumAgeForOnlinePlay ( )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // int                            Count                          ( CPF_OptionalParm | CPF_Parm )
 // int                            StartingAt                     ( CPF_OptionalParm | CPF_Parm )
-// class TArray<struct FOnlineFriend> Friends                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FOnlineFriend>   Friends                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-unsigned char USFXOnlineComponentPlatformDingo::GetFriendsList ( unsigned char LocalUserNum, int Count, int StartingAt, class TArray<struct FOnlineFriend>* Friends )
+unsigned char USFXOnlineComponentPlatformDingo::GetFriendsList ( unsigned char LocalUserNum, int Count, int StartingAt, TArray<struct FOnlineFriend>* Friends )
 {
 	static UFunction* pFnGetFriendsList = NULL;
 
@@ -20095,9 +20095,9 @@ bool USFXOnlineComponentPlatformDingo::GetOfflineXuid ( int nUserIndex, struct F
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
-// class FString                  sDescription                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDescription                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentPlatformDingo::AddRecentPlayer ( struct FUniqueNetId oPlayerId, class FString sDescription )
+bool USFXOnlineComponentPlatformDingo::AddRecentPlayer ( struct FUniqueNetId const& oPlayerId, FString const& sDescription )
 {
 	static UFunction* pFnAddRecentPlayer = NULL;
 
@@ -20122,15 +20122,15 @@ bool USFXOnlineComponentPlatformDingo::AddRecentPlayer ( struct FUniqueNetId oPl
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  byLocalUserNum                 ( CPF_Parm )
-// class FString                  sTitleText                     ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sDescriptionText               ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sTitleText                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDescriptionText               ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  nKeyboardType                  ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bShouldValidate                ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bRouteThroughConsole           ( CPF_OptionalParm | CPF_Parm )
-// class FString                  sDefaultText                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDefaultText                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // int                            nMaxResultLength               ( CPF_OptionalParm | CPF_Parm )
 
-bool USFXOnlineComponentPlatformDingo::ShowKeyboardUI ( unsigned char byLocalUserNum, class FString sTitleText, class FString sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, class FString sDefaultText, int nMaxResultLength )
+bool USFXOnlineComponentPlatformDingo::ShowKeyboardUI ( unsigned char byLocalUserNum, FString const& sTitleText, FString const& sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, FString const& sDefaultText, int nMaxResultLength )
 {
 	static UFunction* pFnShowKeyboardUI = NULL;
 
@@ -20188,7 +20188,7 @@ bool USFXOnlineComponentPlatformDingo::ShowAchievementsUI ( unsigned char byLoca
 // unsigned char                  byLocalUserNum                 ( CPF_Parm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
 
-bool USFXOnlineComponentPlatformDingo::ShowFeedbackUI ( unsigned char byLocalUserNum, struct FUniqueNetId oPlayerId )
+bool USFXOnlineComponentPlatformDingo::ShowFeedbackUI ( unsigned char byLocalUserNum, struct FUniqueNetId const& oPlayerId )
 {
 	static UFunction* pFnShowFeedbackUI = NULL;
 
@@ -20215,7 +20215,7 @@ bool USFXOnlineComponentPlatformDingo::ShowFeedbackUI ( unsigned char byLocalUse
 // unsigned char                  byLocalUserNum                 ( CPF_Parm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
 
-bool USFXOnlineComponentPlatformDingo::ShowGamerCardUI ( unsigned char byLocalUserNum, struct FUniqueNetId oPlayerId )
+bool USFXOnlineComponentPlatformDingo::ShowGamerCardUI ( unsigned char byLocalUserNum, struct FUniqueNetId const& oPlayerId )
 {
 	static UFunction* pFnShowGamerCardUI = NULL;
 
@@ -20240,9 +20240,9 @@ bool USFXOnlineComponentPlatformDingo::ShowGamerCardUI ( unsigned char byLocalUs
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class FString                  InviteText                     ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        InviteText                     ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentPlatformDingo::ShowInviteUI ( unsigned char LocalUserNum, class FString InviteText )
+bool USFXOnlineComponentPlatformDingo::ShowInviteUI ( unsigned char LocalUserNum, FString const& InviteText )
 {
 	static UFunction* pFnShowInviteUI = NULL;
 
@@ -20269,7 +20269,7 @@ bool USFXOnlineComponentPlatformDingo::ShowInviteUI ( unsigned char LocalUserNum
 // unsigned char                  byLocalUserNum                 ( CPF_Parm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
 
-bool USFXOnlineComponentPlatformDingo::ShowFriendsInviteUI ( unsigned char byLocalUserNum, struct FUniqueNetId oPlayerId )
+bool USFXOnlineComponentPlatformDingo::ShowFriendsInviteUI ( unsigned char byLocalUserNum, struct FUniqueNetId const& oPlayerId )
 {
 	static UFunction* pFnShowFriendsInviteUI = NULL;
 
@@ -20469,10 +20469,10 @@ unsigned char USFXOnlineComponentPlatformDingo::CanPlayOnline ( unsigned char by
 // Parameters infos:
 // unsigned char                  byLocalUserNum                 ( CPF_Parm )
 // int                            nPresenceMode                  ( CPF_Parm )
-// class TArray<struct FLocalizedStringSetting> aLocalizedStringSettings       ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-// class TArray<struct FSettingsProperty> aProperties                    ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FLocalizedStringSetting> aLocalizedStringSettings       ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FSettingsProperty> aProperties                    ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentPlatformDingo::SetRichPresence ( unsigned char byLocalUserNum, int nPresenceMode, class TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, class TArray<struct FSettingsProperty>* aProperties )
+void USFXOnlineComponentPlatformDingo::SetRichPresence ( unsigned char byLocalUserNum, int nPresenceMode, TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, TArray<struct FSettingsProperty>* aProperties )
 {
 	static UFunction* pFnSetRichPresence = NULL;
 
@@ -20825,9 +20825,9 @@ class UClass* USFXOnlineComponentPlatformOrbis::StaticClass()
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // unsigned long                  Success                        ( CPF_Parm )
-// class FString                  InputBuffer                    ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        InputBuffer                    ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentPlatformOrbis::OnKeyboardUIClosed ( unsigned long Success, class FString InputBuffer )
+void USFXOnlineComponentPlatformOrbis::OnKeyboardUIClosed ( unsigned long Success, FString const& InputBuffer )
 {
 	static UFunction* pFnOnKeyboardUIClosed = NULL;
 
@@ -20921,9 +20921,9 @@ int USFXOnlineComponentPlatformOrbis::GetMinimumAgeForOnlinePlay ( )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // int                            Count                          ( CPF_OptionalParm | CPF_Parm )
 // int                            StartingAt                     ( CPF_OptionalParm | CPF_Parm )
-// class TArray<struct FOnlineFriend> Friends                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FOnlineFriend>   Friends                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-unsigned char USFXOnlineComponentPlatformOrbis::GetFriendsList ( unsigned char LocalUserNum, int Count, int StartingAt, class TArray<struct FOnlineFriend>* Friends )
+unsigned char USFXOnlineComponentPlatformOrbis::GetFriendsList ( unsigned char LocalUserNum, int Count, int StartingAt, TArray<struct FOnlineFriend>* Friends )
 {
 	static UFunction* pFnGetFriendsList = NULL;
 
@@ -21071,9 +21071,9 @@ bool USFXOnlineComponentPlatformOrbis::GetOfflineXuid ( int nUserIndex, struct F
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
-// class FString                  sDescription                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDescription                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentPlatformOrbis::AddRecentPlayer ( struct FUniqueNetId oPlayerId, class FString sDescription )
+bool USFXOnlineComponentPlatformOrbis::AddRecentPlayer ( struct FUniqueNetId const& oPlayerId, FString const& sDescription )
 {
 	static UFunction* pFnAddRecentPlayer = NULL;
 
@@ -21098,15 +21098,15 @@ bool USFXOnlineComponentPlatformOrbis::AddRecentPlayer ( struct FUniqueNetId oPl
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  byLocalUserNum                 ( CPF_Parm )
-// class FString                  sTitleText                     ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sDescriptionText               ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sTitleText                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDescriptionText               ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  nKeyboardType                  ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bShouldValidate                ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bRouteThroughConsole           ( CPF_OptionalParm | CPF_Parm )
-// class FString                  sDefaultText                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        sDefaultText                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // int                            nMaxResultLength               ( CPF_OptionalParm | CPF_Parm )
 
-bool USFXOnlineComponentPlatformOrbis::ShowKeyboardUI ( unsigned char byLocalUserNum, class FString sTitleText, class FString sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, class FString sDefaultText, int nMaxResultLength )
+bool USFXOnlineComponentPlatformOrbis::ShowKeyboardUI ( unsigned char byLocalUserNum, FString const& sTitleText, FString const& sDescriptionText, unsigned char nKeyboardType, unsigned long bShouldValidate, unsigned long bRouteThroughConsole, FString const& sDefaultText, int nMaxResultLength )
 {
 	static UFunction* pFnShowKeyboardUI = NULL;
 
@@ -21164,7 +21164,7 @@ bool USFXOnlineComponentPlatformOrbis::ShowAchievementsUI ( unsigned char byLoca
 // unsigned char                  byLocalUserNum                 ( CPF_Parm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
 
-bool USFXOnlineComponentPlatformOrbis::ShowFeedbackUI ( unsigned char byLocalUserNum, struct FUniqueNetId oPlayerId )
+bool USFXOnlineComponentPlatformOrbis::ShowFeedbackUI ( unsigned char byLocalUserNum, struct FUniqueNetId const& oPlayerId )
 {
 	static UFunction* pFnShowFeedbackUI = NULL;
 
@@ -21191,7 +21191,7 @@ bool USFXOnlineComponentPlatformOrbis::ShowFeedbackUI ( unsigned char byLocalUse
 // unsigned char                  byLocalUserNum                 ( CPF_Parm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
 
-bool USFXOnlineComponentPlatformOrbis::ShowGamerCardUI ( unsigned char byLocalUserNum, struct FUniqueNetId oPlayerId )
+bool USFXOnlineComponentPlatformOrbis::ShowGamerCardUI ( unsigned char byLocalUserNum, struct FUniqueNetId const& oPlayerId )
 {
 	static UFunction* pFnShowGamerCardUI = NULL;
 
@@ -21216,9 +21216,9 @@ bool USFXOnlineComponentPlatformOrbis::ShowGamerCardUI ( unsigned char byLocalUs
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class FString                  InviteText                     ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        InviteText                     ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentPlatformOrbis::ShowInviteUI ( unsigned char LocalUserNum, class FString InviteText )
+bool USFXOnlineComponentPlatformOrbis::ShowInviteUI ( unsigned char LocalUserNum, FString const& InviteText )
 {
 	static UFunction* pFnShowInviteUI = NULL;
 
@@ -21245,7 +21245,7 @@ bool USFXOnlineComponentPlatformOrbis::ShowInviteUI ( unsigned char LocalUserNum
 // unsigned char                  byLocalUserNum                 ( CPF_Parm )
 // struct FUniqueNetId            oPlayerId                      ( CPF_Parm )
 
-bool USFXOnlineComponentPlatformOrbis::ShowFriendsInviteUI ( unsigned char byLocalUserNum, struct FUniqueNetId oPlayerId )
+bool USFXOnlineComponentPlatformOrbis::ShowFriendsInviteUI ( unsigned char byLocalUserNum, struct FUniqueNetId const& oPlayerId )
 {
 	static UFunction* pFnShowFriendsInviteUI = NULL;
 
@@ -21445,10 +21445,10 @@ unsigned char USFXOnlineComponentPlatformOrbis::CanPlayOnline ( unsigned char by
 // Parameters infos:
 // unsigned char                  byLocalUserNum                 ( CPF_Parm )
 // int                            nPresenceMode                  ( CPF_Parm )
-// class TArray<struct FLocalizedStringSetting> aLocalizedStringSettings       ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-// class TArray<struct FSettingsProperty> aProperties                    ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FLocalizedStringSetting> aLocalizedStringSettings       ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FSettingsProperty> aProperties                    ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentPlatformOrbis::SetRichPresence ( unsigned char byLocalUserNum, int nPresenceMode, class TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, class TArray<struct FSettingsProperty>* aProperties )
+void USFXOnlineComponentPlatformOrbis::SetRichPresence ( unsigned char byLocalUserNum, int nPresenceMode, TArray<struct FLocalizedStringSetting>* aLocalizedStringSettings, TArray<struct FSettingsProperty>* aProperties )
 {
 	static UFunction* pFnSetRichPresence = NULL;
 
@@ -21675,9 +21675,9 @@ void USFXOnlineComponentBlazeGame::SetKickedOutOfGame ( unsigned long wasKicked 
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct SFXName                 SessionName                    ( CPF_Parm )
-// class TArray<struct FUniqueNetId> Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FUniqueNetId>    Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentBlazeGame::RecalculateSkillRating ( struct SFXName SessionName, class TArray<struct FUniqueNetId>* Players )
+bool USFXOnlineComponentBlazeGame::RecalculateSkillRating ( struct SFXName SessionName, TArray<struct FUniqueNetId>* Players )
 {
 	static UFunction* pFnRecalculateSkillRating = NULL;
 
@@ -21701,10 +21701,10 @@ bool USFXOnlineComponentBlazeGame::RecalculateSkillRating ( struct SFXName Sessi
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeGame.GetArbitratedPlayers
 // [0x00020000] 
 // Parameters infos:
-// class TArray<struct FOnlineArbitrationRegistrant> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// TArray<struct FOnlineArbitrationRegistrant> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // struct SFXName                 SessionName                    ( CPF_Parm )
 
-class TArray<struct FOnlineArbitrationRegistrant> USFXOnlineComponentBlazeGame::GetArbitratedPlayers ( struct SFXName SessionName )
+TArray<struct FOnlineArbitrationRegistrant> USFXOnlineComponentBlazeGame::GetArbitratedPlayers ( struct SFXName SessionName )
 {
 	static UFunction* pFnGetArbitratedPlayers = NULL;
 
@@ -22781,7 +22781,7 @@ void USFXOnlineComponentBlazeGame::OnTick ( class USFXOnlineEvent* Event )
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool USFXOnlineComponentBlazeGame::KickPlayer ( struct FUniqueNetId PlayerID )
+bool USFXOnlineComponentBlazeGame::KickPlayer ( struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnKickPlayer = NULL;
 
@@ -22868,9 +22868,9 @@ void USFXOnlineComponentBlazeGame::ShowHostMigrationMsgBox ( unsigned long bIsIn
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeGame.FailHostMigration
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  Reason                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Reason                         ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeGame::FailHostMigration ( class FString Reason )
+void USFXOnlineComponentBlazeGame::FailHostMigration ( FString const& Reason )
 {
 	static UFunction* pFnFailHostMigration = NULL;
 
@@ -23028,9 +23028,9 @@ bool USFXOnlineComponentBlazeGame::OnHostAddressResolved ( )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct SFXName                 SessionName                    ( CPF_Parm )
-// class FString                  ConnectInfo                    ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        ConnectInfo                    ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentBlazeGame::GetResolvedConnectString ( struct SFXName SessionName, class FString* ConnectInfo )
+bool USFXOnlineComponentBlazeGame::GetResolvedConnectString ( struct SFXName SessionName, FString* ConnectInfo )
 {
 	static UFunction* pFnGetResolvedConnectString = NULL;
 
@@ -23143,7 +23143,7 @@ bool USFXOnlineComponentBlazeGame::DestroyOnlineGame ( struct SFXName SessionNam
 // struct SFXName                 SessionName                    ( CPF_Parm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool USFXOnlineComponentBlazeGame::UnregisterPlayer ( struct SFXName SessionName, struct FUniqueNetId PlayerID )
+bool USFXOnlineComponentBlazeGame::UnregisterPlayer ( struct SFXName SessionName, struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnUnregisterPlayer = NULL;
 
@@ -23171,7 +23171,7 @@ bool USFXOnlineComponentBlazeGame::UnregisterPlayer ( struct SFXName SessionName
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 // unsigned long                  bWasInvited                    ( CPF_Parm )
 
-bool USFXOnlineComponentBlazeGame::RegisterPlayer ( struct SFXName SessionName, struct FUniqueNetId PlayerID, unsigned long bWasInvited )
+bool USFXOnlineComponentBlazeGame::RegisterPlayer ( struct SFXName SessionName, struct FUniqueNetId const& PlayerID, unsigned long bWasInvited )
 {
 	static UFunction* pFnRegisterPlayer = NULL;
 
@@ -23336,9 +23336,9 @@ bool USFXOnlineComponentBlazeGame::CreateOnlineGame ( unsigned char HostingPlaye
 // [0x00420002] 
 // Parameters infos:
 // unsigned long                  bInvitee                       ( CPF_Parm )
-// class TArray<struct FMPDLCInfo> missingDLCs                    ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FMPDLCInfo>      missingDLCs                    ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeGame::GetMultiplayer_MissingDLCs ( unsigned long bInvitee, class TArray<struct FMPDLCInfo>* missingDLCs )
+void USFXOnlineComponentBlazeGame::GetMultiplayer_MissingDLCs ( unsigned long bInvitee, TArray<struct FMPDLCInfo>* missingDLCs )
 {
 	static UFunction* pFnGetMultiplayer_MissingDLCs = NULL;
 
@@ -23383,9 +23383,9 @@ bool USFXOnlineComponentBlazeGame::IsInvalidHost ( )
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeGame.SetMPDLCInfo
 // [0x00420802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct FMPDLCInfo> allAvailableDLCs               ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FMPDLCInfo>      allAvailableDLCs               ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeGame::eventSetMPDLCInfo ( class TArray<struct FMPDLCInfo>* allAvailableDLCs )
+void USFXOnlineComponentBlazeGame::eventSetMPDLCInfo ( TArray<struct FMPDLCInfo>* allAvailableDLCs )
 {
 	static UFunction* pFnSetMPDLCInfo = NULL;
 
@@ -23406,9 +23406,9 @@ void USFXOnlineComponentBlazeGame::eventSetMPDLCInfo ( class TArray<struct FMPDL
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeGame.ValidateDLCMasterList
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineComponentBlazeGame::ValidateDLCMasterList ( )
+FString USFXOnlineComponentBlazeGame::ValidateDLCMasterList ( )
 {
 	static UFunction* pFnValidateDLCMasterList = NULL;
 
@@ -23582,7 +23582,7 @@ void USFXOnlineComponentBlazeGame::SetHostViabilityEnabled ( unsigned long Enabl
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool USFXOnlineComponentBlazeGame::IsLocalPlayer ( struct FUniqueNetId PlayerID )
+bool USFXOnlineComponentBlazeGame::IsLocalPlayer ( struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnIsLocalPlayer = NULL;
 
@@ -23674,7 +23674,7 @@ void USFXOnlineComponentBlazeGame::CancelJoinOnlineGame ( )
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool USFXOnlineComponentBlazeGame::IsPlayerInGame ( struct FUniqueNetId PlayerID )
+bool USFXOnlineComponentBlazeGame::IsPlayerInGame ( struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnIsPlayerInGame = NULL;
 
@@ -23872,7 +23872,7 @@ void USFXOnlineComponentBlazeGame::OnStartOnlineGameComplete ( struct SFXName Se
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
 
-void USFXOnlineComponentBlazeGame::OnUnregisterPlayerComplete ( struct SFXName SessionName, struct FUniqueNetId PlayerID, unsigned long bWasSuccessful )
+void USFXOnlineComponentBlazeGame::OnUnregisterPlayerComplete ( struct SFXName SessionName, struct FUniqueNetId const& PlayerID, unsigned long bWasSuccessful )
 {
 	static UFunction* pFnOnUnregisterPlayerComplete = NULL;
 
@@ -23894,7 +23894,7 @@ void USFXOnlineComponentBlazeGame::OnUnregisterPlayerComplete ( struct SFXName S
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
 
-void USFXOnlineComponentBlazeGame::OnRegisterPlayerComplete ( struct SFXName SessionName, struct FUniqueNetId PlayerID, unsigned long bWasSuccessful )
+void USFXOnlineComponentBlazeGame::OnRegisterPlayerComplete ( struct SFXName SessionName, struct FUniqueNetId const& PlayerID, unsigned long bWasSuccessful )
 {
 	static UFunction* pFnOnRegisterPlayerComplete = NULL;
 
@@ -24410,7 +24410,7 @@ class USFXOnlineJobGetLeaderboardList* USFXOnlineComponentBlazeLeaderboard::even
 // struct FScriptDelegate         funcResultsRetrieved           ( CPF_Parm | CPF_NeedCtorLink )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-class USFXOnlineJobGetLeaderboardData* USFXOnlineComponentBlazeLeaderboard::eventCreateJobGetStatsData ( struct FLeaderboardStatScope oScope, int nRankRange, struct FScriptDelegate funcResultsRetrieved, FPointer pExternalData )
+class USFXOnlineJobGetLeaderboardData* USFXOnlineComponentBlazeLeaderboard::eventCreateJobGetStatsData ( struct FLeaderboardStatScope const& oScope, int nRankRange, struct FScriptDelegate funcResultsRetrieved, FPointer pExternalData )
 {
 	static UFunction* pFnCreateJobGetStatsData = NULL;
 
@@ -24463,7 +24463,7 @@ class USFXOnlineJobGetLeaderboardData* USFXOnlineComponentBlazeLeaderboard::even
 // struct FScriptDelegate         funcResultsRetrieved           ( CPF_Parm | CPF_NeedCtorLink )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-class USFXOnlineJobGetLeaderboardData* USFXOnlineComponentBlazeLeaderboard::eventCreateJobGetLeaderboardCenteredData ( int nLBID, struct FUniqueNetId nPlayerId, int nRankRange, struct FScriptDelegate funcResultsRetrieved, FPointer pExternalData )
+class USFXOnlineJobGetLeaderboardData* USFXOnlineComponentBlazeLeaderboard::eventCreateJobGetLeaderboardCenteredData ( int nLBID, struct FUniqueNetId const& nPlayerId, int nRankRange, struct FScriptDelegate funcResultsRetrieved, FPointer pExternalData )
 {
 	static UFunction* pFnCreateJobGetLeaderboardCenteredData = NULL;
 
@@ -24588,7 +24588,7 @@ void USFXOnlineComponentBlazeLeaderboard::OnInitialize ( class USFXOnlineSubsyst
 // struct FUniqueNetId            pPlayerId                      ( CPF_Parm )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-int USFXOnlineComponentBlazeLeaderboard::GetLeaderboard ( int pLbId, int nRecordsStartRank, int nRecordsRange, unsigned long bCenteredData, unsigned long bFriendData, struct FUniqueNetId pPlayerId, FPointer pExternalData )
+int USFXOnlineComponentBlazeLeaderboard::GetLeaderboard ( int pLbId, int nRecordsStartRank, int nRecordsRange, unsigned long bCenteredData, unsigned long bFriendData, struct FUniqueNetId const& pPlayerId, FPointer pExternalData )
 {
 	static UFunction* pFnGetLeaderboard = NULL;
 
@@ -24669,9 +24669,9 @@ int USFXOnlineComponentBlazeLeaderboard::ShowGamerCardForRecord ( unsigned char 
 // [0x00420401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // struct FScriptDelegate         funcReadLbListCompleted        ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<int>              jobIds                         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<int>                    jobIds                         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeLeaderboard::ReadLeaderboardList ( struct FScriptDelegate funcReadLbListCompleted, class TArray<int>* jobIds )
+void USFXOnlineComponentBlazeLeaderboard::ReadLeaderboardList ( struct FScriptDelegate funcReadLbListCompleted, TArray<int>* jobIds )
 {
 	static UFunction* pFnReadLeaderboardList = NULL;
 
@@ -24733,7 +24733,7 @@ int USFXOnlineComponentBlazeLeaderboard::GetFriendLeaderboardData ( int pLbId, s
 // struct FScriptDelegate         funcResultsRetrieved           ( CPF_Parm | CPF_NeedCtorLink )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-int USFXOnlineComponentBlazeLeaderboard::GetLeaderboardCenteredData ( int pLbId, struct FUniqueNetId nPlayerId, int nRankRange, struct FScriptDelegate funcResultsRetrieved, FPointer pExternalData )
+int USFXOnlineComponentBlazeLeaderboard::GetLeaderboardCenteredData ( int pLbId, struct FUniqueNetId const& nPlayerId, int nRankRange, struct FScriptDelegate funcResultsRetrieved, FPointer pExternalData )
 {
 	static UFunction* pFnGetLeaderboardCenteredData = NULL;
 
@@ -24811,9 +24811,9 @@ bool USFXOnlineComponentBlazeLeaderboard::HasNotificationsAvailable ( )
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLeaderboard.GetCurrentRankNotificationsArray
 // [0x00020002] 
 // Parameters infos:
-// class TArray<struct FRankBypassNotification> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// TArray<struct FRankBypassNotification> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class TArray<struct FRankBypassNotification> USFXOnlineComponentBlazeLeaderboard::GetCurrentRankNotificationsArray ( )
+TArray<struct FRankBypassNotification> USFXOnlineComponentBlazeLeaderboard::GetCurrentRankNotificationsArray ( )
 {
 	static UFunction* pFnGetCurrentRankNotificationsArray = NULL;
 
@@ -24925,11 +24925,11 @@ void USFXOnlineComponentBlazeLeaderboard::RequestReadLeaderboardList ( )
 // [0x00420401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
 // int                            nPreviousLocalUserRank         ( CPF_Parm | CPF_OutParm )
-// class FString                  friendsBlob                    ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        friendsBlob                    ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentBlazeLeaderboard::GenerateHistoricalFriendData ( class TArray<struct FLeaderboardRecord> aResults, int* nPreviousLocalUserRank, class FString* friendsBlob )
+bool USFXOnlineComponentBlazeLeaderboard::GenerateHistoricalFriendData ( TArray<struct FLeaderboardRecord> const& aResults, int* nPreviousLocalUserRank, FString* friendsBlob )
 {
 	static UFunction* pFnGenerateHistoricalFriendData = NULL;
 
@@ -24964,12 +24964,12 @@ bool USFXOnlineComponentBlazeLeaderboard::GenerateHistoricalFriendData ( class T
 // [0x00020401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // int                            nPreviousLocalUserRank         ( CPF_Parm )
-// class FString                  friendsBlob                    ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        friendsBlob                    ( CPF_Parm | CPF_NeedCtorLink )
 // int                            srIBeatMyFriend                ( CPF_Parm )
 // int                            srIWasBeatByFriend             ( CPF_Parm )
-// class TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeLeaderboard::ProcessHistoricalFriendData ( int nPreviousLocalUserRank, class FString friendsBlob, int srIBeatMyFriend, int srIWasBeatByFriend, class TArray<struct FLeaderboardRecord> aResults )
+void USFXOnlineComponentBlazeLeaderboard::ProcessHistoricalFriendData ( int nPreviousLocalUserRank, FString const& friendsBlob, int srIBeatMyFriend, int srIWasBeatByFriend, TArray<struct FLeaderboardRecord> const& aResults )
 {
 	static UFunction* pFnProcessHistoricalFriendData = NULL;
 
@@ -25013,14 +25013,14 @@ void USFXOnlineComponentBlazeLeaderboard::GenerateHistoricalFriendDataRecords ( 
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLeaderboard.RankNotification_ChallengePointLeaderboardCb
 // [0x00024401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class TArray<struct FLeaderboardColumn> aColumInfo                     ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardColumn> aColumInfo                     ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
 // int                            iTotalRanks                    ( CPF_Parm )
 // struct FUniqueNetId            uidEntity                      ( CPF_Parm )
 // unsigned char                  nErrorCode                     ( CPF_Parm )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-void USFXOnlineComponentBlazeLeaderboard::RankNotification_ChallengePointLeaderboardCb ( class TArray<struct FLeaderboardColumn> aColumInfo, class TArray<struct FLeaderboardRecord> aResults, int iTotalRanks, struct FUniqueNetId uidEntity, unsigned char nErrorCode, FPointer pExternalData )
+void USFXOnlineComponentBlazeLeaderboard::RankNotification_ChallengePointLeaderboardCb ( TArray<struct FLeaderboardColumn> const& aColumInfo, TArray<struct FLeaderboardRecord> const& aResults, int iTotalRanks, struct FUniqueNetId const& uidEntity, unsigned char nErrorCode, FPointer pExternalData )
 {
 	static UFunction* pFnRankNotification_ChallengePointLeaderboardCb = NULL;
 
@@ -25045,14 +25045,14 @@ void USFXOnlineComponentBlazeLeaderboard::RankNotification_ChallengePointLeaderb
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLeaderboard.RankNotification_N7RatingLeaderboardCb
 // [0x00024401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
-// class TArray<struct FLeaderboardColumn> aColumInfo                     ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardColumn> aColumInfo                     ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
 // int                            iTotalRanks                    ( CPF_Parm )
 // struct FUniqueNetId            uidEntity                      ( CPF_Parm )
 // unsigned char                  nErrorCode                     ( CPF_Parm )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-void USFXOnlineComponentBlazeLeaderboard::RankNotification_N7RatingLeaderboardCb ( class TArray<struct FLeaderboardColumn> aColumInfo, class TArray<struct FLeaderboardRecord> aResults, int iTotalRanks, struct FUniqueNetId uidEntity, unsigned char nErrorCode, FPointer pExternalData )
+void USFXOnlineComponentBlazeLeaderboard::RankNotification_N7RatingLeaderboardCb ( TArray<struct FLeaderboardColumn> const& aColumInfo, TArray<struct FLeaderboardRecord> const& aResults, int iTotalRanks, struct FUniqueNetId const& uidEntity, unsigned char nErrorCode, FPointer pExternalData )
 {
 	static UFunction* pFnRankNotification_N7RatingLeaderboardCb = NULL;
 
@@ -25081,7 +25081,7 @@ void USFXOnlineComponentBlazeLeaderboard::RankNotification_N7RatingLeaderboardCb
 // struct FScriptDelegate         funcResultsRetrieved           ( CPF_Parm | CPF_NeedCtorLink )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-void USFXOnlineComponentBlazeLeaderboard::RequestFriendLeaderboardData ( struct FLeaderboardDefinition LeaderboardDef, struct FScriptDelegate funcResultsRetrieved, FPointer pExternalData )
+void USFXOnlineComponentBlazeLeaderboard::RequestFriendLeaderboardData ( struct FLeaderboardDefinition const& LeaderboardDef, struct FScriptDelegate funcResultsRetrieved, FPointer pExternalData )
 {
 	static UFunction* pFnRequestFriendLeaderboardData = NULL;
 
@@ -25129,7 +25129,7 @@ void USFXOnlineComponentBlazeLeaderboard::GetRankNotifications ( )
 // struct FScriptDelegate         funcResultsRetrieved           ( CPF_Parm | CPF_NeedCtorLink )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-void USFXOnlineComponentBlazeLeaderboard::RequestLeaderboardCenteredData ( struct FLeaderboardDefinition LeaderboardDef, struct FUniqueNetId nPlayerId, int nRankRange, struct FScriptDelegate funcResultsRetrieved, FPointer pExternalData )
+void USFXOnlineComponentBlazeLeaderboard::RequestLeaderboardCenteredData ( struct FLeaderboardDefinition const& LeaderboardDef, struct FUniqueNetId const& nPlayerId, int nRankRange, struct FScriptDelegate funcResultsRetrieved, FPointer pExternalData )
 {
 	static UFunction* pFnRequestLeaderboardCenteredData = NULL;
 
@@ -25159,7 +25159,7 @@ void USFXOnlineComponentBlazeLeaderboard::RequestLeaderboardCenteredData ( struc
 // struct FScriptDelegate         funcResultsRetrieved           ( CPF_Parm | CPF_NeedCtorLink )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-void USFXOnlineComponentBlazeLeaderboard::RequestLeaderboardData ( struct FLeaderboardDefinition LeaderboardDef, int nRankStart, int nRankRange, struct FScriptDelegate funcResultsRetrieved, FPointer pExternalData )
+void USFXOnlineComponentBlazeLeaderboard::RequestLeaderboardData ( struct FLeaderboardDefinition const& LeaderboardDef, int nRankStart, int nRankRange, struct FScriptDelegate funcResultsRetrieved, FPointer pExternalData )
 {
 	static UFunction* pFnRequestLeaderboardData = NULL;
 
@@ -25184,9 +25184,9 @@ void USFXOnlineComponentBlazeLeaderboard::RequestLeaderboardData ( struct FLeade
 // [0x00420401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<struct FLeaderboardMapGroup> aLBDefTableRows                ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardMapGroup> aLBDefTableRows                ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentBlazeLeaderboard::GetLeaderboardDefinitionTable ( class TArray<struct FLeaderboardMapGroup>* aLBDefTableRows )
+bool USFXOnlineComponentBlazeLeaderboard::GetLeaderboardDefinitionTable ( TArray<struct FLeaderboardMapGroup>* aLBDefTableRows )
 {
 	static UFunction* pFnGetLeaderboardDefinitionTable = NULL;
 
@@ -25214,9 +25214,9 @@ bool USFXOnlineComponentBlazeLeaderboard::GetLeaderboardDefinitionTable ( class 
 // [0x00420401] ( FUNC_Final | FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<struct FLeaderboardDefinition> aLBDefinitions                 ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardDefinition> aLBDefinitions                 ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentBlazeLeaderboard::GetLeaderboardDefinitions ( class TArray<struct FLeaderboardDefinition>* aLBDefinitions )
+bool USFXOnlineComponentBlazeLeaderboard::GetLeaderboardDefinitions ( TArray<struct FLeaderboardDefinition>* aLBDefinitions )
 {
 	static UFunction* pFnGetLeaderboardDefinitions = NULL;
 
@@ -25243,9 +25243,9 @@ bool USFXOnlineComponentBlazeLeaderboard::GetLeaderboardDefinitions ( class TArr
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLeaderboard.OnGetRankNotificationsCompleted
 // [0x00120000] 
 // Parameters infos:
-// class TArray<struct FRankBypassNotification> RankBypassNotificationArray    ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FRankBypassNotification> RankBypassNotificationArray    ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeLeaderboard::OnGetRankNotificationsCompleted ( class TArray<struct FRankBypassNotification> RankBypassNotificationArray )
+void USFXOnlineComponentBlazeLeaderboard::OnGetRankNotificationsCompleted ( TArray<struct FRankBypassNotification> const& RankBypassNotificationArray )
 {
 	static UFunction* pFnOnGetRankNotificationsCompleted = NULL;
 
@@ -25279,14 +25279,14 @@ void USFXOnlineComponentBlazeLeaderboard::OnReadLbListCompleted ( unsigned char 
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLeaderboard.OnResultsRetrieved
 // [0x00124000] 
 // Parameters infos:
-// class TArray<struct FLeaderboardColumn> aColumnInfo                    ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardColumn> aColumnInfo                    ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
 // int                            iTotalRanks                    ( CPF_Parm )
 // struct FUniqueNetId            uidEntity                      ( CPF_Parm )
 // unsigned char                  nErrorCode                     ( CPF_Parm )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-void USFXOnlineComponentBlazeLeaderboard::OnResultsRetrieved ( class TArray<struct FLeaderboardColumn> aColumnInfo, class TArray<struct FLeaderboardRecord> aResults, int iTotalRanks, struct FUniqueNetId uidEntity, unsigned char nErrorCode, FPointer pExternalData )
+void USFXOnlineComponentBlazeLeaderboard::OnResultsRetrieved ( TArray<struct FLeaderboardColumn> const& aColumnInfo, TArray<struct FLeaderboardRecord> const& aResults, int iTotalRanks, struct FUniqueNetId const& uidEntity, unsigned char nErrorCode, FPointer pExternalData )
 {
 	static UFunction* pFnOnResultsRetrieved = NULL;
 
@@ -25364,9 +25364,9 @@ void USFXOnlineComponentBlazeLogin::OnTick ( class USFXOnlineEvent* oEvent )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // unsigned long                  Success                        ( CPF_Parm )
-// class FString                  authKey                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        authKey                        ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeLogin::OnOriginAuthKeyAvailableCallback ( unsigned long Success, class FString authKey )
+void USFXOnlineComponentBlazeLogin::OnOriginAuthKeyAvailableCallback ( unsigned long Success, FString const& authKey )
 {
 	static UFunction* pFnOnOriginAuthKeyAvailableCallback = NULL;
 
@@ -25815,9 +25815,9 @@ void USFXOnlineComponentBlazeLogin::OpenCerberusUI ( )
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLogin.EnterCDKey
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sKey                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sKey                           ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeLogin::EnterCDKey ( class FString sKey )
+void USFXOnlineComponentBlazeLogin::EnterCDKey ( FString const& sKey )
 {
 	static UFunction* pFnEnterCDKey = NULL;
 
@@ -25953,9 +25953,9 @@ bool USFXOnlineComponentBlazeLogin::IsCerberusMember ( )
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLogin.DisablePersona
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sPersonaNonGrata               ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sPersonaNonGrata               ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeLogin::DisablePersona ( class FString sPersonaNonGrata )
+void USFXOnlineComponentBlazeLogin::DisablePersona ( FString const& sPersonaNonGrata )
 {
 	static UFunction* pFnDisablePersona = NULL;
 
@@ -25975,9 +25975,9 @@ void USFXOnlineComponentBlazeLogin::DisablePersona ( class FString sPersonaNonGr
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLogin.CreatePersona
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sPersonaName                   ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sPersonaName                   ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeLogin::CreatePersona ( class FString sPersonaName )
+void USFXOnlineComponentBlazeLogin::CreatePersona ( FString const& sPersonaName )
 {
 	static UFunction* pFnCreatePersona = NULL;
 
@@ -25997,9 +25997,9 @@ void USFXOnlineComponentBlazeLogin::CreatePersona ( class FString sPersonaName )
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLogin.SelectPersona
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sPersonaName                   ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sPersonaName                   ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeLogin::SelectPersona ( class FString sPersonaName )
+void USFXOnlineComponentBlazeLogin::SelectPersona ( FString const& sPersonaName )
 {
 	static UFunction* pFnSelectPersona = NULL;
 
@@ -26163,9 +26163,9 @@ void USFXOnlineComponentBlazeLogin::StartCerberusLogin ( )
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLogin.SubmitStore
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class TArray<int>              aiChosen                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    aiChosen                       ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeLogin::SubmitStore ( class TArray<int> aiChosen )
+void USFXOnlineComponentBlazeLogin::SubmitStore ( TArray<int> const& aiChosen )
 {
 	static UFunction* pFnSubmitStore = NULL;
 
@@ -26185,19 +26185,19 @@ void USFXOnlineComponentBlazeLogin::SubmitStore ( class TArray<int> aiChosen )
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLogin.SubmitCreateNucleusAccountEx
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sEmail                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sEmail                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bEAProducts                    ( CPF_Parm )
 // unsigned long                  bThirdParty                    ( CPF_Parm )
 // unsigned long                  bBioWareProducts               ( CPF_Parm )
-// class FString                  i_sCountryCode                 ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        i_sCountryCode                 ( CPF_Parm | CPF_NeedCtorLink )
 // int                            BirthDay                       ( CPF_Parm )
 // int                            BirthMonth                     ( CPF_Parm )
 // int                            BirthYear                      ( CPF_Parm )
-// class FString                  i_sLanguageCode                ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        i_sLanguageCode                ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bSubmit                        ( CPF_Parm )
 
-void USFXOnlineComponentBlazeLogin::SubmitCreateNucleusAccountEx ( class FString sEmail, class FString sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bBioWareProducts, class FString i_sCountryCode, int BirthDay, int BirthMonth, int BirthYear, class FString i_sLanguageCode, unsigned long bSubmit )
+void USFXOnlineComponentBlazeLogin::SubmitCreateNucleusAccountEx ( FString const& sEmail, FString const& sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bBioWareProducts, FString const& i_sCountryCode, int BirthDay, int BirthMonth, int BirthYear, FString const& i_sLanguageCode, unsigned long bSubmit )
 {
 	static UFunction* pFnSubmitCreateNucleusAccountEx = NULL;
 
@@ -26227,11 +26227,11 @@ void USFXOnlineComponentBlazeLogin::SubmitCreateNucleusAccountEx ( class FString
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLogin.SubmitEmailPasswordMismatch
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  email                          ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Password                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        email                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Password                       ( CPF_Parm | CPF_NeedCtorLink )
 // int                            eReturnCode                    ( CPF_Parm )
 
-void USFXOnlineComponentBlazeLogin::SubmitEmailPasswordMismatch ( class FString email, class FString Password, int eReturnCode )
+void USFXOnlineComponentBlazeLogin::SubmitEmailPasswordMismatch ( FString const& email, FString const& Password, int eReturnCode )
 {
 	static UFunction* pFnSubmitEmailPasswordMismatch = NULL;
 
@@ -26276,9 +26276,9 @@ void USFXOnlineComponentBlazeLogin::SubmitMessageBox ( int eReturnCode )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // unsigned long                  bContinue                      ( CPF_Parm )
-// class FString                  i_sCode                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        i_sCode                        ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeLogin::SubmitRedeemCode ( unsigned long bContinue, class FString i_sCode )
+void USFXOnlineComponentBlazeLogin::SubmitRedeemCode ( unsigned long bContinue, FString const& i_sCode )
 {
 	static UFunction* pFnSubmitRedeemCode = NULL;
 
@@ -26381,14 +26381,14 @@ void USFXOnlineComponentBlazeLogin::SubmitNucleusWelcomeMessage ( )
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLogin.SubmitCreateNucleusAccount
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sEmail                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sEmail                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bEAProducts                    ( CPF_Parm )
 // unsigned long                  bThirdParty                    ( CPF_Parm )
 // unsigned long                  bBioWareProducts               ( CPF_Parm )
 // unsigned long                  bSubmit                        ( CPF_Parm )
 
-void USFXOnlineComponentBlazeLogin::SubmitCreateNucleusAccount ( class FString sEmail, class FString sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bBioWareProducts, unsigned long bSubmit )
+void USFXOnlineComponentBlazeLogin::SubmitCreateNucleusAccount ( FString const& sEmail, FString const& sPassword, unsigned long bEAProducts, unsigned long bThirdParty, unsigned long bBioWareProducts, unsigned long bSubmit )
 {
 	static UFunction* pFnSubmitCreateNucleusAccount = NULL;
 
@@ -26414,9 +26414,9 @@ void USFXOnlineComponentBlazeLogin::SubmitCreateNucleusAccount ( class FString s
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // unsigned long                  bContinue                      ( CPF_Parm )
-// class FString                  ParentEmail                    ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        ParentEmail                    ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeLogin::SubmitParentEmail ( unsigned long bContinue, class FString ParentEmail )
+void USFXOnlineComponentBlazeLogin::SubmitParentEmail ( unsigned long bContinue, FString const& ParentEmail )
 {
 	static UFunction* pFnSubmitParentEmail = NULL;
 
@@ -26437,11 +26437,11 @@ void USFXOnlineComponentBlazeLogin::SubmitParentEmail ( unsigned long bContinue,
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLogin.SubmitNucleusLogin
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  email                          ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Password                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        email                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Password                       ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  eReturnCode                    ( CPF_Parm )
 
-void USFXOnlineComponentBlazeLogin::SubmitNucleusLogin ( class FString email, class FString Password, unsigned char eReturnCode )
+void USFXOnlineComponentBlazeLogin::SubmitNucleusLogin ( FString const& email, FString const& Password, unsigned char eReturnCode )
 {
 	static UFunction* pFnSubmitNucleusLogin = NULL;
 
@@ -26509,10 +26509,10 @@ void USFXOnlineComponentBlazeLogin::Connect ( unsigned char connectMode )
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLogin.AutoLogin
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sEmail                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sEmail                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeLogin::AutoLogin ( class FString sEmail, class FString sPassword )
+void USFXOnlineComponentBlazeLogin::AutoLogin ( FString const& sEmail, FString const& sPassword )
 {
 	static UFunction* pFnAutoLogin = NULL;
 
@@ -26641,9 +26641,9 @@ struct FUniqueNetId USFXOnlineComponentBlazeLogin::GetUserId ( )
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLogin.GetPersonaName
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineComponentBlazeLogin::GetPersonaName ( )
+FString USFXOnlineComponentBlazeLogin::GetPersonaName ( )
 {
 	static UFunction* pFnGetPersonaName = NULL;
 
@@ -26759,7 +26759,7 @@ bool USFXOnlineComponentBlazeLogin::IsConnected ( )
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            userId                         ( CPF_Parm )
 
-bool USFXOnlineComponentBlazeLogin::IsActiveUser ( struct FUniqueNetId userId )
+bool USFXOnlineComponentBlazeLogin::IsActiveUser ( struct FUniqueNetId const& userId )
 {
 	static UFunction* pFnIsActiveUser = NULL;
 
@@ -27018,9 +27018,9 @@ void USFXOnlineComponentBlazeLogin::OnReadFriendsComplete ( unsigned long bWasSu
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeLogin.OnAuthTokenRetrieved
 // [0x00120000] 
 // Parameters infos:
-// class FString                  token                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        token                          ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeLogin::OnAuthTokenRetrieved ( class FString token )
+void USFXOnlineComponentBlazeLogin::OnAuthTokenRetrieved ( FString const& token )
 {
 	static UFunction* pFnOnAuthTokenRetrieved = NULL;
 
@@ -27474,11 +27474,11 @@ void USFXOnlineComponentBlazeMessaging::PurgeAllMessages ( )
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeMessaging.SendMessage
 // [0x00024400] ( FUNC_Native )
 // Parameters infos:
-// class TArray<class FString>    sendToPersonaNames             ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<FString>                sendToPersonaNames             ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  msgType                        ( CPF_Parm )
-// class TArray<class FString>    Params                         ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// TArray<FString>                Params                         ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentBlazeMessaging::SendMessage ( class TArray<class FString> sendToPersonaNames, unsigned char msgType, class TArray<class FString> Params )
+void USFXOnlineComponentBlazeMessaging::SendMessage ( TArray<FString> const& sendToPersonaNames, unsigned char msgType, TArray<FString> const& Params )
 {
 	static UFunction* pFnSendMessage = NULL;
 
@@ -27532,12 +27532,12 @@ class UClass* USFXOnlineComponentBlazeNotification::StaticClass()
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeNotification.GetGalaxyAtWarRatingsCompleted
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class TArray<int>              updatedSecurityRatings         ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<int>              updatedWarAssets               ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    updatedSecurityRatings         ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    updatedWarAssets               ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Level                          ( CPF_Parm )
 // int                            errorCode                      ( CPF_Parm )
 
-void USFXOnlineComponentBlazeNotification::GetGalaxyAtWarRatingsCompleted ( class TArray<int> updatedSecurityRatings, class TArray<int> updatedWarAssets, int Level, int errorCode )
+void USFXOnlineComponentBlazeNotification::GetGalaxyAtWarRatingsCompleted ( TArray<int> const& updatedSecurityRatings, TArray<int> const& updatedWarAssets, int Level, int errorCode )
 {
 	static UFunction* pFnGetGalaxyAtWarRatingsCompleted = NULL;
 
@@ -27560,9 +27560,9 @@ void USFXOnlineComponentBlazeNotification::GetGalaxyAtWarRatingsCompleted ( clas
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeNotification.GetStoreCatalogId
 // [0x00020802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineComponentBlazeNotification::eventGetStoreCatalogId ( )
+FString USFXOnlineComponentBlazeNotification::eventGetStoreCatalogId ( )
 {
 	static UFunction* pFnGetStoreCatalogId = NULL;
 
@@ -27861,9 +27861,9 @@ int USFXOnlineComponentBlazeNotification::GetTargetOfferId ( unsigned char nSour
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeNotification.GetDimeInfo
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineComponentBlazeNotification::GetDimeInfo ( )
+FString USFXOnlineComponentBlazeNotification::GetDimeInfo ( )
 {
 	static UFunction* pFnGetDimeInfo = NULL;
 
@@ -27884,9 +27884,9 @@ class FString USFXOnlineComponentBlazeNotification::GetDimeInfo ( )
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeNotification.GetEntitlementInfo
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class TArray<struct FSFXOnlineEntitlementLookupInfo> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// TArray<struct FSFXOnlineEntitlementLookupInfo> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class TArray<struct FSFXOnlineEntitlementLookupInfo> USFXOnlineComponentBlazeNotification::GetEntitlementInfo ( )
+TArray<struct FSFXOnlineEntitlementLookupInfo> USFXOnlineComponentBlazeNotification::GetEntitlementInfo ( )
 {
 	static UFunction* pFnGetEntitlementInfo = NULL;
 
@@ -28208,9 +28208,9 @@ class USFXOnlineJobGameReporting* USFXOnlineComponentBlazeStats::eventCreateJobG
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
-// class FString                  ClientStatGuid                 ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        ClientStatGuid                 ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentBlazeStats::RegisterStatGuid ( struct FUniqueNetId PlayerID, class FString* ClientStatGuid )
+bool USFXOnlineComponentBlazeStats::RegisterStatGuid ( struct FUniqueNetId const& PlayerID, FString* ClientStatGuid )
 {
 	static UFunction* pFnRegisterStatGuid = NULL;
 
@@ -28234,9 +28234,9 @@ bool USFXOnlineComponentBlazeStats::RegisterStatGuid ( struct FUniqueNetId Playe
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeStats.GetClientStatGuid
 // [0x00020000] 
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineComponentBlazeStats::GetClientStatGuid ( )
+FString USFXOnlineComponentBlazeStats::GetClientStatGuid ( )
 {
 	static UFunction* pFnGetClientStatGuid = NULL;
 
@@ -28290,9 +28290,9 @@ void USFXOnlineComponentBlazeStats::AddRegisterHostStatGuidCompleteDelegate ( st
 // [0x00420000] 
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  HostStatGuid                   ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        HostStatGuid                   ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentBlazeStats::RegisterHostStatGuid ( class FString* HostStatGuid )
+bool USFXOnlineComponentBlazeStats::RegisterHostStatGuid ( FString* HostStatGuid )
 {
 	static UFunction* pFnRegisterHostStatGuid = NULL;
 
@@ -28315,9 +28315,9 @@ bool USFXOnlineComponentBlazeStats::RegisterHostStatGuid ( class FString* HostSt
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeStats.GetHostStatGuid
 // [0x00020000] 
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineComponentBlazeStats::GetHostStatGuid ( )
+FString USFXOnlineComponentBlazeStats::GetHostStatGuid ( )
 {
 	static UFunction* pFnGetHostStatGuid = NULL;
 
@@ -28337,9 +28337,9 @@ class FString USFXOnlineComponentBlazeStats::GetHostStatGuid ( )
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct SFXName                 SessionName                    ( CPF_Parm )
 // int                            LeaderboardId                  ( CPF_Parm )
-// class TArray<struct FOnlinePlayerScore> PlayerScores                   ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FOnlinePlayerScore> PlayerScores                   ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentBlazeStats::WriteOnlinePlayerScores ( struct SFXName SessionName, int LeaderboardId, class TArray<struct FOnlinePlayerScore>* PlayerScores )
+bool USFXOnlineComponentBlazeStats::WriteOnlinePlayerScores ( struct SFXName SessionName, int LeaderboardId, TArray<struct FOnlinePlayerScore>* PlayerScores )
 {
 	static UFunction* pFnWriteOnlinePlayerScores = NULL;
 
@@ -28493,9 +28493,9 @@ bool USFXOnlineComponentBlazeStats::ReadOnlineStatsForFriends ( unsigned char Lo
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class UOnlineStatsRead*        StatsRead                      ( CPF_Parm )
-// class TArray<struct FUniqueNetId> Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FUniqueNetId>    Players                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentBlazeStats::ReadOnlineStats ( class UOnlineStatsRead* StatsRead, class TArray<struct FUniqueNetId>* Players )
+bool USFXOnlineComponentBlazeStats::ReadOnlineStats ( class UOnlineStatsRead* StatsRead, TArray<struct FUniqueNetId>* Players )
 {
 	static UFunction* pFnReadOnlineStats = NULL;
 
@@ -28637,9 +28637,9 @@ int USFXOnlineComponentBlazeStats::GetFriendsStatsData ( int nRankRange, struct 
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<class FString>    aStatsGroupNames               ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<FString>                aStatsGroupNames               ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentBlazeStats::GetStatsGroupNames ( class TArray<class FString>* aStatsGroupNames )
+bool USFXOnlineComponentBlazeStats::GetStatsGroupNames ( TArray<FString>* aStatsGroupNames )
 {
 	static UFunction* pFnGetStatsGroupNames = NULL;
 
@@ -28696,7 +28696,7 @@ bool USFXOnlineComponentBlazeStats::FlushOnlineStats ( struct SFXName SessionNam
 // struct FUniqueNetId            Player                         ( CPF_Parm )
 // class UOnlineStatsWrite*       StatsWrite                     ( CPF_Parm )
 
-bool USFXOnlineComponentBlazeStats::WriteOnlineStats ( struct SFXName SessionName, struct FUniqueNetId Player, class UOnlineStatsWrite* StatsWrite )
+bool USFXOnlineComponentBlazeStats::WriteOnlineStats ( struct SFXName SessionName, struct FUniqueNetId const& Player, class UOnlineStatsWrite* StatsWrite )
 {
 	static UFunction* pFnWriteOnlineStats = NULL;
 
@@ -28877,12 +28877,12 @@ void USFXOnlineComponentBlazeStats::OnReadStatsGroupListCompleted ( unsigned cha
 // Function SFXOnlineFoundation.SFXOnlineComponentBlazeStats.OnResultsRetrieved
 // [0x00124000] 
 // Parameters infos:
-// class TArray<struct FLeaderboardColumn> aColumnInfo                    ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardColumn> aColumnInfo                    ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  nErrorCode                     ( CPF_Parm )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-void USFXOnlineComponentBlazeStats::OnResultsRetrieved ( class TArray<struct FLeaderboardColumn> aColumnInfo, class TArray<struct FLeaderboardRecord> aResults, unsigned char nErrorCode, FPointer pExternalData )
+void USFXOnlineComponentBlazeStats::OnResultsRetrieved ( TArray<struct FLeaderboardColumn> const& aColumnInfo, TArray<struct FLeaderboardRecord> const& aResults, unsigned char nErrorCode, FPointer pExternalData )
 {
 	static UFunction* pFnOnResultsRetrieved = NULL;
 
@@ -28913,12 +28913,12 @@ class UClass* USFXOnlineComponentGalaxyAtWar::StaticClass()
 // Function SFXOnlineFoundation.SFXOnlineComponentGalaxyAtWar.TestGetRatingsCallback
 // [0x00020002] 
 // Parameters infos:
-// class TArray<int>              updatedSecurityRatings         ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<int>              updatedWarAssets               ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    updatedSecurityRatings         ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    updatedWarAssets               ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Level                          ( CPF_Parm )
 // int                            errorCode                      ( CPF_Parm )
 
-void USFXOnlineComponentGalaxyAtWar::TestGetRatingsCallback ( class TArray<int> updatedSecurityRatings, class TArray<int> updatedWarAssets, int Level, int errorCode )
+void USFXOnlineComponentGalaxyAtWar::TestGetRatingsCallback ( TArray<int> const& updatedSecurityRatings, TArray<int> const& updatedWarAssets, int Level, int errorCode )
 {
 	static UFunction* pFnTestGetRatingsCallback = NULL;
 
@@ -28957,10 +28957,10 @@ void USFXOnlineComponentGalaxyAtWar::TestTouchMessagesCallback ( int Count, int 
 // Function SFXOnlineFoundation.SFXOnlineComponentGalaxyAtWar.TestGetMessagesCallback
 // [0x00020002] 
 // Parameters infos:
-// class TArray<struct FMessageEntry> Messages                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FMessageEntry>   Messages                       ( CPF_Parm | CPF_NeedCtorLink )
 // int                            errorCode                      ( CPF_Parm )
 
-void USFXOnlineComponentGalaxyAtWar::TestGetMessagesCallback ( class TArray<struct FMessageEntry> Messages, int errorCode )
+void USFXOnlineComponentGalaxyAtWar::TestGetMessagesCallback ( TArray<struct FMessageEntry> const& Messages, int errorCode )
 {
 	static UFunction* pFnTestGetMessagesCallback = NULL;
 
@@ -28978,10 +28978,10 @@ void USFXOnlineComponentGalaxyAtWar::TestGetMessagesCallback ( class TArray<stru
 // [0x00020002] 
 // Parameters infos:
 // int                            messageId                      ( CPF_Parm )
-// class TArray<int>              messageIds                     ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    messageIds                     ( CPF_Parm | CPF_NeedCtorLink )
 // int                            errorCode                      ( CPF_Parm )
 
-void USFXOnlineComponentGalaxyAtWar::TestSendMessageCallback ( int messageId, class TArray<int> messageIds, int errorCode )
+void USFXOnlineComponentGalaxyAtWar::TestSendMessageCallback ( int messageId, TArray<int> const& messageIds, int errorCode )
 {
 	static UFunction* pFnTestSendMessageCallback = NULL;
 
@@ -29032,10 +29032,10 @@ void USFXOnlineComponentGalaxyAtWar::eventParseTouchMessagesResult ( class USFXO
 // [0x00420802] ( FUNC_Event )
 // Parameters infos:
 // class USFXOnlineHTTPRequest*   request                        ( CPF_Parm )
-// class TArray<struct FMessageEntry> messageEntries                 ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FMessageEntry>   messageEntries                 ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 // int                            errorCode                      ( CPF_Parm | CPF_OutParm )
 
-void USFXOnlineComponentGalaxyAtWar::eventParseGetMessagesResult ( class USFXOnlineHTTPRequest* request, class TArray<struct FMessageEntry>* messageEntries, int* errorCode )
+void USFXOnlineComponentGalaxyAtWar::eventParseGetMessagesResult ( class USFXOnlineHTTPRequest* request, TArray<struct FMessageEntry>* messageEntries, int* errorCode )
 {
 	static UFunction* pFnParseGetMessagesResult = NULL;
 
@@ -29065,10 +29065,10 @@ void USFXOnlineComponentGalaxyAtWar::eventParseGetMessagesResult ( class USFXOnl
 // Parameters infos:
 // class USFXOnlineHTTPRequest*   request                        ( CPF_Parm )
 // int                            messageId                      ( CPF_Parm | CPF_OutParm )
-// class TArray<int>              messageIds                     ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<int>                    messageIds                     ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 // int                            errorCode                      ( CPF_Parm | CPF_OutParm )
 
-void USFXOnlineComponentGalaxyAtWar::eventParseSendMessageResult ( class USFXOnlineHTTPRequest* request, int* messageId, class TArray<int>* messageIds, int* errorCode )
+void USFXOnlineComponentGalaxyAtWar::eventParseSendMessageResult ( class USFXOnlineHTTPRequest* request, int* messageId, TArray<int>* messageIds, int* errorCode )
 {
 	static UFunction* pFnParseSendMessageResult = NULL;
 
@@ -29103,12 +29103,12 @@ void USFXOnlineComponentGalaxyAtWar::eventParseSendMessageResult ( class USFXOnl
 // [0x00420802] ( FUNC_Event )
 // Parameters infos:
 // class USFXOnlineHTTPRequest*   request                        ( CPF_Parm )
-// class TArray<int>              updatedSecurityRatings         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-// class TArray<int>              updatedWarAssets               ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<int>                    updatedSecurityRatings         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<int>                    updatedWarAssets               ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 // int                            Level                          ( CPF_Parm | CPF_OutParm )
 // int                            errorCode                      ( CPF_Parm | CPF_OutParm )
 
-void USFXOnlineComponentGalaxyAtWar::eventParseHTTPRatingsAssetsLevel ( class USFXOnlineHTTPRequest* request, class TArray<int>* updatedSecurityRatings, class TArray<int>* updatedWarAssets, int* Level, int* errorCode )
+void USFXOnlineComponentGalaxyAtWar::eventParseHTTPRatingsAssetsLevel ( class USFXOnlineHTTPRequest* request, TArray<int>* updatedSecurityRatings, TArray<int>* updatedWarAssets, int* Level, int* errorCode )
 {
 	static UFunction* pFnParseHTTPRatingsAssetsLevel = NULL;
 
@@ -29252,12 +29252,12 @@ class USFXOnlineJobGaWHTTPGetMessages* USFXOnlineComponentGalaxyAtWar::eventCrea
 // Parameters infos:
 // class USFXOnlineJobGaWHTTPSendMessage* ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            msgType                        ( CPF_Parm )
-// class FString                  sendMsgParam1                  ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sendMsgParam2                  ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sendMsgParam3                  ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sendMsgParam1                  ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sendMsgParam2                  ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sendMsgParam3                  ( CPF_Parm | CPF_NeedCtorLink )
 // struct FScriptDelegate         funcOnRequestComplete          ( CPF_Parm | CPF_NeedCtorLink )
 
-class USFXOnlineJobGaWHTTPSendMessage* USFXOnlineComponentGalaxyAtWar::eventCreateJobGaWSendMessage ( int msgType, class FString sendMsgParam1, class FString sendMsgParam2, class FString sendMsgParam3, struct FScriptDelegate funcOnRequestComplete )
+class USFXOnlineJobGaWHTTPSendMessage* USFXOnlineComponentGalaxyAtWar::eventCreateJobGaWSendMessage ( int msgType, FString const& sendMsgParam1, FString const& sendMsgParam2, FString const& sendMsgParam3, struct FScriptDelegate funcOnRequestComplete )
 {
 	static UFunction* pFnCreateJobGaWSendMessage = NULL;
 
@@ -29281,11 +29281,11 @@ class USFXOnlineJobGaWHTTPSendMessage* USFXOnlineComponentGalaxyAtWar::eventCrea
 // Parameters infos:
 // class USFXOnlineJobGaWHTTPIncreaseRatings* ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            defaultRatingIncrease          ( CPF_Parm )
-// class TArray<struct FMapEntry> securityRatingIncrease         ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FMapEntry> warAssetIncrease               ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FMapEntry>       securityRatingIncrease         ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FMapEntry>       warAssetIncrease               ( CPF_Parm | CPF_NeedCtorLink )
 // struct FScriptDelegate         funcOnRequestComplete          ( CPF_Parm | CPF_NeedCtorLink )
 
-class USFXOnlineJobGaWHTTPIncreaseRatings* USFXOnlineComponentGalaxyAtWar::eventCreateJobGaWIncreaseRatings ( int defaultRatingIncrease, class TArray<struct FMapEntry> securityRatingIncrease, class TArray<struct FMapEntry> warAssetIncrease, struct FScriptDelegate funcOnRequestComplete )
+class USFXOnlineJobGaWHTTPIncreaseRatings* USFXOnlineComponentGalaxyAtWar::eventCreateJobGaWIncreaseRatings ( int defaultRatingIncrease, TArray<struct FMapEntry> const& securityRatingIncrease, TArray<struct FMapEntry> const& warAssetIncrease, struct FScriptDelegate funcOnRequestComplete )
 {
 	static UFunction* pFnCreateJobGaWIncreaseRatings = NULL;
 
@@ -29329,9 +29329,9 @@ class USFXOnlineJobGaWHTTPGetRatings* USFXOnlineComponentGalaxyAtWar::eventCreat
 // Function SFXOnlineFoundation.SFXOnlineComponentGalaxyAtWar.SetBaseURL
 // [0x00020802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  sURL                           ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sURL                           ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentGalaxyAtWar::eventSetBaseURL ( class FString sURL )
+void USFXOnlineComponentGalaxyAtWar::eventSetBaseURL ( FString const& sURL )
 {
 	static UFunction* pFnSetBaseURL = NULL;
 
@@ -29514,12 +29514,12 @@ void USFXOnlineComponentGalaxyAtWar::GetGetMessagesHTTPRequest ( int msgType, cl
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // int                            msgType                        ( CPF_Parm )
-// class FString                  param1                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  param2                         ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  param3                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        param1                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        param2                         ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        param3                         ( CPF_Parm | CPF_NeedCtorLink )
 // class USFXOnlineHTTPRequest*   pSFXOnlineHTTPRequest          ( CPF_Parm | CPF_OutParm )
 
-void USFXOnlineComponentGalaxyAtWar::GetSendMessageHTTPRequest ( int msgType, class FString param1, class FString param2, class FString param3, class USFXOnlineHTTPRequest** pSFXOnlineHTTPRequest )
+void USFXOnlineComponentGalaxyAtWar::GetSendMessageHTTPRequest ( int msgType, FString const& param1, FString const& param2, FString const& param3, class USFXOnlineHTTPRequest** pSFXOnlineHTTPRequest )
 {
 	static UFunction* pFnGetSendMessageHTTPRequest = NULL;
 
@@ -29549,11 +29549,11 @@ void USFXOnlineComponentGalaxyAtWar::GetSendMessageHTTPRequest ( int msgType, cl
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
 // int                            defaultRatingIncrease          ( CPF_Parm )
-// class TArray<struct FMapEntry> securityRatingsIncrease        ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FMapEntry> warAssetsIncrease              ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FMapEntry>       securityRatingsIncrease        ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FMapEntry>       warAssetsIncrease              ( CPF_Parm | CPF_NeedCtorLink )
 // class USFXOnlineHTTPRequest*   pSFXOnlineHTTPRequest          ( CPF_Parm | CPF_OutParm )
 
-void USFXOnlineComponentGalaxyAtWar::GetIncreaseRatingsHTTPRequest ( int defaultRatingIncrease, class TArray<struct FMapEntry> securityRatingsIncrease, class TArray<struct FMapEntry> warAssetsIncrease, class USFXOnlineHTTPRequest** pSFXOnlineHTTPRequest )
+void USFXOnlineComponentGalaxyAtWar::GetIncreaseRatingsHTTPRequest ( int defaultRatingIncrease, TArray<struct FMapEntry> const& securityRatingsIncrease, TArray<struct FMapEntry> const& warAssetsIncrease, class USFXOnlineHTTPRequest** pSFXOnlineHTTPRequest )
 {
 	static UFunction* pFnGetIncreaseRatingsHTTPRequest = NULL;
 
@@ -29610,11 +29610,11 @@ void USFXOnlineComponentGalaxyAtWar::GetRatingsHTTPRequest ( unsigned long getAs
 // Function SFXOnlineFoundation.SFXOnlineComponentGalaxyAtWar.GetAuthenticationHTTPRequest
 // [0x00420400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  token                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        token                          ( CPF_Parm | CPF_NeedCtorLink )
 // int                            tokenType                      ( CPF_Parm )
 // class USFXOnlineHTTPRequest*   pSFXOnlineHTTPRequest          ( CPF_Parm | CPF_OutParm )
 
-void USFXOnlineComponentGalaxyAtWar::GetAuthenticationHTTPRequest ( class FString token, int tokenType, class USFXOnlineHTTPRequest** pSFXOnlineHTTPRequest )
+void USFXOnlineComponentGalaxyAtWar::GetAuthenticationHTTPRequest ( FString const& token, int tokenType, class USFXOnlineHTTPRequest** pSFXOnlineHTTPRequest )
 {
 	static UFunction* pFnGetAuthenticationHTTPRequest = NULL;
 
@@ -29690,12 +29690,12 @@ void USFXOnlineComponentGalaxyAtWar::GetMessages ( int msgType, struct FScriptDe
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // int                            msgType                        ( CPF_Parm )
-// class FString                  sendMsgParam1                  ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sendMsgParam1                  ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  ParamType                      ( CPF_Parm )
-// class FString                  sendMsgParam3                  ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sendMsgParam3                  ( CPF_Parm | CPF_NeedCtorLink )
 // struct FScriptDelegate         OnSendMessageComplete          ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentGalaxyAtWar::SendMessage ( int msgType, class FString sendMsgParam1, unsigned char ParamType, class FString sendMsgParam3, struct FScriptDelegate OnSendMessageComplete )
+void USFXOnlineComponentGalaxyAtWar::SendMessage ( int msgType, FString const& sendMsgParam1, unsigned char ParamType, FString const& sendMsgParam3, struct FScriptDelegate OnSendMessageComplete )
 {
 	static UFunction* pFnSendMessage = NULL;
 
@@ -29720,11 +29720,11 @@ void USFXOnlineComponentGalaxyAtWar::SendMessage ( int msgType, class FString se
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // int                            defaultRatingIncrease          ( CPF_Parm )
-// class TArray<struct FMapEntry> securityRatingIncrease         ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FMapEntry> warAssetIncrease               ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FMapEntry>       securityRatingIncrease         ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FMapEntry>       warAssetIncrease               ( CPF_Parm | CPF_NeedCtorLink )
 // struct FScriptDelegate         funcOnRequestComplete          ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentGalaxyAtWar::IncreaseRatings ( int defaultRatingIncrease, class TArray<struct FMapEntry> securityRatingIncrease, class TArray<struct FMapEntry> warAssetIncrease, struct FScriptDelegate funcOnRequestComplete )
+void USFXOnlineComponentGalaxyAtWar::IncreaseRatings ( int defaultRatingIncrease, TArray<struct FMapEntry> const& securityRatingIncrease, TArray<struct FMapEntry> const& warAssetIncrease, struct FScriptDelegate funcOnRequestComplete )
 {
 	static UFunction* pFnIncreaseRatings = NULL;
 
@@ -29793,10 +29793,10 @@ void USFXOnlineComponentGalaxyAtWar::OnTouchMessagesComplete ( int Count, int er
 // Function SFXOnlineFoundation.SFXOnlineComponentGalaxyAtWar.OnGetMessagesComplete
 // [0x00120000] 
 // Parameters infos:
-// class TArray<struct FMessageEntry> Messages                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FMessageEntry>   Messages                       ( CPF_Parm | CPF_NeedCtorLink )
 // int                            errorCode                      ( CPF_Parm )
 
-void USFXOnlineComponentGalaxyAtWar::OnGetMessagesComplete ( class TArray<struct FMessageEntry> Messages, int errorCode )
+void USFXOnlineComponentGalaxyAtWar::OnGetMessagesComplete ( TArray<struct FMessageEntry> const& Messages, int errorCode )
 {
 	static UFunction* pFnOnGetMessagesComplete = NULL;
 
@@ -29814,10 +29814,10 @@ void USFXOnlineComponentGalaxyAtWar::OnGetMessagesComplete ( class TArray<struct
 // [0x00120000] 
 // Parameters infos:
 // int                            messageId                      ( CPF_Parm )
-// class TArray<int>              messageIds                     ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    messageIds                     ( CPF_Parm | CPF_NeedCtorLink )
 // int                            errorCode                      ( CPF_Parm )
 
-void USFXOnlineComponentGalaxyAtWar::OnSendMessageComplete ( int messageId, class TArray<int> messageIds, int errorCode )
+void USFXOnlineComponentGalaxyAtWar::OnSendMessageComplete ( int messageId, TArray<int> const& messageIds, int errorCode )
 {
 	static UFunction* pFnOnSendMessageComplete = NULL;
 
@@ -29835,12 +29835,12 @@ void USFXOnlineComponentGalaxyAtWar::OnSendMessageComplete ( int messageId, clas
 // Function SFXOnlineFoundation.SFXOnlineComponentGalaxyAtWar.OnIncreaseRatingsComplete
 // [0x00120000] 
 // Parameters infos:
-// class TArray<int>              updatedSecurityRatings         ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<int>              updatedWarAssets               ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    updatedSecurityRatings         ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    updatedWarAssets               ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Level                          ( CPF_Parm )
 // int                            errorCode                      ( CPF_Parm )
 
-void USFXOnlineComponentGalaxyAtWar::OnIncreaseRatingsComplete ( class TArray<int> updatedSecurityRatings, class TArray<int> updatedWarAssets, int Level, int errorCode )
+void USFXOnlineComponentGalaxyAtWar::OnIncreaseRatingsComplete ( TArray<int> const& updatedSecurityRatings, TArray<int> const& updatedWarAssets, int Level, int errorCode )
 {
 	static UFunction* pFnOnIncreaseRatingsComplete = NULL;
 
@@ -29859,12 +29859,12 @@ void USFXOnlineComponentGalaxyAtWar::OnIncreaseRatingsComplete ( class TArray<in
 // Function SFXOnlineFoundation.SFXOnlineComponentGalaxyAtWar.OnGetRatingsComplete
 // [0x00120000] 
 // Parameters infos:
-// class TArray<int>              updatedSecurityRatings         ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<int>              updatedWarAssets               ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    updatedSecurityRatings         ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    updatedWarAssets               ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Level                          ( CPF_Parm )
 // int                            errorCode                      ( CPF_Parm )
 
-void USFXOnlineComponentGalaxyAtWar::OnGetRatingsComplete ( class TArray<int> updatedSecurityRatings, class TArray<int> updatedWarAssets, int Level, int errorCode )
+void USFXOnlineComponentGalaxyAtWar::OnGetRatingsComplete ( TArray<int> const& updatedSecurityRatings, TArray<int> const& updatedWarAssets, int Level, int errorCode )
 {
 	static UFunction* pFnOnGetRatingsComplete = NULL;
 
@@ -30110,9 +30110,9 @@ bool USFXOnlineComponentJobQueue::eventCheckForProcessingJob ( unsigned char Job
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  JobType                        ( CPF_Parm )
 // struct FScriptDelegate         Predicate                      ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<class USFXOnlineJob*> JobArray                       ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<class USFXOnlineJob*>   JobArray                       ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentJobQueue::CheckForJobInArray ( unsigned char JobType, struct FScriptDelegate Predicate, class TArray<class USFXOnlineJob*>* JobArray )
+bool USFXOnlineComponentJobQueue::CheckForJobInArray ( unsigned char JobType, struct FScriptDelegate Predicate, TArray<class USFXOnlineJob*>* JobArray )
 {
 	static UFunction* pFnCheckForJobInArray = NULL;
 
@@ -30367,9 +30367,9 @@ void USFXOnlineComponentUnrealPlayer::eventTriggerProfileReadDelegate ( unsigned
 // unsigned char                  eError                         ( CPF_Parm )
 // int                            nJob                           ( CPF_Parm )
 // int                            UserNum                        ( CPF_Parm )
-// class TArray<struct FSettingsPair> SettingsPairs                  ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FSettingsPair>   SettingsPairs                  ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentUnrealPlayer::LoadSettingsCallback ( unsigned char eError, int nJob, int UserNum, class TArray<struct FSettingsPair>* SettingsPairs )
+void USFXOnlineComponentUnrealPlayer::LoadSettingsCallback ( unsigned char eError, int nJob, int UserNum, TArray<struct FSettingsPair>* SettingsPairs )
 {
 	static UFunction* pFnLoadSettingsCallback = NULL;
 
@@ -30568,9 +30568,9 @@ bool USFXOnlineComponentUnrealPlayer::UnlockAchievement ( unsigned char LocalUse
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // int                            TitleId                        ( CPF_OptionalParm | CPF_Parm )
 // int                            SetIndex                       ( CPF_OptionalParm | CPF_Parm )
-// class TArray<struct FAchievementDetails> Achievements                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FAchievementDetails> Achievements                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-unsigned char USFXOnlineComponentUnrealPlayer::GetAchievements ( unsigned char LocalUserNum, int TitleId, int SetIndex, class TArray<struct FAchievementDetails>* Achievements )
+unsigned char USFXOnlineComponentUnrealPlayer::GetAchievements ( unsigned char LocalUserNum, int TitleId, int SetIndex, TArray<struct FAchievementDetails>* Achievements )
 {
 	static UFunction* pFnGetAchievements = NULL;
 
@@ -30754,10 +30754,10 @@ void USFXOnlineComponentUnrealPlayer::AddFriendMessageReceivedDelegate ( unsigne
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            SendingPlayer                  ( CPF_Parm )
-// class FString                  SendingNick                    ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Message                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        SendingNick                    ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Message                        ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentUnrealPlayer::OnFriendMessageReceived ( unsigned char LocalUserNum, struct FUniqueNetId SendingPlayer, class FString SendingNick, class FString Message )
+void USFXOnlineComponentUnrealPlayer::OnFriendMessageReceived ( unsigned char LocalUserNum, struct FUniqueNetId const& SendingPlayer, FString const& SendingNick, FString const& Message )
 {
 	static UFunction* pFnOnFriendMessageReceived = NULL;
 
@@ -30777,9 +30777,9 @@ void USFXOnlineComponentUnrealPlayer::OnFriendMessageReceived ( unsigned char Lo
 // [0x00420000] 
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class TArray<struct FOnlineFriendMessage> FriendMessages                 ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FOnlineFriendMessage> FriendMessages                 ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentUnrealPlayer::GetFriendMessages ( unsigned char LocalUserNum, class TArray<struct FOnlineFriendMessage>* FriendMessages )
+void USFXOnlineComponentUnrealPlayer::GetFriendMessages ( unsigned char LocalUserNum, TArray<struct FOnlineFriendMessage>* FriendMessages )
 {
 	static UFunction* pFnGetFriendMessages = NULL;
 
@@ -30859,7 +30859,7 @@ void USFXOnlineComponentUnrealPlayer::OnJoinFriendGameComplete ( unsigned long b
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            Friend                         ( CPF_Parm )
 
-bool USFXOnlineComponentUnrealPlayer::JoinFriendGame ( unsigned char LocalUserNum, struct FUniqueNetId Friend )
+bool USFXOnlineComponentUnrealPlayer::JoinFriendGame ( unsigned char LocalUserNum, struct FUniqueNetId const& Friend )
 {
 	static UFunction* pFnJoinFriendGame = NULL;
 
@@ -30919,9 +30919,9 @@ void USFXOnlineComponentUnrealPlayer::AddReceivedGameInviteDelegate ( unsigned c
 // [0x00120000] 
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class FString                  InviterName                    ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        InviterName                    ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentUnrealPlayer::OnReceivedGameInvite ( unsigned char LocalUserNum, class FString InviterName )
+void USFXOnlineComponentUnrealPlayer::OnReceivedGameInvite ( unsigned char LocalUserNum, FString const& InviterName )
 {
 	static UFunction* pFnOnReceivedGameInvite = NULL;
 
@@ -30940,10 +30940,10 @@ void USFXOnlineComponentUnrealPlayer::OnReceivedGameInvite ( unsigned char Local
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class TArray<struct FUniqueNetId> Friends                        ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Text                           ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FUniqueNetId>    Friends                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Text                           ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentUnrealPlayer::SendGameInviteToFriends ( unsigned char LocalUserNum, class TArray<struct FUniqueNetId> Friends, class FString Text )
+bool USFXOnlineComponentUnrealPlayer::SendGameInviteToFriends ( unsigned char LocalUserNum, TArray<struct FUniqueNetId> const& Friends, FString const& Text )
 {
 	static UFunction* pFnSendGameInviteToFriends = NULL;
 
@@ -30966,9 +30966,9 @@ bool USFXOnlineComponentUnrealPlayer::SendGameInviteToFriends ( unsigned char Lo
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            Friend                         ( CPF_Parm )
-// class FString                  Text                           ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        Text                           ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentUnrealPlayer::SendGameInviteToFriend ( unsigned char LocalUserNum, struct FUniqueNetId Friend, class FString Text )
+bool USFXOnlineComponentUnrealPlayer::SendGameInviteToFriend ( unsigned char LocalUserNum, struct FUniqueNetId const& Friend, FString const& Text )
 {
 	static UFunction* pFnSendGameInviteToFriend = NULL;
 
@@ -30991,9 +30991,9 @@ bool USFXOnlineComponentUnrealPlayer::SendGameInviteToFriend ( unsigned char Loc
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            Friend                         ( CPF_Parm )
-// class FString                  Message                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Message                        ( CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentUnrealPlayer::SendMessageToFriend ( unsigned char LocalUserNum, struct FUniqueNetId Friend, class FString Message )
+bool USFXOnlineComponentUnrealPlayer::SendMessageToFriend ( unsigned char LocalUserNum, struct FUniqueNetId const& Friend, FString const& Message )
 {
 	static UFunction* pFnSendMessageToFriend = NULL;
 
@@ -31055,10 +31055,10 @@ void USFXOnlineComponentUnrealPlayer::AddFriendInviteReceivedDelegate ( unsigned
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            RequestingPlayer               ( CPF_Parm )
-// class FString                  RequestingNick                 ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Message                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        RequestingNick                 ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Message                        ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentUnrealPlayer::OnFriendInviteReceived ( unsigned char LocalUserNum, struct FUniqueNetId RequestingPlayer, class FString RequestingNick, class FString Message )
+void USFXOnlineComponentUnrealPlayer::OnFriendInviteReceived ( unsigned char LocalUserNum, struct FUniqueNetId const& RequestingPlayer, FString const& RequestingNick, FString const& Message )
 {
 	static UFunction* pFnOnFriendInviteReceived = NULL;
 
@@ -31081,7 +31081,7 @@ void USFXOnlineComponentUnrealPlayer::OnFriendInviteReceived ( unsigned char Loc
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            FormerFriend                   ( CPF_Parm )
 
-bool USFXOnlineComponentUnrealPlayer::RemoveFriend ( unsigned char LocalUserNum, struct FUniqueNetId FormerFriend )
+bool USFXOnlineComponentUnrealPlayer::RemoveFriend ( unsigned char LocalUserNum, struct FUniqueNetId const& FormerFriend )
 {
 	static UFunction* pFnRemoveFriend = NULL;
 
@@ -31104,7 +31104,7 @@ bool USFXOnlineComponentUnrealPlayer::RemoveFriend ( unsigned char LocalUserNum,
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            RequestingPlayer               ( CPF_Parm )
 
-bool USFXOnlineComponentUnrealPlayer::DenyFriendInvite ( unsigned char LocalUserNum, struct FUniqueNetId RequestingPlayer )
+bool USFXOnlineComponentUnrealPlayer::DenyFriendInvite ( unsigned char LocalUserNum, struct FUniqueNetId const& RequestingPlayer )
 {
 	static UFunction* pFnDenyFriendInvite = NULL;
 
@@ -31127,7 +31127,7 @@ bool USFXOnlineComponentUnrealPlayer::DenyFriendInvite ( unsigned char LocalUser
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            RequestingPlayer               ( CPF_Parm )
 
-bool USFXOnlineComponentUnrealPlayer::AcceptFriendInvite ( unsigned char LocalUserNum, struct FUniqueNetId RequestingPlayer )
+bool USFXOnlineComponentUnrealPlayer::AcceptFriendInvite ( unsigned char LocalUserNum, struct FUniqueNetId const& RequestingPlayer )
 {
 	static UFunction* pFnAcceptFriendInvite = NULL;
 
@@ -31206,10 +31206,10 @@ void USFXOnlineComponentUnrealPlayer::OnAddFriendByNameComplete ( unsigned long 
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class FString                  FriendName                     ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Message                        ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        FriendName                     ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Message                        ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentUnrealPlayer::AddFriendByName ( unsigned char LocalUserNum, class FString FriendName, class FString Message )
+bool USFXOnlineComponentUnrealPlayer::AddFriendByName ( unsigned char LocalUserNum, FString const& FriendName, FString const& Message )
 {
 	static UFunction* pFnAddFriendByName = NULL;
 
@@ -31232,9 +31232,9 @@ bool USFXOnlineComponentUnrealPlayer::AddFriendByName ( unsigned char LocalUserN
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            NewFriend                      ( CPF_Parm )
-// class FString                  Message                        ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        Message                        ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentUnrealPlayer::AddFriend ( unsigned char LocalUserNum, struct FUniqueNetId NewFriend, class FString Message )
+bool USFXOnlineComponentUnrealPlayer::AddFriend ( unsigned char LocalUserNum, struct FUniqueNetId const& NewFriend, FString const& Message )
 {
 	static UFunction* pFnAddFriend = NULL;
 
@@ -31254,10 +31254,10 @@ bool USFXOnlineComponentUnrealPlayer::AddFriend ( unsigned char LocalUserNum, st
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.GetKeyboardInputResults
 // [0x00420000] 
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // unsigned char                  bWasCanceled                   ( CPF_Parm | CPF_OutParm )
 
-class FString USFXOnlineComponentUnrealPlayer::GetKeyboardInputResults ( unsigned char* bWasCanceled )
+FString USFXOnlineComponentUnrealPlayer::GetKeyboardInputResults ( unsigned char* bWasCanceled )
 {
 	static UFunction* pFnGetKeyboardInputResults = NULL;
 
@@ -31336,14 +31336,14 @@ void USFXOnlineComponentUnrealPlayer::OnKeyboardInputComplete ( unsigned long bW
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class FString                  TitleText                      ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  DescriptionText                ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        TitleText                      ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        DescriptionText                ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bIsPassword                    ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bShouldValidate                ( CPF_OptionalParm | CPF_Parm )
-// class FString                  DefaultText                    ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// FString                        DefaultText                    ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // int                            MaxResultLength                ( CPF_OptionalParm | CPF_Parm )
 
-bool USFXOnlineComponentUnrealPlayer::ShowKeyboardUI ( unsigned char LocalUserNum, class FString TitleText, class FString DescriptionText, unsigned long bIsPassword, unsigned long bShouldValidate, class FString DefaultText, int MaxResultLength )
+bool USFXOnlineComponentUnrealPlayer::ShowKeyboardUI ( unsigned char LocalUserNum, FString const& TitleText, FString const& DescriptionText, unsigned long bIsPassword, unsigned long bShouldValidate, FString const& DefaultText, int MaxResultLength )
 {
 	static UFunction* pFnShowKeyboardUI = NULL;
 
@@ -31369,10 +31369,10 @@ bool USFXOnlineComponentUnrealPlayer::ShowKeyboardUI ( unsigned char LocalUserNu
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // int                            StatusId                       ( CPF_Parm )
-// class TArray<struct FLocalizedStringSetting> LocalizedStringSettings        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-// class TArray<struct FSettingsProperty> Properties                     ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FLocalizedStringSetting> LocalizedStringSettings        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FSettingsProperty> Properties                     ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentUnrealPlayer::SetOnlineStatus ( unsigned char LocalUserNum, int StatusId, class TArray<struct FLocalizedStringSetting>* LocalizedStringSettings, class TArray<struct FSettingsProperty>* Properties )
+void USFXOnlineComponentUnrealPlayer::SetOnlineStatus ( unsigned char LocalUserNum, int StatusId, TArray<struct FLocalizedStringSetting>* LocalizedStringSettings, TArray<struct FSettingsProperty>* Properties )
 {
 	static UFunction* pFnSetOnlineStatus = NULL;
 
@@ -31409,9 +31409,9 @@ void USFXOnlineComponentUnrealPlayer::SetOnlineStatus ( unsigned char LocalUserN
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // int                            Count                          ( CPF_OptionalParm | CPF_Parm )
 // int                            StartingAt                     ( CPF_OptionalParm | CPF_Parm )
-// class TArray<struct FOnlineFriend> Friends                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FOnlineFriend>   Friends                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-unsigned char USFXOnlineComponentUnrealPlayer::GetFriendsList ( unsigned char LocalUserNum, int Count, int StartingAt, class TArray<struct FOnlineFriend>* Friends )
+unsigned char USFXOnlineComponentUnrealPlayer::GetFriendsList ( unsigned char LocalUserNum, int Count, int StartingAt, TArray<struct FOnlineFriend>* Friends )
 {
 	static UFunction* pFnGetFriendsList = NULL;
 
@@ -31639,7 +31639,7 @@ class UOnlinePlayerStorage* USFXOnlineComponentUnrealPlayer::GetPlayerStorage ( 
 // struct FUniqueNetId            NetId                          ( CPF_Parm )
 // struct FScriptDelegate         ReadPlayerStorageForNetIdCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentUnrealPlayer::ClearReadPlayerStorageForNetIdCompleteDelegate ( struct FUniqueNetId NetId, struct FScriptDelegate ReadPlayerStorageForNetIdCompleteDelegate )
+void USFXOnlineComponentUnrealPlayer::ClearReadPlayerStorageForNetIdCompleteDelegate ( struct FUniqueNetId const& NetId, struct FScriptDelegate ReadPlayerStorageForNetIdCompleteDelegate )
 {
 	static UFunction* pFnClearReadPlayerStorageForNetIdCompleteDelegate = NULL;
 
@@ -31659,7 +31659,7 @@ void USFXOnlineComponentUnrealPlayer::ClearReadPlayerStorageForNetIdCompleteDele
 // struct FUniqueNetId            NetId                          ( CPF_Parm )
 // struct FScriptDelegate         ReadPlayerStorageForNetIdCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentUnrealPlayer::AddReadPlayerStorageForNetIdCompleteDelegate ( struct FUniqueNetId NetId, struct FScriptDelegate ReadPlayerStorageForNetIdCompleteDelegate )
+void USFXOnlineComponentUnrealPlayer::AddReadPlayerStorageForNetIdCompleteDelegate ( struct FUniqueNetId const& NetId, struct FScriptDelegate ReadPlayerStorageForNetIdCompleteDelegate )
 {
 	static UFunction* pFnAddReadPlayerStorageForNetIdCompleteDelegate = NULL;
 
@@ -31679,7 +31679,7 @@ void USFXOnlineComponentUnrealPlayer::AddReadPlayerStorageForNetIdCompleteDelega
 // struct FUniqueNetId            NetId                          ( CPF_Parm )
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
 
-void USFXOnlineComponentUnrealPlayer::OnReadPlayerStorageForNetIdComplete ( struct FUniqueNetId NetId, unsigned long bWasSuccessful )
+void USFXOnlineComponentUnrealPlayer::OnReadPlayerStorageForNetIdComplete ( struct FUniqueNetId const& NetId, unsigned long bWasSuccessful )
 {
 	static UFunction* pFnOnReadPlayerStorageForNetIdComplete = NULL;
 
@@ -31700,7 +31700,7 @@ void USFXOnlineComponentUnrealPlayer::OnReadPlayerStorageForNetIdComplete ( stru
 // struct FUniqueNetId            NetId                          ( CPF_Parm )
 // class UOnlinePlayerStorage*    PlayerStorage                  ( CPF_Parm )
 
-bool USFXOnlineComponentUnrealPlayer::ReadPlayerStorageForNetId ( struct FUniqueNetId NetId, class UOnlinePlayerStorage* PlayerStorage )
+bool USFXOnlineComponentUnrealPlayer::ReadPlayerStorageForNetId ( struct FUniqueNetId const& NetId, class UOnlinePlayerStorage* PlayerStorage )
 {
 	static UFunction* pFnReadPlayerStorageForNetId = NULL;
 
@@ -32164,7 +32164,7 @@ void USFXOnlineComponentUnrealPlayer::AddLoginStatusChangeDelegate ( struct FScr
 // unsigned char                  NewStatus                      ( CPF_Parm )
 // struct FUniqueNetId            NewId                          ( CPF_Parm )
 
-void USFXOnlineComponentUnrealPlayer::OnLoginStatusChange ( unsigned char NewStatus, struct FUniqueNetId NewId )
+void USFXOnlineComponentUnrealPlayer::OnLoginStatusChange ( unsigned char NewStatus, struct FUniqueNetId const& NewId )
 {
 	static UFunction* pFnOnLoginStatusChange = NULL;
 
@@ -32242,7 +32242,7 @@ bool USFXOnlineComponentUnrealPlayer::ShowFriendsUI ( unsigned char LocalUserNum
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool USFXOnlineComponentUnrealPlayer::IsMuted ( unsigned char LocalUserNum, struct FUniqueNetId PlayerID )
+bool USFXOnlineComponentUnrealPlayer::IsMuted ( unsigned char LocalUserNum, struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnIsMuted = NULL;
 
@@ -32263,9 +32263,9 @@ bool USFXOnlineComponentUnrealPlayer::IsMuted ( unsigned char LocalUserNum, stru
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class TArray<struct FFriendsQuery> Query                          ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FFriendsQuery>   Query                          ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentUnrealPlayer::AreAnyFriends ( unsigned char LocalUserNum, class TArray<struct FFriendsQuery>* Query )
+bool USFXOnlineComponentUnrealPlayer::AreAnyFriends ( unsigned char LocalUserNum, TArray<struct FFriendsQuery>* Query )
 {
 	static UFunction* pFnAreAnyFriends = NULL;
 
@@ -32293,7 +32293,7 @@ bool USFXOnlineComponentUnrealPlayer::AreAnyFriends ( unsigned char LocalUserNum
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            PlayerID                       ( CPF_Parm )
 
-bool USFXOnlineComponentUnrealPlayer::IsFriend ( unsigned char LocalUserNum, struct FUniqueNetId PlayerID )
+bool USFXOnlineComponentUnrealPlayer::IsFriend ( unsigned char LocalUserNum, struct FUniqueNetId const& PlayerID )
 {
 	static UFunction* pFnIsFriend = NULL;
 
@@ -32512,10 +32512,10 @@ bool USFXOnlineComponentUnrealPlayer::IsGuestLogin ( unsigned char LocalUserNum 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.GetPlayerNickname
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 
-class FString USFXOnlineComponentUnrealPlayer::GetPlayerNickname ( unsigned char LocalUserNum )
+FString USFXOnlineComponentUnrealPlayer::GetPlayerNickname ( unsigned char LocalUserNum )
 {
 	static UFunction* pFnGetPlayerNickname = NULL;
 
@@ -32790,11 +32790,11 @@ bool USFXOnlineComponentUnrealPlayer::AutoLogin ( )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
-// class FString                  LoginName                      ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  Password                       ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        LoginName                      ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        Password                       ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bWantsLocalOnly                ( CPF_OptionalParm | CPF_Parm )
 
-bool USFXOnlineComponentUnrealPlayer::Login ( unsigned char LocalUserNum, class FString LoginName, class FString Password, unsigned long bWantsLocalOnly )
+bool USFXOnlineComponentUnrealPlayer::Login ( unsigned char LocalUserNum, FString const& LoginName, FString const& Password, unsigned long bWantsLocalOnly )
 {
 	static UFunction* pFnLogin = NULL;
 
@@ -32966,10 +32966,10 @@ void USFXOnlineComponentUnrealPlayer::CachePlayerNickname ( )
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.CreateProfileName
 // [0x00024400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // unsigned long                  bIsTrilogyProfile              ( CPF_OptionalParm | CPF_Parm )
 
-class FString USFXOnlineComponentUnrealPlayer::CreateProfileName ( unsigned long bIsTrilogyProfile )
+FString USFXOnlineComponentUnrealPlayer::CreateProfileName ( unsigned long bIsTrilogyProfile )
 {
 	static UFunction* pFnCreateProfileName = NULL;
 
@@ -33127,9 +33127,9 @@ class UClass* USFXOnlineGameSettings::StaticClass()
 // Function SFXOnlineFoundation.SFXOnlineGameSettings.ToString
 // [0x00020002] 
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineGameSettings::ToString ( )
+FString USFXOnlineGameSettings::ToString ( )
 {
 	static UFunction* pFnToString = NULL;
 
@@ -33212,9 +33212,9 @@ void USFXOnlineGameSettings::EnsureMatchSettingsAreValid ( unsigned char eType, 
 // [0x00022002] 
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  MapName                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        MapName                        ( CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineGameSettings::ValidateMapName ( class FString MapName )
+bool USFXOnlineGameSettings::ValidateMapName ( FString const& MapName )
 {
 	static UFunction* pFnValidateMapName = NULL;
 
@@ -33233,9 +33233,9 @@ bool USFXOnlineGameSettings::ValidateMapName ( class FString MapName )
 // [0x00022802] ( FUNC_Event )
 // Parameters infos:
 // struct FMPMapInfo              ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  serverMapID                    ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        serverMapID                    ( CPF_Parm | CPF_NeedCtorLink )
 
-struct FMPMapInfo USFXOnlineGameSettings::eventGetMapByServerMapID ( class FString serverMapID )
+struct FMPMapInfo USFXOnlineGameSettings::eventGetMapByServerMapID ( FString const& serverMapID )
 {
 	static UFunction* pFnGetMapByServerMapID = NULL;
 
@@ -33275,9 +33275,9 @@ struct FMPMapInfo USFXOnlineGameSettings::GetMapByID ( int MapId )
 // [0x00022002] 
 // Parameters infos:
 // struct FMPMapInfo              ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
-// class FString                  PackageName                    ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        PackageName                    ( CPF_Parm | CPF_NeedCtorLink )
 
-struct FMPMapInfo USFXOnlineGameSettings::GetMapByPackageName ( class FString PackageName )
+struct FMPMapInfo USFXOnlineGameSettings::GetMapByPackageName ( FString const& PackageName )
 {
 	static UFunction* pFnGetMapByPackageName = NULL;
 
@@ -33296,9 +33296,9 @@ struct FMPMapInfo USFXOnlineGameSettings::GetMapByPackageName ( class FString Pa
 // [0x00022802] ( FUNC_Event )
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  PackageName                    ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        PackageName                    ( CPF_Parm | CPF_NeedCtorLink )
 
-int USFXOnlineGameSettings::eventGetMasterMapID ( class FString PackageName )
+int USFXOnlineGameSettings::eventGetMasterMapID ( FString const& PackageName )
 {
 	static UFunction* pFnGetMasterMapID = NULL;
 
@@ -33896,10 +33896,10 @@ void USFXOnlineJobGaWHTTPRequest::Tick ( )
 // Function SFXOnlineFoundation.SFXOnlineJobGaWHTTPRequest.AuthenticateHTTP
 // [0x00020802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  token                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        token                          ( CPF_Parm | CPF_NeedCtorLink )
 // int                            tokenType                      ( CPF_Parm )
 
-void USFXOnlineJobGaWHTTPRequest::eventAuthenticateHTTP ( class FString token, int tokenType )
+void USFXOnlineJobGaWHTTPRequest::eventAuthenticateHTTP ( FString const& token, int tokenType )
 {
 	static UFunction* pFnAuthenticateHTTP = NULL;
 
@@ -34166,10 +34166,10 @@ void USFXOnlineJobGaWHTTPGetMessages::HandleSecondHTTPResult ( )
 // Function SFXOnlineFoundation.SFXOnlineJobGaWHTTPGetMessages.OnGetMessagesComplete
 // [0x00120000] 
 // Parameters infos:
-// class TArray<struct FMessageEntry> Messages                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FMessageEntry>   Messages                       ( CPF_Parm | CPF_NeedCtorLink )
 // int                            errorCode                      ( CPF_Parm )
 
-void USFXOnlineJobGaWHTTPGetMessages::OnGetMessagesComplete ( class TArray<struct FMessageEntry> Messages, int errorCode )
+void USFXOnlineJobGaWHTTPGetMessages::OnGetMessagesComplete ( TArray<struct FMessageEntry> const& Messages, int errorCode )
 {
 	static UFunction* pFnOnGetMessagesComplete = NULL;
 
@@ -34295,12 +34295,12 @@ void USFXOnlineJobGaWHTTPGetRatings::HandleSecondHTTPResult ( )
 // Function SFXOnlineFoundation.SFXOnlineJobGaWHTTPGetRatings.OnGetRatingsComplete
 // [0x00120000] 
 // Parameters infos:
-// class TArray<int>              updatedSecurityRatings         ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<int>              updatedWarAssets               ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    updatedSecurityRatings         ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    updatedWarAssets               ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Level                          ( CPF_Parm )
 // int                            errorCode                      ( CPF_Parm )
 
-void USFXOnlineJobGaWHTTPGetRatings::OnGetRatingsComplete ( class TArray<int> updatedSecurityRatings, class TArray<int> updatedWarAssets, int Level, int errorCode )
+void USFXOnlineJobGaWHTTPGetRatings::OnGetRatingsComplete ( TArray<int> const& updatedSecurityRatings, TArray<int> const& updatedWarAssets, int Level, int errorCode )
 {
 	static UFunction* pFnOnGetRatingsComplete = NULL;
 
@@ -34365,11 +34365,11 @@ void USFXOnlineJobGaWHTTPIncreaseRatings::eventQueueSecondHTTPRequest ( )
 // Parameters infos:
 // class USFXOnlineJobGaWHTTPIncreaseRatings* ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            inDefaultRatingIncrease        ( CPF_Parm )
-// class TArray<struct FMapEntry> inSecurityRatingIncrease       ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FMapEntry> inWarAssetIncrease             ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FMapEntry>       inSecurityRatingIncrease       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FMapEntry>       inWarAssetIncrease             ( CPF_Parm | CPF_NeedCtorLink )
 // struct FScriptDelegate         RequestCompleteDelegate        ( CPF_Parm | CPF_NeedCtorLink )
 
-class USFXOnlineJobGaWHTTPIncreaseRatings* USFXOnlineJobGaWHTTPIncreaseRatings::eventCreateGaWIncreaseRatingsJob ( int inDefaultRatingIncrease, class TArray<struct FMapEntry> inSecurityRatingIncrease, class TArray<struct FMapEntry> inWarAssetIncrease, struct FScriptDelegate RequestCompleteDelegate )
+class USFXOnlineJobGaWHTTPIncreaseRatings* USFXOnlineJobGaWHTTPIncreaseRatings::eventCreateGaWIncreaseRatingsJob ( int inDefaultRatingIncrease, TArray<struct FMapEntry> const& inSecurityRatingIncrease, TArray<struct FMapEntry> const& inWarAssetIncrease, struct FScriptDelegate RequestCompleteDelegate )
 {
 	static UFunction* pFnCreateGaWIncreaseRatingsJob = NULL;
 
@@ -34432,12 +34432,12 @@ void USFXOnlineJobGaWHTTPIncreaseRatings::HandleSecondHTTPResult ( )
 // Function SFXOnlineFoundation.SFXOnlineJobGaWHTTPIncreaseRatings.OnIncreaseRatingsComplete
 // [0x00120000] 
 // Parameters infos:
-// class TArray<int>              updatedSecurityRatings         ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<int>              updatedWarAssets               ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    updatedSecurityRatings         ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    updatedWarAssets               ( CPF_Parm | CPF_NeedCtorLink )
 // int                            Level                          ( CPF_Parm )
 // int                            errorCode                      ( CPF_Parm )
 
-void USFXOnlineJobGaWHTTPIncreaseRatings::OnIncreaseRatingsComplete ( class TArray<int> updatedSecurityRatings, class TArray<int> updatedWarAssets, int Level, int errorCode )
+void USFXOnlineJobGaWHTTPIncreaseRatings::OnIncreaseRatingsComplete ( TArray<int> const& updatedSecurityRatings, TArray<int> const& updatedWarAssets, int Level, int errorCode )
 {
 	static UFunction* pFnOnIncreaseRatingsComplete = NULL;
 
@@ -34502,12 +34502,12 @@ void USFXOnlineJobGaWHTTPSendMessage::eventQueueSecondHTTPRequest ( )
 // Parameters infos:
 // class USFXOnlineJobGaWHTTPSendMessage* ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            msgType                        ( CPF_Parm )
-// class FString                  sendMsgParam1                  ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sendMsgParam2                  ( CPF_Parm | CPF_NeedCtorLink )
-// class FString                  sendMsgParam3                  ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sendMsgParam1                  ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sendMsgParam2                  ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sendMsgParam3                  ( CPF_Parm | CPF_NeedCtorLink )
 // struct FScriptDelegate         RequestCompleteDelegate        ( CPF_Parm | CPF_NeedCtorLink )
 
-class USFXOnlineJobGaWHTTPSendMessage* USFXOnlineJobGaWHTTPSendMessage::eventCreateGaWSendMessageJob ( int msgType, class FString sendMsgParam1, class FString sendMsgParam2, class FString sendMsgParam3, struct FScriptDelegate RequestCompleteDelegate )
+class USFXOnlineJobGaWHTTPSendMessage* USFXOnlineJobGaWHTTPSendMessage::eventCreateGaWSendMessageJob ( int msgType, FString const& sendMsgParam1, FString const& sendMsgParam2, FString const& sendMsgParam3, struct FScriptDelegate RequestCompleteDelegate )
 {
 	static UFunction* pFnCreateGaWSendMessageJob = NULL;
 
@@ -34572,10 +34572,10 @@ void USFXOnlineJobGaWHTTPSendMessage::HandleSecondHTTPResult ( )
 // [0x00120000] 
 // Parameters infos:
 // int                            messageId                      ( CPF_Parm )
-// class TArray<int>              messageIds                     ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<int>                    messageIds                     ( CPF_Parm | CPF_NeedCtorLink )
 // int                            errorCode                      ( CPF_Parm )
 
-void USFXOnlineJobGaWHTTPSendMessage::OnSendMessageComplete ( int messageId, class TArray<int> messageIds, int errorCode )
+void USFXOnlineJobGaWHTTPSendMessage::OnSendMessageComplete ( int messageId, TArray<int> const& messageIds, int errorCode )
 {
 	static UFunction* pFnOnSendMessageComplete = NULL;
 
@@ -34755,9 +34755,9 @@ class USFXOnlineJobGetAuthToken* USFXOnlineJobGetAuthToken::eventCreateGetAuthTo
 // Function SFXOnlineFoundation.SFXOnlineJobGetAuthToken.OnAuthTokenRetrieved
 // [0x00120000] 
 // Parameters infos:
-// class FString                  token                          ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        token                          ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineJobGetAuthToken::OnAuthTokenRetrieved ( class FString token )
+void USFXOnlineJobGetAuthToken::OnAuthTokenRetrieved ( FString const& token )
 {
 	static UFunction* pFnOnAuthTokenRetrieved = NULL;
 
@@ -34814,7 +34814,7 @@ class UClass* USFXOnlineJobGetLeaderboardData::StaticClass()
 // struct FScriptDelegate         ResultsRetrievedDelegate       ( CPF_Parm | CPF_NeedCtorLink )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-class USFXOnlineJobGetLeaderboardData* USFXOnlineJobGetLeaderboardData::eventCreateFriendStatsDataJob ( struct FLeaderboardStatScope oScope, int RankRange, struct FScriptDelegate ResultsRetrievedDelegate, FPointer pExternalData )
+class USFXOnlineJobGetLeaderboardData* USFXOnlineJobGetLeaderboardData::eventCreateFriendStatsDataJob ( struct FLeaderboardStatScope const& oScope, int RankRange, struct FScriptDelegate ResultsRetrievedDelegate, FPointer pExternalData )
 {
 	static UFunction* pFnCreateFriendStatsDataJob = NULL;
 
@@ -34867,7 +34867,7 @@ class USFXOnlineJobGetLeaderboardData* USFXOnlineJobGetLeaderboardData::eventCre
 // struct FScriptDelegate         ResultsRetrievedDelegate       ( CPF_Parm | CPF_NeedCtorLink )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-class USFXOnlineJobGetLeaderboardData* USFXOnlineJobGetLeaderboardData::eventCreateCenteredLeaderboardJob ( int LeaderboardId, struct FUniqueNetId PlayerID, int RankRange, struct FScriptDelegate ResultsRetrievedDelegate, FPointer pExternalData )
+class USFXOnlineJobGetLeaderboardData* USFXOnlineJobGetLeaderboardData::eventCreateCenteredLeaderboardJob ( int LeaderboardId, struct FUniqueNetId const& PlayerID, int RankRange, struct FScriptDelegate ResultsRetrievedDelegate, FPointer pExternalData )
 {
 	static UFunction* pFnCreateCenteredLeaderboardJob = NULL;
 
@@ -34918,14 +34918,14 @@ class USFXOnlineJobGetLeaderboardData* USFXOnlineJobGetLeaderboardData::eventCre
 // Function SFXOnlineFoundation.SFXOnlineJobGetLeaderboardData.JobCompleted
 // [0x00024400] ( FUNC_Native )
 // Parameters infos:
-// class TArray<struct FLeaderboardColumn> aColumInfo                     ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardColumn> aColumInfo                     ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
 // int                            iTotalRanks                    ( CPF_Parm )
 // struct FUniqueNetId            uidEntity                      ( CPF_Parm )
 // unsigned char                  nErrorCode                     ( CPF_Parm )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-void USFXOnlineJobGetLeaderboardData::JobCompleted ( class TArray<struct FLeaderboardColumn> aColumInfo, class TArray<struct FLeaderboardRecord> aResults, int iTotalRanks, struct FUniqueNetId uidEntity, unsigned char nErrorCode, FPointer pExternalData )
+void USFXOnlineJobGetLeaderboardData::JobCompleted ( TArray<struct FLeaderboardColumn> const& aColumInfo, TArray<struct FLeaderboardRecord> const& aResults, int iTotalRanks, struct FUniqueNetId const& uidEntity, unsigned char nErrorCode, FPointer pExternalData )
 {
 	static UFunction* pFnJobCompleted = NULL;
 
@@ -34973,14 +34973,14 @@ bool USFXOnlineJobGetLeaderboardData::DoExecute ( )
 // Function SFXOnlineFoundation.SFXOnlineJobGetLeaderboardData.OnResultsRetrieved
 // [0x00124000] 
 // Parameters infos:
-// class TArray<struct FLeaderboardColumn> aColumInfo                     ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardColumn> aColumInfo                     ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
 // int                            iTotalRanks                    ( CPF_Parm )
 // struct FUniqueNetId            uidEntity                      ( CPF_Parm )
 // unsigned char                  nErrorCode                     ( CPF_Parm )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-void USFXOnlineJobGetLeaderboardData::OnResultsRetrieved ( class TArray<struct FLeaderboardColumn> aColumInfo, class TArray<struct FLeaderboardRecord> aResults, int iTotalRanks, struct FUniqueNetId uidEntity, unsigned char nErrorCode, FPointer pExternalData )
+void USFXOnlineJobGetLeaderboardData::OnResultsRetrieved ( TArray<struct FLeaderboardColumn> const& aColumInfo, TArray<struct FLeaderboardRecord> const& aResults, int iTotalRanks, struct FUniqueNetId const& uidEntity, unsigned char nErrorCode, FPointer pExternalData )
 {
 	static UFunction* pFnOnResultsRetrieved = NULL;
 
@@ -35001,14 +35001,14 @@ void USFXOnlineJobGetLeaderboardData::OnResultsRetrieved ( class TArray<struct F
 // Function SFXOnlineFoundation.SFXOnlineJobGetLeaderboardData.OnJobCompletion
 // [0x00124000] 
 // Parameters infos:
-// class TArray<struct FLeaderboardColumn> aColumInfo                     ( CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardColumn> aColumInfo                     ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FLeaderboardRecord> aResults                       ( CPF_Parm | CPF_NeedCtorLink )
 // int                            iTotalRanks                    ( CPF_Parm )
 // struct FUniqueNetId            uidEntity                      ( CPF_Parm )
 // unsigned char                  nErrorCode                     ( CPF_Parm )
 // FPointer                       pExternalData                  ( CPF_OptionalParm | CPF_Parm )
 
-void USFXOnlineJobGetLeaderboardData::OnJobCompletion ( class TArray<struct FLeaderboardColumn> aColumInfo, class TArray<struct FLeaderboardRecord> aResults, int iTotalRanks, struct FUniqueNetId uidEntity, unsigned char nErrorCode, FPointer pExternalData )
+void USFXOnlineJobGetLeaderboardData::OnJobCompletion ( TArray<struct FLeaderboardColumn> const& aColumInfo, TArray<struct FLeaderboardRecord> const& aResults, int iTotalRanks, struct FUniqueNetId const& uidEntity, unsigned char nErrorCode, FPointer pExternalData )
 {
 	static UFunction* pFnOnJobCompletion = NULL;
 
@@ -35404,7 +35404,7 @@ class USFXOnlineJobImageRequest* USFXOnlineJobImageRequest::eventCreateImageRequ
 // Parameters infos:
 // struct FSFXOnlineImageRequest  request                        ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineJobImageRequest::OnJobComplete ( struct FSFXOnlineImageRequest request )
+void USFXOnlineJobImageRequest::OnJobComplete ( struct FSFXOnlineImageRequest const& request )
 {
 	static UFunction* pFnOnJobComplete = NULL;
 
@@ -35614,10 +35614,10 @@ bool USFXOnlineJobLoadSettings::DoExecute ( )
 // Parameters infos:
 // unsigned char                  errorCode                      ( CPF_Parm )
 // int                            InJobId                        ( CPF_Parm )
-// class TArray<struct FSettingsPair> InSettings                     ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FSettingsPair>   InSettings                     ( CPF_Parm | CPF_NeedCtorLink )
 // int                            InCallbackArg                  ( CPF_Parm )
 
-void USFXOnlineJobLoadSettings::LoadSettingsCallback ( unsigned char errorCode, int InJobId, class TArray<struct FSettingsPair> InSettings, int InCallbackArg )
+void USFXOnlineJobLoadSettings::LoadSettingsCallback ( unsigned char errorCode, int InJobId, TArray<struct FSettingsPair> const& InSettings, int InCallbackArg )
 {
 	static UFunction* pFnLoadSettingsCallback = NULL;
 
@@ -35859,10 +35859,10 @@ void USFXOnlineJobSaveSettings::eventAddCompletionDelegate ( struct FScriptDeleg
 // Function SFXOnlineFoundation.SFXOnlineJobSaveSettings.AddSetting
 // [0x00420802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  InKey                          ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-// class FString                  InValue                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        InKey                          ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// FString                        InValue                        ( CPF_Const | CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXOnlineJobSaveSettings::eventAddSetting ( class FString* InKey, class FString* InValue )
+void USFXOnlineJobSaveSettings::eventAddSetting ( FString* InKey, FString* InValue )
 {
 	static UFunction* pFnAddSetting = NULL;
 
@@ -35924,9 +35924,9 @@ class UClass* USFXOnlineJobSendMessage::StaticClass()
 // [0x00422400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<class FString>    friendsPersonaNames            ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<FString>                friendsPersonaNames            ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineJobSendMessage::GetFriendsList ( class TArray<class FString>* friendsPersonaNames )
+bool USFXOnlineJobSendMessage::GetFriendsList ( TArray<FString>* friendsPersonaNames )
 {
 	static UFunction* pFnGetFriendsList = NULL;
 
@@ -35955,9 +35955,9 @@ bool USFXOnlineJobSendMessage::GetFriendsList ( class TArray<class FString>* fri
 // Parameters infos:
 // class USFXOnlineJobSendMessage* ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  InMessageType                  ( CPF_Parm )
-// class TArray<class FString>    Params                         ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// TArray<FString>                Params                         ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-class USFXOnlineJobSendMessage* USFXOnlineJobSendMessage::eventCreateSendMessageToAllFriendsJob ( unsigned char InMessageType, class TArray<class FString> Params )
+class USFXOnlineJobSendMessage* USFXOnlineJobSendMessage::eventCreateSendMessageToAllFriendsJob ( unsigned char InMessageType, TArray<FString> const& Params )
 {
 	static UFunction* pFnCreateSendMessageToAllFriendsJob = NULL;
 
@@ -35977,11 +35977,11 @@ class USFXOnlineJobSendMessage* USFXOnlineJobSendMessage::eventCreateSendMessage
 // [0x00026802] ( FUNC_Event )
 // Parameters infos:
 // class USFXOnlineJobSendMessage* ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<class FString>    InSendToPersonaNames           ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<FString>                InSendToPersonaNames           ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  InMessageType                  ( CPF_Parm )
-// class TArray<class FString>    Params                         ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// TArray<FString>                Params                         ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-class USFXOnlineJobSendMessage* USFXOnlineJobSendMessage::eventCreateSendMessageJob ( class TArray<class FString> InSendToPersonaNames, unsigned char InMessageType, class TArray<class FString> Params )
+class USFXOnlineJobSendMessage* USFXOnlineJobSendMessage::eventCreateSendMessageJob ( TArray<FString> const& InSendToPersonaNames, unsigned char InMessageType, TArray<FString> const& Params )
 {
 	static UFunction* pFnCreateSendMessageJob = NULL;
 
@@ -36168,9 +36168,9 @@ void USFXOnlineComponentTelemetrySystem::RegisterConnectionDelegates ( struct FS
 // [0x00120000] 
 // Parameters infos:
 // int                            Error                          ( CPF_Parm )
-// class FString                  SessionId                      ( CPF_Const | CPF_Parm | CPF_NeedCtorLink )
+// FString                        SessionId                      ( CPF_Const | CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentTelemetrySystem::OnDisconnect ( int Error, class FString SessionId )
+void USFXOnlineComponentTelemetrySystem::OnDisconnect ( int Error, FString const& SessionId )
 {
 	static UFunction* pFnOnDisconnect = NULL;
 
@@ -36278,9 +36278,9 @@ void USFXOnlineComponentCommerce::METR_UpdateDLCEntitlements ( )
 // Function SFXOnlineFoundation.SFXOnlineComponentCommerce.DecryptOfflineEntitlementInfo
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineComponentCommerce::DecryptOfflineEntitlementInfo ( )
+FString USFXOnlineComponentCommerce::DecryptOfflineEntitlementInfo ( )
 {
 	static UFunction* pFnDecryptOfflineEntitlementInfo = NULL;
 
@@ -36302,9 +36302,9 @@ class FString USFXOnlineComponentCommerce::DecryptOfflineEntitlementInfo ( )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class FString                  a_sEncryptedContent            ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        a_sEncryptedContent            ( CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentCommerce::StoreOfflineEntitlementInfo ( class FString a_sEncryptedContent )
+bool USFXOnlineComponentCommerce::StoreOfflineEntitlementInfo ( FString const& a_sEncryptedContent )
 {
 	static UFunction* pFnStoreOfflineEntitlementInfo = NULL;
 
@@ -36366,10 +36366,10 @@ void USFXOnlineComponentCommerce::NucleusEntitlementsRefreshOffline ( )
 // Function SFXOnlineFoundation.SFXOnlineComponentCommerce.LoadDimeConfig
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class FString                  sConfig                        ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sConfig                        ( CPF_Parm | CPF_NeedCtorLink )
 // struct FScriptDelegate         dCallback                      ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentCommerce::LoadDimeConfig ( class FString sConfig, struct FScriptDelegate dCallback )
+void USFXOnlineComponentCommerce::LoadDimeConfig ( FString const& sConfig, struct FScriptDelegate dCallback )
 {
 	static UFunction* pFnLoadDimeConfig = NULL;
 
@@ -36406,9 +36406,9 @@ void USFXOnlineComponentCommerce::OnDimeConfigLoaded ( )
 // Function SFXOnlineFoundation.SFXOnlineComponentCommerce.GetWalletBalance
 // [0x00020002] 
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString USFXOnlineComponentCommerce::GetWalletBalance ( )
+FString USFXOnlineComponentCommerce::GetWalletBalance ( )
 {
 	static UFunction* pFnGetWalletBalance = NULL;
 
@@ -36425,10 +36425,10 @@ class FString USFXOnlineComponentCommerce::GetWalletBalance ( )
 // Function SFXOnlineFoundation.SFXOnlineComponentCommerce.FetchOfferDetails
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
-// class TArray<struct FBWOfferId> aOffers                        ( CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FBWOfferId>      aOffers                        ( CPF_Parm | CPF_NeedCtorLink )
 // struct FScriptDelegate         dCallback                      ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentCommerce::FetchOfferDetails ( class TArray<struct FBWOfferId> aOffers, struct FScriptDelegate dCallback )
+void USFXOnlineComponentCommerce::FetchOfferDetails ( TArray<struct FBWOfferId> const& aOffers, struct FScriptDelegate dCallback )
 {
 	static UFunction* pFnFetchOfferDetails = NULL;
 
@@ -36465,10 +36465,10 @@ void USFXOnlineComponentCommerce::OnFetchOfferDetailsComplete ( )
 // Function SFXOnlineFoundation.SFXOnlineComponentCommerce.GetOffersList
 // [0x00424802] ( FUNC_Event )
 // Parameters infos:
-// class TArray<struct FBWOfferId> aOfferFilter                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
-// class TArray<struct FBWOfferInfo> aOffers                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FBWOfferId>      aOfferFilter                   ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// TArray<struct FBWOfferInfo>    aOffers                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentCommerce::eventGetOffersList ( class TArray<struct FBWOfferId> aOfferFilter, class TArray<struct FBWOfferInfo>* aOffers )
+void USFXOnlineComponentCommerce::eventGetOffersList ( TArray<struct FBWOfferId> const& aOfferFilter, TArray<struct FBWOfferInfo>* aOffers )
 {
 	static UFunction* pFnGetOffersList = NULL;
 
@@ -36513,7 +36513,7 @@ void USFXOnlineComponentCommerce::Display1stPartyStore ( )
 // struct FBWOfferId              Id                             ( CPF_Parm )
 // struct FScriptDelegate         dCallback                      ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentCommerce::PurchaseOfferId ( struct FBWOfferId Id, struct FScriptDelegate dCallback )
+void USFXOnlineComponentCommerce::PurchaseOfferId ( struct FBWOfferId const& Id, struct FScriptDelegate dCallback )
 {
 	static UFunction* pFnPurchaseOfferId = NULL;
 
@@ -36575,9 +36575,9 @@ void USFXOnlineComponentCommerce::OnCodeRedeemed ( unsigned char nResult )
 // [0x00020400] ( FUNC_Native )
 // Parameters infos:
 // unsigned long                  bContinue                      ( CPF_Parm )
-// class FString                  strCode                        ( CPF_Const | CPF_Parm | CPF_NeedCtorLink )
+// FString                        strCode                        ( CPF_Const | CPF_Parm | CPF_NeedCtorLink )
 
-void USFXOnlineComponentCommerce::SubmitRedeemCode ( unsigned long bContinue, class FString strCode )
+void USFXOnlineComponentCommerce::SubmitRedeemCode ( unsigned long bContinue, FString const& strCode )
 {
 	static UFunction* pFnSubmitRedeemCode = NULL;
 
@@ -36661,7 +36661,7 @@ void USFXOnlineComponentCommerce::CompleteProcessAutoGrant ( )
 // struct FBWEntitlementId        Id                             ( CPF_Parm )
 // int                            nResult                        ( CPF_Parm )
 
-void USFXOnlineComponentCommerce::ProcessNextAutoGrant ( struct FBWEntitlementId Id, int nResult )
+void USFXOnlineComponentCommerce::ProcessNextAutoGrant ( struct FBWEntitlementId const& Id, int nResult )
 {
 	static UFunction* pFnProcessNextAutoGrant = NULL;
 
@@ -36725,7 +36725,7 @@ void USFXOnlineComponentCommerce::OnProcessAutoGrantsComplete ( )
 // struct FScriptDelegate         dCallback                      ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // unsigned long                  bUseNucleusCheck               ( CPF_OptionalParm | CPF_Parm )
 
-bool USFXOnlineComponentCommerce::GrantEntitlementId ( struct FBWEntitlementId Id, struct FScriptDelegate dCallback, unsigned long bUseNucleusCheck )
+bool USFXOnlineComponentCommerce::GrantEntitlementId ( struct FBWEntitlementId const& Id, struct FScriptDelegate dCallback, unsigned long bUseNucleusCheck )
 {
 	static UFunction* pFnGrantEntitlementId = NULL;
 
@@ -36752,7 +36752,7 @@ bool USFXOnlineComponentCommerce::GrantEntitlementId ( struct FBWEntitlementId I
 // struct FBWEntitlementId        Id                             ( CPF_Parm )
 // int                            nResult                        ( CPF_Parm )
 
-void USFXOnlineComponentCommerce::OnGrantEntitlementResult ( struct FBWEntitlementId Id, int nResult )
+void USFXOnlineComponentCommerce::OnGrantEntitlementResult ( struct FBWEntitlementId const& Id, int nResult )
 {
 	static UFunction* pFnOnGrantEntitlementResult = NULL;
 
@@ -36774,7 +36774,7 @@ void USFXOnlineComponentCommerce::OnGrantEntitlementResult ( struct FBWEntitleme
 // int                            nCopies                        ( CPF_OptionalParm | CPF_Parm )
 // struct FScriptDelegate         dCallback                      ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentCommerce::ConsumeId ( struct FBWConsumableId Id, int nCopies, struct FScriptDelegate dCallback )
+bool USFXOnlineComponentCommerce::ConsumeId ( struct FBWConsumableId const& Id, int nCopies, struct FScriptDelegate dCallback )
 {
 	static UFunction* pFnConsumeId = NULL;
 
@@ -36802,7 +36802,7 @@ bool USFXOnlineComponentCommerce::ConsumeId ( struct FBWConsumableId Id, int nCo
 // int                            nCopies                        ( CPF_Parm )
 // int                            nResult                        ( CPF_Parm )
 
-void USFXOnlineComponentCommerce::OnConsumeResult ( struct FBWConsumableId Id, int nCopies, int nResult )
+void USFXOnlineComponentCommerce::OnConsumeResult ( struct FBWConsumableId const& Id, int nCopies, int nResult )
 {
 	static UFunction* pFnOnConsumeResult = NULL;
 
@@ -36824,7 +36824,7 @@ void USFXOnlineComponentCommerce::OnConsumeResult ( struct FBWConsumableId Id, i
 // struct FBWConsumableId         Id                             ( CPF_Parm )
 // struct FBWConsumableInfo       oConsumable                    ( CPF_Parm | CPF_OutParm )
 
-bool USFXOnlineComponentCommerce::eventGetConsumableInfo ( struct FBWConsumableId Id, struct FBWConsumableInfo* oConsumable )
+bool USFXOnlineComponentCommerce::eventGetConsumableInfo ( struct FBWConsumableId const& Id, struct FBWConsumableInfo* oConsumable )
 {
 	static UFunction* pFnGetConsumableInfo = NULL;
 
@@ -36849,9 +36849,9 @@ bool USFXOnlineComponentCommerce::eventGetConsumableInfo ( struct FBWConsumableI
 // [0x00420802] ( FUNC_Event )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<struct FBWConsumableInfo> aConsumables                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FBWConsumableInfo> aConsumables                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentCommerce::eventGetConsumablesList ( class TArray<struct FBWConsumableInfo>* aConsumables )
+bool USFXOnlineComponentCommerce::eventGetConsumablesList ( TArray<struct FBWConsumableInfo>* aConsumables )
 {
 	static UFunction* pFnGetConsumablesList = NULL;
 
@@ -36878,7 +36878,7 @@ bool USFXOnlineComponentCommerce::eventGetConsumablesList ( class TArray<struct 
 // struct FBWEntitlementId        Id                             ( CPF_Parm )
 // struct FBWEntitlementInfo      oEntitlement                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentCommerce::eventGetEntitlementInfo ( struct FBWEntitlementId Id, struct FBWEntitlementInfo* oEntitlement )
+bool USFXOnlineComponentCommerce::eventGetEntitlementInfo ( struct FBWEntitlementId const& Id, struct FBWEntitlementInfo* oEntitlement )
 {
 	static UFunction* pFnGetEntitlementInfo = NULL;
 
@@ -36903,9 +36903,9 @@ bool USFXOnlineComponentCommerce::eventGetEntitlementInfo ( struct FBWEntitlemen
 // [0x00420802] ( FUNC_Event )
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-// class TArray<struct FBWEntitlementInfo> aEntitlements                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<struct FBWEntitlementInfo> aEntitlements                  ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-bool USFXOnlineComponentCommerce::eventGetEntitlementsList ( class TArray<struct FBWEntitlementInfo>* aEntitlements )
+bool USFXOnlineComponentCommerce::eventGetEntitlementsList ( TArray<struct FBWEntitlementInfo>* aEntitlements )
 {
 	static UFunction* pFnGetEntitlementsList = NULL;
 

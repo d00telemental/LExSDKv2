@@ -31,6 +31,9 @@
 struct USFXGameEffect_AchievementPartyDamageBonus_execOnRemoved_Parms
 {
 	// class USFXModule_GameEffectManager*             Manager;                                          		// 0x0000 (0x0008) [0x0000000000000000]              
+
+	 USFXGameEffect_AchievementPartyDamageBonus_execOnRemoved_Parms() { memset(this, 0, sizeof *this); }
+	~USFXGameEffect_AchievementPartyDamageBonus_execOnRemoved_Parms() {}
 };
 
 // Function SFXGameContent_Bonuses.SFXGameEffect_AchievementPartyDamageBonus.OnApplied
@@ -38,6 +41,9 @@ struct USFXGameEffect_AchievementPartyDamageBonus_execOnRemoved_Parms
 struct USFXGameEffect_AchievementPartyDamageBonus_execOnApplied_Parms
 {
 	// class USFXModule_GameEffectManager*             Manager;                                          		// 0x0000 (0x0008) [0x0000000000000000]              
+
+	 USFXGameEffect_AchievementPartyDamageBonus_execOnApplied_Parms() { memset(this, 0, sizeof *this); }
+	~USFXGameEffect_AchievementPartyDamageBonus_execOnApplied_Parms() {}
 };
 
 

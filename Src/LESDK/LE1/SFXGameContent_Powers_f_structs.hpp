@@ -38,6 +38,9 @@ struct UBioPowerScriptDesign_execAdjustInventoryResource_Parms
 	// class ABioPlayerSquad*                          oPlayerSquad;                                     		// 0x001C (0x0008) [0x0000000000000000]              
 	// class UBioInventory*                            oInventory;                                       		// 0x0024 (0x0008) [0x0000000000000000]              
 	// float                                           fCurrentAmount;                                   		// 0x002C (0x0004) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execAdjustInventoryResource_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execAdjustInventoryResource_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectCarnageSetup
@@ -52,6 +55,9 @@ struct UBioPowerScriptDesign_execEffectCarnageSetup_Parms
 	// class UBioGameProperty*                         oProperty;                                        		// 0x001C (0x0008) [0x0000000000000000]              
 	// class UBioGamePropertyConditionalOnWeaponChange* oWeaponChangeConditional;                         		// 0x0024 (0x0008) [0x0000000000000000]              
 	// class UBioGamePropertyConditionalWeaponPowerUsed* oPowerUseConditional;                             		// 0x002C (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectCarnageSetup_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectCarnageSetup_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.InstantRegenerateShield
@@ -63,6 +69,9 @@ struct UBioPowerScriptDesign_execInstantRegenerateShield_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioActorBehavior*                        oBehavior;                                        		// 0x0010 (0x0008) [0x0000000000000000]              
 	// float                                           fAmount;                                          		// 0x0018 (0x0004) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execInstantRegenerateShield_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execInstantRegenerateShield_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.IncreaseAllPowerCooldowns
@@ -81,6 +90,9 @@ struct UBioPowerScriptDesign_execIncreaseAllPowerCooldowns_Parms
 	// class UBioPower*                                oPower;                                           		// 0x002C (0x0008) [0x0000000000000000]              
 	// float                                           fCooldownRemaining;                               		// 0x0034 (0x0004) [0x0000000000000000]              
 	// float                                           fTotalCooldown;                                   		// 0x0038 (0x0004) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execIncreaseAllPowerCooldowns_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execIncreaseAllPowerCooldowns_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.ClearAllPowerCooldowns
@@ -92,6 +104,9 @@ struct UBioPowerScriptDesign_execClearAllPowerCooldowns_Parms
 	// class UBioEpicPawnBehavior*                     oBehavior;                                        		// 0x000C (0x0008) [0x0000000000000000]              
 	// int                                             nIndex;                                           		// 0x0014 (0x0004) [0x0000000000000000]              
 	// class UBioPower*                                oPower;                                           		// 0x0018 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execClearAllPowerCooldowns_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execClearAllPowerCooldowns_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectSingularity
@@ -100,7 +115,7 @@ struct UBioPowerScriptDesign_execEffectSingularity_Parms
 {
 	class AActor*                                      oCaster;                                          		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	class AActor*                                      oImpacted;                                        		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     vSingularityLocation;                             		// 0x0010 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             vSingularityLocation; };                          		// 0x0010 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fForce;                                           		// 0x001C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fForceInterval;                                   		// 0x0020 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDuration;                                        		// 0x0024 (0x0004) [0x0000000000000080]              ( CPF_Parm )
@@ -111,12 +126,15 @@ struct UBioPowerScriptDesign_execEffectSingularity_Parms
 	// class UBioActorBehavior*                        oTargetBehavior;                                  		// 0x0040 (0x0008) [0x0000000000000000]              
 	// class UBioPawnBehavior*                         oTargetPawnBehavior;                              		// 0x0048 (0x0008) [0x0000000000000000]              
 	// class UBioBaseAppearance*                       oAppearance;                                      		// 0x0050 (0x0008) [0x0000000000000000]              
-	// struct SFXName                                  nmBoneName;                                       		// 0x0058 (0x0008) [0x0000000000000000]              
-	// struct FVector                                  vPosition;                                        		// 0x0060 (0x000C) [0x0000000000000000]              
+	// union { struct SFXName                          nmBoneName; };                                    		// 0x0058 (0x0008) [0x0000000000000000]              
+	// union { struct FVector                          vPosition; };                                     		// 0x0060 (0x000C) [0x0000000000000000]              
 	// float                                           fOuterBubbleRange;                                		// 0x006C (0x0004) [0x0000000000000000]              
 	// float                                           fVelocityThresholdOuterBubble;                    		// 0x0070 (0x0004) [0x0000000000000000]              
 	// float                                           fInnerBubbleRange;                                		// 0x0074 (0x0004) [0x0000000000000000]              
 	// float                                           fBubbleForce;                                     		// 0x0078 (0x0004) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectSingularity_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectSingularity_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectRagdoll
@@ -132,6 +150,9 @@ struct UBioPowerScriptDesign_execEffectRagdoll_Parms
 	// class UBioActorBehavior*                        oCasterBehavior;                                  		// 0x0024 (0x0008) [0x0000000000000000]              
 	// class UBioPawnBehavior*                         oTargetBehavior;                                  		// 0x002C (0x0008) [0x0000000000000000]              
 	// class ABioPawn*                                 oTarget;                                          		// 0x0034 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectRagdoll_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectRagdoll_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectEntrenchShield
@@ -146,6 +167,9 @@ struct UBioPowerScriptDesign_execEffectEntrenchShield_Parms
 	// class UBioGameProperty*                         oProperty;                                        		// 0x001C (0x0008) [0x0000000000000000]              
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x0024 (0x0008) [0x0000000000000000]              
 	// class UBioEpicPawnBehavior*                     oImpactedInfo;                                    		// 0x002C (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectEntrenchShield_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectEntrenchShield_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectRegenerateShield
@@ -160,6 +184,9 @@ struct UBioPowerScriptDesign_execEffectRegenerateShield_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x001C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGameProperty*                         oProperty;                                        		// 0x0020 (0x0008) [0x0000000000000000]              
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x0028 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectRegenerateShield_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectRegenerateShield_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectDamageVulnerability
@@ -173,6 +200,9 @@ struct UBioPowerScriptDesign_execEffectDamageVulnerability_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGameProperty*                         oProperty;                                        		// 0x001C (0x0008) [0x0000000000000000]              
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x0024 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectDamageVulnerability_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectDamageVulnerability_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectRegen
@@ -185,6 +215,9 @@ struct UBioPowerScriptDesign_execEffectRegen_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x0014 (0x0008) [0x0000000000000000]              
 	// class UBioGameProperty*                         oProperty;                                        		// 0x001C (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectRegen_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectRegen_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectHealInstant
@@ -198,6 +231,9 @@ struct UBioPowerScriptDesign_execEffectHealInstant_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGameProperty*                         oProperty;                                        		// 0x001C (0x0008) [0x0000000000000000]              
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x0024 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectHealInstant_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectHealInstant_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectHeal
@@ -213,6 +249,9 @@ struct UBioPowerScriptDesign_execEffectHeal_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0020 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGameProperty*                         oProperty;                                        		// 0x0024 (0x0008) [0x0000000000000000]              
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x002C (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectHeal_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectHeal_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectCombatBoost
@@ -229,6 +268,9 @@ struct UBioPowerScriptDesign_execEffectCombatBoost_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0024 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGameProperty*                         oProperty;                                        		// 0x0028 (0x0008) [0x0000000000000000]              
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x0030 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectCombatBoost_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectCombatBoost_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectImmunity
@@ -241,6 +283,9 @@ struct UBioPowerScriptDesign_execEffectImmunity_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGameProperty*                         oProperty;                                        		// 0x0014 (0x0008) [0x0000000000000000]              
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x001C (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectImmunity_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectImmunity_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectSniperCritical
@@ -261,6 +306,9 @@ struct UBioPowerScriptDesign_execEffectSniperCritical_Parms
 	// class UBioGamePropertyConditionalHasNotFired*   pHasNotFired;                                     		// 0x0040 (0x0008) [0x0000000000000000]              
 	// class UBioGameEffectGiveGP*                     pGiveGPEffect;                                    		// 0x0048 (0x0008) [0x0000000000000000]              
 	// class UBioGameEffectAttributeBool*              pClearHasFired;                                   		// 0x0050 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectSniperCritical_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectSniperCritical_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectOverkill
@@ -277,6 +325,9 @@ struct UBioPowerScriptDesign_execEffectOverkill_Parms
 	// class UBioGameProperty*                         oProperty;                                        		// 0x0020 (0x0008) [0x0000000000000000]              
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x0028 (0x0008) [0x0000000000000000]              
 	// class UBioGamePropertyConditionalOnWeaponChange* oConditional;                                     		// 0x0030 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectOverkill_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectOverkill_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectMarksman
@@ -294,6 +345,9 @@ struct UBioPowerScriptDesign_execEffectMarksman_Parms
 	// class UBioGameProperty*                         oProperty;                                        		// 0x0024 (0x0008) [0x0000000000000000]              
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x002C (0x0008) [0x0000000000000000]              
 	// class UBioGamePropertyConditionalOnWeaponChange* oConditional;                                     		// 0x0034 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectMarksman_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectMarksman_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectCorrosion
@@ -307,6 +361,9 @@ struct UBioPowerScriptDesign_execEffectCorrosion_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGameProperty*                         oProperty;                                        		// 0x001C (0x0008) [0x0000000000000000]              
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x0024 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectCorrosion_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectCorrosion_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectSuppressingFire
@@ -319,6 +376,9 @@ struct UBioPowerScriptDesign_execEffectSuppressingFire_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGameProperty*                         oProperty;                                        		// 0x0014 (0x0008) [0x0000000000000000]              
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x001C (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectSuppressingFire_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectSuppressingFire_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectZeroGLift
@@ -337,16 +397,19 @@ struct UBioPowerScriptDesign_execEffectZeroGLift_Parms
 	// class UBioActorBehavior*                        oTargetBehavior;                                  		// 0x0030 (0x0008) [0x0000000000000000]              
 	// class UBioPawnBehavior*                         oTargetPawnBehavior;                              		// 0x0038 (0x0008) [0x0000000000000000]              
 	// class UBioGameProperty*                         oProperty;                                        		// 0x0040 (0x0008) [0x0000000000000000]              
-	// struct FVector                                  vForce;                                           		// 0x0048 (0x000C) [0x0000000000000000]              
-	// struct FVector                                  vDestination;                                     		// 0x0054 (0x000C) [0x0000000000000000]              
-	// struct FVector                                  vPosition;                                        		// 0x0060 (0x000C) [0x0000000000000000]              
-	// struct SFXName                                  nmBoneName;                                       		// 0x006C (0x0008) [0x0000000000000000]              
+	// union { struct FVector                          vForce; };                                        		// 0x0048 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vDestination; };                                  		// 0x0054 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vPosition; };                                     		// 0x0060 (0x000C) [0x0000000000000000]              
+	// union { struct SFXName                          nmBoneName; };                                    		// 0x006C (0x0008) [0x0000000000000000]              
 	// class UBioBaseAppearance*                       oAppearance;                                      		// 0x0074 (0x0008) [0x0000000000000000]              
-	// struct FVector                                  vDeceleration;                                    		// 0x007C (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vDeceleration; };                                 		// 0x007C (0x000C) [0x0000000000000000]              
 	// class ABioPawn*                                 oBioPawn;                                         		// 0x0088 (0x0008) [0x0000000000000000]              
 	// unsigned long                                   bApplyToAllBones;                                 		// 0x0090 (0x0004) [0x0000000000000000]              
 	// class ABioArtPlaceable*                         oArtPlaceable;                                    		// 0x0094 (0x0008) [0x0000000000000000]              
 	// class UBioArtPlaceableType*                     oArtPlaceableType;                                		// 0x009C (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectZeroGLift_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectZeroGLift_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectAIHacking
@@ -361,6 +424,9 @@ struct UBioPowerScriptDesign_execEffectAIHacking_Parms
 	// class UBioActorBehavior*                        oTargetBehavior;                                  		// 0x0020 (0x0008) [0x0000000000000000]              
 	// class UBioGameProperty*                         oProperty;                                        		// 0x0028 (0x0008) [0x0000000000000000]              
 	// int                                             srImpactText;                                     		// 0x0030 (0x0004) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectAIHacking_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectAIHacking_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectDisablePowers
@@ -378,6 +444,9 @@ struct UBioPowerScriptDesign_execEffectDisablePowers_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0028 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGameProperty*                         oProperty;                                        		// 0x002C (0x0008) [0x0000000000000000]              
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x0034 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectDisablePowers_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectDisablePowers_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectOverheatWeapons
@@ -394,6 +463,9 @@ struct UBioPowerScriptDesign_execEffectOverheatWeapons_Parms
 	// class UBioPawnBehavior*                         oImpactedBehavior;                                		// 0x002C (0x0008) [0x0000000000000000]              
 	// class UBioGamePropertyConditionalOnWeaponChange* oConditional;                                     		// 0x0034 (0x0008) [0x0000000000000000]              
 	// class ABioWeapon*                               oWeapon;                                          		// 0x003C (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectOverheatWeapons_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectOverheatWeapons_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectDisableWeapons
@@ -407,6 +479,9 @@ struct UBioPowerScriptDesign_execEffectDisableWeapons_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGameProperty*                         oProperty;                                        		// 0x001C (0x0008) [0x0000000000000000]              
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x0024 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectDisableWeapons_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectDisableWeapons_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectDisableActions
@@ -422,6 +497,9 @@ struct UBioPowerScriptDesign_execEffectDisableActions_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0020 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGameProperty*                         oProperty;                                        		// 0x0024 (0x0008) [0x0000000000000000]              
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x002C (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectDisableActions_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectDisableActions_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectAdjustStability
@@ -436,6 +514,9 @@ struct UBioPowerScriptDesign_execEffectAdjustStability_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x001C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGameProperty*                         oProperty;                                        		// 0x0020 (0x0008) [0x0000000000000000]              
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x0028 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectAdjustStability_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectAdjustStability_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectDamageOverTime
@@ -445,7 +526,7 @@ struct UBioPowerScriptDesign_execEffectDamageOverTime_Parms
 	class AActor*                                      oImpacted;                                        		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	class AActor*                                      oCaster;                                          		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDamagePerInterval;                               		// 0x0010 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     vMomentumPerInterval;                             		// 0x0014 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             vMomentumPerInterval; };                          		// 0x0014 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	class UBioDamageType*                              pDamage;                                          		// 0x0020 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fInterval;                                        		// 0x0028 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDuration;                                        		// 0x002C (0x0004) [0x0000000000000080]              ( CPF_Parm )
@@ -455,6 +536,9 @@ struct UBioPowerScriptDesign_execEffectDamageOverTime_Parms
 	// class AController*                              oController;                                      		// 0x0040 (0x0008) [0x0000000000000000]              
 	// class UBioGameProperty*                         oProperty;                                        		// 0x0048 (0x0008) [0x0000000000000000]              
 	// class UBioActorBehavior*                        oActorBehavior;                                   		// 0x0050 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectDamageOverTime_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectDamageOverTime_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectTakeDamage
@@ -464,7 +548,7 @@ struct UBioPowerScriptDesign_execEffectTakeDamage_Parms
 	class AActor*                                      oImpacted;                                        		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	class AActor*                                      oCaster;                                          		// 0x0008 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDamage;                                          		// 0x0010 (0x0004) [0x0000000000000080]              ( CPF_Parm )
-	struct FVector                                     vMomentum;                                        		// 0x0014 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             vMomentum; };                                     		// 0x0014 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	class UBioDamageType*                              pDamage;                                          		// 0x0020 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0028 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class APawn*                                    oPawn;                                            		// 0x002C (0x0008) [0x0000000000000000]              
@@ -473,6 +557,9 @@ struct UBioPowerScriptDesign_execEffectTakeDamage_Parms
 	// float                                           fDistanceScale;                                   		// 0x0044 (0x0004) [0x0000000000000000]              
 	// unsigned char                                   eDamageFalloff;                                   		// 0x0048 (0x0001) [0x0000000000000000]              
 	// class UBioAttributesDamage*                     oDamageAttributes;                                		// 0x004C (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execEffectTakeDamage_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execEffectTakeDamage_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.SpawnBeacon
@@ -480,9 +567,9 @@ struct UBioPowerScriptDesign_execEffectTakeDamage_Parms
 struct UBioPowerScriptDesign_execSpawnBeacon_Parms
 {
 	class UBioActorBehavior*                           oCasterBehavior;                                  		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
-	class FString                                      sBeaconActorType;                                 		// 0x0008 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
-	struct FVector                                     vLocation;                                        		// 0x0018 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    vFacing;                                          		// 0x0024 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { FString                                    sBeaconActorType; };                              		// 0x0008 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { struct FVector                             vLocation; };                                     		// 0x0018 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            vFacing; };                                       		// 0x0024 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDuration;                                        		// 0x0030 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      bFloatingBeacon;                                  		// 0x0034 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
 	unsigned long                                      bSnapToFloor;                                     		// 0x0038 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
@@ -506,6 +593,9 @@ struct UBioPowerScriptDesign_execSpawnBeacon_Parms
 	// class UBioGameEffectPowerAttributeFloat*        oRangeInc;                                        		// 0x00B0 (0x0008) [0x0000000000000000]              
 	// class UBioGameEffectPowerParameter*             oDamageInc;                                       		// 0x00B8 (0x0008) [0x0000000000000000]              
 	// class UBioPower*                                oPower;                                           		// 0x00C0 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execSpawnBeacon_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execSpawnBeacon_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.SpawnBarrier
@@ -513,9 +603,9 @@ struct UBioPowerScriptDesign_execSpawnBeacon_Parms
 struct UBioPowerScriptDesign_execSpawnBarrier_Parms
 {
 	class UBioActorBehavior*                           oCasterBehavior;                                  		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
-	class FString                                      sBarrierActorType;                                		// 0x0008 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
-	struct FVector                                     vLocation;                                        		// 0x0018 (0x000C) [0x0000000000000080]              ( CPF_Parm )
-	struct FRotator                                    vFacing;                                          		// 0x0024 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { FString                                    sBarrierActorType; };                             		// 0x0008 (0x0010) [0x0000000000400080]              ( CPF_Parm | CPF_NeedCtorLink )
+	union { struct FVector                             vLocation; };                                     		// 0x0018 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FRotator                            vFacing; };                                       		// 0x0024 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fHealth;                                          		// 0x0030 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDuration;                                        		// 0x0034 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      bSnapToFloor;                                     		// 0x0038 (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
@@ -526,6 +616,9 @@ struct UBioPowerScriptDesign_execSpawnBarrier_Parms
 	// class ABioArtPlaceable*                         oBarrierAPL;                                      		// 0x0058 (0x0008) [0x0000000000000000]              
 	// class UBioArtPlaceableBehavior*                 oBarrierInfo;                                     		// 0x0060 (0x0008) [0x0000000000000000]              
 	// class ABioBaseSquad*                            oCasterSquad;                                     		// 0x0068 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execSpawnBarrier_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execSpawnBarrier_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.WeaponPowerActivated
@@ -537,6 +630,9 @@ struct UBioPowerScriptDesign_execWeaponPowerActivated_Parms
 	// class APawn*                                    PawnCaster;                                       		// 0x000C (0x0008) [0x0000000000000000]              
 	// class ABioWeaponRanged*                         Weapon;                                           		// 0x0014 (0x0008) [0x0000000000000000]              
 	// class ASFXInventoryManager*                     Inventory;                                        		// 0x001C (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execWeaponPowerActivated_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execWeaponPowerActivated_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.ShouldIncrementPowerUsage
@@ -547,6 +643,9 @@ struct UBioPowerScriptDesign_execShouldIncrementPowerUsage_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class ABioPawn*                                 BP;                                               		// 0x000C (0x0008) [0x0000000000000000]              
 	// class UBioActivePower*                          Active;                                           		// 0x0014 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execShouldIncrementPowerUsage_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execShouldIncrementPowerUsage_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.GetFactionRelationship
@@ -560,6 +659,9 @@ struct UBioPowerScriptDesign_execGetFactionRelationship_Parms
 	// class UBioEpicPawnBehavior*                     oCasterData;                                      		// 0x001C (0x0008) [0x0000000000000000]              
 	// class APawn*                                    oTargetPawn;                                      		// 0x0024 (0x0008) [0x0000000000000000]              
 	// class UBioEpicPawnBehavior*                     oTargetData;                                      		// 0x002C (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execGetFactionRelationship_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execGetFactionRelationship_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.GetTechResistance
@@ -574,6 +676,9 @@ struct UBioPowerScriptDesign_execGetTechResistance_Parms
 	// float                                           fResistance;                                      		// 0x0024 (0x0004) [0x0000000000000000]              
 	// float                                           fIgnoreResistance;                                		// 0x0028 (0x0004) [0x0000000000000000]              
 	// float                                           fMinResistance;                                   		// 0x002C (0x0004) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execGetTechResistance_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execGetTechResistance_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.GetBioticResistance
@@ -587,6 +692,9 @@ struct UBioPowerScriptDesign_execGetBioticResistance_Parms
 	// float                                           fResistance;                                      		// 0x001C (0x0004) [0x0000000000000000]              
 	// float                                           fIgnoreResistance;                                		// 0x0020 (0x0004) [0x0000000000000000]              
 	// float                                           fMinResistance;                                   		// 0x0024 (0x0004) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execGetBioticResistance_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execGetBioticResistance_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.GetTargetResistance
@@ -595,6 +703,9 @@ struct UBioPowerScriptDesign_execGetTargetResistance_Parms
 {
 	class AActor*                                      oTarget;                                          		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioPowerScriptDesign_execGetTargetResistance_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execGetTargetResistance_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.GetDistanceModifier
@@ -607,7 +718,10 @@ struct UBioPowerScriptDesign_execGetDistanceModifier_Parms
 	// float                                           fDistanceFromImpact;                              		// 0x0010 (0x0004) [0x0000000000000000]              
 	// float                                           fPowerMaxRange;                                   		// 0x0014 (0x0004) [0x0000000000000000]              
 	// float                                           fDistanceModifier;                                		// 0x0018 (0x0004) [0x0000000000000000]              
-	// struct FVector                                  vInvalid;                                         		// 0x001C (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vInvalid; };                                      		// 0x001C (0x000C) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execGetDistanceModifier_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execGetDistanceModifier_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.GetDmgDurModifier
@@ -619,6 +733,9 @@ struct UBioPowerScriptDesign_execGetDmgDurModifier_Parms
 	// class ABioPawn*                                 oCasterPawn;                                      		// 0x000C (0x0008) [0x0000000000000000]              
 	// class UBioAttributesPawn*                       oCasterData;                                      		// 0x0014 (0x0008) [0x0000000000000000]              
 	// float                                           fPowerModifier;                                   		// 0x001C (0x0004) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execGetDmgDurModifier_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execGetDmgDurModifier_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.GetPhysicsLevel
@@ -628,6 +745,9 @@ struct UBioPowerScriptDesign_execGetPhysicsLevel_Parms
 	class AActor*                                      oImpacted;                                        		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	int                                                ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioActorBehavior*                        oImpactedInfo;                                    		// 0x000C (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execGetPhysicsLevel_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execGetPhysicsLevel_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.IsOfRace
@@ -638,6 +758,9 @@ struct UBioPowerScriptDesign_execIsOfRace_Parms
 	unsigned char                                      eRace;                                            		// 0x0008 (0x0001) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class ABioPawn*                                 oImpactedPawn;                                    		// 0x0010 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execIsOfRace_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execIsOfRace_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.HasShields
@@ -650,6 +773,9 @@ struct UBioPowerScriptDesign_execHasShields_Parms
 	// class UBioActorBehavior*                        oImpactedInfo;                                    		// 0x0010 (0x0008) [0x0000000000000000]              
 	// class UBioShield*                               oImpactedShield;                                  		// 0x0018 (0x0008) [0x0000000000000000]              
 	// class UBioAttributesShield*                     oShieldInfo;                                      		// 0x0020 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execHasShields_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execHasShields_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.IsDeadBody
@@ -660,6 +786,9 @@ struct UBioPowerScriptDesign_execIsDeadBody_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class ABioPawn*                                 oImpactPawn;                                      		// 0x000C (0x0008) [0x0000000000000000]              
 	// class UBioPawnBehavior*                         oImpactPawnBehavior;                              		// 0x0014 (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execIsDeadBody_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execIsDeadBody_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.IsPlaceable
@@ -669,6 +798,9 @@ struct UBioPowerScriptDesign_execIsPlaceable_Parms
 	class AActor*                                      oImpacted;                                        		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class ABioArtPlaceable*                         oImpactedPlaceable;                               		// 0x000C (0x0008) [0x0000000000000000]              
+
+	 UBioPowerScriptDesign_execIsPlaceable_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_execIsPlaceable_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.InitializePowerScript
@@ -676,6 +808,9 @@ struct UBioPowerScriptDesign_execIsPlaceable_Parms
 struct UBioPowerScriptDesign_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+
+	 UBioPowerScriptDesign_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioPowerScriptDesign_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioAdrenalineScript.OnImpact
@@ -688,6 +823,9 @@ struct UBioAdrenalineScript_eventOnImpact_Parms
 	int                                                nPreviouslyImpacted;                              		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fCooldownRemaining;                               		// 0x001C (0x0004) [0x0000000000000000]              
+
+	 UBioAdrenalineScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioAdrenalineScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioAdrenalineScript.StartPhase
@@ -698,6 +836,9 @@ struct UBioAdrenalineScript_eventStartPhase_Parms
 	class AActor*                                      oCaster;                                          		// 0x0004 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioAdrenalineScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioAdrenalineScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioBarrierScript.OnImpact
@@ -710,14 +851,17 @@ struct UBioBarrierScript_eventOnImpact_Parms
 	int                                                nPreviouslyImpacted;                              		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioActorBehavior*                        oImpactedBehavior;                                		// 0x001C (0x0008) [0x0000000000000000]              
-	// struct FVector                                  vRotation;                                        		// 0x0024 (0x000C) [0x0000000000000000]              
-	// struct FVector                                  vUpDir;                                           		// 0x0030 (0x000C) [0x0000000000000000]              
-	// struct FVector                                  vRightDir;                                        		// 0x003C (0x000C) [0x0000000000000000]              
-	// struct FVector                                  vLocation;                                        		// 0x0048 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vRotation; };                                     		// 0x0024 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vUpDir; };                                        		// 0x0030 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vRightDir; };                                     		// 0x003C (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vLocation; };                                     		// 0x0048 (0x000C) [0x0000000000000000]              
 	// float                                           fHealth;                                          		// 0x0054 (0x0004) [0x0000000000000000]              
 	// float                                           fDistance;                                        		// 0x0058 (0x0004) [0x0000000000000000]              
 	// float                                           fDuration;                                        		// 0x005C (0x0004) [0x0000000000000000]              
 	// int                                             nNumBarriers;                                     		// 0x0060 (0x0004) [0x0000000000000000]              
+
+	 UBioBarrierScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioBarrierScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioCarnageScript.OnImpact
@@ -729,7 +873,10 @@ struct UBioCarnageScript_eventOnImpact_Parms
 	class AActor*                                      oImpacted;                                        		// 0x000C (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	int                                                nPreviouslyImpacted;                              		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FVector                                  vMomentum;                                        		// 0x001C (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vMomentum; };                                     		// 0x001C (0x000C) [0x0000000000000000]              
+
+	 UBioCarnageScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioCarnageScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioCarnageScript.StartPhase
@@ -745,6 +892,9 @@ struct UBioCarnageScript_eventStartPhase_Parms
 	// float                                           fShotgunDamage;                                   		// 0x0020 (0x0004) [0x0000000000000000]              
 	// class ABioPawn*                                 oCasterPawn;                                      		// 0x0024 (0x0008) [0x0000000000000000]              
 	// float                                           fScaledCasterPrecisionBonus;                      		// 0x002C (0x0004) [0x0000000000000000]              
+
+	 UBioCarnageScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioCarnageScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioCarnageScript.InitializePowerScript
@@ -753,6 +903,9 @@ struct UBioCarnageScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioCarnageScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioCarnageScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioCarnageSetupScript.OnImpact
@@ -766,6 +919,9 @@ struct UBioCarnageSetupScript_eventOnImpact_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// int                                             nNumberOfUses;                                    		// 0x001C (0x0004) [0x0000000000000000]              
 	// float                                           fDuration;                                        		// 0x0020 (0x0004) [0x0000000000000000]              
+
+	 UBioCarnageSetupScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioCarnageSetupScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSpawnBeacon.OnImpact
@@ -777,6 +933,9 @@ struct UBioSpawnBeacon_eventOnImpact_Parms
 	class AActor*                                      oImpacted;                                        		// 0x000C (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	int                                                nPreviouslyImpacted;                              		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioSpawnBeacon_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSpawnBeacon_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSpawnBeacon.EndPhase
@@ -786,15 +945,18 @@ struct UBioSpawnBeacon_eventEndPhase_Parms
 	unsigned char                                      ePhase;                                           		// 0x0000 (0x0001) [0x0000000000000080]              ( CPF_Parm )
 	class AActor*                                      oCaster;                                          		// 0x0004 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FVector                                  vBeaconLocation;                                  		// 0x0010 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vBeaconLocation; };                               		// 0x0010 (0x000C) [0x0000000000000000]              
 	// float                                           fDuration;                                        		// 0x001C (0x0004) [0x0000000000000000]              
 	// class UBioPawnBehavior*                         oCasterInfo;                                      		// 0x0020 (0x0008) [0x0000000000000000]              
 	// float                                           fBeaconLevel;                                     		// 0x0028 (0x0004) [0x0000000000000000]              
 	// int                                             nBeaconLevel;                                     		// 0x002C (0x0004) [0x0000000000000000]              
-	// class FString                                   sBeaconActorType;                                 		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	// union { FString                                 sBeaconActorType; };                              		// 0x0030 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	// float                                           fActivationDelay;                                 		// 0x0040 (0x0004) [0x0000000000000000]              
 	// float                                           fRadiusMulti;                                     		// 0x0044 (0x0004) [0x0000000000000000]              
 	// float                                           fDamageMulti;                                     		// 0x0048 (0x0004) [0x0000000000000000]              
+
+	 UBioSpawnBeacon_eventEndPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSpawnBeacon_eventEndPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSpawnBeacon.StartPhase
@@ -805,6 +967,9 @@ struct UBioSpawnBeacon_eventStartPhase_Parms
 	class AActor*                                      oCaster;                                          		// 0x0004 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioSpawnBeacon_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSpawnBeacon_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSpawnBeacon.InitializePowerScript
@@ -812,6 +977,9 @@ struct UBioSpawnBeacon_eventStartPhase_Parms
 struct UBioSpawnBeacon_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+
+	 UBioSpawnBeacon_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSpawnBeacon_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioDampingScript.OnImpact
@@ -829,7 +997,10 @@ struct UBioDampingScript_eventOnImpact_Parms
 	// float                                           fDuration;                                        		// 0x0028 (0x0004) [0x0000000000000000]              
 	// class ABioPawn*                                 oImpactedPawn;                                    		// 0x002C (0x0008) [0x0000000000000000]              
 	// class UBioPawnChallengeScaledType*              oImpactedActorType;                               		// 0x0034 (0x0008) [0x0000000000000000]              
-	// struct FVector                                  vMomentum;                                        		// 0x003C (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vMomentum; };                                     		// 0x003C (0x000C) [0x0000000000000000]              
+
+	 UBioDampingScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioDampingScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioDampingScript.StartPhase
@@ -842,6 +1013,9 @@ struct UBioDampingScript_eventStartPhase_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fCasterPrecisionBonus;                            		// 0x0014 (0x0004) [0x0000000000000000]              
 	// float                                           fDifficultyLevel;                                 		// 0x0018 (0x0004) [0x0000000000000000]              
+
+	 UBioDampingScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioDampingScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioDampingScript.InitializePowerScript
@@ -850,6 +1024,9 @@ struct UBioDampingScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioDampingScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioDampingScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioDampingSuicideScript.EndPhase
@@ -859,8 +1036,11 @@ struct UBioDampingSuicideScript_eventEndPhase_Parms
 	unsigned char                                      ePhase;                                           		// 0x0000 (0x0001) [0x0000000000000080]              ( CPF_Parm )
 	class AActor*                                      oCaster;                                          		// 0x0004 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FVector                                  vMomentum;                                        		// 0x0010 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vMomentum; };                                     		// 0x0010 (0x000C) [0x0000000000000000]              
 	// class UBioPawnBehavior*                         oCasterInfo;                                      		// 0x001C (0x0008) [0x0000000000000000]              
+
+	 UBioDampingSuicideScript_eventEndPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioDampingSuicideScript_eventEndPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioDampingSuicideScript.InitializePowerScript
@@ -869,6 +1049,9 @@ struct UBioDampingSuicideScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioDampingSuicideScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioDampingSuicideScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioEMPScript.OnImpact
@@ -882,9 +1065,12 @@ struct UBioEMPScript_eventOnImpact_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fEMPDamage;                                       		// 0x001C (0x0004) [0x0000000000000000]              
 	// float                                           fSuppressionDamage;                               		// 0x0020 (0x0004) [0x0000000000000000]              
-	// struct FVector                                  vMomentum;                                        		// 0x0024 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vMomentum; };                                     		// 0x0024 (0x000C) [0x0000000000000000]              
 	// float                                           fScaledTargetTechResist;                          		// 0x0030 (0x0004) [0x0000000000000000]              
 	// float                                           fDuration;                                        		// 0x0034 (0x0004) [0x0000000000000000]              
+
+	 UBioEMPScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioEMPScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioEMPScript.StartPhase
@@ -896,6 +1082,9 @@ struct UBioEMPScript_eventStartPhase_Parms
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fCasterPrecisionBonus;                            		// 0x0014 (0x0004) [0x0000000000000000]              
+
+	 UBioEMPScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioEMPScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioEMPScript.InitializePowerScript
@@ -904,6 +1093,9 @@ struct UBioEMPScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioEMPScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioEMPScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioEMPSuicideScript.EndPhase
@@ -913,8 +1105,11 @@ struct UBioEMPSuicideScript_eventEndPhase_Parms
 	unsigned char                                      ePhase;                                           		// 0x0000 (0x0001) [0x0000000000000080]              ( CPF_Parm )
 	class AActor*                                      oCaster;                                          		// 0x0004 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FVector                                  vMomentum;                                        		// 0x0010 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vMomentum; };                                     		// 0x0010 (0x000C) [0x0000000000000000]              
 	// class UBioPawnBehavior*                         oCasterInfo;                                      		// 0x001C (0x0008) [0x0000000000000000]              
+
+	 UBioEMPSuicideScript_eventEndPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioEMPSuicideScript_eventEndPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioEMPSuicideScript.InitializePowerScript
@@ -923,6 +1118,9 @@ struct UBioEMPSuicideScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioEMPSuicideScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioEMPSuicideScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioFakePowerScript.OnImpact
@@ -935,6 +1133,9 @@ struct UBioFakePowerScript_eventOnImpact_Parms
 	int                                                nPreviouslyImpacted;                              		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// unsigned char                                   eFaction;                                         		// 0x001C (0x0001) [0x0000000000000000]              
+
+	 UBioFakePowerScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioFakePowerScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioFakePowerScript.StartPhase
@@ -945,6 +1146,9 @@ struct UBioFakePowerScript_eventStartPhase_Parms
 	class AActor*                                      oCaster;                                          		// 0x0004 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioFakePowerScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioFakePowerScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioGethCarnageScript.OnImpact
@@ -956,7 +1160,10 @@ struct UBioGethCarnageScript_eventOnImpact_Parms
 	class AActor*                                      oImpacted;                                        		// 0x000C (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	int                                                nPreviouslyImpacted;                              		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FVector                                  vMomentum;                                        		// 0x001C (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vMomentum; };                                     		// 0x001C (0x000C) [0x0000000000000000]              
+
+	 UBioGethCarnageScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioGethCarnageScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioGethCarnageScript.StartPhase
@@ -969,6 +1176,9 @@ struct UBioGethCarnageScript_eventStartPhase_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class ABioPawn*                                 oCasterPawn;                                      		// 0x0014 (0x0008) [0x0000000000000000]              
 	// float                                           fScaledCasterPrecisionBonus;                      		// 0x001C (0x0004) [0x0000000000000000]              
+
+	 UBioGethCarnageScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioGethCarnageScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioGethCarnageScript.InitializePowerScript
@@ -977,6 +1187,9 @@ struct UBioGethCarnageScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioGethCarnageScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioGethCarnageScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioHackingScript.OnImpact
@@ -992,6 +1205,9 @@ struct UBioHackingScript_eventOnImpact_Parms
 	// class UBioPawnChallengeScaledType*              oImpactedActorType;                               		// 0x0024 (0x0008) [0x0000000000000000]              
 	// float                                           fHackingTime;                                     		// 0x002C (0x0004) [0x0000000000000000]              
 	// float                                           fScaledTargetTechResist;                          		// 0x0030 (0x0004) [0x0000000000000000]              
+
+	 UBioHackingScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioHackingScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioHackingScript.StartPhase
@@ -1003,6 +1219,9 @@ struct UBioHackingScript_eventStartPhase_Parms
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fCasterPrecisionBonus;                            		// 0x0014 (0x0004) [0x0000000000000000]              
+
+	 UBioHackingScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioHackingScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioHealScript.OnImpact
@@ -1017,6 +1236,9 @@ struct UBioHealScript_eventOnImpact_Parms
 	// class APawn*                                    oImpactedPawn;                                    		// 0x001C (0x0008) [0x0000000000000000]              
 	// class UBioEpicPawnBehavior*                     oPawnInfo;                                        		// 0x0024 (0x0008) [0x0000000000000000]              
 	// class UBioAttributesEpicPawn*                   oPawnAttribs;                                     		// 0x002C (0x0008) [0x0000000000000000]              
+
+	 UBioHealScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioHealScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioHealScript.StartPhase
@@ -1030,6 +1252,9 @@ struct UBioHealScript_eventStartPhase_Parms
 	// float                                           fScaledCasterBonus;                               		// 0x0014 (0x0004) [0x0000000000000000]              
 	// float                                           fHealAmountPerUse;                                		// 0x0018 (0x0004) [0x0000000000000000]              
 	// float                                           fToxicAmountPerUse;                               		// 0x001C (0x0004) [0x0000000000000000]              
+
+	 UBioHealScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioHealScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioHealSelfScript.OnImpact
@@ -1042,6 +1267,9 @@ struct UBioHealSelfScript_eventOnImpact_Parms
 	int                                                nPreviouslyImpacted;                              		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class APawn*                                    oImpactedPawn;                                    		// 0x001C (0x0008) [0x0000000000000000]              
+
+	 UBioHealSelfScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioHealSelfScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioHealSelfScript.CanStartPower
@@ -1053,6 +1281,9 @@ struct UBioHealSelfScript_eventCanStartPower_Parms
 	// class UBioEpicPawnBehavior*                     oCasterBehavior;                                  		// 0x000C (0x0008) [0x0000000000000000]              
 	// class UBioAttributesEpicPawn*                   oCasterAttributes;                                		// 0x0014 (0x0008) [0x0000000000000000]              
 	// class UBioAttributesPawn*                       oCasterPawnAttributes;                            		// 0x001C (0x0008) [0x0000000000000000]              
+
+	 UBioHealSelfScript_eventCanStartPower_Parms() { memset(this, 0, sizeof *this); }
+	~UBioHealSelfScript_eventCanStartPower_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioHealSquadScript.OnImpact
@@ -1072,6 +1303,9 @@ struct UBioHealSquadScript_eventOnImpact_Parms
 	// class UBioAttributesPawn*                       oMemberAttribs;                                   		// 0x0040 (0x0008) [0x0000000000000000]              
 	// unsigned long                                   bMemberDead;                                      		// 0x0048 (0x0004) [0x0000000000000000]              
 	// unsigned long                                   bSomeoneHealed;                                   		// 0x004C (0x0004) [0x0000000000000000]              
+
+	 UBioHealSquadScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioHealSquadScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioHealSquadScript.StartPhase
@@ -1086,6 +1320,9 @@ struct UBioHealSquadScript_eventStartPhase_Parms
 	// float                                           fToxicAmountPerUse;                               		// 0x0018 (0x0004) [0x0000000000000000]              
 	// float                                           fMediGelPerUse;                                   		// 0x001C (0x0004) [0x0000000000000000]              
 	// class ABioPawn*                                 oPawn;                                            		// 0x0020 (0x0008) [0x0000000000000000]              
+
+	 UBioHealSquadScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioHealSquadScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioHealSquadScript.CanStartPower
@@ -1094,6 +1331,9 @@ struct UBioHealSquadScript_eventCanStartPower_Parms
 {
 	class AActor*                                      oCaster;                                          		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioHealSquadScript_eventCanStartPower_Parms() { memset(this, 0, sizeof *this); }
+	~UBioHealSquadScript_eventCanStartPower_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioHealSquadScript.AdjustCooldown
@@ -1102,6 +1342,9 @@ struct UBioHealSquadScript_eventAdjustCooldown_Parms
 {
 	float                                              fCoolDownTime;                                    		// 0x0000 (0x0004) [0x0000000000000180]              ( CPF_Parm | CPF_OutParm )
 	unsigned long                                      ReturnValue;                                      		// 0x0004 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioHealSquadScript_eventAdjustCooldown_Parms() { memset(this, 0, sizeof *this); }
+	~UBioHealSquadScript_eventAdjustCooldown_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioHealSquadScript.DoesSquadNeedHealing
@@ -1118,6 +1361,9 @@ struct UBioHealSquadScript_execDoesSquadNeedHealing_Parms
 	// class UBioAttributesPawn*                       oSquadMemberPawnAttributes;                       		// 0x0034 (0x0008) [0x0000000000000000]              
 	// int                                             nCount;                                           		// 0x003C (0x0004) [0x0000000000000000]              
 	// int                                             nIndex;                                           		// 0x0040 (0x0004) [0x0000000000000000]              
+
+	 UBioHealSquadScript_execDoesSquadNeedHealing_Parms() { memset(this, 0, sizeof *this); }
+	~UBioHealSquadScript_execDoesSquadNeedHealing_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioHealSquadScript.GetCooldownMultiForSquad
@@ -1135,6 +1381,9 @@ struct UBioHealSquadScript_execGetCooldownMultiForSquad_Parms
 	// int                                             nIndex;                                           		// 0x0038 (0x0004) [0x0000000000000000]              
 	// float                                           fCooldownMulti;                                   		// 0x003C (0x0004) [0x0000000000000000]              
 	// float                                           fMemberCooldownMulti;                             		// 0x0040 (0x0004) [0x0000000000000000]              
+
+	 UBioHealSquadScript_execGetCooldownMultiForSquad_Parms() { memset(this, 0, sizeof *this); }
+	~UBioHealSquadScript_execGetCooldownMultiForSquad_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioHealSquadScript.GetHealAmountForSquad
@@ -1151,6 +1400,9 @@ struct UBioHealSquadScript_execGetHealAmountForSquad_Parms
 	// class UBioPower*                                oPower;                                           		// 0x0030 (0x0008) [0x0000000000000000]              
 	// int                                             nCount;                                           		// 0x0038 (0x0004) [0x0000000000000000]              
 	// int                                             nIndex;                                           		// 0x003C (0x0004) [0x0000000000000000]              
+
+	 UBioHealSquadScript_execGetHealAmountForSquad_Parms() { memset(this, 0, sizeof *this); }
+	~UBioHealSquadScript_execGetHealAmountForSquad_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioHexBarrierScript.OnImpact
@@ -1164,12 +1416,15 @@ struct UBioHexBarrierScript_eventOnImpact_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioActorBehavior*                        oImpactedBehavior;                                		// 0x001C (0x0008) [0x0000000000000000]              
 	// class ABioPawn*                                 oCasterPawn;                                      		// 0x0024 (0x0008) [0x0000000000000000]              
-	// struct FVector                                  vRotation;                                        		// 0x002C (0x000C) [0x0000000000000000]              
-	// struct FRotator                                 rBarrierRotation;                                 		// 0x0038 (0x000C) [0x0000000000000000]              
-	// struct FVector                                  vLocation;                                        		// 0x0044 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vRotation; };                                     		// 0x002C (0x000C) [0x0000000000000000]              
+	// union { struct FRotator                         rBarrierRotation; };                              		// 0x0038 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vLocation; };                                     		// 0x0044 (0x000C) [0x0000000000000000]              
 	// float                                           fHealth;                                          		// 0x0050 (0x0004) [0x0000000000000000]              
 	// float                                           fDistance;                                        		// 0x0054 (0x0004) [0x0000000000000000]              
 	// float                                           fDuration;                                        		// 0x0058 (0x0004) [0x0000000000000000]              
+
+	 UBioHexBarrierScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioHexBarrierScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioImmunityScript.OnImpact
@@ -1183,6 +1438,9 @@ struct UBioImmunityScript_eventOnImpact_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fDamageResistBonus;                               		// 0x001C (0x0004) [0x0000000000000000]              
 	// float                                           fDuration;                                        		// 0x0020 (0x0004) [0x0000000000000000]              
+
+	 UBioImmunityScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioImmunityScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioImmunityScript.StartPhase
@@ -1193,6 +1451,9 @@ struct UBioImmunityScript_eventStartPhase_Parms
 	class AActor*                                      oCaster;                                          		// 0x0004 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioImmunityScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioImmunityScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioLanceArmScript.OnImpact
@@ -1204,8 +1465,11 @@ struct UBioLanceArmScript_eventOnImpact_Parms
 	class AActor*                                      oImpacted;                                        		// 0x000C (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	int                                                nPreviouslyImpacted;                              		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FVector                                  vDirection;                                       		// 0x001C (0x000C) [0x0000000000000000]              
-	// struct FVector                                  vMomentum;                                        		// 0x0028 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vDirection; };                                    		// 0x001C (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vMomentum; };                                     		// 0x0028 (0x000C) [0x0000000000000000]              
+
+	 UBioLanceArmScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioLanceArmScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioLanceArmScript.StartPhase
@@ -1217,6 +1481,9 @@ struct UBioLanceArmScript_eventStartPhase_Parms
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fCasterPrecisionBonus;                            		// 0x0014 (0x0004) [0x0000000000000000]              
+
+	 UBioLanceArmScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioLanceArmScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioLanceArmScript.InitializePowerScript
@@ -1225,6 +1492,9 @@ struct UBioLanceArmScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioLanceArmScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioLanceArmScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioLiftScript.OnImpact
@@ -1237,6 +1507,9 @@ struct UBioLiftScript_eventOnImpact_Parms
 	int                                                nPreviouslyImpacted;                              		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fScaledDuration;                                  		// 0x001C (0x0004) [0x0000000000000000]              
+
+	 UBioLiftScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioLiftScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioLiftScript.StartPhase
@@ -1247,6 +1520,9 @@ struct UBioLiftScript_eventStartPhase_Parms
 	class AActor*                                      oCaster;                                          		// 0x0004 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioLiftScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioLiftScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioLiftPLCScript.OnImpact
@@ -1263,6 +1539,9 @@ struct UBioLiftPLCScript_eventOnImpact_Parms
 	// class ABioAiController*                         oCasterAI;                                        		// 0x0028 (0x0008) [0x0000000000000000]              
 	// unsigned long                                   bIsCurrentTarget;                                 		// 0x0030 (0x0004) [0x0000000000000000]              
 	// unsigned long                                   bIsPlaceable;                                     		// 0x0034 (0x0004) [0x0000000000000000]              
+
+	 UBioLiftPLCScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioLiftPLCScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioMarksmanScript.OnImpact
@@ -1280,6 +1559,9 @@ struct UBioMarksmanScript_eventOnImpact_Parms
 	// float                                           fMinDriftRed;                                     		// 0x0028 (0x0004) [0x0000000000000000]              
 	// float                                           fHeatRed;                                         		// 0x002C (0x0004) [0x0000000000000000]              
 	// float                                           fDuration;                                        		// 0x0030 (0x0004) [0x0000000000000000]              
+
+	 UBioMarksmanScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioMarksmanScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioMarksmanScript.StartPhase
@@ -1290,6 +1572,9 @@ struct UBioMarksmanScript_eventStartPhase_Parms
 	class AActor*                                      oCaster;                                          		// 0x0004 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioMarksmanScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioMarksmanScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioNeuralShockScript.OnImpact
@@ -1303,9 +1588,12 @@ struct UBioNeuralShockScript_eventOnImpact_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fToxicDamage;                                     		// 0x001C (0x0004) [0x0000000000000000]              
 	// float                                           fDuration;                                        		// 0x0020 (0x0004) [0x0000000000000000]              
-	// struct FVector                                  vPushMomentum;                                    		// 0x0024 (0x000C) [0x0000000000000000]              
-	// struct FVector                                  vToxicMomentum;                                   		// 0x0030 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vPushMomentum; };                                 		// 0x0024 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vToxicMomentum; };                                		// 0x0030 (0x000C) [0x0000000000000000]              
 	// float                                           fScaledTargetTechResist;                          		// 0x003C (0x0004) [0x0000000000000000]              
+
+	 UBioNeuralShockScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioNeuralShockScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioNeuralShockScript.StartPhase
@@ -1317,6 +1605,9 @@ struct UBioNeuralShockScript_eventStartPhase_Parms
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fCasterPrecisionBonus;                            		// 0x0014 (0x0004) [0x0000000000000000]              
+
+	 UBioNeuralShockScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioNeuralShockScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioNeuralShockScript.InitializePowerScript
@@ -1325,6 +1616,9 @@ struct UBioNeuralShockScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioNeuralShockScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioNeuralShockScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioOverkillScript.OnImpact
@@ -1341,6 +1635,9 @@ struct UBioOverkillScript_eventOnImpact_Parms
 	// float                                           fHeatRed;                                         		// 0x0024 (0x0004) [0x0000000000000000]              
 	// float                                           fDuration;                                        		// 0x0028 (0x0004) [0x0000000000000000]              
 	// float                                           fDamageBonus;                                     		// 0x002C (0x0004) [0x0000000000000000]              
+
+	 UBioOverkillScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioOverkillScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioOverkillScript.StartPhase
@@ -1351,6 +1648,9 @@ struct UBioOverkillScript_eventStartPhase_Parms
 	class AActor*                                      oCaster;                                          		// 0x0004 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioOverkillScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioOverkillScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioRegenBurstScript.OnImpact
@@ -1371,6 +1671,9 @@ struct UBioRegenBurstScript_eventOnImpact_Parms
 	// float                                           fToxicPerTick_Zero;                               		// 0x0038 (0x0004) [0x0000000000000000]              
 	// float                                           fInstantHealth;                                   		// 0x003C (0x0004) [0x0000000000000000]              
 	// float                                           fInstantToxic_Zero;                               		// 0x0040 (0x0004) [0x0000000000000000]              
+
+	 UBioRegenBurstScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioRegenBurstScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioRepairScript.OnImpact
@@ -1385,6 +1688,9 @@ struct UBioRepairScript_eventOnImpact_Parms
 	// class ABioVehicleBase*                          oVehicle;                                         		// 0x001C (0x0008) [0x0000000000000000]              
 	// class APawn*                                    oPawn;                                            		// 0x0024 (0x0008) [0x0000000000000000]              
 	// class ABioPlayerController*                     oController;                                      		// 0x002C (0x0008) [0x0000000000000000]              
+
+	 UBioRepairScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioRepairScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioRepairScript.StartPhase
@@ -1398,6 +1704,9 @@ struct UBioRepairScript_eventStartPhase_Parms
 	// float                                           fRepairAmount;                                    		// 0x0014 (0x0004) [0x0000000000000000]              
 	// float                                           fRepairAmountPerTalent;                           		// 0x0018 (0x0004) [0x0000000000000000]              
 	// float                                           fSalvagePerUse;                                   		// 0x001C (0x0004) [0x0000000000000000]              
+
+	 UBioRepairScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioRepairScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioRepairScript.CanStartPower
@@ -1408,6 +1717,9 @@ struct UBioRepairScript_eventCanStartPower_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioEpicPawnBehavior*                     oCasterBehavior;                                  		// 0x000C (0x0008) [0x0000000000000000]              
 	// class UBioAttributesEpicPawn*                   oCasterAttributes;                                		// 0x0014 (0x0008) [0x0000000000000000]              
+
+	 UBioRepairScript_eventCanStartPower_Parms() { memset(this, 0, sizeof *this); }
+	~UBioRepairScript_eventCanStartPower_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioRepairScript.GetSquadElectronicsRank
@@ -1422,6 +1734,9 @@ struct UBioRepairScript_execGetSquadElectronicsRank_Parms
 	// int                                             nSquadMemberIndex;                                		// 0x0024 (0x0004) [0x0000000000000000]              
 	// int                                             nTalentRank;                                      		// 0x0028 (0x0004) [0x0000000000000000]              
 	// int                                             nTotalRank;                                       		// 0x002C (0x0004) [0x0000000000000000]              
+
+	 UBioRepairScript_execGetSquadElectronicsRank_Parms() { memset(this, 0, sizeof *this); }
+	~UBioRepairScript_execGetSquadElectronicsRank_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSabotageScript.OnImpact
@@ -1436,7 +1751,10 @@ struct UBioSabotageScript_eventOnImpact_Parms
 	// float                                           fDuration;                                        		// 0x001C (0x0004) [0x0000000000000000]              
 	// float                                           fScaledTargetTechResist;                          		// 0x0020 (0x0004) [0x0000000000000000]              
 	// float                                           fDamagePerInterval;                               		// 0x0024 (0x0004) [0x0000000000000000]              
-	// struct FVector                                  vMomentum;                                        		// 0x0028 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vMomentum; };                                     		// 0x0028 (0x000C) [0x0000000000000000]              
+
+	 UBioSabotageScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSabotageScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSabotageScript.StartPhase
@@ -1448,6 +1766,9 @@ struct UBioSabotageScript_eventStartPhase_Parms
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fCasterPrecisionBonus;                            		// 0x0014 (0x0004) [0x0000000000000000]              
+
+	 UBioSabotageScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSabotageScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSabotageScript.InitializePowerScript
@@ -1456,6 +1777,9 @@ struct UBioSabotageScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioSabotageScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSabotageScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSabotageSuicideScript.EndPhase
@@ -1465,8 +1789,11 @@ struct UBioSabotageSuicideScript_eventEndPhase_Parms
 	unsigned char                                      ePhase;                                           		// 0x0000 (0x0001) [0x0000000000000080]              ( CPF_Parm )
 	class AActor*                                      oCaster;                                          		// 0x0004 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FVector                                  vMomentum;                                        		// 0x0010 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vMomentum; };                                     		// 0x0010 (0x000C) [0x0000000000000000]              
 	// class UBioPawnBehavior*                         oCasterInfo;                                      		// 0x001C (0x0008) [0x0000000000000000]              
+
+	 UBioSabotageSuicideScript_eventEndPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSabotageSuicideScript_eventEndPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSabotageSuicideScript.InitializePowerScript
@@ -1475,6 +1802,9 @@ struct UBioSabotageSuicideScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioSabotageSuicideScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSabotageSuicideScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioShieldBoostScript.OnImpact
@@ -1492,6 +1822,9 @@ struct UBioShieldBoostScript_eventOnImpact_Parms
 	// float                                           fShieldsPerSecond;                                		// 0x0034 (0x0004) [0x0000000000000000]              
 	// float                                           fShieldsPerInterval;                              		// 0x0038 (0x0004) [0x0000000000000000]              
 	// float                                           fDuration;                                        		// 0x003C (0x0004) [0x0000000000000000]              
+
+	 UBioShieldBoostScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioShieldBoostScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioShieldBoostScript.StartPhase
@@ -1502,6 +1835,9 @@ struct UBioShieldBoostScript_eventStartPhase_Parms
 	class AActor*                                      oCaster;                                          		// 0x0004 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioShieldBoostScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioShieldBoostScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioShieldBoostScript.CanStartPower
@@ -1513,6 +1849,9 @@ struct UBioShieldBoostScript_eventCanStartPower_Parms
 	// class UBioActorBehavior*                        oCasterBehavior;                                  		// 0x000C (0x0008) [0x0000000000000000]              
 	// class UBioShield*                               oShield;                                          		// 0x0014 (0x0008) [0x0000000000000000]              
 	// float                                           fShieldMax;                                       		// 0x001C (0x0004) [0x0000000000000000]              
+
+	 UBioShieldBoostScript_eventCanStartPower_Parms() { memset(this, 0, sizeof *this); }
+	~UBioShieldBoostScript_eventCanStartPower_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioShieldEntrenchScript.OnImpact
@@ -1524,6 +1863,9 @@ struct UBioShieldEntrenchScript_eventOnImpact_Parms
 	class AActor*                                      oImpacted;                                        		// 0x000C (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	int                                                nPreviouslyImpacted;                              		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioShieldEntrenchScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioShieldEntrenchScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioShieldEntrenchScript.StartPhase
@@ -1535,6 +1877,9 @@ struct UBioShieldEntrenchScript_eventStartPhase_Parms
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fShieldsPerSecond;                                		// 0x0014 (0x0004) [0x0000000000000000]              
+
+	 UBioShieldEntrenchScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioShieldEntrenchScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSiegePulseScript.OnImpact
@@ -1546,7 +1891,10 @@ struct UBioSiegePulseScript_eventOnImpact_Parms
 	class AActor*                                      oImpacted;                                        		// 0x000C (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	int                                                nPreviouslyImpacted;                              		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FVector                                  vMomentum;                                        		// 0x001C (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vMomentum; };                                     		// 0x001C (0x000C) [0x0000000000000000]              
+
+	 UBioSiegePulseScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSiegePulseScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSiegePulseScript.StartPhase
@@ -1560,6 +1908,9 @@ struct UBioSiegePulseScript_eventStartPhase_Parms
 	// float                                           fSPDamage;                                        		// 0x0014 (0x0004) [0x0000000000000000]              
 	// class ABioPawn*                                 oCasterPawn;                                      		// 0x0018 (0x0008) [0x0000000000000000]              
 	// float                                           fScaledCasterPrecisionBonus;                      		// 0x0020 (0x0004) [0x0000000000000000]              
+
+	 UBioSiegePulseScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSiegePulseScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSiegePulseScript.InitializePowerScript
@@ -1568,6 +1919,9 @@ struct UBioSiegePulseScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioSiegePulseScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSiegePulseScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSingularityScript.OnImpact
@@ -1582,6 +1936,9 @@ struct UBioSingularityScript_eventOnImpact_Parms
 	// float                                           fBioticResistance;                                		// 0x001C (0x0004) [0x0000000000000000]              
 	// float                                           fForcePerInterval;                                		// 0x0020 (0x0004) [0x0000000000000000]              
 	// float                                           fDuration;                                        		// 0x0024 (0x0004) [0x0000000000000000]              
+
+	 UBioSingularityScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSingularityScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSingularityScript.StartPhase
@@ -1593,18 +1950,24 @@ struct UBioSingularityScript_eventStartPhase_Parms
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fCasterPrecisionBonus;                            		// 0x0014 (0x0004) [0x0000000000000000]              
+
+	 UBioSingularityScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSingularityScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSingularityScript.BumpUpFromFloor
 // [0x00024002] 
 struct UBioSingularityScript_execBumpUpFromFloor_Parms
 {
-	struct FVector                                     vOriginalLocation;                                		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
+	union { struct FVector                             vOriginalLocation; };                             		// 0x0000 (0x000C) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fBumpDistance;                                    		// 0x000C (0x0004) [0x0000000000000090]              ( CPF_OptionalParm | CPF_Parm )
-	struct FVector                                     ReturnValue;                                      		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+	union { struct FVector                             ReturnValue; };                                   		// 0x0010 (0x000C) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fFloorZ;                                          		// 0x001C (0x0004) [0x0000000000000000]              
-	// struct FVector                                  vFloorLocation;                                   		// 0x0020 (0x000C) [0x0000000000000000]              
-	// struct FVector                                  vNewLocation;                                     		// 0x002C (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vFloorLocation; };                                		// 0x0020 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vNewLocation; };                                  		// 0x002C (0x000C) [0x0000000000000000]              
+
+	 UBioSingularityScript_execBumpUpFromFloor_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSingularityScript_execBumpUpFromFloor_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSingularityScript.InitializePowerScript
@@ -1612,6 +1975,9 @@ struct UBioSingularityScript_execBumpUpFromFloor_Parms
 struct UBioSingularityScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
+
+	 UBioSingularityScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSingularityScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSmashScript.OnImpact
@@ -1623,8 +1989,11 @@ struct UBioSmashScript_eventOnImpact_Parms
 	class AActor*                                      oImpacted;                                        		// 0x000C (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	int                                                nPreviouslyImpacted;                              		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FVector                                  vDirection;                                       		// 0x001C (0x000C) [0x0000000000000000]              
-	// struct FVector                                  vMomentum;                                        		// 0x0028 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vDirection; };                                    		// 0x001C (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vMomentum; };                                     		// 0x0028 (0x000C) [0x0000000000000000]              
+
+	 UBioSmashScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSmashScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSmashScript.StartPhase
@@ -1636,6 +2005,9 @@ struct UBioSmashScript_eventStartPhase_Parms
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fCasterPrecisionBonus;                            		// 0x0014 (0x0004) [0x0000000000000000]              
+
+	 UBioSmashScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSmashScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSmashScript.InitializePowerScript
@@ -1644,6 +2016,9 @@ struct UBioSmashScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioSmashScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSmashScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSniperCritScript.OnImpact
@@ -1660,6 +2035,9 @@ struct UBioSniperCritScript_eventOnImpact_Parms
 	// float                                           fMinDriftRed;                                     		// 0x0024 (0x0004) [0x0000000000000000]              
 	// float                                           fMaxDriftRed;                                     		// 0x0028 (0x0004) [0x0000000000000000]              
 	// float                                           fStunDuration;                                    		// 0x002C (0x0004) [0x0000000000000000]              
+
+	 UBioSniperCritScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSniperCritScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioSniperCritScript.StartPhase
@@ -1670,6 +2048,9 @@ struct UBioSniperCritScript_eventStartPhase_Parms
 	class AActor*                                      oCaster;                                          		// 0x0004 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioSniperCritScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSniperCritScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioStasisScript.OnImpact
@@ -1687,6 +2068,9 @@ struct UBioStasisScript_eventOnImpact_Parms
 	// float                                           fDuration;                                        		// 0x0030 (0x0004) [0x0000000000000000]              
 	// unsigned char                                   eRelation;                                        		// 0x0034 (0x0001) [0x0000000000000000]              
 	// unsigned long                                   bAllowDamage;                                     		// 0x0038 (0x0004) [0x0000000000000000]              
+
+	 UBioStasisScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioStasisScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioStasisScript.StartPhase
@@ -1698,6 +2082,9 @@ struct UBioStasisScript_eventStartPhase_Parms
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fAllowDamage;                                     		// 0x0014 (0x0004) [0x0000000000000000]              
+
+	 UBioStasisScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioStasisScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioTakeDownScript.OnImpact
@@ -1719,6 +2106,9 @@ struct UBioTakeDownScript_eventOnImpact_Parms
 	// float                                           fSuppResistBonus;                                 		// 0x0048 (0x0004) [0x0000000000000000]              
 	// float                                           fMobilityBonus;                                   		// 0x004C (0x0004) [0x0000000000000000]              
 	// float                                           fDuration;                                        		// 0x0050 (0x0004) [0x0000000000000000]              
+
+	 UBioTakeDownScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioTakeDownScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioTakeDownScript.StartPhase
@@ -1730,6 +2120,9 @@ struct UBioTakeDownScript_eventStartPhase_Parms
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class ABioPawn*                                 oPawn;                                            		// 0x0014 (0x0008) [0x0000000000000000]              
+
+	 UBioTakeDownScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioTakeDownScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioTeslaBurstScript.OnImpact
@@ -1743,8 +2136,11 @@ struct UBioTeslaBurstScript_eventOnImpact_Parms
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fEMPDamage;                                       		// 0x001C (0x0004) [0x0000000000000000]              
 	// float                                           fDamage;                                          		// 0x0020 (0x0004) [0x0000000000000000]              
-	// struct FVector                                  vMomentum;                                        		// 0x0024 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vMomentum; };                                     		// 0x0024 (0x000C) [0x0000000000000000]              
 	// float                                           fScaledTargetTechResist;                          		// 0x0030 (0x0004) [0x0000000000000000]              
+
+	 UBioTeslaBurstScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioTeslaBurstScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioTeslaBurstScript.StartPhase
@@ -1756,6 +2152,9 @@ struct UBioTeslaBurstScript_eventStartPhase_Parms
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fCasterPrecisionBonus;                            		// 0x0014 (0x0004) [0x0000000000000000]              
+
+	 UBioTeslaBurstScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioTeslaBurstScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioTeslaBurstScript.InitializePowerScript
@@ -1764,6 +2163,9 @@ struct UBioTeslaBurstScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioTeslaBurstScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioTeslaBurstScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioThrowScript.OnImpact
@@ -1778,9 +2180,12 @@ struct UBioThrowScript_eventOnImpact_Parms
 	// float                                           fTargetForce;                                     		// 0x001C (0x0004) [0x0000000000000000]              
 	// float                                           fTargetDamage;                                    		// 0x0020 (0x0004) [0x0000000000000000]              
 	// float                                           fScaledTargetBioticResist;                        		// 0x0024 (0x0004) [0x0000000000000000]              
-	// struct FVector                                  vDirection;                                       		// 0x0028 (0x000C) [0x0000000000000000]              
-	// struct FVector                                  vMomentum;                                        		// 0x0034 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vDirection; };                                    		// 0x0028 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vMomentum; };                                     		// 0x0034 (0x000C) [0x0000000000000000]              
 	// class UBioAttributesDamage*                     oDamageAtt;                                       		// 0x0040 (0x0008) [0x0000000000000000]              
+
+	 UBioThrowScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioThrowScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioThrowScript.StartPhase
@@ -1792,6 +2197,9 @@ struct UBioThrowScript_eventStartPhase_Parms
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fCasterPrecisionBonus;                            		// 0x0014 (0x0004) [0x0000000000000000]              
+
+	 UBioThrowScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioThrowScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioThrowScript.InitializePowerScript
@@ -1800,6 +2208,9 @@ struct UBioThrowScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioThrowScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioThrowScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioThrowWarpScript.OnImpact
@@ -1814,13 +2225,16 @@ struct UBioThrowWarpScript_eventOnImpact_Parms
 	// float                                           fTargetDamagePerInterval;                         		// 0x001C (0x0004) [0x0000000000000000]              
 	// float                                           fScaledTargetBioticResist;                        		// 0x0020 (0x0004) [0x0000000000000000]              
 	// float                                           fDuration;                                        		// 0x0024 (0x0004) [0x0000000000000000]              
-	// struct FVector                                  vWarpMomentum;                                    		// 0x0028 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vWarpMomentum; };                                 		// 0x0028 (0x000C) [0x0000000000000000]              
 	// float                                           fThrowForce;                                      		// 0x0034 (0x0004) [0x0000000000000000]              
 	// float                                           fThrowDamage;                                     		// 0x0038 (0x0004) [0x0000000000000000]              
-	// struct FVector                                  vThrowDirection;                                  		// 0x003C (0x000C) [0x0000000000000000]              
-	// struct FVector                                  vThrowMomentum;                                   		// 0x0048 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vThrowDirection; };                               		// 0x003C (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vThrowMomentum; };                                		// 0x0048 (0x000C) [0x0000000000000000]              
 	// unsigned long                                   bSuccess;                                         		// 0x0054 (0x0004) [0x0000000000000000]              
 	// class UBioAttributesDamage*                     oDamageAtt;                                       		// 0x0058 (0x0008) [0x0000000000000000]              
+
+	 UBioThrowWarpScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioThrowWarpScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioThrowWarpScript.StartPhase
@@ -1832,6 +2246,9 @@ struct UBioThrowWarpScript_eventStartPhase_Parms
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fCasterPrecisionBonus;                            		// 0x0014 (0x0004) [0x0000000000000000]              
+
+	 UBioThrowWarpScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioThrowWarpScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioThrowWarpScript.InitializePowerScript
@@ -1840,6 +2257,9 @@ struct UBioThrowWarpScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioThrowWarpScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioThrowWarpScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioToxicSpitScript.OnImpact
@@ -1851,7 +2271,10 @@ struct UBioToxicSpitScript_eventOnImpact_Parms
 	class AActor*                                      oImpacted;                                        		// 0x000C (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	int                                                nPreviouslyImpacted;                              		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FVector                                  vMomentum;                                        		// 0x001C (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vMomentum; };                                     		// 0x001C (0x000C) [0x0000000000000000]              
+
+	 UBioToxicSpitScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioToxicSpitScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioToxicSpitScript.StartPhase
@@ -1863,6 +2286,9 @@ struct UBioToxicSpitScript_eventStartPhase_Parms
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// float                                           fCasterPrecisionBonus;                            		// 0x0014 (0x0004) [0x0000000000000000]              
+
+	 UBioToxicSpitScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioToxicSpitScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioToxicSpitScript.InitializePowerScript
@@ -1871,6 +2297,9 @@ struct UBioToxicSpitScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioToxicSpitScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioToxicSpitScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioToxicSpitSuicideScript.EndPhase
@@ -1880,7 +2309,10 @@ struct UBioToxicSpitSuicideScript_eventEndPhase_Parms
 	unsigned char                                      ePhase;                                           		// 0x0000 (0x0001) [0x0000000000000080]              ( CPF_Parm )
 	class AActor*                                      oCaster;                                          		// 0x0004 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FVector                                  vMomentum;                                        		// 0x0010 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vMomentum; };                                     		// 0x0010 (0x000C) [0x0000000000000000]              
+
+	 UBioToxicSpitSuicideScript_eventEndPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioToxicSpitSuicideScript_eventEndPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioToxicSpitSuicideScript.InitializePowerScript
@@ -1889,6 +2321,9 @@ struct UBioToxicSpitSuicideScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioToxicSpitSuicideScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioToxicSpitSuicideScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioUnityScript.OnImpact
@@ -1907,6 +2342,9 @@ struct UBioUnityScript_eventOnImpact_Parms
 	// class ABioPawn*                                 oMemberPawn;                                      		// 0x003C (0x0008) [0x0000000000000000]              
 	// float                                           fPercentOfHealthRegained;                         		// 0x0044 (0x0004) [0x0000000000000000]              
 	// float                                           fPercentOfShieldRegained;                         		// 0x0048 (0x0004) [0x0000000000000000]              
+
+	 UBioUnityScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioUnityScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioUnityScript.CanStartPower
@@ -1915,6 +2353,9 @@ struct UBioUnityScript_eventCanStartPower_Parms
 {
 	class AActor*                                      oCaster;                                          		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0008 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioUnityScript_eventCanStartPower_Parms() { memset(this, 0, sizeof *this); }
+	~UBioUnityScript_eventCanStartPower_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioUnityScript.DoesSquadHaveDeadMember
@@ -1929,6 +2370,9 @@ struct UBioUnityScript_execDoesSquadHaveDeadMember_Parms
 	// class UBioActorBehavior*                        oSquadMemberBehavior;                             		// 0x0024 (0x0008) [0x0000000000000000]              
 	// int                                             nCount;                                           		// 0x002C (0x0004) [0x0000000000000000]              
 	// int                                             nIndex;                                           		// 0x0030 (0x0004) [0x0000000000000000]              
+
+	 UBioUnityScript_execDoesSquadHaveDeadMember_Parms() { memset(this, 0, sizeof *this); }
+	~UBioUnityScript_execDoesSquadHaveDeadMember_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioWarpScript.OnImpact
@@ -1943,8 +2387,11 @@ struct UBioWarpScript_eventOnImpact_Parms
 	// float                                           fTargetDamagePerInterval;                         		// 0x001C (0x0004) [0x0000000000000000]              
 	// float                                           fScaledTargetBioticResist;                        		// 0x0020 (0x0004) [0x0000000000000000]              
 	// float                                           fDuration;                                        		// 0x0024 (0x0004) [0x0000000000000000]              
-	// struct FVector                                  vMomentum;                                        		// 0x0028 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vMomentum; };                                     		// 0x0028 (0x000C) [0x0000000000000000]              
 	// unsigned long                                   bSuccess;                                         		// 0x0034 (0x0004) [0x0000000000000000]              
+
+	 UBioWarpScript_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioWarpScript_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioWarpScript.StartPhase
@@ -1955,6 +2402,9 @@ struct UBioWarpScript_eventStartPhase_Parms
 	class AActor*                                      oCaster;                                          		// 0x0004 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioWarpScript_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioWarpScript_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioWarpScript.InitializePowerScript
@@ -1963,6 +2413,9 @@ struct UBioWarpScript_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioWarpScript_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioWarpScript_eventInitializePowerScript_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioArmorEmitter.OnImpact
@@ -1974,13 +2427,16 @@ struct UBioArmorEmitter_eventOnImpact_Parms
 	class AActor*                                      oImpacted;                                        		// 0x000C (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	int                                                nPreviouslyImpacted;                              		// 0x0014 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0018 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
-	// struct FVector                                  V;                                                		// 0x001C (0x000C) [0x0000000000000000]              
-	// struct FVector                                  vDestab;                                          		// 0x0028 (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          V; };                                             		// 0x001C (0x000C) [0x0000000000000000]              
+	// union { struct FVector                          vDestab; };                                       		// 0x0028 (0x000C) [0x0000000000000000]              
 	// int                                             iType;                                            		// 0x0034 (0x0004) [0x0000000000000000]              
 	// class ABioPawn*                                 oImpactedPawn;                                    		// 0x0038 (0x0008) [0x0000000000000000]              
 	// class UBioItemArmorShielded*                    oImpactedArmor;                                   		// 0x0040 (0x0008) [0x0000000000000000]              
 	// class UBioAttributesShield*                     oImpactedShield;                                  		// 0x0048 (0x0008) [0x0000000000000000]              
 	// float                                           fShieldSettings;                                  		// 0x0050 (0x0004) [0x0000000000000000]              
+
+	 UBioArmorEmitter_eventOnImpact_Parms() { memset(this, 0, sizeof *this); }
+	~UBioArmorEmitter_eventOnImpact_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioArmorEmitter.StartPhase
@@ -1991,6 +2447,9 @@ struct UBioArmorEmitter_eventStartPhase_Parms
 	class AActor*                                      oCaster;                                          		// 0x0004 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	float                                              fDuration;                                        		// 0x000C (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x0010 (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
+
+	 UBioArmorEmitter_eventStartPhase_Parms() { memset(this, 0, sizeof *this); }
+	~UBioArmorEmitter_eventStartPhase_Parms() {}
 };
 
 // Function SFXGameContent_Powers.BioArmorEmitter.InitializePowerScript
@@ -1999,6 +2458,9 @@ struct UBioArmorEmitter_eventInitializePowerScript_Parms
 {
 	class UBioPower*                                   pPower;                                           		// 0x0000 (0x0008) [0x0000000000000080]              ( CPF_Parm )
 	// class UBioDeathVFX*                             oDeathVFX;                                        		// 0x0008 (0x0008) [0x0000000000000000]              
+
+	 UBioArmorEmitter_eventInitializePowerScript_Parms() { memset(this, 0, sizeof *this); }
+	~UBioArmorEmitter_eventInitializePowerScript_Parms() {}
 };
 
 

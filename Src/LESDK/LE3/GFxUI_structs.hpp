@@ -30,7 +30,7 @@
 // 0x0018
 struct FExternalTexture
 {
-	class FString                                      Resource;                                         		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Resource;                                         		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UTexture*                                    Texture;                                          		// 0x0010 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 };
 
@@ -39,13 +39,13 @@ struct FExternalTexture
 struct FGFxDataStoreBinding
 {
 	struct FUIDataStoreBinding                         DataSource;                                       		// 0x0000 (0x0040) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      VarPath;                                          		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      ModelId;                                          		// 0x0050 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      ControlId;                                        		// 0x0060 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct SFXName>                       CellTags;                                         		// 0x0070 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<unsigned char>                        ModelIdUtf8;                                      		// 0x0080 (0x0010) [0x0000000000402002]              ( CPF_Const | CPF_Transient | CPF_NeedCtorLink )
-	class TArray<unsigned char>                        ControlIdUtf8;                                    		// 0x0090 (0x0010) [0x0000000000402002]              ( CPF_Const | CPF_Transient | CPF_NeedCtorLink )
-	class TArray<struct SFXName>                       FullCellTags;                                     		// 0x00A0 (0x0010) [0x0000000000402002]              ( CPF_Const | CPF_Transient | CPF_NeedCtorLink )
+	FString                                            VarPath;                                          		// 0x0040 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            ModelId;                                          		// 0x0050 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            ControlId;                                        		// 0x0060 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct SFXName>                             CellTags;                                         		// 0x0070 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<unsigned char>                              ModelIdUtf8;                                      		// 0x0080 (0x0010) [0x0000000000402002]              ( CPF_Const | CPF_Transient | CPF_NeedCtorLink )
+	TArray<unsigned char>                              ControlIdUtf8;                                    		// 0x0090 (0x0010) [0x0000000000402002]              ( CPF_Const | CPF_Transient | CPF_NeedCtorLink )
+	TArray<struct SFXName>                             FullCellTags;                                     		// 0x00A0 (0x0010) [0x0000000000402002]              ( CPF_Const | CPF_Transient | CPF_NeedCtorLink )
 	FPointer                                           ModelRef;                                         		// 0x00B0 (0x0008) [0x0000000000003002]              ( CPF_Const | CPF_Native | CPF_Transient )
 	FPointer                                           ControlRef;                                       		// 0x00B8 (0x0008) [0x0000000000003002]              ( CPF_Const | CPF_Native | CPF_Transient )
 	class UUIListElementProvider*                      ListDataProvider;                                 		// 0x00C0 (0x0010) [0x0000000000002002]              ( CPF_Const | CPF_Transient )
@@ -57,7 +57,7 @@ struct FGFxDataStoreBinding
 // 0x0019
 struct FASValue
 {
-	class FString                                      S;                                                		// 0x0000 (0x0010) [0x0000000000500001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            S;                                                		// 0x0000 (0x0010) [0x0000000000500001]              ( CPF_Edit | CPF_NeedCtorLink )
 	float                                              N;                                                		// 0x0010 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	unsigned long                                      B : 1;                                            		// 0x0014 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
 	unsigned char                                      Type;                                             		// 0x0018 (0x0001) [0x0000000000000001]              ( CPF_Edit )

@@ -99,7 +99,7 @@ public:
 	bool InstantRegenerateShield ( class AActor* oActor, float fPercentOfShieldRegained );
 	bool IncreaseAllPowerCooldowns ( class AActor* oActor, float fPercentOfTotalToIncreaseBy, unsigned long bIncreaseTech, unsigned long bIncreaseBiotic, unsigned long bIncreaseWeapon, unsigned long bIncreaseCombat );
 	bool ClearAllPowerCooldowns ( class AActor* oActor );
-	bool EffectSingularity ( class AActor* oCaster, class AActor* oImpacted, struct FVector vSingularityLocation, float fForce, float fForceInterval, float fDuration, float fBubbleRadius );
+	bool EffectSingularity ( class AActor* oCaster, class AActor* oImpacted, struct FVector const& vSingularityLocation, float fForce, float fForceInterval, float fDuration, float fBubbleRadius );
 	bool EffectRagdoll ( class AActor* oCaster, class AActor* oImpacted, float fDuration, int nGroupID );
 	bool EffectEntrenchShield ( class AActor* oCaster, class AActor* oImpacted, float fShieldInc, float fDuration );
 	bool EffectRegenerateShield ( class AActor* oCaster, class AActor* oImpacted, float fAmountPerInterval, float fInterval, float fDuration );
@@ -121,10 +121,10 @@ public:
 	bool EffectDisableWeapons ( class AActor* oCaster, class AActor* oImpacted, float fDuration, int nGFXGroup );
 	bool EffectDisableActions ( class AActor* oCaster, class AActor* oImpacted, float fDuration, int nGFXGroup, unsigned long bDisableActionQueue, unsigned long bDisableMovementStack );
 	bool EffectAdjustStability ( class ABioPawn* oTarget, class AActor* oCaster, float fAmount, float fApplyInterval, float fTotalTime );
-	bool EffectDamageOverTime ( class AActor* oImpacted, class AActor* oCaster, float fDamagePerInterval, struct FVector vMomentumPerInterval, class UBioDamageType* pDamage, float fInterval, float fDuration, int nGroup );
-	bool EffectTakeDamage ( class AActor* oImpacted, class AActor* oCaster, float fDamage, struct FVector vMomentum, class UBioDamageType* pDamage );
-	class AActor* SpawnBeacon ( class UBioActorBehavior* oCasterBehavior, class FString sBeaconActorType, struct FVector vLocation, struct FRotator vFacing, float fDuration, unsigned long bFloatingBeacon, unsigned long bSnapToFloor, unsigned long bSpawnAsProxMine, float fSquadActivateDelay, float fRadiusMulti, float fDamageMulti, class AActor* oOwner );
-	class AActor* SpawnBarrier ( class UBioActorBehavior* oCasterBehavior, class FString sBarrierActorType, struct FVector vLocation, struct FRotator vFacing, float fHealth, float fDuration, unsigned long bSnapToFloor, unsigned long bAddToSquadCover, class AActor* oOwner );
+	bool EffectDamageOverTime ( class AActor* oImpacted, class AActor* oCaster, float fDamagePerInterval, struct FVector const& vMomentumPerInterval, class UBioDamageType* pDamage, float fInterval, float fDuration, int nGroup );
+	bool EffectTakeDamage ( class AActor* oImpacted, class AActor* oCaster, float fDamage, struct FVector const& vMomentum, class UBioDamageType* pDamage );
+	class AActor* SpawnBeacon ( class UBioActorBehavior* oCasterBehavior, FString const& sBeaconActorType, struct FVector const& vLocation, struct FRotator const& vFacing, float fDuration, unsigned long bFloatingBeacon, unsigned long bSnapToFloor, unsigned long bSpawnAsProxMine, float fSquadActivateDelay, float fRadiusMulti, float fDamageMulti, class AActor* oOwner );
+	class AActor* SpawnBarrier ( class UBioActorBehavior* oCasterBehavior, FString const& sBarrierActorType, struct FVector const& vLocation, struct FRotator const& vFacing, float fHealth, float fDuration, unsigned long bSnapToFloor, unsigned long bAddToSquadCover, class AActor* oOwner );
 	void WeaponPowerActivated ( class AActor* Caster, unsigned long bNeedsRetrigger );
 	bool ShouldIncrementPowerUsage ( class AActor* Caster );
 	unsigned char GetFactionRelationship ( class AActor* oCaster, class AActor* oTarget );
@@ -213,8 +213,8 @@ public:
 class UBioSpawnBeacon : public UBioPowerScriptDesign
 {
 public:
-	class TArray<class FString>                        m_asBeaconActorType;                              		// 0x0080 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      m_sRecordUseName;                                 		// 0x0090 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<FString>                                    m_asBeaconActorType;                              		// 0x0080 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            m_sRecordUseName;                                 		// 0x0090 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	float                                              m_fBeaconOffset;                                  		// 0x00A0 (0x0004) [0x0000000000000000]              
 	unsigned long                                      m_bRecordUses : 1;                                		// 0x00A4 (0x0004) [0x0000000000000000] [0x00000001] 
 	unsigned long                                      m_bProxMine : 1;                                  		// 0x00A4 (0x0004) [0x0000000000000000] [0x00000002] 
@@ -788,7 +788,7 @@ public:
 
 	bool eventOnImpact ( class AActor* oCaster, float fCasterStability, class AActor* oImpacted, int nPreviouslyImpacted );
 	bool eventStartPhase ( unsigned char ePhase, class AActor* oCaster, float fDuration );
-	struct FVector BumpUpFromFloor ( struct FVector vOriginalLocation, float fBumpDistance );
+	struct FVector BumpUpFromFloor ( struct FVector const& vOriginalLocation, float fBumpDistance );
 	void eventInitializePowerScript ( class UBioPower* pPower );
 };
 

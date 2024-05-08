@@ -237,7 +237,7 @@ void ABioBaseSquadDesign::eventSetInitialState ( )
 // class AActor*                  oTarget                        ( CPF_Parm )
 // struct FVector                 vLocation                      ( CPF_Parm )
 
-void ABioBaseSquadDesign::eventOnActionComplete_Movement ( class APawn* oMember, struct SFXName nmAction, int nReason, class AActor* oTarget, struct FVector vLocation )
+void ABioBaseSquadDesign::eventOnActionComplete_Movement ( class APawn* oMember, struct SFXName nmAction, int nReason, class AActor* oTarget, struct FVector const& vLocation )
 {
 	static UFunction* pFnOnActionComplete_Movement = NULL;
 
@@ -501,7 +501,7 @@ bool ABioBaseSquadDesign::SquadMemberWalkWaypoints ( class ABioAiController* oMe
 // class AActor*                  oLOSTarget                     ( CPF_OptionalParm | CPF_Parm )
 // class ABioPawn*                oIgnoreIfLockedBy              ( CPF_OptionalParm | CPF_Parm )
 
-class ANavigationPoint* ABioBaseSquadDesign::GetNavPointInPlaypen ( struct FVector vNear, struct FVector vLateralOffset, float fSearchRadius, float fVerticalOffset, unsigned long bCanFly, unsigned long bCanHop, unsigned long bSniper, unsigned long bAggressive, unsigned long bDefensive, class AActor* oLOSTarget, class ABioPawn* oIgnoreIfLockedBy )
+class ANavigationPoint* ABioBaseSquadDesign::GetNavPointInPlaypen ( struct FVector const& vNear, struct FVector const& vLateralOffset, float fSearchRadius, float fVerticalOffset, unsigned long bCanFly, unsigned long bCanHop, unsigned long bSniper, unsigned long bAggressive, unsigned long bDefensive, class AActor* oLOSTarget, class ABioPawn* oIgnoreIfLockedBy )
 {
 	static UFunction* pFnGetNavPointInPlaypen = NULL;
 
@@ -574,10 +574,10 @@ void ABioBaseSquadDesign::SetFlockingRanges ( float FMin, float FMax, float fSqu
 // Parameters infos:
 // class ABioAiController*        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 vTarget                        ( CPF_Parm )
-// class TArray<class ABioAiController*> aoIgnoreMembers                ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
+// TArray<class ABioAiController*> aoIgnoreMembers                ( CPF_OptionalParm | CPF_Parm | CPF_NeedCtorLink )
 // float                          fLongestDistToTargetSq         ( CPF_OptionalParm | CPF_Parm | CPF_OutParm )
 
-class ABioAiController* ABioBaseSquadDesign::GetFurthestSquadMember ( struct FVector vTarget, class TArray<class ABioAiController*> aoIgnoreMembers, float* fLongestDistToTargetSq )
+class ABioAiController* ABioBaseSquadDesign::GetFurthestSquadMember ( struct FVector const& vTarget, TArray<class ABioAiController*> const& aoIgnoreMembers, float* fLongestDistToTargetSq )
 {
 	static UFunction* pFnGetFurthestSquadMember = NULL;
 
@@ -700,7 +700,7 @@ void ABioBaseSquadDesign::PushMoveWithLocking ( class ABioAiController* oMember,
 // struct FVector                 vCoverLocation                 ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bUseDefNodeIfNoCover           ( CPF_OptionalParm | CPF_Parm )
 
-bool ABioBaseSquadDesign::SquadMemberTakeCover ( class ABioAiController* oMember, float fCoverRange, float fNavRange, class APawn* oTarget, class APawn* oAvoid, unsigned long bNewCover, unsigned long bCrouchIfNoCover, float fMovementDelay, struct FVector vCoverLocation, unsigned long bUseDefNodeIfNoCover )
+bool ABioBaseSquadDesign::SquadMemberTakeCover ( class ABioAiController* oMember, float fCoverRange, float fNavRange, class APawn* oTarget, class APawn* oAvoid, unsigned long bNewCover, unsigned long bCrouchIfNoCover, float fMovementDelay, struct FVector const& vCoverLocation, unsigned long bUseDefNodeIfNoCover )
 {
 	static UFunction* pFnSquadMemberTakeCover = NULL;
 
@@ -788,7 +788,7 @@ void ABioBaseSquadDesign::SquadTakeCover ( float fCoverRange, float fNavRange, c
 // float                          fCoverRadius                   ( CPF_OptionalParm | CPF_Parm )
 // float                          fMovementDelay                 ( CPF_OptionalParm | CPF_Parm )
 
-bool ABioBaseSquadDesign::PushCoverWithLocking ( class ABioAiController* oMember, struct FVector vNear, class APawn* oTarget, class APawn* oAvoid, float fCoverRadius, float fMovementDelay )
+bool ABioBaseSquadDesign::PushCoverWithLocking ( class ABioAiController* oMember, struct FVector const& vNear, class APawn* oTarget, class APawn* oAvoid, float fCoverRadius, float fMovementDelay )
 {
 	static UFunction* pFnPushCoverWithLocking = NULL;
 
@@ -814,10 +814,10 @@ bool ABioBaseSquadDesign::PushCoverWithLocking ( class ABioAiController* oMember
 // class ABioAiController*        oMember                        ( CPF_Parm )
 // class APawn*                   oTarget                        ( CPF_OptionalParm | CPF_Parm )
 // class APawn*                   oAvoid                         ( CPF_OptionalParm | CPF_Parm )
-// class TArray<class APawn*>     aoCoverAgainst                 ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
-// class TArray<int>              aoCoverValue                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<class APawn*>           aoCoverAgainst                 ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<int>                    aoCoverValue                   ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void ABioBaseSquadDesign::GetCoverList ( class ABioAiController* oMember, class APawn* oTarget, class APawn* oAvoid, class TArray<class APawn*>* aoCoverAgainst, class TArray<int>* aoCoverValue )
+void ABioBaseSquadDesign::GetCoverList ( class ABioAiController* oMember, class APawn* oTarget, class APawn* oAvoid, TArray<class APawn*>* aoCoverAgainst, TArray<int>* aoCoverValue )
 {
 	static UFunction* pFnGetCoverList = NULL;
 
@@ -956,10 +956,10 @@ bool ABioBaseSquadDesign::IsPathnodeLocked ( class ANavigationPoint* oTestNode, 
 // Function SFXStrategicAI.BioBaseSquadDesign.GetLockedPathNodes
 // [0x00024002] 
 // Parameters infos:
-// class TArray<class ANavigationPoint*> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// TArray<class ANavigationPoint*> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // class ABioPawn*                oIgnoreMember                  ( CPF_OptionalParm | CPF_Parm )
 
-class TArray<class ANavigationPoint*> ABioBaseSquadDesign::GetLockedPathNodes ( class ABioPawn* oIgnoreMember )
+TArray<class ANavigationPoint*> ABioBaseSquadDesign::GetLockedPathNodes ( class ABioPawn* oIgnoreMember )
 {
 	static UFunction* pFnGetLockedPathNodes = NULL;
 
@@ -1141,9 +1141,9 @@ bool ABioBaseSquadDesign::IsValidStrategy ( struct SFXName sStrategyName )
 // Function SFXStrategicAI.BioBaseSquadDesign.GetStrategyList
 // [0x00020002] 
 // Parameters infos:
-// class TArray<struct SFXName>   ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// TArray<struct SFXName>         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class TArray<struct SFXName> ABioBaseSquadDesign::GetStrategyList ( )
+TArray<struct SFXName> ABioBaseSquadDesign::GetStrategyList ( )
 {
 	static UFunction* pFnGetStrategyList = NULL;
 
@@ -1361,7 +1361,7 @@ void ABioBaseSquadDesignCombat::eventOnActionComplete_Combat ( class APawn* oMem
 // class AActor*                  oTarget                        ( CPF_Parm )
 // struct FVector                 vLocation                      ( CPF_Parm )
 
-void ABioBaseSquadDesignCombat::eventOnActionComplete_Movement ( class APawn* oMember, struct SFXName nmAction, int nReason, class AActor* oTarget, struct FVector vLocation )
+void ABioBaseSquadDesignCombat::eventOnActionComplete_Movement ( class APawn* oMember, struct SFXName nmAction, int nReason, class AActor* oTarget, struct FVector const& vLocation )
 {
 	static UFunction* pFnOnActionComplete_Movement = NULL;
 
@@ -1583,7 +1583,7 @@ void ABioBaseSquadDesignCombat::eventOnAttacked ( class APawn* oMember, class AP
 // struct FVector                 vNoiseLocation                 ( CPF_Parm )
 // struct SFXName                 NoiseType                      ( CPF_OptionalParm | CPF_Parm )
 
-void ABioBaseSquadDesignCombat::eventHearNoise ( class APawn* Who, float Loudness, class AActor* NoiseMaker, struct FVector vNoiseLocation, struct SFXName NoiseType )
+void ABioBaseSquadDesignCombat::eventHearNoise ( class APawn* Who, float Loudness, class AActor* NoiseMaker, struct FVector const& vNoiseLocation, struct SFXName NoiseType )
 {
 	static UFunction* pFnHearNoise = NULL;
 
@@ -2391,7 +2391,7 @@ void ABioSquadPlayer::eventonMemberAbilityEnabledEvent ( class APawn* oPawn, uns
 // struct FVector                 vNoiseLocation                 ( CPF_Parm )
 // struct SFXName                 NoiseType                      ( CPF_OptionalParm | CPF_Parm )
 
-void ABioSquadPlayer::eventHearNoise ( class APawn* Who, float Loudness, class AActor* NoiseMaker, struct FVector vNoiseLocation, struct SFXName NoiseType )
+void ABioSquadPlayer::eventHearNoise ( class APawn* Who, float Loudness, class AActor* NoiseMaker, struct FVector const& vNoiseLocation, struct SFXName NoiseType )
 {
 	static UFunction* pFnHearNoise = NULL;
 

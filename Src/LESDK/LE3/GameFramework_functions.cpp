@@ -41,9 +41,9 @@ class UClass* AGameAIController::StaticClass()
 // Function GameFramework.GameAIController.GetActionString
 // [0x00020903] ( FUNC_Final | FUNC_Simulated | FUNC_Event )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString AGameAIController::eventGetActionString ( )
+FString AGameAIController::eventGetActionString ( )
 {
 	static UFunction* pFnGetActionString = NULL;
 
@@ -65,7 +65,7 @@ class FString AGameAIController::eventGetActionString ( )
 // float                          WithinDistance                 ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bAllowPartialPath              ( CPF_OptionalParm | CPF_Parm )
 
-bool AGameAIController::eventGeneratePathToLocation ( struct FVector Goal, float WithinDistance, unsigned long bAllowPartialPath )
+bool AGameAIController::eventGeneratePathToLocation ( struct FVector const& Goal, float WithinDistance, unsigned long bAllowPartialPath )
 {
 	static UFunction* pFnGeneratePathToLocation = NULL;
 
@@ -115,7 +115,7 @@ bool AGameAIController::eventGeneratePathToActor ( class AActor* Goal, float Wit
 // unsigned long                  InUnlockWhenReached            ( CPF_OptionalParm | CPF_Parm )
 // float                          InterpolationTime              ( CPF_OptionalParm | CPF_Parm )
 
-void AGameAIController::SetDesiredRotation ( struct FRotator TargetDesiredRotation, unsigned long InLockDesiredRotation, unsigned long InUnlockWhenReached, float InterpolationTime )
+void AGameAIController::SetDesiredRotation ( struct FRotator const& TargetDesiredRotation, unsigned long InLockDesiredRotation, unsigned long InUnlockWhenReached, float InterpolationTime )
 {
 	static UFunction* pFnSetDesiredRotation = NULL;
 
@@ -134,11 +134,11 @@ void AGameAIController::SetDesiredRotation ( struct FRotator TargetDesiredRotati
 // Function GameFramework.GameAIController.AILog_Internal
 // [0x00024802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  LogText                        ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        LogText                        ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 // struct SFXName                 LogCategory                    ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bForce                         ( CPF_OptionalParm | CPF_Parm )
 
-void AGameAIController::eventAILog_Internal ( class FString LogText, struct SFXName LogCategory, unsigned long bForce )
+void AGameAIController::eventAILog_Internal ( FString const& LogText, struct SFXName LogCategory, unsigned long bForce )
 {
 	static UFunction* pFnAILog_Internal = NULL;
 
@@ -156,9 +156,9 @@ void AGameAIController::eventAILog_Internal ( class FString LogText, struct SFXN
 // Function GameFramework.GameAIController.RecordDemoAILog
 // [0x00080000] 
 // Parameters infos:
-// class FString                  LogText                        ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
+// FString                        LogText                        ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 
-void AGameAIController::RecordDemoAILog ( class FString LogText )
+void AGameAIController::RecordDemoAILog ( FString const& LogText )
 {
 	static UFunction* pFnRecordDemoAILog = NULL;
 
@@ -387,9 +387,9 @@ class UClass* UGameAICommand::StaticClass()
 // [0x00420000] 
 // Parameters infos:
 // class APlayerController*       PC                             ( CPF_Parm )
-// class TArray<class FString>    OutText                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
+// TArray<FString>                OutText                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
-void UGameAICommand::GetDebugOverheadText ( class APlayerController* PC, class TArray<class FString>* OutText )
+void UGameAICommand::GetDebugOverheadText ( class APlayerController* PC, TArray<FString>* OutText )
 {
 	static UFunction* pFnGetDebugOverheadText = NULL;
 
@@ -431,9 +431,9 @@ void UGameAICommand::eventDrawDebug ( class AHUD* H, struct SFXName Category )
 // Function GameFramework.GameAICommand.GetDumpString
 // [0x00020802] ( FUNC_Event )
 // Parameters infos:
-// class FString                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
+// FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
-class FString UGameAICommand::eventGetDumpString ( )
+FString UGameAICommand::eventGetDumpString ( )
 {
 	static UFunction* pFnGetDumpString = NULL;
 

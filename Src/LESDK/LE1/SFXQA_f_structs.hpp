@@ -30,6 +30,9 @@
 // [0x00020002] 
 struct UBioSeqAct_IsSplinePilot_execActivated_Parms
 {
+
+	 UBioSeqAct_IsSplinePilot_execActivated_Parms() { memset(this, 0, sizeof *this); }
+	~UBioSeqAct_IsSplinePilot_execActivated_Parms() {}
 };
 
 

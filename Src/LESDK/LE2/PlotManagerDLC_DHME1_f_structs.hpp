@@ -34,6 +34,9 @@ struct UBioAutoConditionals_execF2039_Parms
 	int                                                Argument;                                         		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGlobalVariableTable*                  gv;                                               		// 0x0010 (0x0008) [0x0000000000000000]              
+
+	 UBioAutoConditionals_execF2039_Parms() { memset(this, 0, sizeof *this); }
+	~UBioAutoConditionals_execF2039_Parms() {}
 };
 
 // Function PlotManagerDLC_DHME1.BioAutoConditionals.F2038
@@ -44,6 +47,9 @@ struct UBioAutoConditionals_execF2038_Parms
 	int                                                Argument;                                         		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGlobalVariableTable*                  gv;                                               		// 0x0010 (0x0008) [0x0000000000000000]              
+
+	 UBioAutoConditionals_execF2038_Parms() { memset(this, 0, sizeof *this); }
+	~UBioAutoConditionals_execF2038_Parms() {}
 };
 
 // Function PlotManagerDLC_DHME1.BioAutoConditionals.F2025
@@ -54,6 +60,9 @@ struct UBioAutoConditionals_execF2025_Parms
 	int                                                Argument;                                         		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGlobalVariableTable*                  gv;                                               		// 0x0010 (0x0008) [0x0000000000000000]              
+
+	 UBioAutoConditionals_execF2025_Parms() { memset(this, 0, sizeof *this); }
+	~UBioAutoConditionals_execF2025_Parms() {}
 };
 
 // Function PlotManagerDLC_DHME1.BioAutoConditionals.F2024
@@ -64,6 +73,9 @@ struct UBioAutoConditionals_execF2024_Parms
 	int                                                Argument;                                         		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGlobalVariableTable*                  gv;                                               		// 0x0010 (0x0008) [0x0000000000000000]              
+
+	 UBioAutoConditionals_execF2024_Parms() { memset(this, 0, sizeof *this); }
+	~UBioAutoConditionals_execF2024_Parms() {}
 };
 
 // Function PlotManagerDLC_DHME1.BioAutoConditionals.F2023
@@ -74,6 +86,9 @@ struct UBioAutoConditionals_execF2023_Parms
 	int                                                Argument;                                         		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGlobalVariableTable*                  gv;                                               		// 0x0010 (0x0008) [0x0000000000000000]              
+
+	 UBioAutoConditionals_execF2023_Parms() { memset(this, 0, sizeof *this); }
+	~UBioAutoConditionals_execF2023_Parms() {}
 };
 
 // Function PlotManagerDLC_DHME1.BioAutoConditionals.F2022
@@ -84,6 +99,9 @@ struct UBioAutoConditionals_execF2022_Parms
 	int                                                Argument;                                         		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGlobalVariableTable*                  gv;                                               		// 0x0010 (0x0008) [0x0000000000000000]              
+
+	 UBioAutoConditionals_execF2022_Parms() { memset(this, 0, sizeof *this); }
+	~UBioAutoConditionals_execF2022_Parms() {}
 };
 
 // Function PlotManagerDLC_DHME1.BioAutoConditionals.F2021
@@ -94,6 +112,9 @@ struct UBioAutoConditionals_execF2021_Parms
 	int                                                Argument;                                         		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGlobalVariableTable*                  gv;                                               		// 0x0010 (0x0008) [0x0000000000000000]              
+
+	 UBioAutoConditionals_execF2021_Parms() { memset(this, 0, sizeof *this); }
+	~UBioAutoConditionals_execF2021_Parms() {}
 };
 
 // Function PlotManagerDLC_DHME1.BioAutoConditionals.F2020
@@ -104,6 +125,9 @@ struct UBioAutoConditionals_execF2020_Parms
 	int                                                Argument;                                         		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGlobalVariableTable*                  gv;                                               		// 0x0010 (0x0008) [0x0000000000000000]              
+
+	 UBioAutoConditionals_execF2020_Parms() { memset(this, 0, sizeof *this); }
+	~UBioAutoConditionals_execF2020_Parms() {}
 };
 
 // Function PlotManagerDLC_DHME1.BioAutoConditionals.F2019
@@ -114,6 +138,9 @@ struct UBioAutoConditionals_execF2019_Parms
 	int                                                Argument;                                         		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGlobalVariableTable*                  gv;                                               		// 0x0010 (0x0008) [0x0000000000000000]              
+
+	 UBioAutoConditionals_execF2019_Parms() { memset(this, 0, sizeof *this); }
+	~UBioAutoConditionals_execF2019_Parms() {}
 };
 
 // Function PlotManagerDLC_DHME1.BioAutoConditionals.F2018
@@ -124,6 +151,9 @@ struct UBioAutoConditionals_execF2018_Parms
 	int                                                Argument;                                         		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGlobalVariableTable*                  gv;                                               		// 0x0010 (0x0008) [0x0000000000000000]              
+
+	 UBioAutoConditionals_execF2018_Parms() { memset(this, 0, sizeof *this); }
+	~UBioAutoConditionals_execF2018_Parms() {}
 };
 
 

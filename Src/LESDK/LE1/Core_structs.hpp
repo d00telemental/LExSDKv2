@@ -114,7 +114,7 @@ struct FInterpCurvePointVector2D
 // 0x0011
 struct FInterpCurveVector2D
 {
-	class TArray<struct FInterpCurvePointVector2D>     Points;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FInterpCurvePointVector2D>           Points;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	unsigned char                                      InterpMethod;                                     		// 0x0010 (0x0001) [0x0000000000000000]              
 };
 
@@ -133,7 +133,7 @@ struct FInterpCurvePointFloat
 // 0x0011
 struct FInterpCurveFloat
 {
-	class TArray<struct FInterpCurvePointFloat>        Points;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FInterpCurvePointFloat>              Points;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	unsigned char                                      InterpMethod;                                     		// 0x0010 (0x0001) [0x0000000000000000]              
 };
 
@@ -160,7 +160,7 @@ struct FInterpCurvePointVector
 // 0x0011
 struct FInterpCurveVector
 {
-	class TArray<struct FInterpCurvePointVector>       Points;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FInterpCurvePointVector>             Points;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	unsigned char                                      InterpMethod;                                     		// 0x0010 (0x0001) [0x0000000000000000]              
 };
 
@@ -253,9 +253,9 @@ struct FRwVector2
 // 0x0034
 struct FBioStrRes
 {
-	class FString                                      sText;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sSoundRef;                                        		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class FString                                      sLipsyncRef;                                      		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sText;                                            		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sSoundRef;                                        		// 0x0010 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sLipsyncRef;                                      		// 0x0020 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	float                                              fSoundLength;                                     		// 0x0030 (0x0004) [0x0000000000000000]              
 };
 
@@ -267,7 +267,7 @@ struct FRawDistribution
 	unsigned char                                      Op;                                               		// 0x0001 (0x0001) [0x0000000000000000]              
 	unsigned char                                      LookupTableNumElements;                           		// 0x0002 (0x0001) [0x0000000000000000]              
 	unsigned char                                      LookupTableChunkSize;                             		// 0x0003 (0x0001) [0x0000000000000000]              
-	class TArray<float>                                LookupTable;                                      		// 0x0004 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<float>                                      LookupTable;                                      		// 0x0004 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	float                                              LookupTableTimeScale;                             		// 0x0014 (0x0004) [0x0000000000000000]              
 	float                                              LookupTableStartTime;                             		// 0x0018 (0x0004) [0x0000000000000000]              
 };
@@ -309,7 +309,7 @@ struct FBioRawDistributionRwVector3Base
 	unsigned char                                      LookupTableChunkSize;                             		// 0x0003 (0x0001) [0x0000000000000000]              
 	float                                              LookupTableMinOut;                                		// 0x0004 (0x0004) [0x0000000000000000]              
 	float                                              LookupTableMaxOut;                                		// 0x0008 (0x0004) [0x0000000000000000]              
-	class TArray<struct FRwVector3>                    LookupTable;                                      		// 0x000C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FRwVector3>                          LookupTable;                                      		// 0x000C (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	float                                              LookupTableTimeScale;                             		// 0x001C (0x0004) [0x0000000000000000]              
 	float                                              LookupTableStartTime;                             		// 0x0020 (0x0004) [0x0000000000000000]              
 };
@@ -329,7 +329,7 @@ struct FInterpCurvePointLinearColor
 // 0x0011
 struct FInterpCurveLinearColor
 {
-	class TArray<struct FInterpCurvePointLinearColor>  Points;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FInterpCurvePointLinearColor>        Points;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	unsigned char                                      InterpMethod;                                     		// 0x0010 (0x0001) [0x0000000000000000]              
 };
 
@@ -349,7 +349,7 @@ struct FInterpCurvePointQuat
 // 0x0011
 struct FInterpCurveQuat
 {
-	class TArray<struct FInterpCurvePointQuat>         Points;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FInterpCurvePointQuat>               Points;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	unsigned char                                      InterpMethod;                                     		// 0x0010 (0x0001) [0x0000000000000000]              
 };
 
@@ -368,7 +368,7 @@ struct FInterpCurvePointTwoVectors
 // 0x0011
 struct FInterpCurveTwoVectors
 {
-	class TArray<struct FInterpCurvePointTwoVectors>   Points;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FInterpCurvePointTwoVectors>         Points;                                           		// 0x0000 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	unsigned char                                      InterpMethod;                                     		// 0x0010 (0x0001) [0x0000000000000000]              
 };
 
@@ -514,7 +514,7 @@ struct FBitArray_Mirror
 // 0x0038
 struct FSparseArray_Mirror
 {
-	class TArray<int>                                  Elements;                                         		// 0x0000 (0x0010) [0x0000000000001002]              ( CPF_Const | CPF_Native )
+	TArray<int>                                        Elements;                                         		// 0x0000 (0x0010) [0x0000000000001002]              ( CPF_Const | CPF_Native )
 	struct FBitArray_Mirror                            AllocationFlags;                                  		// 0x0010 (0x0020) [0x0000000000001002]              ( CPF_Const | CPF_Native )
 	int                                                FirstFreeIndex;                                   		// 0x0030 (0x0004) [0x0000000000001002]              ( CPF_Const | CPF_Native )
 	int                                                NumFreeIndices;                                   		// 0x0034 (0x0004) [0x0000000000001002]              ( CPF_Const | CPF_Native )
@@ -590,7 +590,7 @@ struct FClassFuncPointer
 struct FSFXTokenMapping
 {
 	int                                                TokenId;                                          		// 0x0000 (0x0004) [0x0000000000000001]              ( CPF_Edit )
-	class FString                                      Data;                                             		// 0x0004 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Data;                                             		// 0x0004 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 };
 
 // ScriptStruct Core.Object.FuncPointer
@@ -605,7 +605,7 @@ struct FFuncPointer
 // 0x0014
 struct FBioDlgToken
 {
-	class FString                                      sToken;                                           		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	FString                                            sToken;                                           		// 0x0000 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	int                                                nActionCode;                                      		// 0x0010 (0x0004) [0x0000000000000000]              
 };
 

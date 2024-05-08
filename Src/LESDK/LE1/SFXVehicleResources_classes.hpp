@@ -45,9 +45,9 @@
 class UBioVehicleResources : public UObject
 {
 public:
-	class TArray<class UMaterialInterface*>            lstMaterials;                                     		// 0x0060 (0x0010) [0x0000000000402000]              ( CPF_Transient | CPF_NeedCtorLink )
-	class TArray<class UBioAppearanceItem*>            lstAppearanceItems;                               		// 0x0070 (0x0010) [0x0000000000402000]              ( CPF_Transient | CPF_NeedCtorLink )
-	class TArray<class UBioVFXTemplate*>               lstVFXTemplates;                                  		// 0x0080 (0x0010) [0x0000000000402000]              ( CPF_Transient | CPF_NeedCtorLink )
+	TArray<class UMaterialInterface*>                  lstMaterials;                                     		// 0x0060 (0x0010) [0x0000000000402000]              ( CPF_Transient | CPF_NeedCtorLink )
+	TArray<class UBioAppearanceItem*>                  lstAppearanceItems;                               		// 0x0070 (0x0010) [0x0000000000402000]              ( CPF_Transient | CPF_NeedCtorLink )
+	TArray<class UBioVFXTemplate*>                     lstVFXTemplates;                                  		// 0x0080 (0x0010) [0x0000000000402000]              ( CPF_Transient | CPF_NeedCtorLink )
 
 private:
 	static UClass* pClassPointer;

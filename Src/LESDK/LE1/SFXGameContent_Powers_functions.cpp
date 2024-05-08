@@ -175,7 +175,7 @@ bool UBioPowerScriptDesign::ClearAllPowerCooldowns ( class AActor* oActor )
 // float                          fDuration                      ( CPF_Parm )
 // float                          fBubbleRadius                  ( CPF_Parm )
 
-bool UBioPowerScriptDesign::EffectSingularity ( class AActor* oCaster, class AActor* oImpacted, struct FVector vSingularityLocation, float fForce, float fForceInterval, float fDuration, float fBubbleRadius )
+bool UBioPowerScriptDesign::EffectSingularity ( class AActor* oCaster, class AActor* oImpacted, struct FVector const& vSingularityLocation, float fForce, float fForceInterval, float fDuration, float fBubbleRadius )
 {
 	static UFunction* pFnEffectSingularity = NULL;
 
@@ -814,7 +814,7 @@ bool UBioPowerScriptDesign::EffectAdjustStability ( class ABioPawn* oTarget, cla
 // float                          fDuration                      ( CPF_Parm )
 // int                            nGroup                         ( CPF_OptionalParm | CPF_Parm )
 
-bool UBioPowerScriptDesign::EffectDamageOverTime ( class AActor* oImpacted, class AActor* oCaster, float fDamagePerInterval, struct FVector vMomentumPerInterval, class UBioDamageType* pDamage, float fInterval, float fDuration, int nGroup )
+bool UBioPowerScriptDesign::EffectDamageOverTime ( class AActor* oImpacted, class AActor* oCaster, float fDamagePerInterval, struct FVector const& vMomentumPerInterval, class UBioDamageType* pDamage, float fInterval, float fDuration, int nGroup )
 {
 	static UFunction* pFnEffectDamageOverTime = NULL;
 
@@ -846,7 +846,7 @@ bool UBioPowerScriptDesign::EffectDamageOverTime ( class AActor* oImpacted, clas
 // struct FVector                 vMomentum                      ( CPF_Parm )
 // class UBioDamageType*          pDamage                        ( CPF_Parm )
 
-bool UBioPowerScriptDesign::EffectTakeDamage ( class AActor* oImpacted, class AActor* oCaster, float fDamage, struct FVector vMomentum, class UBioDamageType* pDamage )
+bool UBioPowerScriptDesign::EffectTakeDamage ( class AActor* oImpacted, class AActor* oCaster, float fDamage, struct FVector const& vMomentum, class UBioDamageType* pDamage )
 {
 	static UFunction* pFnEffectTakeDamage = NULL;
 
@@ -870,7 +870,7 @@ bool UBioPowerScriptDesign::EffectTakeDamage ( class AActor* oImpacted, class AA
 // Parameters infos:
 // class AActor*                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class UBioActorBehavior*       oCasterBehavior                ( CPF_Parm )
-// class FString                  sBeaconActorType               ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sBeaconActorType               ( CPF_Parm | CPF_NeedCtorLink )
 // struct FVector                 vLocation                      ( CPF_Parm )
 // struct FRotator                vFacing                        ( CPF_Parm )
 // float                          fDuration                      ( CPF_Parm )
@@ -882,7 +882,7 @@ bool UBioPowerScriptDesign::EffectTakeDamage ( class AActor* oImpacted, class AA
 // float                          fDamageMulti                   ( CPF_OptionalParm | CPF_Parm )
 // class AActor*                  oOwner                         ( CPF_OptionalParm | CPF_Parm )
 
-class AActor* UBioPowerScriptDesign::SpawnBeacon ( class UBioActorBehavior* oCasterBehavior, class FString sBeaconActorType, struct FVector vLocation, struct FRotator vFacing, float fDuration, unsigned long bFloatingBeacon, unsigned long bSnapToFloor, unsigned long bSpawnAsProxMine, float fSquadActivateDelay, float fRadiusMulti, float fDamageMulti, class AActor* oOwner )
+class AActor* UBioPowerScriptDesign::SpawnBeacon ( class UBioActorBehavior* oCasterBehavior, FString const& sBeaconActorType, struct FVector const& vLocation, struct FRotator const& vFacing, float fDuration, unsigned long bFloatingBeacon, unsigned long bSnapToFloor, unsigned long bSpawnAsProxMine, float fSquadActivateDelay, float fRadiusMulti, float fDamageMulti, class AActor* oOwner )
 {
 	static UFunction* pFnSpawnBeacon = NULL;
 
@@ -913,7 +913,7 @@ class AActor* UBioPowerScriptDesign::SpawnBeacon ( class UBioActorBehavior* oCas
 // Parameters infos:
 // class AActor*                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class UBioActorBehavior*       oCasterBehavior                ( CPF_Parm )
-// class FString                  sBarrierActorType              ( CPF_Parm | CPF_NeedCtorLink )
+// FString                        sBarrierActorType              ( CPF_Parm | CPF_NeedCtorLink )
 // struct FVector                 vLocation                      ( CPF_Parm )
 // struct FRotator                vFacing                        ( CPF_Parm )
 // float                          fHealth                        ( CPF_Parm )
@@ -922,7 +922,7 @@ class AActor* UBioPowerScriptDesign::SpawnBeacon ( class UBioActorBehavior* oCas
 // unsigned long                  bAddToSquadCover               ( CPF_OptionalParm | CPF_Parm )
 // class AActor*                  oOwner                         ( CPF_OptionalParm | CPF_Parm )
 
-class AActor* UBioPowerScriptDesign::SpawnBarrier ( class UBioActorBehavior* oCasterBehavior, class FString sBarrierActorType, struct FVector vLocation, struct FRotator vFacing, float fHealth, float fDuration, unsigned long bSnapToFloor, unsigned long bAddToSquadCover, class AActor* oOwner )
+class AActor* UBioPowerScriptDesign::SpawnBarrier ( class UBioActorBehavior* oCasterBehavior, FString const& sBarrierActorType, struct FVector const& vLocation, struct FRotator const& vFacing, float fHealth, float fDuration, unsigned long bSnapToFloor, unsigned long bAddToSquadCover, class AActor* oOwner )
 {
 	static UFunction* pFnSpawnBarrier = NULL;
 
@@ -3477,7 +3477,7 @@ bool UBioSingularityScript::eventStartPhase ( unsigned char ePhase, class AActor
 // struct FVector                 vOriginalLocation              ( CPF_Parm )
 // float                          fBumpDistance                  ( CPF_OptionalParm | CPF_Parm )
 
-struct FVector UBioSingularityScript::BumpUpFromFloor ( struct FVector vOriginalLocation, float fBumpDistance )
+struct FVector UBioSingularityScript::BumpUpFromFloor ( struct FVector const& vOriginalLocation, float fBumpDistance )
 {
 	static UFunction* pFnBumpUpFromFloor = NULL;
 

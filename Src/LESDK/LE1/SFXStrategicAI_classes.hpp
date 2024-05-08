@@ -108,8 +108,8 @@ public:
 class ABioBaseSquadDesign : public ABioSquadAI
 {
 public:
-	class TArray<struct FWaypointRoute>                WaypointRoutes;                                   		// 0x04A8 (0x0010) [0x0000000004400001]              ( CPF_Edit | CPF_NeedCtorLink | CPF_EditInline )
-	class TArray<struct FLockedPoint>                  m_aoAssignedPathnodes;                            		// 0x04B8 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FWaypointRoute>                      WaypointRoutes;                                   		// 0x04A8 (0x0010) [0x0000000004400001]              ( CPF_Edit | CPF_NeedCtorLink | CPF_EditInline )
+	TArray<struct FLockedPoint>                        m_aoAssignedPathnodes;                            		// 0x04B8 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	struct SFXName                                     InitialStrategy;                                  		// 0x04C8 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	struct SFXName                                     FallBackStrategy;                                 		// 0x04D0 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	float                                              DelayReactionIdle;                                		// 0x04D8 (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -138,7 +138,7 @@ public:
 	void eventOnDeath ( class APawn* oMember, class AController* oKiller );
 	void SetHackedSquad ( );
 	void eventSetInitialState ( );
-	void eventOnActionComplete_Movement ( class APawn* oMember, struct SFXName nmAction, int nReason, class AActor* oTarget, struct FVector vLocation );
+	void eventOnActionComplete_Movement ( class APawn* oMember, struct SFXName nmAction, int nReason, class AActor* oTarget, struct FVector const& vLocation );
 	void eventMemberAdded ( int nIndex );
 	void eventMemberRemoved ( class APawn* oPawn );
 	void RemovePerceptionMultipliers ( class ABioAiController* oMember, float fSightMult, float fHearingMult );
@@ -151,25 +151,25 @@ public:
 	class UClass* eventGetRestFormation ( );
 	void SquadWalkWaypoints ( );
 	bool SquadMemberWalkWaypoints ( class ABioAiController* oMember );
-	class ANavigationPoint* GetNavPointInPlaypen ( struct FVector vNear, struct FVector vLateralOffset, float fSearchRadius, float fVerticalOffset, unsigned long bCanFly, unsigned long bCanHop, unsigned long bSniper, unsigned long bAggressive, unsigned long bDefensive, class AActor* oLOSTarget, class ABioPawn* oIgnoreIfLockedBy );
+	class ANavigationPoint* GetNavPointInPlaypen ( struct FVector const& vNear, struct FVector const& vLateralOffset, float fSearchRadius, float fVerticalOffset, unsigned long bCanFly, unsigned long bCanHop, unsigned long bSniper, unsigned long bAggressive, unsigned long bDefensive, class AActor* oLOSTarget, class ABioPawn* oIgnoreIfLockedBy );
 	struct FVector GetFlockingOffset ( class ABioAiController* oMember );
 	void SetFlockingRanges ( float FMin, float FMax, float fSquadMax );
-	class ABioAiController* GetFurthestSquadMember ( struct FVector vTarget, class TArray<class ABioAiController*> aoIgnoreMembers, float* fLongestDistToTargetSq );
+	class ABioAiController* GetFurthestSquadMember ( struct FVector const& vTarget, TArray<class ABioAiController*> const& aoIgnoreMembers, float* fLongestDistToTargetSq );
 	void ResetSquadProximity ( );
 	void SetSquadProximityByAttackRange ( float fMultiplier );
 	void SetSquadProximity ( float fDefault, float fCloseCombat, float fSniperCombat, float fSupport );
 	void PushMoveWithLocking ( class ABioAiController* oMember, class AActor* oTarget, float fTolerance, unsigned long bWalking, float fMovementDelay, unsigned long bCrouch );
-	bool SquadMemberTakeCover ( class ABioAiController* oMember, float fCoverRange, float fNavRange, class APawn* oTarget, class APawn* oAvoid, unsigned long bNewCover, unsigned long bCrouchIfNoCover, float fMovementDelay, struct FVector vCoverLocation, unsigned long bUseDefNodeIfNoCover );
+	bool SquadMemberTakeCover ( class ABioAiController* oMember, float fCoverRange, float fNavRange, class APawn* oTarget, class APawn* oAvoid, unsigned long bNewCover, unsigned long bCrouchIfNoCover, float fMovementDelay, struct FVector const& vCoverLocation, unsigned long bUseDefNodeIfNoCover );
 	bool IsAtDefenseNode ( class APawn* oTestPawn );
 	void SquadTakeCover ( float fCoverRange, float fNavRange, class APawn* oTarget, class APawn* oAvoid, unsigned long bNewCover, unsigned long bCrouchIfNoCover, float fDelayOrdersLoop, unsigned long bUseDefNodeIfNoCover );
-	bool PushCoverWithLocking ( class ABioAiController* oMember, struct FVector vNear, class APawn* oTarget, class APawn* oAvoid, float fCoverRadius, float fMovementDelay );
-	void GetCoverList ( class ABioAiController* oMember, class APawn* oTarget, class APawn* oAvoid, class TArray<class APawn*>* aoCoverAgainst, class TArray<int>* aoCoverValue );
+	bool PushCoverWithLocking ( class ABioAiController* oMember, struct FVector const& vNear, class APawn* oTarget, class APawn* oAvoid, float fCoverRadius, float fMovementDelay );
+	void GetCoverList ( class ABioAiController* oMember, class APawn* oTarget, class APawn* oAvoid, TArray<class APawn*>* aoCoverAgainst, TArray<int>* aoCoverValue );
 	void UnlockAllPathnodes ( );
 	void UnlockPathnodesByOwner ( class ABioPawn* oUnlockOwner );
 	void UnlockPathnode ( class ANavigationPoint* oUnlockNode );
 	void LockPathnode ( class ANavigationPoint* oLockNode, class ABioPawn* oLockOwner, int* nIndex );
 	bool IsPathnodeLocked ( class ANavigationPoint* oTestNode, class ABioPawn* oIgnoreMember, int* nIndex );
-	class TArray<class ANavigationPoint*> GetLockedPathNodes ( class ABioPawn* oIgnoreMember );
+	TArray<class ANavigationPoint*> GetLockedPathNodes ( class ABioPawn* oIgnoreMember );
 	class ANavigationPoint* GetCurrentMovePoint ( class ABioPawn* oMemberPawn );
 	void DropAgitationIfNoHostile ( unsigned char nNewLevel );
 	void UpgradeAgitationIfHostile ( class APawn* oWho, class APawn* oPerceived, unsigned char nNewLevel );
@@ -178,7 +178,7 @@ public:
 	float CalculateAllLikelihoods ( );
 	float CalculateLikelihood ( struct SFXName sStrategyName );
 	bool IsValidStrategy ( struct SFXName sStrategyName );
-	class TArray<struct SFXName> GetStrategyList ( );
+	TArray<struct SFXName> GetStrategyList ( );
 	void ActivateAfterDelay ( float fDelay );
 	void Activate ( );
 	void Deactivate ( );
@@ -287,7 +287,7 @@ public:
 	static UClass* StaticClass();
 
 	void eventOnActionComplete_Combat ( class APawn* oMember, struct SFXName nmAction, struct SFXName nmTechnique, int nReason, class AActor* oLastTarget );
-	void eventOnActionComplete_Movement ( class APawn* oMember, struct SFXName nmAction, int nReason, class AActor* oTarget, struct FVector vLocation );
+	void eventOnActionComplete_Movement ( class APawn* oMember, struct SFXName nmAction, int nReason, class AActor* oTarget, struct FVector const& vLocation );
 	bool UseAttackCapability ( class ABioAiController* oMember, class APawn* oTarget, class UBioCapability* oCap, unsigned char eAttackType, float fStabilityOffset, class AActor* oMoveDest, float fMovementDelay );
 	class APawn* FindDangerousEnemy ( class ABioAiController* oMember, class APawn* oIgnore );
 	class APawn* GetClosestPerceivedTarget ( class ABioAiController* oMember, class APawn* oIgnoreTarget );
@@ -296,7 +296,7 @@ public:
 	class UClass* eventGetRestFormation ( );
 	void eventOnCastAt ( class APawn* oMember, class APawn* oAttacker, struct SFXName nmPower );
 	void eventOnAttacked ( class APawn* oMember, class APawn* oAttacker, struct SFXName nmWeapon );
-	void eventHearNoise ( class APawn* Who, float Loudness, class AActor* NoiseMaker, struct FVector vNoiseLocation, struct SFXName NoiseType );
+	void eventHearNoise ( class APawn* Who, float Loudness, class AActor* NoiseMaker, struct FVector const& vNoiseLocation, struct SFXName NoiseType );
 	void eventNoLongerSeePlayer ( class APawn* Who, class APawn* Seen );
 	void eventSeePlayer ( class APawn* Who, class APawn* Seen );
 	void eventSeenSquad ( class ABioBaseSquad* oSquad );
@@ -498,7 +498,7 @@ public:
 	void OnCombatBegin ( );
 	void OnDeath ( class APawn* pPawn, class AController* pKiller );
 	void eventonMemberAbilityEnabledEvent ( class APawn* oPawn, unsigned char eEnableType, struct SFXName nmSubType );
-	void eventHearNoise ( class APawn* Who, float Loudness, class AActor* NoiseMaker, struct FVector vNoiseLocation, struct SFXName NoiseType );
+	void eventHearNoise ( class APawn* Who, float Loudness, class AActor* NoiseMaker, struct FVector const& vNoiseLocation, struct SFXName NoiseType );
 	void eventSeePlayer ( class APawn* Who, class APawn* Seen );
 	void eventOnDamaged ( class APawn* oMember, class AController* oInstigator, float fDamage );
 	void eventOnCastAt ( class APawn* oMember, class APawn* oAttacker, struct SFXName nmPower );

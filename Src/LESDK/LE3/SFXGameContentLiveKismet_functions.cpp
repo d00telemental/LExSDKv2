@@ -280,7 +280,7 @@ int USFXSeqAct_SaveGame::eventGetObjClassVersion ( )
 // Parameters infos:
 // struct FSFXSaveDescriptor      Descriptor                     ( CPF_Parm | CPF_NeedCtorLink )
 
-void USFXSeqAct_SaveGame::BeginSave ( struct FSFXSaveDescriptor Descriptor )
+void USFXSeqAct_SaveGame::BeginSave ( struct FSFXSaveDescriptor const& Descriptor )
 {
 	static UFunction* pFnBeginSave = NULL;
 

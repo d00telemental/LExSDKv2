@@ -156,7 +156,7 @@ public:
 class Usfxseqact_leavemission : public USequenceAction
 {
 public:
-	class TArray<struct FLeaveMissionData>             LeaveMissionArray;                                		// 0x00F8 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
+	TArray<struct FLeaveMissionData>                   LeaveMissionArray;                                		// 0x00F8 (0x0010) [0x0000000000404000]              ( CPF_Config | CPF_NeedCtorLink )
 
 private:
 	static UClass* pClassPointer;
@@ -188,7 +188,7 @@ public:
 	static UClass* StaticClass();
 
 	int eventGetObjClassVersion ( );
-	void BeginSave ( struct FSFXSaveDescriptor Descriptor );
+	void BeginSave ( struct FSFXSaveDescriptor const& Descriptor );
 	void Deactivated ( );
 	bool Update ( float DeltaTime );
 	void Activated ( );
@@ -218,8 +218,8 @@ public:
 class USFXSeqAct_SetWasInSquad : public USequenceAction
 {
 public:
-	class TArray<int>                                  Index_InSquad;                                    		// 0x00F8 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<int>                                  Index_WasInSquad;                                 		// 0x0108 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<int>                                        Index_InSquad;                                    		// 0x00F8 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<int>                                        Index_WasInSquad;                                 		// 0x0108 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	unsigned long                                      bSetNotRestore : 1;                               		// 0x0118 (0x0004) [0x0000000000000000] [0x00000001] 
 
 private:
@@ -296,8 +296,8 @@ public:
 class UBioSeqAct_GetMembersOfSquad : public USequenceAction
 {
 public:
-	class TArray<class APawn*>                         m_aoActorList;                                    		// 0x00F8 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
-	class TArray<class UObject*>                       m_aoPassSquads;                                   		// 0x0108 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class APawn*>                               m_aoActorList;                                    		// 0x00F8 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class UObject*>                             m_aoPassSquads;                                   		// 0x0108 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	class APawn*                                       m_oCurrentMember;                                 		// 0x0118 (0x0008) [0x0000000000000000]              
 	class APawn*                                       m_oOutputCurrentMember;                           		// 0x0120 (0x0008) [0x0000000000000000]              
 	int                                                m_nIndex;                                         		// 0x0128 (0x0004) [0x0000000000000000]              
@@ -406,7 +406,7 @@ public:
 class USFXSeqAct_AddPawnToPerception : public USequenceAction
 {
 public:
-	class TArray<class AActor*>                        m_aoPerceptors;                                   		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<class AActor*>                              m_aoPerceptors;                                   		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 
 private:
 	static UClass* pClassPointer;
@@ -423,7 +423,7 @@ public:
 class USFXSeqAct_CompareAliveSquadMembers : public USequenceAction
 {
 public:
-	class TArray<class AActor*>                        Squads;                                           		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<class AActor*>                              Squads;                                           		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	int                                                AliveSquadMemberCount;                            		// 0x0108 (0x0004) [0x0000000000000000]              
 	int                                                Threshold;                                        		// 0x010C (0x0004) [0x0000000000000001]              ( CPF_Edit )
 
@@ -476,7 +476,7 @@ public:
 class USFXSeqCond_HasWeaponClass : public USequenceCondition
 {
 public:
-	class TArray<class UObject*>                       Targets;                                          		// 0x00DC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<class UObject*>                             Targets;                                          		// 0x00DC (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	unsigned long                                      MustBeEquipped : 1;                               		// 0x00EC (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
 	unsigned long                                      bAssaultRifle : 1;                                		// 0x00EC (0x0004) [0x0000000000000001] [0x00000002] ( CPF_Edit )
 	unsigned long                                      bPistol : 1;                                      		// 0x00EC (0x0004) [0x0000000000000001] [0x00000004] ( CPF_Edit )

@@ -34,6 +34,9 @@ struct UBioAutoConditionals_execF1532_Parms
 	int                                                Argument;                                         		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGlobalVariableTable*                  gv;                                               		// 0x0010 (0x0008) [0x0000000000000000]              
+
+	 UBioAutoConditionals_execF1532_Parms() { memset(this, 0, sizeof *this); }
+	~UBioAutoConditionals_execF1532_Parms() {}
 };
 
 // Function PlotManagerDLC_CON_Pack01.BioAutoConditionals.F1531
@@ -44,6 +47,9 @@ struct UBioAutoConditionals_execF1531_Parms
 	int                                                Argument;                                         		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGlobalVariableTable*                  gv;                                               		// 0x0010 (0x0008) [0x0000000000000000]              
+
+	 UBioAutoConditionals_execF1531_Parms() { memset(this, 0, sizeof *this); }
+	~UBioAutoConditionals_execF1531_Parms() {}
 };
 
 // Function PlotManagerDLC_CON_Pack01.BioAutoConditionals.F1526
@@ -54,6 +60,9 @@ struct UBioAutoConditionals_execF1526_Parms
 	int                                                Argument;                                         		// 0x0008 (0x0004) [0x0000000000000080]              ( CPF_Parm )
 	unsigned long                                      ReturnValue;                                      		// 0x000C (0x0004) [0x0000000000000580]              ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 	// class UBioGlobalVariableTable*                  gv;                                               		// 0x0010 (0x0008) [0x0000000000000000]              
+
+	 UBioAutoConditionals_execF1526_Parms() { memset(this, 0, sizeof *this); }
+	~UBioAutoConditionals_execF1526_Parms() {}
 };
 
 

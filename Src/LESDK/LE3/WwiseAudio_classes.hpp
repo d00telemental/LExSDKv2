@@ -119,7 +119,7 @@ public:
 class UInterpTrackWwiseEvent : public UInterpTrack
 {
 public:
-	class TArray<struct FWwiseEventTrackKey>           WwiseEvents;                                      		// 0x0090 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
+	TArray<struct FWwiseEventTrackKey>                 WwiseEvents;                                      		// 0x0090 (0x0010) [0x0000000000400000]              ( CPF_NeedCtorLink )
 	unsigned long                                      m_bRequiresPreload : 1;                           		// 0x00A0 (0x0004) [0x0000000000002000] [0x00000001] ( CPF_Transient )
 
 private:
@@ -150,7 +150,7 @@ public:
 class UInterpTrackWwiseRTPC : public UInterpTrackFloatBase
 {
 public:
-	class FString                                      Param;                                            		// 0x00A8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Param;                                            		// 0x00A8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 
 private:
 	static UClass* pClassPointer;
@@ -227,7 +227,7 @@ public:
 class USeqAct_WwisePostTrigger : public USequenceAction
 {
 public:
-	class FString                                      Trigger;                                          		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Trigger;                                          		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 
 private:
 	static UClass* pClassPointer;
@@ -242,8 +242,8 @@ public:
 class USeqAct_WwiseSetRTPCValue : public USeqAct_Latent
 {
 public:
-	class FString                                      Param;                                            		// 0x010C (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class TArray<struct FWwiseRTPCForActorHandler>     m_RTPCHandlers;                                   		// 0x011C (0x0010) [0x0000000000402000]              ( CPF_Transient | CPF_NeedCtorLink )
+	FString                                            Param;                                            		// 0x010C (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FWwiseRTPCForActorHandler>           m_RTPCHandlers;                                   		// 0x011C (0x0010) [0x0000000000402000]              ( CPF_Transient | CPF_NeedCtorLink )
 	float                                              Value;                                            		// 0x012C (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	unsigned long                                      Running : 1;                                      		// 0x0130 (0x0004) [0x0000000000002000] [0x00000001] ( CPF_Transient )
 
@@ -260,8 +260,8 @@ public:
 class USeqAct_WwiseSetState : public USequenceAction
 {
 public:
-	class FString                                      StateGroup;                                       		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      State;                                            		// 0x0108 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            StateGroup;                                       		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            State;                                            		// 0x0108 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 
 private:
 	static UClass* pClassPointer;
@@ -276,8 +276,8 @@ public:
 class USeqAct_WwiseSetSwitch : public USequenceAction
 {
 public:
-	class FString                                      SwitchGroup;                                      		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
-	class FString                                      Switch;                                           		// 0x0108 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            SwitchGroup;                                      		// 0x00F8 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Switch;                                           		// 0x0108 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 
 private:
 	static UClass* pClassPointer;
@@ -342,7 +342,7 @@ class UWwiseAudioComponent : public UActorComponent
 {
 public:
 	struct FDouble                                     m_fLastObstructionUpdate;                         		// 0x0088 (0x0008) [0x0000000000002000]              ( CPF_Transient )
-	class TArray<struct FWwiseComponentCallbackInfo>   Callbacks;                                        		// 0x0090 (0x0010) [0x0000000000622002]              ( CPF_Const | CPF_Transient | CPF_EditConst | CPF_NeedCtorLink )
+	TArray<struct FWwiseComponentCallbackInfo>         Callbacks;                                        		// 0x0090 (0x0010) [0x0000000000622002]              ( CPF_Const | CPF_Transient | CPF_EditConst | CPF_NeedCtorLink )
 	FPointer                                           m_pNotifyCriticalSection;                         		// 0x00A0 (0x0008) [0x0000000000203000]              ( CPF_Native | CPF_Transient )
 	unsigned char                                      UnknownData00[ 0x48 ];                            		// 0x00A8 (0x0048) UNKNOWN PROPERTY: MapProperty WwiseAudio.WwiseAudioComponent.WwiseEvents
 	struct FVector                                     location;                                         		// 0x00F0 (0x000C) [0x0000000000201000]              ( CPF_Native )
@@ -381,12 +381,12 @@ private:
 public:
 	static UClass* StaticClass();
 
-	void SetLocation ( struct FVector NewLocation );
+	void SetLocation ( struct FVector const& NewLocation );
 	void SetDrawMic ( unsigned long bDraw );
 	bool KillSound ( class UWwiseEvent* Event );
 	void Set3D ( );
 	void Set2D ( );
-	bool RegisterGameObject ( class FString GameObjectName );
+	bool RegisterGameObject ( FString const& GameObjectName );
 	bool UnregisterGameObject ( );
 	float GetDistanceToListener ( );
 	void SetObstructionOcclusionEnabled ( unsigned long i_bValue );
@@ -394,20 +394,20 @@ public:
 	bool GetObstructionOcclusionEnabled ( );
 	bool GetEnvironmentalAudioEnabled ( );
 	struct FVector GetMicPosition ( );
-	bool SetGlobalRTPCFromScript ( class FString in_pszRtpcName, float in_value );
+	bool SetGlobalRTPCFromScript ( FString const& in_pszRtpcName, float in_value );
 	bool StaticPostGlobalEventFromScript ( struct SFXName GlobalEventName );
-	class UWwiseAudioComponent* CreateComponentFromScript ( class AActor* pActor, class FString Label, struct SFXName ComponentGroup, struct SFXName AttachBone, unsigned long bRegister );
+	class UWwiseAudioComponent* CreateComponentFromScript ( class AActor* pActor, FString const& Label, struct SFXName ComponentGroup, struct SFXName AttachBone, unsigned long bRegister );
 	bool IsEventPlaying ( int WwisePlayingID );
 	bool IsPlaying ( class UWwiseBaseSoundObject* Event );
 	bool PostGlobalEvent ( struct SFXName GlobalEventName );
-	bool SetWwiseTrigger ( class FString sTrigger );
-	bool SetWwiseSwitch ( class FString sGroup, class FString sState );
-	bool SetWwiseRTPCs ( class TArray<class FString> sName, class TArray<float> fValue );
-	bool SetWwiseRTPC ( class FString sName, float fValue );
+	bool SetWwiseTrigger ( FString const& sTrigger );
+	bool SetWwiseSwitch ( FString const& sGroup, FString const& sState );
+	bool SetWwiseRTPCs ( TArray<FString> const& sName, TArray<float> const& fValue );
+	bool SetWwiseRTPC ( FString const& sName, float fValue );
 	bool Stop ( class UWwiseBaseSoundObject* Base );
-	bool StopWwiseEvent ( struct FWwiseEventPair AudioEvent );
+	bool StopWwiseEvent ( struct FWwiseEventPair const& AudioEvent );
 	bool Play ( class UWwiseBaseSoundObject* Base, unsigned long bTrackPosition );
-	bool PlayWwiseEvent ( struct FWwiseEventPair AudioEvent, unsigned long bTrackPosition );
+	bool PlayWwiseEvent ( struct FWwiseEventPair const& AudioEvent, unsigned long bTrackPosition );
 	float SoundPositionByID ( int WwisePlayingID );
 	float SoundPosition ( class UWwiseBaseSoundObject* Base );
 	bool StopAll ( );
@@ -481,7 +481,7 @@ public:
 class UWwiseEnvironmentSettings : public UObject
 {
 public:
-	class FString                                      Environment;                                      		// 0x0060 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            Environment;                                      		// 0x0060 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UWwiseBank*                                  ConvolutionReverbSoundBank;                       		// 0x0070 (0x0008) [0x0000000000000001]              ( CPF_Edit )
 	int                                                Id;                                               		// 0x0078 (0x0004) [0x0000000000002000]              ( CPF_Transient )
 	float                                              fPrimaryControlValue;                             		// 0x007C (0x0004) [0x0000000000000001]              ( CPF_Edit )
@@ -520,7 +520,7 @@ class UWwiseEvent : public UWwiseBaseSoundObject
 {
 public:
 	struct FWwiseRelationships                         Relationships;                                    		// 0x0060 (0x0018) [0x0000000000000001]              ( CPF_Edit )
-	class FString                                      Notes;                                            		// 0x0078 (0x0010) [0x0000000000420003]              ( CPF_Edit | CPF_Const | CPF_EditConst | CPF_NeedCtorLink )
+	FString                                            Notes;                                            		// 0x0078 (0x0010) [0x0000000000420003]              ( CPF_Edit | CPF_Const | CPF_EditConst | CPF_NeedCtorLink )
 	int                                                Id;                                               		// 0x0088 (0x0004) [0x0000000000020003]              ( CPF_Edit | CPF_Const | CPF_EditConst )
 	float                                              DurationSeconds;                                  		// 0x008C (0x0004) [0x0000000000020003]              ( CPF_Edit | CPF_Const | CPF_EditConst )
 	int                                                PrepareState;                                     		// 0x0090 (0x0004) [0x0000000000022003]              ( CPF_Edit | CPF_Const | CPF_Transient | CPF_EditConst )
@@ -547,7 +547,7 @@ public:
 class UWwiseDialogueEvent : public UWwiseEvent
 {
 public:
-	class TArray<struct FWwiseDialogueArgument>        Arguments;                                        		// 0x00A8 (0x0010) [0x0000000000420003]              ( CPF_Edit | CPF_Const | CPF_EditConst | CPF_NeedCtorLink )
+	TArray<struct FWwiseDialogueArgument>              Arguments;                                        		// 0x00A8 (0x0010) [0x0000000000420003]              ( CPF_Edit | CPF_Const | CPF_EditConst | CPF_NeedCtorLink )
 
 private:
 	static UClass* pClassPointer;
@@ -613,7 +613,7 @@ public:
 class UWwiseBank : public UWwiseFile
 {
 public:
-	class TArray<FPointer>                             Children;                                         		// 0x0070 (0x0010) [0x0000000000023002]              ( CPF_Const | CPF_Native | CPF_Transient | CPF_EditConst )
+	TArray<FPointer>                                   Children;                                         		// 0x0070 (0x0010) [0x0000000000023002]              ( CPF_Const | CPF_Native | CPF_Transient | CPF_EditConst )
 	FPointer                                           Bundle;                                           		// 0x0080 (0x0008) [0x0000000000003000]              ( CPF_Native | CPF_Transient )
 	class UWwiseBank*                                  Parent;                                           		// 0x0088 (0x0008) [0x0000000000020003]              ( CPF_Edit | CPF_Const | CPF_EditConst )
 	unsigned long                                      IsLocalised : 1;                                  		// 0x0090 (0x0004) [0x0000000000020003] [0x00000001] ( CPF_Edit | CPF_Const | CPF_EditConst )
@@ -706,7 +706,7 @@ class AWwiseAudioVolume : public AWwiseVolume
 {
 public:
 	struct FDouble                                     m_fLastLineCheckTime;                             		// 0x02BC (0x0008) [0x0000000000002000]              ( CPF_Transient )
-	class TArray<struct FWwiseEventPair>               WwiseEventArray;                                  		// 0x02C4 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	TArray<struct FWwiseEventPair>                     WwiseEventArray;                                  		// 0x02C4 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	class UWwiseAudioComponentMultiLoc*                AudioComponent;                                   		// 0x02D4 (0x0008) [0x0000000004080008]              ( CPF_ExportObject | CPF_Component | CPF_EditInline )
 	float                                              m_fTimeBetweenLineChecks;                         		// 0x02DC (0x0004) [0x0000000000000000]              
 	unsigned long                                      bAutoPlay : 1;                                    		// 0x02E0 (0x0004) [0x0000000000000001] [0x00000001] ( CPF_Edit )
@@ -796,7 +796,7 @@ public:
 class AWwiseDistanceRTPC : public AActor
 {
 public:
-	class FString                                      RTPCName;                                         		// 0x0270 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
+	FString                                            RTPCName;                                         		// 0x0270 (0x0010) [0x0000000000400001]              ( CPF_Edit | CPF_NeedCtorLink )
 	float                                              TickDelay;                                        		// 0x0280 (0x0004) [0x0000000000000001]              ( CPF_Edit )
 	float                                              m_fTimeSinceLastUpdate;                           		// 0x0284 (0x0004) [0x0000000000000000]              
 
@@ -828,9 +828,9 @@ public:
 class UWwiseCollection : public UObject
 {
 public:
-	class TArray<class UWwiseEvent*>                   Events;                                           		// 0x0060 (0x0010) [0x0000000000420003]              ( CPF_Edit | CPF_Const | CPF_EditConst | CPF_NeedCtorLink )
-	class TArray<class UWwiseEventPairObject*>         EventPairs;                                       		// 0x0070 (0x0010) [0x0000000000420003]              ( CPF_Edit | CPF_Const | CPF_EditConst | CPF_NeedCtorLink )
-	class TArray<class UWwiseStream*>                  Streams;                                          		// 0x0080 (0x0010) [0x0000000000420003]              ( CPF_Edit | CPF_Const | CPF_EditConst | CPF_NeedCtorLink )
+	TArray<class UWwiseEvent*>                         Events;                                           		// 0x0060 (0x0010) [0x0000000000420003]              ( CPF_Edit | CPF_Const | CPF_EditConst | CPF_NeedCtorLink )
+	TArray<class UWwiseEventPairObject*>               EventPairs;                                       		// 0x0070 (0x0010) [0x0000000000420003]              ( CPF_Edit | CPF_Const | CPF_EditConst | CPF_NeedCtorLink )
+	TArray<class UWwiseStream*>                        Streams;                                          		// 0x0080 (0x0010) [0x0000000000420003]              ( CPF_Edit | CPF_Const | CPF_EditConst | CPF_NeedCtorLink )
 	class UWwiseBank*                                  Bank;                                             		// 0x0090 (0x0008) [0x0000000000020003]              ( CPF_Edit | CPF_Const | CPF_EditConst )
 
 private:
