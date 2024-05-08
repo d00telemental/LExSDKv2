@@ -374,6 +374,55 @@ SCENARIO("FString - transcoding append operations") {
 }
 
 
+SCENARIO("FString - assigning repeated value")
+{
+    GIVEN("an empty string") {
+        FString Empty{};
+
+        WHEN("a number (n) of non-zero characters is assigned") {
+            Empty.Assign(L'a', 12);
+
+            THEN("new string equals the assigned character repeated (n) times") {
+                CHECK_EQ(Empty.Length(), 12);
+                CHECK_GE(Empty.Capacity(), 12);
+
+                CHECK(std::all_of(Empty.Chars(), Empty.Chars() + 12, [](wchar_t const Ch) { return Ch == L'a'; }));
+                CHECK_EQ(Empty.Chars()[12], L'\0');
+            }
+        }
+    }
+
+    GIVEN("a string with some characters") {
+        FString String{};
+        String.Append(L"Hello world!");
+
+        WHEN("a smaller number of non-zero characters is assigned") {
+            String.Assign(L'9', 6);
+
+            THEN("new string equals the assigned character repeated (n) times") {
+                CHECK_EQ(String.Length(), 6);
+                CHECK_GE(String.Capacity(), 6);
+
+                CHECK(std::all_of(String.Chars(), String.Chars() + 6, [](wchar_t const Ch) { return Ch == L'9'; }));
+                CHECK_EQ(String.Chars()[6], L'\0');
+            }
+        }
+
+        WHEN("a bigger number of non-zero characters is assigned") {
+            String.Assign(L'-', 127);
+
+            THEN("new string equals the assigned character repeated (n) times") {
+                CHECK_EQ(String.Length(), 127);
+                CHECK_GE(String.Capacity(), 127);
+
+                CHECK(std::all_of(String.Chars(), String.Chars() + 127, [](wchar_t const Ch) { return Ch == L'-'; }));
+                CHECK_EQ(String.Chars()[127], L'\0');
+            }
+        }
+    }
+}
+
+
 SCENARIO("FString - substring search") {
     GIVEN("an empty string") {
         FString String{};

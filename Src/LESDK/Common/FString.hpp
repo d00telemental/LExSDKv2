@@ -97,6 +97,8 @@ public:
     FStringBase<WithRAII>& AppendAnsi(char const* InAnsiStr);
     FStringBase<WithRAII>& AppendUtf8(char const* InUtf8Str);
 
+    void Assign(wchar_t Char, size_type Count);
+
     template<bool ParamWithRAII>
     bool Equals(FStringBase<ParamWithRAII>& InString, bool bIgnoreCase = false) const noexcept;
     template<bool ParamWithRAII>
@@ -350,6 +352,17 @@ FStringBase<WithRAII>& FStringBase<WithRAII>::AppendAnsi(char const* const InAns
         Storage.CountItems = NewLength + 1;
     }
     return *this;
+}
+
+template<bool WithRAII>
+void FStringBase<WithRAII>::Assign(wchar_t const Char, size_type const Count)
+{
+    LESDK_CHECK(Count > 0, "");
+    if (Count > 0) {
+        this->Storage.Resize(Count + 1);
+        this->Storage(Count) = L'\0';
+        std::fill_n(this->Storage.GetData(), Count, Char);
+    }
 }
 
 template<bool WithRAII>
