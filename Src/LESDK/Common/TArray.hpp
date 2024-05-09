@@ -208,7 +208,7 @@ template<TArrayElement T, bool WithRAII>
 void TArrayBase<T, WithRAII>::Resize(size_type const NewCount, const_reference const Value) {
     if (NewCount > CountItems) {
         Reserve(NewCount);
-        std::fill(Data + CountItems, Data + NewCount, Value);
+        std::uninitialized_fill(Data + CountItems, Data + NewCount, Value);
     } else if (NewCount < CountItems) {
         DoDestroyRange(NewCount);
     }
