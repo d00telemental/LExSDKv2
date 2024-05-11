@@ -482,8 +482,8 @@ public:
     FString(FString&& Other) noexcept;
     FString& operator=(FString&& Other) noexcept;
 
-    inline FString Printf(const_pointer Format, ...);
-    inline FString Printfv(const_pointer Format, std::va_list Args);
+    inline static FString Printf(const_pointer Format, ...);
+    inline static FString Printfv(const_pointer Format, std::va_list Args);
 
     friend inline bool operator==(FString const& Lhs, FString const& Rhs) noexcept;
     friend inline bool operator!=(FString const& Lhs, FString const& Rhs) noexcept;
