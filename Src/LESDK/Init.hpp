@@ -104,7 +104,7 @@ namespace LESDK {
      * @brief       Finds base address of the main game module.
      * @return      Base address of the module starting with "MassEffect" as a pointer.
      */
-    static void* GetMainModuleBase();
+    void* GetMainModuleBase();
 
 }
 
