@@ -265,7 +265,10 @@ FStringBase<WithRAII>&
 FStringBase<WithRAII>::Append(const_pointer const InStr) {
     LESDK_CHECK(InStr != nullptr, "");
     auto const Size = wcslen(InStr);
-    return this->Append(InStr, InStr + Size);
+    if (Size != 0) {
+        this->Append(InStr, InStr + Size);
+    }
+    return *this;
 }
 
 template<bool WithRAII>
