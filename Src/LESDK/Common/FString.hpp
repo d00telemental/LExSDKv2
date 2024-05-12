@@ -107,7 +107,7 @@ public:
 
     const_pointer operator*() const noexcept;
 
-    explicit operator std::basic_string_view<wchar_t, std::char_traits<wchar_t>>() const {
+    operator std::basic_string_view<wchar_t, std::char_traits<wchar_t>>() const {
         return std::basic_string_view<wchar_t, std::char_traits<wchar_t>>{
             Storage.GetData(), Storage.GetData() + this->Length()
         };
