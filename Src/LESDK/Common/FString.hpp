@@ -504,8 +504,11 @@ inline FString::FString(const_pointer const InStr)
 }
 
 inline FString& FString::operator=(const_pointer const InStr) {
-    this->Reset();
-    this->Append(InStr);
+    if (InStr != Storage.GetData()) {
+        this->Reset();
+        this->Append(InStr);
+    }
+    return *this;
 }
 
 inline FString::FString(FString const& Other)
