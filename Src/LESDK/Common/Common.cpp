@@ -303,6 +303,11 @@ bool SFXName::TryFind(char const* const Lookup, INT const Instance, SFXName* con
     return false;
 }
 
+SFXNameEntry* SFXName::GetEntry() noexcept {
+    auto const* const Pool = reinterpret_cast<BYTE const*>(GBioNamePools[Chunk]);
+    return reinterpret_cast<SFXNameEntry*>(const_cast<BYTE*>(Pool) + Offset);
+}
+
 SFXNameEntry const* SFXName::GetEntry() const noexcept {
     auto const* const Pool = reinterpret_cast<BYTE const*>(GBioNamePools[Chunk]);
     return reinterpret_cast<SFXNameEntry const*>(Pool + Offset);
