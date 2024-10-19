@@ -249,7 +249,7 @@ SFXNameEntry const* SFXNameEntry::NextInPool() const noexcept {
     auto const* const ThisAddr = reinterpret_cast<BYTE const*>(this);
     // Unicode handling here is a best-guess effort, no idea if it's actually correct.
     auto const EntryLength = static_cast<SIZE_T>(Index.Length);
-    auto const SkipSize = sizeof SFXNameEntry + (!IsUnicode() ? EntryLength : (EntryLength * 2));
+    auto const SkipSize = static_cast<SIZE_T>(13) + (!IsUnicode() ? EntryLength : (EntryLength * 2));
     return reinterpret_cast<SFXNameEntry const*>(ThisAddr + SkipSize);
 }
 
