@@ -82,6 +82,7 @@ struct SFXName {
         return Left <=> Right;
     }
 
+    SFXNameEntry* GetEntry() noexcept;
     SFXNameEntry const* GetEntry() const noexcept;
     char const* GetName() const noexcept;
     SIZE_T GetLength() const noexcept;
