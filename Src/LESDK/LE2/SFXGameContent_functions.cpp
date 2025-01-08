@@ -11,7 +11,7 @@
 */
 
 
-#include "../Includes.LE2.hpp"
+#include "LESDK/Includes.LE2.hpp"
 
 
 #ifdef _MSC_VER
@@ -39,7 +39,7 @@ class UClass* USFXSeqAct_TextureBlockConfig::StaticClass()
 	};
 
 // Function SFXGameContent.SFXSeqAct_TextureBlockConfig.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_TextureBlockConfig::Activated ( )
@@ -86,7 +86,7 @@ int USFXSeqAct_SaveGame::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContent.SFXSeqAct_SaveGame.BeginSave
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FSFXSaveDescriptor      Descriptor                     ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -104,7 +104,7 @@ void USFXSeqAct_SaveGame::BeginSave ( struct FSFXSaveDescriptor const& Descripto
 };
 
 // Function SFXGameContent.SFXSeqAct_SaveGame.Deactivated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_SaveGame::Deactivated ( )
@@ -120,7 +120,7 @@ void USFXSeqAct_SaveGame::Deactivated ( )
 };
 
 // Function SFXGameContent.SFXSeqAct_SaveGame.Update
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // float                          DeltaTime                      ( CPF_Parm )
@@ -141,7 +141,7 @@ bool USFXSeqAct_SaveGame::Update ( float DeltaTime )
 };
 
 // Function SFXGameContent.SFXSeqAct_SaveGame.Activated
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 
 void USFXSeqAct_SaveGame::Activated ( )
@@ -176,7 +176,7 @@ class ABioPlayerController* USFXSeqAct_SaveGame::GetBioPlayerController ( )
 };
 
 // Function SFXGameContent.SFXSeqAct_SaveGame.CanSave
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPlayerController*    PC                             ( CPF_Parm )
@@ -228,7 +228,7 @@ int USFXSeqAct_ResourceSnapshot::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContent.SFXSeqAct_ResourceSnapshot.Activated
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 
 void USFXSeqAct_ResourceSnapshot::Activated ( )
@@ -275,7 +275,7 @@ int USFXSeqAct_ExplodingPlaceable::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContent.SFXSeqAct_ExplodingPlaceable.Activated
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 
 void USFXSeqAct_ExplodingPlaceable::Activated ( )
@@ -334,7 +334,7 @@ int USFXSeqAct_SystemsHandleArriveOnNormandy::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContent.SFXSeqAct_SystemsHandleArriveOnNormandy.HandleRestockAmmo
-// [0x00022002] 
+// [0x00022002]
 // Parameters infos:
 // class ASFXInventoryManager*    oInventory                     ( CPF_Parm )
 
@@ -352,7 +352,7 @@ void USFXSeqAct_SystemsHandleArriveOnNormandy::HandleRestockAmmo ( class ASFXInv
 };
 
 // Function SFXGameContent.SFXSeqAct_SystemsHandleArriveOnNormandy.HandleRestockMediGel
-// [0x00022002] 
+// [0x00022002]
 // Parameters infos:
 // class ASFXInventoryManager*    oInventory                     ( CPF_Parm )
 
@@ -370,7 +370,7 @@ void USFXSeqAct_SystemsHandleArriveOnNormandy::HandleRestockMediGel ( class ASFX
 };
 
 // Function SFXGameContent.SFXSeqAct_SystemsHandleArriveOnNormandy.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_SystemsHandleArriveOnNormandy::Activated ( )
@@ -398,7 +398,7 @@ class UClass* USFXSeqAct_ChooseLoadout::StaticClass()
 	};
 
 // Function SFXGameContent.SFXSeqAct_ChooseLoadout.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_ChooseLoadout::Activated ( )
@@ -469,7 +469,7 @@ int UBioSeqAct_ShowHint::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContent.BioSeqAct_ShowHint.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioSeqAct_ShowHint::Activated ( )
@@ -513,7 +513,7 @@ void UBioSeqAct_SetPlotPersuadeCheck::eventActivated ( )
 };
 
 // Function SFXGameContent.BioSeqAct_SetPlotPersuadeCheck.getWorld
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioWorldInfo*           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -582,7 +582,7 @@ int UBioSeqAct_GiveMissionXP::GetMissionXP ( )
 };
 
 // Function SFXGameContent.BioSeqAct_GiveMissionXP.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioSeqAct_GiveMissionXP::Activated ( )
@@ -665,7 +665,7 @@ int USFXSeqAct_SetAreaMap::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContent.SFXSeqAct_SetAreaMap.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_SetAreaMap::Activated ( )
@@ -712,7 +712,7 @@ int UBioSeqAct_GetMembersOfSquad::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContent.BioSeqAct_GetMembersOfSquad.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioSeqAct_GetMembersOfSquad::Activated ( )
@@ -799,7 +799,7 @@ bool UBioSeqAct_CombatController::eventUpdate ( float DeltaTime )
 };
 
 // Function SFXGameContent.BioSeqAct_CombatController.Activated
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 
 void UBioSeqAct_CombatController::Activated ( )
@@ -834,7 +834,7 @@ class USFXCombatStateData* UBioSeqAct_CombatController::GetCombatData ( )
 };
 
 // Function SFXGameContent.BioSeqAct_CombatController.DebugLog
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // FString                        sMessage                       ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -876,7 +876,7 @@ class UClass* USFXCombatStateData::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCombatStateData.GetEnemyCount
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -895,7 +895,7 @@ int USFXCombatStateData::GetEnemyCount ( )
 };
 
 // Function SFXGameContent.SFXCombatStateData.UpdateEnemyCount
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCombatStateData::UpdateEnemyCount ( )
@@ -911,7 +911,7 @@ void USFXCombatStateData::UpdateEnemyCount ( )
 };
 
 // Function SFXGameContent.SFXCombatStateData.ReportSpawnResult
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned long                  bSuccessfullySpawned           ( CPF_Parm )
 
@@ -929,7 +929,7 @@ void USFXCombatStateData::ReportSpawnResult ( unsigned long bSuccessfullySpawned
 };
 
 // Function SFXGameContent.SFXCombatStateData.ClearSpawnRequest
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCombatStateData::ClearSpawnRequest ( )
@@ -945,7 +945,7 @@ void USFXCombatStateData::ClearSpawnRequest ( )
 };
 
 // Function SFXGameContent.SFXCombatStateData.RequestSpawn
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct SFXName                 nmRequesterName                ( CPF_Parm )
 // TArray<class AActor*>          aoSpawnPoints                  ( CPF_Parm | CPF_NeedCtorLink )
@@ -996,7 +996,7 @@ int UBioSeqAct_RespawnFactory::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContent.BioSeqAct_RespawnFactory.Deactivated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioSeqAct_RespawnFactory::Deactivated ( )
@@ -1012,7 +1012,7 @@ void UBioSeqAct_RespawnFactory::Deactivated ( )
 };
 
 // Function SFXGameContent.BioSeqAct_RespawnFactory.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioSeqAct_RespawnFactory::Activated ( )
@@ -1078,7 +1078,7 @@ int UBioSeqAct_SpawnLocation::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContent.BioSeqAct_SpawnLocation.CheckForFactoryFeedback
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1097,7 +1097,7 @@ bool UBioSeqAct_SpawnLocation::CheckForFactoryFeedback ( )
 };
 
 // Function SFXGameContent.BioSeqAct_SpawnLocation.AttemptSpawn
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioSeqAct_SpawnLocation::AttemptSpawn ( )
@@ -1113,7 +1113,7 @@ void UBioSeqAct_SpawnLocation::AttemptSpawn ( )
 };
 
 // Function SFXGameContent.BioSeqAct_SpawnLocation.WaitToSpawn
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // float                          DeltaTime                      ( CPF_Parm )
@@ -1155,7 +1155,7 @@ bool UBioSeqAct_SpawnLocation::eventUpdate ( float DeltaTime )
 };
 
 // Function SFXGameContent.BioSeqAct_SpawnLocation.QueueSpawn
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioSeqAct_SpawnLocation::QueueSpawn ( )
@@ -1171,7 +1171,7 @@ void UBioSeqAct_SpawnLocation::QueueSpawn ( )
 };
 
 // Function SFXGameContent.BioSeqAct_SpawnLocation.Activated
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 
 void UBioSeqAct_SpawnLocation::Activated ( )
@@ -1187,7 +1187,7 @@ void UBioSeqAct_SpawnLocation::Activated ( )
 };
 
 // Function SFXGameContent.BioSeqAct_SpawnLocation.DebugLog
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // FString                        sMessage                       ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -1255,7 +1255,7 @@ int UBioSeqAct_CheckIfInVolume::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContent.BioSeqAct_CheckIfInVolume.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioSeqAct_CheckIfInVolume::Activated ( )
@@ -1283,7 +1283,7 @@ class UClass* USFXSeqAct_ApplyImpulse::StaticClass()
 	};
 
 // Function SFXGameContent.SFXSeqAct_ApplyImpulse.Activated
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 
 void USFXSeqAct_ApplyImpulse::Activated ( )
@@ -1311,7 +1311,7 @@ class UClass* USFXSeqAct_CompareAliveSquadMembers::StaticClass()
 	};
 
 // Function SFXGameContent.SFXSeqAct_CompareAliveSquadMembers.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_CompareAliveSquadMembers::Activated ( )
@@ -1379,7 +1379,7 @@ bool USFXSeqAct_LocationControlSpawnDoor::eventUpdate ( float DeltaTime )
 };
 
 // Function SFXGameContent.SFXSeqAct_LocationControlSpawnDoor.PawnIsInVolumes
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1398,7 +1398,7 @@ bool USFXSeqAct_LocationControlSpawnDoor::PawnIsInVolumes ( )
 };
 
 // Function SFXGameContent.SFXSeqAct_LocationControlSpawnDoor.Activated
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 
 void USFXSeqAct_LocationControlSpawnDoor::Activated ( )
@@ -1414,7 +1414,7 @@ void USFXSeqAct_LocationControlSpawnDoor::Activated ( )
 };
 
 // Function SFXGameContent.SFXSeqAct_LocationControlSpawnDoor.AllDoorsClosed
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 

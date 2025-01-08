@@ -11,7 +11,7 @@
 */
 
 
-#include "../Includes.LE3.hpp"
+#include "LESDK/Includes.LE3.hpp"
 
 
 #ifdef _MSC_VER
@@ -108,7 +108,7 @@ bool AGameAIController::eventGeneratePathToActor ( class AActor* Goal, float Wit
 };
 
 // Function GameFramework.GameAIController.SetDesiredRotation
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct FRotator                TargetDesiredRotation          ( CPF_Parm )
 // unsigned long                  InLockDesiredRotation          ( CPF_OptionalParm | CPF_Parm )
@@ -154,7 +154,7 @@ void AGameAIController::eventAILog_Internal ( FString const& LogText, struct SFX
 };
 
 // Function GameFramework.GameAIController.RecordDemoAILog
-// [0x00080000] 
+// [0x00080000]
 // Parameters infos:
 // FString                        LogText                        ( CPF_Parm | CPF_CoerceParm | CPF_NeedCtorLink )
 
@@ -384,7 +384,7 @@ class UClass* UGameAICommand::StaticClass()
 	};
 
 // Function GameFramework.GameAICommand.GetDebugOverheadText
-// [0x00420000] 
+// [0x00420000]
 // Parameters infos:
 // class APlayerController*       PC                             ( CPF_Parm )
 // TArray<FString>                OutText                        ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
@@ -448,7 +448,7 @@ FString UGameAICommand::eventGetDumpString ( )
 };
 
 // Function GameFramework.GameAICommand.Resumed
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct SFXName                 OldCommandName                 ( CPF_Parm )
 
@@ -466,7 +466,7 @@ void UGameAICommand::Resumed ( struct SFXName OldCommandName )
 };
 
 // Function GameFramework.GameAICommand.Paused
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UGameAICommand*          NewCommand                     ( CPF_Parm )
 
@@ -484,7 +484,7 @@ void UGameAICommand::Paused ( class UGameAICommand* NewCommand )
 };
 
 // Function GameFramework.GameAICommand.Popped
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UGameAICommand::Popped ( )
@@ -500,7 +500,7 @@ void UGameAICommand::Popped ( )
 };
 
 // Function GameFramework.GameAICommand.Pushed
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UGameAICommand::Pushed ( )
@@ -516,7 +516,7 @@ void UGameAICommand::Pushed ( )
 };
 
 // Function GameFramework.GameAICommand.PostPopped
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 
 void UGameAICommand::PostPopped ( )
@@ -532,7 +532,7 @@ void UGameAICommand::PostPopped ( )
 };
 
 // Function GameFramework.GameAICommand.PrePushed
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // class AGameAIController*       AI                             ( CPF_Parm )
 
@@ -550,7 +550,7 @@ void UGameAICommand::PrePushed ( class AGameAIController* AI )
 };
 
 // Function GameFramework.GameAICommand.AllowStateTransitionTo
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct SFXName                 StateName                      ( CPF_Parm )
@@ -571,7 +571,7 @@ bool UGameAICommand::AllowStateTransitionTo ( struct SFXName StateName )
 };
 
 // Function GameFramework.GameAICommand.AllowTransitionTo
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class UClass*                  AttemptCommand                 ( CPF_Parm )
@@ -592,7 +592,7 @@ bool UGameAICommand::AllowTransitionTo ( class UClass* AttemptCommand )
 };
 
 // Function GameFramework.GameAICommand.Tick
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // float                          DeltaTime                      ( CPF_Parm )
 
@@ -737,7 +737,7 @@ void UGameAICommand::eventInternalPrePushed ( class AGameAIController* AI )
 };
 
 // Function GameFramework.GameAICommand.InitCommand
-// [0x00022002] 
+// [0x00022002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AGameAIController*       AI                             ( CPF_Parm )
@@ -758,7 +758,7 @@ bool UGameAICommand::InitCommand ( class AGameAIController* AI )
 };
 
 // Function GameFramework.GameAICommand.InitCommandUserActor
-// [0x00022002] 
+// [0x00022002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AGameAIController*       AI                             ( CPF_Parm )

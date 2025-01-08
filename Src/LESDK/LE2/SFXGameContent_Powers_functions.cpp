@@ -11,7 +11,7 @@
 */
 
 
-#include "../Includes.LE2.hpp"
+#include "LESDK/Includes.LE2.hpp"
 
 
 #ifdef _MSC_VER
@@ -87,7 +87,7 @@ class UClass* USFXPowerScript_Singularity_NPC::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPowerScript_Singularity_NPC.OnOwnerDied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerScript_Singularity_NPC::OnOwnerDied ( )
@@ -103,7 +103,7 @@ void USFXPowerScript_Singularity_NPC::OnOwnerDied ( )
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_Singularity_NPC.ImpactNewTarget
-// [0x00C20002] 
+// [0x00C20002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -131,7 +131,7 @@ bool USFXPowerScript_Singularity_NPC::ImpactNewTarget ( class AActor* oImpacted,
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_Singularity_NPC.OnProjectileExploded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oCaster                        ( CPF_Parm )
 // struct FVector                 HitLocation                    ( CPF_Parm )
@@ -276,7 +276,7 @@ class UClass* USFXPowerScript_Overload::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPowerScript_Overload.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -306,7 +306,7 @@ bool USFXPowerScript_Overload::ShouldUsePower ( class AActor* Caster, class AAct
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_Overload.SpawnBigImpactVFX
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oImpacted                      ( CPF_Parm )
 
@@ -324,7 +324,7 @@ void USFXPowerScript_Overload::SpawnBigImpactVFX ( class AActor* oImpacted )
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_Overload.ExplodeEnemy
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                oPawn                          ( CPF_Parm )
 // class ABioPawn*                oCaster                        ( CPF_Parm )
@@ -344,7 +344,7 @@ void USFXPowerScript_Overload::ExplodeEnemy ( class ABioPawn* oPawn, class ABioP
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_Overload.CanEnemyBeExploded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                oPawn                          ( CPF_Parm )
@@ -365,7 +365,7 @@ bool USFXPowerScript_Overload::CanEnemyBeExploded ( class ABioPawn* oPawn )
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_Overload.TurnOnDeathPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oImpacted                      ( CPF_Parm )
 
@@ -383,7 +383,7 @@ void USFXPowerScript_Overload::TurnOnDeathPower ( class AActor* oImpacted )
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_Overload.StunRobot
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                oPawn                          ( CPF_Parm )
 // float                          fDuration                      ( CPF_Parm )
@@ -467,7 +467,7 @@ class UClass* USFXPower_Overload::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPower_Overload.GetOverheatLength
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -486,7 +486,7 @@ float USFXPower_Overload::GetOverheatLength ( )
 };
 
 // Function SFXGameContent_Powers.SFXPower_Overload.GetRobotStunLength
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -535,7 +535,7 @@ void ASFXProjectile_Power_Seeking_NPC::Tick ( float DeltaTime )
 };
 
 // Function SFXGameContent_Powers.SFXProjectile_Power_Seeking_NPC.GetAimLocation
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 // struct FVector                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -556,7 +556,7 @@ struct FVector ASFXProjectile_Power_Seeking_NPC::GetAimLocation ( class AActor* 
 };
 
 // Function SFXGameContent_Powers.SFXProjectile_Power_Seeking_NPC.InitializePowerProjectile
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -595,7 +595,7 @@ class UClass* USFXPower_Incinerate_NPC::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPower_Incinerate_NPC.GetDamage
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -666,7 +666,7 @@ void ASFXProjectile_Power_Seeking::Recycle ( )
 };
 
 // Function SFXGameContent_Powers.SFXProjectile_Power_Seeking.InitializeRotation
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // class APawn*                   oCasterPawn                    ( CPF_Parm )
 
@@ -684,7 +684,7 @@ void ASFXProjectile_Power_Seeking::InitializeRotation ( class APawn* oCasterPawn
 };
 
 // Function SFXGameContent_Powers.SFXProjectile_Power_Seeking.InitializePowerProjectile
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -711,7 +711,7 @@ bool ASFXProjectile_Power_Seeking::InitializePowerProjectile ( class AActor* oCa
 };
 
 // Function SFXGameContent_Powers.SFXProjectile_Power_Seeking.CanLockOn
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -752,7 +752,7 @@ void ASFXProjectile_Power_Seeking::Tick ( float DeltaTime )
 };
 
 // Function SFXGameContent_Powers.SFXProjectile_Power_Seeking.ShouldModifyVelocity
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -794,7 +794,7 @@ float ASFXProjectile_Power_Seeking::ChordLength ( float ChordLen, float Theta )
 };
 
 // Function SFXGameContent_Powers.SFXProjectile_Power_Seeking.GetAimLocation
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 // struct FVector                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -815,7 +815,7 @@ struct FVector ASFXProjectile_Power_Seeking::GetAimLocation ( class AActor* Targ
 };
 
 // Function SFXGameContent_Powers.SFXProjectile_Power_Seeking.AcquireTarget
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 // class AActor*                  Target                         ( CPF_Parm )
 
@@ -845,7 +845,7 @@ class UClass* ASFXProjectile_Power_SuperSeeking::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXProjectile_Power_SuperSeeking.InitializeRotation
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 // class APawn*                   oCasterPawn                    ( CPF_Parm )
 
@@ -887,7 +887,7 @@ class UClass* USFXPowerScript_Incinerate::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPowerScript_Incinerate.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -917,7 +917,7 @@ bool USFXPowerScript_Incinerate::ShouldUsePower ( class AActor* Caster, class AA
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_Incinerate.ExplodeEnemy
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                oPawn                          ( CPF_Parm )
 // class ABioPawn*                oCaster                        ( CPF_Parm )
@@ -937,7 +937,7 @@ void USFXPowerScript_Incinerate::ExplodeEnemy ( class ABioPawn* oPawn, class ABi
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_Incinerate.CanEnemyBeExploded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                oPawn                          ( CPF_Parm )
@@ -958,7 +958,7 @@ bool USFXPowerScript_Incinerate::CanEnemyBeExploded ( class ABioPawn* oPawn )
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_Incinerate.CauseAnimatedReaction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oHitActor                      ( CPF_Parm )
 // float                          fDelay                         ( CPF_Parm )
@@ -1042,7 +1042,7 @@ class UClass* USFXPower_Incinerate::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPower_Incinerate.GetDuration
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1161,7 +1161,7 @@ class UClass* USFXPowerScript_CombatDroneAttack_NPC::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPowerScript_CombatDroneAttack_NPC.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -1267,7 +1267,7 @@ class UClass* USFXPowerScript_CombatDroneAttack::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPowerScript_CombatDroneAttack.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -1385,7 +1385,7 @@ class UClass* USFXPower_Cloak_NPC::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPower_Cloak_NPC.GetDamageMultiplier
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1440,7 +1440,7 @@ class UClass* USFXPowerScript_Cloak::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPowerScript_Cloak.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -1470,7 +1470,7 @@ bool USFXPowerScript_Cloak::ShouldUsePower ( class AActor* Caster, class AActor*
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_Cloak.OnCloakEnded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerScript_Cloak::OnCloakEnded ( )
@@ -1660,7 +1660,7 @@ class UClass* USFXPowerScript_DefensiveShieldBase::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPowerScript_DefensiveShieldBase.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -1717,7 +1717,7 @@ bool USFXPowerScript_DefensiveShieldBase::eventOnImpact ( class AActor* oCaster,
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_DefensiveShieldBase.OnShieldDestroyed
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  ShieldActor                    ( CPF_Parm )
 // class ASFXShield_Base*         Shield                         ( CPF_Parm )
@@ -1765,7 +1765,7 @@ class UClass* USFXPower_DefensiveShieldBase::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPower_DefensiveShieldBase.GetShieldValue
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1808,7 +1808,7 @@ class UClass* ASFXPawn_EngineerTechDrone::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPawn_EngineerTechDrone.SpawnDeathVFX
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ASFXPawn_EngineerTechDrone::SpawnDeathVFX ( )
@@ -1885,7 +1885,7 @@ class UClass* USFXGameEffect_OverheatWeapons::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXGameEffect_OverheatWeapons.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_OverheatWeapons::OnRemoved ( )
@@ -1901,7 +1901,7 @@ void USFXGameEffect_OverheatWeapons::OnRemoved ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_OverheatWeapons.OverheatWeapon
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_OverheatWeapons::OverheatWeapon ( )
@@ -1917,7 +1917,7 @@ void USFXGameEffect_OverheatWeapons::OverheatWeapon ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_OverheatWeapons.OnUpdate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaSeconds                   ( CPF_Parm )
 
@@ -1935,7 +1935,7 @@ void USFXGameEffect_OverheatWeapons::OnUpdate ( float DeltaSeconds )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_OverheatWeapons.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_OverheatWeapons::OnApplied ( )
@@ -1963,7 +1963,7 @@ class UClass* USFXGameEffect_CloakVFX::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXGameEffect_CloakVFX.EndStealthVFX
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_CloakVFX::EndStealthVFX ( )
@@ -1979,7 +1979,7 @@ void USFXGameEffect_CloakVFX::EndStealthVFX ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_CloakVFX.RestoreMeshMaterials
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class USkeletalMeshComponent*  Mesh                           ( CPF_Parm | CPF_EditInline )
 
@@ -1997,7 +1997,7 @@ void USFXGameEffect_CloakVFX::RestoreMeshMaterials ( class USkeletalMeshComponen
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_CloakVFX.TransitionOff
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_CloakVFX::TransitionOff ( )
@@ -2013,7 +2013,7 @@ void USFXGameEffect_CloakVFX::TransitionOff ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_CloakVFX.DelayedTransitionOff
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_CloakVFX::DelayedTransitionOff ( )
@@ -2029,7 +2029,7 @@ void USFXGameEffect_CloakVFX::DelayedTransitionOff ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_CloakVFX.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_CloakVFX::OnRemoved ( )
@@ -2045,7 +2045,7 @@ void USFXGameEffect_CloakVFX::OnRemoved ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_CloakVFX.OnUpdate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaSeconds                   ( CPF_Parm )
 
@@ -2063,7 +2063,7 @@ void USFXGameEffect_CloakVFX::OnUpdate ( float DeltaSeconds )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_CloakVFX.StartTransition
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_CloakVFX::StartTransition ( )
@@ -2079,7 +2079,7 @@ void USFXGameEffect_CloakVFX::StartTransition ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_CloakVFX.SwapMeshMaterials
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class USkeletalMeshComponent*  oSkeletalMesh                  ( CPF_Parm | CPF_EditInline )
 
@@ -2097,7 +2097,7 @@ void USFXGameEffect_CloakVFX::SwapMeshMaterials ( class USkeletalMeshComponent* 
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_CloakVFX.SwapInvisibleMaterials
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_CloakVFX::SwapInvisibleMaterials ( )
@@ -2113,7 +2113,7 @@ void USFXGameEffect_CloakVFX::SwapInvisibleMaterials ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_CloakVFX.StoreMeshMaterials
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class USkeletalMeshComponent*  oSkeletalMesh                  ( CPF_Parm | CPF_EditInline )
 
@@ -2131,7 +2131,7 @@ void USFXGameEffect_CloakVFX::StoreMeshMaterials ( class USkeletalMeshComponent*
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_CloakVFX.StoreStartingMaterials
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_CloakVFX::StoreStartingMaterials ( )
@@ -2147,7 +2147,7 @@ void USFXGameEffect_CloakVFX::StoreStartingMaterials ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_CloakVFX.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_CloakVFX::OnApplied ( )
@@ -2211,7 +2211,7 @@ class UClass* USFXPower_Warp_NPC::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPower_Warp_NPC.GetDamage
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -2254,7 +2254,7 @@ class UClass* UBioWarpScript::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.BioWarpScript.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -2284,7 +2284,7 @@ bool UBioWarpScript::ShouldUsePower ( class AActor* Caster, class AActor* Target
 };
 
 // Function SFXGameContent_Powers.BioWarpScript.TurnOffScriptSingularity
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                PowerCaster                    ( CPF_Parm )
 // struct SFXName                 PowerName                      ( CPF_Parm )
@@ -2304,7 +2304,7 @@ void UBioWarpScript::TurnOffScriptSingularity ( class ABioPawn* PowerCaster, str
 };
 
 // Function SFXGameContent_Powers.BioWarpScript.StopSingularity
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                oImpacted                      ( CPF_Parm )
 
@@ -2322,7 +2322,7 @@ void UBioWarpScript::StopSingularity ( class ABioPawn* oImpacted )
 };
 
 // Function SFXGameContent_Powers.BioWarpScript.SpawnBigImpactVFX
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 // class AActor*                  oImpacted                      ( CPF_Parm )
 
@@ -2340,7 +2340,7 @@ void UBioWarpScript::SpawnBigImpactVFX ( class AActor* oImpacted )
 };
 
 // Function SFXGameContent_Powers.BioWarpScript.DetonateBiotics
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 // class AActor*                  oCaster                        ( CPF_Parm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -2424,7 +2424,7 @@ class UClass* USFXPower_Singularity_NPC::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPower_Singularity_NPC.GetDamage
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -2467,7 +2467,7 @@ class UClass* UBioSingularityScript::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.BioSingularityScript.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -2497,7 +2497,7 @@ bool UBioSingularityScript::ShouldUsePower ( class AActor* Caster, class AActor*
 };
 
 // Function SFXGameContent_Powers.BioSingularityScript.OnPowerRankIncreased
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioSingularityScript::OnPowerRankIncreased ( )
@@ -2513,7 +2513,7 @@ void UBioSingularityScript::OnPowerRankIncreased ( )
 };
 
 // Function SFXGameContent_Powers.BioSingularityScript.OnRagdollPhysicsImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class APawn*                   oPawn                          ( CPF_Parm )
 // class AActor*                  oImpactActor                   ( CPF_Parm )
@@ -2535,7 +2535,7 @@ void UBioSingularityScript::OnRagdollPhysicsImpact ( class APawn* oPawn, class A
 };
 
 // Function SFXGameContent_Powers.BioSingularityScript.ApplyVFX
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oImpacted                      ( CPF_Parm )
 // float                          fDuration                      ( CPF_Parm )
@@ -2555,7 +2555,7 @@ void UBioSingularityScript::ApplyVFX ( class AActor* oImpacted, float fDuration 
 };
 
 // Function SFXGameContent_Powers.BioSingularityScript.SpawnSingularity
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oCaster                        ( CPF_Parm )
 // struct FVector                 Location                       ( CPF_Parm )
@@ -2575,7 +2575,7 @@ void UBioSingularityScript::SpawnSingularity ( class AActor* oCaster, struct FVe
 };
 
 // Function SFXGameContent_Powers.BioSingularityScript.TurnOffSingularity
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioSingularityScript::TurnOffSingularity ( )
@@ -2591,7 +2591,7 @@ void UBioSingularityScript::TurnOffSingularity ( )
 };
 
 // Function SFXGameContent_Powers.BioSingularityScript.CanPutInSingularity
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oActor                         ( CPF_Parm )
@@ -2612,7 +2612,7 @@ bool UBioSingularityScript::CanPutInSingularity ( class AActor* oActor )
 };
 
 // Function SFXGameContent_Powers.BioSingularityScript.ImpactNewTarget
-// [0x00C20002] 
+// [0x00C20002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -2658,7 +2658,7 @@ void UBioSingularityScript::eventTick ( float DeltaTime )
 };
 
 // Function SFXGameContent_Powers.BioSingularityScript.OnProjectileExploded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oCaster                        ( CPF_Parm )
 // struct FVector                 HitLocation                    ( CPF_Parm )
@@ -2735,7 +2735,7 @@ class UClass* UBioReactionPowerScript::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.BioReactionPowerScript.GetIncreasedReaction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oTarget                        ( CPF_Parm )
@@ -2758,7 +2758,7 @@ unsigned char UBioReactionPowerScript::GetIncreasedReaction ( class AActor* oTar
 };
 
 // Function SFXGameContent_Powers.BioReactionPowerScript.GetCombatReaction
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned char                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            PowerRank                      ( CPF_Parm )
@@ -2795,7 +2795,7 @@ class UClass* USFXGameEffect_IgnorePawn::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXGameEffect_IgnorePawn.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_IgnorePawn::OnRemoved ( )
@@ -2811,7 +2811,7 @@ void USFXGameEffect_IgnorePawn::OnRemoved ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_IgnorePawn.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_IgnorePawn::OnApplied ( )
@@ -2839,7 +2839,7 @@ class UClass* ASFXPawn_EngineerCombatDrone::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPawn_EngineerCombatDrone.PlayDeathVocalization
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // class ABioPawn*                Killer                         ( CPF_Parm )
 
@@ -2898,7 +2898,7 @@ bool ASFXPawn_EngineerCombatDrone::eventDied ( class AController* Killer, class 
 };
 
 // Function SFXGameContent_Powers.SFXPawn_EngineerCombatDrone.SetDroneColor2
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FVector                 NewColor                       ( CPF_Parm )
 
@@ -2916,7 +2916,7 @@ void ASFXPawn_EngineerCombatDrone::SetDroneColor2 ( struct FVector const& NewCol
 };
 
 // Function SFXGameContent_Powers.SFXPawn_EngineerCombatDrone.SetDroneColor
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FVector                 NewColor                       ( CPF_Parm )
 
@@ -2934,7 +2934,7 @@ void ASFXPawn_EngineerCombatDrone::SetDroneColor ( struct FVector const& NewColo
 };
 
 // Function SFXGameContent_Powers.SFXPawn_EngineerCombatDrone.PostBeginPlay
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ASFXPawn_EngineerCombatDrone::PostBeginPlay ( )
@@ -2950,7 +2950,7 @@ void ASFXPawn_EngineerCombatDrone::PostBeginPlay ( )
 };
 
 // Function SFXGameContent_Powers.SFXPawn_EngineerCombatDrone.OnDroneKilled
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 
 void ASFXPawn_EngineerCombatDrone::OnDroneKilled ( )
@@ -2978,7 +2978,7 @@ class UClass* USFXPower_CombatDrone::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPower_CombatDrone.GetHealthMultiplier
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -3009,7 +3009,7 @@ class UClass* UBioCombatDroneScript::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.BioCombatDroneScript.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -3039,7 +3039,7 @@ bool UBioCombatDroneScript::ShouldUsePower ( class AActor* Caster, class AActor*
 };
 
 // Function SFXGameContent_Powers.BioCombatDroneScript.OnDroneKilled
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioCombatDroneScript::OnDroneKilled ( )
@@ -3055,7 +3055,7 @@ void UBioCombatDroneScript::OnDroneKilled ( )
 };
 
 // Function SFXGameContent_Powers.BioCombatDroneScript.DespawnDrone
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioCombatDroneScript::DespawnDrone ( )
@@ -3071,7 +3071,7 @@ void UBioCombatDroneScript::DespawnDrone ( )
 };
 
 // Function SFXGameContent_Powers.BioCombatDroneScript.OnOwnerDied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioCombatDroneScript::OnOwnerDied ( )
@@ -3087,7 +3087,7 @@ void UBioCombatDroneScript::OnOwnerDied ( )
 };
 
 // Function SFXGameContent_Powers.BioCombatDroneScript.OnPowerRankIncreased
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioCombatDroneScript::OnPowerRankIncreased ( )
@@ -3103,7 +3103,7 @@ void UBioCombatDroneScript::OnPowerRankIncreased ( )
 };
 
 // Function SFXGameContent_Powers.BioCombatDroneScript.SpawnDrone
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class ABioPawn*                ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                oCaster                        ( CPF_Parm )
@@ -3144,7 +3144,7 @@ class ABioPawn* UBioCombatDroneScript::SpawnDrone ( class ABioPawn* oCaster, cla
 };
 
 // Function SFXGameContent_Powers.BioCombatDroneScript.GetSpawnLocation
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 // struct FVector                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -3163,7 +3163,7 @@ struct FVector UBioCombatDroneScript::GetSpawnLocation ( )
 };
 
 // Function SFXGameContent_Powers.BioCombatDroneScript.GetBackLocation
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FVector                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -3184,7 +3184,7 @@ struct FVector UBioCombatDroneScript::GetBackLocation ( class AActor* Target )
 };
 
 // Function SFXGameContent_Powers.BioCombatDroneScript.GetFrontLocation
-// [0x00824002] 
+// [0x00824002]
 // Parameters infos:
 // struct FVector                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -3207,7 +3207,7 @@ struct FVector UBioCombatDroneScript::GetFrontLocation ( class AActor* Target, f
 };
 
 // Function SFXGameContent_Powers.BioCombatDroneScript.IsSafeSpawnLocation
-// [0x00C20002] 
+// [0x00C20002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 SpawnLocation                  ( CPF_Parm | CPF_OutParm )
@@ -3233,7 +3233,7 @@ bool UBioCombatDroneScript::IsSafeSpawnLocation ( struct FVector* SpawnLocation 
 };
 
 // Function SFXGameContent_Powers.BioCombatDroneScript.IsDroneAlive
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -3334,7 +3334,7 @@ class UClass* USFXPowerScript_HenchmanPassive::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPowerScript_HenchmanPassive.ApplyGlobalBonus
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerScript_HenchmanPassive::ApplyGlobalBonus ( )
@@ -3362,7 +3362,7 @@ class UClass* USFXPowerScript_TaliPassive::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPowerScript_TaliPassive.ApplyGlobalBonus
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerScript_TaliPassive::ApplyGlobalBonus ( )
@@ -3618,7 +3618,7 @@ class UClass* UBioShieldJackScript::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.BioShieldJackScript.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -3648,7 +3648,7 @@ bool UBioShieldJackScript::ShouldUsePower ( class AActor* Caster, class AActor* 
 };
 
 // Function SFXGameContent_Powers.BioShieldJackScript.GetCurrentEnergyShields
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                oPawn                          ( CPF_Parm )
@@ -3669,7 +3669,7 @@ float UBioShieldJackScript::GetCurrentEnergyShields ( class ABioPawn* oPawn )
 };
 
 // Function SFXGameContent_Powers.BioShieldJackScript.SpawnImpactVFX
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FVector                 Location                       ( CPF_Parm )
 // class UParticleSystem*         PS                             ( CPF_Parm )
@@ -3753,7 +3753,7 @@ class UClass* USFXGameEffect_HenchmenIgnorePawn::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXGameEffect_HenchmenIgnorePawn.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_HenchmenIgnorePawn::OnRemoved ( )
@@ -3769,7 +3769,7 @@ void USFXGameEffect_HenchmenIgnorePawn::OnRemoved ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_HenchmenIgnorePawn.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_HenchmenIgnorePawn::OnApplied ( )
@@ -3809,7 +3809,7 @@ class UClass* UBioHackingScript::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.BioHackingScript.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -3839,7 +3839,7 @@ bool UBioHackingScript::ShouldUsePower ( class AActor* Caster, class AActor* Tar
 };
 
 // Function SFXGameContent_Powers.BioHackingScript.IsHacked
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                oPawn                          ( CPF_Parm )
@@ -3860,7 +3860,7 @@ bool UBioHackingScript::IsHacked ( class ABioPawn* oPawn )
 };
 
 // Function SFXGameContent_Powers.BioHackingScript.RemoveWeakerHack
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                oPawn                          ( CPF_Parm )
@@ -3883,7 +3883,7 @@ bool UBioHackingScript::RemoveWeakerHack ( class ABioPawn* oPawn, float fNewDura
 };
 
 // Function SFXGameContent_Powers.BioHackingScript.UnHackPreviousTargets
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oCaster                        ( CPF_Parm )
 
@@ -3965,7 +3965,7 @@ class UClass* UBioWeaponPowerScript::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.BioWeaponPowerScript.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -3995,7 +3995,7 @@ bool UBioWeaponPowerScript::ShouldUsePower ( class AActor* Caster, class AActor*
 };
 
 // Function SFXGameContent_Powers.BioWeaponPowerScript.ApplyPowerEffects
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // class ABioPawn*                oPawn                          ( CPF_Parm )
 // class ASFXWeapon*              oWeapon                        ( CPF_Parm )
@@ -4015,7 +4015,7 @@ void UBioWeaponPowerScript::ApplyPowerEffects ( class ABioPawn* oPawn, class ASF
 };
 
 // Function SFXGameContent_Powers.BioWeaponPowerScript.SetWeaponPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                oPawn                          ( CPF_Parm )
@@ -4040,7 +4040,7 @@ bool UBioWeaponPowerScript::SetWeaponPower ( class ABioPawn* oPawn, class ASFXWe
 };
 
 // Function SFXGameContent_Powers.BioWeaponPowerScript.ReloadAmmoPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                Target                         ( CPF_Parm )
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
@@ -4085,7 +4085,7 @@ bool UBioWeaponPowerScript::eventStartPhase ( unsigned char ePhase, class AActor
 };
 
 // Function SFXGameContent_Powers.BioWeaponPowerScript.ApplyToSquadMembers
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -4175,7 +4175,7 @@ class UClass* USFXGameEffect_AmmoPower::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXGameEffect_AmmoPower.RemoveWeaponHologram
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_AmmoPower::RemoveWeaponHologram ( )
@@ -4191,7 +4191,7 @@ void USFXGameEffect_AmmoPower::RemoveWeaponHologram ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_AmmoPower.EnableWeaponHologram
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_AmmoPower::EnableWeaponHologram ( )
@@ -4207,7 +4207,7 @@ void USFXGameEffect_AmmoPower::EnableWeaponHologram ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_AmmoPower.OnWeaponUnequip
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
 
@@ -4225,7 +4225,7 @@ void USFXGameEffect_AmmoPower::OnWeaponUnequip ( class ASFXWeapon* Weapon )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_AmmoPower.OnWeaponEquip
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
 
@@ -4243,7 +4243,7 @@ void USFXGameEffect_AmmoPower::OnWeaponEquip ( class ASFXWeapon* Weapon )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_AmmoPower.OnWeaponReload
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
 
@@ -4261,7 +4261,7 @@ void USFXGameEffect_AmmoPower::OnWeaponReload ( class ASFXWeapon* Weapon )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_AmmoPower.GetDamageVocProbabilityMod
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -4280,7 +4280,7 @@ float USFXGameEffect_AmmoPower::GetDamageVocProbabilityMod ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_AmmoPower.OnWeaponImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
 // struct FImpactInfo             Impact                         ( CPF_Parm )
@@ -4300,7 +4300,7 @@ void USFXGameEffect_AmmoPower::OnWeaponImpact ( class ASFXWeapon* Weapon, struct
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_AmmoPower.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_AmmoPower::OnRemoved ( )
@@ -4316,7 +4316,7 @@ void USFXGameEffect_AmmoPower::OnRemoved ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_AmmoPower.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_AmmoPower::OnApplied ( )
@@ -4344,7 +4344,7 @@ class UClass* UBioCarnageScript::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.BioCarnageScript.ApplyPowerEffects
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                oPawn                          ( CPF_Parm )
 // class ASFXWeapon*              oWeapon                        ( CPF_Parm )
@@ -4416,7 +4416,7 @@ bool UBioCarnageScript::eventStartPhase ( unsigned char ePhase, class AActor* oC
 };
 
 // Function SFXGameContent_Powers.BioCarnageScript.ApplyToSquadMembers
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -4475,7 +4475,7 @@ class UClass* USFXGameEffect_IncendiaryAmmo::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXGameEffect_IncendiaryAmmo.CauseAnimatedReaction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oHitActor                      ( CPF_Parm )
 // float                          fDelay                         ( CPF_Parm )
@@ -4495,7 +4495,7 @@ void USFXGameEffect_IncendiaryAmmo::CauseAnimatedReaction ( class AActor* oHitAc
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_IncendiaryAmmo.AddGameEffects
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oTarget                        ( CPF_Parm )
 // float                          fDuration                      ( CPF_Parm )
@@ -4519,7 +4519,7 @@ void USFXGameEffect_IncendiaryAmmo::AddGameEffects ( class AActor* oTarget, floa
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_IncendiaryAmmo.DoEvolvedAoEImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FImpactInfo             Impact                         ( CPF_Parm )
 // class ABioPawn*                WeaponOwner                    ( CPF_Parm )
@@ -4541,7 +4541,7 @@ void USFXGameEffect_IncendiaryAmmo::DoEvolvedAoEImpact ( struct FImpactInfo cons
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_IncendiaryAmmo.GetDamageVocProbabilityMod
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -4560,7 +4560,7 @@ float USFXGameEffect_IncendiaryAmmo::GetDamageVocProbabilityMod ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_IncendiaryAmmo.OnWeaponImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
 // struct FImpactInfo             Impact                         ( CPF_Parm )
@@ -4592,7 +4592,7 @@ class UClass* UBioConcussiveShotScript::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.BioConcussiveShotScript.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -4622,7 +4622,7 @@ bool UBioConcussiveShotScript::ShouldUsePower ( class AActor* Caster, class AAct
 };
 
 // Function SFXGameContent_Powers.BioConcussiveShotScript.OnRagdollPhysicsImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class APawn*                   oPawn                          ( CPF_Parm )
 // class AActor*                  oImpactActor                   ( CPF_Parm )
@@ -4720,7 +4720,7 @@ class UClass* UBioOverloadScript::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.BioOverloadScript.ApplyPowerEffects
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                oPawn                          ( CPF_Parm )
 // class ASFXWeapon*              oWeapon                        ( CPF_Parm )
@@ -4792,7 +4792,7 @@ bool UBioOverloadScript::eventStartPhase ( unsigned char ePhase, class AActor* o
 };
 
 // Function SFXGameContent_Powers.BioOverloadScript.ApplyToSquadMembers
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -4851,7 +4851,7 @@ class UClass* USFXGameEffect_DisruptorAmmo::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXGameEffect_DisruptorAmmo.StunRobot
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                oPawn                          ( CPF_Parm )
 
@@ -4869,7 +4869,7 @@ void USFXGameEffect_DisruptorAmmo::StunRobot ( class ABioPawn* oPawn )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_DisruptorAmmo.TurnOnDeathPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                oPawn                          ( CPF_Parm )
 
@@ -4887,7 +4887,7 @@ void USFXGameEffect_DisruptorAmmo::TurnOnDeathPower ( class ABioPawn* oPawn )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_DisruptorAmmo.GetDamageVocProbabilityMod
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -4906,7 +4906,7 @@ float USFXGameEffect_DisruptorAmmo::GetDamageVocProbabilityMod ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_DisruptorAmmo.OnWeaponImpact
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
 // struct FImpactInfo             Impact                         ( CPF_Parm )
@@ -4961,7 +4961,7 @@ bool UBioPlayerMeleeScript::eventEndPhase ( unsigned char ePhase, class AActor* 
 };
 
 // Function SFXGameContent_Powers.BioPlayerMeleeScript.RemoveMeleeEffects
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                oPawn                          ( CPF_Parm )
 
@@ -5006,7 +5006,7 @@ bool UBioPlayerMeleeScript::eventOnImpact ( class AActor* oCaster, float fCaster
 };
 
 // Function SFXGameContent_Powers.BioPlayerMeleeScript.Tick
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaTime                      ( CPF_Parm )
 
@@ -5085,7 +5085,7 @@ class UClass* USFXGameEffect_CryoAmmo::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXGameEffect_CryoAmmo.GetDamageVocProbabilityMod
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -5104,7 +5104,7 @@ float USFXGameEffect_CryoAmmo::GetDamageVocProbabilityMod ( )
 };
 
 // Function SFXGameContent_Powers.SFXGameEffect_CryoAmmo.OnWeaponImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
 // struct FImpactInfo             Impact                         ( CPF_Parm )
@@ -5160,7 +5160,7 @@ class UClass* USFXPowerScript_AdrenalineRush::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPowerScript_AdrenalineRush.ApplyVFX
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oImpacted                      ( CPF_Parm )
 // float                          fDuration                      ( CPF_Parm )
@@ -5180,7 +5180,7 @@ void USFXPowerScript_AdrenalineRush::ApplyVFX ( class AActor* oImpacted, float f
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_AdrenalineRush.OnEffectEnded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerScript_AdrenalineRush::OnEffectEnded ( )
@@ -5382,7 +5382,7 @@ class UClass* USFXPowerScript_CryoAmmo::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPowerScript_CryoAmmo.ApplyPowerEffects
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                oPawn                          ( CPF_Parm )
 // class ASFXWeapon*              oWeapon                        ( CPF_Parm )
@@ -5427,7 +5427,7 @@ bool USFXPowerScript_CryoAmmo::eventStartPhase ( unsigned char ePhase, class AAc
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_CryoAmmo.ApplyToSquadMembers
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -5594,7 +5594,7 @@ class UClass* USFXPowerScript_FirstAid::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPowerScript_FirstAid.GetHUDWheelIconInfo
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // class ABioPawn*                OwnerPawn                      ( CPF_Parm )
@@ -5615,7 +5615,7 @@ FString USFXPowerScript_FirstAid::GetHUDWheelIconInfo ( class ABioPawn* OwnerPaw
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_FirstAid.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -5775,7 +5775,7 @@ class UClass* USFXPowerScript_SoldierPassive::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPowerScript_SoldierPassive.ApplyGlobalBonus
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerScript_SoldierPassive::ApplyGlobalBonus ( )
@@ -5803,7 +5803,7 @@ class UClass* USFXPowerScript_PassivePower::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPowerScript_PassivePower.RemovePowerBonusEffect
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oTarget                        ( CPF_Parm )
 // class UClass*                  ClassName                      ( CPF_Parm )
@@ -5827,7 +5827,7 @@ void USFXPowerScript_PassivePower::RemovePowerBonusEffect ( class AActor* oTarge
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_PassivePower.ApplyPowerBonusEffect
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oTarget                        ( CPF_Parm )
 // class UClass*                  ClassName                      ( CPF_Parm )
@@ -5853,7 +5853,7 @@ void USFXPowerScript_PassivePower::ApplyPowerBonusEffect ( class AActor* oTarget
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_PassivePower.ApplyHealthModifier
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // float                          fHealthModifier                ( CPF_Parm )
 // class AActor*                  Target                         ( CPF_OptionalParm | CPF_Parm )
@@ -5873,7 +5873,7 @@ void USFXPowerScript_PassivePower::ApplyHealthModifier ( float fHealthModifier, 
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_PassivePower.ApplyWeaponDamageModifier
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // float                          fDamageModifier                ( CPF_Parm )
 // class AActor*                  Target                         ( CPF_OptionalParm | CPF_Parm )
@@ -5893,7 +5893,7 @@ void USFXPowerScript_PassivePower::ApplyWeaponDamageModifier ( float fDamageModi
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_PassivePower.ApplyPowerCooldownModifier
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // float                          fCooldownModifier              ( CPF_Parm )
 // class AActor*                  Target                         ( CPF_OptionalParm | CPF_Parm )
@@ -5913,7 +5913,7 @@ void USFXPowerScript_PassivePower::ApplyPowerCooldownModifier ( float fCooldownM
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_PassivePower.ApplyPassiveBonus
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class UClass*                  EffectClass                    ( CPF_Parm )
 // float                          fModifier                      ( CPF_Parm )
@@ -5935,7 +5935,7 @@ void USFXPowerScript_PassivePower::ApplyPassiveBonus ( class UClass* EffectClass
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_PassivePower.ApplyGlobalBonus
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 
 void USFXPowerScript_PassivePower::ApplyGlobalBonus ( )
@@ -5951,7 +5951,7 @@ void USFXPowerScript_PassivePower::ApplyGlobalBonus ( )
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_PassivePower.OnSquadMemberAdded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class APawn*                   Pawn                           ( CPF_Parm )
 
@@ -5969,7 +5969,7 @@ void USFXPowerScript_PassivePower::OnSquadMemberAdded ( class APawn* Pawn )
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_PassivePower.OnPowersLoaded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerScript_PassivePower::OnPowersLoaded ( )
@@ -5985,7 +5985,7 @@ void USFXPowerScript_PassivePower::OnPowersLoaded ( )
 };
 
 // Function SFXGameContent_Powers.SFXPowerScript_PassivePower.OnPowerRankIncreased
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerScript_PassivePower::OnPowerRankIncreased ( )
@@ -6077,7 +6077,7 @@ class UClass* UBioNeuralShockScript::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.BioNeuralShockScript.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -6107,7 +6107,7 @@ bool UBioNeuralShockScript::ShouldUsePower ( class AActor* Caster, class AActor*
 };
 
 // Function SFXGameContent_Powers.BioNeuralShockScript.UnaffectPreviousTargets
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oCaster                        ( CPF_Parm )
 
@@ -6125,7 +6125,7 @@ void UBioNeuralShockScript::UnaffectPreviousTargets ( class AActor* oCaster )
 };
 
 // Function SFXGameContent_Powers.BioNeuralShockScript.DisablePowers
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oImpacted                      ( CPF_Parm )
 
@@ -6207,7 +6207,7 @@ class UClass* USFXPower_NeuralShock::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPower_NeuralShock.DisablePowers
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -6226,7 +6226,7 @@ bool USFXPower_NeuralShock::DisablePowers ( )
 };
 
 // Function SFXGameContent_Powers.SFXPower_NeuralShock.GetAccuracyPenalty
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -6257,7 +6257,7 @@ class UClass* USFXGameEffect_DelayedNeuralShock::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXGameEffect_DelayedNeuralShock.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_DelayedNeuralShock::OnRemoved ( )
@@ -6309,7 +6309,7 @@ class UClass* USFXPowerScript_CryoFreeze::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPowerScript_CryoFreeze.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -6559,7 +6559,7 @@ class UClass* USFXPowerScript_MordinPassive::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.SFXPowerScript_MordinPassive.ApplyGlobalBonus
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerScript_MordinPassive::ApplyGlobalBonus ( )

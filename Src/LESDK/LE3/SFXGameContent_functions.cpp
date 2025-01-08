@@ -11,7 +11,7 @@
 */
 
 
-#include "../Includes.LE3.hpp"
+#include "LESDK/Includes.LE3.hpp"
 
 
 #ifdef _MSC_VER
@@ -63,7 +63,7 @@ class UClass* ASFXGameInfoSP::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameInfoSP.AwardItem
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct SFXName                 ItemName                       ( CPF_Parm )
@@ -86,7 +86,7 @@ bool ASFXGameInfoSP::AwardItem ( struct SFXName ItemName, FString const& Level )
 };
 
 // Function SFXGameContent.SFXGameInfoSP.AwardCredits
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            Amount                         ( CPF_Parm )
@@ -111,7 +111,7 @@ bool ASFXGameInfoSP::AwardCredits ( int Amount, FString const& Level, unsigned l
 };
 
 // Function SFXGameContent.SFXGameInfoSP.AwardCreditPercent
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // float                          fAmount                        ( CPF_Parm )
@@ -136,7 +136,7 @@ bool ASFXGameInfoSP::AwardCreditPercent ( float fAmount, FString const& Level, u
 };
 
 // Function SFXGameContent.SFXGameInfoSP.AwardXP
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            Amount                         ( CPF_Parm )
@@ -161,7 +161,7 @@ bool ASFXGameInfoSP::AwardXP ( int Amount, FString const& Level, unsigned long b
 };
 
 // Function SFXGameContent.SFXGameInfoSP.FindPlayerStart
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class ANavigationPoint*        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AController*             Player                         ( CPF_Parm )
@@ -286,7 +286,7 @@ void USFXGUI_HeavyWeaponReticle::eventWeaponAmmoChanged ( int nAmmo )
 };
 
 // Function SFXGameContent.SFXGUI_HeavyWeaponReticle.OnReticleLoaded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGUI_HeavyWeaponReticle::OnReticleLoaded ( )
@@ -350,7 +350,7 @@ class UClass* USFXSeqAct_GiveStartingConsumables::StaticClass()
 	};
 
 // Function SFXGameContent.SFXSeqAct_GiveStartingConsumables.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_GiveStartingConsumables::Activated ( )
@@ -378,7 +378,7 @@ class UClass* USFXSeqAct_OpenWeaponSelection::StaticClass()
 	};
 
 // Function SFXGameContent.SFXSeqAct_OpenWeaponSelection.OnMovieClosedDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class USFXGUIMovie*            i_ScreenToClose                ( CPF_Parm )
@@ -399,7 +399,7 @@ bool USFXSeqAct_OpenWeaponSelection::OnMovieClosedDelegate ( class USFXGUIMovie*
 };
 
 // Function SFXGameContent.SFXSeqAct_OpenWeaponSelection.UpdateOp
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // float                          fDeltaT                        ( CPF_Parm )
@@ -420,7 +420,7 @@ bool USFXSeqAct_OpenWeaponSelection::UpdateOp ( float fDeltaT )
 };
 
 // Function SFXGameContent.SFXSeqAct_OpenWeaponSelection.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_OpenWeaponSelection::Activated ( )
@@ -505,7 +505,7 @@ struct FRotator ASFXWeapon_Heavy_Beam_Base::GetAdjustedAim ( struct FVector cons
 };
 
 // Function SFXGameContent.SFXWeapon_Heavy_Beam_Base.PreCalculateAdjustedAim
-// [0x00080002] 
+// [0x00080002]
 // Parameters infos:
 // float                          fDeltaTime                     ( CPF_Parm )
 
@@ -563,7 +563,7 @@ void ASFXWeapon_Heavy_Beam_Base::ProcessInstantHit ( unsigned char FiringMode, s
 };
 
 // Function SFXGameContent.SFXWeapon_Heavy_Beam_Base.CalcFireStart
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ASFXWeapon_Heavy_Beam_Base::CalcFireStart ( )
@@ -1020,7 +1020,7 @@ class UClass* USFXCustomAction_Revive::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_Revive.BodyStanceAnimEndNotification
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // class UAnimNodeSequence*       SeqNode                        ( CPF_Parm )
 // float                          PlayedTime                     ( CPF_Parm )
@@ -1042,7 +1042,7 @@ void USFXCustomAction_Revive::BodyStanceAnimEndNotification ( class UAnimNodeSeq
 };
 
 // Function SFXGameContent.SFXCustomAction_Revive.Replicate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_Revive::Replicate ( )
@@ -1058,7 +1058,7 @@ void USFXCustomAction_Revive::Replicate ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_Revive.ClientDoCustomAction
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bForced                        ( CPF_OptionalParm | CPF_Parm )
 
@@ -1076,7 +1076,7 @@ void USFXCustomAction_Revive::ClientDoCustomAction ( unsigned long bForced )
 };
 
 // Function SFXGameContent.SFXCustomAction_Revive.CheckFiring
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_Revive::CheckFiring ( )
@@ -1092,7 +1092,7 @@ void USFXCustomAction_Revive::CheckFiring ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_Revive.TickCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaTime                      ( CPF_Parm )
 
@@ -1110,7 +1110,7 @@ void USFXCustomAction_Revive::TickCustomAction ( float DeltaTime )
 };
 
 // Function SFXGameContent.SFXCustomAction_Revive.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_Revive::StopCustomAction ( )
@@ -1126,7 +1126,7 @@ void USFXCustomAction_Revive::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_Revive.Resurrect
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_Revive::Resurrect ( )
@@ -1142,7 +1142,7 @@ void USFXCustomAction_Revive::Resurrect ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_Revive.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_Revive::StartCustomAction ( )
@@ -1158,7 +1158,7 @@ void USFXCustomAction_Revive::StartCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_Revive.InternalCanDoCustomAction
-// [0x00080002] 
+// [0x00080002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                SyncPawn                       ( CPF_Parm )
@@ -1193,7 +1193,7 @@ class UClass* USFXCustomAction_Reload::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_Reload.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_Reload::StopCustomAction ( )
@@ -1209,7 +1209,7 @@ void USFXCustomAction_Reload::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_Reload.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_Reload::StartCustomAction ( )
@@ -1260,7 +1260,7 @@ class UClass* USFXCustomAction_ActivateWeaponFlashlight::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_ActivateWeaponFlashlight.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_ActivateWeaponFlashlight::StopCustomAction ( )
@@ -1276,7 +1276,7 @@ void USFXCustomAction_ActivateWeaponFlashlight::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_ActivateWeaponFlashlight.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_ActivateWeaponFlashlight::StartCustomAction ( )
@@ -1304,7 +1304,7 @@ class UClass* USFXCustomAction_MantleLookAt::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_MantleLookAt.FlinchActionOverride
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_MantleLookAt::FlinchActionOverride ( )
@@ -1343,7 +1343,7 @@ void USFXCustomAction_MantleLookAt::eventGetUsedAnimNames ( TArray<struct SFXNam
 };
 
 // Function SFXGameContent.SFXCustomAction_MantleLookAt.GetEndBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -1362,7 +1362,7 @@ struct FBodyStance USFXCustomAction_MantleLookAt::GetEndBodyStanceAnim ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_MantleLookAt.GetLoopBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -1381,7 +1381,7 @@ struct FBodyStance USFXCustomAction_MantleLookAt::GetLoopBodyStanceAnim ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_MantleLookAt.GetStartBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -1412,7 +1412,7 @@ class UClass* USFXCustomAction_CoverSlipLookAt::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_CoverSlipLookAt.FlinchActionOverride
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_CoverSlipLookAt::FlinchActionOverride ( )
@@ -1451,7 +1451,7 @@ void USFXCustomAction_CoverSlipLookAt::eventGetUsedAnimNames ( TArray<struct SFX
 };
 
 // Function SFXGameContent.SFXCustomAction_CoverSlipLookAt.GetEndBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -1470,7 +1470,7 @@ struct FBodyStance USFXCustomAction_CoverSlipLookAt::GetEndBodyStanceAnim ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_CoverSlipLookAt.GetLoopBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -1489,7 +1489,7 @@ struct FBodyStance USFXCustomAction_CoverSlipLookAt::GetLoopBodyStanceAnim ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_CoverSlipLookAt.GetStartBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -1520,7 +1520,7 @@ class UClass* USFXCustomAction_StdCoverSlipLookAt::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_StdCoverSlipLookAt.FlinchActionOverride
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_StdCoverSlipLookAt::FlinchActionOverride ( )
@@ -1559,7 +1559,7 @@ void USFXCustomAction_StdCoverSlipLookAt::eventGetUsedAnimNames ( TArray<struct 
 };
 
 // Function SFXGameContent.SFXCustomAction_StdCoverSlipLookAt.GetEndBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -1578,7 +1578,7 @@ struct FBodyStance USFXCustomAction_StdCoverSlipLookAt::GetEndBodyStanceAnim ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_StdCoverSlipLookAt.GetLoopBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -1597,7 +1597,7 @@ struct FBodyStance USFXCustomAction_StdCoverSlipLookAt::GetLoopBodyStanceAnim ( 
 };
 
 // Function SFXGameContent.SFXCustomAction_StdCoverSlipLookAt.GetStartBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -1628,7 +1628,7 @@ class UClass* USFXCustomAction_SwatTurnLookAt::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_SwatTurnLookAt.FlinchActionOverride
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SwatTurnLookAt::FlinchActionOverride ( )
@@ -1667,7 +1667,7 @@ void USFXCustomAction_SwatTurnLookAt::eventGetUsedAnimNames ( TArray<struct SFXN
 };
 
 // Function SFXGameContent.SFXCustomAction_SwatTurnLookAt.GetEndBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -1686,7 +1686,7 @@ struct FBodyStance USFXCustomAction_SwatTurnLookAt::GetEndBodyStanceAnim ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SwatTurnLookAt.GetLoopBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -1705,7 +1705,7 @@ struct FBodyStance USFXCustomAction_SwatTurnLookAt::GetLoopBodyStanceAnim ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SwatTurnLookAt.GetStartBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -1736,7 +1736,7 @@ class UClass* USFXCustomAction_StdSwatTurnLookAt::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_StdSwatTurnLookAt.FlinchActionOverride
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_StdSwatTurnLookAt::FlinchActionOverride ( )
@@ -1775,7 +1775,7 @@ void USFXCustomAction_StdSwatTurnLookAt::eventGetUsedAnimNames ( TArray<struct S
 };
 
 // Function SFXGameContent.SFXCustomAction_StdSwatTurnLookAt.GetEndBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -1794,7 +1794,7 @@ struct FBodyStance USFXCustomAction_StdSwatTurnLookAt::GetEndBodyStanceAnim ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_StdSwatTurnLookAt.GetLoopBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -1813,7 +1813,7 @@ struct FBodyStance USFXCustomAction_StdSwatTurnLookAt::GetLoopBodyStanceAnim ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_StdSwatTurnLookAt.GetStartBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -1844,7 +1844,7 @@ class UClass* USFXCustomAction_GapJump::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_GapJump.NotifyBump
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Other                          ( CPF_Parm )
@@ -1867,7 +1867,7 @@ bool USFXCustomAction_GapJump::NotifyBump ( class AActor* Other, struct FVector 
 };
 
 // Function SFXGameContent.SFXCustomAction_GapJump.EndThisCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_GapJump::EndThisCustomAction ( )
@@ -1883,7 +1883,7 @@ void USFXCustomAction_GapJump::EndThisCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_GapJump.RemoveBlockingEndPoints
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_GapJump::RemoveBlockingEndPoints ( )
@@ -1899,7 +1899,7 @@ void USFXCustomAction_GapJump::RemoveBlockingEndPoints ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_GapJump.BlockMoveEndPoints
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_GapJump::BlockMoveEndPoints ( )
@@ -1915,7 +1915,7 @@ void USFXCustomAction_GapJump::BlockMoveEndPoints ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_GapJump.BodyStanceAnimEndNotification
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UAnimNodeSequence*       SeqNode                        ( CPF_Parm )
 // float                          PlayedTime                     ( CPF_Parm )
@@ -1937,7 +1937,7 @@ void USFXCustomAction_GapJump::BodyStanceAnimEndNotification ( class UAnimNodeSe
 };
 
 // Function SFXGameContent.SFXCustomAction_GapJump.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_GapJump::StopCustomAction ( )
@@ -1953,7 +1953,7 @@ void USFXCustomAction_GapJump::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_GapJump.StartAnimation
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_GapJump::StartAnimation ( )
@@ -1969,7 +1969,7 @@ void USFXCustomAction_GapJump::StartAnimation ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_GapJump.ReachedPrecisePosition
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_GapJump::ReachedPrecisePosition ( )
@@ -1985,7 +1985,7 @@ void USFXCustomAction_GapJump::ReachedPrecisePosition ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_GapJump.AlignmentTimeout
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_GapJump::AlignmentTimeout ( )
@@ -2001,7 +2001,7 @@ void USFXCustomAction_GapJump::AlignmentTimeout ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_GapJump.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_GapJump::StartCustomAction ( )
@@ -2064,7 +2064,7 @@ class UClass* USFXCustomAction_JumpDown::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_JumpDown.TickInput
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UBioPlayerInput*         Input                          ( CPF_Parm )
 // float                          DeltaTime                      ( CPF_Parm )
@@ -2084,7 +2084,7 @@ void USFXCustomAction_JumpDown::TickInput ( class UBioPlayerInput* Input, float 
 };
 
 // Function SFXGameContent.SFXCustomAction_JumpDown.PlayStartAnimation
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_JumpDown::PlayStartAnimation ( )
@@ -2112,7 +2112,7 @@ class UClass* USFXCustomAction_PlayerMantleOverCover::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_PlayerMantleOverCover.GetEndAnim
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // struct FBodyStance             Stance                         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
@@ -2135,7 +2135,7 @@ void USFXCustomAction_PlayerMantleOverCover::GetEndAnim ( struct FBodyStance* St
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerMantleOverCover.GetLoopAnim
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // struct FBodyStance             Stance                         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
@@ -2158,7 +2158,7 @@ void USFXCustomAction_PlayerMantleOverCover::GetLoopAnim ( struct FBodyStance* S
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerMantleOverCover.GetStartAnim
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // struct FBodyStance             Stance                         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
@@ -2204,7 +2204,7 @@ void USFXCustomAction_PlayerMantleOverCover::eventGetUsedAnimNames ( TArray<stru
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerMantleOverCover.BodyStanceAnimEndNotification
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UAnimNodeSequence*       SeqNode                        ( CPF_Parm )
 // float                          PlayedTime                     ( CPF_Parm )
@@ -2244,7 +2244,7 @@ void USFXCustomAction_PlayerMantleOverCover::eventTickCustomAction ( float Delta
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerMantleOverCover.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerMantleOverCover::StopCustomAction ( )
@@ -2260,7 +2260,7 @@ void USFXCustomAction_PlayerMantleOverCover::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerMantleOverCover.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerMantleOverCover::StartCustomAction ( )
@@ -2288,7 +2288,7 @@ class UClass* USFXCustomAction_PlayerMantleUp::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_PlayerMantleUp.ClientDoCustomAction
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bForced                        ( CPF_OptionalParm | CPF_Parm )
 
@@ -2306,7 +2306,7 @@ void USFXCustomAction_PlayerMantleUp::ClientDoCustomAction ( unsigned long bForc
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerMantleUp.ServerStartCustomAction
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // int                            NewAction                      ( CPF_Parm )
 // class ABioPawn*                Sync                           ( CPF_OptionalParm | CPF_Parm )
@@ -2328,7 +2328,7 @@ void USFXCustomAction_PlayerMantleUp::ServerStartCustomAction ( int NewAction, c
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerMantleUp.Replicate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerMantleUp::Replicate ( )
@@ -2344,7 +2344,7 @@ void USFXCustomAction_PlayerMantleUp::Replicate ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerMantleUp.GetBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -2363,7 +2363,7 @@ struct FBodyStance USFXCustomAction_PlayerMantleUp::GetBodyStanceAnim ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerMantleUp.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerMantleUp::StopCustomAction ( )
@@ -2379,7 +2379,7 @@ void USFXCustomAction_PlayerMantleUp::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerMantleUp.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerMantleUp::StartCustomAction ( )
@@ -2395,7 +2395,7 @@ void USFXCustomAction_PlayerMantleUp::StartCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerMantleUp.InternalCanDoCustomAction
-// [0x00880002] 
+// [0x00880002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                SyncPawn                       ( CPF_Parm )
@@ -2453,7 +2453,7 @@ class UClass* USFXCustomAction_SimpleMoveBase::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_SimpleMoveBase.ClientDoCustomAction
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bForced                        ( CPF_OptionalParm | CPF_Parm )
 
@@ -2471,7 +2471,7 @@ void USFXCustomAction_SimpleMoveBase::ClientDoCustomAction ( unsigned long bForc
 };
 
 // Function SFXGameContent.SFXCustomAction_SimpleMoveBase.Replicate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SimpleMoveBase::Replicate ( )
@@ -2487,7 +2487,7 @@ void USFXCustomAction_SimpleMoveBase::Replicate ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SimpleMoveBase.CanBeInterrupted
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -2506,7 +2506,7 @@ bool USFXCustomAction_SimpleMoveBase::CanBeInterrupted ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SimpleMoveBase.DestTimeout
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SimpleMoveBase::DestTimeout ( )
@@ -2522,7 +2522,7 @@ void USFXCustomAction_SimpleMoveBase::DestTimeout ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SimpleMoveBase.BodyStanceAnimEndNotification
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UAnimNodeSequence*       SeqNode                        ( CPF_Parm )
 // float                          PlayedTime                     ( CPF_Parm )
@@ -2544,7 +2544,7 @@ void USFXCustomAction_SimpleMoveBase::BodyStanceAnimEndNotification ( class UAni
 };
 
 // Function SFXGameContent.SFXCustomAction_SimpleMoveBase.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SimpleMoveBase::StopCustomAction ( )
@@ -2560,7 +2560,7 @@ void USFXCustomAction_SimpleMoveBase::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SimpleMoveBase.PlayStartAnimation
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SimpleMoveBase::PlayStartAnimation ( )
@@ -2576,7 +2576,7 @@ void USFXCustomAction_SimpleMoveBase::PlayStartAnimation ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SimpleMoveBase.GetBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -2595,7 +2595,7 @@ struct FBodyStance USFXCustomAction_SimpleMoveBase::GetBodyStanceAnim ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SimpleMoveBase.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SimpleMoveBase::StartCustomAction ( )
@@ -2611,7 +2611,7 @@ void USFXCustomAction_SimpleMoveBase::StartCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SimpleMoveBase.InternalCanDoCustomAction
-// [0x00080002] 
+// [0x00080002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                SyncPawn                       ( CPF_Parm )
@@ -2634,7 +2634,7 @@ bool USFXCustomAction_SimpleMoveBase::InternalCanDoCustomAction ( class ABioPawn
 };
 
 // Function SFXGameContent.SFXCustomAction_SimpleMoveBase.RemoveBlockingEndPoints
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SimpleMoveBase::RemoveBlockingEndPoints ( )
@@ -2650,7 +2650,7 @@ void USFXCustomAction_SimpleMoveBase::RemoveBlockingEndPoints ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SimpleMoveBase.BlockMoveEndPoints
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SimpleMoveBase::BlockMoveEndPoints ( )
@@ -2717,7 +2717,7 @@ class UClass* USFXCustomAction_PlayerCoverSlipLeft::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_PlayerCoverSlipLeft.EndThisCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerCoverSlipLeft::EndThisCustomAction ( )
@@ -2733,7 +2733,7 @@ void USFXCustomAction_PlayerCoverSlipLeft::EndThisCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerCoverSlipLeft.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerCoverSlipLeft::StartCustomAction ( )
@@ -2761,7 +2761,7 @@ class UClass* USFXCustomAction_PlayerCoverSlipLeftStanding::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_PlayerCoverSlipLeftStanding.EndThisCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerCoverSlipLeftStanding::EndThisCustomAction ( )
@@ -2777,7 +2777,7 @@ void USFXCustomAction_PlayerCoverSlipLeftStanding::EndThisCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerCoverSlipLeftStanding.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerCoverSlipLeftStanding::StartCustomAction ( )
@@ -2805,7 +2805,7 @@ class UClass* USFXCustomAction_PlayerCoverSlipRight::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_PlayerCoverSlipRight.EndThisCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerCoverSlipRight::EndThisCustomAction ( )
@@ -2821,7 +2821,7 @@ void USFXCustomAction_PlayerCoverSlipRight::EndThisCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerCoverSlipRight.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerCoverSlipRight::StartCustomAction ( )
@@ -2849,7 +2849,7 @@ class UClass* USFXCustomAction_PlayerCoverSlipRightStanding::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_PlayerCoverSlipRightStanding.EndThisCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerCoverSlipRightStanding::EndThisCustomAction ( )
@@ -2865,7 +2865,7 @@ void USFXCustomAction_PlayerCoverSlipRightStanding::EndThisCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerCoverSlipRightStanding.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerCoverSlipRightStanding::StartCustomAction ( )
@@ -2893,7 +2893,7 @@ class UClass* USFXCustomAction_PlayerLadderClimbUp::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_PlayerLadderClimbUp.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerLadderClimbUp::StopCustomAction ( )
@@ -2909,7 +2909,7 @@ void USFXCustomAction_PlayerLadderClimbUp::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerLadderClimbUp.PreAlignPawnLocation
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerLadderClimbUp::PreAlignPawnLocation ( )
@@ -2925,7 +2925,7 @@ void USFXCustomAction_PlayerLadderClimbUp::PreAlignPawnLocation ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerLadderClimbUp.SetMoveStage
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  NextStage                      ( CPF_Parm )
 
@@ -2943,7 +2943,7 @@ void USFXCustomAction_PlayerLadderClimbUp::SetMoveStage ( unsigned char NextStag
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerLadderClimbUp.TickCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaTime                      ( CPF_Parm )
 
@@ -2961,7 +2961,7 @@ void USFXCustomAction_PlayerLadderClimbUp::TickCustomAction ( float DeltaTime )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerLadderClimbUp.SyncRotation
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          Alpha                          ( CPF_Parm )
 
@@ -2979,7 +2979,7 @@ void USFXCustomAction_PlayerLadderClimbUp::SyncRotation ( float Alpha )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerLadderClimbUp.SyncJumpEntrance
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          Alpha                          ( CPF_Parm )
 
@@ -2997,7 +2997,7 @@ void USFXCustomAction_PlayerLadderClimbUp::SyncJumpEntrance ( float Alpha )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerLadderClimbUp.TickAlignment
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaTime                      ( CPF_Parm )
 
@@ -3015,7 +3015,7 @@ void USFXCustomAction_PlayerLadderClimbUp::TickAlignment ( float DeltaTime )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerLadderClimbUp.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerLadderClimbUp::StartCustomAction ( )
@@ -3031,7 +3031,7 @@ void USFXCustomAction_PlayerLadderClimbUp::StartCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerLadderClimbUp.TickInput
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UBioPlayerInput*         Input                          ( CPF_Parm )
 // float                          DeltaTime                      ( CPF_Parm )
@@ -3086,7 +3086,7 @@ class UClass* USFXCustomAction_PlayerLadderClimbDown::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_PlayerLadderClimbDown.TickInput
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UBioPlayerInput*         Input                          ( CPF_Parm )
 // float                          DeltaTime                      ( CPF_Parm )
@@ -3118,7 +3118,7 @@ class UClass* USFXCustomAction_PlayerEvadeLeft::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeLeft.RollOverride
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerEvadeLeft::RollOverride ( )
@@ -3134,7 +3134,7 @@ void USFXCustomAction_PlayerEvadeLeft::RollOverride ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeLeft.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerEvadeLeft::StartCustomAction ( )
@@ -3150,7 +3150,7 @@ void USFXCustomAction_PlayerEvadeLeft::StartCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeLeft.InternalCanDoCustomAction
-// [0x00080002] 
+// [0x00080002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                SyncPawn                       ( CPF_Parm )
@@ -3185,7 +3185,7 @@ class UClass* USFXCustomAction_PlayerEvadeRight::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeRight.RollOverride
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerEvadeRight::RollOverride ( )
@@ -3201,7 +3201,7 @@ void USFXCustomAction_PlayerEvadeRight::RollOverride ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeRight.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerEvadeRight::StartCustomAction ( )
@@ -3217,7 +3217,7 @@ void USFXCustomAction_PlayerEvadeRight::StartCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeRight.InternalCanDoCustomAction
-// [0x00080002] 
+// [0x00080002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                SyncPawn                       ( CPF_Parm )
@@ -3252,7 +3252,7 @@ class UClass* USFXCustomAction_PlayerEvadeForward::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeForward.ClientDoCustomActionImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            ImpactCount                    ( CPF_Parm )
@@ -3280,7 +3280,7 @@ void USFXCustomAction_PlayerEvadeForward::ClientDoCustomActionImpact ( class AAc
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeForward.RollOverride
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerEvadeForward::RollOverride ( )
@@ -3296,7 +3296,7 @@ void USFXCustomAction_PlayerEvadeForward::RollOverride ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeForward.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerEvadeForward::StopCustomAction ( )
@@ -3312,7 +3312,7 @@ void USFXCustomAction_PlayerEvadeForward::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeForward.TurnOnHitWall
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerEvadeForward::TurnOnHitWall ( )
@@ -3328,7 +3328,7 @@ void USFXCustomAction_PlayerEvadeForward::TurnOnHitWall ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeForward.NotifyHitWall
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
@@ -3351,7 +3351,7 @@ bool USFXCustomAction_PlayerEvadeForward::NotifyHitWall ( struct FVector const& 
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeForward.EndThisCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerEvadeForward::EndThisCustomAction ( )
@@ -3367,7 +3367,7 @@ void USFXCustomAction_PlayerEvadeForward::EndThisCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeForward.SyncRotation
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          Alpha                          ( CPF_Parm )
 // struct FVector                 ToEnd2D                        ( CPF_Parm )
@@ -3387,7 +3387,7 @@ void USFXCustomAction_PlayerEvadeForward::SyncRotation ( float Alpha, struct FVe
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeForward.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerEvadeForward::StartCustomAction ( )
@@ -3403,7 +3403,7 @@ void USFXCustomAction_PlayerEvadeForward::StartCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeForward.InternalCanDoCustomAction
-// [0x00080002] 
+// [0x00080002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                SyncPawn                       ( CPF_Parm )
@@ -3438,7 +3438,7 @@ class UClass* USFXCustomAction_PlayerEvadeBackwards::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeBackwards.ClientDoCustomActionImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            ImpactCount                    ( CPF_Parm )
@@ -3466,7 +3466,7 @@ void USFXCustomAction_PlayerEvadeBackwards::ClientDoCustomActionImpact ( class A
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeBackwards.RollOverride
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerEvadeBackwards::RollOverride ( )
@@ -3482,7 +3482,7 @@ void USFXCustomAction_PlayerEvadeBackwards::RollOverride ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeBackwards.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerEvadeBackwards::StopCustomAction ( )
@@ -3498,7 +3498,7 @@ void USFXCustomAction_PlayerEvadeBackwards::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeBackwards.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PlayerEvadeBackwards::StartCustomAction ( )
@@ -3514,7 +3514,7 @@ void USFXCustomAction_PlayerEvadeBackwards::StartCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PlayerEvadeBackwards.InternalCanDoCustomAction
-// [0x00080002] 
+// [0x00080002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                SyncPawn                       ( CPF_Parm )
@@ -3549,7 +3549,7 @@ class UClass* USFXCustomAction_MantleMelee::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_MantleMelee.EndThisCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_MantleMelee::EndThisCustomAction ( )
@@ -3565,7 +3565,7 @@ void USFXCustomAction_MantleMelee::EndThisCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_MantleMelee.Breakout
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_MantleMelee::Breakout ( )
@@ -3581,7 +3581,7 @@ void USFXCustomAction_MantleMelee::Breakout ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_MantleMelee.NotifyBump
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Other                          ( CPF_Parm )
@@ -3604,7 +3604,7 @@ bool USFXCustomAction_MantleMelee::NotifyBump ( class AActor* Other, struct FVec
 };
 
 // Function SFXGameContent.SFXCustomAction_MantleMelee.ClientDoCustomActionImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            ImpactCount                    ( CPF_Parm )
@@ -3632,7 +3632,7 @@ void USFXCustomAction_MantleMelee::ClientDoCustomActionImpact ( class AActor* oA
 };
 
 // Function SFXGameContent.SFXCustomAction_MantleMelee.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_MantleMelee::StopCustomAction ( )
@@ -3648,7 +3648,7 @@ void USFXCustomAction_MantleMelee::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_MantleMelee.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_MantleMelee::StartCustomAction ( )
@@ -3676,7 +3676,7 @@ class UClass* USFXCustomAction_SyncCoverGrab::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_SyncCoverGrab.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SyncCoverGrab::StopCustomAction ( )
@@ -3692,7 +3692,7 @@ void USFXCustomAction_SyncCoverGrab::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SyncCoverGrab.NonSyncedAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SyncCoverGrab::NonSyncedAction ( )
@@ -3708,7 +3708,7 @@ void USFXCustomAction_SyncCoverGrab::NonSyncedAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SyncCoverGrab.SyncAttack
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SyncCoverGrab::SyncAttack ( )
@@ -3724,7 +3724,7 @@ void USFXCustomAction_SyncCoverGrab::SyncAttack ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SyncCoverGrab.GetVictimAnim
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // struct FBodyStance             Stance                         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
@@ -3747,7 +3747,7 @@ void USFXCustomAction_SyncCoverGrab::GetVictimAnim ( struct FBodyStance* Stance 
 };
 
 // Function SFXGameContent.SFXCustomAction_SyncCoverGrab.GetAttackerAnim
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // struct FBodyStance             Stance                         ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
 
@@ -3770,7 +3770,7 @@ void USFXCustomAction_SyncCoverGrab::GetAttackerAnim ( struct FBodyStance* Stanc
 };
 
 // Function SFXGameContent.SFXCustomAction_SyncCoverGrab.GetVictimPawn
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -3789,7 +3789,7 @@ class ABioPawn* USFXCustomAction_SyncCoverGrab::GetVictimPawn ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SyncCoverGrab.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SyncCoverGrab::StartCustomAction ( )
@@ -3805,7 +3805,7 @@ void USFXCustomAction_SyncCoverGrab::StartCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SyncCoverGrab.ShouldPlayMirrorAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -3824,7 +3824,7 @@ bool USFXCustomAction_SyncCoverGrab::ShouldPlayMirrorAnim ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SyncCoverGrab.VerifyVictimDestIsClear
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                VictimPawn                     ( CPF_Parm )
@@ -3847,7 +3847,7 @@ bool USFXCustomAction_SyncCoverGrab::VerifyVictimDestIsClear ( class ABioPawn* V
 };
 
 // Function SFXGameContent.SFXCustomAction_SyncCoverGrab.InternalCanDoCustomAction
-// [0x00080002] 
+// [0x00080002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                SyncPawn                       ( CPF_Parm )
@@ -3870,7 +3870,7 @@ bool USFXCustomAction_SyncCoverGrab::InternalCanDoCustomAction ( class ABioPawn*
 };
 
 // Function SFXGameContent.SFXCustomAction_SyncCoverGrab.StartMeleeAttack
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SyncCoverGrab::StartMeleeAttack ( )
@@ -3898,7 +3898,7 @@ class UClass* USFXCustomAction_SyncCoverMelee::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_SyncCoverMelee.MeleeImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SyncCoverMelee::MeleeImpact ( )
@@ -3914,7 +3914,7 @@ void USFXCustomAction_SyncCoverMelee::MeleeImpact ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SyncCoverMelee.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SyncCoverMelee::StopCustomAction ( )
@@ -3930,7 +3930,7 @@ void USFXCustomAction_SyncCoverMelee::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SyncCoverMelee.EndThisCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SyncCoverMelee::EndThisCustomAction ( )
@@ -3946,7 +3946,7 @@ void USFXCustomAction_SyncCoverMelee::EndThisCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_SyncCoverMelee.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_SyncCoverMelee::StartCustomAction ( )
@@ -4009,7 +4009,7 @@ class UClass* USFXCustomAction_CoverMeleeLeft::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_CoverMeleeLeft.NonSyncedAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_CoverMeleeLeft::NonSyncedAction ( )
@@ -4037,7 +4037,7 @@ class UClass* USFXCustomAction_CoverMeleeRight::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_CoverMeleeRight.GetVictimPawn
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -4056,7 +4056,7 @@ class ABioPawn* USFXCustomAction_CoverMeleeRight::GetVictimPawn ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_CoverMeleeRight.GetMeleeImpactParameters
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // struct FAreaEffectParameters   ImpactParams                   ( CPF_Parm | CPF_OutParm )
 
@@ -4079,7 +4079,7 @@ void USFXCustomAction_CoverMeleeRight::GetMeleeImpactParameters ( struct FAreaEf
 };
 
 // Function SFXGameContent.SFXCustomAction_CoverMeleeRight.NonSyncedAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_CoverMeleeRight::NonSyncedAction ( )
@@ -4131,7 +4131,7 @@ class UClass* USFXCustomAction_HvyCoverMeleeLeft::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_HvyCoverMeleeLeft.NonSyncedAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HvyCoverMeleeLeft::NonSyncedAction ( )
@@ -4159,7 +4159,7 @@ class UClass* USFXCustomAction_HvyCoverMeleeRight::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_HvyCoverMeleeRight.GetVictimPawn
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -4178,7 +4178,7 @@ class ABioPawn* USFXCustomAction_HvyCoverMeleeRight::GetVictimPawn ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_HvyCoverMeleeRight.GetMeleeImpactParameters
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // struct FAreaEffectParameters   ImpactParams                   ( CPF_Parm | CPF_OutParm )
 
@@ -4201,7 +4201,7 @@ void USFXCustomAction_HvyCoverMeleeRight::GetMeleeImpactParameters ( struct FAre
 };
 
 // Function SFXGameContent.SFXCustomAction_HvyCoverMeleeRight.NonSyncedAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HvyCoverMeleeRight::NonSyncedAction ( )
@@ -4241,7 +4241,7 @@ class UClass* USFXCustomAction_RifleMeleeOne::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeOne.StopMove
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_RifleMeleeOne::StopMove ( )
@@ -4257,7 +4257,7 @@ void USFXCustomAction_RifleMeleeOne::StopMove ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeOne.OnActorImpacted
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -4286,7 +4286,7 @@ bool USFXCustomAction_RifleMeleeOne::OnActorImpacted ( unsigned char Resistance,
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeOne.ReplicateImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class ABioPawn*                Target                         ( CPF_Parm )
 // int                            ImpactCount                    ( CPF_OptionalParm | CPF_Parm )
@@ -4314,7 +4314,7 @@ void USFXCustomAction_RifleMeleeOne::ReplicateImpact ( class ABioPawn* Target, i
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeOne.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_RifleMeleeOne::StopCustomAction ( )
@@ -4330,7 +4330,7 @@ void USFXCustomAction_RifleMeleeOne::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeOne.EndAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_RifleMeleeOne::EndAction ( )
@@ -4346,7 +4346,7 @@ void USFXCustomAction_RifleMeleeOne::EndAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeOne.HeavyMelee
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_RifleMeleeOne::HeavyMelee ( )
@@ -4362,7 +4362,7 @@ void USFXCustomAction_RifleMeleeOne::HeavyMelee ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeOne.NoHeavyMelee
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_RifleMeleeOne::NoHeavyMelee ( )
@@ -4378,7 +4378,7 @@ void USFXCustomAction_RifleMeleeOne::NoHeavyMelee ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeOne.DoRifleMeleeTwo
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_RifleMeleeOne::DoRifleMeleeTwo ( )
@@ -4394,7 +4394,7 @@ void USFXCustomAction_RifleMeleeOne::DoRifleMeleeTwo ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeOne.RifleMeleeSecondary
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_RifleMeleeOne::RifleMeleeSecondary ( )
@@ -4410,7 +4410,7 @@ void USFXCustomAction_RifleMeleeOne::RifleMeleeSecondary ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeOne.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_RifleMeleeOne::StartCustomAction ( )
@@ -4438,7 +4438,7 @@ class UClass* USFXCustomAction_RifleMeleeTwo::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeTwo.ReplicateImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class ABioPawn*                Target                         ( CPF_Parm )
 // int                            ImpactCount                    ( CPF_OptionalParm | CPF_Parm )
@@ -4466,7 +4466,7 @@ void USFXCustomAction_RifleMeleeTwo::ReplicateImpact ( class ABioPawn* Target, i
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeTwo.HeavyMelee
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_RifleMeleeTwo::HeavyMelee ( )
@@ -4482,7 +4482,7 @@ void USFXCustomAction_RifleMeleeTwo::HeavyMelee ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeTwo.NoHeavyMelee
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_RifleMeleeTwo::NoHeavyMelee ( )
@@ -4498,7 +4498,7 @@ void USFXCustomAction_RifleMeleeTwo::NoHeavyMelee ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeTwo.DoRifleMeleeThree
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_RifleMeleeTwo::DoRifleMeleeThree ( )
@@ -4514,7 +4514,7 @@ void USFXCustomAction_RifleMeleeTwo::DoRifleMeleeThree ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeTwo.RifleMeleeThird
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_RifleMeleeTwo::RifleMeleeThird ( )
@@ -4542,7 +4542,7 @@ class UClass* USFXCustomAction_RifleMeleeThree::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeThree.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_RifleMeleeThree::StopCustomAction ( )
@@ -4558,7 +4558,7 @@ void USFXCustomAction_RifleMeleeThree::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeThree.HeavyMelee
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_RifleMeleeThree::HeavyMelee ( )
@@ -4574,7 +4574,7 @@ void USFXCustomAction_RifleMeleeThree::HeavyMelee ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeThree.NoHeavyMelee
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_RifleMeleeThree::NoHeavyMelee ( )
@@ -4590,7 +4590,7 @@ void USFXCustomAction_RifleMeleeThree::NoHeavyMelee ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeThree.RifleMeleeThird
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_RifleMeleeThree::RifleMeleeThird ( )
@@ -4606,7 +4606,7 @@ void USFXCustomAction_RifleMeleeThree::RifleMeleeThird ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_RifleMeleeThree.ReplicateImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class ABioPawn*                Target                         ( CPF_Parm )
 // int                            ImpactCount                    ( CPF_OptionalParm | CPF_Parm )
@@ -4646,7 +4646,7 @@ class UClass* USFXCustomAction_PistolMeleeOne::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeOne.StopMove
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PistolMeleeOne::StopMove ( )
@@ -4662,7 +4662,7 @@ void USFXCustomAction_PistolMeleeOne::StopMove ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeOne.OnActorImpacted
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -4691,7 +4691,7 @@ bool USFXCustomAction_PistolMeleeOne::OnActorImpacted ( unsigned char Resistance
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeOne.ReplicateImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class ABioPawn*                Target                         ( CPF_Parm )
 // int                            ImpactCount                    ( CPF_OptionalParm | CPF_Parm )
@@ -4719,7 +4719,7 @@ void USFXCustomAction_PistolMeleeOne::ReplicateImpact ( class ABioPawn* Target, 
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeOne.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PistolMeleeOne::StopCustomAction ( )
@@ -4735,7 +4735,7 @@ void USFXCustomAction_PistolMeleeOne::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeOne.EndAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PistolMeleeOne::EndAction ( )
@@ -4751,7 +4751,7 @@ void USFXCustomAction_PistolMeleeOne::EndAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeOne.HeavyMelee
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PistolMeleeOne::HeavyMelee ( )
@@ -4767,7 +4767,7 @@ void USFXCustomAction_PistolMeleeOne::HeavyMelee ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeOne.NoHeavyMelee
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PistolMeleeOne::NoHeavyMelee ( )
@@ -4783,7 +4783,7 @@ void USFXCustomAction_PistolMeleeOne::NoHeavyMelee ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeOne.DoPistolMeleeTwo
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PistolMeleeOne::DoPistolMeleeTwo ( )
@@ -4799,7 +4799,7 @@ void USFXCustomAction_PistolMeleeOne::DoPistolMeleeTwo ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeOne.PistolMeleeSecondary
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PistolMeleeOne::PistolMeleeSecondary ( )
@@ -4815,7 +4815,7 @@ void USFXCustomAction_PistolMeleeOne::PistolMeleeSecondary ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeOne.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PistolMeleeOne::StartCustomAction ( )
@@ -4843,7 +4843,7 @@ class UClass* USFXCustomAction_PistolMeleeTwo::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeTwo.ReplicateImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class ABioPawn*                Target                         ( CPF_Parm )
 // int                            ImpactCount                    ( CPF_OptionalParm | CPF_Parm )
@@ -4871,7 +4871,7 @@ void USFXCustomAction_PistolMeleeTwo::ReplicateImpact ( class ABioPawn* Target, 
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeTwo.HeavyMelee
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PistolMeleeTwo::HeavyMelee ( )
@@ -4887,7 +4887,7 @@ void USFXCustomAction_PistolMeleeTwo::HeavyMelee ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeTwo.NoHeavyMelee
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PistolMeleeTwo::NoHeavyMelee ( )
@@ -4903,7 +4903,7 @@ void USFXCustomAction_PistolMeleeTwo::NoHeavyMelee ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeTwo.DoPistolMeleeThree
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PistolMeleeTwo::DoPistolMeleeThree ( )
@@ -4919,7 +4919,7 @@ void USFXCustomAction_PistolMeleeTwo::DoPistolMeleeThree ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeTwo.PistolMeleeThird
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PistolMeleeTwo::PistolMeleeThird ( )
@@ -4947,7 +4947,7 @@ class UClass* USFXCustomAction_PistolMeleeThree::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeThree.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PistolMeleeThree::StopCustomAction ( )
@@ -4963,7 +4963,7 @@ void USFXCustomAction_PistolMeleeThree::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeThree.HeavyMelee
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PistolMeleeThree::HeavyMelee ( )
@@ -4979,7 +4979,7 @@ void USFXCustomAction_PistolMeleeThree::HeavyMelee ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeThree.NoHeavyMelee
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PistolMeleeThree::NoHeavyMelee ( )
@@ -4995,7 +4995,7 @@ void USFXCustomAction_PistolMeleeThree::NoHeavyMelee ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeThree.PistolMeleeThird
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_PistolMeleeThree::PistolMeleeThird ( )
@@ -5011,7 +5011,7 @@ void USFXCustomAction_PistolMeleeThree::PistolMeleeThird ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_PistolMeleeThree.ReplicateImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class ABioPawn*                Target                         ( CPF_Parm )
 // int                            ImpactCount                    ( CPF_OptionalParm | CPF_Parm )
@@ -5207,7 +5207,7 @@ class UClass* USFXCustomAction_FlinchBase::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_FlinchBase.PlayImpactSound
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_FlinchBase::PlayImpactSound ( )
@@ -5223,7 +5223,7 @@ void USFXCustomAction_FlinchBase::PlayImpactSound ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_FlinchBase.PlayWhizSound
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_FlinchBase::PlayWhizSound ( )
@@ -5239,7 +5239,7 @@ void USFXCustomAction_FlinchBase::PlayWhizSound ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_FlinchBase.FlinchActionOverride
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_FlinchBase::FlinchActionOverride ( )
@@ -5255,7 +5255,7 @@ void USFXCustomAction_FlinchBase::FlinchActionOverride ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_FlinchBase.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_FlinchBase::StopCustomAction ( )
@@ -5271,7 +5271,7 @@ void USFXCustomAction_FlinchBase::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_FlinchBase.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_FlinchBase::StartCustomAction ( )
@@ -5287,7 +5287,7 @@ void USFXCustomAction_FlinchBase::StartCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_FlinchBase.GetBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -5306,7 +5306,7 @@ struct FBodyStance USFXCustomAction_FlinchBase::GetBodyStanceAnim ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_FlinchBase.InternalCanDoCustomAction
-// [0x00080002] 
+// [0x00080002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                SyncPawn                       ( CPF_Parm )
@@ -5400,7 +5400,7 @@ class UClass* USFXPowerCustomAction_Shockwave::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_Shockwave.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Shockwave::PopulatePowerStatBarEvolves ( )
@@ -5416,7 +5416,7 @@ void USFXPowerCustomAction_Shockwave::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Shockwave.ApplyBonus
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct SFXName                 Parameter                      ( CPF_Parm )
 // class USFXGameEffect*          Bonus                          ( CPF_Parm )
@@ -5438,7 +5438,7 @@ void USFXPowerCustomAction_Shockwave::ApplyBonus ( struct SFXName Parameter, cla
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Shockwave.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -5456,7 +5456,7 @@ void USFXPowerCustomAction_Shockwave::RecalculateAllPowerData ( unsigned long bR
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Shockwave.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -5474,7 +5474,7 @@ void USFXPowerCustomAction_Shockwave::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Shockwave.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -5502,7 +5502,7 @@ bool USFXPowerCustomAction_Shockwave::ShouldUsePower ( class AActor* Target, FSt
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Shockwave.OnRagdollPhysicsImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class APawn*                   oPawn                          ( CPF_Parm )
 // class AActor*                  oImpactActor                   ( CPF_Parm )
@@ -5524,7 +5524,7 @@ void USFXPowerCustomAction_Shockwave::OnRagdollPhysicsImpact ( class APawn* oPaw
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Shockwave.ClientDoPowerSubsequentImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
@@ -5552,7 +5552,7 @@ void USFXPowerCustomAction_Shockwave::ClientDoPowerSubsequentImpact ( class AAct
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Shockwave.DoSubsequentImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  HitActor                       ( CPF_Parm )
 // struct FVector                 ImpactLocation                 ( CPF_Parm )
@@ -5574,7 +5574,7 @@ void USFXPowerCustomAction_Shockwave::DoSubsequentImpact ( class AActor* HitActo
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Shockwave.DoImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FVector                 location                       ( CPF_Parm )
 // struct FRotator                ProjectileRotation             ( CPF_Parm )
@@ -5594,7 +5594,7 @@ void USFXPowerCustomAction_Shockwave::DoImpact ( struct FVector const& location,
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Shockwave.OnPowerDetonated
-// [0x00024000] 
+// [0x00024000]
 // Parameters infos:
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
@@ -5618,7 +5618,7 @@ void USFXPowerCustomAction_Shockwave::OnPowerDetonated ( struct FVector const& H
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Shockwave.ReleaseProjectilePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ASFXProjectile_PowerCustomAction* ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -5649,7 +5649,7 @@ class UClass* USFXPowerCustomAction_BioticGrenade::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_BioticGrenade.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_BioticGrenade::PopulatePowerStatBarEvolves ( )
@@ -5665,7 +5665,7 @@ void USFXPowerCustomAction_BioticGrenade::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_BioticGrenade.GetDefaultClientEffectParams
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FVector                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -5684,7 +5684,7 @@ struct FVector USFXPowerCustomAction_BioticGrenade::GetDefaultClientEffectParams
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_BioticGrenade.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -5702,7 +5702,7 @@ void USFXPowerCustomAction_BioticGrenade::RecalculateAllPowerData ( unsigned lon
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_BioticGrenade.ResetPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_BioticGrenade::ResetPower ( )
@@ -5718,7 +5718,7 @@ void USFXPowerCustomAction_BioticGrenade::ResetPower ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_BioticGrenade.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -5736,7 +5736,7 @@ void USFXPowerCustomAction_BioticGrenade::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_BioticGrenade.OnImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -5765,7 +5765,7 @@ bool USFXPowerCustomAction_BioticGrenade::OnImpact ( unsigned char Resistance, c
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_BioticGrenade.SpawnChildProjectiles
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_BioticGrenade::SpawnChildProjectiles ( )
@@ -5781,7 +5781,7 @@ void USFXPowerCustomAction_BioticGrenade::SpawnChildProjectiles ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_BioticGrenade.ReleasePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_BioticGrenade::ReleasePower ( )
@@ -5797,7 +5797,7 @@ void USFXPowerCustomAction_BioticGrenade::ReleasePower ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_BioticGrenade.ApplyGrenadeBonus
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_BioticGrenade::ApplyGrenadeBonus ( )
@@ -5813,7 +5813,7 @@ void USFXPowerCustomAction_BioticGrenade::ApplyGrenadeBonus ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_BioticGrenade.GetDamageType
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UClass*                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -5832,7 +5832,7 @@ class UClass* USFXPowerCustomAction_BioticGrenade::GetDamageType ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_BioticGrenade.GetImpactDamage
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -5860,7 +5860,7 @@ float USFXPowerCustomAction_BioticGrenade::GetImpactDamage ( class AActor* oImpa
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_BioticGrenade.PlayDetonationEffects
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct FVector                 ImpactLocation                 ( CPF_Parm )
 // struct FVector                 ImpactNormal                   ( CPF_Parm )
@@ -5941,7 +5941,7 @@ bool USFXPowerCustomAction_GrenadeBase::eventShouldUsePower ( class AActor* Targ
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_GrenadeBase.GetGrenadeCount
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -5960,7 +5960,7 @@ int USFXPowerCustomAction_GrenadeBase::GetGrenadeCount ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_GrenadeBase.AdjustGrenadeCount
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // int                            Amount                         ( CPF_Parm )
 
@@ -5978,7 +5978,7 @@ void USFXPowerCustomAction_GrenadeBase::AdjustGrenadeCount ( int Amount )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_GrenadeBase.ReleasePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_GrenadeBase::ReleasePower ( )
@@ -5994,7 +5994,7 @@ void USFXPowerCustomAction_GrenadeBase::ReleasePower ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_GrenadeBase.CanUsePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oTarget                        ( CPF_Parm )
@@ -6015,7 +6015,7 @@ bool USFXPowerCustomAction_GrenadeBase::CanUsePower ( class AActor* oTarget )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_GrenadeBase.ApplyGrenadeBonus
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 
 void USFXPowerCustomAction_GrenadeBase::ApplyGrenadeBonus ( )
@@ -6031,7 +6031,7 @@ void USFXPowerCustomAction_GrenadeBase::ApplyGrenadeBonus ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_GrenadeBase.ResetPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_GrenadeBase::ResetPower ( )
@@ -6047,7 +6047,7 @@ void USFXPowerCustomAction_GrenadeBase::ResetPower ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_GrenadeBase.OnSquadMemberAdded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class APawn*                   Pawn                           ( CPF_Parm )
 
@@ -6065,7 +6065,7 @@ void USFXPowerCustomAction_GrenadeBase::OnSquadMemberAdded ( class APawn* Pawn )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_GrenadeBase.OnPowerRankIncreased
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_GrenadeBase::OnPowerRankIncreased ( )
@@ -6081,7 +6081,7 @@ void USFXPowerCustomAction_GrenadeBase::OnPowerRankIncreased ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_GrenadeBase.OnPowerAdded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class USFXPowerCustomActionBase* Power                          ( CPF_Parm )
 
@@ -6099,7 +6099,7 @@ void USFXPowerCustomAction_GrenadeBase::OnPowerAdded ( class USFXPowerCustomActi
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_GrenadeBase.OnPowersLoaded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_GrenadeBase::OnPowersLoaded ( )
@@ -6127,7 +6127,7 @@ class UClass* USFXPowerCustomAction_Throw::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_Throw.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Throw::PopulatePowerStatBarEvolves ( )
@@ -6143,7 +6143,7 @@ void USFXPowerCustomAction_Throw::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Throw.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -6161,7 +6161,7 @@ void USFXPowerCustomAction_Throw::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Throw.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -6189,7 +6189,7 @@ bool USFXPowerCustomAction_Throw::ShouldUsePower ( class AActor* Target, FString
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Throw.OnRagdollPhysicsImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class APawn*                   oPawn                          ( CPF_Parm )
 // class AActor*                  oImpactActor                   ( CPF_Parm )
@@ -6211,7 +6211,7 @@ void USFXPowerCustomAction_Throw::OnRagdollPhysicsImpact ( class APawn* oPawn, c
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Throw.ResetPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Throw::ResetPower ( )
@@ -6227,7 +6227,7 @@ void USFXPowerCustomAction_Throw::ResetPower ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Throw.OnImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -6256,7 +6256,7 @@ bool USFXPowerCustomAction_Throw::OnImpact ( unsigned char Resistance, class AAc
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Throw.GetImpactForce
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -6289,7 +6289,7 @@ class UClass* USFXPowerCustomAction_MultiProjectile::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_MultiProjectile.FindSecondTarget
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_MultiProjectile::FindSecondTarget ( )
@@ -6305,7 +6305,7 @@ void USFXPowerCustomAction_MultiProjectile::FindSecondTarget ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_MultiProjectile.ReleaseSecondProjectile
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_MultiProjectile::ReleaseSecondProjectile ( )
@@ -6321,7 +6321,7 @@ void USFXPowerCustomAction_MultiProjectile::ReleaseSecondProjectile ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_MultiProjectile.ReleasePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_MultiProjectile::ReleasePower ( )
@@ -6349,7 +6349,7 @@ class UClass* USFXPowerCustomAction_Pull::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_Pull.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Pull::PopulatePowerStatBarEvolves ( )
@@ -6365,7 +6365,7 @@ void USFXPowerCustomAction_Pull::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Pull.ApplyBonus
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct SFXName                 Parameter                      ( CPF_Parm )
 // class USFXGameEffect*          Bonus                          ( CPF_Parm )
@@ -6387,7 +6387,7 @@ void USFXPowerCustomAction_Pull::ApplyBonus ( struct SFXName Parameter, class US
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Pull.ResetPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Pull::ResetPower ( )
@@ -6403,7 +6403,7 @@ void USFXPowerCustomAction_Pull::ResetPower ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Pull.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -6421,7 +6421,7 @@ void USFXPowerCustomAction_Pull::RecalculateAllPowerData ( unsigned long bReset 
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Pull.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -6439,7 +6439,7 @@ void USFXPowerCustomAction_Pull::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Pull.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -6467,7 +6467,7 @@ bool USFXPowerCustomAction_Pull::ShouldUsePower ( class AActor* Target, FString*
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Pull.OnRagdollPhysicsImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class APawn*                   oPawn                          ( CPF_Parm )
 // class AActor*                  oImpactActor                   ( CPF_Parm )
@@ -6489,7 +6489,7 @@ void USFXPowerCustomAction_Pull::OnRagdollPhysicsImpact ( class APawn* oPawn, cl
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Pull.DropCurrentTargets
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Pull::DropCurrentTargets ( )
@@ -6505,7 +6505,7 @@ void USFXPowerCustomAction_Pull::DropCurrentTargets ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Pull.OnImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -6534,7 +6534,7 @@ bool USFXPowerCustomAction_Pull::OnImpact ( unsigned char Resistance, class AAct
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Pull.GetImpactForce
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -6555,7 +6555,7 @@ float USFXPowerCustomAction_Pull::GetImpactForce ( class AActor* oImpacted )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Pull.StartPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Pull::StartPower ( )
@@ -6583,7 +6583,7 @@ class UClass* USFXPowerCustomAction_AdeptMeleePassive::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_AdeptMeleePassive.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_AdeptMeleePassive::PopulatePowerStatBarEvolves ( )
@@ -6599,7 +6599,7 @@ void USFXPowerCustomAction_AdeptMeleePassive::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AdeptMeleePassive.ApplyBonus
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct SFXName                 Parameter                      ( CPF_Parm )
 // class USFXGameEffect*          Bonus                          ( CPF_Parm )
@@ -6621,7 +6621,7 @@ void USFXPowerCustomAction_AdeptMeleePassive::ApplyBonus ( struct SFXName Parame
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AdeptMeleePassive.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -6639,7 +6639,7 @@ void USFXPowerCustomAction_AdeptMeleePassive::RecalculateAllPowerData ( unsigned
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AdeptMeleePassive.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -6657,7 +6657,7 @@ void USFXPowerCustomAction_AdeptMeleePassive::EvolvePower ( unsigned char choice
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AdeptMeleePassive.OnHeavyMeleeKill
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oImpacted                      ( CPF_Parm )
 
@@ -6675,7 +6675,7 @@ void USFXPowerCustomAction_AdeptMeleePassive::OnHeavyMeleeKill ( class AActor* o
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AdeptMeleePassive.ApplyGlobalBonus
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_AdeptMeleePassive::ApplyGlobalBonus ( )
@@ -6703,7 +6703,7 @@ class UClass* USFXPowerCustomAction_Warp::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_Warp.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Warp::PopulatePowerStatBarEvolves ( )
@@ -6719,7 +6719,7 @@ void USFXPowerCustomAction_Warp::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Warp.ApplyBonus
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct SFXName                 Parameter                      ( CPF_Parm )
 // class USFXGameEffect*          Bonus                          ( CPF_Parm )
@@ -6741,7 +6741,7 @@ void USFXPowerCustomAction_Warp::ApplyBonus ( struct SFXName Parameter, class US
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Warp.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -6759,7 +6759,7 @@ void USFXPowerCustomAction_Warp::RecalculateAllPowerData ( unsigned long bReset 
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Warp.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -6777,7 +6777,7 @@ void USFXPowerCustomAction_Warp::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Warp.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -6805,7 +6805,7 @@ bool USFXPowerCustomAction_Warp::ShouldUsePower ( class AActor* Target, FString*
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Warp.PlayImpactEffects
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oImpacted                      ( CPF_Parm )
 // struct FVector                 ImpactLocation                 ( CPF_Parm )
@@ -6827,7 +6827,7 @@ void USFXPowerCustomAction_Warp::PlayImpactEffects ( class AActor* oImpacted, st
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Warp.OnImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -6856,7 +6856,7 @@ bool USFXPowerCustomAction_Warp::OnImpact ( unsigned char Resistance, class AAct
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Warp.GetTotalDamage
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -6884,7 +6884,7 @@ float USFXPowerCustomAction_Warp::GetTotalDamage ( class AActor* oImpacted, clas
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Warp.GetImpactDamage
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -6924,7 +6924,7 @@ class UClass* USFXPowerCustomAction_Singularity::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.CombatEnded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Singularity::CombatEnded ( )
@@ -6940,7 +6940,7 @@ void USFXPowerCustomAction_Singularity::CombatEnded ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Singularity::PopulatePowerStatBarEvolves ( )
@@ -6956,7 +6956,7 @@ void USFXPowerCustomAction_Singularity::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.OnOwnerDestroyed
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Singularity::OnOwnerDestroyed ( )
@@ -6972,7 +6972,7 @@ void USFXPowerCustomAction_Singularity::OnOwnerDestroyed ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.DoJoinInProgress
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Singularity::DoJoinInProgress ( )
@@ -6988,7 +6988,7 @@ void USFXPowerCustomAction_Singularity::DoJoinInProgress ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.ClientDoPowerSubsequentImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
@@ -7016,7 +7016,7 @@ void USFXPowerCustomAction_Singularity::ClientDoPowerSubsequentImpact ( class AA
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.ApplyBonus
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct SFXName                 Parameter                      ( CPF_Parm )
 // class USFXGameEffect*          Bonus                          ( CPF_Parm )
@@ -7038,7 +7038,7 @@ void USFXPowerCustomAction_Singularity::ApplyBonus ( struct SFXName Parameter, c
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -7056,7 +7056,7 @@ void USFXPowerCustomAction_Singularity::RecalculateAllPowerData ( unsigned long 
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -7074,7 +7074,7 @@ void USFXPowerCustomAction_Singularity::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -7102,7 +7102,7 @@ bool USFXPowerCustomAction_Singularity::ShouldUsePower ( class AActor* Target, F
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.OnPowerRankIncreased
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Singularity::OnPowerRankIncreased ( )
@@ -7118,7 +7118,7 @@ void USFXPowerCustomAction_Singularity::OnPowerRankIncreased ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.OnRagdollPhysicsImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class APawn*                   oPawn                          ( CPF_Parm )
 // class AActor*                  oImpactActor                   ( CPF_Parm )
@@ -7156,7 +7156,7 @@ void USFXPowerCustomAction_Singularity::SpawnSingularityVFX ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.SpawnSingularity
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Singularity::SpawnSingularity ( )
@@ -7172,7 +7172,7 @@ void USFXPowerCustomAction_Singularity::SpawnSingularity ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.OnExplosionImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -7201,7 +7201,7 @@ bool USFXPowerCustomAction_Singularity::OnExplosionImpact ( unsigned char Resist
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.SingularityExplosion
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Singularity::SingularityExplosion ( )
@@ -7217,7 +7217,7 @@ void USFXPowerCustomAction_Singularity::SingularityExplosion ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.Internal_TurnOffSingularity
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Singularity::Internal_TurnOffSingularity ( )
@@ -7233,7 +7233,7 @@ void USFXPowerCustomAction_Singularity::Internal_TurnOffSingularity ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.TurnOffSingularity
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bDoReplication                 ( CPF_OptionalParm | CPF_Parm )
 
@@ -7251,7 +7251,7 @@ void USFXPowerCustomAction_Singularity::TurnOffSingularity ( unsigned long bDoRe
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.CanPutInSingularity
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oActor                         ( CPF_Parm )
@@ -7272,7 +7272,7 @@ bool USFXPowerCustomAction_Singularity::CanPutInSingularity ( class AActor* oAct
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.OnGameEffectEnded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 
@@ -7290,7 +7290,7 @@ void USFXPowerCustomAction_Singularity::OnGameEffectEnded ( class AActor* oActor
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.ImpactNewTarget
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -7311,7 +7311,7 @@ bool USFXPowerCustomAction_Singularity::ImpactNewTarget ( class AActor* oImpacte
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.ApplyBioticComboEffect
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oTarget                        ( CPF_Parm )
@@ -7350,7 +7350,7 @@ void USFXPowerCustomAction_Singularity::eventTickCustomAction ( float fDeltaTime
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.ClientDoCustomActionImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            ImpactCount                    ( CPF_Parm )
@@ -7378,7 +7378,7 @@ void USFXPowerCustomAction_Singularity::ClientDoCustomActionImpact ( class AActo
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.OnPowerDetonated
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
@@ -7402,7 +7402,7 @@ void USFXPowerCustomAction_Singularity::OnPowerDetonated ( struct FVector const&
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.ReleasePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Singularity::ReleasePower ( )
@@ -7418,7 +7418,7 @@ void USFXPowerCustomAction_Singularity::ReleasePower ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.GetImpactForce
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -7439,7 +7439,7 @@ float USFXPowerCustomAction_Singularity::GetImpactForce ( class AActor* oImpacte
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Singularity::StartCustomAction ( )
@@ -7455,7 +7455,7 @@ void USFXPowerCustomAction_Singularity::StartCustomAction ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Singularity.OnPowersLoaded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Singularity::OnPowersLoaded ( )
@@ -7483,7 +7483,7 @@ class UClass* USFXPowerCustomAction_AdeptPassive::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_AdeptPassive.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_AdeptPassive::PopulatePowerStatBarEvolves ( )
@@ -7499,7 +7499,7 @@ void USFXPowerCustomAction_AdeptPassive::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AdeptPassive.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -7517,7 +7517,7 @@ void USFXPowerCustomAction_AdeptPassive::RecalculateAllPowerData ( unsigned long
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AdeptPassive.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -7535,7 +7535,7 @@ void USFXPowerCustomAction_AdeptPassive::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AdeptPassive.OnBioticCombo
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class USFXPowerCustomAction*   oPower                         ( CPF_Parm )
 // class ABioPawn*                oTarget                        ( CPF_Parm )
@@ -7555,7 +7555,7 @@ void USFXPowerCustomAction_AdeptPassive::OnBioticCombo ( class USFXPowerCustomAc
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AdeptPassive.ResetPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_AdeptPassive::ResetPower ( )
@@ -7571,7 +7571,7 @@ void USFXPowerCustomAction_AdeptPassive::ResetPower ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AdeptPassive.ApplyGlobalBonus
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_AdeptPassive::ApplyGlobalBonus ( )
@@ -7599,7 +7599,7 @@ class UClass* USFXPowerCustomAction_Unity::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_Unity.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -7636,7 +7636,7 @@ FString USFXPowerCustomAction_Unity::eventGetHUDWheelIconInfo ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Unity.CountMediGel
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioBaseSquad*           oPlayerSquad                   ( CPF_Parm )
@@ -7685,7 +7685,7 @@ bool USFXPowerCustomAction_Unity::eventShouldUsePower ( class AActor* Target, FS
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Unity.OnImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -7714,7 +7714,7 @@ bool USFXPowerCustomAction_Unity::OnImpact ( unsigned char Resistance, class AAc
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Unity.StartPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Unity::StartPower ( )
@@ -7730,7 +7730,7 @@ void USFXPowerCustomAction_Unity::StartPower ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Unity.CanUsePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oTarget                        ( CPF_Parm )
@@ -7763,7 +7763,7 @@ class UClass* USFXCustomAction_AdeptPunch::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_AdeptPunch.StopMove
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_AdeptPunch::StopMove ( )
@@ -7779,7 +7779,7 @@ void USFXCustomAction_AdeptPunch::StopMove ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_AdeptPunch.OnActorImpacted
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -7868,7 +7868,7 @@ class UClass* USFXGameEffect_DisableAI::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_DisableAI.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_DisableAI::OnRemoved ( )
@@ -7884,7 +7884,7 @@ void USFXGameEffect_DisableAI::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_DisableAI.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_DisableAI::OnApplied ( )
@@ -8188,7 +8188,7 @@ class UClass* USFXGameEffect_AntiGravity::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_AntiGravity.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_AntiGravity::OnRemoved ( )
@@ -8204,7 +8204,7 @@ void USFXGameEffect_AntiGravity::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_AntiGravity.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_AntiGravity::OnApplied ( )
@@ -8232,7 +8232,7 @@ class UClass* USFXGameEffect_ArmorWeakness::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_ArmorWeakness.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_ArmorWeakness::OnRemoved ( )
@@ -8248,7 +8248,7 @@ void USFXGameEffect_ArmorWeakness::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_ArmorWeakness.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_ArmorWeakness::OnApplied ( )
@@ -8276,7 +8276,7 @@ class UClass* USFXGameEffect_BioticPowerDamageTakenBonus::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_BioticPowerDamageTakenBonus.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_BioticPowerDamageTakenBonus::OnRemoved ( )
@@ -8292,7 +8292,7 @@ void USFXGameEffect_BioticPowerDamageTakenBonus::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_BioticPowerDamageTakenBonus.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_BioticPowerDamageTakenBonus::OnApplied ( )
@@ -8320,7 +8320,7 @@ class UClass* USFXGameEffect_CryoFreeze::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_CryoFreeze.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_CryoFreeze::OnRemoved ( )
@@ -8336,7 +8336,7 @@ void USFXGameEffect_CryoFreeze::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_CryoFreeze.OnUpdate
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 // float                          DeltaSeconds                   ( CPF_Parm )
 
@@ -8354,7 +8354,7 @@ void USFXGameEffect_CryoFreeze::OnUpdate ( float DeltaSeconds )
 };
 
 // Function SFXGameContent.SFXGameEffect_CryoFreeze.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_CryoFreeze::OnApplied ( )
@@ -8370,7 +8370,7 @@ void USFXGameEffect_CryoFreeze::OnApplied ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_CryoFreeze.OnFrozenPawnDied
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // class ABioPawn*                oPawn                          ( CPF_Parm )
 
@@ -8400,7 +8400,7 @@ class UClass* USFXGameEffect_DamageImmunity::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_DamageImmunity.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_DamageImmunity::OnRemoved ( )
@@ -8416,7 +8416,7 @@ void USFXGameEffect_DamageImmunity::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_DamageImmunity.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_DamageImmunity::OnApplied ( )
@@ -8444,7 +8444,7 @@ class UClass* USFXGameEffect_DelayedCryoFreeze::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_DelayedCryoFreeze.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_DelayedCryoFreeze::OnRemoved ( )
@@ -8460,7 +8460,7 @@ void USFXGameEffect_DelayedCryoFreeze::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_DelayedCryoFreeze.OnUpdate
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 // float                          DeltaSeconds                   ( CPF_Parm )
 
@@ -8478,7 +8478,7 @@ void USFXGameEffect_DelayedCryoFreeze::OnUpdate ( float DeltaSeconds )
 };
 
 // Function SFXGameContent.SFXGameEffect_DelayedCryoFreeze.OnApplied
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 
 void USFXGameEffect_DelayedCryoFreeze::OnApplied ( )
@@ -8494,7 +8494,7 @@ void USFXGameEffect_DelayedCryoFreeze::OnApplied ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_DelayedCryoFreeze.OnFrozenPawnDied
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // class ABioPawn*                oPawn                          ( CPF_Parm )
 
@@ -8524,7 +8524,7 @@ class UClass* USFXGameEffect_PowerCombo_Cryo::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_PowerCombo_Cryo.OnImpact
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -8565,7 +8565,7 @@ class UClass* USFXGameEffect_ElectricComboBeam::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_ElectricComboBeam.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_ElectricComboBeam::OnRemoved ( )
@@ -8581,7 +8581,7 @@ void USFXGameEffect_ElectricComboBeam::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_ElectricComboBeam.OnUpdate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaSeconds                   ( CPF_Parm )
 
@@ -8619,7 +8619,7 @@ void USFXGameEffect_ElectricComboBeam::PlayBeamEffect ( class UParticleSystemCom
 };
 
 // Function SFXGameContent.SFXGameEffect_ElectricComboBeam.OnApplied
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 
 void USFXGameEffect_ElectricComboBeam::OnApplied ( )
@@ -8647,7 +8647,7 @@ class UClass* USFXGameEffect_FireDamageOverTime::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_FireDamageOverTime.DoDamage
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_FireDamageOverTime::DoDamage ( )
@@ -8663,7 +8663,7 @@ void USFXGameEffect_FireDamageOverTime::DoDamage ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_FireDamageOverTime.AddFireDamage
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          AddedDamage                    ( CPF_Parm )
 // float                          NewDuration                    ( CPF_Parm )
@@ -8683,7 +8683,7 @@ void USFXGameEffect_FireDamageOverTime::AddFireDamage ( float AddedDamage, float
 };
 
 // Function SFXGameContent.SFXGameEffect_FireDamageOverTime.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_FireDamageOverTime::OnApplied ( )
@@ -8711,7 +8711,7 @@ class UClass* USFXGameEffect_PowerCombo_Fire::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_PowerCombo_Fire.OnImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -8740,7 +8740,7 @@ bool USFXGameEffect_PowerCombo_Fire::OnImpact ( unsigned char Resistance, class 
 };
 
 // Function SFXGameContent.SFXGameEffect_PowerCombo_Fire.OnPowerComboDetonated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class USFXPowerCustomAction*   DetonationPower                ( CPF_Parm )
 // struct FVector                 HitLocation                    ( CPF_Parm )
@@ -8774,7 +8774,7 @@ class UClass* USFXGameEffect_HealShieldOverTime::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_HealShieldOverTime.OnUpdate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaSeconds                   ( CPF_Parm )
 
@@ -8804,7 +8804,7 @@ class UClass* USFXGameEffect_MaxGrenadeBonus::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_MaxGrenadeBonus.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_MaxGrenadeBonus::OnRemoved ( )
@@ -8820,7 +8820,7 @@ void USFXGameEffect_MaxGrenadeBonus::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_MaxGrenadeBonus.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_MaxGrenadeBonus::OnApplied ( )
@@ -8848,7 +8848,7 @@ class UClass* USFXGameEffect_PowerCombo_Biotic::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_PowerCombo_Biotic.OnPowerComboDetonated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class USFXPowerCustomAction*   DetonationPower                ( CPF_Parm )
 // struct FVector                 HitLocation                    ( CPF_Parm )
@@ -8930,7 +8930,7 @@ class UClass* USFXGameEffect_PowerCombo_Electric::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_PowerCombo_Electric.OnImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -9019,7 +9019,7 @@ class UClass* USFXGameEffect_Pull::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_Pull.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_Pull::OnRemoved ( )
@@ -9035,7 +9035,7 @@ void USFXGameEffect_Pull::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_Pull.MoveActor
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FVector                 vForce                         ( CPF_Parm )
 
@@ -9053,7 +9053,7 @@ void USFXGameEffect_Pull::MoveActor ( struct FVector const& vForce )
 };
 
 // Function SFXGameContent.SFXGameEffect_Pull.OnUpdate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaSeconds                   ( CPF_Parm )
 
@@ -9071,7 +9071,7 @@ void USFXGameEffect_Pull::OnUpdate ( float DeltaSeconds )
 };
 
 // Function SFXGameContent.SFXGameEffect_Pull.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_Pull::OnApplied ( )
@@ -9099,7 +9099,7 @@ class UClass* USFXGameEffect_Ragdoll::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_Ragdoll.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_Ragdoll::OnRemoved ( )
@@ -9115,7 +9115,7 @@ void USFXGameEffect_Ragdoll::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_Ragdoll.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_Ragdoll::OnApplied ( )
@@ -9143,7 +9143,7 @@ class UClass* USFXGameEffect_ShockwaveLift::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_ShockwaveLift.HasOtherGravityEffects
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -9162,7 +9162,7 @@ bool USFXGameEffect_ShockwaveLift::HasOtherGravityEffects ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_ShockwaveLift.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_ShockwaveLift::OnRemoved ( )
@@ -9178,7 +9178,7 @@ void USFXGameEffect_ShockwaveLift::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_ShockwaveLift.OnUpdate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaSeconds                   ( CPF_Parm )
 
@@ -9196,7 +9196,7 @@ void USFXGameEffect_ShockwaveLift::OnUpdate ( float DeltaSeconds )
 };
 
 // Function SFXGameContent.SFXGameEffect_ShockwaveLift.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_ShockwaveLift::OnApplied ( )
@@ -9224,7 +9224,7 @@ class UClass* USFXGameEffect_Singularity::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_Singularity.OutOfRangeCheck
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // float                          Distance                       ( CPF_Parm )
@@ -9245,7 +9245,7 @@ bool USFXGameEffect_Singularity::OutOfRangeCheck ( float Distance )
 };
 
 // Function SFXGameContent.SFXGameEffect_Singularity.IsStillInSingularity
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -9264,7 +9264,7 @@ bool USFXGameEffect_Singularity::IsStillInSingularity ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_Singularity.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_Singularity::OnRemoved ( )
@@ -9280,7 +9280,7 @@ void USFXGameEffect_Singularity::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_Singularity.AddForceToActor
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FVector                 vForce                         ( CPF_Parm )
 
@@ -9298,7 +9298,7 @@ void USFXGameEffect_Singularity::AddForceToActor ( struct FVector const& vForce 
 };
 
 // Function SFXGameContent.SFXGameEffect_Singularity.InitialMovement
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_Singularity::InitialMovement ( )
@@ -9314,7 +9314,7 @@ void USFXGameEffect_Singularity::InitialMovement ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_Singularity.UpdateActor
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_Singularity::UpdateActor ( )
@@ -9330,7 +9330,7 @@ void USFXGameEffect_Singularity::UpdateActor ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_Singularity.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_Singularity::OnApplied ( )
@@ -9358,7 +9358,7 @@ class UClass* USFXGameEffect_Stasis::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_Stasis.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_Stasis::OnRemoved ( )
@@ -9374,7 +9374,7 @@ void USFXGameEffect_Stasis::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_Stasis.UnStasisTarget
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_Stasis::UnStasisTarget ( )
@@ -9390,7 +9390,7 @@ void USFXGameEffect_Stasis::UnStasisTarget ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_Stasis.OnUpdate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaSeconds                   ( CPF_Parm )
 
@@ -9408,7 +9408,7 @@ void USFXGameEffect_Stasis::OnUpdate ( float DeltaSeconds )
 };
 
 // Function SFXGameContent.SFXGameEffect_Stasis.NullVelocity
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaSeconds                   ( CPF_Parm )
 
@@ -9442,7 +9442,7 @@ void USFXGameEffect_Stasis::StartCrustVFX ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_Stasis.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_Stasis::OnApplied ( )
@@ -9470,7 +9470,7 @@ class UClass* USFXPowerCustomAction_Stasis::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Stasis::PopulatePowerStatBarEvolves ( )
@@ -9486,7 +9486,7 @@ void USFXPowerCustomAction_Stasis::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -9504,7 +9504,7 @@ void USFXPowerCustomAction_Stasis::RecalculateAllPowerData ( unsigned long bRese
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -9522,7 +9522,7 @@ void USFXPowerCustomAction_Stasis::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -9550,7 +9550,7 @@ bool USFXPowerCustomAction_Stasis::ShouldUsePower ( class AActor* Target, FStrin
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.OnGameEffectEnded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 
@@ -9568,7 +9568,7 @@ void USFXPowerCustomAction_Stasis::OnGameEffectEnded ( class AActor* oActor )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.OnOwnerDestroyed
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Stasis::OnOwnerDestroyed ( )
@@ -9584,7 +9584,7 @@ void USFXPowerCustomAction_Stasis::OnOwnerDestroyed ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.DoJoinInProgress
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Stasis::DoJoinInProgress ( )
@@ -9600,7 +9600,7 @@ void USFXPowerCustomAction_Stasis::DoJoinInProgress ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.UnStasisCurrentTargets
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Stasis::UnStasisCurrentTargets ( )
@@ -9616,7 +9616,7 @@ void USFXPowerCustomAction_Stasis::UnStasisCurrentTargets ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.ClientImpactClearEffects
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oImpacted                      ( CPF_Parm )
 
@@ -9634,7 +9634,7 @@ void USFXPowerCustomAction_Stasis::ClientImpactClearEffects ( class AActor* oImp
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.ImpactStasis
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oImpacted                      ( CPF_Parm )
 // float                          fDuration                      ( CPF_Parm )
@@ -9654,7 +9654,7 @@ void USFXPowerCustomAction_Stasis::ImpactStasis ( class AActor* oImpacted, float
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.ImpactPushAway
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oImpacted                      ( CPF_Parm )
 
@@ -9672,7 +9672,7 @@ void USFXPowerCustomAction_Stasis::ImpactPushAway ( class AActor* oImpacted )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.OnImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -9737,7 +9737,7 @@ void USFXPowerCustomAction_Stasis::ClientEndStasisEffect ( class AActor* oActor 
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.ClientDoCustomActionImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            ImpactCount                    ( CPF_Parm )
@@ -9765,7 +9765,7 @@ void USFXPowerCustomAction_Stasis::ClientDoCustomActionImpact ( class AActor* oA
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.ClientDoPowerSubsequentImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
@@ -9793,7 +9793,7 @@ void USFXPowerCustomAction_Stasis::ClientDoPowerSubsequentImpact ( class AActor*
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.StopStasisBubble
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned long                  bReplicate                     ( CPF_Parm )
 
@@ -9827,7 +9827,7 @@ void USFXPowerCustomAction_Stasis::StartStasisBubbleVFX ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.OnPowerDetonated
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
@@ -9851,7 +9851,7 @@ void USFXPowerCustomAction_Stasis::OnPowerDetonated ( struct FVector const& HitL
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.StartPowerCooldown
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Stasis::StartPowerCooldown ( )
@@ -9867,7 +9867,7 @@ void USFXPowerCustomAction_Stasis::StartPowerCooldown ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Stasis.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Stasis::StartCustomAction ( )
@@ -9895,7 +9895,7 @@ class UClass* USFXGameEffect_WeaponDamageTakenBonus::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_WeaponDamageTakenBonus.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_WeaponDamageTakenBonus::OnRemoved ( )
@@ -9911,7 +9911,7 @@ void USFXGameEffect_WeaponDamageTakenBonus::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_WeaponDamageTakenBonus.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_WeaponDamageTakenBonus::OnApplied ( )
@@ -9939,7 +9939,7 @@ class UClass* USFXGameEffect_WeightCapacity::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_WeightCapacity.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_WeightCapacity::OnRemoved ( )
@@ -9955,7 +9955,7 @@ void USFXGameEffect_WeightCapacity::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_WeightCapacity.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_WeightCapacity::OnApplied ( )
@@ -10015,7 +10015,7 @@ void ASFXPlaceable::DeactivatePlaceable ( )
 };
 
 // Function SFXGameContent.SFXPlaceable.AllowPlaceableDamageEvents
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AController*             EventInstigator                ( CPF_Parm )
@@ -10069,7 +10069,7 @@ bool ASFXPlaceable::ImpactWithPower ( unsigned char Resistance, class APawn* Cas
 };
 
 // Function SFXGameContent.SFXPlaceable.AreaDamage
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          Damage                         ( CPF_Parm )
 // float                          Force                          ( CPF_Parm )
@@ -10093,7 +10093,7 @@ void ASFXPlaceable::AreaDamage ( float Damage, float Force, class UClass* Damage
 };
 
 // Function SFXGameContent.SFXPlaceable.AreaDamageForActor
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // class AActor*                  HitActor                       ( CPF_Parm )
 
@@ -10257,7 +10257,7 @@ class UClass* ASFXProjectile_PowerCustomAction_SuperSeeking::StaticClass()
 	};
 
 // Function SFXGameContent.SFXProjectile_PowerCustomAction_SuperSeeking.InitializeRotation
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class APawn*                   oCasterPawn                    ( CPF_Parm )
 
@@ -10307,7 +10307,7 @@ class UClass* ASFXProjectile_PowerCustomAction_Seeking::StaticClass()
 	};
 
 // Function SFXGameContent.SFXProjectile_PowerCustomAction_Seeking.Tick_Prediction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaTime                      ( CPF_Parm )
 
@@ -10341,7 +10341,7 @@ void ASFXProjectile_PowerCustomAction_Seeking::Recycle ( )
 };
 
 // Function SFXGameContent.SFXProjectile_PowerCustomAction_Seeking.InitializeRotation
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // class APawn*                   oCasterPawn                    ( CPF_Parm )
 
@@ -10386,7 +10386,7 @@ bool ASFXProjectile_PowerCustomAction_Seeking::InitializePowerProjectile ( class
 };
 
 // Function SFXGameContent.SFXProjectile_PowerCustomAction_Seeking.PawnEvadedPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                Pawn                           ( CPF_Parm )
 // struct SFXName                 Label                          ( CPF_Parm )
@@ -10508,7 +10508,7 @@ struct FVector ASFXProjectile_PowerCustomAction_Seeking::GetAimLocation ( class 
 };
 
 // Function SFXGameContent.SFXProjectile_PowerCustomAction_Seeking.Timer
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ASFXProjectile_PowerCustomAction_Seeking::Timer ( )
@@ -10554,7 +10554,7 @@ class UClass* ASFXProjectile_PowerCustomAction_Shockwave::StaticClass()
 	};
 
 // Function SFXGameContent.SFXProjectile_PowerCustomAction_Shockwave.ReplicateExplode
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
@@ -10619,7 +10619,7 @@ bool ASFXProjectile_PowerCustomAction_Shockwave::InitializePowerProjectile ( cla
 };
 
 // Function SFXGameContent.SFXProjectile_PowerCustomAction_Shockwave.ProcessTouch
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  Other                          ( CPF_Parm )
 // struct FVector                 HitLocation                    ( CPF_Parm )
@@ -10723,7 +10723,7 @@ class UClass* USFXGameEffect_ConstraintDmgBonus::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_ConstraintDmgBonus.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_ConstraintDmgBonus::OnRemoved ( )
@@ -10739,7 +10739,7 @@ void USFXGameEffect_ConstraintDmgBonus::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_ConstraintDmgBonus.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_ConstraintDmgBonus::OnApplied ( )
@@ -10839,7 +10839,7 @@ class UClass* USFXGameEffect_SpareAmmo::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_SpareAmmo.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_SpareAmmo::OnRemoved ( )
@@ -10855,7 +10855,7 @@ void USFXGameEffect_SpareAmmo::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_SpareAmmo.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_SpareAmmo::OnApplied ( )
@@ -10949,7 +10949,7 @@ void USFXGUI_StandardSniperZoomReticle::eventDistanceToTargetChanged ( float fDi
 };
 
 // Function SFXGameContent.SFXGUI_StandardSniperZoomReticle.OnReticleLoaded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGUI_StandardSniperZoomReticle::OnReticleLoaded ( )
@@ -11096,7 +11096,7 @@ int USFXSeqAct_EndObjective::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContent.SFXSeqAct_EndObjective.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_EndObjective::Activated ( )
@@ -11143,7 +11143,7 @@ int USFXSeqAct_SetObjective::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContent.SFXSeqAct_SetObjective.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_SetObjective::Activated ( )
@@ -11171,7 +11171,7 @@ class UClass* USFXSeqAct_ToggleTutorialTracking::StaticClass()
 	};
 
 // Function SFXGameContent.SFXSeqAct_ToggleTutorialTracking.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_ToggleTutorialTracking::Activated ( )
@@ -11253,7 +11253,7 @@ class UClass* ASFXAI_Trooper::StaticClass()
 	};
 
 // Function SFXGameContent.SFXAI_Trooper.DrawDifficulty
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UBioCheatManager*        CM                             ( CPF_Parm )
 
@@ -11271,7 +11271,7 @@ void ASFXAI_Trooper::DrawDifficulty ( class UBioCheatManager* CM )
 };
 
 // Function SFXGameContent.SFXAI_Trooper.Initialize
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ASFXAI_Trooper::Initialize ( )
@@ -11287,7 +11287,7 @@ void ASFXAI_Trooper::Initialize ( )
 };
 
 // Function SFXGameContent.SFXAI_Trooper.OnShouldThrowGrenade
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class USequenceAction*         Seq                            ( CPF_Parm )
 
@@ -11348,7 +11348,7 @@ class UClass* USFXAICmd_Base_Cover::StaticClass()
 	};
 
 // Function SFXGameContent.SFXAICmd_Base_Cover.NotifyMoodChange
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -11367,7 +11367,7 @@ bool USFXAICmd_Base_Cover::NotifyMoodChange ( )
 };
 
 // Function SFXGameContent.SFXAICmd_Base_Cover.NotifyPendingPowerImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct SFXName                 Label                          ( CPF_Parm )
 // float                          TimeBeforeImpact               ( CPF_Parm )
@@ -11391,7 +11391,7 @@ void USFXAICmd_Base_Cover::NotifyPendingPowerImpact ( struct SFXName Label, floa
 };
 
 // Function SFXGameContent.SFXAICmd_Base_Cover.NotifyTakeHit
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AController*             instigatedBy                   ( CPF_Parm )
 // struct FVector                 HitLocation                    ( CPF_Parm )
@@ -11417,7 +11417,7 @@ void USFXAICmd_Base_Cover::NotifyTakeHit ( class AController* instigatedBy, stru
 };
 
 // Function SFXGameContent.SFXAICmd_Base_Cover.ShouldAttack
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -11436,7 +11436,7 @@ bool USFXAICmd_Base_Cover::ShouldAttack ( )
 };
 
 // Function SFXGameContent.SFXAICmd_Base_Cover.Resumed
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct SFXName                 OldCommandName                 ( CPF_Parm )
 
@@ -11454,7 +11454,7 @@ void USFXAICmd_Base_Cover::Resumed ( struct SFXName OldCommandName )
 };
 
 // Function SFXGameContent.SFXAICmd_Base_Cover.Pushed
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXAICmd_Base_Cover::Pushed ( )
@@ -11512,7 +11512,7 @@ void ASFXAmmoContainer::eventReplicatedEvent ( struct SFXName VarName )
 };
 
 // Function SFXGameContent.SFXAmmoContainer.GiveTo
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class APawn*                   P                              ( CPF_Parm )
 
@@ -11530,7 +11530,7 @@ void ASFXAmmoContainer::GiveTo ( class APawn* P )
 };
 
 // Function SFXGameContent.SFXAmmoContainer.StartSleeping
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ASFXAmmoContainer::StartSleeping ( )
@@ -11546,7 +11546,7 @@ void ASFXAmmoContainer::StartSleeping ( )
 };
 
 // Function SFXGameContent.SFXAmmoContainer.SetRespawn
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ASFXAmmoContainer::SetRespawn ( )
@@ -11602,7 +11602,7 @@ class UClass* USFXCustomAction_AILadderClimbUp::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_AILadderClimbUp.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_AILadderClimbUp::StopCustomAction ( )
@@ -11618,7 +11618,7 @@ void USFXCustomAction_AILadderClimbUp::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_AILadderClimbUp.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_AILadderClimbUp::StartCustomAction ( )
@@ -11658,7 +11658,7 @@ class UClass* USFXCustomAction_AIMantleUp::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_AIMantleUp.GetBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -11677,7 +11677,7 @@ struct FBodyStance USFXCustomAction_AIMantleUp::GetBodyStanceAnim ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_AIMantleUp.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_AIMantleUp::StartCustomAction ( )
@@ -11764,7 +11764,7 @@ class UClass* USFXCustomAction_BoostDown::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_BoostDown.SetMoveStage
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 // unsigned char                  NextStage                      ( CPF_Parm )
 
@@ -11782,7 +11782,7 @@ void USFXCustomAction_BoostDown::SetMoveStage ( unsigned char NextStage )
 };
 
 // Function SFXGameContent.SFXCustomAction_BoostDown.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_BoostDown::StopCustomAction ( )
@@ -11810,7 +11810,7 @@ class UClass* USFXCustomAction_BoostUp::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_BoostUp.EndRocketBoots
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_BoostUp::EndRocketBoots ( )
@@ -11826,7 +11826,7 @@ void USFXCustomAction_BoostUp::EndRocketBoots ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_BoostUp.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_BoostUp::StopCustomAction ( )
@@ -11842,7 +11842,7 @@ void USFXCustomAction_BoostUp::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_BoostUp.SetMoveStage
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  NextStage                      ( CPF_Parm )
 
@@ -11872,7 +11872,7 @@ class UClass* USFXGameEffect_RagdollRocket::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_RagdollRocket.HasAntiGravity
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -11891,7 +11891,7 @@ bool USFXGameEffect_RagdollRocket::HasAntiGravity ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_RagdollRocket.OnUpdate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaSeconds                   ( CPF_Parm )
 
@@ -11909,7 +11909,7 @@ void USFXGameEffect_RagdollRocket::OnUpdate ( float DeltaSeconds )
 };
 
 // Function SFXGameContent.SFXGameEffect_RagdollRocket.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_RagdollRocket::OnApplied ( )
@@ -11985,7 +11985,7 @@ class UClass* USFXCustomAction_DeathReaction::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_DeathReaction.PlayImpactSound
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_DeathReaction::PlayImpactSound ( )
@@ -12001,7 +12001,7 @@ void USFXCustomAction_DeathReaction::PlayImpactSound ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_DeathReaction.BodyStanceAnimEndNotification
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UAnimNodeSequence*       SeqNode                        ( CPF_Parm )
 // float                          PlayedTime                     ( CPF_Parm )
@@ -12023,7 +12023,7 @@ void USFXCustomAction_DeathReaction::BodyStanceAnimEndNotification ( class UAnim
 };
 
 // Function SFXGameContent.SFXCustomAction_DeathReaction.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_DeathReaction::StartCustomAction ( )
@@ -12087,7 +12087,7 @@ void USFXCustomAction_DeathReaction_GibHeadshot::ActivateImpactEmitter ( struct 
 };
 
 // Function SFXGameContent.SFXCustomAction_DeathReaction_GibHeadshot.PrecacheVFX
-// [0x00022002] 
+// [0x00022002]
 // Parameters infos:
 // class ASFXObjectPool*          ObjectPool                     ( CPF_Parm )
 // class URvrClientEffectManager* ClientEffects                  ( CPF_Parm )
@@ -12119,7 +12119,7 @@ class UClass* USFXCustomAction_DeathReaction_GibKnockback::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_DeathReaction_GibKnockback.StopAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_DeathReaction_GibKnockback::StopAnim ( )
@@ -12159,7 +12159,7 @@ void USFXCustomAction_DeathReaction_GibKnockback::ActivateImpactEmitter ( struct
 };
 
 // Function SFXGameContent.SFXCustomAction_DeathReaction_GibKnockback.PrecacheVFX
-// [0x00022002] 
+// [0x00022002]
 // Parameters infos:
 // class ASFXObjectPool*          ObjectPool                     ( CPF_Parm )
 // class URvrClientEffectManager* ClientEffects                  ( CPF_Parm )
@@ -12551,7 +12551,7 @@ class UClass* USFXCustomAction_ShieldBreach::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_ShieldBreach.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_ShieldBreach::StartCustomAction ( )
@@ -12567,7 +12567,7 @@ void USFXCustomAction_ShieldBreach::StartCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_ShieldBreach.InternalCanDoCustomAction
-// [0x00080002] 
+// [0x00080002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                SyncPawn                       ( CPF_Parm )
@@ -12757,7 +12757,7 @@ class UClass* USFXCustomAction_TrooperMelee::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_TrooperMelee.ClientDoCustomActionImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            ImpactCount                    ( CPF_Parm )
@@ -12797,7 +12797,7 @@ class UClass* USFXCustomAction_TrooperStomp::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_TrooperStomp.OnTimelineImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  Target                         ( CPF_Parm )
 
@@ -12815,7 +12815,7 @@ void USFXCustomAction_TrooperStomp::OnTimelineImpact ( class AActor* Target )
 };
 
 // Function SFXGameContent.SFXCustomAction_TrooperStomp.ClientDoCustomActionImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            ImpactCount                    ( CPF_Parm )
@@ -12951,7 +12951,7 @@ class UClass* USFXPowerCustomAction_EnemyGrenade::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_EnemyGrenade.GetProjectileAttachPoint
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 AttachPoint                    ( CPF_Parm | CPF_OutParm )
@@ -13070,7 +13070,7 @@ class UClass* USFXCustomAction_CustomLoopingInteraction::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_CustomLoopingInteraction.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_CustomLoopingInteraction::StartCustomAction ( )
@@ -13110,7 +13110,7 @@ class UClass* USFXCustomAction_HenchBeckonFront::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_HenchBeckonFront.CanOverrideMoveWith
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            OldCustomAction                ( CPF_Parm )
@@ -13145,7 +13145,7 @@ class UClass* USFXCustomAction_HenchBeckonRear::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_HenchBeckonRear.CanOverrideMoveWith
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            OldCustomAction                ( CPF_Parm )
@@ -13180,7 +13180,7 @@ class UClass* USFXCustomAction_HenchCrouch::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_HenchCrouch.CanOverrideMoveWith
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            OldCustomAction                ( CPF_Parm )
@@ -13203,7 +13203,7 @@ bool USFXCustomAction_HenchCrouch::CanOverrideMoveWith ( int OldCustomAction, in
 };
 
 // Function SFXGameContent.SFXCustomAction_HenchCrouch.TriggerEnd
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HenchCrouch::TriggerEnd ( )
@@ -13219,7 +13219,7 @@ void USFXCustomAction_HenchCrouch::TriggerEnd ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_HenchCrouch.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HenchCrouch::StartCustomAction ( )
@@ -13247,7 +13247,7 @@ class UClass* USFXCustomAction_HenchInteractLow::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_HenchInteractLow.CanOverrideMoveWith
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            OldCustomAction                ( CPF_Parm )
@@ -13270,7 +13270,7 @@ bool USFXCustomAction_HenchInteractLow::CanOverrideMoveWith ( int OldCustomActio
 };
 
 // Function SFXGameContent.SFXCustomAction_HenchInteractLow.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HenchInteractLow::StopCustomAction ( )
@@ -13286,7 +13286,7 @@ void USFXCustomAction_HenchInteractLow::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_HenchInteractLow.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HenchInteractLow::StartCustomAction ( )
@@ -13314,7 +13314,7 @@ class UClass* USFXCustomAction_HenchmanMelee::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_HenchmanMelee.TryNextMelee
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HenchmanMelee::TryNextMelee ( )
@@ -13330,7 +13330,7 @@ void USFXCustomAction_HenchmanMelee::TryNextMelee ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_HenchmanMelee.CanContinueMelee
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -13349,7 +13349,7 @@ bool USFXCustomAction_HenchmanMelee::CanContinueMelee ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_HenchmanMelee.BodyStanceAnimEndNotification
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UAnimNodeSequence*       SeqNode                        ( CPF_Parm )
 // float                          PlayedTime                     ( CPF_Parm )
@@ -13371,7 +13371,7 @@ void USFXCustomAction_HenchmanMelee::BodyStanceAnimEndNotification ( class UAnim
 };
 
 // Function SFXGameContent.SFXCustomAction_HenchmanMelee.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HenchmanMelee::StopCustomAction ( )
@@ -13387,7 +13387,7 @@ void USFXCustomAction_HenchmanMelee::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_HenchmanMelee.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HenchmanMelee::StartCustomAction ( )
@@ -13403,7 +13403,7 @@ void USFXCustomAction_HenchmanMelee::StartCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_HenchmanMelee.GetBodyStanceAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FBodyStance             ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // unsigned char                  Stage                          ( CPF_Parm )
@@ -13424,7 +13424,7 @@ struct FBodyStance USFXCustomAction_HenchmanMelee::GetBodyStanceAnim ( unsigned 
 };
 
 // Function SFXGameContent.SFXCustomAction_HenchmanMelee.ShouldUsePistolAnim
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -13478,7 +13478,7 @@ class UClass* USFXCustomAction_HenchOmniTool::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_HenchOmniTool.CanOverrideMoveWith
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            OldCustomAction                ( CPF_Parm )
@@ -13501,7 +13501,7 @@ bool USFXCustomAction_HenchOmniTool::CanOverrideMoveWith ( int OldCustomAction, 
 };
 
 // Function SFXGameContent.SFXCustomAction_HenchOmniTool.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HenchOmniTool::StopCustomAction ( )
@@ -13517,7 +13517,7 @@ void USFXCustomAction_HenchOmniTool::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_HenchOmniTool.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HenchOmniTool::StartCustomAction ( )
@@ -13545,7 +13545,7 @@ class UClass* USFXCustomAction_HenchOmniToolCrouch::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_HenchOmniToolCrouch.CanOverrideMoveWith
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            OldCustomAction                ( CPF_Parm )
@@ -13568,7 +13568,7 @@ bool USFXCustomAction_HenchOmniToolCrouch::CanOverrideMoveWith ( int OldCustomAc
 };
 
 // Function SFXGameContent.SFXCustomAction_HenchOmniToolCrouch.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HenchOmniToolCrouch::StopCustomAction ( )
@@ -13584,7 +13584,7 @@ void USFXCustomAction_HenchOmniToolCrouch::StopCustomAction ( )
 };
 
 // Function SFXGameContent.SFXCustomAction_HenchOmniToolCrouch.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HenchOmniToolCrouch::StartCustomAction ( )
@@ -13612,7 +13612,7 @@ class UClass* USFXCustomAction_HenchRollBackward::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_HenchRollBackward.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HenchRollBackward::StopCustomAction ( )
@@ -13640,7 +13640,7 @@ class UClass* USFXCustomAction_HenchRollForward::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_HenchRollForward.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HenchRollForward::StopCustomAction ( )
@@ -13668,7 +13668,7 @@ class UClass* USFXCustomAction_HenchRollLeft::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_HenchRollLeft.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HenchRollLeft::StopCustomAction ( )
@@ -13696,7 +13696,7 @@ class UClass* USFXCustomAction_HenchRollRight::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_HenchRollRight.StopCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HenchRollRight::StopCustomAction ( )
@@ -13724,7 +13724,7 @@ class UClass* USFXCustomAction_HenchStandIdle::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_HenchStandIdle.CanOverrideMoveWith
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            OldCustomAction                ( CPF_Parm )
@@ -13747,7 +13747,7 @@ bool USFXCustomAction_HenchStandIdle::CanOverrideMoveWith ( int OldCustomAction,
 };
 
 // Function SFXGameContent.SFXCustomAction_HenchStandIdle.TriggerEnd
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXCustomAction_HenchStandIdle::TriggerEnd ( )
@@ -13775,7 +13775,7 @@ class UClass* USFXCustomAction_HenchStandTyping::StaticClass()
 	};
 
 // Function SFXGameContent.SFXCustomAction_HenchStandTyping.CanOverrideMoveWith
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            OldCustomAction                ( CPF_Parm )
@@ -13930,7 +13930,7 @@ class UClass* USFXGameEffect_BarrierLift::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_BarrierLift.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_BarrierLift::OnRemoved ( )
@@ -13962,7 +13962,7 @@ void USFXGameEffect_BarrierLift::UpdateRagdoll ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_BarrierLift.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_BarrierLift::OnApplied ( )
@@ -13990,7 +13990,7 @@ class UClass* USFXGameEffect_DefensiveArmor::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_DefensiveArmor.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_DefensiveArmor::OnRemoved ( )
@@ -14006,7 +14006,7 @@ void USFXGameEffect_DefensiveArmor::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_DefensiveArmor.TurnVFXOff
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_DefensiveArmor::TurnVFXOff ( )
@@ -14022,7 +14022,7 @@ void USFXGameEffect_DefensiveArmor::TurnVFXOff ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_DefensiveArmor.TurnVFXOn
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 
 void USFXGameEffect_DefensiveArmor::TurnVFXOn ( )
@@ -14038,7 +14038,7 @@ void USFXGameEffect_DefensiveArmor::TurnVFXOn ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_DefensiveArmor.OnUpdate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaSeconds                   ( CPF_Parm )
 
@@ -14056,7 +14056,7 @@ void USFXGameEffect_DefensiveArmor::OnUpdate ( float DeltaSeconds )
 };
 
 // Function SFXGameContent.SFXGameEffect_DefensiveArmor.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_DefensiveArmor::OnApplied ( )
@@ -14084,7 +14084,7 @@ class UClass* USFXPowerCustomAction_DefensiveShield::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_DefensiveShield.RestoreSaveState
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_DefensiveShield::RestoreSaveState ( )
@@ -14128,7 +14128,7 @@ bool USFXPowerCustomAction_DefensiveShield::eventShouldUsePower ( class AActor* 
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_DefensiveShield.DoJoinInProgress
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_DefensiveShield::DoJoinInProgress ( )
@@ -14144,7 +14144,7 @@ void USFXPowerCustomAction_DefensiveShield::DoJoinInProgress ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_DefensiveShield.CanUsePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -14165,7 +14165,7 @@ bool USFXPowerCustomAction_DefensiveShield::CanUsePower ( class AActor* Target )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_DefensiveShield.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -14183,7 +14183,7 @@ void USFXPowerCustomAction_DefensiveShield::RecalculateAllPowerData ( unsigned l
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_DefensiveShield.ResetPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_DefensiveShield::ResetPower ( )
@@ -14199,7 +14199,7 @@ void USFXPowerCustomAction_DefensiveShield::ResetPower ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_DefensiveShield.ClientDoPowerSubsequentImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
@@ -14227,7 +14227,7 @@ void USFXPowerCustomAction_DefensiveShield::ClientDoPowerSubsequentImpact ( clas
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_DefensiveShield.TryApplyArmor
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_DefensiveShield::TryApplyArmor ( )
@@ -14261,7 +14261,7 @@ void USFXPowerCustomAction_DefensiveShield::SetupEffect ( class USFXGameEffect_D
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_DefensiveShield.ApplyArmor
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_DefensiveShield::ApplyArmor ( )
@@ -14277,7 +14277,7 @@ void USFXPowerCustomAction_DefensiveShield::ApplyArmor ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_DefensiveShield.RemoveArmor
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_DefensiveShield::RemoveArmor ( )
@@ -14293,7 +14293,7 @@ void USFXPowerCustomAction_DefensiveShield::RemoveArmor ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_DefensiveShield.OnImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -14358,7 +14358,7 @@ class UClass* USFXGameEffect_OverloadChain::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_OverloadChain.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_OverloadChain::OnRemoved ( )
@@ -14374,7 +14374,7 @@ void USFXGameEffect_OverloadChain::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_OverloadChain.ImpactAdditionalTarget
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oActor                         ( CPF_Parm )
@@ -14395,7 +14395,7 @@ bool USFXGameEffect_OverloadChain::ImpactAdditionalTarget ( class AActor* oActor
 };
 
 // Function SFXGameContent.SFXGameEffect_OverloadChain.SelectAndImpactNextTarget
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_OverloadChain::SelectAndImpactNextTarget ( )
@@ -14411,7 +14411,7 @@ void USFXGameEffect_OverloadChain::SelectAndImpactNextTarget ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_OverloadChain.OnUpdate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaSeconds                   ( CPF_Parm )
 
@@ -14449,7 +14449,7 @@ void USFXGameEffect_OverloadChain::PlayBeamEffect ( class UParticleSystemCompone
 };
 
 // Function SFXGameContent.SFXGameEffect_OverloadChain.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_OverloadChain::OnApplied ( )
@@ -14477,7 +14477,7 @@ class UClass* USFXPowerCustomAction_Overload::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_Overload.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Overload::PopulatePowerStatBarEvolves ( )
@@ -14493,7 +14493,7 @@ void USFXPowerCustomAction_Overload::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Overload.ApplyBonus
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct SFXName                 Parameter                      ( CPF_Parm )
 // class USFXGameEffect*          Bonus                          ( CPF_Parm )
@@ -14515,7 +14515,7 @@ void USFXPowerCustomAction_Overload::ApplyBonus ( struct SFXName Parameter, clas
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Overload.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -14533,7 +14533,7 @@ void USFXPowerCustomAction_Overload::RecalculateAllPowerData ( unsigned long bRe
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Overload.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -14551,7 +14551,7 @@ void USFXPowerCustomAction_Overload::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Overload.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -14579,7 +14579,7 @@ bool USFXPowerCustomAction_Overload::ShouldUsePower ( class AActor* Target, FStr
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Overload.ClientDoPowerSubsequentImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
@@ -14607,7 +14607,7 @@ void USFXPowerCustomAction_Overload::ClientDoPowerSubsequentImpact ( class AActo
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Overload.TestAchievement
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oTarget                        ( CPF_Parm )
 
@@ -14625,7 +14625,7 @@ void USFXPowerCustomAction_Overload::TestAchievement ( class AActor* oTarget )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Overload.CreateOverloadChainEffect
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class USFXGameEffect_OverloadChain* ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class USFXModule_GameEffectManager* oManager                       ( CPF_Parm )
@@ -14646,7 +14646,7 @@ class USFXGameEffect_OverloadChain* USFXPowerCustomAction_Overload::CreateOverlo
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Overload.OnImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -14675,7 +14675,7 @@ bool USFXPowerCustomAction_Overload::OnImpact ( unsigned char Resistance, class 
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Overload.GetImpactForce
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -14696,7 +14696,7 @@ float USFXPowerCustomAction_Overload::GetImpactForce ( class AActor* oImpacted )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Overload.GetImpactDamage
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -14724,7 +14724,7 @@ float USFXPowerCustomAction_Overload::GetImpactDamage ( class AActor* oImpacted,
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Overload.OnPowerDetonated
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
@@ -14784,7 +14784,7 @@ class UClass* USFXPowerCustomAction_Reave::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_Reave.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Reave::PopulatePowerStatBarEvolves ( )
@@ -14800,7 +14800,7 @@ void USFXPowerCustomAction_Reave::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Reave.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -14818,7 +14818,7 @@ void USFXPowerCustomAction_Reave::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Reave.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -14836,7 +14836,7 @@ void USFXPowerCustomAction_Reave::RecalculateAllPowerData ( unsigned long bReset
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Reave.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -14864,7 +14864,7 @@ bool USFXPowerCustomAction_Reave::ShouldUsePower ( class AActor* Target, FString
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Reave.StopSounds
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Reave::StopSounds ( )
@@ -14880,7 +14880,7 @@ void USFXPowerCustomAction_Reave::StopSounds ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Reave.OnImpact
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -14909,7 +14909,7 @@ bool USFXPowerCustomAction_Reave::OnImpact ( unsigned char Resistance, class AAc
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Reave.GetImpactDamage
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -14937,7 +14937,7 @@ float USFXPowerCustomAction_Reave::GetImpactDamage ( class AActor* oImpacted, cl
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Reave.OnPowerDetonated
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct FVector                 HitLocation                    ( CPF_Parm )
 // struct FVector                 HitNormal                      ( CPF_Parm )
@@ -14973,7 +14973,7 @@ class UClass* USFXPowerCustomAction_CryoBlast::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_CryoBlast.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_CryoBlast::PopulatePowerStatBarEvolves ( )
@@ -14989,7 +14989,7 @@ void USFXPowerCustomAction_CryoBlast::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_CryoBlast.ApplyBonus
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct SFXName                 Parameter                      ( CPF_Parm )
 // class USFXGameEffect*          Bonus                          ( CPF_Parm )
@@ -15011,7 +15011,7 @@ void USFXPowerCustomAction_CryoBlast::ApplyBonus ( struct SFXName Parameter, cla
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_CryoBlast.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -15029,7 +15029,7 @@ void USFXPowerCustomAction_CryoBlast::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_CryoBlast.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -15047,7 +15047,7 @@ void USFXPowerCustomAction_CryoBlast::RecalculateAllPowerData ( unsigned long bR
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_CryoBlast.GetDefaultClientEffectParams
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FVector                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -15066,7 +15066,7 @@ struct FVector USFXPowerCustomAction_CryoBlast::GetDefaultClientEffectParams ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_CryoBlast.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -15094,7 +15094,7 @@ bool USFXPowerCustomAction_CryoBlast::ShouldUsePower ( class AActor* Target, FSt
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_CryoBlast.ClientDoPowerSubsequentImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
@@ -15184,7 +15184,7 @@ void USFXPowerCustomAction_CryoBlast::ApplyFreezeEffect ( class ABioPawn* oPawn,
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_CryoBlast.OnImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -15225,7 +15225,7 @@ class UClass* USFXPowerCustomAction_Barrier::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_Barrier.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Barrier::PopulatePowerStatBarEvolves ( )
@@ -15241,7 +15241,7 @@ void USFXPowerCustomAction_Barrier::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Barrier.ApplyBonus
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct SFXName                 Parameter                      ( CPF_Parm )
 // class USFXGameEffect*          Bonus                          ( CPF_Parm )
@@ -15263,7 +15263,7 @@ void USFXPowerCustomAction_Barrier::ApplyBonus ( struct SFXName Parameter, class
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Barrier.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -15281,7 +15281,7 @@ void USFXPowerCustomAction_Barrier::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Barrier.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -15299,7 +15299,7 @@ void USFXPowerCustomAction_Barrier::RecalculateAllPowerData ( unsigned long bRes
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Barrier.OnBlastImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -15328,7 +15328,7 @@ bool USFXPowerCustomAction_Barrier::OnBlastImpact ( unsigned char Resistance, cl
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Barrier.ClientDoPowerSubsequentImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
@@ -15356,7 +15356,7 @@ void USFXPowerCustomAction_Barrier::ClientDoPowerSubsequentImpact ( class AActor
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Barrier.DoBlast
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Barrier::DoBlast ( )
@@ -15372,7 +15372,7 @@ void USFXPowerCustomAction_Barrier::DoBlast ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Barrier.RemoveArmor
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Barrier::RemoveArmor ( )
@@ -15388,7 +15388,7 @@ void USFXPowerCustomAction_Barrier::RemoveArmor ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Barrier.StartPowerCooldown
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 
 void USFXPowerCustomAction_Barrier::StartPowerCooldown ( )
@@ -15404,7 +15404,7 @@ void USFXPowerCustomAction_Barrier::StartPowerCooldown ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Barrier.ApplyArmor
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Barrier::ApplyArmor ( )
@@ -15420,7 +15420,7 @@ void USFXPowerCustomAction_Barrier::ApplyArmor ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Barrier.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Barrier::StartCustomAction ( )
@@ -15448,7 +15448,7 @@ class UClass* USFXPowerCustomAction_KaidenPassive::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_KaidenPassive.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_KaidenPassive::PopulatePowerStatBarEvolves ( )
@@ -15464,7 +15464,7 @@ void USFXPowerCustomAction_KaidenPassive::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_KaidenPassive.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -15482,7 +15482,7 @@ void USFXPowerCustomAction_KaidenPassive::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_KaidenPassive.ResetPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_KaidenPassive::ResetPower ( )
@@ -15498,7 +15498,7 @@ void USFXPowerCustomAction_KaidenPassive::ResetPower ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_KaidenPassive.ApplyGlobalBonus
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_KaidenPassive::ApplyGlobalBonus ( )
@@ -15526,7 +15526,7 @@ class UClass* USFXPowerCustomAction_HenchmanPassive::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_HenchmanPassive.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -15544,7 +15544,7 @@ void USFXPowerCustomAction_HenchmanPassive::RecalculateAllPowerData ( unsigned l
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_HenchmanPassive.ApplyGlobalBonus
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_HenchmanPassive::ApplyGlobalBonus ( )
@@ -15794,7 +15794,7 @@ void USFXGameEffect_AmmoPower::eventOnUpdate ( float DeltaSeconds )
 };
 
 // Function SFXGameContent.SFXGameEffect_AmmoPower.OnWeaponUnequip
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
 
@@ -15812,7 +15812,7 @@ void USFXGameEffect_AmmoPower::OnWeaponUnequip ( class ASFXWeapon* Weapon )
 };
 
 // Function SFXGameContent.SFXGameEffect_AmmoPower.OnWeaponEquip
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
 
@@ -15830,7 +15830,7 @@ void USFXGameEffect_AmmoPower::OnWeaponEquip ( class ASFXWeapon* Weapon )
 };
 
 // Function SFXGameContent.SFXGameEffect_AmmoPower.OnWeaponReload
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
 
@@ -15848,7 +15848,7 @@ void USFXGameEffect_AmmoPower::OnWeaponReload ( class ASFXWeapon* Weapon )
 };
 
 // Function SFXGameContent.SFXGameEffect_AmmoPower.GetDamageVocProbabilityMod
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -15867,7 +15867,7 @@ float USFXGameEffect_AmmoPower::GetDamageVocProbabilityMod ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_AmmoPower.OnWeaponImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
 // struct FImpactInfo             Impact                         ( CPF_Parm )
@@ -15887,7 +15887,7 @@ void USFXGameEffect_AmmoPower::OnWeaponImpact ( class ASFXWeapon* Weapon, struct
 };
 
 // Function SFXGameContent.SFXGameEffect_AmmoPower.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_AmmoPower::OnRemoved ( )
@@ -15903,7 +15903,7 @@ void USFXGameEffect_AmmoPower::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_AmmoPower.GetBulletsPerSecond
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
@@ -15924,7 +15924,7 @@ float USFXGameEffect_AmmoPower::GetBulletsPerSecond ( class ASFXWeapon* Weapon )
 };
 
 // Function SFXGameContent.SFXGameEffect_AmmoPower.GetWeaponDamage
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
@@ -15947,7 +15947,7 @@ float USFXGameEffect_AmmoPower::GetWeaponDamage ( class ASFXWeapon* Weapon, stru
 };
 
 // Function SFXGameContent.SFXGameEffect_AmmoPower.GetHitTarget
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FImpactInfo             Impact                         ( CPF_Parm )
@@ -15968,7 +15968,7 @@ class AActor* USFXGameEffect_AmmoPower::GetHitTarget ( struct FImpactInfo const&
 };
 
 // Function SFXGameContent.SFXGameEffect_AmmoPower.SetupFromWeapon
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_AmmoPower::SetupFromWeapon ( )
@@ -15984,7 +15984,7 @@ void USFXGameEffect_AmmoPower::SetupFromWeapon ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_AmmoPower.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_AmmoPower::OnApplied ( )
@@ -16028,7 +16028,7 @@ void USFXPowerCustomAction_AmmoPower::DelayedSetWeaponPower ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.ClientDoCustomActionImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            ImpactCount                    ( CPF_Parm )
@@ -16056,7 +16056,7 @@ void USFXPowerCustomAction_AmmoPower::ClientDoCustomActionImpact ( class AActor*
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.DoJoinInProgress
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_AmmoPower::DoJoinInProgress ( )
@@ -16072,7 +16072,7 @@ void USFXPowerCustomAction_AmmoPower::DoJoinInProgress ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.SetupEffect
-// [0x00024000] 
+// [0x00024000]
 // Parameters infos:
 // class USFXGameEffect_AmmoPower* Effect                         ( CPF_Parm )
 // class ABioPawn*                oPawn                          ( CPF_OptionalParm | CPF_Parm )
@@ -16092,7 +16092,7 @@ void USFXPowerCustomAction_AmmoPower::SetupEffect ( class USFXGameEffect_AmmoPow
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.OnPowerRankIncreased
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_AmmoPower::OnPowerRankIncreased ( )
@@ -16108,7 +16108,7 @@ void USFXPowerCustomAction_AmmoPower::OnPowerRankIncreased ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -16136,7 +16136,7 @@ bool USFXPowerCustomAction_AmmoPower::ShouldUsePower ( class AActor* Target, FSt
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.DoConcussiveShotSpecialImpact
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // class AActor*                  oImpacted                      ( CPF_Parm )
 // float                          ImpactEffectDuration           ( CPF_Parm )
@@ -16156,7 +16156,7 @@ void USFXPowerCustomAction_AmmoPower::DoConcussiveShotSpecialImpact ( class AAct
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.ClientDoPowerSubsequentImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
@@ -16184,7 +16184,7 @@ void USFXPowerCustomAction_AmmoPower::ClientDoPowerSubsequentImpact ( class AAct
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.ReplicateConcussiveShotSpecialImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                oImpacted                      ( CPF_Parm )
 // float                          DurationOfEffect               ( CPF_Parm )
@@ -16204,7 +16204,7 @@ void USFXPowerCustomAction_AmmoPower::ReplicateConcussiveShotSpecialImpact ( cla
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.ConcussiveShotCustomImpact
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // unsigned char                  Resistance                     ( CPF_Parm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -16230,7 +16230,7 @@ void USFXPowerCustomAction_AmmoPower::ConcussiveShotCustomImpact ( unsigned char
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.ApplyPowerEffects
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // class ABioPawn*                oPawn                          ( CPF_Parm )
 // class ASFXWeapon*              oWeapon                        ( CPF_Parm )
@@ -16250,7 +16250,7 @@ void USFXPowerCustomAction_AmmoPower::ApplyPowerEffects ( class ABioPawn* oPawn,
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.SetWeaponPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                oPawn                          ( CPF_Parm )
@@ -16275,7 +16275,7 @@ bool USFXPowerCustomAction_AmmoPower::SetWeaponPower ( class ABioPawn* oPawn, cl
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.DeferedSetWeaponPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_AmmoPower::DeferedSetWeaponPower ( )
@@ -16291,7 +16291,7 @@ void USFXPowerCustomAction_AmmoPower::DeferedSetWeaponPower ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.OnImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -16320,7 +16320,7 @@ bool USFXPowerCustomAction_AmmoPower::OnImpact ( unsigned char Resistance, class
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.ReloadAmmoPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                Target                         ( CPF_Parm )
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
@@ -16356,7 +16356,7 @@ void USFXPowerCustomAction_AmmoPower::StopOmniTool ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.StartCustomAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_AmmoPower::StartCustomAction ( )
@@ -16372,7 +16372,7 @@ void USFXPowerCustomAction_AmmoPower::StartCustomAction ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.CanUsePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oTarget                        ( CPF_Parm )
@@ -16393,7 +16393,7 @@ bool USFXPowerCustomAction_AmmoPower::CanUsePower ( class AActor* oTarget )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_AmmoPower.PrecacheVFX
-// [0x00022002] 
+// [0x00022002]
 // Parameters infos:
 // class ASFXObjectPool*          ObjectPool                     ( CPF_Parm )
 // class URvrClientEffectManager* ClientEffects                  ( CPF_Parm )
@@ -16461,7 +16461,7 @@ class UClass* USFXGameEffect_IncendiaryAmmo::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_IncendiaryAmmo.AddGameEffects
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oTarget                        ( CPF_Parm )
 
@@ -16479,7 +16479,7 @@ void USFXGameEffect_IncendiaryAmmo::AddGameEffects ( class AActor* oTarget )
 };
 
 // Function SFXGameContent.SFXGameEffect_IncendiaryAmmo.GetDamageVocProbabilityMod
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -16498,7 +16498,7 @@ float USFXGameEffect_IncendiaryAmmo::GetDamageVocProbabilityMod ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_IncendiaryAmmo.OnWeaponImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ASFXWeapon*              Weapon                         ( CPF_Parm )
 // struct FImpactInfo             Impact                         ( CPF_Parm )
@@ -16518,7 +16518,7 @@ void USFXGameEffect_IncendiaryAmmo::OnWeaponImpact ( class ASFXWeapon* Weapon, s
 };
 
 // Function SFXGameContent.SFXGameEffect_IncendiaryAmmo.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_IncendiaryAmmo::OnRemoved ( )
@@ -16534,7 +16534,7 @@ void USFXGameEffect_IncendiaryAmmo::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_IncendiaryAmmo.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_IncendiaryAmmo::OnApplied ( )
@@ -16550,7 +16550,7 @@ void USFXGameEffect_IncendiaryAmmo::OnApplied ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_IncendiaryAmmo.PrecacheVFX
-// [0x00022002] 
+// [0x00022002]
 // Parameters infos:
 // class ASFXObjectPool*          ObjectPool                     ( CPF_Parm )
 // class URvrClientEffectManager* ClientEffects                  ( CPF_Parm )
@@ -16582,7 +16582,7 @@ class UClass* USFXPowerCustomAction_IncendiaryAmmo::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_IncendiaryAmmo.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_IncendiaryAmmo::PopulatePowerStatBarEvolves ( )
@@ -16598,7 +16598,7 @@ void USFXPowerCustomAction_IncendiaryAmmo::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_IncendiaryAmmo.ApplyBonus
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct SFXName                 Parameter                      ( CPF_Parm )
 // class USFXGameEffect*          Bonus                          ( CPF_Parm )
@@ -16620,7 +16620,7 @@ void USFXPowerCustomAction_IncendiaryAmmo::ApplyBonus ( struct SFXName Parameter
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_IncendiaryAmmo.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -16638,7 +16638,7 @@ void USFXPowerCustomAction_IncendiaryAmmo::RecalculateAllPowerData ( unsigned lo
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_IncendiaryAmmo.ResetPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_IncendiaryAmmo::ResetPower ( )
@@ -16654,7 +16654,7 @@ void USFXPowerCustomAction_IncendiaryAmmo::ResetPower ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_IncendiaryAmmo.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -16672,7 +16672,7 @@ void USFXPowerCustomAction_IncendiaryAmmo::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_IncendiaryAmmo.GetIncendiaryAmmoEffect
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class USFXGameEffect_IncendiaryAmmo* ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -16691,7 +16691,7 @@ class USFXGameEffect_IncendiaryAmmo* USFXPowerCustomAction_IncendiaryAmmo::GetIn
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_IncendiaryAmmo.OnActorImpacted
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -16720,7 +16720,7 @@ bool USFXPowerCustomAction_IncendiaryAmmo::OnActorImpacted ( unsigned char Resis
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_IncendiaryAmmo.DoConcussiveShotSpecialImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  oImpacted                      ( CPF_Parm )
 // float                          ImpactEffectDuration           ( CPF_Parm )
@@ -16740,7 +16740,7 @@ void USFXPowerCustomAction_IncendiaryAmmo::DoConcussiveShotSpecialImpact ( class
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_IncendiaryAmmo.ConcussiveShotCustomImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  Resistance                     ( CPF_Parm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -16766,7 +16766,7 @@ void USFXPowerCustomAction_IncendiaryAmmo::ConcussiveShotCustomImpact ( unsigned
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_IncendiaryAmmo.ClientDoPowerSubsequentImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            CustomActionReactionType       ( CPF_OptionalParm | CPF_Parm )
@@ -16794,7 +16794,7 @@ void USFXPowerCustomAction_IncendiaryAmmo::ClientDoPowerSubsequentImpact ( class
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_IncendiaryAmmo.ClientDoCustomActionImpact
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  oActor                         ( CPF_Parm )
 // int                            ImpactCount                    ( CPF_Parm )
@@ -16822,7 +16822,7 @@ void USFXPowerCustomAction_IncendiaryAmmo::ClientDoCustomActionImpact ( class AA
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_IncendiaryAmmo.DoEvolvedAoEImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FImpactInfo             Impact                         ( CPF_Parm )
 // class USFXGameEffect_IncendiaryAmmo* Effect                         ( CPF_Parm )
@@ -16864,7 +16864,7 @@ void USFXPowerCustomAction_IncendiaryAmmo::SpawnRandomImpactVFX ( class ABioPawn
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_IncendiaryAmmo.SetupEffect
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class USFXGameEffect_AmmoPower* Effect                         ( CPF_Parm )
 // class ABioPawn*                oPawn                          ( CPF_OptionalParm | CPF_Parm )
@@ -16903,7 +16903,7 @@ class UClass* USFXPowerCustomAction_IncendiaryAmmo::GetDamageType ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_IncendiaryAmmo.ApplyPowerEffects
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                oPawn                          ( CPF_Parm )
 // class ASFXWeapon*              oWeapon                        ( CPF_Parm )
@@ -16923,7 +16923,7 @@ void USFXPowerCustomAction_IncendiaryAmmo::ApplyPowerEffects ( class ABioPawn* o
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_IncendiaryAmmo.PrecacheVFX
-// [0x00022002] 
+// [0x00022002]
 // Parameters infos:
 // class ASFXObjectPool*          ObjectPool                     ( CPF_Parm )
 // class URvrClientEffectManager* ClientEffects                  ( CPF_Parm )
@@ -16955,7 +16955,7 @@ class UClass* USFXGameEffect_WeaponVFXChange::StaticClass()
 	};
 
 // Function SFXGameContent.SFXGameEffect_WeaponVFXChange.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_WeaponVFXChange::OnRemoved ( )
@@ -16971,7 +16971,7 @@ void USFXGameEffect_WeaponVFXChange::OnRemoved ( )
 };
 
 // Function SFXGameContent.SFXGameEffect_WeaponVFXChange.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_WeaponVFXChange::OnApplied ( )
@@ -17011,7 +17011,7 @@ class UClass* USFXPowerCustomAction_FragGrenade::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_FragGrenade.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_FragGrenade::PopulatePowerStatBarEvolves ( )
@@ -17027,7 +17027,7 @@ void USFXPowerCustomAction_FragGrenade::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_FragGrenade.GetDefaultClientEffectParams
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FVector                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -17046,7 +17046,7 @@ struct FVector USFXPowerCustomAction_FragGrenade::GetDefaultClientEffectParams (
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_FragGrenade.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -17064,7 +17064,7 @@ void USFXPowerCustomAction_FragGrenade::RecalculateAllPowerData ( unsigned long 
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_FragGrenade.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -17082,7 +17082,7 @@ void USFXPowerCustomAction_FragGrenade::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_FragGrenade.OnImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -17111,7 +17111,7 @@ bool USFXPowerCustomAction_FragGrenade::OnImpact ( unsigned char Resistance, cla
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_FragGrenade.ApplyGrenadeBonus
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_FragGrenade::ApplyGrenadeBonus ( )
@@ -17127,7 +17127,7 @@ void USFXPowerCustomAction_FragGrenade::ApplyGrenadeBonus ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_FragGrenade.GetDamageType
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UClass*                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -17146,7 +17146,7 @@ class UClass* USFXPowerCustomAction_FragGrenade::GetDamageType ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_FragGrenade.GetImpactDamage
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -17174,7 +17174,7 @@ float USFXPowerCustomAction_FragGrenade::GetImpactDamage ( class AActor* oImpact
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_FragGrenade.PlayDetonationEffects
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct FVector                 ImpactLocation                 ( CPF_Parm )
 // struct FVector                 ImpactNormal                   ( CPF_Parm )
@@ -17208,7 +17208,7 @@ class UClass* USFXPowerCustomAction_Carnage::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_Carnage.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Carnage::PopulatePowerStatBarEvolves ( )
@@ -17224,7 +17224,7 @@ void USFXPowerCustomAction_Carnage::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Carnage.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -17242,7 +17242,7 @@ void USFXPowerCustomAction_Carnage::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Carnage.ShouldUsePower
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Target                         ( CPF_Parm )
@@ -17270,7 +17270,7 @@ bool USFXPowerCustomAction_Carnage::ShouldUsePower ( class AActor* Target, FStri
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Carnage.PlayDetonationEffects
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct FVector                 ImpactLocation                 ( CPF_Parm )
 // struct FVector                 ImpactNormal                   ( CPF_Parm )
@@ -17292,7 +17292,7 @@ void USFXPowerCustomAction_Carnage::PlayDetonationEffects ( struct FVector const
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Carnage.GetProjectileAttachPoint
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 AttachPoint                    ( CPF_Parm | CPF_OutParm )
@@ -17318,7 +17318,7 @@ bool USFXPowerCustomAction_Carnage::GetProjectileAttachPoint ( struct FVector* A
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Carnage.ReleasePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Carnage::ReleasePower ( )
@@ -17334,7 +17334,7 @@ void USFXPowerCustomAction_Carnage::ReleasePower ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Carnage.PrecacheVFX
-// [0x00022002] 
+// [0x00022002]
 // Parameters infos:
 // class ASFXObjectPool*          ObjectPool                     ( CPF_Parm )
 // class URvrClientEffectManager* ClientEffects                  ( CPF_Parm )
@@ -17354,7 +17354,7 @@ void USFXPowerCustomAction_Carnage::PrecacheVFX ( class ASFXObjectPool* ObjectPo
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Carnage.OnImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  Resistance                     ( CPF_Parm )
@@ -17383,7 +17383,7 @@ bool USFXPowerCustomAction_Carnage::OnImpact ( unsigned char Resistance, class A
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Carnage.GetTotalDamage
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -17413,7 +17413,7 @@ float USFXPowerCustomAction_Carnage::GetTotalDamage ( class AActor* oImpacted, u
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Carnage.GetImpactDamage
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -17441,7 +17441,7 @@ float USFXPowerCustomAction_Carnage::GetImpactDamage ( class AActor* oImpacted, 
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Carnage.DoPowerDetonatedForActor
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oActor                         ( CPF_Parm )
@@ -17484,7 +17484,7 @@ class UClass* USFXPowerCustomAction_Fortification::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_Fortification.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Fortification::PopulatePowerStatBarEvolves ( )
@@ -17500,7 +17500,7 @@ void USFXPowerCustomAction_Fortification::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Fortification.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -17518,7 +17518,7 @@ void USFXPowerCustomAction_Fortification::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Fortification.RecalculateAllPowerData
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bReset                         ( CPF_OptionalParm | CPF_Parm )
 
@@ -17536,7 +17536,7 @@ void USFXPowerCustomAction_Fortification::RecalculateAllPowerData ( unsigned lon
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Fortification.RemoveArmor
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Fortification::RemoveArmor ( )
@@ -17552,7 +17552,7 @@ void USFXPowerCustomAction_Fortification::RemoveArmor ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Fortification.StartPowerCooldown
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 
 void USFXPowerCustomAction_Fortification::StartPowerCooldown ( )
@@ -17568,7 +17568,7 @@ void USFXPowerCustomAction_Fortification::StartPowerCooldown ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_Fortification.ApplyArmor
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_Fortification::ApplyArmor ( )
@@ -17596,7 +17596,7 @@ class UClass* USFXPowerCustomAction_JimmyPassive::StaticClass()
 	};
 
 // Function SFXGameContent.SFXPowerCustomAction_JimmyPassive.PopulatePowerStatBarEvolves
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_JimmyPassive::PopulatePowerStatBarEvolves ( )
@@ -17612,7 +17612,7 @@ void USFXPowerCustomAction_JimmyPassive::PopulatePowerStatBarEvolves ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_JimmyPassive.EvolvePower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  choice                         ( CPF_Parm )
 
@@ -17630,7 +17630,7 @@ void USFXPowerCustomAction_JimmyPassive::EvolvePower ( unsigned char choice )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_JimmyPassive.ResetPower
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_JimmyPassive::ResetPower ( )
@@ -17646,7 +17646,7 @@ void USFXPowerCustomAction_JimmyPassive::ResetPower ( )
 };
 
 // Function SFXGameContent.SFXPowerCustomAction_JimmyPassive.ApplyGlobalBonus
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXPowerCustomAction_JimmyPassive::ApplyGlobalBonus ( )
@@ -17800,7 +17800,7 @@ void USFXGUI_ShotgunReticle::eventPerformReticleShow ( unsigned long bInstant )
 };
 
 // Function SFXGameContent.SFXGUI_ShotgunReticle.OnReticleLoaded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGUI_ShotgunReticle::OnReticleLoaded ( )

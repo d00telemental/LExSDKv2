@@ -11,7 +11,7 @@
 */
 
 
-#include "../Includes.LE1.hpp"
+#include "LESDK/Includes.LE1.hpp"
 
 
 #ifdef _MSC_VER
@@ -404,7 +404,7 @@ void UGFxMovie::ActionScriptVoid ( FString const& Path )
 };
 
 // Function GFxUI.GFxMovie.SetExternalInterface
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UObject*                 H                              ( CPF_Parm )
 
@@ -422,7 +422,7 @@ void UGFxMovie::SetExternalInterface ( class UObject* H )
 };
 
 // Function GFxUI.GFxMovie.SetFsCmdHandler
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UGFxFSCmdHandler*        H                              ( CPF_Parm )
 
@@ -1589,7 +1589,7 @@ class UGameViewportClient* UGFxMovie::GetGameViewportClient ( )
 };
 
 // Function GFxUI.GFxMovie.SetMovieInfo
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UGFxMovieInfo*           Data                           ( CPF_Parm )
 

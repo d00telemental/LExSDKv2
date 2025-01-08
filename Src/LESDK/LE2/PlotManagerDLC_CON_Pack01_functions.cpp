@@ -11,7 +11,7 @@
 */
 
 
-#include "../Includes.LE2.hpp"
+#include "LESDK/Includes.LE2.hpp"
 
 
 #ifdef _MSC_VER
@@ -39,7 +39,7 @@ class UClass* UBioAutoConditionals::StaticClass()
 	};
 
 // Function PlotManagerDLC_CON_Pack01.BioAutoConditionals.F1532
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -62,7 +62,7 @@ bool UBioAutoConditionals::F1532 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_CON_Pack01.BioAutoConditionals.F1531
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -85,7 +85,7 @@ bool UBioAutoConditionals::F1531 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_CON_Pack01.BioAutoConditionals.F1526
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )

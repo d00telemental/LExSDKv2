@@ -11,7 +11,7 @@
 */
 
 
-#include "../Includes.LE2.hpp"
+#include "LESDK/Includes.LE2.hpp"
 
 
 #ifdef _MSC_VER
@@ -39,7 +39,7 @@ class UClass* UBioAutoConditionals::StaticClass()
 	};
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1863
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -62,7 +62,7 @@ bool UBioAutoConditionals::F1863 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1862
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -85,7 +85,7 @@ bool UBioAutoConditionals::F1862 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1861
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -108,7 +108,7 @@ bool UBioAutoConditionals::F1861 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1860
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -131,7 +131,7 @@ bool UBioAutoConditionals::F1860 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1859
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -154,7 +154,7 @@ bool UBioAutoConditionals::F1859 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1858
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -177,7 +177,7 @@ bool UBioAutoConditionals::F1858 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1881
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -200,7 +200,7 @@ bool UBioAutoConditionals::F1881 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1880
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -223,7 +223,7 @@ bool UBioAutoConditionals::F1880 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1972
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -246,7 +246,7 @@ bool UBioAutoConditionals::F1972 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1971
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -269,7 +269,7 @@ bool UBioAutoConditionals::F1971 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1970
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -292,7 +292,7 @@ bool UBioAutoConditionals::F1970 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1840
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -315,7 +315,7 @@ bool UBioAutoConditionals::F1840 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1839
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -338,7 +338,7 @@ bool UBioAutoConditionals::F1839 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1762
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -361,7 +361,7 @@ bool UBioAutoConditionals::F1762 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1760
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -384,7 +384,7 @@ bool UBioAutoConditionals::F1760 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1759
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -407,7 +407,7 @@ bool UBioAutoConditionals::F1759 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1758
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -430,7 +430,7 @@ bool UBioAutoConditionals::F1758 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1757
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -453,7 +453,7 @@ bool UBioAutoConditionals::F1757 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1722
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -476,7 +476,7 @@ bool UBioAutoConditionals::F1722 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1721
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -499,7 +499,7 @@ bool UBioAutoConditionals::F1721 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1720
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -522,7 +522,7 @@ bool UBioAutoConditionals::F1720 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1719
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -545,7 +545,7 @@ bool UBioAutoConditionals::F1719 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1718
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -568,7 +568,7 @@ bool UBioAutoConditionals::F1718 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1717
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -591,7 +591,7 @@ bool UBioAutoConditionals::F1717 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1716
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -614,7 +614,7 @@ bool UBioAutoConditionals::F1716 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1715
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -637,7 +637,7 @@ bool UBioAutoConditionals::F1715 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1714
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -660,7 +660,7 @@ bool UBioAutoConditionals::F1714 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1713
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -683,7 +683,7 @@ bool UBioAutoConditionals::F1713 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F2029
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -706,7 +706,7 @@ bool UBioAutoConditionals::F2029 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1973
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -729,7 +729,7 @@ bool UBioAutoConditionals::F1973 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1761
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -752,7 +752,7 @@ bool UBioAutoConditionals::F1761 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1736
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -775,7 +775,7 @@ bool UBioAutoConditionals::F1736 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1710
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -798,7 +798,7 @@ bool UBioAutoConditionals::F1710 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1709
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -821,7 +821,7 @@ bool UBioAutoConditionals::F1709 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1708
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -844,7 +844,7 @@ bool UBioAutoConditionals::F1708 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1707
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -867,7 +867,7 @@ bool UBioAutoConditionals::F1707 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1706
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -890,7 +890,7 @@ bool UBioAutoConditionals::F1706 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1705
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -913,7 +913,7 @@ bool UBioAutoConditionals::F1705 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1704
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -936,7 +936,7 @@ bool UBioAutoConditionals::F1704 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1703
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -959,7 +959,7 @@ bool UBioAutoConditionals::F1703 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1702
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )
@@ -982,7 +982,7 @@ bool UBioAutoConditionals::F1702 ( class ABioWorldInfo* bioWorld, int Argument )
 };
 
 // Function PlotManagerDLC_00_Shared.BioAutoConditionals.F1701
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioWorldInfo*           bioWorld                       ( CPF_Parm )

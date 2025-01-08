@@ -11,7 +11,7 @@
 */
 
 
-#include "../Includes.LE3.hpp"
+#include "LESDK/Includes.LE3.hpp"
 
 
 #ifdef _MSC_VER
@@ -89,7 +89,7 @@ int USFXSeqAct_ClearAreaMap::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_ClearAreaMap.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_ClearAreaMap::Activated ( )
@@ -117,7 +117,7 @@ class UClass* USFXSeqAct_GetHenchmenInSquad::StaticClass()
 	};
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_GetHenchmenInSquad.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_GetHenchmenInSquad::Activated ( )
@@ -133,7 +133,7 @@ void USFXSeqAct_GetHenchmenInSquad::Activated ( )
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_GetHenchmenInSquad.GetPriority
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class APawn*                   Henchman                       ( CPF_Parm )
@@ -166,7 +166,7 @@ class UClass* USFXSeqAct_GetTag::StaticClass()
 	};
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_GetTag.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_GetTag::Activated ( )
@@ -226,7 +226,7 @@ void Usfxseqact_leavemission::eventActivated ( )
 };
 
 // Function SFXGameContentLiveKismet.sfxseqact_leavemission.getWorld
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioWorldInfo*           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -276,7 +276,7 @@ int USFXSeqAct_SaveGame::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_SaveGame.BeginSave
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FSFXSaveDescriptor      Descriptor                     ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -294,7 +294,7 @@ void USFXSeqAct_SaveGame::BeginSave ( struct FSFXSaveDescriptor const& Descripto
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_SaveGame.Deactivated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_SaveGame::Deactivated ( )
@@ -310,7 +310,7 @@ void USFXSeqAct_SaveGame::Deactivated ( )
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_SaveGame.Update
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // float                          DeltaTime                      ( CPF_Parm )
@@ -331,7 +331,7 @@ bool USFXSeqAct_SaveGame::Update ( float DeltaTime )
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_SaveGame.Activated
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 
 void USFXSeqAct_SaveGame::Activated ( )
@@ -366,7 +366,7 @@ class ABioPlayerController* USFXSeqAct_SaveGame::GetBioPlayerController ( )
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_SaveGame.CanSave
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPlayerController*    PC                             ( CPF_Parm )
@@ -399,7 +399,7 @@ class UClass* USFXSeqAct_SetTag::StaticClass()
 	};
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_SetTag.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_SetTag::Activated ( )
@@ -443,7 +443,7 @@ void USFXSeqAct_SetWasInSquad::eventActivated ( )
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_SetWasInSquad.getWorld
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioWorldInfo*           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -493,7 +493,7 @@ int USFXSeqAct_TogglePlayerSaves::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_TogglePlayerSaves.SetSavingPossible
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_TogglePlayerSaves::SetSavingPossible ( )
@@ -509,7 +509,7 @@ void USFXSeqAct_TogglePlayerSaves::SetSavingPossible ( )
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_TogglePlayerSaves.LogFlags
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_TogglePlayerSaves::LogFlags ( )
@@ -525,7 +525,7 @@ void USFXSeqAct_TogglePlayerSaves::LogFlags ( )
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_TogglePlayerSaves.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_TogglePlayerSaves::Activated ( )
@@ -541,7 +541,7 @@ void USFXSeqAct_TogglePlayerSaves::Activated ( )
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_TogglePlayerSaves.GetReason
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  SetReason                      ( CPF_Parm )
@@ -562,7 +562,7 @@ bool USFXSeqAct_TogglePlayerSaves::GetReason ( unsigned char SetReason )
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_TogglePlayerSaves.SetReason
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  SetReason                      ( CPF_Parm )
 // unsigned long                  bDisableSaves                  ( CPF_Parm )
@@ -582,7 +582,7 @@ void USFXSeqAct_TogglePlayerSaves::SetReason ( unsigned char SetReason, unsigned
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_TogglePlayerSaves.GetPlotID
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // int                            ReasonID                       ( CPF_Parm )
@@ -717,7 +717,7 @@ int USFXSeqAct_ToggleHelmet::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_ToggleHelmet.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_ToggleHelmet::Activated ( )
@@ -764,7 +764,7 @@ int UBioSeqAct_GetMembersOfSquad::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContentLiveKismet.BioSeqAct_GetMembersOfSquad.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioSeqAct_GetMembersOfSquad::Activated ( )
@@ -811,7 +811,7 @@ class UClass* USFXSeqAct_GetMapName::StaticClass()
 	};
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_GetMapName.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_GetMapName::Activated ( )
@@ -867,7 +867,7 @@ class UClass* UBioSeqAct_CancelHint::StaticClass()
 	};
 
 // Function SFXGameContentLiveKismet.BioSeqAct_CancelHint.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioSeqAct_CancelHint::Activated ( )
@@ -914,7 +914,7 @@ int UBioSeqAct_CheckIfInVolume::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContentLiveKismet.BioSeqAct_CheckIfInVolume.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioSeqAct_CheckIfInVolume::Activated ( )
@@ -961,7 +961,7 @@ int UBioSeqAct_ShowHint::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContentLiveKismet.BioSeqAct_ShowHint.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioSeqAct_ShowHint::Activated ( )
@@ -1008,7 +1008,7 @@ int USFXSeqAct_AddPawnToPerception::eventGetObjClassVersion ( )
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_AddPawnToPerception.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_AddPawnToPerception::Activated ( )
@@ -1036,7 +1036,7 @@ class UClass* USFXSeqAct_CompareAliveSquadMembers::StaticClass()
 	};
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_CompareAliveSquadMembers.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_CompareAliveSquadMembers::Activated ( )
@@ -1064,7 +1064,7 @@ class UClass* USFXSeqAct_ForcePlayerIntoCover::StaticClass()
 	};
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_ForcePlayerIntoCover.Activated
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 
 void USFXSeqAct_ForcePlayerIntoCover::Activated ( )
@@ -1092,7 +1092,7 @@ class UClass* USFXSeqAct_SetMusicID::StaticClass()
 	};
 
 // Function SFXGameContentLiveKismet.SFXSeqAct_SetMusicID.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_SetMusicID::Activated ( )
@@ -1120,7 +1120,7 @@ class UClass* USFXSeqCond_HasWeaponClass::StaticClass()
 	};
 
 // Function SFXGameContentLiveKismet.SFXSeqCond_HasWeaponClass.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqCond_HasWeaponClass::Activated ( )
@@ -1136,7 +1136,7 @@ void USFXSeqCond_HasWeaponClass::Activated ( )
 };
 
 // Function SFXGameContentLiveKismet.SFXSeqCond_HasWeaponClass.GetIsWeaponOfRequestedClass
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ASFXWeapon*              WeaponToCheck                  ( CPF_Parm )

@@ -14,7 +14,7 @@
 #include <cstdio>
 #include <cstring>
 
-#include "../Includes.LE3.hpp"
+#include "LESDK/Includes.LE3.hpp"
 
 
 #ifdef _MSC_VER
@@ -102,32 +102,32 @@ FString const& UObject::StaticFullName() const {
     return OutString;
 }
 
-UClass* UObject::FindClass ( wchar_t const* ClassFullName ) 
-{ 
-    for ( int i = 0; i < (int)UObject::GObjObjects->Count(); ++i ) 
-    { 
-        UObject* Object = UObject::GObjObjects->GetData()[ i ]; 
+UClass* UObject::FindClass ( wchar_t const* ClassFullName )
+{
+    for ( int i = 0; i < (int)UObject::GObjObjects->Count(); ++i )
+    {
+        UObject* Object = UObject::GObjObjects->GetData()[ i ];
 
-        if ( ! Object ) 
-            continue; 
+        if ( ! Object )
+            continue;
 
-        if ( Object->StaticFullName().Equals ( ClassFullName, true ) ) 
-            return (UClass*) Object; 
-    } 
+        if ( Object->StaticFullName().Equals ( ClassFullName, true ) )
+            return (UClass*) Object;
+    }
 
-    return NULL; 
-} 
+    return NULL;
+}
 
-bool UObject::IsA ( UClass* pClass ) const 
-{ 
-    for ( UClass* SuperClass = this->Class; SuperClass; SuperClass = ( UClass* ) SuperClass->SuperField ) 
-    { 
-        if ( SuperClass == pClass ) 
-            return true; 
-    } 
+bool UObject::IsA ( UClass* pClass ) const
+{
+    for ( UClass* SuperClass = this->Class; SuperClass; SuperClass = ( UClass* ) SuperClass->SuperField )
+    {
+        if ( SuperClass == pClass )
+            return true;
+    }
 
-    return false; 
-} 
+    return false;
+}
 
 /*
 # ========================================================================================= #

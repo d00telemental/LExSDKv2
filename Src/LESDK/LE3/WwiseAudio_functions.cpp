@@ -11,7 +11,7 @@
 */
 
 
-#include "../Includes.LE3.hpp"
+#include "LESDK/Includes.LE3.hpp"
 
 
 #ifdef _MSC_VER
@@ -1417,7 +1417,7 @@ class UClass* AWwiseVolume::StaticClass()
 	};
 
 // Function WwiseAudio.WwiseVolume.TimerPop
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // class AWwiseVolumeTimer*       T                              ( CPF_Parm )
 
@@ -1435,7 +1435,7 @@ void AWwiseVolume::TimerPop ( class AWwiseVolumeTimer* T )
 };
 
 // Function WwiseAudio.WwiseVolume.PostBeginPlay
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void AWwiseVolume::PostBeginPlay ( )
@@ -1563,7 +1563,7 @@ void AWwiseAudioVolume::myTimerPop ( )
 };
 
 // Function WwiseAudio.WwiseAudioVolume.TimerPop
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AWwiseVolumeTimer*       T                              ( CPF_Parm )
 
@@ -1581,7 +1581,7 @@ void AWwiseAudioVolume::TimerPop ( class AWwiseVolumeTimer* T )
 };
 
 // Function WwiseAudio.WwiseAudioVolume.PostBeginPlay
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void AWwiseAudioVolume::PostBeginPlay ( )
@@ -1736,7 +1736,7 @@ bool AWwiseMusicVolume::CheckPriority ( )
 };
 
 // Function WwiseAudio.WwiseMusicVolume.TimerPop
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AWwiseVolumeTimer*       T                              ( CPF_Parm )
 
@@ -1754,7 +1754,7 @@ void AWwiseMusicVolume::TimerPop ( class AWwiseVolumeTimer* T )
 };
 
 // Function WwiseAudio.WwiseMusicVolume.PostBeginPlay
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void AWwiseMusicVolume::PostBeginPlay ( )
@@ -1782,7 +1782,7 @@ class UClass* AWwiseVolumeTimer::StaticClass()
 	};
 
 // Function WwiseAudio.WwiseVolumeTimer.Timer
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void AWwiseVolumeTimer::Timer ( )
@@ -1822,7 +1822,7 @@ class UClass* AWwiseDistanceRTPC::StaticClass()
 	};
 
 // Function WwiseAudio.WwiseDistanceRTPC.Tick
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          DeltaTime                      ( CPF_Parm )
 

@@ -11,7 +11,7 @@
 */
 
 
-#include "../Includes.LE2.hpp"
+#include "LESDK/Includes.LE2.hpp"
 
 
 #ifdef _MSC_VER
@@ -488,7 +488,7 @@ void USFXOnlineComponent::SubscribeToEvent ( unsigned char eEventType, struct FS
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponent.OnEvent
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // class USFXOnlineEvent*         oEvent                         ( CPF_Parm )
 
@@ -3697,7 +3697,7 @@ void UISFXOnlineComponentTelemetry::Flush ( unsigned char Channel )
 };
 
 // Function SFXOnlineFoundation.ISFXOnlineComponentTelemetry.RegisterConnectionDelegates
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 
 void UISFXOnlineComponentTelemetry::RegisterConnectionDelegates ( )
@@ -3713,7 +3713,7 @@ void UISFXOnlineComponentTelemetry::RegisterConnectionDelegates ( )
 };
 
 // Function SFXOnlineFoundation.ISFXOnlineComponentTelemetry.OnDisconnect
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // int                            Error                          ( CPF_Parm )
 // FString                        SessionId                      ( CPF_Const | CPF_Parm | CPF_NeedCtorLink )
@@ -3733,7 +3733,7 @@ void UISFXOnlineComponentTelemetry::OnDisconnect ( int Error, FString const& Ses
 };
 
 // Function SFXOnlineFoundation.ISFXOnlineComponentTelemetry.OnAuthenticate
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 
 void UISFXOnlineComponentTelemetry::OnAuthenticate ( )
@@ -3749,7 +3749,7 @@ void UISFXOnlineComponentTelemetry::OnAuthenticate ( )
 };
 
 // Function SFXOnlineFoundation.ISFXOnlineComponentTelemetry.CanCollect
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -4489,7 +4489,7 @@ class UClass* USFXOnlineComponentUnrealPlayer::StaticClass()
 	};
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearUnlockAchievementCompleteDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         UnlockAchievementCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
@@ -4509,7 +4509,7 @@ void USFXOnlineComponentUnrealPlayer::ClearUnlockAchievementCompleteDelegate ( u
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddUnlockAchievementCompleteDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         UnlockAchievementCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
@@ -4529,7 +4529,7 @@ void USFXOnlineComponentUnrealPlayer::AddUnlockAchievementCompleteDelegate ( uns
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnUnlockAchievementComplete
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
 
@@ -4610,7 +4610,7 @@ unsigned char USFXOnlineComponentUnrealPlayer::GetAchievements ( unsigned char L
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearReadAchievementsCompleteDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         ReadAchievementsCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
@@ -4630,7 +4630,7 @@ void USFXOnlineComponentUnrealPlayer::ClearReadAchievementsCompleteDelegate ( un
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddReadAchievementsCompleteDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         ReadAchievementsCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
@@ -4650,7 +4650,7 @@ void USFXOnlineComponentUnrealPlayer::AddReadAchievementsCompleteDelegate ( unsi
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnReadAchievementsComplete
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // int                            TitleId                        ( CPF_Parm )
 
@@ -4699,7 +4699,7 @@ bool USFXOnlineComponentUnrealPlayer::ReadAchievements ( unsigned char LocalUser
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.DeleteMessage
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -4722,7 +4722,7 @@ bool USFXOnlineComponentUnrealPlayer::DeleteMessage ( unsigned char LocalUserNum
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearFriendMessageReceivedDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         MessageDelegate                ( CPF_Parm | CPF_NeedCtorLink )
@@ -4742,7 +4742,7 @@ void USFXOnlineComponentUnrealPlayer::ClearFriendMessageReceivedDelegate ( unsig
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddFriendMessageReceivedDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         MessageDelegate                ( CPF_Parm | CPF_NeedCtorLink )
@@ -4762,7 +4762,7 @@ void USFXOnlineComponentUnrealPlayer::AddFriendMessageReceivedDelegate ( unsigne
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnFriendMessageReceived
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            SendingPlayer                  ( CPF_Parm )
@@ -4786,7 +4786,7 @@ void USFXOnlineComponentUnrealPlayer::OnFriendMessageReceived ( unsigned char Lo
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.GetFriendMessages
-// [0x00420000] 
+// [0x00420000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // TArray<struct FOnlineFriendMessage> FriendMessages                 ( CPF_Parm | CPF_OutParm | CPF_NeedCtorLink )
@@ -4811,7 +4811,7 @@ void USFXOnlineComponentUnrealPlayer::GetFriendMessages ( unsigned char LocalUse
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearJoinFriendGameCompleteDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // struct FScriptDelegate         JoinFriendGameCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -4829,7 +4829,7 @@ void USFXOnlineComponentUnrealPlayer::ClearJoinFriendGameCompleteDelegate ( stru
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddJoinFriendGameCompleteDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // struct FScriptDelegate         JoinFriendGameCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -4847,7 +4847,7 @@ void USFXOnlineComponentUnrealPlayer::AddJoinFriendGameCompleteDelegate ( struct
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnJoinFriendGameComplete
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
 
@@ -4865,7 +4865,7 @@ void USFXOnlineComponentUnrealPlayer::OnJoinFriendGameComplete ( unsigned long b
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.JoinFriendGame
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -4888,7 +4888,7 @@ bool USFXOnlineComponentUnrealPlayer::JoinFriendGame ( unsigned char LocalUserNu
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearReceivedGameInviteDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         ReceivedGameInviteDelegate     ( CPF_Parm | CPF_NeedCtorLink )
@@ -4908,7 +4908,7 @@ void USFXOnlineComponentUnrealPlayer::ClearReceivedGameInviteDelegate ( unsigned
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddReceivedGameInviteDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         ReceivedGameInviteDelegate     ( CPF_Parm | CPF_NeedCtorLink )
@@ -4928,7 +4928,7 @@ void USFXOnlineComponentUnrealPlayer::AddReceivedGameInviteDelegate ( unsigned c
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnReceivedGameInvite
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // FString                        InviterName                    ( CPF_Parm | CPF_NeedCtorLink )
@@ -4948,7 +4948,7 @@ void USFXOnlineComponentUnrealPlayer::OnReceivedGameInvite ( unsigned char Local
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.SendGameInviteToFriends
-// [0x00024000] 
+// [0x00024000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -4973,7 +4973,7 @@ bool USFXOnlineComponentUnrealPlayer::SendGameInviteToFriends ( unsigned char Lo
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.SendGameInviteToFriend
-// [0x00024000] 
+// [0x00024000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -4998,7 +4998,7 @@ bool USFXOnlineComponentUnrealPlayer::SendGameInviteToFriend ( unsigned char Loc
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.SendMessageToFriend
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -5023,7 +5023,7 @@ bool USFXOnlineComponentUnrealPlayer::SendMessageToFriend ( unsigned char LocalU
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearFriendInviteReceivedDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         InviteDelegate                 ( CPF_Parm | CPF_NeedCtorLink )
@@ -5043,7 +5043,7 @@ void USFXOnlineComponentUnrealPlayer::ClearFriendInviteReceivedDelegate ( unsign
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddFriendInviteReceivedDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         InviteDelegate                 ( CPF_Parm | CPF_NeedCtorLink )
@@ -5063,7 +5063,7 @@ void USFXOnlineComponentUnrealPlayer::AddFriendInviteReceivedDelegate ( unsigned
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnFriendInviteReceived
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FUniqueNetId            RequestingPlayer               ( CPF_Parm )
@@ -5087,7 +5087,7 @@ void USFXOnlineComponentUnrealPlayer::OnFriendInviteReceived ( unsigned char Loc
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.RemoveFriend
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -5110,7 +5110,7 @@ bool USFXOnlineComponentUnrealPlayer::RemoveFriend ( unsigned char LocalUserNum,
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.DenyFriendInvite
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -5133,7 +5133,7 @@ bool USFXOnlineComponentUnrealPlayer::DenyFriendInvite ( unsigned char LocalUser
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AcceptFriendInvite
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -5156,7 +5156,7 @@ bool USFXOnlineComponentUnrealPlayer::AcceptFriendInvite ( unsigned char LocalUs
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearAddFriendByNameCompleteDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         FriendDelegate                 ( CPF_Parm | CPF_NeedCtorLink )
@@ -5176,7 +5176,7 @@ void USFXOnlineComponentUnrealPlayer::ClearAddFriendByNameCompleteDelegate ( uns
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddAddFriendByNameCompleteDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         FriendDelegate                 ( CPF_Parm | CPF_NeedCtorLink )
@@ -5196,7 +5196,7 @@ void USFXOnlineComponentUnrealPlayer::AddAddFriendByNameCompleteDelegate ( unsig
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnAddFriendByNameComplete
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
 
@@ -5214,7 +5214,7 @@ void USFXOnlineComponentUnrealPlayer::OnAddFriendByNameComplete ( unsigned long 
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddFriendByName
-// [0x00024000] 
+// [0x00024000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -5239,7 +5239,7 @@ bool USFXOnlineComponentUnrealPlayer::AddFriendByName ( unsigned char LocalUserN
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddFriend
-// [0x00024000] 
+// [0x00024000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -5264,7 +5264,7 @@ bool USFXOnlineComponentUnrealPlayer::AddFriend ( unsigned char LocalUserNum, st
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.GetKeyboardInputResults
-// [0x00420000] 
+// [0x00420000]
 // Parameters infos:
 // FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // unsigned char                  bWasCanceled                   ( CPF_Parm | CPF_OutParm )
@@ -5290,7 +5290,7 @@ FString USFXOnlineComponentUnrealPlayer::GetKeyboardInputResults ( unsigned char
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearKeyboardInputDoneDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // struct FScriptDelegate         InputDelegate                  ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -5308,7 +5308,7 @@ void USFXOnlineComponentUnrealPlayer::ClearKeyboardInputDoneDelegate ( struct FS
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddKeyboardInputDoneDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // struct FScriptDelegate         InputDelegate                  ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -5326,7 +5326,7 @@ void USFXOnlineComponentUnrealPlayer::AddKeyboardInputDoneDelegate ( struct FScr
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnKeyboardInputComplete
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
 
@@ -5344,7 +5344,7 @@ void USFXOnlineComponentUnrealPlayer::OnKeyboardInputComplete ( unsigned long bW
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ShowKeyboardUI
-// [0x00024000] 
+// [0x00024000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -5415,7 +5415,7 @@ void USFXOnlineComponentUnrealPlayer::SetOnlineStatus ( unsigned char LocalUserN
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.GetFriendsList
-// [0x00424000] 
+// [0x00424000]
 // Parameters infos:
 // unsigned char                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -5447,7 +5447,7 @@ unsigned char USFXOnlineComponentUnrealPlayer::GetFriendsList ( unsigned char Lo
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearReadFriendsCompleteDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         ReadFriendsCompleteDelegate    ( CPF_Parm | CPF_NeedCtorLink )
@@ -5467,7 +5467,7 @@ void USFXOnlineComponentUnrealPlayer::ClearReadFriendsCompleteDelegate ( unsigne
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddReadFriendsCompleteDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         ReadFriendsCompleteDelegate    ( CPF_Parm | CPF_NeedCtorLink )
@@ -5487,7 +5487,7 @@ void USFXOnlineComponentUnrealPlayer::AddReadFriendsCompleteDelegate ( unsigned 
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnReadFriendsComplete
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
 
@@ -5505,7 +5505,7 @@ void USFXOnlineComponentUnrealPlayer::OnReadFriendsComplete ( unsigned long bWas
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ReadFriendsList
-// [0x00024000] 
+// [0x00024000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -5530,7 +5530,7 @@ bool USFXOnlineComponentUnrealPlayer::ReadFriendsList ( unsigned char LocalUserN
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearWritePlayerStorageCompleteDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         WritePlayerStorageCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
@@ -5550,7 +5550,7 @@ void USFXOnlineComponentUnrealPlayer::ClearWritePlayerStorageCompleteDelegate ( 
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddWritePlayerStorageCompleteDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         WritePlayerStorageCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
@@ -5570,7 +5570,7 @@ void USFXOnlineComponentUnrealPlayer::AddWritePlayerStorageCompleteDelegate ( un
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnWritePlayerStorageComplete
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
@@ -5617,7 +5617,7 @@ bool USFXOnlineComponentUnrealPlayer::WritePlayerStorage ( unsigned char LocalUs
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.GetPlayerStorage
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UOnlinePlayerStorage*    ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -5638,7 +5638,7 @@ class UOnlinePlayerStorage* USFXOnlineComponentUnrealPlayer::GetPlayerStorage ( 
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearReadPlayerStorageForNetIdCompleteDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FUniqueNetId            NetId                          ( CPF_Parm )
 // struct FScriptDelegate         ReadPlayerStorageForNetIdCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
@@ -5658,7 +5658,7 @@ void USFXOnlineComponentUnrealPlayer::ClearReadPlayerStorageForNetIdCompleteDele
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddReadPlayerStorageForNetIdCompleteDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FUniqueNetId            NetId                          ( CPF_Parm )
 // struct FScriptDelegate         ReadPlayerStorageForNetIdCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
@@ -5678,7 +5678,7 @@ void USFXOnlineComponentUnrealPlayer::AddReadPlayerStorageForNetIdCompleteDelega
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnReadPlayerStorageForNetIdComplete
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // struct FUniqueNetId            NetId                          ( CPF_Parm )
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
@@ -5725,7 +5725,7 @@ bool USFXOnlineComponentUnrealPlayer::ReadPlayerStorageForNetId ( struct FUnique
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearReadPlayerStorageCompleteDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         ReadPlayerStorageCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
@@ -5745,7 +5745,7 @@ void USFXOnlineComponentUnrealPlayer::ClearReadPlayerStorageCompleteDelegate ( u
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddReadPlayerStorageCompleteDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         ReadPlayerStorageCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
@@ -5765,7 +5765,7 @@ void USFXOnlineComponentUnrealPlayer::AddReadPlayerStorageCompleteDelegate ( uns
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnReadPlayerStorageComplete
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
@@ -5812,7 +5812,7 @@ bool USFXOnlineComponentUnrealPlayer::ReadPlayerStorage ( unsigned char LocalUse
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearWriteProfileSettingsCompleteDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         WriteProfileSettingsCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
@@ -5832,7 +5832,7 @@ void USFXOnlineComponentUnrealPlayer::ClearWriteProfileSettingsCompleteDelegate 
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddWriteProfileSettingsCompleteDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         WriteProfileSettingsCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
@@ -5852,7 +5852,7 @@ void USFXOnlineComponentUnrealPlayer::AddWriteProfileSettingsCompleteDelegate ( 
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnWriteProfileSettingsComplete
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
@@ -5901,7 +5901,7 @@ bool USFXOnlineComponentUnrealPlayer::WriteProfileSettings ( unsigned char Local
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.GetProfileSettings
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UOnlineProfileSettings*  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -5922,7 +5922,7 @@ class UOnlineProfileSettings* USFXOnlineComponentUnrealPlayer::GetProfileSetting
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearReadProfileSettingsCompleteDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         ReadProfileSettingsCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
@@ -5942,7 +5942,7 @@ void USFXOnlineComponentUnrealPlayer::ClearReadProfileSettingsCompleteDelegate (
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddReadProfileSettingsCompleteDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         ReadProfileSettingsCompleteDelegate ( CPF_Parm | CPF_NeedCtorLink )
@@ -5962,7 +5962,7 @@ void USFXOnlineComponentUnrealPlayer::AddReadProfileSettingsCompleteDelegate ( u
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnReadProfileSettingsComplete
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
@@ -6011,7 +6011,7 @@ bool USFXOnlineComponentUnrealPlayer::ReadProfileSettings ( unsigned char LocalU
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearFriendsChangeDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         FriendsDelegate                ( CPF_Parm | CPF_NeedCtorLink )
@@ -6031,7 +6031,7 @@ void USFXOnlineComponentUnrealPlayer::ClearFriendsChangeDelegate ( unsigned char
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddFriendsChangeDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         FriendsDelegate                ( CPF_Parm | CPF_NeedCtorLink )
@@ -6051,7 +6051,7 @@ void USFXOnlineComponentUnrealPlayer::AddFriendsChangeDelegate ( unsigned char L
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearMutingChangeDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // struct FScriptDelegate         MutingDelegate                 ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -6069,7 +6069,7 @@ void USFXOnlineComponentUnrealPlayer::ClearMutingChangeDelegate ( struct FScript
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddMutingChangeDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // struct FScriptDelegate         MutingDelegate                 ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -6087,7 +6087,7 @@ void USFXOnlineComponentUnrealPlayer::AddMutingChangeDelegate ( struct FScriptDe
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearLoginCancelledDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         CancelledDelegate              ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -6105,7 +6105,7 @@ void USFXOnlineComponentUnrealPlayer::ClearLoginCancelledDelegate ( struct FScri
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddLoginCancelledDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         CancelledDelegate              ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -6123,7 +6123,7 @@ void USFXOnlineComponentUnrealPlayer::AddLoginCancelledDelegate ( struct FScript
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearLoginStatusChangeDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         LoginStatusDelegate            ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -6143,7 +6143,7 @@ void USFXOnlineComponentUnrealPlayer::ClearLoginStatusChangeDelegate ( struct FS
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddLoginStatusChangeDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         LoginStatusDelegate            ( CPF_Parm | CPF_NeedCtorLink )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -6163,7 +6163,7 @@ void USFXOnlineComponentUnrealPlayer::AddLoginStatusChangeDelegate ( struct FScr
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnLoginStatusChange
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned char                  NewStatus                      ( CPF_Parm )
 // struct FUniqueNetId            NewId                          ( CPF_Parm )
@@ -6183,7 +6183,7 @@ void USFXOnlineComponentUnrealPlayer::OnLoginStatusChange ( unsigned char NewSta
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearLoginChangeDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         LoginDelegate                  ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -6201,7 +6201,7 @@ void USFXOnlineComponentUnrealPlayer::ClearLoginChangeDelegate ( struct FScriptD
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddLoginChangeDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         LoginDelegate                  ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -6219,7 +6219,7 @@ void USFXOnlineComponentUnrealPlayer::AddLoginChangeDelegate ( struct FScriptDel
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ShowFriendsUI
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -6240,7 +6240,7 @@ bool USFXOnlineComponentUnrealPlayer::ShowFriendsUI ( unsigned char LocalUserNum
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.IsMuted
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -6263,7 +6263,7 @@ bool USFXOnlineComponentUnrealPlayer::IsMuted ( unsigned char LocalUserNum, stru
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AreAnyFriends
-// [0x00420000] 
+// [0x00420000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -6291,7 +6291,7 @@ bool USFXOnlineComponentUnrealPlayer::AreAnyFriends ( unsigned char LocalUserNum
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.IsFriend
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -6571,7 +6571,7 @@ bool USFXOnlineComponentUnrealPlayer::GetUniquePlayerId ( unsigned char LocalUse
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.GetLoginStatus
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -6592,7 +6592,7 @@ unsigned char USFXOnlineComponentUnrealPlayer::GetLoginStatus ( unsigned char Lo
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearLogoutCompletedDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         LogoutDelegate                 ( CPF_Parm | CPF_NeedCtorLink )
@@ -6612,7 +6612,7 @@ void USFXOnlineComponentUnrealPlayer::ClearLogoutCompletedDelegate ( unsigned ch
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddLogoutCompletedDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         LogoutDelegate                 ( CPF_Parm | CPF_NeedCtorLink )
@@ -6632,7 +6632,7 @@ void USFXOnlineComponentUnrealPlayer::AddLogoutCompletedDelegate ( unsigned char
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnLogoutCompleted
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
 
@@ -6675,7 +6675,7 @@ bool USFXOnlineComponentUnrealPlayer::Logout ( unsigned char LocalUserNum )
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.ClearLoginFailedDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         LoginDelegate                  ( CPF_Parm | CPF_NeedCtorLink )
@@ -6695,7 +6695,7 @@ void USFXOnlineComponentUnrealPlayer::ClearLoginFailedDelegate ( unsigned char L
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.AddLoginFailedDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         LoginDelegate                  ( CPF_Parm | CPF_NeedCtorLink )
@@ -6715,7 +6715,7 @@ void USFXOnlineComponentUnrealPlayer::AddLoginFailedDelegate ( unsigned char Loc
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnLoginFailed
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // unsigned char                  ErrorCode                      ( CPF_Parm )
@@ -6814,7 +6814,7 @@ bool USFXOnlineComponentUnrealPlayer::ShowLoginUI ( unsigned long bShowOnlineOnl
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnFriendsChange
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 
 void USFXOnlineComponentUnrealPlayer::OnFriendsChange ( )
@@ -6830,7 +6830,7 @@ void USFXOnlineComponentUnrealPlayer::OnFriendsChange ( )
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnMutingChange
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 
 void USFXOnlineComponentUnrealPlayer::OnMutingChange ( )
@@ -6846,7 +6846,7 @@ void USFXOnlineComponentUnrealPlayer::OnMutingChange ( )
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnLoginCancelled
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 
 void USFXOnlineComponentUnrealPlayer::OnLoginCancelled ( )
@@ -6862,7 +6862,7 @@ void USFXOnlineComponentUnrealPlayer::OnLoginCancelled ( )
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnLoginChange
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 
@@ -6880,7 +6880,7 @@ void USFXOnlineComponentUnrealPlayer::OnLoginChange ( unsigned char LocalUserNum
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayer.OnProfileDataChanged
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 
 void USFXOnlineComponentUnrealPlayer::OnProfileDataChanged ( )
@@ -7045,7 +7045,7 @@ class UClass* USFXOnlineComponentUnrealPlayerEx::StaticClass()
 	};
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.ShowCustomPlayersUI
-// [0x00420000] 
+// [0x00420000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -7077,7 +7077,7 @@ bool USFXOnlineComponentUnrealPlayerEx::ShowCustomPlayersUI ( unsigned char Loca
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.ShowPlayersUI
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -7098,7 +7098,7 @@ bool USFXOnlineComponentUnrealPlayerEx::ShowPlayersUI ( unsigned char LocalUserN
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.ShowFriendsInviteUI
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -7121,7 +7121,7 @@ bool USFXOnlineComponentUnrealPlayerEx::ShowFriendsInviteUI ( unsigned char Loca
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.ClearProfileDataChangedDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         ProfileDataChangedDelegate     ( CPF_Parm | CPF_NeedCtorLink )
@@ -7141,7 +7141,7 @@ void USFXOnlineComponentUnrealPlayerEx::ClearProfileDataChangedDelegate ( unsign
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.AddProfileDataChangedDelegate
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         ProfileDataChangedDelegate     ( CPF_Parm | CPF_NeedCtorLink )
@@ -7161,7 +7161,7 @@ void USFXOnlineComponentUnrealPlayerEx::AddProfileDataChangedDelegate ( unsigned
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.OnProfileDataChanged
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 
 void USFXOnlineComponentUnrealPlayerEx::OnProfileDataChanged ( )
@@ -7177,7 +7177,7 @@ void USFXOnlineComponentUnrealPlayerEx::OnProfileDataChanged ( )
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.UnlockGamerPicture
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -7259,7 +7259,7 @@ int USFXOnlineComponentUnrealPlayerEx::GetDeviceSelectionResults ( unsigned char
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.ClearDeviceSelectionDoneDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         DeviceDelegate                 ( CPF_Parm | CPF_NeedCtorLink )
@@ -7279,7 +7279,7 @@ void USFXOnlineComponentUnrealPlayerEx::ClearDeviceSelectionDoneDelegate ( unsig
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.AddDeviceSelectionDoneDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
 // struct FScriptDelegate         DeviceDelegate                 ( CPF_Parm | CPF_NeedCtorLink )
@@ -7299,7 +7299,7 @@ void USFXOnlineComponentUnrealPlayerEx::AddDeviceSelectionDoneDelegate ( unsigne
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.OnDeviceSelectionComplete
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
 
@@ -7348,7 +7348,7 @@ bool USFXOnlineComponentUnrealPlayerEx::ShowDeviceSelectionUI ( unsigned char Lo
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.ShowMembershipMarketplaceUI
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -7369,7 +7369,7 @@ bool USFXOnlineComponentUnrealPlayerEx::ShowMembershipMarketplaceUI ( unsigned c
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.ShowContentMarketplaceUI
-// [0x00024000] 
+// [0x00024000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -7394,7 +7394,7 @@ bool USFXOnlineComponentUnrealPlayerEx::ShowContentMarketplaceUI ( unsigned char
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.ShowInviteUI
-// [0x00024000] 
+// [0x00024000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -7417,7 +7417,7 @@ bool USFXOnlineComponentUnrealPlayerEx::ShowInviteUI ( unsigned char LocalUserNu
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.ShowAchievementsUI
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -7438,7 +7438,7 @@ bool USFXOnlineComponentUnrealPlayerEx::ShowAchievementsUI ( unsigned char Local
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.ShowMessagesUI
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -7459,7 +7459,7 @@ bool USFXOnlineComponentUnrealPlayerEx::ShowMessagesUI ( unsigned char LocalUser
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.ShowGamerCardUI
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -7482,7 +7482,7 @@ bool USFXOnlineComponentUnrealPlayerEx::ShowGamerCardUI ( unsigned char LocalUse
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealPlayerEx.ShowFeedbackUI
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  LocalUserNum                   ( CPF_Parm )
@@ -7604,7 +7604,7 @@ class UClass* USFXOnlineComponentUnrealSystem::StaticClass()
 	};
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.GetTitleFileState
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // FString                        Filename                       ( CPF_Parm | CPF_NeedCtorLink )
@@ -7657,7 +7657,7 @@ bool USFXOnlineComponentUnrealSystem::GetTitleFileContents ( FString const& File
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.ClearReadTitleFileCompleteDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         ReadTitleFileCompleteDelegate  ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -7675,7 +7675,7 @@ void USFXOnlineComponentUnrealSystem::ClearReadTitleFileCompleteDelegate ( struc
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.AddReadTitleFileCompleteDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         ReadTitleFileCompleteDelegate  ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -7718,7 +7718,7 @@ bool USFXOnlineComponentUnrealSystem::ReadTitleFile ( FString const& FileToRead 
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.OnReadTitleFileComplete
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned long                  bWasSuccessful                 ( CPF_Parm )
 // FString                        Filename                       ( CPF_Parm | CPF_NeedCtorLink )
@@ -7738,7 +7738,7 @@ void USFXOnlineComponentUnrealSystem::OnReadTitleFileComplete ( unsigned long bW
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.ClearStorageDeviceChangeDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         StorageDeviceChangeDelegate    ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -7756,7 +7756,7 @@ void USFXOnlineComponentUnrealSystem::ClearStorageDeviceChangeDelegate ( struct 
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.AddStorageDeviceChangeDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         StorageDeviceChangeDelegate    ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -7774,7 +7774,7 @@ void USFXOnlineComponentUnrealSystem::AddStorageDeviceChangeDelegate ( struct FS
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.OnStorageDeviceChange
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 
 void USFXOnlineComponentUnrealSystem::OnStorageDeviceChange ( )
@@ -7790,7 +7790,7 @@ void USFXOnlineComponentUnrealSystem::OnStorageDeviceChange ( )
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.GetNATType
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -7809,7 +7809,7 @@ unsigned char USFXOnlineComponentUnrealSystem::GetNATType ( )
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.ClearConnectionStatusChangeDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         ConnectionStatusDelegate       ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -7827,7 +7827,7 @@ void USFXOnlineComponentUnrealSystem::ClearConnectionStatusChangeDelegate ( stru
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.AddConnectionStatusChangeDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         ConnectionStatusDelegate       ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -7845,7 +7845,7 @@ void USFXOnlineComponentUnrealSystem::AddConnectionStatusChangeDelegate ( struct
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.OnConnectionStatusChange
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned char                  ConnectionStatus               ( CPF_Parm )
 
@@ -7888,7 +7888,7 @@ bool USFXOnlineComponentUnrealSystem::IsControllerConnected ( int ControllerId )
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.ClearControllerChangeDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         ControllerChangeDelegate       ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -7906,7 +7906,7 @@ void USFXOnlineComponentUnrealSystem::ClearControllerChangeDelegate ( struct FSc
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.AddControllerChangeDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         ControllerChangeDelegate       ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -7924,7 +7924,7 @@ void USFXOnlineComponentUnrealSystem::AddControllerChangeDelegate ( struct FScri
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.OnControllerChange
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // int                            ControllerId                   ( CPF_Parm )
 // unsigned long                  bIsConnected                   ( CPF_Parm )
@@ -7966,7 +7966,7 @@ void USFXOnlineComponentUnrealSystem::SetNetworkNotificationPosition ( unsigned 
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.GetNetworkNotificationPosition
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -8007,7 +8007,7 @@ void USFXOnlineComponentUnrealSystem::ProcessExternalUINotification ( unsigned l
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.ClearExternalUIChangeDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         ExternalUIDelegate             ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -8025,7 +8025,7 @@ void USFXOnlineComponentUnrealSystem::ClearExternalUIChangeDelegate ( struct FSc
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.AddExternalUIChangeDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         ExternalUIDelegate             ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -8043,7 +8043,7 @@ void USFXOnlineComponentUnrealSystem::AddExternalUIChangeDelegate ( struct FScri
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.OnExternalUIChange
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned long                  bIsOpening                     ( CPF_Parm )
 
@@ -8061,7 +8061,7 @@ void USFXOnlineComponentUnrealSystem::OnExternalUIChange ( unsigned long bIsOpen
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.ClearLinkStatusChangeDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         LinkStatusDelegate             ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -8079,7 +8079,7 @@ void USFXOnlineComponentUnrealSystem::ClearLinkStatusChangeDelegate ( struct FSc
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.AddLinkStatusChangeDelegate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FScriptDelegate         LinkStatusDelegate             ( CPF_Parm | CPF_NeedCtorLink )
 
@@ -8097,7 +8097,7 @@ void USFXOnlineComponentUnrealSystem::AddLinkStatusChangeDelegate ( struct FScri
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentUnrealSystem.OnLinkStatusChange
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned long                  bIsConnected                   ( CPF_Parm )
 
@@ -8696,7 +8696,7 @@ void USFXOnlineComponentCoordinator::OnTick ( class USFXOnlineEvent* oEvent )
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentCoordinator.OnEvent
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // class USFXOnlineEvent*         oEvent                         ( CPF_Parm )
 
@@ -8779,7 +8779,7 @@ bool USFXOnlineSubsystem::ShowConsoleRoutedKeyboardUI ( unsigned char eLocalUser
 };
 
 // Function SFXOnlineFoundation.SFXOnlineSubsystem.ShowKeyboardUI
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned char                  eLocalUserNum                  ( CPF_Parm )
@@ -8841,7 +8841,7 @@ FString USFXOnlineSubsystem::FormatTime ( float fInSeconds, unsigned long bShowH
 };
 
 // Function SFXOnlineFoundation.SFXOnlineSubsystem.CheckEntitlement
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // FString                        sGroup                         ( CPF_Parm | CPF_NeedCtorLink )
@@ -8864,7 +8864,7 @@ bool USFXOnlineSubsystem::CheckEntitlement ( FString const& sGroup, FString cons
 };
 
 // Function SFXOnlineFoundation.SFXOnlineSubsystem.IsCerberusMember
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -9504,7 +9504,7 @@ class USFXOnlineSubsystem* USFXOnlineSubsystem::GetOnlineSubsystem ( )
 };
 
 // Function SFXOnlineFoundation.SFXOnlineSubsystem.StripBadPWCharacters
-// [0x00080002] 
+// [0x00080002]
 // Parameters infos:
 // FString                        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // FString                        sPassword                      ( CPF_Parm | CPF_NeedCtorLink )
@@ -9611,7 +9611,7 @@ bool USFXOnlineSubsystem::eventInit ( )
 };
 
 // Function SFXOnlineFoundation.SFXOnlineSubsystem.GetAchievementList
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // TArray<struct FSFXOnlineAchievement> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -11625,7 +11625,7 @@ bool USFXOnlineComponentPlatformPS3::ShowLoginUIEx ( struct FScriptDelegate func
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentPlatformPS3.OnSignInComplete
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // unsigned long                  bSignedIn                      ( CPF_Parm )
 
@@ -16781,7 +16781,7 @@ void USFXOnlineComponentTelemetrySystem::RegisterConnectionDelegates ( struct FS
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentTelemetrySystem.OnDisconnect
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // int                            Error                          ( CPF_Parm )
 // FString                        SessionId                      ( CPF_Const | CPF_Parm | CPF_NeedCtorLink )
@@ -16801,7 +16801,7 @@ void USFXOnlineComponentTelemetrySystem::OnDisconnect ( int Error, FString const
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentTelemetrySystem.OnAuthenticate
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 
 void USFXOnlineComponentTelemetrySystem::OnAuthenticate ( )
@@ -16817,7 +16817,7 @@ void USFXOnlineComponentTelemetrySystem::OnAuthenticate ( )
 };
 
 // Function SFXOnlineFoundation.SFXOnlineComponentTelemetrySystem.CanCollect
-// [0x00120000] 
+// [0x00120000]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 

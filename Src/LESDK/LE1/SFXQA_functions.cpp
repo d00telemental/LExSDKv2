@@ -11,7 +11,7 @@
 */
 
 
-#include "../Includes.LE1.hpp"
+#include "LESDK/Includes.LE1.hpp"
 
 
 #ifdef _MSC_VER
@@ -39,7 +39,7 @@ class UClass* UBioSeqAct_IsSplinePilot::StaticClass()
 	};
 
 // Function SFXQA.BioSeqAct_IsSplinePilot.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void UBioSeqAct_IsSplinePilot::Activated ( )

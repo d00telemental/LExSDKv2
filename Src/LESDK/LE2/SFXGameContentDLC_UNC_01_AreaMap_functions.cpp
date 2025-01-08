@@ -11,7 +11,7 @@
 */
 
 
-#include "../Includes.LE2.hpp"
+#include "LESDK/Includes.LE2.hpp"
 
 
 #ifdef _MSC_VER
@@ -51,7 +51,7 @@ class UClass* USFXSeqAct_SetAreaMapEx::StaticClass()
 	};
 
 // Function SFXGameContentDLC_UNC_01_AreaMap.SFXSeqAct_SetAreaMapEx.Activated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSeqAct_SetAreaMapEx::Activated ( )
@@ -79,7 +79,7 @@ class UClass* USFXSFHandler_AreaMapEx::StaticClass()
 	};
 
 // Function SFXGameContentDLC_UNC_01_AreaMap.SFXSFHandler_AreaMapEx.SetMap
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class USFXAreaMapData*         oMapData                       ( CPF_Parm )
 
@@ -97,7 +97,7 @@ void USFXSFHandler_AreaMapEx::SetMap ( class USFXAreaMapData* oMapData )
 };
 
 // Function SFXGameContentDLC_UNC_01_AreaMap.SFXSFHandler_AreaMapEx.ProcessPlayer
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class USFXAreaMapData*         oMapData                       ( CPF_Parm )
 
@@ -127,7 +127,7 @@ class UClass* USFXSFHandler_PCAreaMapEx::StaticClass()
 	};
 
 // Function SFXGameContentDLC_UNC_01_AreaMap.SFXSFHandler_PCAreaMapEx.OnPanelAdded
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXSFHandler_PCAreaMapEx::OnPanelAdded ( )

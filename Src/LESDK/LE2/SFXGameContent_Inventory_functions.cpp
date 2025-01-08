@@ -11,7 +11,7 @@
 */
 
 
-#include "../Includes.LE2.hpp"
+#include "LESDK/Includes.LE2.hpp"
 
 
 #ifdef _MSC_VER
@@ -1028,7 +1028,7 @@ void ASFXProjectile_Grenade::Recycle ( )
 };
 
 // Function SFXGameContent_Inventory.SFXProjectile_Grenade.DoImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  InImpactedActor                ( CPF_Parm )
 // class AController*             InInstigatorController         ( CPF_Parm )
@@ -1076,7 +1076,7 @@ void ASFXProjectile_Grenade::Tick ( float DeltaTime )
 };
 
 // Function SFXGameContent_Inventory.SFXProjectile_Grenade.GetAimLocation
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 // struct FVector                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1095,7 +1095,7 @@ struct FVector ASFXProjectile_Grenade::GetAimLocation ( )
 };
 
 // Function SFXGameContent_Inventory.SFXProjectile_Grenade.Init
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FVector                 Direction                      ( CPF_Parm )
 
@@ -1195,7 +1195,7 @@ void ASFXProjectile_SeekingMissile::Recycle ( )
 };
 
 // Function SFXGameContent_Inventory.SFXProjectile_SeekingMissile.DoImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  InImpactedActor                ( CPF_Parm )
 // class AController*             InInstigatorController         ( CPF_Parm )
@@ -1257,7 +1257,7 @@ void ASFXProjectile_SeekingMissile::ShutDown ( )
 };
 
 // Function SFXGameContent_Inventory.SFXProjectile_SeekingMissile.Init
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FVector                 Direction                      ( CPF_Parm )
 
@@ -1329,7 +1329,7 @@ void ASFXProjectile_SeekingMissile::Tick ( float DeltaTime )
 };
 
 // Function SFXGameContent_Inventory.SFXProjectile_SeekingMissile.GetAimLocation
-// [0x00820002] 
+// [0x00820002]
 // Parameters infos:
 // struct FVector                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1348,7 +1348,7 @@ struct FVector ASFXProjectile_SeekingMissile::GetAimLocation ( )
 };
 
 // Function SFXGameContent_Inventory.SFXProjectile_SeekingMissile.AcquireTarget
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ASFXProjectile_SeekingMissile::AcquireTarget ( )
@@ -1388,7 +1388,7 @@ class UClass* ASFXProjectile_Rocket::StaticClass()
 	};
 
 // Function SFXGameContent_Inventory.SFXProjectile_Rocket.DoImpact
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  InImpactedActor                ( CPF_Parm )
 // class AController*             InInstigatorController         ( CPF_Parm )

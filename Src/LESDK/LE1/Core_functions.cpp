@@ -14,7 +14,7 @@
 #include <cstdio>
 #include <cstring>
 
-#include "../Includes.LE1.hpp"
+#include "LESDK/Includes.LE1.hpp"
 
 
 #ifdef _MSC_VER
@@ -102,32 +102,32 @@ FString const& UObject::StaticFullName() const {
     return OutString;
 }
 
-UClass* UObject::FindClass ( wchar_t const* ClassFullName ) 
-{ 
-    for ( int i = 0; i < (int)UObject::GObjObjects->Count(); ++i ) 
-    { 
-        UObject* Object = UObject::GObjObjects->GetData()[ i ]; 
+UClass* UObject::FindClass ( wchar_t const* ClassFullName )
+{
+    for ( int i = 0; i < (int)UObject::GObjObjects->Count(); ++i )
+    {
+        UObject* Object = UObject::GObjObjects->GetData()[ i ];
 
-        if ( ! Object ) 
-            continue; 
+        if ( ! Object )
+            continue;
 
-        if ( Object->StaticFullName().Equals ( ClassFullName, true ) ) 
-            return (UClass*) Object; 
-    } 
+        if ( Object->StaticFullName().Equals ( ClassFullName, true ) )
+            return (UClass*) Object;
+    }
 
-    return NULL; 
-} 
+    return NULL;
+}
 
-bool UObject::IsA ( UClass* pClass ) const 
-{ 
-    for ( UClass* SuperClass = this->Class; SuperClass; SuperClass = ( UClass* ) SuperClass->SuperField ) 
-    { 
-        if ( SuperClass == pClass ) 
-            return true; 
-    } 
+bool UObject::IsA ( UClass* pClass ) const
+{
+    for ( UClass* SuperClass = this->Class; SuperClass; SuperClass = ( UClass* ) SuperClass->SuperField )
+    {
+        if ( SuperClass == pClass )
+            return true;
+    }
 
-    return false; 
-} 
+    return false;
+}
 
 /*
 # ========================================================================================= #
@@ -1368,7 +1368,7 @@ class UBioBaseSaveObject* UObject::eventWriteSaveObject ( class UObject* InOuter
 };
 
 // Function Core.Object.GetSaveObjectClass
-// [0x00022002] 
+// [0x00022002]
 // Parameters infos:
 // class UClass*                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -9951,7 +9951,7 @@ bool UBioBaseSaveObject::SaveBaseObjectInfo ( class UObject* O )
 };
 
 // Function Core.BioBaseSaveObject.LoadObject
-// [0x00020000] 
+// [0x00020000]
 // Parameters infos:
 // class UObject*                 O                              ( CPF_Parm )
 
@@ -9969,7 +9969,7 @@ void UBioBaseSaveObject::LoadObject ( class UObject* O )
 };
 
 // Function Core.BioBaseSaveObject.SaveObject
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class UObject*                 O                              ( CPF_Parm )
 

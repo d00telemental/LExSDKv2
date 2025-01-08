@@ -11,7 +11,7 @@
 */
 
 
-#include "../Includes.LE2.hpp"
+#include "LESDK/Includes.LE2.hpp"
 
 
 #ifdef _MSC_VER
@@ -39,7 +39,7 @@ class UClass* USFXGameEffect_AchievementPartyDamageBonus::StaticClass()
 	};
 
 // Function SFXGameContent_Bonuses.SFXGameEffect_AchievementPartyDamageBonus.OnRemoved
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_AchievementPartyDamageBonus::OnRemoved ( )
@@ -55,7 +55,7 @@ void USFXGameEffect_AchievementPartyDamageBonus::OnRemoved ( )
 };
 
 // Function SFXGameContent_Bonuses.SFXGameEffect_AchievementPartyDamageBonus.OnApplied
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void USFXGameEffect_AchievementPartyDamageBonus::OnApplied ( )

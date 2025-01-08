@@ -11,7 +11,7 @@
 */
 
 
-#include "../Includes.LE1.hpp"
+#include "LESDK/Includes.LE1.hpp"
 
 
 #ifdef _MSC_VER
@@ -197,7 +197,7 @@ void ABioBaseSquadDesign::eventOnDeath ( class APawn* oMember, class AController
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.SetHackedSquad
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ABioBaseSquadDesign::SetHackedSquad ( )
@@ -291,7 +291,7 @@ void ABioBaseSquadDesign::eventMemberRemoved ( class APawn* oPawn )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.RemovePerceptionMultipliers
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioAiController*        oMember                        ( CPF_Parm )
 // float                          fSightMult                     ( CPF_Parm )
@@ -313,7 +313,7 @@ void ABioBaseSquadDesign::RemovePerceptionMultipliers ( class ABioAiController* 
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.ApplyPerceptionMultipliers
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioAiController*        oMember                        ( CPF_Parm )
 // float                          fSightMult                     ( CPF_Parm )
@@ -335,7 +335,7 @@ void ABioBaseSquadDesign::ApplyPerceptionMultipliers ( class ABioAiController* o
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.ResetAttackedRecently
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ABioBaseSquadDesign::ResetAttackedRecently ( )
@@ -449,7 +449,7 @@ class UClass* ABioBaseSquadDesign::eventGetRestFormation ( )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.SquadWalkWaypoints
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ABioBaseSquadDesign::SquadWalkWaypoints ( )
@@ -465,7 +465,7 @@ void ABioBaseSquadDesign::SquadWalkWaypoints ( )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.SquadMemberWalkWaypoints
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioAiController*        oMember                        ( CPF_Parm )
@@ -486,7 +486,7 @@ bool ABioBaseSquadDesign::SquadMemberWalkWaypoints ( class ABioAiController* oMe
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.GetNavPointInPlaypen
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class ANavigationPoint*        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 vNear                          ( CPF_Parm )
@@ -527,7 +527,7 @@ class ANavigationPoint* ABioBaseSquadDesign::GetNavPointInPlaypen ( struct FVect
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.GetFlockingOffset
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // struct FVector                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioAiController*        oMember                        ( CPF_Parm )
@@ -548,7 +548,7 @@ struct FVector ABioBaseSquadDesign::GetFlockingOffset ( class ABioAiController* 
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.SetFlockingRanges
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          FMin                           ( CPF_Parm )
 // float                          FMax                           ( CPF_Parm )
@@ -570,7 +570,7 @@ void ABioBaseSquadDesign::SetFlockingRanges ( float FMin, float FMax, float fSqu
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.GetFurthestSquadMember
-// [0x00424002] 
+// [0x00424002]
 // Parameters infos:
 // class ABioAiController*        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 vTarget                        ( CPF_Parm )
@@ -600,7 +600,7 @@ class ABioAiController* ABioBaseSquadDesign::GetFurthestSquadMember ( struct FVe
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.ResetSquadProximity
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ABioBaseSquadDesign::ResetSquadProximity ( )
@@ -616,7 +616,7 @@ void ABioBaseSquadDesign::ResetSquadProximity ( )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.SetSquadProximityByAttackRange
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // float                          fMultiplier                    ( CPF_OptionalParm | CPF_Parm )
 
@@ -634,7 +634,7 @@ void ABioBaseSquadDesign::SetSquadProximityByAttackRange ( float fMultiplier )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.SetSquadProximity
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // float                          fDefault                       ( CPF_OptionalParm | CPF_Parm )
 // float                          fCloseCombat                   ( CPF_OptionalParm | CPF_Parm )
@@ -658,7 +658,7 @@ void ABioBaseSquadDesign::SetSquadProximity ( float fDefault, float fCloseCombat
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.PushMoveWithLocking
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class ABioAiController*        oMember                        ( CPF_Parm )
 // class AActor*                  oTarget                        ( CPF_Parm )
@@ -686,7 +686,7 @@ void ABioBaseSquadDesign::PushMoveWithLocking ( class ABioAiController* oMember,
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.SquadMemberTakeCover
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioAiController*        oMember                        ( CPF_Parm )
@@ -725,7 +725,7 @@ bool ABioBaseSquadDesign::SquadMemberTakeCover ( class ABioAiController* oMember
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.IsAtDefenseNode
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class APawn*                   oTestPawn                      ( CPF_Parm )
@@ -746,7 +746,7 @@ bool ABioBaseSquadDesign::IsAtDefenseNode ( class APawn* oTestPawn )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.SquadTakeCover
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // float                          fCoverRange                    ( CPF_OptionalParm | CPF_Parm )
 // float                          fNavRange                      ( CPF_OptionalParm | CPF_Parm )
@@ -778,7 +778,7 @@ void ABioBaseSquadDesign::SquadTakeCover ( float fCoverRange, float fNavRange, c
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.PushCoverWithLocking
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioAiController*        oMember                        ( CPF_Parm )
@@ -809,7 +809,7 @@ bool ABioBaseSquadDesign::PushCoverWithLocking ( class ABioAiController* oMember
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.GetCoverList
-// [0x00424002] 
+// [0x00424002]
 // Parameters infos:
 // class ABioAiController*        oMember                        ( CPF_Parm )
 // class APawn*                   oTarget                        ( CPF_OptionalParm | CPF_Parm )
@@ -845,7 +845,7 @@ void ABioBaseSquadDesign::GetCoverList ( class ABioAiController* oMember, class 
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.UnlockAllPathnodes
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ABioBaseSquadDesign::UnlockAllPathnodes ( )
@@ -861,7 +861,7 @@ void ABioBaseSquadDesign::UnlockAllPathnodes ( )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.UnlockPathnodesByOwner
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                oUnlockOwner                   ( CPF_Parm )
 
@@ -879,7 +879,7 @@ void ABioBaseSquadDesign::UnlockPathnodesByOwner ( class ABioPawn* oUnlockOwner 
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.UnlockPathnode
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ANavigationPoint*        oUnlockNode                    ( CPF_Parm )
 
@@ -897,7 +897,7 @@ void ABioBaseSquadDesign::UnlockPathnode ( class ANavigationPoint* oUnlockNode )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.LockPathnode
-// [0x00424002] 
+// [0x00424002]
 // Parameters infos:
 // class ANavigationPoint*        oLockNode                      ( CPF_Parm )
 // class ABioPawn*                oLockOwner                     ( CPF_Parm )
@@ -924,7 +924,7 @@ void ABioBaseSquadDesign::LockPathnode ( class ANavigationPoint* oLockNode, clas
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.IsPathnodeLocked
-// [0x00424002] 
+// [0x00424002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ANavigationPoint*        oTestNode                      ( CPF_Parm )
@@ -954,7 +954,7 @@ bool ABioBaseSquadDesign::IsPathnodeLocked ( class ANavigationPoint* oTestNode, 
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.GetLockedPathNodes
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // TArray<class ANavigationPoint*> ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 // class ABioPawn*                oIgnoreMember                  ( CPF_OptionalParm | CPF_Parm )
@@ -975,7 +975,7 @@ TArray<class ANavigationPoint*> ABioBaseSquadDesign::GetLockedPathNodes ( class 
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.GetCurrentMovePoint
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ANavigationPoint*        ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                oMemberPawn                    ( CPF_Parm )
@@ -996,7 +996,7 @@ class ANavigationPoint* ABioBaseSquadDesign::GetCurrentMovePoint ( class ABioPaw
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.DropAgitationIfNoHostile
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned char                  nNewLevel                      ( CPF_OptionalParm | CPF_Parm )
 
@@ -1014,7 +1014,7 @@ void ABioBaseSquadDesign::DropAgitationIfNoHostile ( unsigned char nNewLevel )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.UpgradeAgitationIfHostile
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class APawn*                   oWho                           ( CPF_Parm )
 // class APawn*                   oPerceived                     ( CPF_Parm )
@@ -1036,7 +1036,7 @@ void ABioBaseSquadDesign::UpgradeAgitationIfHostile ( class APawn* oWho, class A
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.SetFactionByType
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  nNewFaction                    ( CPF_Parm )
 
@@ -1054,7 +1054,7 @@ void ABioBaseSquadDesign::SetFactionByType ( unsigned char nNewFaction )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.ClearAllSquadActions
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // unsigned long                  bClearQueue                    ( CPF_OptionalParm | CPF_Parm )
 // unsigned long                  bClearState                    ( CPF_OptionalParm | CPF_Parm )
@@ -1078,7 +1078,7 @@ void ABioBaseSquadDesign::ClearAllSquadActions ( unsigned long bClearQueue, unsi
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.CalculateAllLikelihoods
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1097,7 +1097,7 @@ float ABioBaseSquadDesign::CalculateAllLikelihoods ( )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.CalculateLikelihood
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct SFXName                 sStrategyName                  ( CPF_Parm )
@@ -1118,7 +1118,7 @@ float ABioBaseSquadDesign::CalculateLikelihood ( struct SFXName sStrategyName )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.IsValidStrategy
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct SFXName                 sStrategyName                  ( CPF_Parm )
@@ -1139,7 +1139,7 @@ bool ABioBaseSquadDesign::IsValidStrategy ( struct SFXName sStrategyName )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.GetStrategyList
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // TArray<struct SFXName>         ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm | CPF_NeedCtorLink )
 
@@ -1158,7 +1158,7 @@ TArray<struct SFXName> ABioBaseSquadDesign::GetStrategyList ( )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.ActivateAfterDelay
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          fDelay                         ( CPF_Parm )
 
@@ -1176,7 +1176,7 @@ void ABioBaseSquadDesign::ActivateAfterDelay ( float fDelay )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.Activate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ABioBaseSquadDesign::Activate ( )
@@ -1192,7 +1192,7 @@ void ABioBaseSquadDesign::Activate ( )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.Deactivate
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ABioBaseSquadDesign::Deactivate ( )
@@ -1208,7 +1208,7 @@ void ABioBaseSquadDesign::Deactivate ( )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.DoFallBackStrategy
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ABioBaseSquadDesign::DoFallBackStrategy ( )
@@ -1224,7 +1224,7 @@ void ABioBaseSquadDesign::DoFallBackStrategy ( )
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesign.ReEvaluateStrategy
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1379,7 +1379,7 @@ void ABioBaseSquadDesignCombat::eventOnActionComplete_Movement ( class APawn* oM
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesignCombat.UseAttackCapability
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioAiController*        oMember                        ( CPF_Parm )
@@ -1412,7 +1412,7 @@ bool ABioBaseSquadDesignCombat::UseAttackCapability ( class ABioAiController* oM
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesignCombat.FindDangerousEnemy
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class APawn*                   ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioAiController*        oMember                        ( CPF_Parm )
@@ -1435,7 +1435,7 @@ class APawn* ABioBaseSquadDesignCombat::FindDangerousEnemy ( class ABioAiControl
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesignCombat.GetClosestPerceivedTarget
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class APawn*                   ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioAiController*        oMember                        ( CPF_Parm )
@@ -1458,7 +1458,7 @@ class APawn* ABioBaseSquadDesignCombat::GetClosestPerceivedTarget ( class ABioAi
 };
 
 // Function SFXStrategicAI.BioBaseSquadDesignCombat.GetDistanceToNearestHostile
-// [0x00424002] 
+// [0x00424002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // unsigned long                  bSquareDist                    ( CPF_OptionalParm | CPF_Parm )
@@ -1719,7 +1719,7 @@ class UClass* ABioSquadAmbient::StaticClass()
 	};
 
 // Function SFXStrategicAI.BioSquadAmbient.CalculateLikelihoodFlee
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1738,7 +1738,7 @@ float ABioSquadAmbient::CalculateLikelihoodFlee ( )
 };
 
 // Function SFXStrategicAI.BioSquadAmbient.CalculateLikelihoodIdle
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1757,7 +1757,7 @@ float ABioSquadAmbient::CalculateLikelihoodIdle ( )
 };
 
 // Function SFXStrategicAI.BioSquadAmbient.CalculateLikelihood
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct SFXName                 sStrategyName                  ( CPF_Parm )
@@ -1790,7 +1790,7 @@ class UClass* ABioSquadBeacon::StaticClass()
 	};
 
 // Function SFXStrategicAI.BioSquadBeacon.CalculateLikelihoodCasting
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1809,7 +1809,7 @@ float ABioSquadBeacon::CalculateLikelihoodCasting ( )
 };
 
 // Function SFXStrategicAI.BioSquadBeacon.SquadMemberBeginCasting
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioAiController*        oMember                        ( CPF_Parm )
 
@@ -1827,7 +1827,7 @@ void ABioSquadBeacon::SquadMemberBeginCasting ( class ABioAiController* oMember 
 };
 
 // Function SFXStrategicAI.BioSquadBeacon.CalculateLikelihood
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct SFXName                 sStrategyName                  ( CPF_Parm )
@@ -1860,7 +1860,7 @@ class UClass* ABioSquadCombat::StaticClass()
 	};
 
 // Function SFXStrategicAI.BioSquadCombat.CalculateLikelihoodDefend
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1879,7 +1879,7 @@ float ABioSquadCombat::CalculateLikelihoodDefend ( )
 };
 
 // Function SFXStrategicAI.BioSquadCombat.CalculateLikelihoodSkirmish
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1898,7 +1898,7 @@ float ABioSquadCombat::CalculateLikelihoodSkirmish ( )
 };
 
 // Function SFXStrategicAI.BioSquadCombat.CalculateLikelihoodCharge
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1917,7 +1917,7 @@ float ABioSquadCombat::CalculateLikelihoodCharge ( )
 };
 
 // Function SFXStrategicAI.BioSquadCombat.CalculateLikelihoodSearch
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1936,7 +1936,7 @@ float ABioSquadCombat::CalculateLikelihoodSearch ( )
 };
 
 // Function SFXStrategicAI.BioSquadCombat.CalculateLikelihoodIdle
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -1955,7 +1955,7 @@ float ABioSquadCombat::CalculateLikelihoodIdle ( )
 };
 
 // Function SFXStrategicAI.BioSquadCombat.CalculateLikelihood
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct SFXName                 sStrategyName                  ( CPF_Parm )
@@ -1988,7 +1988,7 @@ class UClass* ABioSquadCommoner::StaticClass()
 	};
 
 // Function SFXStrategicAI.BioSquadCommoner.CalculateLikelihoodIdle
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -2007,7 +2007,7 @@ float ABioSquadCommoner::CalculateLikelihoodIdle ( )
 };
 
 // Function SFXStrategicAI.BioSquadCommoner.CalculateLikelihood
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct SFXName                 sStrategyName                  ( CPF_Parm )
@@ -2058,7 +2058,7 @@ void ABioSquadPlayerDesignBase::eventOnSquadSeen ( class ABioBaseSquad* oSquad )
 };
 
 // Function SFXStrategicAI.BioSquadPlayerDesignBase.AreHostilesNearby
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -2077,7 +2077,7 @@ bool ABioSquadPlayerDesignBase::AreHostilesNearby ( )
 };
 
 // Function SFXStrategicAI.BioSquadPlayerDesignBase.ClearMemberAttackCommand
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                oMemberPawn                    ( CPF_Parm )
 
@@ -2095,7 +2095,7 @@ void ABioSquadPlayerDesignBase::ClearMemberAttackCommand ( class ABioPawn* oMemb
 };
 
 // Function SFXStrategicAI.BioSquadPlayerDesignBase.ClearPerceptionFlag
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ABioSquadPlayerDesignBase::ClearPerceptionFlag ( )
@@ -2111,7 +2111,7 @@ void ABioSquadPlayerDesignBase::ClearPerceptionFlag ( )
 };
 
 // Function SFXStrategicAI.BioSquadPlayerDesignBase.SetPerceptionFlag
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ABioSquadPlayerDesignBase::SetPerceptionFlag ( )
@@ -2191,7 +2191,7 @@ void ABioSquadPlayer::eventonMemberArrivedAtTarget ( class APawn* oMember )
 };
 
 // Function SFXStrategicAI.BioSquadPlayer.LookForCover
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class APawn*                   oMember                        ( CPF_Parm )
@@ -2230,7 +2230,7 @@ void ABioSquadPlayer::eventOnSetSquadFollowFormation ( unsigned char eFormation 
 };
 
 // Function SFXStrategicAI.BioSquadPlayer.OnMemberShieldsDown
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class APawn*                   oWho                           ( CPF_Parm )
 
@@ -2309,7 +2309,7 @@ void ABioSquadPlayer::eventOnSetAttackTarget ( class APawn* pPawn, class AActor*
 };
 
 // Function SFXStrategicAI.BioSquadPlayer.OnCombatEnd
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ABioSquadPlayer::OnCombatEnd ( )
@@ -2325,7 +2325,7 @@ void ABioSquadPlayer::OnCombatEnd ( )
 };
 
 // Function SFXStrategicAI.BioSquadPlayer.OnCombatBegin
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 
 void ABioSquadPlayer::OnCombatBegin ( )
@@ -2341,7 +2341,7 @@ void ABioSquadPlayer::OnCombatBegin ( )
 };
 
 // Function SFXStrategicAI.BioSquadPlayer.OnDeath
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class APawn*                   pPawn                          ( CPF_Parm )
 // class AController*             pKiller                        ( CPF_Parm )
@@ -2565,7 +2565,7 @@ void ABioSquadPlayer::eventInitialize ( )
 };
 
 // Function SFXStrategicAI.BioSquadPlayer.EvaluateTargets
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                oMemberPawn                    ( CPF_Parm )
@@ -2586,7 +2586,7 @@ class ABioPawn* ABioSquadPlayer::EvaluateTargets ( class ABioPawn* oMemberPawn )
 };
 
 // Function SFXStrategicAI.BioSquadPlayer.PickNewTarget
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioPawn*                ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                oMemberPawn                    ( CPF_Parm )
@@ -2607,7 +2607,7 @@ class ABioPawn* ABioSquadPlayer::PickNewTarget ( class ABioPawn* oMemberPawn )
 };
 
 // Function SFXStrategicAI.BioSquadPlayer.IsAttackTargetValid
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                oMemberPawn                    ( CPF_Parm )
@@ -2632,7 +2632,7 @@ bool ABioSquadPlayer::IsAttackTargetValid ( class ABioPawn* oMemberPawn, class A
 };
 
 // Function SFXStrategicAI.BioSquadPlayer.DoBestAction
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioAiController*        oMember                        ( CPF_Parm )
 
@@ -2662,7 +2662,7 @@ class UClass* ABioSquadProxMine::StaticClass()
 	};
 
 // Function SFXStrategicAI.BioSquadProxMine.CalculateLikelihoodArmed
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -2681,7 +2681,7 @@ float ABioSquadProxMine::CalculateLikelihoodArmed ( )
 };
 
 // Function SFXStrategicAI.BioSquadProxMine.SquadMemberBeginCasting
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioAiController*        oMember                        ( CPF_Parm )
 
@@ -2699,7 +2699,7 @@ void ABioSquadProxMine::SquadMemberBeginCasting ( class ABioAiController* oMembe
 };
 
 // Function SFXStrategicAI.BioSquadProxMine.CalculateLikelihood
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct SFXName                 sStrategyName                  ( CPF_Parm )
@@ -2732,7 +2732,7 @@ class UClass* ABioSquadSitAndShoot::StaticClass()
 	};
 
 // Function SFXStrategicAI.BioSquadSitAndShoot.CalculateLikelihoodAttacking
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -2751,7 +2751,7 @@ float ABioSquadSitAndShoot::CalculateLikelihoodAttacking ( )
 };
 
 // Function SFXStrategicAI.BioSquadSitAndShoot.SquadMemberAttackAnyTarget
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class ABioAiController*        oMember                        ( CPF_Parm )
 // class APawn*                   oIgnore                        ( CPF_OptionalParm | CPF_Parm )
@@ -2771,7 +2771,7 @@ void ABioSquadSitAndShoot::SquadMemberAttackAnyTarget ( class ABioAiController* 
 };
 
 // Function SFXStrategicAI.BioSquadSitAndShoot.SquadMemberAttackTarget
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class ABioAiController*        oMember                        ( CPF_Parm )
 // class APawn*                   oTarget                        ( CPF_Parm )
@@ -2791,7 +2791,7 @@ void ABioSquadSitAndShoot::SquadMemberAttackTarget ( class ABioAiController* oMe
 };
 
 // Function SFXStrategicAI.BioSquadSitAndShoot.CalculateLikelihoodIdle
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 
@@ -2810,7 +2810,7 @@ float ABioSquadSitAndShoot::CalculateLikelihoodIdle ( )
 };
 
 // Function SFXStrategicAI.BioSquadSitAndShoot.CalculateLikelihood
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct SFXName                 sStrategyName                  ( CPF_Parm )

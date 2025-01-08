@@ -11,7 +11,7 @@
 */
 
 
-#include "../Includes.LE1.hpp"
+#include "LESDK/Includes.LE1.hpp"
 
 
 #ifdef _MSC_VER
@@ -39,7 +39,7 @@ class UClass* UBioPowerScriptDesign::StaticClass()
 	};
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.AdjustInventoryResource
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oActor                         ( CPF_Parm )
@@ -64,7 +64,7 @@ bool UBioPowerScriptDesign::AdjustInventoryResource ( class AActor* oActor, unsi
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectCarnageSetup
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -89,7 +89,7 @@ bool UBioPowerScriptDesign::EffectCarnageSetup ( class AActor* oCaster, int nNum
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.InstantRegenerateShield
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oActor                         ( CPF_Parm )
@@ -112,7 +112,7 @@ bool UBioPowerScriptDesign::InstantRegenerateShield ( class AActor* oActor, floa
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.IncreaseAllPowerCooldowns
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oActor                         ( CPF_Parm )
@@ -143,7 +143,7 @@ bool UBioPowerScriptDesign::IncreaseAllPowerCooldowns ( class AActor* oActor, fl
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.ClearAllPowerCooldowns
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oActor                         ( CPF_Parm )
@@ -164,7 +164,7 @@ bool UBioPowerScriptDesign::ClearAllPowerCooldowns ( class AActor* oActor )
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectSingularity
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -197,7 +197,7 @@ bool UBioPowerScriptDesign::EffectSingularity ( class AActor* oCaster, class AAc
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectRagdoll
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -224,7 +224,7 @@ bool UBioPowerScriptDesign::EffectRagdoll ( class AActor* oCaster, class AActor*
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectEntrenchShield
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -251,7 +251,7 @@ bool UBioPowerScriptDesign::EffectEntrenchShield ( class AActor* oCaster, class 
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectRegenerateShield
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -280,7 +280,7 @@ bool UBioPowerScriptDesign::EffectRegenerateShield ( class AActor* oCaster, clas
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectDamageVulnerability
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -307,7 +307,7 @@ bool UBioPowerScriptDesign::EffectDamageVulnerability ( class AActor* oCaster, c
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectRegen
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -332,7 +332,7 @@ bool UBioPowerScriptDesign::EffectRegen ( class AActor* oCaster, float fHealingF
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectHealInstant
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -359,7 +359,7 @@ bool UBioPowerScriptDesign::EffectHealInstant ( class AActor* oCaster, class AAc
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectHeal
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -390,7 +390,7 @@ bool UBioPowerScriptDesign::EffectHeal ( class AActor* oCaster, class AActor* oI
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectCombatBoost
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -423,7 +423,7 @@ bool UBioPowerScriptDesign::EffectCombatBoost ( class AActor* oCaster, class AAc
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectImmunity
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -448,7 +448,7 @@ bool UBioPowerScriptDesign::EffectImmunity ( class AActor* oCaster, float fDurat
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectSniperCritical
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -479,7 +479,7 @@ bool UBioPowerScriptDesign::EffectSniperCritical ( class AActor* oCaster, float 
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectOverkill
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -510,7 +510,7 @@ bool UBioPowerScriptDesign::EffectOverkill ( class AActor* oCaster, float fDurat
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectMarksman
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -543,7 +543,7 @@ bool UBioPowerScriptDesign::EffectMarksman ( class AActor* oCaster, float fDurat
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectCorrosion
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -570,7 +570,7 @@ bool UBioPowerScriptDesign::EffectCorrosion ( class AActor* oImpacted, class AAc
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectSuppressingFire
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -595,7 +595,7 @@ bool UBioPowerScriptDesign::EffectSuppressingFire ( class AActor* oCaster, float
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectZeroGLift
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -628,7 +628,7 @@ bool UBioPowerScriptDesign::EffectZeroGLift ( class AActor* oImpacted, class AAc
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectAIHacking
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -653,7 +653,7 @@ bool UBioPowerScriptDesign::EffectAIHacking ( class AActor* oCaster, class AActo
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectDisablePowers
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -688,7 +688,7 @@ bool UBioPowerScriptDesign::EffectDisablePowers ( class AActor* oCaster, class A
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectOverheatWeapons
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -715,7 +715,7 @@ bool UBioPowerScriptDesign::EffectOverheatWeapons ( class AActor* oCaster, class
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectDisableWeapons
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -742,7 +742,7 @@ bool UBioPowerScriptDesign::EffectDisableWeapons ( class AActor* oCaster, class 
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectDisableActions
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -773,7 +773,7 @@ bool UBioPowerScriptDesign::EffectDisableActions ( class AActor* oCaster, class 
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectAdjustStability
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class ABioPawn*                oTarget                        ( CPF_Parm )
@@ -802,7 +802,7 @@ bool UBioPowerScriptDesign::EffectAdjustStability ( class ABioPawn* oTarget, cla
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectDamageOverTime
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -837,7 +837,7 @@ bool UBioPowerScriptDesign::EffectDamageOverTime ( class AActor* oImpacted, clas
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.EffectTakeDamage
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -866,7 +866,7 @@ bool UBioPowerScriptDesign::EffectTakeDamage ( class AActor* oImpacted, class AA
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.SpawnBeacon
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class UBioActorBehavior*       oCasterBehavior                ( CPF_Parm )
@@ -909,7 +909,7 @@ class AActor* UBioPowerScriptDesign::SpawnBeacon ( class UBioActorBehavior* oCas
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.SpawnBarrier
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // class AActor*                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class UBioActorBehavior*       oCasterBehavior                ( CPF_Parm )
@@ -946,7 +946,7 @@ class AActor* UBioPowerScriptDesign::SpawnBarrier ( class UBioActorBehavior* oCa
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.WeaponPowerActivated
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // class AActor*                  Caster                         ( CPF_Parm )
 // unsigned long                  bNeedsRetrigger                ( CPF_Parm )
@@ -966,7 +966,7 @@ void UBioPowerScriptDesign::WeaponPowerActivated ( class AActor* Caster, unsigne
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.ShouldIncrementPowerUsage
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  Caster                         ( CPF_Parm )
@@ -987,7 +987,7 @@ bool UBioPowerScriptDesign::ShouldIncrementPowerUsage ( class AActor* Caster )
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.GetFactionRelationship
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // unsigned char                  ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -1052,7 +1052,7 @@ float UBioPowerScriptDesign::GetBioticResistance ( class AActor* oTarget )
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.GetTargetResistance
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oTarget                        ( CPF_Parm )
@@ -1073,7 +1073,7 @@ float UBioPowerScriptDesign::GetTargetResistance ( class AActor* oTarget )
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.GetDistanceModifier
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oTarget                        ( CPF_Parm )
@@ -1096,7 +1096,7 @@ float UBioPowerScriptDesign::GetDistanceModifier ( class AActor* oTarget, unsign
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.GetDmgDurModifier
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -1117,7 +1117,7 @@ float UBioPowerScriptDesign::GetDmgDurModifier ( class AActor* oCaster )
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.GetPhysicsLevel
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -1138,7 +1138,7 @@ int UBioPowerScriptDesign::GetPhysicsLevel ( class AActor* oImpacted )
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.IsOfRace
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -1161,7 +1161,7 @@ bool UBioPowerScriptDesign::IsOfRace ( class AActor* oImpacted, unsigned char eR
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.HasShields
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -1184,7 +1184,7 @@ bool UBioPowerScriptDesign::HasShields ( class AActor* oImpacted, unsigned long 
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.IsDeadBody
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -1205,7 +1205,7 @@ bool UBioPowerScriptDesign::IsDeadBody ( class AActor* oImpacted )
 };
 
 // Function SFXGameContent_Powers.BioPowerScriptDesign.IsPlaceable
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oImpacted                      ( CPF_Parm )
@@ -2312,7 +2312,7 @@ bool UBioHealSquadScript::eventAdjustCooldown ( float* fCoolDownTime )
 };
 
 // Function SFXGameContent_Powers.BioHealSquadScript.DoesSquadNeedHealing
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oActor                         ( CPF_Parm )
@@ -2333,7 +2333,7 @@ bool UBioHealSquadScript::DoesSquadNeedHealing ( class AActor* oActor )
 };
 
 // Function SFXGameContent_Powers.BioHealSquadScript.GetCooldownMultiForSquad
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // float                          ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -2354,7 +2354,7 @@ float UBioHealSquadScript::GetCooldownMultiForSquad ( class AActor* oCaster )
 };
 
 // Function SFXGameContent_Powers.BioHealSquadScript.GetHealAmountForSquad
-// [0x00420002] 
+// [0x00420002]
 // Parameters infos:
 // class AActor*                  oCaster                        ( CPF_Parm )
 // float                          fHealAmount                    ( CPF_Parm | CPF_OutParm )
@@ -3008,7 +3008,7 @@ bool UBioRepairScript::eventCanStartPower ( class AActor* oCaster )
 };
 
 // Function SFXGameContent_Powers.BioRepairScript.GetSquadElectronicsRank
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // int                            ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oCaster                        ( CPF_Parm )
@@ -3471,7 +3471,7 @@ bool UBioSingularityScript::eventStartPhase ( unsigned char ePhase, class AActor
 };
 
 // Function SFXGameContent_Powers.BioSingularityScript.BumpUpFromFloor
-// [0x00024002] 
+// [0x00024002]
 // Parameters infos:
 // struct FVector                 ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // struct FVector                 vOriginalLocation              ( CPF_Parm )
@@ -4227,7 +4227,7 @@ bool UBioUnityScript::eventCanStartPower ( class AActor* oCaster )
 };
 
 // Function SFXGameContent_Powers.BioUnityScript.DoesSquadHaveDeadMember
-// [0x00020002] 
+// [0x00020002]
 // Parameters infos:
 // bool                           ReturnValue                    ( CPF_Parm | CPF_OutParm | CPF_ReturnParm )
 // class AActor*                  oActor                         ( CPF_Parm )
