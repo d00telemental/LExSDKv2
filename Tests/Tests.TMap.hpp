@@ -29,6 +29,7 @@ TEST_SUITE("TMap") {
         wchar_t const* FirstValue = L"Hello there";
 
         Map.Set(FirstKey, FirstValue);
+        CHECK_EQ(*Map.Find(std::move(FirstKey)), FirstValue);
     }
 
     TEST_CASE("string to pointer") {
@@ -38,5 +39,6 @@ TEST_SUITE("TMap") {
         void* FirstValue = (void*)1;
 
         Map.Set(FirstKey, FirstValue);
+        CHECK_EQ(*Map.Find(std::move(FirstKey)), FirstValue);
     }
 }
